@@ -36,18 +36,20 @@ window.projectData = {
         link: "#"
     },
     "IVO'S PIZZA": {
-        title: "IVO'S PIZZA HOMEPAGE",
-        status: "ONLINE // DEMO",
-        tech: "HTML // CSS // VANILLA JS",
-        desc: "Handgemachte Pizza-Homepage im Neon-Sketchy-Design. Features: Scrollytelling-Animationen mit SVG-Doodles, interaktives Menü mit Kategorien, Bestellformular-Modal und responsive Design. Komplett in Vanilla JavaScript ohne Frameworks.",
+        title: "IVO'S PIZZA - HOMEPAGE TEMPLATE",
+        status: "LIVE DEMO",
+        tech: "HTML5 // CSS3 // VANILLA JS",
+        desc: "Vollständiges Homepage-Template für Restaurants im Neon-Sketchy-Design. Showcase für moderne Web-Design-Techniken: Scrollytelling-Animationen, SVG-Doodles, Glassmorphism, interaktive Formulare. Perfekt als Vorlage für Food-Business-Websites.",
         specs: [
-            { label: "Design", value: "Neon/Sketchy Handdrawn Style" },
+            { label: "Template-Typ", value: "Restaurant Homepage" },
+            { label: "Design-Stil", value: "Neon/Sketchy Handdrawn" },
             { label: "Animationen", value: "Scrollytelling SVG Doodles" },
-            { label: "Features", value: "Interaktives Menü + Bestellformular" },
-            { label: "Tech", value: "100% Vanilla JS (No Frameworks)" },
+            { label: "Features", value: "Menü + Bestellformular + Smooth Scroll" },
+            { label: "Tech-Stack", value: "100% Vanilla JS (No Frameworks)" },
             { label: "Fonts", value: "Permanent Marker + Amatic SC" },
-            { label: "Colors", value: "Neon Yellow/Red/Green/Cyan" },
-            { label: "Responsive", value: "Mobile-First Design" }
+            { label: "Farbschema", value: "Neon Yellow/Red/Green/Cyan" },
+            { label: "Responsive", value: "Mobile-First Design" },
+            { label: "Use Case", value: "Pizzerias, Restaurants, Food Trucks" }
         ],
         link: "pizza/index.html"
     }

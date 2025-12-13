@@ -15,7 +15,12 @@ const ModalPizzaEngine = {
         this.container.innerHTML = `
             <div class="pizza-iframe-wrapper">
                 <div class="pizza-iframe-header">
-                    <span class="pizza-live-badge">🔴 LIVE DEMO</span>
+                    <span class="pizza-live-badge">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                            <circle cx="6" cy="6" r="6"/>
+                        </svg>
+                        LIVE TEMPLATE DEMO
+                    </span>
                     <a href="pizza/index.html" target="_blank" class="pizza-open-new" rel="noopener noreferrer">
                         Vollbild öffnen ↗
                     </a>
@@ -26,7 +31,7 @@ const ModalPizzaEngine = {
                     frameborder="0"
                     sandbox="allow-scripts allow-same-origin allow-forms"
                     loading="lazy"
-                    title="Ivo's Pizza Homepage Demo">
+                    title="Ivo's Pizza Homepage Template Demo">
                 </iframe>
             </div>
         `;
