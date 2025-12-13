@@ -1,0 +1,9 @@
+# ivo-tech Portfolio
+
+## Ignore
+node_modules/
+.DS_Store
+*.log
+.env
+.firebase/
+.vscode/

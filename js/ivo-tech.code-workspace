@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../Pizzaria"
+		},
+		{
+			"path": "../../3d/dld-3d-upload-v2"
+		},
+		{
+			"path": "../../Payback-Coupon/Payback-Coupon"
+		}
+	],
+	"settings": {
+		"liveServer.settings.port": 5501,
+		"liveServer.settings.multiRootWorkspaceName": "ivo-tech"
+	}
+}

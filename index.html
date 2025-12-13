@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IVO TECH | Neon Awakening</title>
+    <meta name="description" content="IVO TECH: Zukunftsweisende Web-Experiences, Tools und Prototypen — Neon-ästhetische Projekte mit THREE.JS, WebGL und moderner Frontend-Animation.">
+    <meta name="robots" content="index,follow">
+    <meta name="theme-color" content="#050505">
+    <meta name="color-scheme" content="dark">
+
+    <!-- Social Preview (Vorschau) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="IVO TECH">
+    <meta property="og:title" content="IVO TECH | Neon Awakening">
+    <meta property="og:description" content="Zukunftsweisende Web-Experiences, Tools und Prototypen — Neon-ästhetische Projekte mit THREE.JS, WebGL und moderner Frontend-Animation.">
+    <meta property="og:image" content="assets/logo.png">
+    <meta property="og:locale" content="de_DE">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Schriftarten -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Externe CDN -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+    <!-- Icons -->
+    <link rel="icon" href="assets/logo.png" type="image/png">
+    <link rel="apple-touch-icon" href="assets/logo.png">
+
+    <!-- Styles (Stile) -->
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Three.js (für Visuals) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha384-CI3ELBVUz9XQO+97x6nwMDPosPR5XvsxW2ua7N1Xeygeh1IxtgqtCkGfQY9WWdHu" crossorigin="anonymous" defer></script>
+    <script src="https://unpkg.com/three@0.128.0/examples/js/controls/OrbitControls.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/STLLoader.js" defer></script>
+
+    <!-- GSAP (für Animationen) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha384-d+vyQ0dYcymoP8ndq2hW7FGC50nqGdXUEgoOUGxbbkAJwZqL7h+jKN0GGgn9hFDS" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" integrity="sha384-poC0r6usQOX2Ayt/VGA+t81H6V3iN9L+Irz9iO8o+s0X20tLpzc9DOOtnKxhaQSE" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js" integrity="sha384-/vEpeVnzTqj9iyeckUnHYYHuNlY2ZAMT89Qjv+m6/YhFfkjWjd4WIFgXyXFs0lcx" crossorigin="anonymous" defer></script>
+</head>
+<body>
+
+    <!-- ====================
+         KINO-INTRO 
+         ==================== -->
+    <div id="cinematic-intro">
+        <!-- SZENEN CONTAINER -->
+        <div id="intro-scenes">
+            <!-- Szene 1: Jigsaw -->
+            <div id="scene-jigsaw" class="intro-scene active">
+                <div class="cinematic-frame active" style="background-image: url('assets/intro/scene_jigsaw_1.jpg');"></div>
+                <div class="cinematic-frame" style="background-image: url('assets/intro/scene_jigsaw_2.jpg');"></div>
+                <div class="cinematic-frame" style="background-image: url('assets/intro/scene_jigsaw_3.jpg');"></div>
+            </div>
+            <!-- Szene 2: Bruch (Fracture) -->
+            <div id="scene-fracture" class="intro-scene">
+               <div class="cinematic-frame active" style="background-image: url('assets/intro/scene_fracture.png');"></div>
+            </div>
+            <!-- Szene 3: Hacker -->
+            <div id="scene-hacker" class="intro-scene">
+                <!-- Nutze aktualisierte Ankunfts-Szene -->
+                <div class="cinematic-frame active" style="background-image: url('assets/intro/scene_arrival.png');"></div>
+            </div>
+             <!-- Szene 4: Höhepunkt (Climax) -->
+             <div id="scene-climax" class="intro-scene">
+                <div class="cinematic-frame active" style="background-image: url('assets/intro/scene_climax.png');"></div>
+            </div>
+        </div>
+        
+        <!-- SUBTITLE -->
+        <div id="cinematic-subtitle" class="cinematic-subtitle" aria-hidden="true"></div>
+
+        <!-- SKIP BUTTON -->
+        <button id="skip-intro" class="skip-btn" type="button">SKIP PROTOCOL >></button>
+        
+        <!-- START SCREEN OVERLAY -->
+        <div id="start-screen" class="start-screen">
+            <div class="start-content">
+                <h1 class="glitch-text" data-text="IVO TECH">IVO TECH</h1>
+                <p class="terminal-loader"> SYSTEM_READY... AWAITING_INPUT </p>
+                <button id="start-btn" class="cyber-btn" type="button">INITIALIZE SYSTEM</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ====================
+         HINTERGRUND VISUALS (Three.js)
+         ==================== -->
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+    
+    <!-- FX Überlagerungen -->
+    <div class="scanlines" aria-hidden="true"></div>
+    <div class="vignette" aria-hidden="true"></div>
+
+    <!-- ====================
+         HAUPT APP INHALT 
+         (Versteckt bis Intro endet)
+         ==================== -->
+    <main id="main-content" class="hidden">
+        
+        <!-- KOPFZEILE / HERO -->
+        <header>
+            <div class="logo-container hero-title">
+                <!-- Structure for GSAP Stagger -->
+                <h1 class="glitch-effect banner-line">IVO TECH</h1>
+                <p class="subtitle banner-line">FUTURE_FORWARD_SOLUTIONS</p>
+            </div>
+            
+            <!-- TERMINAL MODUL -->
+            <div class="terminal-wrapper banner-line">
+                <div class="terminal-header">
+                    <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                    <span class="term-title">bash -- restricted</span>
+                </div>
+                <div id="terminal-output" role="log" aria-live="polite" aria-relevant="additions">
+                    <div class="term-line system">Listening on port 8080...</div>
+                    <div class="term-line system">Connection established.</div>
+                </div>
+                <div class="terminal-input-line">
+                    <span class="prompt-user">guest@ivo-tech:~$</span>
+                    <input type="text" id="command-input" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Terminal command input" autofocus>
+                </div>
+            </div>
+
+            <nav class="main-nav banner-line">
+                <ul>
+                    <li><a href="#projects" class="nav-link">PROJECTS</a></li>
+                    <li><a href="#contact" class="nav-link">CONTACT</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects">
+            <h2 class="section-title">SYSTEM_MODULES</h2>
+            <div class="project-grid">
+                
+                <!-- Projekt 1: Viewer -->
+                <div class="project-card" 
+                     data-title="3D STL VIEWER" 
+                     data-desc="Hochleistungs-Web-3D-Renderer für Sofort-Analyse." 
+                     data-tech="THREE.JS // WEBGL // JS" 
+                     data-img="assets/thumb_viewer_neon.png" 
+                     data-status="ONLINE"
+                     data-link="https://viewer.ivo-tech.com"
+                     style="background-image: url('assets/thumb_viewer_neon.png');">
+                    <div class="card-content">
+                        <h3>DLD 3D VIEWER</h3>
+                        <p>AUTO_PRICING_ENGINE_V2</p>
+                    </div>
+                </div>
+
+                <!-- Projekt 2: Payback -->
+                <div class="project-card" 
+                     data-title="PAYBACK ACTIVATOR" 
+                     data-desc="Automatisierte Browser-Erweiterung." 
+                     data-tech="CHROME EXT // JS // AUTOMATION" 
+                     data-img="assets/thumb_payback_neon.png" 
+                     data-status="VERFÜGBAR AUF ANFRAGE"
+                     data-link="#"
+                     style="background-image: url('assets/thumb_payback_neon.png');">
+                    <div class="card-content">
+                        <h3>PAYBACK BOT</h3>
+                        <p>COUPON_INJECTION_PROTOCOL</p>
+                    </div>
+                </div>
+
+                <!-- Projekt 3: Pizza -->
+                <div class="project-card" 
+                     data-title="IVO'S PIZZA" 
+                     data-desc="Interaktiver Essens-Konfigurator." 
+                     data-tech="HTML // CSS // VANILLA JS" 
+                     data-img="assets/thumb_pizza_neon.png" 
+                     data-status="ONLINE // DEMO"
+                     data-link="pizza/index.html"
+                     style="background-image: url('assets/thumb_pizza_neon.png');">
+                    <div class="card-content">
+                        <h3>PIZZA CONFIG</h3>
+                        <p>FOOD_SYNTHESIS_HUB</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer id="contact">
+            <div class="terminal-line">root@ivo-tech:~$ <span class="blink">_</span></div>
+            <p>&copy; 2025 IVO TECH. ALL SYSTEMS OPERATIONAL.</p>
+        </footer>
+
+    </main>
+
+    <!-- ====================
+         MODAL 
+         ==================== -->
+    <div id="project-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc" aria-hidden="true">
+        <!-- Backdrop removed: main modal container handles background and clicks -->
+        <div class="modal-content" role="document">
+            <button id="modal-close" class="close-btn" type="button" aria-label="Close project modal">&times;</button>
+            <div class="modal-header">
+                <div id="modal-status-header" class="status-badge">STATUS: UNKNOWN</div>
+            </div>
+            <!-- 3D Container (Overlay oder Ersatz) -->
+            <div id="modal-3d-container"></div>
+            <!-- Payback Demo Container -->
+            <div id="modal-payback-container"></div>
+            <!-- Pizza iFrame Container -->
+            <div id="modal-pizza-container"></div>
+            <!-- Bild links -->
+            <img id="modal-img" src="" alt="Project Preview" loading="lazy" decoding="async">
+            
+            <!-- Inhalt rechts -->
+            <div class="modal-body">
+                <h2 id="modal-title">TITLE</h2>
+                <div class="modal-meta">
+                    <div id="modal-status" class="status-badge">STATUS: UNKNOWN</div>
+                    <p id="modal-tech" class="tech-stack">TECH // STACK</p>
+                </div>
+                <div id="modal-specs" class="specs-grid"></div>
+                
+                <a id="modal-link" href="#" target="_blank" rel="noopener noreferrer" class="action-btn">INITIALIZE SYSTEM</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- SKRIPTE -->
+    <script src="js/visuals.js" defer></script>
+    <script src="js/intro.js" defer></script>
+    <script src="js/modal-3d.js" defer></script>
+    <script src="js/modal-payback.js" defer></script>
+    <script src="js/modal-pizza.js" defer></script>
+    <script src="js/app.js?v=2" defer></script>
+
+</body>
+</html>
