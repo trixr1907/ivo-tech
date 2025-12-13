@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ivo's Pizza - Authentische Italienische Pizza</title>
-    <meta name="description" content="Handgemachte Pizza mit frischen Zutaten. Erlebe authentisch italienischen Geschmack bei Ivo's Pizza.">
-    <meta name="keywords" content="pizza, italienisch, restaurant, lieferservice, handgemacht">
+    <meta name="description" content="Handgemachte Pizza mit frischen Zutaten. Erlebe authentisch italienischen Geschmack bei Ivo's Pizza – Steinofen-gebacken mit Liebe.">
+    <meta name="keywords" content="pizza, italienisch, restaurant, lieferservice, steinofen, handgemacht">
     <meta name="author" content="Ivo Tech">
     
     <!-- Open Graph -->
     <meta property="og:title" content="Ivo's Pizza - Authentisch Italienisch">
-    <meta property="og:description" content="Handgemachte Pizza mit Liebe und frischen Zutaten">
+    <meta property="og:description" content="Handgemachte Steinofen-Pizza mit frischen Zutaten">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="img/hero.png">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,17 +22,23 @@
 </head>
 <body>
 
+    <!-- HEADER -->
     <header>
         <nav>
             <div class="logo-container">
-                <img src="logo.png" alt="Ivo's Pizza" class="logo">
+                <img src="logo_new.png" alt="Ivo's Pizza" class="logo">
             </div>
-            <ul>
+            <ul class="nav-links">
                 <li><a href="#menu">Speisekarte</a></li>
                 <li><a href="#about">Über Uns</a></li>
                 <li><a href="#location">Standort</a></li>
                 <li><a href="#order" class="btn-order">Jetzt Bestellen</a></li>
             </ul>
+            <button class="menu-toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </nav>
     </header>
 
@@ -39,69 +46,101 @@
         <!-- HERO SECTION -->
         <section class="hero">
             <div class="hero-content">
-                <span class="hero-badge">🍕 Authentisch Italienisch</span>
-                <h1>Die beste <span>Pizza</span><br>der Stadt</h1>
-                <p class="hero-subtitle">Handgemacht mit Liebe, frischen Zutaten und traditionellen Rezepten seit 2025.</p>
+                <span class="hero-badge">🍕 Seit 2025 in deiner Nachbarschaft</span>
+                <h1>Echte Pizza,<br><span class="highlight">echter Geschmack</span></h1>
+                <p class="hero-subtitle">Handgemacht mit Leidenschaft, frischen Zutaten und traditionellen Rezepten aus dem Steinofen – direkt zu dir nach Hause.</p>
                 <div class="hero-cta">
-                    <a href="#menu" class="btn-primary">Zur Speisekarte →</a>
-                    <a href="#about" class="btn-secondary">Mehr erfahren</a>
+                    <a href="#menu" class="btn-primary">
+                        Zur Speisekarte
+                        <span class="arrow">→</span>
+                    </a>
+                    <a href="#about" class="btn-secondary">Unsere Geschichte</a>
                 </div>
             </div>
-            <div class="scroll-indicator">
-                <span>SCROLL</span>
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 16l-6-6h12z"/></svg>
+            <div class="hero-image">
+                <div class="hero-image-wrapper">
+                    <img src="img/hero.png" alt="Frische Pizza aus dem Steinofen" loading="eager">
+                </div>
+                <div class="hero-badge-float">
+                    <div class="icon">🌿</div>
+                    <div class="text">
+                        100% Frisch
+                        <span>Täglich neue Zutaten</span>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- FEATURES SECTION -->
-        <section class="features">
-            <div class="features-grid">
-                <div class="feature-card">
+        <!-- FEATURES STRIP -->
+        <section class="features-strip">
+            <div class="features-strip-inner">
+                <div class="feature-item">
                     <div class="feature-icon">🔥</div>
-                    <h3>Steinofen gebacken</h3>
-                    <p>Traditionell bei 400°C für den perfekten Geschmack</p>
+                    <div class="feature-text">
+                        <h4>Steinofen 400°C</h4>
+                        <p>Traditionell gebacken</p>
+                    </div>
                 </div>
-                <div class="feature-card">
+                <div class="feature-item">
                     <div class="feature-icon">🌿</div>
-                    <h3>Frische Zutaten</h3>
-                    <p>Täglich frisch von lokalen Lieferanten</p>
+                    <div class="feature-text">
+                        <h4>Frische Zutaten</h4>
+                        <p>Täglich vom Markt</p>
+                    </div>
                 </div>
-                <div class="feature-card">
+                <div class="feature-item">
                     <div class="feature-icon">🚴</div>
-                    <h3>Schnelle Lieferung</h3>
-                    <p>In 30 Minuten bei dir zu Hause</p>
+                    <div class="feature-text">
+                        <h4>30 Min Lieferung</h4>
+                        <p>Heiß & knusprig</p>
+                    </div>
                 </div>
-                <div class="feature-card">
+                <div class="feature-item">
                     <div class="feature-icon">❤️</div>
-                    <h3>Mit Liebe gemacht</h3>
-                    <p>Jede Pizza ist ein Kunstwerk</p>
+                    <div class="feature-text">
+                        <h4>Mit Liebe gemacht</h4>
+                        <p>Jede Pizza ein Unikat</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- MENU SECTION -->
-        <section id="menu" class="content-section">
+        <section id="menu" class="menu-section">
             <div class="section-header">
                 <span class="section-badge">Unsere Kreationen</span>
                 <h2 class="section-title">Die Speisekarte</h2>
-                <p class="section-subtitle">Von klassisch italienisch bis kreativ modern - für jeden Geschmack die perfekte Pizza.</p>
+                <p class="section-subtitle">Von klassisch italienisch bis kreativ modern – für jeden Geschmack die perfekte Pizza.</p>
             </div>
-            
-            <h3 class="category-title">Die Klassiker</h3>
+
+            <div class="category-nav">
+                <button class="category-btn active">Alle</button>
+                <button class="category-btn">Klassiker</button>
+                <button class="category-btn">Specials</button>
+                <button class="category-btn">Vegetarisch</button>
+            </div>
+
             <div class="pizza-grid">
-                <div class="pizza-card">
-                    <div class="pizza-card-image"></div>
+                <!-- Margherita -->
+                <div class="pizza-card" data-category="klassiker">
+                    <div class="pizza-card-image">
+                        <img src="img/margherita.png" alt="Pizza Margherita" loading="lazy">
+                    </div>
                     <div class="pizza-card-content">
                         <h3>Margherita</h3>
-                        <p>Tomatensauce, Mozzarella, frisches Basilikum, Olivenöl</p>
+                        <p>Tomatensauce, Mozzarella, frisches Basilikum, natives Olivenöl</p>
                         <div class="pizza-card-footer">
                             <span class="price">8,50 €</span>
                             <button class="btn-add">Hinzufügen</button>
                         </div>
                     </div>
                 </div>
-                <div class="pizza-card">
-                    <div class="pizza-card-image"></div>
+
+                <!-- Salami -->
+                <div class="pizza-card" data-category="klassiker">
+                    <div class="pizza-card-image">
+                        <img src="img/salami.png" alt="Pizza Salami" loading="lazy">
+                    </div>
                     <div class="pizza-card-content">
                         <h3>Salami</h3>
                         <p>Tomatensauce, Mozzarella, italienische Salami</p>
@@ -111,35 +150,42 @@
                         </div>
                     </div>
                 </div>
-                <div class="pizza-card">
-                    <div class="pizza-card-image"></div>
+
+                <!-- Prosciutto -->
+                <div class="pizza-card" data-category="klassiker">
+                    <div class="pizza-card-image">
+                        <img src="img/prosciutto.png" alt="Pizza Prosciutto" loading="lazy">
+                    </div>
                     <div class="pizza-card-content">
                         <h3>Prosciutto</h3>
-                        <p>Tomatensauce, Mozzarella, gekochter Schinken</p>
+                        <p>Tomatensauce, Mozzarella, Prosciutto Crudo, Rucola</p>
                         <div class="pizza-card-footer">
                             <span class="price">10,50 €</span>
                             <button class="btn-add">Hinzufügen</button>
                         </div>
                     </div>
                 </div>
-                <div class="pizza-card">
-                    <div class="pizza-card-image"></div>
+
+                <!-- Funghi -->
+                <div class="pizza-card" data-category="klassiker vegetarisch">
+                    <div class="pizza-card-image">
+                        <span class="pizza-badge green">Veggie</span>
+                        <img src="img/funghi.png" alt="Pizza Funghi" loading="lazy">
+                    </div>
                     <div class="pizza-card-content">
                         <h3>Funghi</h3>
-                        <p>Tomatensauce, Mozzarella, frische Champignons</p>
+                        <p>Tomatensauce, Mozzarella, frische Champignons, Thymian</p>
                         <div class="pizza-card-footer">
                             <span class="price">9,50 €</span>
                             <button class="btn-add">Hinzufügen</button>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <h3 class="category-title">Ivo's Specials</h3>
-            <div class="pizza-grid">
-                <div class="pizza-card highlight-card">
+                <!-- Ivo's Masterpiece -->
+                <div class="pizza-card highlight" data-category="specials">
                     <div class="pizza-card-image">
-                        <span class="pizza-badge">Beliebt</span>
+                        <img src="img/masterpiece.png" alt="Ivo's Masterpiece" loading="lazy">
                     </div>
                     <div class="pizza-card-content">
                         <h3>Ivo's Masterpiece</h3>
@@ -150,35 +196,44 @@
                         </div>
                     </div>
                 </div>
-                <div class="pizza-card">
+
+                <!-- Trüffel Traum -->
+                <div class="pizza-card" data-category="specials">
                     <div class="pizza-card-image">
-                        <span class="pizza-badge">Premium</span>
+                        <span class="pizza-badge gold">Premium</span>
+                        <img src="img/truffle.png" alt="Trüffel Traum" loading="lazy">
                     </div>
                     <div class="pizza-card-content">
                         <h3>Trüffel Traum</h3>
-                        <p>Weiße Basis, Trüffelcreme, Pilze, Parmesan, Rucola</p>
+                        <p>Weiße Basis, Trüffelcreme, Steinpilze, Parmesan, Rucola</p>
                         <div class="pizza-card-footer">
                             <span class="price">15,00 €</span>
                             <button class="btn-add">Hinzufügen</button>
                         </div>
                     </div>
                 </div>
-                <div class="pizza-card">
+
+                <!-- Veggie Garden -->
+                <div class="pizza-card" data-category="specials vegetarisch">
                     <div class="pizza-card-image">
-                        <span class="pizza-badge">Veggie</span>
+                        <span class="pizza-badge green">Veggie</span>
+                        <img src="img/veggie.png" alt="Veggie Garden" loading="lazy">
                     </div>
                     <div class="pizza-card-content">
                         <h3>Veggie Garden</h3>
-                        <p>Tomatensauce, Mozzarella, Grillgemüse, Feta</p>
+                        <p>Tomatensauce, Mozzarella, buntes Grillgemüse, Feta</p>
                         <div class="pizza-card-footer">
                             <span class="price">12,50 €</span>
                             <button class="btn-add">Hinzufügen</button>
                         </div>
                     </div>
                 </div>
-                <div class="pizza-card">
+
+                <!-- Diavola Extreme -->
+                <div class="pizza-card" data-category="specials">
                     <div class="pizza-card-image">
                         <span class="pizza-badge">Scharf 🌶️</span>
+                        <img src="img/diavola.png" alt="Diavola Extreme" loading="lazy">
                     </div>
                     <div class="pizza-card-content">
                         <h3>Diavola Extreme</h3>
@@ -196,8 +251,8 @@
         <section id="about" class="about-section">
             <div class="about-content">
                 <h2>Unsere Geschichte</h2>
-                <p>Bei Ivo's Pizza dreht sich alles um Leidenschaft. Handgekneteter Teig, sonnengereifte Tomaten und die frischesten Zutaten - das ist unser Rezept für Perfektion.</p>
-                <p>Wir backen nicht nur Pizza, wir kreieren Erlebnisse. Jede Pizza erzählt eine Geschichte von Tradition, Qualität und Liebe zum Detail.</p>
+                <p>Bei Ivo's Pizza dreht sich alles um Leidenschaft. Handgekneteter Teig, sonnengereifte Tomaten aus San Marzano und die frischesten Zutaten – das ist unser Rezept für Perfektion.</p>
+                <p>Wir backen nicht nur Pizza, wir kreieren Erlebnisse. Jede Pizza erzählt eine Geschichte von Tradition, Qualität und Liebe zum Detail. Seit 2025 bringen wir Italien in deine Nachbarschaft.</p>
                 
                 <div class="about-stats">
                     <div class="stat">
@@ -217,39 +272,119 @@
         </section>
 
         <!-- LOCATION SECTION -->
-        <section id="location" class="content-section">
+        <section id="location" class="location-section">
             <div class="section-header">
                 <span class="section-badge">Besuche Uns</span>
                 <h2 class="section-title">Standort & Öffnungszeiten</h2>
             </div>
             
-            <div class="location-content">
-                <p class="address">📍 Pizzastraße 1, 12345 Pizzastadt</p>
-                <p class="hours">🕐 Mo - So: 11:00 - 23:00 Uhr</p>
-                <div class="map-placeholder">
-                    <span>🗺️ Interaktive Karte</span>
+            <div class="location-grid">
+                <div class="location-info">
+                    <h3>Finde uns hier</h3>
+                    <div class="info-item">
+                        <div class="icon">📍</div>
+                        <div class="text">
+                            <h4>Adresse</h4>
+                            <p>Pizzastraße 1, 12345 Pizzastadt</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">🕐</div>
+                        <div class="text">
+                            <h4>Öffnungszeiten</h4>
+                            <p>Mo - So: 11:00 - 23:00 Uhr</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">📞</div>
+                        <div class="text">
+                            <h4>Telefon</h4>
+                            <p>+49 123 456 789</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">✉️</div>
+                        <div class="text">
+                            <h4>E-Mail</h4>
+                            <p>info@ivospizza.de</p>
+                        </div>
+                    </div>
                 </div>
+                
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2428.4088788977444!2d13.404953977034967!3d52.52000617181419!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a84e373f035901%3A0x42120465b5e3b70!2sBrandenburger%20Tor!5e0!3m2!1sde!2sde!4v1702454400000!5m2!1sde!2sde" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Google Maps Standort">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA SECTION -->
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2>Hunger bekommen?</h2>
+                <p>Bestelle jetzt deine Lieblingspizza und genieße in weniger als 30 Minuten.</p>
+                <a href="#order" class="btn-primary">
+                    Jetzt Bestellen
+                    <span class="arrow">→</span>
+                </a>
             </div>
         </section>
     </main>
 
+    <!-- FOOTER -->
     <footer>
         <div class="footer-content">
-            <p>© 2025 Ivo's Pizza. Handgemacht mit ❤️ und Mehl.</p>
-            <p class="template-credit">Homepage Template by <a href="../index.html">Ivo Tech</a></p>
-            <div class="social-links">
-                <a href="#">Instagram</a>
-                <a href="#">Facebook</a>
-                <a href="#">TikTok</a>
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <img src="logo_new.png" alt="Ivo's Pizza" class="logo" style="filter: brightness(0) invert(1); height: 40px;">
+                    <p>Authentische italienische Pizza, handgemacht mit Liebe und den frischesten Zutaten.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Menü</h4>
+                    <ul>
+                        <li><a href="#menu">Speisekarte</a></li>
+                        <li><a href="#about">Über Uns</a></li>
+                        <li><a href="#location">Standort</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Service</h4>
+                    <ul>
+                        <li><a href="#">Lieferung</a></li>
+                        <li><a href="#">Catering</a></li>
+                        <li><a href="#">Reservierung</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Impressum</a></li>
+                        <li><a href="#">Datenschutz</a></li>
+                        <li><a href="#">AGB</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Ivo's Pizza. Handgemacht mit ❤️ | Template by <a href="../index.html">Ivo Tech</a></p>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram">📸</a>
+                    <a href="#" aria-label="Facebook">👍</a>
+                    <a href="#" aria-label="TikTok">🎵</a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- Order Modal -->
+    <!-- ORDER MODAL -->
     <div id="order-modal" class="modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
-            <h2 class="chalk-text">Deine Bestellung</h2>
+            <h2>Deine Bestellung</h2>
             <form id="order-form">
                 <div class="form-group">
                     <label for="name">Name</label>
@@ -264,13 +399,15 @@
                         <option value="funghi">Funghi - 9,50 €</option>
                         <option value="ivo-masterpiece">Ivo's Masterpiece - 14,50 €</option>
                         <option value="trueffel">Trüffel Traum - 15,00 €</option>
+                        <option value="veggie">Veggie Garden - 12,50 €</option>
+                        <option value="diavola">Diavola Extreme - 13,00 €</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="address">Lieferadresse</label>
                     <textarea id="address" name="address" rows="3" placeholder="Deine Adresse"></textarea>
                 </div>
-                <button type="submit" class="btn-order submit-btn">Jetzt Bestellen</button>
+                <button type="submit" class="btn-primary submit-btn">Jetzt Bestellen</button>
             </form>
         </div>
     </div>
