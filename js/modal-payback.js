@@ -1,4 +1,4 @@
-// IVO TECH - PAYBACK BOT MODAL ENGINE
+// IVO TECH - AUTOCOUPON MODAL ENGINE
 // "AUTOMATED COUPON ACTIVATION DEMO"
 // Visualizes the browser extension in action
 
@@ -22,7 +22,7 @@ const ModalPaybackEngine = {
     init(containerEl) {
         if (!containerEl) return;
         this.container = containerEl;
-        console.log("[PAYBACK MODAL] Initializing Demo...");
+        console.log("[AUTOCOUPON MODAL] Initializing Demo...");
         
         this.buildUI();
         this.startDemo();
@@ -57,7 +57,7 @@ const ModalPaybackEngine = {
                         </svg>
                     </div>
                     <div class="payback-title-group">
-                        <h3>Payback Activator</h3>
+                        <h3>AutoCoupon</h3>
                         <p>by Ivo Tech</p>
                     </div>
                 </div>
@@ -222,7 +222,7 @@ const ModalPaybackEngine = {
     },
 
     dispose() {
-        console.log("[PAYBACK MODAL] Cleanup.");
+        console.log("[AUTOCOUPON MODAL] Cleanup.");
         
         // Stop demo loop
         if (this.demoInterval) {

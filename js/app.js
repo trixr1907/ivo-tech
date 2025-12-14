@@ -17,21 +17,35 @@ window.projectData = {
         ],
         link: "https://viewer.ivo-tech.com"
     },
-    "PAYBACK ACTIVATOR": {
-        title: "PAYBACK ACTIVATOR V2",
+    "AUTOCOUPON BROWSER": {
+        title: "AUTOCOUPON EXTENSION",
         status: "VERFÜGBAR AUF ANFRAGE",
         tech: "TYPESCRIPT // VITE // CHROME EXT",
-        desc: "Premium Browser-Extension für automatische Coupon-Aktivierung auf Payback.de. One-Click-Interface im Synthwave-Design aktiviert Dutzende Coupons in Sekundenschnelle. 100% Privacy First - läuft komplett lokal ohne externe Server. Multi-Browser-Support für Chrome, Edge und Firefox.",
+        desc: "Premium Browser-Extension für automatische Coupon-Aktivierung bei großen Bonus-Partnern. One-Click-Interface im Synthwave-Design aktiviert Dutzende Coupons in Sekundenschnelle. 100% Privacy First - läuft komplett lokal ohne externe Server.",
         specs: [
             { label: "Version", value: "v2.0.0 (MIT License)" },
             { label: "Architektur", value: "TypeScript + Vite Build System" },
             { label: "Injection", value: "ShadowRoot Penetration" },
-            { label: "Target", value: "pbc-coupon Custom Elements" },
+            { label: "Target", value: "Bonus System Elements" },
             { label: "Heuristics", value: "MutationObserver Surveillance" },
             { label: "Speed", value: "~300ms / Coupon Cycle" },
             { label: "Safety", value: "Human-Like Delay Randomization" },
             { label: "Privacy", value: "100% Local - No External Servers" },
             { label: "Browser", value: "Chrome // Edge // Firefox" }
+        ],
+        link: "#"
+    },
+    "AUTOCOUPON APP": {
+        title: "AUTOCOUPON ANDROID",
+        status: "IN DEVELOPMENT",
+        tech: "ANDROID // KOTLIN // WEBVIEW",
+        desc: "Native Android-Applikation für die mobile Coupon-Aktivierung. Portierung der bewährten AutoCoupon-Logik auf mobile Endgeräte. Nutzt Material Design 3 für eine moderne UI und verarbeitet Daten zu 100% lokal auf dem Gerät.",
+        specs: [
+            { label: "Core", value: "Kotlin Native + WebView" },
+            { label: "Target", value: "Android SDK 34 (UpsideDownCake)" },
+            { label: "Design", value: "Material Design 3 (Dark Mode)" },
+            { label: "Speed", value: "Turbo-Mode Integration" },
+            { label: "Security", value: "No External Analytics" }
         ],
         link: "#"
     },
@@ -89,25 +103,27 @@ window.openProjectModal = function(titleKey) {
         
         const mLink = document.getElementById('modal-link');
         if(mLink) {
-            if(titleKey === "PAYBACK ACTIVATOR") {
-                // Spezielle Behandlung für Payback: Zeige "ANFRAGE STELLEN"
+            if(titleKey === "AUTOCOUPON BROWSER") {
+                // Browser Extension -> GitHub
+                mLink.href = "#";
+                mLink.textContent = "GITHUB OPEN";
+                mLink.onclick = (e) => {
+                    e.preventDefault();
+                    const githubUrl = "https://github.com/trixr1907/AutoCoupon";
+                    window.open(githubUrl, '_blank');
+                };
+            } else if (titleKey === "AUTOCOUPON APP") {
+                // Android App -> Mail Contact
                 mLink.href = "#";
                 mLink.textContent = "ANFRAGE STELLEN";
                 mLink.onclick = (e) => {
                     e.preventDefault();
-                    // Kopiere GitHub-Link in Zwischenablage
-                    const githubUrl = "https://github.com/trixr1907/Payback-Coupon.git";
-                    navigator.clipboard.writeText(githubUrl).then(() => {
-                        // Temporäres Feedback
+                    navigator.clipboard.writeText("contact@ivo-tech.com").then(() => {
                         const originalText = mLink.textContent;
-                        mLink.textContent = "✓ LINK KOPIERT";
-                        setTimeout(() => {
-                            mLink.textContent = originalText;
-                        }, 2000);
-                    }).catch(() => {
-                        // Fallback: Zeige Link in Alert
-                        alert(`GitHub Repository:\n${githubUrl}\n\nBitte kontaktiere mich für Zugriff.`);
+                        mLink.textContent = "✓ MAIL KOPIERT";
+                        setTimeout(() => { mLink.textContent = originalText; }, 2000);
                     });
+                     alert(`Interesse an der AutoCoupon App?\n\nBitte schreiben Sie eine Mail an: contact@ivo-tech.com`);
                 };
             } else {
                 // Standard-Verhalten für andere Projekte
@@ -137,8 +153,8 @@ window.openProjectModal = function(titleKey) {
                     if(window.Modal3DEngine) window.Modal3DEngine.init(m3d);
                 });
             }
-        } else if (titleKey === "PAYBACK ACTIVATOR") {
-            // Payback Demo-Modus aktivieren
+        } else if (titleKey === "AUTOCOUPON BROWSER") {
+            // AutoCoupon Demo-Modus aktivieren
             if(mImg) mImg.style.display = 'none';
             if(m3d) {
                 m3d.style.display = 'none';
@@ -299,8 +315,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     addToTerminal("Forcing override: Accessing Primary Node...", 'warning');
                     window.openProjectModal("3D STL VIEWER");
                     break;
-                case 'open payback':
-                    window.openProjectModal("PAYBACK ACTIVATOR");
+                case 'open autocoupon':
+                    window.openProjectModal("AUTOCOUPON BROWSER");
                     break;
                 case 'open pizza':
                      window.openProjectModal("IVO'S PIZZA");
