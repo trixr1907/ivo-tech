@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ivo's Pizza - Authentische Italienische Pizza</title>
+    <title>Ristorante Luna Rossa - Authentische Italienische Pizza (v2.0 Book)</title>
+    <!-- Version: 2.0 - Menu Book Update -->
     <meta name="description" content="Handgemachte Pizza mit frischen Zutaten. Erlebe authentisch italienischen Geschmack bei Ivo's Pizza – Steinofen-gebacken mit Liebe.">
     <meta name="keywords" content="pizza, italienisch, restaurant, lieferservice, steinofen, handgemacht">
     <meta name="author" content="Ivo Tech">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="Ivo's Pizza - Authentisch Italienisch">
-    <meta property="og:description" content="Handgemachte Steinofen-Pizza mit frischen Zutaten">
+    <meta property="og:title" content="Ristorante Luna Rossa - Authentisch Italienisch">
+    <meta property="og:description" content="Handgemachte Steinofen-Pizza im Ristorante Luna Rossa. Tradition und Leidenschaft.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="img/hero.png">
     
@@ -26,7 +27,7 @@
     <header>
         <nav>
             <div class="logo-container">
-                <img src="logo_new.png" alt="Ivo's Pizza" class="logo">
+                <img src="logo_lunarossa.png" alt="Ristorante Luna Rossa" class="logo">
             </div>
             <ul class="nav-links">
                 <li><a href="#menu">Speisekarte</a></li>
@@ -46,8 +47,8 @@
         <!-- HERO SECTION -->
         <section class="hero">
             <div class="hero-content">
-                <span class="hero-badge">🍕 Seit 2025 in deiner Nachbarschaft</span>
-                <h1>Echte Pizza,<br><span class="highlight">echter Geschmack</span></h1>
+                <span class="hero-badge">🍕 Tradizione dal 1998</span>
+                <h1>Amore & Passione,<br><span class="highlight">Luna Rossa</span></h1>
                 <p class="hero-subtitle">Handgemacht mit Leidenschaft, frischen Zutaten und traditionellen Rezepten aus dem Steinofen – direkt zu dir nach Hause.</p>
                 <div class="hero-cta">
                     <a href="#menu" class="btn-primary">
@@ -59,19 +60,16 @@
             </div>
             <div class="hero-image">
                 <div class="hero-image-wrapper">
-                    <img src="img/hero.png" alt="Frische Pizza aus dem Steinofen" loading="eager">
+                    <img src="img/masterpiece.png" alt="Luna Rossa Speciale - Unsere beste Pizza" loading="eager">
                 </div>
-                <div class="hero-badge-float">
-                    <div class="icon">🌿</div>
-                    <div class="text">
-                        100% Frisch
-                        <span>Täglich neue Zutaten</span>
-                    </div>
-                </div>
+            <!-- Badge Removed -->
             </div>
         </section>
 
         <!-- FEATURES STRIP -->
+        <div class="separator">
+            <span>⚜</span>
+        </div>
         <section class="features-strip">
             <div class="features-strip-inner">
                 <div class="feature-item">
@@ -108,151 +106,219 @@
         <!-- MENU SECTION -->
         <section id="menu" class="menu-section">
             <div class="section-header">
-                <span class="section-badge">Unsere Kreationen</span>
-                <h2 class="section-title">Die Speisekarte</h2>
+                <span class="section-badge">- Il Nostro Menù -</span>
+                <h2 class="section-title">Le Nostre Pizze</h2>
+                <div class="separator" style="margin: 1.5rem auto;">
+                    <span>⚜</span>
+                </div>
                 <p class="section-subtitle">Von klassisch italienisch bis kreativ modern – für jeden Geschmack die perfekte Pizza.</p>
             </div>
 
-            <div class="category-nav">
-                <button class="category-btn active">Alle</button>
-                <button class="category-btn">Klassiker</button>
-                <button class="category-btn">Specials</button>
-                <button class="category-btn">Vegetarisch</button>
+            <!-- MENU BOOK CONTAINER -->
+            <!-- MENU BOOK CONTAINER (SOTA ENTERPRISE HARDCOVER) -->
+            <div class="book-scene">
+                <div class="book" id="book">
+                    <!-- SPINE (Buchrücken) - The anchor of realism -->
+                    <div class="spine"></div>
+                    
+                    <!-- BACK COVER (Fixed Base) -->
+                    <div class="hardcover-back"></div>
+
+                    <!-- INNER PAPER STACK (The Content) -->
+                    <!-- INNER PAPER STACK (The Content) -->
+                    <div class="paper-stack">
+                        
+                        <!-- SHEET 1 (Topmost) -->
+                        <div class="paper-sheet" id="sheet-1" style="z-index: 5;">
+                            <!-- FRONT (Page 1) -->
+                            <div class="page front-side">
+                                <div class="page-content">
+                                    <h3 class="menu-category-title">Le Pizze Classiche</h3>
+                                    <div class="ornament-divider">⚜</div>
+                                    <p class="section-desc">Die Essenz Italiens. Zeitlose Klassiker, gebacken nach neapolitanischer Tradition.</p>
+
+                                    <ul class="visual-menu-list">
+                                        <li class="visual-menu-item">
+                                            <img src="img/margherita.png" alt="Margherita" class="menu-thumb">
+                                            <div class="menu-details">
+                                                <div class="menu-header">
+                                                    <h4>Pizza Margherita</h4>
+                                                    <span class="price">12.50 €</span>
+                                                </div>
+                                                <p>San Marzano D.O.P. Tomaten, Fior di Latte aus Agerola, Frisches Basilikum.</p>
+                                            </div>
+                                        </li>
+                                        <li class="visual-menu-item">
+                                            <img src="img/salami.png" alt="Salame" class="menu-thumb">
+                                            <div class="menu-details">
+                                                <div class="menu-header">
+                                                    <h4>Pizza Salame Milano</h4>
+                                                    <span class="price">14.00 €</span>
+                                                </div>
+                                                <p>San Marzano Tomaten, Mozzarella, Original Milano Salami, Sizilianischer Oregano.</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <div class="page-number">1</div>
+                                    <div class="corner-hitbox" title="Umblättern"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- BACK (Page 2) -->
+                            <div class="page back-side">
+                                <div class="page-content">
+                                    <h3 class="menu-category-title">Le Specialità</h3>
+                                    <div class="ornament-divider">✦</div>
+                                    <p class="section-desc">Unsere Signature Kreationen. Ein kulinarisches Erlebnis.</p>
+
+                                    <ul class="visual-menu-list">
+                                         <li class="visual-menu-item">
+                                            <img src="img/masterpiece.png" alt="Speciale" class="menu-thumb">
+                                            <div class="menu-details">
+                                                <div class="menu-header">
+                                                    <h4>Luna Rossa Speciale</h4>
+                                                    <span class="price">16.50 €</span>
+                                                </div>
+                                                <p>Hausgemachte Trüffelcreme, Büffelmozzarella Campana DOP, Parmaschinken (24 Monate), Rucola.</p>
+                                            </div>
+                                        </li>
+                                         <li class="visual-menu-item">
+                                            <img src="img/truffle.png" alt="Tartufo" class="menu-thumb">
+                                            <div class="menu-details">
+                                                <div class="menu-header">
+                                                    <h4>Pizza Tartufo Reale</h4>
+                                                    <span class="price">18.50 €</span>
+                                                </div>
+                                                <p>Frischer schwarzer Trüffel, Waldpilz-Duxelles, Fior di Latte, Wilder Thymian.</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <div class="page-number">2</div>
+                                    <div class="corner-hitbox" title="Zurückblättern"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SHEET 2 -->
+                        <div class="paper-sheet" id="sheet-2" style="z-index: 4;">
+                             <!-- FRONT (Page 3) -->
+                            <div class="page front-side">
+                                <div class="page-content">
+                                    <h3 class="menu-category-title">Verdure & Gusto</h3>
+                                    <div class="ornament-divider">🌿</div>
+                                    
+                                    <ul class="visual-menu-list">
+                                        <li class="visual-menu-item">
+                                            <img src="img/veggie.png" alt="Verdure" class="menu-thumb">
+                                            <div class="menu-details">
+                                                <div class="menu-header">
+                                                    <h4>Pizza Ortolana</h4>
+                                                    <span class="price">13.50 €</span>
+                                                </div>
+                                                <p>Grillgemüse der Saison, Paprika, Zucchini, Aubergine, Rucola, Olivenöl Extra Vergine.</p>
+                                            </div>
+                                        </li>
+                                        <li class="visual-menu-item">
+                                            <img src="img/funghi.png" alt="Funghi" class="menu-thumb">
+                                            <div class="menu-details">
+                                                <div class="menu-header">
+                                                    <h4>Pizza Funghi Freschi</h4>
+                                                    <span class="price">13.00 €</span>
+                                                </div>
+                                                <p>Frische Champignons & Waldpilze, Petersilie, Knoblauchöl, Grana Padano.</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <div class="page-number">3</div>
+                                    <div class="corner-hitbox" title="Umblättern"></div>
+                                </div>
+                            </div>
+
+                             <!-- BACK (Page 4) -->
+                            <div class="page back-side">
+                                <div class="page-content center-content">
+                                    <img src="logo_lunarossa.png" alt="Logo" style="width: 100px; opacity:0.9; margin-bottom:1.5rem; filter: drop-shadow(0 2px 5px rgba(0,0,0,0.2));">
+                                    <h3 class="menu-category-title">Dolci & Vini</h3>
+                                    <p style="font-style:italic; margin-bottom:1rem;">Der perfekte Abschluss.</p>
+                                    <p>Fragen Sie unser Servicepersonal nach dem<br>Tiramisu des Tages und unserer Weinkarte.</p>
+                                    <br>
+                                    <h3 style="font-family:var(--font-display); color:var(--primary);">Grazie Mille!</h3>
+                                    <p style="font-size:0.9rem; color:var(--text-muted);">Folgen Sie uns auf Instagram<br><strong>@PizzeriaLunaRossa</strong></p>
+                                    <div class="page-number">4</div>
+                                    <div class="corner-hitbox" title="Zurückblättern"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <!-- FRONT COVER (Rotatable) -->
+                    <div class="hardcover-front">
+                        <!-- OUTSIDE COVER -->
+                        <div class="cover-design face-front">
+                            <div class="book-skin"></div>
+                            <div class="front-content">
+                                <img src="logo_lunarossa.png" alt="Logo" class="book-logo">
+                                <h2 style="font-family: 'Playfair Display', serif; color: #d4af37; margin:0;">MENU</h2>
+                                <p style="color: rgba(212,175,55,0.7); font-size: 0.9rem; margin-top: 5px;">EST. 1998</p>
+                            </div>
+                        </div>
+
+                        <!-- INSIDE COVER (Left Page content) -->
+                        <div class="cover-inner face-back">
+                            <div class="page-content">
+                                <h3 class="menu-category-title">Benvenuti</h3>
+                                
+                                <div class="chef-intro">
+                                    <p class="intro-text">
+                                        "Die Pizza ist nicht nur ein Gericht.<br>Sie ist ein Gefühl."
+                                    </p>
+                                    <div class="separator-small">❧</div>
+                                    <p class="story-text">
+                                        Liebe Gäste,<br><br>
+                                        in diesem Buch finden Sie nicht nur Preise, sondern unsere Leidenschaft. 
+                                        Jeder Teig ruht 48 Stunden. Jede Tomate hat die Sonne Kampaniens gesehen.
+                                    </p>
+                                    <p class="chef-sign">Buon Appetito.</p>
+                                </div>
+                                 <ul class="visual-menu-list compact">
+                                    <li class="visual-menu-item">
+                                        <img src="img/diavola.png" alt="Diavola" class="menu-thumb">
+                                        <div class="menu-details">
+                                            <div class="menu-header">
+                                                <h4>Pizza Diavola (Scharf)</h4>
+                                                <span class="price">14.50 €</span>
+                                            </div>
+                                            <p>Spianata Piccante, Chili-Öl, Rote Zwiebeln.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div> <!-- End Front Cover -->
+
+                </div> <!-- End Book -->
+                
+                <!-- CONTROLS -->
+                <div class="book-controls">
+                    <button id="book-action-btn" class="control-btn">Karte öffnen ✨</button>
+                    <div class="page-nav" style="display:none; margin-top: 1rem; gap: 1rem;">
+                        <button id="prev-page-btn" class="nav-btn">← Zurück</button>
+                        <button id="next-page-btn" class="nav-btn">Weiter →</button>
+                    </div>
+                </div>
             </div>
 
-            <div class="pizza-grid">
-                <!-- Margherita -->
-                <div class="pizza-card" data-category="klassiker">
-                    <div class="pizza-card-image">
-                        <img src="img/margherita.png" alt="Pizza Margherita" loading="lazy">
-                    </div>
-                    <div class="pizza-card-content">
-                        <h3>Margherita</h3>
-                        <p>Tomatensauce, Mozzarella, frisches Basilikum, natives Olivenöl</p>
-                        <div class="pizza-card-footer">
-                            <span class="price">8,50 €</span>
-                            <button class="btn-add">Hinzufügen</button>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Salami -->
-                <div class="pizza-card" data-category="klassiker">
-                    <div class="pizza-card-image">
-                        <img src="img/salami.png" alt="Pizza Salami" loading="lazy">
-                    </div>
-                    <div class="pizza-card-content">
-                        <h3>Salami</h3>
-                        <p>Tomatensauce, Mozzarella, italienische Salami</p>
-                        <div class="pizza-card-footer">
-                            <span class="price">10,00 €</span>
-                            <button class="btn-add">Hinzufügen</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Prosciutto -->
-                <div class="pizza-card" data-category="klassiker">
-                    <div class="pizza-card-image">
-                        <img src="img/prosciutto.png" alt="Pizza Prosciutto" loading="lazy">
-                    </div>
-                    <div class="pizza-card-content">
-                        <h3>Prosciutto</h3>
-                        <p>Tomatensauce, Mozzarella, Prosciutto Crudo, Rucola</p>
-                        <div class="pizza-card-footer">
-                            <span class="price">10,50 €</span>
-                            <button class="btn-add">Hinzufügen</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Funghi -->
-                <div class="pizza-card" data-category="klassiker vegetarisch">
-                    <div class="pizza-card-image">
-                        <span class="pizza-badge green">Veggie</span>
-                        <img src="img/funghi.png" alt="Pizza Funghi" loading="lazy">
-                    </div>
-                    <div class="pizza-card-content">
-                        <h3>Funghi</h3>
-                        <p>Tomatensauce, Mozzarella, frische Champignons, Thymian</p>
-                        <div class="pizza-card-footer">
-                            <span class="price">9,50 €</span>
-                            <button class="btn-add">Hinzufügen</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Ivo's Masterpiece -->
-                <div class="pizza-card highlight" data-category="specials">
-                    <div class="pizza-card-image">
-                        <img src="img/masterpiece.png" alt="Ivo's Masterpiece" loading="lazy">
-                    </div>
-                    <div class="pizza-card-content">
-                        <h3>Ivo's Masterpiece</h3>
-                        <p>Tomatensauce, Büffelmozzarella, scharfe Salami, Gorgonzola, Honig</p>
-                        <div class="pizza-card-footer">
-                            <span class="price">14,50 €</span>
-                            <button class="btn-add">Hinzufügen</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Trüffel Traum -->
-                <div class="pizza-card" data-category="specials">
-                    <div class="pizza-card-image">
-                        <span class="pizza-badge gold">Premium</span>
-                        <img src="img/truffle.png" alt="Trüffel Traum" loading="lazy">
-                    </div>
-                    <div class="pizza-card-content">
-                        <h3>Trüffel Traum</h3>
-                        <p>Weiße Basis, Trüffelcreme, Steinpilze, Parmesan, Rucola</p>
-                        <div class="pizza-card-footer">
-                            <span class="price">15,00 €</span>
-                            <button class="btn-add">Hinzufügen</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Veggie Garden -->
-                <div class="pizza-card" data-category="specials vegetarisch">
-                    <div class="pizza-card-image">
-                        <span class="pizza-badge green">Veggie</span>
-                        <img src="img/veggie.png" alt="Veggie Garden" loading="lazy">
-                    </div>
-                    <div class="pizza-card-content">
-                        <h3>Veggie Garden</h3>
-                        <p>Tomatensauce, Mozzarella, buntes Grillgemüse, Feta</p>
-                        <div class="pizza-card-footer">
-                            <span class="price">12,50 €</span>
-                            <button class="btn-add">Hinzufügen</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Diavola Extreme -->
-                <div class="pizza-card" data-category="specials">
-                    <div class="pizza-card-image">
-                        <span class="pizza-badge">Scharf 🌶️</span>
-                        <img src="img/diavola.png" alt="Diavola Extreme" loading="lazy">
-                    </div>
-                    <div class="pizza-card-content">
-                        <h3>Diavola Extreme</h3>
-                        <p>Tomatensauce, Mozzarella, Nduja, Peperoni, Chili-Öl</p>
-                        <div class="pizza-card-footer">
-                            <span class="price">13,00 €</span>
-                            <button class="btn-add">Hinzufügen</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </section>
 
         <!-- ABOUT SECTION -->
         <section id="about" class="about-section">
+            <img src="img/garnish_v2.png" class="floating-garnish" alt="Fresh Basil">
             <div class="about-content">
-                <h2>Unsere Geschichte</h2>
-                <p>Bei Ivo's Pizza dreht sich alles um Leidenschaft. Handgekneteter Teig, sonnengereifte Tomaten aus San Marzano und die frischesten Zutaten – das ist unser Rezept für Perfektion.</p>
-                <p>Wir backen nicht nur Pizza, wir kreieren Erlebnisse. Jede Pizza erzählt eine Geschichte von Tradition, Qualität und Liebe zum Detail. Seit 2025 bringen wir Italien in deine Nachbarschaft.</p>
+                <h2>La Nostra Storia</h2>
+                <p>Im <strong>Ristorante Luna Rossa</strong> dreht sich alles um Leidenschaft. Handgekneteter Teig, sonnengereifte San Marzano Tomaten und die Hingabe echter Pizzaiolos – das ist unser Geheimnis.</p>
+                <p>Wir backen nicht nur Pizza, wir zelebrieren italienische Lebensart. Jede Pizza erzählt die Geschichte eines lauen Sommerabends in Neapel. Seit 1998 bringen wir dieses Gefühl zu dir.</p>
                 
                 <div class="about-stats">
                     <div class="stat">
@@ -306,7 +372,7 @@
                         <div class="icon">✉️</div>
                         <div class="text">
                             <h4>E-Mail</h4>
-                            <p>info@ivospizza.de</p>
+                            <p>info@lunarossa-ristorante.it</p>
                         </div>
                     </div>
                 </div>
@@ -341,8 +407,8 @@
         <div class="footer-content">
             <div class="footer-top">
                 <div class="footer-brand">
-                    <img src="logo_new.png" alt="Ivo's Pizza" class="logo" style="filter: brightness(0) invert(1); height: 40px;">
-                    <p>Authentische italienische Pizza, handgemacht mit Liebe und den frischesten Zutaten.</p>
+                    <img src="logo_lunarossa.png" alt="Luna Rossa" class="logo" style="height: 50px;">
+                    <p>Authentische italienische Pizza, handgemacht mit Amore.</p>
                 </div>
                 <div class="footer-links">
                     <h4>Menü</h4>
@@ -370,7 +436,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2025 Ivo's Pizza. Handgemacht mit ❤️ | Template by <a href="../index.html">Ivo Tech</a></p>
+                <p>© 2025 Ristorante Luna Rossa. Fatto con ❤️ | Template by <a href="../index.html">Ivo Tech</a></p>
                 <div class="social-links">
                     <a href="#" aria-label="Instagram">📸</a>
                     <a href="#" aria-label="Facebook">👍</a>
@@ -397,7 +463,7 @@
                         <option value="salami">Salami - 10,00 €</option>
                         <option value="prosciutto">Prosciutto - 10,50 €</option>
                         <option value="funghi">Funghi - 9,50 €</option>
-                        <option value="ivo-masterpiece">Ivo's Masterpiece - 14,50 €</option>
+                        <option value="luna-rossa">Luna Rossa Speciale - 14,50 €</option>
                         <option value="trueffel">Trüffel Traum - 15,00 €</option>
                         <option value="veggie">Veggie Garden - 12,50 €</option>
                         <option value="diavola">Diavola Extreme - 13,00 €</option>

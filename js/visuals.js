@@ -122,7 +122,7 @@ const VisualsEngine = {
 // Global Exposure
 window.startVisuals = () => VisualsEngine.init();
 
-// Auto-start if not triggered by intro (dev mode)
-// if (!document.getElementById('cinematic-intro') || document.getElementById('cinematic-intro').style.display === 'none') {
-//     VisualsEngine.init();
-// }
+// Auto-start if not triggered by intro (dev mode or intro disabled)
+if (!document.getElementById('cinematic-intro') || document.getElementById('cinematic-intro').style.display === 'none') {
+    VisualsEngine.init();
+}

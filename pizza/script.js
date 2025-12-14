@@ -1,298 +1,143 @@
-// Ivo's Pizza - Premium Restaurant Homepage
+
+
 document.addEventListener('DOMContentLoaded', () => {
+    console.log("Ristorante Luna Rossa - Menu Book v2.5 SOTA Initialized");
+
+    // --- DOM Elements ---
+    const book = document.getElementById('book');
+    const bookActionBtn = document.getElementById('book-action-btn');
+    const papers = document.querySelectorAll('.paper-sheet');
     
-    // ============================================
-    // HEADER SCROLL EFFECT
-    // ============================================
-    const header = document.querySelector('header');
-    let lastScrollY = 0;
-    
-    const handleScroll = () => {
-        const scrollY = window.scrollY;
-        
-        if (scrollY > 80) {
-            header.classList.add('scrolled');
+    // --- State ---
+    let isOpen = false;
+    let currentLocation = 1;
+    const numOfPapers = papers.length;
+    const maxLocation = numOfPapers + 1;
+
+    // --- Initialization ---
+    // Set initial Z-indexes for Right Stack (Top to Bottom)
+    papers.forEach((paper, index) => {
+        paper.style.zIndex = numOfPapers - index;
+    });
+
+    // --- Book Open/Close Logic ---
+    function setBookState(open) {
+        isOpen = open;
+        if (isOpen) {
+            book.classList.add('state-open');
+            if(bookActionBtn) bookActionBtn.innerHTML = "Karte schließen ↩";
         } else {
-            header.classList.remove('scrolled');
+            book.classList.remove('state-open');
+            if(bookActionBtn) bookActionBtn.innerHTML = "Karte öffnen ✨";
+            
+            // Auto-Reset pages when closing book? 
+            // setTimeout(resetPages, 500); // Optional: Close all pages
         }
-        
-        lastScrollY = scrollY;
-    };
-    
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    }
 
-    // ============================================
-    // MOBILE MENU TOGGLE
-    // ============================================
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
+    if (bookActionBtn) {
+        bookActionBtn.addEventListener('click', () => setBookState(!isOpen));
+    }
     
-    if (menuToggle && navLinks) {
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            menuToggle.classList.toggle('active');
+    // Click on Cover also opens it
+    const cover = document.querySelector('.hardcover-front');
+    if(cover) {
+        cover.addEventListener('click', () => {
+            if(!isOpen) setBookState(true);
         });
     }
 
-    // ============================================
-    // SMOOTH SCROLLING
-    // ============================================
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            if (href === '#order') {
-                e.preventDefault();
-                openModal();
-                return;
-            }
+    // --- Page Flipping Logic ---
+    function goNextPage() {
+        if (currentLocation < maxLocation) {
+            const currentPaper = papers[currentLocation - 1]; // Array is 0-indexed
             
-            const target = document.querySelector(href);
-            if (target) {
-                e.preventDefault();
-                const offsetTop = target.offsetTop - 80;
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-                
-                // Close mobile menu
-                navLinks?.classList.remove('active');
-                menuToggle?.classList.remove('active');
-            }
+            // 1. Add flip class
+            currentPaper.classList.add('flipped');
+            
+            // 2. Update Z-Index for Left Stack Stacking (Reverse logic)
+            // Left stack needs to stack up. 
+            // Page 1 is bottom, Page 2 is on top.
+            currentPaper.style.zIndex = currentLocation; 
+
+            currentLocation++;
+        }
+    }
+
+    function goPrevPage() {
+        if (currentLocation > 1) {
+            const prevPaper = papers[currentLocation - 2];
+            
+            // 1. Remove flip class
+            prevPaper.classList.remove('flipped');
+            
+            // 2. Reset Z-Index for Right Stack Stacking
+            // Right stack: Page 1 is Top (limit), Page 2 is below.
+            const originalIndex = currentLocation - 2;
+            prevPaper.style.zIndex = numOfPapers - originalIndex;
+
+            currentLocation--;
+        }
+    }
+
+    // --- Wire up Corner Clicks ---
+    // Front Side Corners -> Next Page
+    document.querySelectorAll('.page.front-side .corner-hitbox').forEach(hitbox => {
+        hitbox.addEventListener('click', (e) => {
+            e.stopPropagation(); // Don't trigger other clicks
+            goNextPage();
         });
     });
 
-    // ============================================
-    // CATEGORY FILTER
-    // ============================================
-    const categoryBtns = document.querySelectorAll('.category-btn');
-    const pizzaCards = document.querySelectorAll('.pizza-card');
-    
-    categoryBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Update active state
-            categoryBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            
-            const category = btn.textContent.toLowerCase();
-            
-            pizzaCards.forEach(card => {
-                const cardCategories = card.dataset.category || '';
-                
-                if (category === 'alle' || cardCategories.includes(category)) {
-                    card.style.display = '';
-                    card.style.animation = 'fadeSlideUp 0.5s ease-out forwards';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
+    // Back Side Corners -> Prev Page
+    document.querySelectorAll('.page.back-side .corner-hitbox').forEach(hitbox => {
+        hitbox.addEventListener('click', (e) => {
+            e.stopPropagation();
+            goPrevPage();
         });
     });
 
-    // ============================================
-    // ORDER MODAL
-    // ============================================
-    const modal = document.getElementById('order-modal');
-    const closeModalBtn = document.querySelector('.close-modal');
-    const orderForm = document.getElementById('order-form');
-    
-    function openModal() {
-        modal.classList.add('show');
-        document.body.style.overflow = 'hidden';
-    }
-    
-    function closeModal() {
-        modal.classList.remove('show');
-        document.body.style.overflow = '';
-    }
-    
-    // Open modal on order button click
-    document.querySelectorAll('.btn-order, [href="#order"]').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            openModal();
-        });
-    });
-    
-    // Close modal
-    if (closeModalBtn) {
-        closeModalBtn.addEventListener('click', closeModal);
-    }
-    
-    // Close on backdrop click
-    window.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            closeModal();
+
+    // --- Cinematic Parallax for Hero ---
+    const heroContent = document.querySelector('.hero-content');
+    const heroImage = document.querySelector('.hero-image');
+
+    window.addEventListener('scroll', () => {
+        const scrolled = window.scrollY;
+        // Stop calculating if scrolled past hero (performance)
+        if (scrolled < 1000) {
+            // Text moves slower (0.4x speed)
+            if(heroContent) heroContent.style.transform = `translateY(${scrolled * 0.4}px)`;
+            // Image moves slightly faster than text but slower than scroll (0.2x)
+            if(heroImage) heroImage.style.transform = `translateY(${scrolled * 0.2}px)`;
         }
     });
-    
-    // Close on Escape key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal.classList.contains('show')) {
-            closeModal();
-        }
-    });
-    
-    // Form submission
-    if (orderForm) {
-        orderForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const formData = new FormData(orderForm);
-            const name = formData.get('name');
-            const pizza = document.getElementById('pizza-select').selectedOptions[0].text;
+
+    // --- Vanilla Tilt Integration (Optional polish) ---
+    // Only tilt when closed to avoid layout jumping when open
+    if(book) {
+        book.addEventListener('mousemove', (e) => {
+            if(isOpen) return; // Disable tilt when open
             
-            // Show success message
-            alert(`🍕 Danke ${name}!\n\nDeine ${pizza} wird zubereitet und ist in ca. 30 Minuten bei dir!\n\n(Dies ist eine Demo)`);
+            const rect = book.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
             
-            closeModal();
-            orderForm.reset();
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = ((y - centerY) / centerY) * -5; // Max 5deg
+            const rotateY = ((x - centerX) / centerX) * 5;
+
+            // Apply slight tilt
+            book.style.transform = `rotateX(${10 + rotateX}deg) rotateY(${rotateY}deg) rotateZ(-5deg)`;
+        });
+
+        book.addEventListener('mouseleave', () => {
+            if(isOpen) return;
+            // Reset to default closed state
+            book.style.transform = `rotateX(10deg) rotateY(0deg) rotateZ(-5deg)`;
         });
     }
 
-    // ============================================
-    // ADD TO CART ANIMATION
-    // ============================================
-    document.querySelectorAll('.btn-add').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const originalText = this.textContent;
-            
-            // Visual feedback
-            this.textContent = '✓ Hinzugefügt!';
-            this.style.background = '#4A7C2C';
-            this.style.transform = 'scale(1.1)';
-            
-            setTimeout(() => {
-                this.textContent = originalText;
-                this.style.background = '';
-                this.style.transform = '';
-            }, 1800);
-        });
-    });
-
-    // ============================================
-    // INTERSECTION OBSERVER FOR ANIMATIONS
-    // ============================================
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -80px 0px'
-    };
-
-    const fadeInObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                fadeInObserver.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    // Observe elements
-    const animateElements = document.querySelectorAll('.pizza-card, .feature-item, .stat, .info-item');
-    animateElements.forEach((el, index) => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = `opacity 0.6s ease ${index * 0.05}s, transform 0.6s ease ${index * 0.05}s`;
-        fadeInObserver.observe(el);
-    });
-
-    // Add visible class styles
-    const style = document.createElement('style');
-    style.textContent = `
-        .visible {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
-        }
-    `;
-    document.head.appendChild(style);
-
-    // ============================================
-    // PARALLAX EFFECT FOR ABOUT SECTION
-    // ============================================
-    const aboutSection = document.querySelector('.about-section');
-    
-    if (aboutSection) {
-        window.addEventListener('scroll', () => {
-            const scrolled = window.scrollY;
-            const sectionTop = aboutSection.offsetTop;
-            const sectionHeight = aboutSection.offsetHeight;
-            
-            if (scrolled > sectionTop - window.innerHeight && scrolled < sectionTop + sectionHeight) {
-                const parallaxValue = (scrolled - sectionTop + window.innerHeight) * 0.1;
-                aboutSection.style.backgroundPositionY = `${parallaxValue}px`;
-            }
-        }, { passive: true });
-    }
-
-    // ============================================
-    // IMAGE LAZY LOADING ENHANCEMENT
-    // ============================================
-    const images = document.querySelectorAll('img[loading="lazy"]');
-    
-    if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.classList.add('loaded');
-                    imageObserver.unobserve(img);
-                }
-            });
-        }, { rootMargin: '50px' });
-        
-        images.forEach(img => {
-            img.style.opacity = '0';
-            img.style.transition = 'opacity 0.5s ease';
-            imageObserver.observe(img);
-        });
-        
-        // Add loaded styles
-        const imgStyle = document.createElement('style');
-        imgStyle.textContent = `img.loaded { opacity: 1 !important; }`;
-        document.head.appendChild(imgStyle);
-    }
-
-    // ============================================
-    // COUNTER ANIMATION FOR STATS
-    // ============================================
-    const stats = document.querySelectorAll('.stat-number');
-    
-    const animateCounter = (el) => {
-        const target = el.textContent;
-        const isPercentage = target.includes('%');
-        const hasPlus = target.includes('+');
-        const numericValue = parseInt(target.replace(/[^0-9]/g, ''));
-        
-        let current = 0;
-        const increment = numericValue / 50;
-        const duration = 1500;
-        const stepTime = duration / 50;
-        
-        const counter = setInterval(() => {
-            current += increment;
-            if (current >= numericValue) {
-                current = numericValue;
-                clearInterval(counter);
-            }
-            
-            let display = Math.floor(current);
-            if (display >= 1000) {
-                display = Math.floor(display / 1000) + 'K';
-            }
-            
-            el.textContent = display + (hasPlus ? '+' : '') + (isPercentage ? '%' : '');
-        }, stepTime);
-    };
-
-    const statsObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateCounter(entry.target);
-                statsObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
-
-    stats.forEach(stat => statsObserver.observe(stat));
-
-    console.log('🍕 Ivo\'s Pizza - Premium Homepage Ready!');
 });
