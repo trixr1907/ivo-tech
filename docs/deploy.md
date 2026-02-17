@@ -34,16 +34,29 @@
 - Connect repo to Vercel project.
 - Configure custom domains:
   - `ivo-tech.com` for production
+  - `www.ivo-tech.com` as alias redirected to `ivo-tech.com`
   - `staging.ivo-tech.com` for staging alias
 - Configure env vars by environment (Preview, Production):
   - `NEXT_PUBLIC_SITE_URL`
   - `NEXT_PUBLIC_APP_ENV`
   - optional: `NEXT_PUBLIC_SENTRY_DSN`, `NEXT_PUBLIC_CSP_REPORT_URI`
+  - optional contact funnel: `CONTACT_WEBHOOK_URL`, `CONTACT_RATE_LIMIT_PER_IP`, `CONTACT_RATE_LIMIT_WINDOW_MINUTES`
+  - optional bot protection: `NEXT_PUBLIC_TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET_KEY`
 
 ## Cloudflare DNS setup (current)
 Domain ownership stays in Cloudflare. Keep Cloudflare nameservers and set these DNS records:
 - `A` record: `ivo-tech.com` -> `76.76.21.21` (Proxy status: DNS only)
+- `A` record: `www.ivo-tech.com` -> `76.76.21.21` (Proxy status: DNS only)
 - `A` record: `staging.ivo-tech.com` -> `76.76.21.21` (Proxy status: DNS only)
+
+Optional helper from this repo:
+```bash
+npm run cf:ensure:vercel -- ivo-tech.com
+```
+See `docs/cloudflare-cli.md` for token setup and DNS operations.
+
+In Vercel, enforce a permanent redirect from `www.ivo-tech.com` to `https://ivo-tech.com` to prevent split indexing.
+This repo also contains an app-level redirect guard in `next.config.mjs` plus a fallback at `src/proxy.ts`.
 
 After adding records, verify in Vercel:
 ```bash
@@ -52,3 +65,8 @@ npx vercel domains inspect staging.ivo-tech.com --scope "$VERCEL_ORG_ID"
 ```
 
 Expected: no domain configuration warning.
+
+Post-change live check:
+```bash
+npm run verify:live
+```
