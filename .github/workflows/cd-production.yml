@@ -13,6 +13,11 @@ on:
         required: false
         default: false
         type: boolean
+      promote_to_custom_domains:
+        description: Promote deployment to custom domains (e.g. ivo-tech.com)
+        required: false
+        default: false
+        type: boolean
 
 concurrency:
   group: production
@@ -28,7 +33,6 @@ jobs:
       VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
     environment:
       name: production
-      url: https://ivo-tech.com
     permissions:
       contents: read
       deployments: write
@@ -39,6 +43,9 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: ${{ inputs.ref }}
+
+      - name: Remove repository Vercel linkage
+        run: rm -rf .vercel
 
       - name: Resolve target sha
         id: target
@@ -133,10 +140,28 @@ jobs:
           npm run build
 
       - name: Pull Vercel project settings (production env)
-        run: npx vercel pull --yes --environment=production --token="$VERCEL_TOKEN"
+        run: npx vercel pull --yes --environment=production --scope="$VERCEL_ORG_ID" --token="$VERCEL_TOKEN"
 
       - name: Build Vercel output
-        run: npx vercel build --prod --token="$VERCEL_TOKEN"
+        run: npx vercel build --prod --scope="$VERCEL_ORG_ID" --token="$VERCEL_TOKEN"
 
       - name: Deploy to production
-        run: npx vercel deploy --prebuilt --prod --token="$VERCEL_TOKEN"
+        run: |
+          DEPLOY_ARGS=(
+            --prebuilt
+            --prod
+            --yes
+            --scope="$VERCEL_ORG_ID"
+            --token="$VERCEL_TOKEN"
+            --meta "githubCommitSha=$GITHUB_SHA"
+            --meta "githubCommitAuthorLogin=$GITHUB_ACTOR"
+            --meta "githubCommitAuthorName=$GITHUB_ACTOR"
+            --meta "githubCommitAuthorEmail=$GITHUB_ACTOR@users.noreply.github.com"
+          )
+
+          if [ "${{ inputs.promote_to_custom_domains }}" != "true" ]; then
+            echo "Custom domain promotion disabled (safe mode): ivo-tech.com will not be updated."
+            DEPLOY_ARGS+=(--skip-domain)
+          fi
+
+          npx vercel deploy "${DEPLOY_ARGS[@]}"

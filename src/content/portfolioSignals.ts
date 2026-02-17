@@ -1,6 +1,6 @@
 import type { Locale } from '@/content/copy';
 
-export type SignalType = 'ai_automation_core' | 'product_engineering_reference' | 'internal_only';
+export type SignalType = 'automation_core' | 'product_engineering_reference' | 'internal_only';
 
 export type StackProof = {
   label: Record<Locale, string>;
@@ -14,14 +14,14 @@ export type StackProof = {
 export const stackProofs: StackProof[] = [
   {
     label: {
-      de: 'UI Template Reference (Luna Rossa)',
-      en: 'UI template reference (Luna Rossa)'
+      de: 'Live Referenz (3D-Konfigurator)',
+      en: 'Live reference (3D configurator)'
     },
     one_liner: {
-      de: 'Frontend-Template mit responsivem UX-Flow, Modal-Interaktionen und a11y-orientierter Navigation.',
-      en: 'Frontend template with responsive UX flow, modal interactions, and accessibility-oriented navigation.'
+      de: 'Produktionsnahe End-to-End Umsetzung von Upload ueber Preislogik bis Checkout.',
+      en: 'Production-oriented end-to-end implementation from upload to pricing and checkout.'
     },
-    href: '/pizza/',
+    href: '/configurator',
     signal_type: 'product_engineering_reference'
   }
 ];
