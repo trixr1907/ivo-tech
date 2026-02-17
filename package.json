@@ -38,7 +38,7 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "3.3.1",
+    "@eslint/eslintrc": "3.3.3",
     "@eslint/js": "9.39.0",
     "@lhci/cli": "^0.15.1",
     "@next/bundle-analyzer": "^16.1.6",
