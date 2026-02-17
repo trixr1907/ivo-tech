@@ -13,6 +13,11 @@ on:
         required: false
         default: false
         type: boolean
+      promote_to_custom_domains:
+        description: Promote deployment to custom domains (e.g. ivo-tech.com)
+        required: false
+        default: false
+        type: boolean
 
 concurrency:
   group: production
@@ -28,7 +33,6 @@ jobs:
       VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
     environment:
       name: production
-      url: https://ivo-tech.com
     permissions:
       contents: read
       deployments: write
@@ -143,8 +147,21 @@ jobs:
 
       - name: Deploy to production
         run: |
-          npx vercel deploy --prebuilt --prod --yes --scope="$VERCEL_ORG_ID" --token="$VERCEL_TOKEN" \
-            --meta githubCommitSha="$GITHUB_SHA" \
-            --meta githubCommitAuthorLogin="$GITHUB_ACTOR" \
-            --meta githubCommitAuthorName="$GITHUB_ACTOR" \
-            --meta githubCommitAuthorEmail="$GITHUB_ACTOR@users.noreply.github.com"
+          DEPLOY_ARGS=(
+            --prebuilt
+            --prod
+            --yes
+            --scope="$VERCEL_ORG_ID"
+            --token="$VERCEL_TOKEN"
+            --meta "githubCommitSha=$GITHUB_SHA"
+            --meta "githubCommitAuthorLogin=$GITHUB_ACTOR"
+            --meta "githubCommitAuthorName=$GITHUB_ACTOR"
+            --meta "githubCommitAuthorEmail=$GITHUB_ACTOR@users.noreply.github.com"
+          )
+
+          if [ "${{ inputs.promote_to_custom_domains }}" != "true" ]; then
+            echo "Custom domain promotion disabled (safe mode): ivo-tech.com will not be updated."
+            DEPLOY_ARGS+=(--skip-domain)
+          fi
+
+          npx vercel deploy "${DEPLOY_ARGS[@]}"

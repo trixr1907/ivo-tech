@@ -3,7 +3,7 @@
 ## Environment model
 - `development`: local machine + PR preview URLs.
 - `staging`: shared pre-production domain (`https://staging.ivo-tech.com`).
-- `production`: live domain (`https://ivo-tech.com`).
+- `production`: manual release workflow; by default deploys with `--skip-domain` (custom domains are not updated).
 
 ## CI/CD flow
 1. Open PR from short-lived branch (`feat/*`, `fix/*`, `chore/*`).
@@ -12,6 +12,8 @@
 4. `cd-staging` deploys current `main` to `staging.ivo-tech.com` only if required checks for that commit are green.
 5. Validate staging smoke test.
 6. Trigger `cd-production` manually with protected `production` environment approval. The workflow re-validates required checks for the target SHA before deploy.
+7. Keep `promote_to_custom_domains=false` while the site is not release-ready.
+8. Only when ready, run `cd-production` with `promote_to_custom_domains=true` to promote to `ivo-tech.com`.
 
 ## Required GitHub secrets
 - `VERCEL_TOKEN`
