@@ -1,5 +1,6 @@
 import * as Dialog from '@radix-ui/react-dialog';
 import dynamic from 'next/dynamic';
+import { useId } from 'react';
 
 import type { Locale } from '@/content/copy';
 import { getProjectStatusLabel, type Project } from '@/content/projects';
@@ -32,6 +33,11 @@ type Props = {
 
 export function ProjectModal({ project, locale, onClose }: Props) {
   const open = !!project;
+  const titleId = useId();
+  const descriptionId = useId();
+  const closeLabel = locale === 'de' ? 'Dialog schliessen' : 'Close dialog';
+  const specsLabel = locale === 'de' ? 'Spezifikationen' : 'Specs';
+  const actionsLabel = locale === 'de' ? 'Aktionen' : 'Actions';
 
   return (
     <Dialog.Root
@@ -43,10 +49,10 @@ export function ProjectModal({ project, locale, onClose }: Props) {
       <Dialog.Portal>
         <Dialog.Overlay className="dialog-overlay" />
         {project ? (
-          <Dialog.Content className="dialog-content" aria-describedby="dialog-desc">
+          <Dialog.Content className="dialog-content" aria-labelledby={titleId} aria-describedby={descriptionId}>
             <div className="dialog-header">
               <div className="status-badge">{getProjectStatusLabel(project.status, locale)}</div>
-              <Dialog.Close className="dialog-close" aria-label="Close dialog">
+              <Dialog.Close className="dialog-close" aria-label={closeLabel}>
                 x
               </Dialog.Close>
             </div>
@@ -65,13 +71,15 @@ export function ProjectModal({ project, locale, onClose }: Props) {
               </div>
 
               <div className="dialog-body">
-                <Dialog.Title className="dialog-title">{project.modal.title[locale]}</Dialog.Title>
+                <Dialog.Title className="dialog-title" id={titleId}>
+                  {project.modal.title[locale]}
+                </Dialog.Title>
                 <p className="dialog-tech">{project.techLine[locale]}</p>
-                <Dialog.Description className="dialog-desc" id="dialog-desc">
+                <Dialog.Description className="dialog-desc" id={descriptionId}>
                   {project.modal.desc[locale]}
                 </Dialog.Description>
 
-                <div className="specs-grid" aria-label="Specs">
+                <div className="specs-grid" aria-label={specsLabel}>
                   {project.modal.specs[locale].map((s) => (
                     <div key={`${s.label}:${s.value}`} className="spec-item">
                       <div className="spec-label">{s.label}</div>
@@ -80,7 +88,7 @@ export function ProjectModal({ project, locale, onClose }: Props) {
                   ))}
                 </div>
 
-                <div className="dialog-actions" aria-label="Actions">
+                <div className="dialog-actions" aria-label={actionsLabel}>
                   {project.modal.actions[locale].map((a) => (
                     <a
                       key={`${a.label}:${a.href}`}

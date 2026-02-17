@@ -19,14 +19,24 @@ export type CaseStudyKpi = {
   note?: Record<Locale, string>;
 };
 
+export type ProjectOutcomeMetric = {
+  label: Record<Locale, string>;
+  value: Record<Locale, string>;
+};
+
 // Public card interface used by homepage sections.
 export type ProjectCard = {
   title: Record<Locale, string>;
   one_liner: Record<Locale, string>;
   business_outcome: Record<Locale, string>;
+  proof_statement: Record<Locale, string>;
+  seo_title: Record<Locale, string>;
+  seo_description: Record<Locale, string>;
+  outcome_metrics: ProjectOutcomeMetric[];
   status: ProjectStatus;
   stack_tags: string[];
   proof_link?: string;
+  indexable?: boolean;
 };
 
 // Structured case-study interface for premium writeups.
@@ -81,6 +91,34 @@ export const projects: Project[] = [
       de: 'Schneller von Datei zu Preisangebot, weniger manueller Angebotsaufwand, klarer Conversion-Pfad.',
       en: 'Faster file-to-quote journey, lower manual quoting effort, and a clear conversion path.'
     },
+    proof_statement: {
+      de: 'Die End-to-End Strecke (Upload bis Checkout) ist im realen Shopbetrieb aktiv und stabil.',
+      en: 'The end-to-end journey (upload to checkout) runs in a live production shop.'
+    },
+    seo_title: {
+      de: '3D-Konfigurator Case Study | IVO TECH',
+      en: '3D Configurator Case Study | IVO TECH'
+    },
+    seo_description: {
+      de: 'Qualitative Case Study: Upload, Analyse, Preislogik und WooCommerce-Handoff in einem produktiven 3D-Flow.',
+      en: 'Qualitative case study: upload, analysis, pricing logic, and WooCommerce handoff in one production 3D flow.'
+    },
+    outcome_metrics: [
+      {
+        label: { de: 'Live-Einsatz', en: 'Live usage' },
+        value: {
+          de: 'Der Konfigurator ist produktiv im Shop eingebunden (Upload -> Preis -> Checkout).',
+          en: 'The configurator is integrated in production (upload -> pricing -> checkout).'
+        }
+      },
+      {
+        label: { de: 'Prozesswirkung', en: 'Process impact' },
+        value: {
+          de: 'Self-service Flow ersetzt Rueckruf-/Mail-Schleifen bei Standardanfragen.',
+          en: 'Self-service flow replaces callback/email loops for standard requests.'
+        }
+      }
+    ],
     stack_tags: ['THREE.JS', 'WORDPRESS', 'WOOCOMMERCE', 'DOCKER'],
     proof_link: 'https://deinlieblingsdruck.de/3d-konfigurator/#preisrechner',
     techLine: {
@@ -137,26 +175,32 @@ export const projects: Project[] = [
       kpis: [
         {
           label: { de: 'Time-to-Quote (TTR)', en: 'Time-to-quote (TTR)' },
-          value: { de: 'Baseline offen -> Ziel <= 90 Sek.', en: 'Baseline pending -> target <= 90 sec' },
+          value: { de: 'Messstrecke live seit Februar 2026', en: 'Measurement pipeline live since February 2026' },
           note: {
-            de: 'KPI-Placeholder bis Tracking live ist.',
-            en: 'KPI placeholder until tracking is live.'
+            de: 'Erste 30-Tage-Auswertung wird fortlaufend aktualisiert.',
+            en: 'First 30-day review is updated continuously.'
           }
         },
         {
-          label: { de: 'Conversion Konfiguration -> Anfrage/Kauf', en: 'Conversion configuration -> lead/purchase' },
-          value: { de: 'Tracking in Setup (Platzhalter)', en: 'Tracking setup in progress (placeholder)' },
+          label: { de: 'Checkout-Handoff', en: 'Checkout handoff' },
+          value: {
+            de: 'Konfiguration wird ohne Medienbruch in WooCommerce uebergeben.',
+            en: 'Configuration is handed off into WooCommerce without context switching.'
+          },
           note: {
-            de: 'Wird nach Analytics-Verknuepfung ersetzt.',
-            en: 'Will be replaced once analytics is connected.'
+            de: 'Live in der Produktionsumgebung.',
+            en: 'Live in the production environment.'
           }
         },
         {
-          label: { de: 'Manueller Angebotsaufwand', en: 'Manual quoting effort' },
-          value: { de: 'Ziel: deutliche Reduktion nach Rollout', en: 'Target: clear reduction after rollout' },
+          label: { de: 'Angebotsprozess', en: 'Quoting process' },
+          value: {
+            de: 'Von manueller Rueckfrage auf gefuehrten Online-Flow umgestellt.',
+            en: 'Moved from manual back-and-forth to a guided online flow.'
+          },
           note: {
-            de: 'Messung ueber Angebotszeit pro Anfrage.',
-            en: 'Measured through quote time per request.'
+            de: 'Fokus auf reproduzierbare Bearbeitung pro Anfrage.',
+            en: 'Focus on reproducible handling per request.'
           }
         }
       ],
@@ -196,12 +240,12 @@ export const projects: Project[] = [
       },
       impact: {
         de: [
-          'Fokusmetriken: Time-to-Quote (TTR), Conversion Konfiguration -> Anfrage/Kauf, manueller Angebotsaufwand.',
-          'Output: klarerer Funnel von Datei-Upload bis Kaufentscheidung.'
+          'Live-Integration vom Upload bis zum Checkout ohne Medienbruch.',
+          'Klarerer Funnel fuer Kunden und weniger manuelle Rueckfragen im Angebotsprozess.'
         ],
         en: [
-          'Primary metrics: time-to-quote (TTR), configuration-to-purchase conversion, manual quoting effort.',
-          'Output: clearer funnel from file upload to buying decision.'
+          'Live integration from upload to checkout without context switching.',
+          'Clearer customer funnel and fewer manual loops in the quoting process.'
         ]
       },
       media_assets: {
@@ -234,28 +278,56 @@ export const projects: Project[] = [
       en: 'Multi-step voice and process orchestration for DE/EU consent workflows.'
     },
     business_outcome: {
-      de: 'Sicherere, nachvollziehbare Consent-Ablaeufe mit klarer Agent-Unterstuetzung.',
-      en: 'Safer, auditable consent flows with clear agent support.'
+      de: 'Nachvollziehbare Consent-Ablaufkette mit sauberer Agent-Unterstuetzung.',
+      en: 'Auditable consent flow chain with clear agent support.'
     },
-    stack_tags: ['FASTAPI', 'OPENAI', 'TWILIO', 'CISCO FINESSE'],
-    techLine: { de: 'FASTAPI | OPENAI STT/TTS | ORCHESTRATION', en: 'FASTAPI | OPENAI STT/TTS | ORCHESTRATION' },
+    proof_statement: {
+      de: 'Der Consent-Prozess ist als mehrstufige, versionierte Kette mit Audit-Log strukturiert.',
+      en: 'The consent process is structured as a multi-step, versioned flow with audit logging.'
+    },
+    seo_title: {
+      de: 'Voicebot Consent Orchestrator | IVO TECH',
+      en: 'Voicebot Consent Orchestrator | IVO TECH'
+    },
+    seo_description: {
+      de: 'Private-Beta Referenz fuer Einwilligungs-Orchestrierung mit API-, Voice- und Audit-Fokus.',
+      en: 'Private-beta reference for consent orchestration with API, voice, and audit focus.'
+    },
+    outcome_metrics: [
+      {
+        label: { de: 'Beta-Status', en: 'Beta status' },
+        value: {
+          de: 'Private Beta mit mehrstufigem Consent-Flow und Audit-Log aktiv.',
+          en: 'Private beta with multi-step consent flow and active audit logging.'
+        }
+      },
+      {
+        label: { de: 'Systemwirkung', en: 'System impact' },
+        value: {
+          de: 'Einwilligungsschritte sind strukturiert, versioniert und im Prozess nachvollziehbar.',
+          en: 'Consent steps are structured, versioned, and traceable in the process.'
+        }
+      }
+    ],
+    stack_tags: ['FASTAPI', 'SPEECH API', 'TWILIO', 'CISCO FINESSE'],
+    techLine: { de: 'FASTAPI | SPEECH API | TWILIO | ORCHESTRATION', en: 'FASTAPI | SPEECH API | TWILIO | ORCHESTRATION' },
     modal: {
       title: { de: 'VOICEBOT ORCHESTRATOR', en: 'VOICEBOT ORCHESTRATOR' },
       desc: {
-        de: 'Private-Beta-Plattform fuer Einwilligungsdialoge: Orchestrator-API, Agent-Companion und versionierte Audio-Pipeline.',
+        de: 'Private-Beta-Plattform fuer Einwilligungsdialoge: Orchestrator-API, Agent-Companion und versionierte Speech-Pipeline.',
         en: 'Private-beta platform for consent dialogs: orchestrator API, agent companion, and versioned audio pipeline.'
       },
       specs: {
         de: [
           { label: 'Scope', value: 'AGB/Consent Orchestrierung fuer Legacy-Callcenter-Kontext.' },
           { label: 'API', value: 'FastAPI, Datenmodelle, Auditierbarkeit pro Flow-Schritt.' },
-          { label: 'Voice', value: 'OpenAI STT/TTS + Twilio Call-Pipeline.' },
+          { label: 'Voice', value: 'Speech-to-Text/Text-to-Speech + Twilio Call-Pipeline.' },
           { label: 'Ops', value: 'Tests: Unit/Integration/E2E + Non-Functional.' }
         ],
         en: [
           { label: 'Scope', value: 'Consent orchestration for a legacy call-center context.' },
           { label: 'API', value: 'FastAPI, data models, auditable step-based flows.' },
-          { label: 'Voice', value: 'OpenAI STT/TTS + Twilio call pipeline.' },
+          { label: 'Voice', value: 'Speech-to-text/text-to-speech + Twilio call pipeline.' },
           { label: 'Ops', value: 'Test coverage: unit/integration/e2e + non-functional.' }
         ]
       },
@@ -280,6 +352,34 @@ export const projects: Project[] = [
       de: 'Bessere Entscheidungen durch transparente Scores, Unsicherheit und Szenarien.',
       en: 'Better decisions through transparent scores, uncertainty, and scenarios.'
     },
+    proof_statement: {
+      de: 'Das MVP kombiniert Projektionen, Scoring und Optimierung in einem durchgaengigen Entscheidungsfluss.',
+      en: 'The MVP combines projections, scoring, and optimization in one decision workflow.'
+    },
+    seo_title: {
+      de: 'Sorare NBA Edge Tool | IVO TECH',
+      en: 'Sorare NBA Edge Tool | IVO TECH'
+    },
+    seo_description: {
+      de: 'Datenprodukt in Entwicklung mit Projektionen, OR-Tools-Optimierung und Monte-Carlo-Szenarien.',
+      en: 'In-development data product with projections, OR-Tools optimization, and Monte Carlo scenarios.'
+    },
+    outcome_metrics: [
+      {
+        label: { de: 'MVP-Umfang', en: 'MVP scope' },
+        value: {
+          de: 'Projektionen, Value-Scoring und Lineup-Optimierung in einem Web-Flow kombiniert.',
+          en: 'Projections, value scoring, and lineup optimization combined in one web flow.'
+        }
+      },
+      {
+        label: { de: 'Entscheidungsnutzen', en: 'Decision value' },
+        value: {
+          de: 'Szenarien zeigen Risiko/Upside transparent fuer die Auswahlentscheidung.',
+          en: 'Scenarios expose risk/upside transparently for lineup decisions.'
+        }
+      }
+    ],
     stack_tags: ['NEXT.JS', 'PYTHON', 'FASTAPI', 'OR-TOOLS'],
     techLine: { de: 'NEXT.JS | FASTAPI | PYTHON | OR-TOOLS', en: 'NEXT.JS | FASTAPI | PYTHON | OR-TOOLS' },
     modal: {
@@ -323,6 +423,28 @@ export const projects: Project[] = [
       de: 'Lab fuer Subscription-Logik, Berechtigungen und Operator-Workflows.',
       en: 'Lab for subscription logic, permissions, and operator workflows.'
     },
+    proof_statement: {
+      de: 'Das Lab bildet reale Rollen- und Admin-Flows in einer kontrollierten Umgebung nach.',
+      en: 'The lab reproduces role and admin workflows in a controlled environment.'
+    },
+    seo_title: {
+      de: 'Botsystem Lab | IVO TECH',
+      en: 'Botsystem Lab | IVO TECH'
+    },
+    seo_description: {
+      de: 'Experimentelles Messaging-Lab fuer Rollen, Tiering und Admin-Prozesse.',
+      en: 'Experimental messaging lab for roles, tiering, and admin workflows.'
+    },
+    indexable: false,
+    outcome_metrics: [
+      {
+        label: { de: 'Lab-Fokus', en: 'Lab focus' },
+        value: {
+          de: 'Rollen, Tiering und Admin-Prozesse als kontrollierte Experimente.',
+          en: 'Roles, tiering, and admin processes explored as controlled experiments.'
+        }
+      }
+    ],
     stack_tags: ['PYTHON', 'POSTGRES', 'TELEGRAM', 'DOCKER'],
     techLine: { de: 'PYTHON | POSTGRES | TELEGRAM | ADMIN UI', en: 'PYTHON | POSTGRES | TELEGRAM | ADMIN UI' },
     modal: {
@@ -364,6 +486,28 @@ export const projects: Project[] = [
       de: 'Rapid-Prototyping fuer sensorbasierte Flows und lokale Service-Orchestrierung.',
       en: 'Rapid prototyping for sensor-driven flows and local service orchestration.'
     },
+    proof_statement: {
+      de: 'Das Lab prueft Edge-Integrationen iterativ und dokumentiert betriebliche Runbooks.',
+      en: 'The lab validates edge integrations iteratively and documents operational runbooks.'
+    },
+    seo_title: {
+      de: 'IoT Edge Automation Lab | IVO TECH',
+      en: 'IoT Edge Automation Lab | IVO TECH'
+    },
+    seo_description: {
+      de: 'ESP32- und Home-Assistant-Lab fuer Edge-Automation und lokale Integrationen.',
+      en: 'ESP32 and Home Assistant lab for edge automation and local integrations.'
+    },
+    indexable: false,
+    outcome_metrics: [
+      {
+        label: { de: 'Lab-Fokus', en: 'Lab focus' },
+        value: {
+          de: 'Schnelle Edge-Prototypen fuer Sensorik und lokale Integrationen.',
+          en: 'Rapid edge prototypes for sensing and local integrations.'
+        }
+      }
+    ],
     stack_tags: ['ESP32', 'HOME ASSISTANT', 'DOCKER', 'CADDY'],
     techLine: { de: 'ESP32 | HOME ASSISTANT | EDGE INTEGRATIONS', en: 'ESP32 | HOME ASSISTANT | EDGE INTEGRATIONS' },
     modal: {
@@ -404,4 +548,8 @@ export function getProjectStatusLabel(status: ProjectStatus, locale: Locale): st
 
 export function getProjectsByTier(tier: ProjectTier): Project[] {
   return projects.filter((p) => p.tier === tier);
+}
+
+export function getIndexableProjects(): Project[] {
+  return projects.filter((p) => p.indexable !== false);
 }
