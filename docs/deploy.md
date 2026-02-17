@@ -39,3 +39,16 @@
   - `NEXT_PUBLIC_SITE_URL`
   - `NEXT_PUBLIC_APP_ENV`
   - optional: `NEXT_PUBLIC_SENTRY_DSN`, `NEXT_PUBLIC_CSP_REPORT_URI`
+
+## Cloudflare DNS setup (current)
+Domain ownership stays in Cloudflare. Keep Cloudflare nameservers and set these DNS records:
+- `A` record: `ivo-tech.com` -> `76.76.21.21` (Proxy status: DNS only)
+- `A` record: `staging.ivo-tech.com` -> `76.76.21.21` (Proxy status: DNS only)
+
+After adding records, verify in Vercel:
+```bash
+npx vercel domains inspect ivo-tech.com --scope "$VERCEL_ORG_ID"
+npx vercel domains inspect staging.ivo-tech.com --scope "$VERCEL_ORG_ID"
+```
+
+Expected: no domain configuration warning.
