@@ -21,6 +21,7 @@ npm run test:unit
 npm run test:e2e
 npm run perf:lighthouse
 npm run security:scan
+npm run verify:live
 ```
 
 ## Environment variables
@@ -35,6 +36,11 @@ Variables:
 - `NEXT_PUBLIC_APP_ENV` (`development` | `staging` | `production`)
 - `NEXT_PUBLIC_SENTRY_DSN` (optional)
 - `NEXT_PUBLIC_CSP_REPORT_URI` (optional)
+- `CONTACT_WEBHOOK_URL` (optional, receives `POST /api/contact` submissions)
+- `CONTACT_RATE_LIMIT_PER_IP` (optional)
+- `CONTACT_RATE_LIMIT_WINDOW_MINUTES` (optional)
+- `NEXT_PUBLIC_TURNSTILE_SITE_KEY` (optional, enables Turnstile on contact form)
+- `TURNSTILE_SECRET_KEY` (optional, validates Turnstile token server-side)
 
 ## CI/CD
 - PR quality gates: `.github/workflows/ci.yml`, `unit-integration.yml`, `e2e.yml`, `security.yml`
@@ -49,3 +55,5 @@ Runbooks:
 - `docs/branching.md`
 - `docs/quality-gates.md`
 - `docs/github-setup.md`
+- `docs/cloudflare-cli.md`
+- `docs/styleframes.md`

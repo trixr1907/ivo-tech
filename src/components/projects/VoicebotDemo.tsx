@@ -7,10 +7,10 @@ type Props = {
 export function VoicebotDemo({ locale }: Props) {
   const flow =
     locale === 'de'
-      ? ['Call startet', 'Consent-Dialog', 'STT/TTS Verarbeitung', 'Audit-Event + Ergebnis']
-      : ['Call starts', 'Consent dialog', 'STT/TTS processing', 'Audit event + outcome'];
+      ? ['Call startet', 'Consent-Dialog', 'Speech-Verarbeitung', 'Audit-Event + Ergebnis']
+      : ['Call starts', 'Consent dialog', 'Speech processing', 'Audit event + outcome'];
 
-  const tags = ['FASTAPI', 'OPENAI', 'TWILIO', 'QA'];
+  const tags = ['FASTAPI', 'SPEECH API', 'TWILIO', 'QA'];
 
   return (
     <div className="voicebot-stage">

@@ -4,19 +4,11 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import type { MouseEvent } from 'react';
 
+import { ContactForm } from '@/components/ContactForm';
 import { HeroCommands } from '@/components/HeroCommands';
 import { LanguageToggle } from '@/components/LanguageToggle';
 import { ProjectModal } from '@/components/ProjectModal';
 import { copy, type Locale } from '@/content/copy';
-import { getStackProofBySignal } from '@/content/portfolioSignals';
-import {
-  buildProjectHref,
-  createCloseProjectRoute,
-  createOpenProjectRoute,
-  parseProjectParam
-} from '@/features/home/projectState';
-import { resolveLocale } from '@/lib/locale';
-import { CONTACT_EMAIL, SITE_URL } from '@/lib/site';
 import {
   getProjectById,
   getProjectStatusLabel,
@@ -24,21 +16,29 @@ import {
   type Project,
   type ProjectId
 } from '@/content/projects';
-
-const GITHUB_URL = 'https://github.com/trixr1907';
-const productEngineeringProof = getStackProofBySignal('product_engineering_reference');
+import {
+  buildProjectHref,
+  createCloseProjectRoute,
+  createOpenProjectRoute,
+  parseProjectParam
+} from '@/features/home/projectState';
+import { trackEvent } from '@/lib/analytics';
+import { resolveLocale } from '@/lib/locale';
+import { CONTACT_EMAIL, CV_PATH, GITHUB_URL, SITE_URL } from '@/lib/site';
 
 function renderProjectCard(
   project: Project,
   locale: Locale,
-  onProjectLinkClick: (e: MouseEvent<HTMLAnchorElement>, id: ProjectId) => void
+  onProjectLinkClick: (e: MouseEvent<HTMLAnchorElement>, id: ProjectId, source: string) => void
 ) {
+  const firstMetric = project.outcome_metrics[0] ?? null;
+
   return (
     <a
       key={project.id}
       className="project-card"
       href={buildProjectHref(project.id)}
-      onClick={(e) => onProjectLinkClick(e, project.id)}
+      onClick={(e) => onProjectLinkClick(e, project.id, 'project_card')}
       aria-haspopup="dialog"
       aria-label={`${project.title[locale]} - ${project.one_liner[locale]}`}
     >
@@ -58,6 +58,12 @@ function renderProjectCard(
         <h3>{project.title[locale]}</h3>
         <p>{project.one_liner[locale]}</p>
         <p className="project-outcome">{project.business_outcome[locale]}</p>
+        <p className="project-proof">{project.proof_statement[locale]}</p>
+        {firstMetric ? (
+          <p className="project-metric">
+            <span>{firstMetric.label[locale]}:</span> {firstMetric.value[locale]}
+          </p>
+        ) : null}
         <span className="meta">{project.stack_tags.join(' | ')}</span>
       </span>
     </a>
@@ -77,7 +83,9 @@ export default function HomePage() {
   const labsProjects = getProjectsByTier('labs');
   const heroProofLink = heroProject?.proof_link ?? '/configurator';
 
-  const openProject = (id: ProjectId) => {
+  const openProject = (id: ProjectId, source = 'unknown') => {
+    trackEvent('case_study_open', { projectId: id, source, locale, path: router.asPath });
+
     void router.push(createOpenProjectRoute(router.pathname, router.query, id), undefined, {
       shallow: true,
       scroll: false
@@ -91,56 +99,85 @@ export default function HomePage() {
     });
   };
 
-  const onProjectLinkClick = (e: MouseEvent<HTMLAnchorElement>, id: ProjectId) => {
+  const onProjectLinkClick = (e: MouseEvent<HTMLAnchorElement>, id: ProjectId, source: string) => {
     if (e.defaultPrevented) return;
     if (e.button !== 0) return;
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
     e.preventDefault();
-    openProject(id);
+    openProject(id, source);
+  };
+
+  const onContactCtaClick = (location: string, intent: 'hiring' | 'client' | 'hybrid' = 'hybrid') => {
+    trackEvent('cta_contact_click', {
+      location,
+      intent,
+      locale,
+      path: router.asPath
+    });
+  };
+
+  const onCvClick = (location: string) => {
+    trackEvent('cv_download', {
+      location,
+      locale,
+      path: router.asPath
+    });
   };
 
   const pageTitle = t.meta.title;
   const pageDescription = t.meta.description;
   const canonical = locale === 'en' ? `${SITE_URL}/en` : `${SITE_URL}/`;
+  const cvPath = locale === 'en' ? CV_PATH.en : CV_PATH.de;
+  const faqSchema = {
+    '@type': 'FAQPage',
+    '@id': `${canonical}#faq`,
+    inLanguage: locale,
+    mainEntity: t.faq.items.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.a
+      }
+    }))
+  };
 
   const stackItems =
     locale === 'de'
       ? [
           {
-            title: 'AI & Automation',
-            desc: 'FastAPI-Services, OpenAI STT/TTS und mehrstufige Prozess-Orchestrierung fuer robuste Flows.'
+            title: 'Frontend & Product Delivery',
+            desc: 'React/Next.js + TypeScript, responsive UI-Umsetzung und klare Informationsarchitektur.'
           },
           {
-            title: 'Product Engineering',
-            desc: 'React/Next.js + TypeScript, UX-fokussierte Informationsarchitektur und klare Delivery-Schnittstellen.',
-            proof: productEngineeringProof
+            title: 'Backend & API Integrationen',
+            desc: 'FastAPI-Services, Prozess-Orchestrierung und API-Integrationen fuer stabile Web-Workflows.'
           },
           {
-            title: 'Data & Optimization',
-            desc: 'Python Modeling, Szenario-Simulation, Optimierungslogik und entscheidungsfaehige Scores.'
+            title: 'Datenlogik & Optimierung',
+            desc: 'Python-Modelling, Szenario-Simulation und regelbasierte Optimierungslogik fuer Entscheidungen.'
           },
           {
-            title: 'Systems & Edge',
-            desc: 'Docker, Caddy, ESP32, Home Assistant und serviceorientierte Integrationen fuer lokale Umgebungen.'
+            title: 'Deployment & Betrieb',
+            desc: 'Docker, Caddy, Monitoring-Basis und serviceorientierte Integrationen fuer reproduzierbaren Betrieb.'
           }
         ]
       : [
           {
-            title: 'AI & Automation',
-            desc: 'FastAPI services, OpenAI STT/TTS, and multi-step process orchestration for robust workflows.'
+            title: 'Frontend & Product Delivery',
+            desc: 'React/Next.js + TypeScript, responsive UI implementation, and clear information architecture.'
           },
           {
-            title: 'Product Engineering',
-            desc: 'React/Next.js + TypeScript, UX-focused information architecture, and clear delivery interfaces.',
-            proof: productEngineeringProof
+            title: 'Backend & API Integrations',
+            desc: 'FastAPI services, process orchestration, and API integrations for reliable web workflows.'
           },
           {
-            title: 'Data & Optimization',
-            desc: 'Python modeling, scenario simulation, optimization logic, and decision-ready scoring.'
+            title: 'Data Logic & Optimization',
+            desc: 'Python modeling, scenario simulation, and rule-based optimization logic for decision support.'
           },
           {
-            title: 'Systems & Edge',
-            desc: 'Docker, Caddy, ESP32, Home Assistant, and service-oriented local integrations.'
+            title: 'Deployment & Operations',
+            desc: 'Docker, Caddy, basic monitoring, and service-oriented integrations for reproducible delivery.'
           }
         ];
 
@@ -161,10 +198,12 @@ export default function HomePage() {
         '@type': 'Person',
         '@id': `${SITE_URL}#person`,
         name: 'Ivo',
+        jobTitle: 'Junior Full-Stack Engineer',
         url: SITE_URL,
         email: `mailto:${CONTACT_EMAIL}`,
         sameAs: [GITHUB_URL]
-      }
+      },
+      faqSchema
     ]
   };
 
@@ -206,13 +245,16 @@ export default function HomePage() {
         <nav className="nav" aria-label={locale === 'de' ? 'Hauptnavigation' : 'Primary'}>
           <a href="#hero-case">{t.nav.heroCase}</a>
           <a href="#featured">{t.nav.featured}</a>
-          <a href="#stack">{t.nav.stack}</a>
-          <a href="#labs">{t.nav.labs}</a>
+          <a href="#paths">{t.nav.paths}</a>
           <a href="#contact">{t.nav.contact}</a>
         </nav>
         <div className="header-right">
           <LanguageToggle />
-          <a className="cta" href="#hero-case">
+          <a
+            className="cta"
+            href="#contact"
+            onClick={() => onContactCtaClick('header')}
+          >
             {t.nav.cta}
           </a>
         </div>
@@ -225,15 +267,33 @@ export default function HomePage() {
             <h1 id="hero-title">{t.hero.title}</h1>
             <p className="lead">{t.hero.lead}</p>
             <div className="hero-actions">
-              <a className="primary" href="#hero-case">
+              <a className="primary" href="#contact" onClick={() => onContactCtaClick('hero_primary')}>
                 {t.hero.primary}
               </a>
-              <a className="ghost" href="#contact">
+              <Link
+                className="ghost"
+                href="/configurator"
+                locale={locale}
+                onClick={() => trackEvent('case_study_open', { projectId: 'configurator_3d', source: 'hero_secondary', locale })}
+              >
                 {t.hero.secondary}
+              </Link>
+            </div>
+            <div className="hero-links" aria-label={t.hero.linksLabel}>
+              <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
+                {t.hero.github}
+              </a>
+              <a
+                href={cvPath}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => onCvClick('hero_links')}
+              >
+                {t.hero.cv}
               </a>
             </div>
 
-            <HeroCommands locale={locale} onOpenProject={openProject} />
+            <HeroCommands locale={locale} onOpenProject={(id) => openProject(id, 'hero_command')} />
           </div>
 
           <div className="terminal-mini" role="presentation">
@@ -253,16 +313,43 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="positioning" className="section" aria-labelledby="positioning-title">
+        <section id="quick-facts" className="section" aria-labelledby="quick-facts-title">
           <div className="section-head">
-            <h2 id="positioning-title">{t.sections.positioning.title}</h2>
-            <p>{t.sections.positioning.desc}</p>
+            <h2 id="quick-facts-title">{t.quick_facts.title}</h2>
+            <p>{t.quick_facts.desc}</p>
           </div>
-          <div className="positioning-list">
-            {t.sections.positioning.bullets.map((item) => (
-              <div key={item} className="positioning-item">
-                {item}
+          <div className="facts-grid">
+            {t.quick_facts.items.map((item) => (
+              <div key={item.label} className="fact-item">
+                <span>{item.label}</span>
+                <strong>{item.value}</strong>
               </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="paths" className="section" aria-labelledby="paths-title">
+          <div className="section-head">
+            <h2 id="paths-title">{t.audience_paths.title}</h2>
+            <p>{t.audience_paths.desc}</p>
+          </div>
+          <div className="paths-grid">
+            {t.audience_paths.cards.map((card) => (
+              <article key={card.id} className="path-card">
+                <h3>{card.title}</h3>
+                <ul>
+                  {card.bullets.map((bullet) => (
+                    <li key={bullet}>{bullet}</li>
+                  ))}
+                </ul>
+                <a
+                  className="ghost"
+                  href="#contact"
+                  onClick={() => onContactCtaClick(`path_${card.id}`, card.id as 'hiring' | 'client')}
+                >
+                  {card.cta}
+                </a>
+              </article>
             ))}
           </div>
         </section>
@@ -289,10 +376,19 @@ export default function HomePage() {
 
               <p className="hero-case-lead">{heroProject.one_liner[locale]}</p>
               <p className="hero-case-outcome">{heroProject.business_outcome[locale]}</p>
+              <p className="hero-case-proof">{heroProject.proof_statement[locale]}</p>
+              <div className="outcome-grid">
+                {heroProject.outcome_metrics.map((metric) => (
+                  <div key={metric.label[locale]} className="outcome-item">
+                    <span>{metric.label[locale]}</span>
+                    <strong>{metric.value[locale]}</strong>
+                  </div>
+                ))}
+              </div>
 
               {heroProject.case_study ? (
                 <>
-                  <div className="kpi-grid" aria-label={locale === 'de' ? 'KPI Platzhalter' : 'KPI placeholders'}>
+                  <div className="kpi-grid" aria-label={locale === 'de' ? 'KPI Snapshot' : 'KPI snapshot'}>
                     {heroProject.case_study.kpis.map((kpi) => (
                       <div key={kpi.label[locale]} className="kpi-card">
                         <div className="kpi-label">{kpi.label[locale]}</div>
@@ -304,7 +400,7 @@ export default function HomePage() {
 
                   <div className="case-study-grid">
                     <div>
-                      <h4>{locale === 'de' ? 'Problem' : 'Problem'}</h4>
+                      <h4>{locale === 'de' ? 'Ausgangslage' : 'Context'}</h4>
                       <ul>
                         {heroProject.case_study.problem[locale].map((line) => (
                           <li key={line}>{line}</li>
@@ -312,7 +408,7 @@ export default function HomePage() {
                       </ul>
                     </div>
                     <div>
-                      <h4>{locale === 'de' ? 'Loesung' : 'Solution'}</h4>
+                      <h4>{locale === 'de' ? 'Umsetzung' : 'Implementation'}</h4>
                       <ul>
                         {heroProject.case_study.solution[locale].map((line) => (
                           <li key={line}>{line}</li>
@@ -320,7 +416,7 @@ export default function HomePage() {
                       </ul>
                     </div>
                     <div>
-                      <h4>{locale === 'de' ? 'Technologie' : 'Technology'}</h4>
+                      <h4>{locale === 'de' ? 'Betrieb' : 'Operations'}</h4>
                       <ul>
                         {heroProject.case_study.technology[locale].map((line) => (
                           <li key={line}>{line}</li>
@@ -328,7 +424,7 @@ export default function HomePage() {
                       </ul>
                     </div>
                     <div>
-                      <h4>Impact</h4>
+                      <h4>{locale === 'de' ? 'Ergebnis' : 'Outcome'}</h4>
                       <ul>
                         {heroProject.case_study.impact[locale].map((line) => (
                           <li key={line}>{line}</li>
@@ -336,7 +432,7 @@ export default function HomePage() {
                       </ul>
                     </div>
                     <div>
-                      <h4>{locale === 'de' ? 'Screenshots / Demos' : 'Screenshots / demos'}</h4>
+                      <h4>{locale === 'de' ? 'Assets' : 'Assets'}</h4>
                       <ul>
                         {heroProject.case_study.media_assets[locale].map((line) => (
                           <li key={line}>{line}</li>
@@ -353,13 +449,23 @@ export default function HomePage() {
                   href={heroProofLink}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackEvent('case_study_open', { projectId: heroProject.id, source: 'hero_case_live', locale })}
                 >
                   {locale === 'de' ? 'Live Konfigurator' : 'Live configurator'}
                 </a>
-                <Link className="ghost" href="/configurator">
+                <Link
+                  className="ghost"
+                  href="/configurator"
+                  locale={locale}
+                  onClick={() => trackEvent('case_study_open', { projectId: heroProject.id, source: 'hero_case_page', locale })}
+                >
                   {locale === 'de' ? 'Premium Case Study' : 'Premium case study'}
                 </Link>
-                <a className="ghost" href={buildProjectHref(heroProject.id)} onClick={(e) => onProjectLinkClick(e, heroProject.id)}>
+                <a
+                  className="ghost"
+                  href={buildProjectHref(heroProject.id)}
+                  onClick={(e) => onProjectLinkClick(e, heroProject.id, 'hero_case_modal')}
+                >
                   {locale === 'de' ? 'Technische Details' : 'Technical details'}
                 </a>
               </div>
@@ -375,6 +481,22 @@ export default function HomePage() {
           <div className="project-grid">{featuredProjects.map((p) => renderProjectCard(p, locale, onProjectLinkClick))}</div>
         </section>
 
+        <section id="career-switch" className="section" aria-labelledby="career-switch-title">
+          <div className="section-head">
+            <h2 id="career-switch-title">{t.career_switch.title}</h2>
+            <p>{t.career_switch.desc}</p>
+          </div>
+          <div className="career-grid">
+            <p>{t.career_switch.intro}</p>
+            <p>{t.career_switch.prior_experience}</p>
+            <ul>
+              {t.career_switch.bullets.map((bullet) => (
+                <li key={bullet}>{bullet}</li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
         <section id="stack" className="section" aria-labelledby="stack-title">
           <div className="section-head">
             <h2 id="stack-title">{t.sections.stack.title}</h2>
@@ -385,12 +507,6 @@ export default function HomePage() {
               <div key={item.title}>
                 <h3>{item.title}</h3>
                 <p>{item.desc}</p>
-                {item.proof ? (
-                  <a className="stack-proof" href={item.proof.href}>
-                    <span className="stack-proof-label">{item.proof.label[locale]}</span>
-                    <span className="stack-proof-line">{item.proof.one_liner[locale]}</span>
-                  </a>
-                ) : null}
               </div>
             ))}
           </div>
@@ -409,11 +525,51 @@ export default function HomePage() {
             <h2 id="contact-title">{t.sections.contact.title}</h2>
             <p>{t.sections.contact.desc}</p>
           </div>
-          <div className="contact-card">
-            <p>{t.sections.contact.card}</p>
-            <a className="primary" href={`mailto:${CONTACT_EMAIL}`}>
-              {t.sections.contact.cta}
-            </a>
+          <div className="contact-layout">
+            <ContactForm locale={locale} text={t.contact_form} />
+
+            <aside className="contact-card">
+              <p>{t.sections.contact.card}</p>
+              <a className="primary" href={`mailto:${CONTACT_EMAIL}`} onClick={() => onContactCtaClick('contact_mailto')}>
+                {locale === 'de' ? 'Direkt per E-Mail' : 'Email directly'}
+              </a>
+              <a
+                className="ghost"
+                href={cvPath}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => onCvClick('contact_card')}
+              >
+                {t.hero.cv}
+              </a>
+              <a className="ghost" href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
+                {t.hero.github}
+              </a>
+
+              <div className="trust-block">
+                <h3>{t.trust.title}</h3>
+                <ul>
+                  {t.trust.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section id="faq" className="section" aria-labelledby="faq-title">
+          <div className="section-head">
+            <h2 id="faq-title">{t.faq.title}</h2>
+            <p>{t.faq.desc}</p>
+          </div>
+          <div className="faq-list">
+            {t.faq.items.map((item) => (
+              <details key={item.q} className="faq-item">
+                <summary>{item.q}</summary>
+                <p>{item.a}</p>
+              </details>
+            ))}
           </div>
         </section>
       </main>
@@ -422,6 +578,10 @@ export default function HomePage() {
         <span>{t.footer.left}</span>
         <span>{t.footer.right}</span>
       </footer>
+
+      <a className="mobile-contact-cta" href="#contact" onClick={() => onContactCtaClick('mobile_sticky')}>
+        {t.sections.contact.cta}
+      </a>
 
       <ProjectModal project={activeProject} locale={locale} onClose={closeModal} />
     </>
