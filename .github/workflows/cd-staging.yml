@@ -1,0 +1,131 @@
+name: cd-staging
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: staging
+  cancel-in-progress: false
+
+jobs:
+  deploy-staging:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+    environment:
+      name: staging
+      url: https://staging.ivo-tech.com
+    permissions:
+      contents: read
+      deployments: write
+      checks: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Wait for required quality checks on this commit
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const required = ['ci', 'unit-integration', 'e2e', 'security'];
+            const timeoutMs = 10 * 60 * 1000;
+            const pollMs = 15 * 1000;
+            const started = Date.now();
+
+            const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+            while (true) {
+              const { data } = await github.rest.checks.listForRef({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                ref: context.sha,
+                per_page: 100
+              });
+
+              const byName = new Map();
+              for (const run of data.check_runs) {
+                if (!required.includes(run.name)) continue;
+                const prev = byName.get(run.name);
+                if (!prev || run.id > prev.id) byName.set(run.name, run);
+              }
+
+              const missing = required.filter((name) => !byName.has(name));
+              const pending = [];
+              const failed = [];
+
+              for (const name of required) {
+                const run = byName.get(name);
+                if (!run) continue;
+                if (run.status !== 'completed') {
+                  pending.push(`${name} (${run.status})`);
+                  continue;
+                }
+                if (run.conclusion !== 'success') {
+                  failed.push(`${name} (${run.conclusion})`);
+                }
+              }
+
+              if (failed.length) {
+                core.setFailed(`Required checks failed for ${context.sha}: ${failed.join(', ')}`);
+                return;
+              }
+
+              if (!missing.length && !pending.length) {
+                core.info(`All required checks passed for ${context.sha}.`);
+                return;
+              }
+
+              if (Date.now() - started > timeoutMs) {
+                core.setFailed(
+                  `Timed out waiting for required checks. Missing: ${missing.join(', ') || 'none'}. Pending: ${
+                    pending.join(', ') || 'none'
+                  }.`
+                );
+                return;
+              }
+
+              core.info(
+                `Waiting for checks on ${context.sha}. Missing: ${missing.join(', ') || 'none'}. Pending: ${
+                  pending.join(', ') || 'none'
+                }.`
+              );
+              await sleep(pollMs);
+            }
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify quality gates
+        run: |
+          npm run lint
+          npm run typecheck
+          npm run build
+
+      - name: Pull Vercel project settings (preview env)
+        run: npx vercel pull --yes --environment=preview --token="$VERCEL_TOKEN"
+
+      - name: Build Vercel output
+        run: npx vercel build --token="$VERCEL_TOKEN"
+
+      - name: Deploy prebuilt artifact to Vercel
+        id: deploy
+        run: |
+          DEPLOYMENT_URL=$(npx vercel deploy --prebuilt --token="$VERCEL_TOKEN" | grep -Eo 'https://[^ ]+' | tail -n 1)
+          echo "deployment_url=${DEPLOYMENT_URL}" >> "$GITHUB_OUTPUT"
+          echo "Deployed to ${DEPLOYMENT_URL}"
+
+      - name: Alias deployment to staging domain
+        run: npx vercel alias set "${{ steps.deploy.outputs.deployment_url }}" staging.ivo-tech.com --token="$VERCEL_TOKEN"

@@ -1,11 +1,16 @@
 ---
-description: Erstellt eine temporäre Online-Vorschau, ohne die Live-Seite zu ändern.
+description: Erstellt eine Vorschau, ohne die Live-Seite zu verändern.
 ---
 
-Dieser Workflow lädt deine Seite auf eine geheime, temporäre URL hoch.
-Perfekt, um Änderungen "live" zu testen (z.B. auf dem Handy), OHNE die echte Seite (ivo-tech.com) zu gefährden.
+Standardweg: Pull Request öffnen.
+- Vercel erzeugt automatisch eine Preview URL.
+- Optional E2E gegen Preview:
+  - GitHub Workflow `e2e` per `workflow_dispatch` mit `base_url` starten.
 
-1. Erstelle Preview-Channel (Gültig für 24h).
+CLI Alternative:
 
-// turbo-all
-firebase hosting:channel:deploy preview --expires 24h
+```bash
+npx vercel pull --yes --environment=preview --token="$VERCEL_TOKEN"
+npx vercel build --token="$VERCEL_TOKEN"
+npx vercel deploy --prebuilt --token="$VERCEL_TOKEN"
+```

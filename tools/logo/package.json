@@ -1,0 +1,8 @@
+{
+  "name": "ivo-tech-logo-tool",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "three": "0.128.0"
+  }
+}

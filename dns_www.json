@@ -1,7 +1,0 @@
-{
-  "type": "CNAME",
-  "name": "www.ivo-tech.com",
-  "content": "ivo-tech-site.web.app",
-  "ttl": 1,
-  "proxied": false
-}

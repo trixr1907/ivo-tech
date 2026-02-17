@@ -1,9 +1,15 @@
 ---
-description: Zeigt die Historie der letzten Backups (Commits) an.
+description: Zeigt die Historie der letzten Changes und Releases.
 ---
 
-Gibt eine übersichtliche Liste deiner letzten Änderungen aus.
-Jede Zeile beginnt mit einer "ID" (z.B. `a1b2c3d`), die du brauchst, um zu diesem Punkt zurückzukehren.
+Lokale Historie:
 
-// turbo-all
-git log --oneline --graph --decorate --all -n 10
+```bash
+git log --oneline --graph --decorate --all -n 20
+```
+
+GitHub Actions Runs (optional, mit gh):
+
+```bash
+gh run list --limit 20
+```

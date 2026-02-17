@@ -1,0 +1,5 @@
+### Page
+- Page URL: http://127.0.0.1:4174/
+- Page Title: Ristorante Luna Rossa | Authentische italienische Pizza
+### Snapshot
+- [snapshot](.playwright-cli/page-2026-02-07T20-49-12-310Z.yml)

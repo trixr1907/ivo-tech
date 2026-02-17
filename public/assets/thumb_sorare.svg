@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#07111E" />
+      <stop offset="1" stop-color="#1A0C2D" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)" />
+  <rect x="140" y="120" width="1320" height="760" rx="26" fill="#0B1320" stroke="#2A3653" />
+  <text x="190" y="220" fill="#B4C2DE" font-size="42" font-family="sans-serif">SORARE NBA EDGE TOOL</text>
+  <text x="190" y="275" fill="#6EE7FF" font-size="26" font-family="monospace">projection + uncertainty + optimization + simulation</text>
+  <rect x="190" y="340" width="250" height="200" rx="16" fill="#101D2D" stroke="#2F4A71" />
+  <rect x="470" y="340" width="250" height="200" rx="16" fill="#151B31" stroke="#53427E" />
+  <rect x="750" y="340" width="250" height="200" rx="16" fill="#12212F" stroke="#35658B" />
+  <rect x="1030" y="340" width="250" height="200" rx="16" fill="#19152F" stroke="#6A3F86" />
+  <text x="228" y="395" fill="#8FA4C9" font-size="20" font-family="monospace">Projection</text>
+  <text x="228" y="442" fill="#E3ECFF" font-size="36" font-family="sans-serif">+4.7</text>
+  <text x="228" y="485" fill="#9FB2D1" font-size="20" font-family="monospace">value score</text>
+  <text x="508" y="395" fill="#B09CD7" font-size="20" font-family="monospace">Optimizer</text>
+  <text x="508" y="442" fill="#F5ECFF" font-size="36" font-family="sans-serif">OR-Tools</text>
+  <text x="508" y="485" fill="#B8A8DF" font-size="20" font-family="monospace">lineup solver</text>
+  <text x="788" y="395" fill="#9FD8EC" font-size="20" font-family="monospace">Simulation</text>
+  <text x="788" y="442" fill="#E3F8FF" font-size="36" font-family="sans-serif">10k runs</text>
+  <text x="788" y="485" fill="#9FD8EC" font-size="20" font-family="monospace">risk profile</text>
+  <text x="1068" y="395" fill="#CC9DE6" font-size="20" font-family="monospace">Delivery</text>
+  <text x="1068" y="442" fill="#F3E8FF" font-size="36" font-family="sans-serif">API + Web</text>
+  <text x="1068" y="485" fill="#C6A2DE" font-size="20" font-family="monospace">decision surface</text>
+</svg>
