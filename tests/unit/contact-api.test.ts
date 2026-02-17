@@ -1,22 +1,15 @@
 /* @vitest-environment node */
 
-import type { NextApiRequest, NextApiResponse } from 'next';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
-import handler from '@/pages/api/contact';
+import { handleContactRequest } from '@/server/contact/handler';
 
 type ContactResponse =
   | { ok: true; requestId: string }
-  | { ok: false; errorCode: 'method_not_allowed' | 'invalid_payload' | 'rate_limited' | 'verification_failed' | 'delivery_failed' };
-
-type MockResponse = {
-  body?: ContactResponse;
-  statusCode: number;
-  headers: Record<string, string | string[]>;
-  setHeader: (key: string, value: string | string[]) => MockResponse;
-  status: (code: number) => MockResponse;
-  json: (payload: ContactResponse) => MockResponse;
-};
+  | {
+      ok: false;
+      errorCode: 'method_not_allowed' | 'invalid_payload' | 'rate_limited' | 'verification_failed' | 'delivery_failed';
+    };
 
 const scopedEnvKeys = [
   'CONTACT_WEBHOOK_URL',
@@ -50,6 +43,9 @@ function createPayload(overrides: Partial<Record<string, unknown>> = {}) {
     name: 'Test User',
     email: 'test@example.com',
     intent: 'hiring',
+    intent_detail: 'hiring',
+    timeline_band: '30d',
+    project_scope: 'unknown',
     company: 'Acme GmbH',
     message: 'Ich moechte ein kurzes Hiring-Gespraech zum Team-Setup abstimmen.',
     locale: 'de',
@@ -60,42 +56,28 @@ function createPayload(overrides: Partial<Record<string, unknown>> = {}) {
   };
 }
 
-function createReq(input: {
+function createRequest(input: {
   method?: string;
   body?: Record<string, unknown>;
   ip?: string;
-  headers?: Record<string, string | string[]>;
-} = {}): NextApiRequest {
+  headers?: Record<string, string>;
+} = {}) {
   const { method = 'POST', body = createPayload(), ip = '127.0.0.1', headers = {} } = input;
 
-  return {
+  return new Request('http://localhost/api/contact', {
     method,
-    body,
-    headers,
-    socket: { remoteAddress: ip }
-  } as unknown as NextApiRequest;
+    headers: {
+      'content-type': 'application/json',
+      'x-forwarded-for': ip,
+      ...headers
+    },
+    body: method === 'POST' ? JSON.stringify(body) : undefined
+  });
 }
 
-function createRes(): MockResponse {
-  const res = {
-    statusCode: 200,
-    body: undefined as ContactResponse | undefined,
-    headers: {} as Record<string, string | string[]>,
-    setHeader(key: string, value: string | string[]) {
-      this.headers[key] = value;
-      return this;
-    },
-    status(code: number) {
-      this.statusCode = code;
-      return this;
-    },
-    json(payload: ContactResponse) {
-      this.body = payload;
-      return this;
-    }
-  };
-
-  return res as MockResponse;
+async function parseResponse(response: Response) {
+  const payload = (await response.json()) as ContactResponse;
+  return { statusCode: response.status, payload, headers: response.headers };
 }
 
 describe('/api/contact', () => {
@@ -106,72 +88,80 @@ describe('/api/contact', () => {
   });
 
   it('rejects non-POST methods', async () => {
-    const req = createReq({ method: 'GET' });
-    const res = createRes();
+    const result = await parseResponse(await handleContactRequest(createRequest({ method: 'GET' })));
 
-    await handler(req, res as unknown as NextApiResponse<ContactResponse>);
-
-    expect(res.statusCode).toBe(405);
-    expect(res.headers.Allow).toBe('POST');
-    expect(res.body).toEqual({ ok: false, errorCode: 'method_not_allowed' });
+    expect(result.statusCode).toBe(405);
+    expect(result.headers.get('Allow')).toBe('POST');
+    expect(result.payload).toEqual({ ok: false, errorCode: 'method_not_allowed' });
   });
 
   it('rejects invalid payloads', async () => {
-    const req = createReq({
-      body: {
-        name: 'x',
-        email: 'invalid',
-        sourcePath: 'contact'
-      }
-    });
-    const res = createRes();
+    const result = await parseResponse(
+      await handleContactRequest(
+        createRequest({
+          body: {
+            name: 'x',
+            email: 'invalid',
+            sourcePath: 'contact'
+          }
+        })
+      )
+    );
 
-    await handler(req, res as unknown as NextApiResponse<ContactResponse>);
+    expect(result.statusCode).toBe(400);
+    expect(result.payload).toEqual({ ok: false, errorCode: 'invalid_payload' });
+  });
 
-    expect(res.statusCode).toBe(400);
-    expect(res.body).toEqual({ ok: false, errorCode: 'invalid_payload' });
+  it('accepts payloads when extended quality fields are omitted', async () => {
+    vi.spyOn(console, 'info').mockImplementation(() => undefined);
+    const payload = {
+      ...createPayload(),
+      intent_detail: undefined,
+      timeline_band: undefined,
+      project_scope: undefined
+    };
+
+    const result = await parseResponse(await handleContactRequest(createRequest({ body: payload })));
+
+    expect(result.statusCode).toBe(200);
+    expect(result.payload.ok).toBe(true);
   });
 
   it('silently accepts honeypot submissions', async () => {
-    const req = createReq({
-      body: createPayload({ website: 'https://spam.invalid' })
-    });
-    const res = createRes();
+    const result = await parseResponse(
+      await handleContactRequest(
+        createRequest({
+          body: createPayload({ website: 'https://spam.invalid' })
+        })
+      )
+    );
 
-    await handler(req, res as unknown as NextApiResponse<ContactResponse>);
-
-    expect(res.statusCode).toBe(200);
-    expect(res.body?.ok).toBe(true);
+    expect(result.statusCode).toBe(200);
+    expect(result.payload.ok).toBe(true);
   });
 
   it('applies per-IP rate limiting', async () => {
     process.env.CONTACT_RATE_LIMIT_PER_IP = '1';
     vi.spyOn(console, 'info').mockImplementation(() => undefined);
 
-    const req1 = createReq({ ip: '10.10.10.10' });
-    const res1 = createRes();
-    await handler(req1, res1 as unknown as NextApiResponse<ContactResponse>);
+    const first = await parseResponse(await handleContactRequest(createRequest({ ip: '10.10.10.10' })));
+    const second = await parseResponse(await handleContactRequest(createRequest({ ip: '10.10.10.10' })));
 
-    const req2 = createReq({ ip: '10.10.10.10' });
-    const res2 = createRes();
-    await handler(req2, res2 as unknown as NextApiResponse<ContactResponse>);
-
-    expect(res1.statusCode).toBe(200);
-    expect(res1.body?.ok).toBe(true);
-    expect(res2.statusCode).toBe(429);
-    expect(res2.body).toEqual({ ok: false, errorCode: 'rate_limited' });
+    expect(first.statusCode).toBe(200);
+    expect(first.payload.ok).toBe(true);
+    expect(second.statusCode).toBe(429);
+    expect(second.payload).toEqual({ ok: false, errorCode: 'rate_limited' });
   });
 
   it('requires turnstile verification when secret is configured', async () => {
     process.env.TURNSTILE_SECRET_KEY = 'secret';
 
-    const req = createReq({ body: createPayload({ turnstileToken: '' }) });
-    const res = createRes();
+    const result = await parseResponse(
+      await handleContactRequest(createRequest({ body: createPayload({ turnstileToken: '' }) }))
+    );
 
-    await handler(req, res as unknown as NextApiResponse<ContactResponse>);
-
-    expect(res.statusCode).toBe(403);
-    expect(res.body).toEqual({ ok: false, errorCode: 'verification_failed' });
+    expect(result.statusCode).toBe(403);
+    expect(result.payload).toEqual({ ok: false, errorCode: 'verification_failed' });
   });
 
   it('returns delivery_failed when webhook rejects submission', async () => {
@@ -182,12 +172,9 @@ describe('/api/contact', () => {
       status: 500
     } as unknown as Response);
 
-    const req = createReq();
-    const res = createRes();
+    const result = await parseResponse(await handleContactRequest(createRequest()));
 
-    await handler(req, res as unknown as NextApiResponse<ContactResponse>);
-
-    expect(res.statusCode).toBe(502);
-    expect(res.body).toEqual({ ok: false, errorCode: 'delivery_failed' });
+    expect(result.statusCode).toBe(502);
+    expect(result.payload).toEqual({ ok: false, errorCode: 'delivery_failed' });
   });
 });

@@ -32,7 +32,7 @@ test.describe('homepage critical journeys', () => {
 
   test('submits contact form successfully on homepage', async ({ page }) => {
     await page.goto('/');
-    await page.getByRole('link', { name: /Kontaktgespraech/i }).first().click();
+    await page.getByRole('link', { name: /(Architekturgespraech|Kontaktgespraech)/i }).first().click();
 
     await page.getByLabel('Name').fill('Test User');
     await page.getByLabel('E-Mail').fill('test@example.com');
@@ -79,6 +79,12 @@ test.describe('homepage critical journeys', () => {
     const sitemapXml = await sitemapResponse.text();
     expect(sitemapXml).toContain('<loc>https://ivo-tech.com/</loc>');
     expect(sitemapXml).toContain('<loc>https://ivo-tech.com/en</loc>');
+    expect(sitemapXml).toContain('<loc>https://ivo-tech.com/insights</loc>');
+    expect(sitemapXml).toContain('<loc>https://ivo-tech.com/en/insights</loc>');
+    expect(sitemapXml).toContain('<loc>https://ivo-tech.com/playbooks</loc>');
+    expect(sitemapXml).toContain('<loc>https://ivo-tech.com/case-studies</loc>');
+    expect(sitemapXml).toContain('<loc>https://ivo-tech.com/insights/architecture-decisions-under-pressure</loc>');
+    expect(sitemapXml).not.toContain('<loc>https://ivo-tech.com/en/insights/architecture-decisions-under-pressure</loc>');
     expect(sitemapXml).toContain('<lastmod>');
     expect(sitemapXml).toContain('xmlns:xhtml="http://www.w3.org/1999/xhtml"');
     expect(sitemapXml).toContain('hreflang="x-default"');
@@ -86,5 +92,34 @@ test.describe('homepage critical journeys', () => {
     const pizzaResponse = await request.get('/pizza/index.html');
     expect(pizzaResponse.ok()).toBeTruthy();
     expect(pizzaResponse.headers()['x-robots-tag']).toContain('noindex');
+  });
+
+  test('serves insights index and article schema', async ({ page, request }) => {
+    await page.goto('/insights');
+    await expect(page.getByRole('heading', { level: 1, name: /Engineering/i })).toBeVisible();
+    await expect(page.locator('.insight-card').first()).toBeVisible();
+
+    const articleResponse = await request.get('/insights/architecture-decisions-under-pressure');
+    expect(articleResponse.ok()).toBeTruthy();
+    const articleHtml = await articleResponse.text();
+    expect(articleHtml).toContain('\"@type\":\"Article\"');
+  });
+
+  test('serves playbooks and case-studies hubs and returns 404 for missing EN detail translation', async ({ request }) => {
+    const playbooksIndex = await request.get('/playbooks');
+    expect(playbooksIndex.ok()).toBeTruthy();
+    const playbooksHtml = await playbooksIndex.text();
+    expect(playbooksHtml).toContain('Engineering Playbooks');
+
+    const caseStudiesIndex = await request.get('/case-studies');
+    expect(caseStudiesIndex.ok()).toBeTruthy();
+    const caseStudiesHtml = await caseStudiesIndex.text();
+    expect(caseStudiesHtml).toContain('Case Studies');
+
+    const deDetail = await request.get('/playbooks/performance-budget-guardrails');
+    expect(deDetail.ok()).toBeTruthy();
+
+    const enMissingDetail = await request.get('/en/playbooks/performance-budget-guardrails');
+    expect(enMissingDetail.status()).toBe(404);
   });
 });
