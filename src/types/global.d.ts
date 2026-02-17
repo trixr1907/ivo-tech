@@ -24,5 +24,6 @@ declare global {
     DLD3DConfigurator?: Dld3dRuntime;
     // Used as a guard to avoid double-starting visuals when navigating between locales.
     __IVO_VISUALS_STARTED__?: boolean;
+    dataLayer?: Array<Record<string, string | number | boolean>>;
   }
 }

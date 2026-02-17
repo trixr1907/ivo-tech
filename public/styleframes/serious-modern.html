@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Styleframe - Serioes modern</title>
+    <style>
+      :root { --bg: #f3f6fb; --text: #0f1a2a; --muted: #5e6b82; --brand: #0d5bd7; }
+      * { box-sizing: border-box; }
+      body { margin: 0; font-family: 'Segoe UI', sans-serif; color: var(--text); background: var(--bg); }
+      .wrap { max-width: 1080px; margin: 0 auto; padding: 72px 24px; }
+      .badge { display: inline-block; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--brand); }
+      h1 { font-size: clamp(32px, 5vw, 58px); margin: 14px 0; line-height: 1.08; }
+      p { font-size: 18px; color: var(--muted); max-width: 720px; line-height: 1.6; }
+      .cta { margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap; }
+      a { text-decoration: none; border-radius: 999px; padding: 12px 18px; font-weight: 600; }
+      .primary { background: var(--brand); color: #fff; }
+      .ghost { border: 1px solid #c9d4e6; color: var(--text); }
+      .cards { margin-top: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+      .card { background: #fff; border: 1px solid #dfe7f4; border-radius: 16px; padding: 18px; }
+      .card h2 { margin: 0 0 8px; font-size: 20px; }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <span class="badge">Styleframe A</span>
+      <h1>Serioes modern: klare B2B-Fuehrung mit starker Conversion-Prioritaet</h1>
+      <p>Ruhige, vertrauensbildende Optik mit klarer Informationshierarchie fuer Hiring- und Projektanfragen.</p>
+      <div class="cta">
+        <a href="#" class="primary">Kontaktgespraech anfragen</a>
+        <a href="#" class="ghost">Case Study ansehen</a>
+      </div>
+      <section class="cards">
+        <article class="card"><h2>Hiring</h2><p>Klare Rolle, Verfuegbarkeit und Team-Fit.</p></article>
+        <article class="card"><h2>Projektanfrage</h2><p>Abgrenzbarer Scope, API-Delivery, Deployment.</p></article>
+      </section>
+    </main>
+  </body>
+</html>
