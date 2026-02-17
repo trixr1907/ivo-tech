@@ -1,13 +1,14 @@
-import Head from 'next/head';
+'use client';
+
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 
 import { LanguageToggle } from '@/components/LanguageToggle';
+import type { Locale } from '@/content/copy';
 import { getProjectById } from '@/content/projects';
 import { trackEvent } from '@/lib/analytics';
-import { resolveLocale } from '@/lib/locale';
-import { SITE_URL } from '@/lib/site';
+import { localizePath } from '@/lib/localeRouting';
 
 const LIVE_LINK = 'https://deinlieblingsdruck.de/3d-konfigurator/#preisrechner';
 
@@ -16,31 +17,23 @@ type CaseStudyBlock = {
   points: string[];
 };
 
-export default function ConfiguratorPage() {
-  const router = useRouter();
-  const locale = resolveLocale(router.locale);
+type Props = {
+  locale: Locale;
+};
+
+export function ConfiguratorPageClient({ locale }: Props) {
+  const pathname = usePathname() || localizePath('/configurator', locale);
   const heroProject = getProjectById('configurator_3d');
-
-  const title = heroProject?.seo_title[locale] ?? (locale === 'de' ? '3D-Konfigurator Case Study | IVO TECH' : '3D configurator case study | IVO TECH');
-
-  const description = heroProject?.seo_description[locale] ?? (
-    locale === 'de'
-      ? 'Premium Case Study: Problem, Loesung, Technologie und Impact des Live 3D-Konfigurators.'
-      : 'Premium case study: problem, solution, technology, and impact of the live 3D configurator.'
-  );
-
-  const canonical = locale === 'en' ? `${SITE_URL}/en/configurator` : `${SITE_URL}/configurator`;
-  const deCanonical = `${SITE_URL}/configurator`;
-  const enCanonical = `${SITE_URL}/en/configurator`;
-  const contactHref = '/#contact';
+  const contactHref = localizePath('/#contact', locale);
 
   useEffect(() => {
     trackEvent('case_study_open', {
       projectId: 'configurator_3d',
       source: 'configurator_page',
-      locale
+      locale,
+      path: pathname
     });
-  }, [locale]);
+  }, [locale, pathname]);
 
   const blocks: CaseStudyBlock[] =
     locale === 'de'
@@ -131,43 +124,23 @@ export default function ConfiguratorPage() {
 
   return (
     <>
-      <Head>
-        <title>{title}</title>
-        <meta name="description" content={description} />
-        <meta name="robots" content="index,follow" />
-        <link rel="canonical" href={canonical} />
-        <link rel="alternate" hrefLang="de" href={deCanonical} />
-        <link rel="alternate" hrefLang="en" href={enCanonical} />
-        <link rel="alternate" hrefLang="x-default" href={deCanonical} />
-
-        <meta property="og:type" content="article" />
-        <meta property="og:site_name" content="IVO TECH" />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        <meta property="og:url" content={canonical} />
-        <meta property="og:image" content={`${SITE_URL}/assets/thumb_viewer_neon.png`} />
-      </Head>
-
       <header className="site-header">
         <div className="brand">IVO TECH</div>
         <nav className="nav" aria-label={locale === 'de' ? 'Hauptnavigation' : 'Primary'}>
-          <Link href="/" locale={locale}>
-            {locale === 'de' ? 'Startseite' : 'Home'}
-          </Link>
+          <Link href={localizePath('/', locale)}>{locale === 'de' ? 'Startseite' : 'Home'}</Link>
           <a href={LIVE_LINK} target="_blank" rel="noopener noreferrer">
             {locale === 'de' ? 'Live Demo' : 'Live demo'}
           </a>
           <Link
             href={contactHref}
-            locale={locale}
-            onClick={() => trackEvent('cta_contact_click', { location: 'configurator_nav', intent: 'hybrid', locale })}
+            onClick={() => trackEvent('cta_contact_click', { location: 'configurator_nav', intent: 'hybrid', locale, path: pathname })}
           >
             {locale === 'de' ? 'Kontakt' : 'Contact'}
           </Link>
         </nav>
         <div className="header-right">
           <LanguageToggle />
-          <Link className="cta" href="/" locale={locale}>
+          <Link className="cta" href={localizePath('/', locale)}>
             {locale === 'de' ? 'Zurueck' : 'Back'}
           </Link>
         </div>
@@ -190,8 +163,7 @@ export default function ConfiguratorPage() {
               <Link
                 className="ghost"
                 href={contactHref}
-                locale={locale}
-                onClick={() => trackEvent('cta_contact_click', { location: 'configurator_hero', intent: 'hybrid', locale })}
+                onClick={() => trackEvent('cta_contact_click', { location: 'configurator_hero', intent: 'hybrid', locale, path: pathname })}
               >
                 {locale === 'de' ? 'Kontaktgespraech anfragen' : 'Request contact call'}
               </Link>

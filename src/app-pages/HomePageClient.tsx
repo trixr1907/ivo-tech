@@ -1,7 +1,8 @@
-import Head from 'next/head';
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import type { MouseEvent } from 'react';
 
 import { ContactForm } from '@/components/ContactForm';
@@ -9,22 +10,24 @@ import { HeroCommands } from '@/components/HeroCommands';
 import { LanguageToggle } from '@/components/LanguageToggle';
 import { ProjectModal } from '@/components/ProjectModal';
 import { copy, type Locale } from '@/content/copy';
-import {
-  getProjectById,
-  getProjectStatusLabel,
-  getProjectsByTier,
-  type Project,
-  type ProjectId
-} from '@/content/projects';
-import {
-  buildProjectHref,
-  createCloseProjectRoute,
-  createOpenProjectRoute,
-  parseProjectParam
-} from '@/features/home/projectState';
+import { getProjectById, getProjectStatusLabel, getProjectsByTier, type Project, type ProjectId } from '@/content/projects';
+import { buildProjectHref } from '@/features/home/projectState';
 import { trackEvent } from '@/lib/analytics';
-import { resolveLocale } from '@/lib/locale';
-import { CONTACT_EMAIL, CV_PATH, GITHUB_URL, SITE_URL } from '@/lib/site';
+import { localizePath } from '@/lib/localeRouting';
+import { CONTACT_EMAIL, CV_PATH, GITHUB_URL } from '@/lib/site';
+
+type FeaturedInsightTeaser = {
+  slug: string;
+  title: string;
+  summary: string;
+  category: string;
+  readMinutes: number;
+};
+
+type Props = {
+  locale: Locale;
+  featuredInsights: FeaturedInsightTeaser[];
+};
 
 function renderProjectCard(
   project: Project,
@@ -70,33 +73,36 @@ function renderProjectCard(
   );
 }
 
-export default function HomePage() {
+export function HomePageClient({ locale, featuredInsights }: Props) {
   const router = useRouter();
-  const locale = resolveLocale(router.locale);
+  const pathname = usePathname() || (locale === 'en' ? '/en' : '/');
+  const searchParams = useSearchParams();
+  const search = searchParams?.toString() ?? '';
+  const asPath = `${pathname}${search ? `?${search}` : ''}`;
   const t = copy[locale];
 
-  const projectParam = parseProjectParam(router.query.project);
+  const projectParam = searchParams?.get('project') ?? null;
   const activeProject = getProjectById(projectParam);
 
   const heroProject = getProjectsByTier('hero')[0] ?? null;
   const featuredProjects = getProjectsByTier('featured');
   const labsProjects = getProjectsByTier('labs');
-  const heroProofLink = heroProject?.proof_link ?? '/configurator';
+  const heroProofLink = heroProject?.proof_link ?? localizePath('/configurator', locale);
 
   const openProject = (id: ProjectId, source = 'unknown') => {
-    trackEvent('case_study_open', { projectId: id, source, locale, path: router.asPath });
+    trackEvent('case_study_open', { projectId: id, source, locale, path: asPath });
 
-    void router.push(createOpenProjectRoute(router.pathname, router.query, id), undefined, {
-      shallow: true,
-      scroll: false
-    });
+    const nextParams = new URLSearchParams(search);
+    nextParams.set('project', id);
+    const nextQuery = nextParams.toString();
+    router.push(`${pathname}${nextQuery ? `?${nextQuery}` : ''}#featured`, { scroll: false });
   };
 
   const closeModal = () => {
-    void router.replace(createCloseProjectRoute(router.pathname, router.query), undefined, {
-      shallow: true,
-      scroll: false
-    });
+    const nextParams = new URLSearchParams(search);
+    nextParams.delete('project');
+    const nextQuery = nextParams.toString();
+    router.replace(`${pathname}${nextQuery ? `?${nextQuery}` : ''}#featured`, { scroll: false });
   };
 
   const onProjectLinkClick = (e: MouseEvent<HTMLAnchorElement>, id: ProjectId, source: string) => {
@@ -112,35 +118,25 @@ export default function HomePage() {
       location,
       intent,
       locale,
-      path: router.asPath
+      path: asPath
     });
   };
 
   const onCvClick = (location: string) => {
+    trackEvent('authority_asset_view', {
+      asset: 'cv',
+      location,
+      locale,
+      path: asPath
+    });
     trackEvent('cv_download', {
       location,
       locale,
-      path: router.asPath
+      path: asPath
     });
   };
 
-  const pageTitle = t.meta.title;
-  const pageDescription = t.meta.description;
-  const canonical = locale === 'en' ? `${SITE_URL}/en` : `${SITE_URL}/`;
   const cvPath = locale === 'en' ? CV_PATH.en : CV_PATH.de;
-  const faqSchema = {
-    '@type': 'FAQPage',
-    '@id': `${canonical}#faq`,
-    inLanguage: locale,
-    mainEntity: t.faq.items.map((item) => ({
-      '@type': 'Question',
-      name: item.q,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: item.a
-      }
-    }))
-  };
 
   const stackItems =
     locale === 'de'
@@ -181,61 +177,10 @@ export default function HomePage() {
           }
         ];
 
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      { '@type': 'WebSite', '@id': `${SITE_URL}#website`, url: SITE_URL, name: 'IVO TECH' },
-      {
-        '@type': 'WebPage',
-        '@id': `${canonical}#webpage`,
-        url: canonical,
-        name: pageTitle,
-        description: pageDescription,
-        inLanguage: locale,
-        isPartOf: { '@id': `${SITE_URL}#website` }
-      },
-      {
-        '@type': 'Person',
-        '@id': `${SITE_URL}#person`,
-        name: 'Ivo',
-        jobTitle: 'Junior Full-Stack Engineer',
-        url: SITE_URL,
-        email: `mailto:${CONTACT_EMAIL}`,
-        sameAs: [GITHUB_URL]
-      },
-      faqSchema
-    ]
-  };
-
   const skipText = locale === 'de' ? 'Zum Inhalt springen' : 'Skip to content';
 
   return (
     <>
-      <Head>
-        <title>{pageTitle}</title>
-        <meta name="description" content={pageDescription} />
-        <meta name="robots" content="index,follow" />
-
-        <link rel="canonical" href={canonical} />
-        <link rel="alternate" hrefLang="de" href={`${SITE_URL}/`} />
-        <link rel="alternate" hrefLang="en" href={`${SITE_URL}/en`} />
-        <link rel="alternate" hrefLang="x-default" href={`${SITE_URL}/`} />
-
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="IVO TECH" />
-        <meta property="og:title" content={pageTitle} />
-        <meta property="og:description" content={pageDescription} />
-        <meta property="og:url" content={canonical} />
-        <meta property="og:image" content={`${SITE_URL}/assets/logo.png`} />
-        <meta property="og:locale" content={locale === 'en' ? 'en_US' : 'de_DE'} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={pageTitle} />
-        <meta name="twitter:description" content={pageDescription} />
-        <meta name="twitter:image" content={`${SITE_URL}/assets/logo.png`} />
-
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      </Head>
-
       <a className="skip-link" href="#main">
         {skipText}
       </a>
@@ -246,15 +191,12 @@ export default function HomePage() {
           <a href="#hero-case">{t.nav.heroCase}</a>
           <a href="#featured">{t.nav.featured}</a>
           <a href="#paths">{t.nav.paths}</a>
+          <Link href={localizePath('/insights', locale)}>{t.nav.insights}</Link>
           <a href="#contact">{t.nav.contact}</a>
         </nav>
         <div className="header-right">
           <LanguageToggle />
-          <a
-            className="cta"
-            href="#contact"
-            onClick={() => onContactCtaClick('header')}
-          >
+          <a className="cta" href="#contact" onClick={() => onContactCtaClick('header')}>
             {t.nav.cta}
           </a>
         </div>
@@ -266,29 +208,48 @@ export default function HomePage() {
             <p className="eyebrow">{t.hero.eyebrow}</p>
             <h1 id="hero-title">{t.hero.title}</h1>
             <p className="lead">{t.hero.lead}</p>
+            <p className="hero-sublead">{t.hero.sublead}</p>
             <div className="hero-actions">
               <a className="primary" href="#contact" onClick={() => onContactCtaClick('hero_primary')}>
                 {t.hero.primary}
               </a>
               <Link
                 className="ghost"
-                href="/configurator"
-                locale={locale}
-                onClick={() => trackEvent('case_study_open', { projectId: 'configurator_3d', source: 'hero_secondary', locale })}
+                href={localizePath('/configurator', locale)}
+                onClick={() =>
+                  trackEvent('case_study_open', {
+                    projectId: 'configurator_3d',
+                    source: 'hero_secondary',
+                    locale,
+                    path: asPath
+                  })
+                }
               >
                 {t.hero.secondary}
               </Link>
+              <a
+                className="ghost"
+                href="#contact"
+                onClick={() => {
+                  trackEvent('audit_cta_click', { source: 'hero_audit', locale, path: asPath });
+                  onContactCtaClick('hero_audit');
+                }}
+              >
+                {t.hero.audit}
+              </a>
             </div>
             <div className="hero-links" aria-label={t.hero.linksLabel}>
-              <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
-                {t.hero.github}
-              </a>
               <a
-                href={cvPath}
+                href={GITHUB_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => onCvClick('hero_links')}
+                onClick={() =>
+                  trackEvent('authority_asset_view', { asset: 'github', location: 'hero_links', locale, path: asPath })
+                }
               >
+                {t.hero.github}
+              </a>
+              <a href={cvPath} target="_blank" rel="noopener noreferrer" onClick={() => onCvClick('hero_links')}>
                 {t.hero.cv}
               </a>
             </div>
@@ -310,6 +271,90 @@ export default function HomePage() {
                 </p>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section id="proof" className="section" aria-labelledby="proof-title">
+          <div className="section-head">
+            <h2 id="proof-title">{t.proof.title}</h2>
+            <p>{t.proof.desc}</p>
+          </div>
+          <div className="proof-grid">
+            {t.proof.items.map((item) => (
+              <details
+                key={item.id}
+                className="proof-card"
+                onToggle={(event) => {
+                  if (event.currentTarget.open) {
+                    trackEvent('proof_expand', { proofId: item.id, locale, path: asPath });
+                  }
+                }}
+              >
+                <summary>
+                  <span className="proof-metric">{item.metric}</span>
+                  <span className="proof-toggle">{locale === 'de' ? 'Details' : 'Details'}</span>
+                </summary>
+                <p>{item.detail}</p>
+                {item.href.startsWith('/') ? (
+                  <Link
+                    href={localizePath(item.href, locale)}
+                    className="proof-link"
+                    onClick={() =>
+                      trackEvent('authority_asset_view', {
+                        asset: `proof_${item.id}`,
+                        destination: item.href,
+                        locale,
+                        path: asPath
+                      })
+                    }
+                  >
+                    {item.cta}
+                  </Link>
+                ) : (
+                  <a
+                    href={item.href}
+                    className="proof-link"
+                    onClick={() =>
+                      trackEvent('authority_asset_view', {
+                        asset: `proof_${item.id}`,
+                        destination: item.href,
+                        locale,
+                        path: asPath
+                      })
+                    }
+                  >
+                    {item.cta}
+                  </a>
+                )}
+              </details>
+            ))}
+          </div>
+        </section>
+
+        <section id="method" className="section" aria-labelledby="method-title">
+          <div className="section-head">
+            <h2 id="method-title">{t.method.title}</h2>
+            <p>{t.method.desc}</p>
+          </div>
+          <div className="method-grid">
+            {t.method.steps.map((step) => (
+              <article key={step.title} className="method-card">
+                <h3>{step.title}</h3>
+                <p>{step.desc}</p>
+              </article>
+            ))}
+          </div>
+          <div className="method-actions">
+            <a
+              className="ghost"
+              href="#contact"
+              onClick={() => {
+                trackEvent('audit_cta_click', { source: 'method_section', locale, path: asPath });
+                onContactCtaClick('method_review');
+              }}
+            >
+              {t.method.cta}
+            </a>
           </div>
         </section>
 
@@ -342,15 +387,48 @@ export default function HomePage() {
                     <li key={bullet}>{bullet}</li>
                   ))}
                 </ul>
-                <a
-                  className="ghost"
-                  href="#contact"
-                  onClick={() => onContactCtaClick(`path_${card.id}`, card.id as 'hiring' | 'client')}
-                >
+                <a className="ghost" href="#contact" onClick={() => onContactCtaClick(`path_${card.id}`, card.id as 'hiring' | 'client')}>
                   {card.cta}
                 </a>
               </article>
             ))}
+          </div>
+        </section>
+
+        <section id="insights" className="section" aria-labelledby="insights-title">
+          <div className="section-head">
+            <h2 id="insights-title">{t.insights.title}</h2>
+            <p>{t.insights.desc}</p>
+          </div>
+          <div className="insights-grid">
+            {featuredInsights.map((insight) => (
+              <article key={insight.slug} className="insight-card">
+                <span className="insight-meta">
+                  {insight.category} | {insight.readMinutes} min
+                </span>
+                <h3>{insight.title}</h3>
+                <p>{insight.summary}</p>
+                <Link
+                  href={localizePath(`/insights/${insight.slug}`, locale)}
+                  className="insight-link"
+                  onClick={() =>
+                    trackEvent('authority_asset_view', {
+                      asset: `insight_${insight.slug}`,
+                      location: 'home_insights',
+                      locale,
+                      path: asPath
+                    })
+                  }
+                >
+                  {locale === 'de' ? 'Insight lesen' : 'Read insight'}
+                </Link>
+              </article>
+            ))}
+          </div>
+          <div className="insights-actions">
+            <Link href={localizePath('/insights', locale)} className="ghost">
+              {t.insights.cta}
+            </Link>
           </div>
         </section>
 
@@ -455,17 +533,12 @@ export default function HomePage() {
                 </a>
                 <Link
                   className="ghost"
-                  href="/configurator"
-                  locale={locale}
+                  href={localizePath('/configurator', locale)}
                   onClick={() => trackEvent('case_study_open', { projectId: heroProject.id, source: 'hero_case_page', locale })}
                 >
                   {locale === 'de' ? 'Premium Case Study' : 'Premium case study'}
                 </Link>
-                <a
-                  className="ghost"
-                  href={buildProjectHref(heroProject.id)}
-                  onClick={(e) => onProjectLinkClick(e, heroProject.id, 'hero_case_modal')}
-                >
+                <a className="ghost" href={buildProjectHref(heroProject.id)} onClick={(e) => onProjectLinkClick(e, heroProject.id, 'hero_case_modal')}>
                   {locale === 'de' ? 'Technische Details' : 'Technical details'}
                 </a>
               </div>
@@ -533,16 +606,16 @@ export default function HomePage() {
               <a className="primary" href={`mailto:${CONTACT_EMAIL}`} onClick={() => onContactCtaClick('contact_mailto')}>
                 {locale === 'de' ? 'Direkt per E-Mail' : 'Email directly'}
               </a>
-              <a
-                className="ghost"
-                href={cvPath}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => onCvClick('contact_card')}
-              >
+              <a href={cvPath} className="ghost" target="_blank" rel="noopener noreferrer" onClick={() => onCvClick('contact_card')}>
                 {t.hero.cv}
               </a>
-              <a className="ghost" href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
+              <a
+                className="ghost"
+                href={GITHUB_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackEvent('authority_asset_view', { asset: 'github', location: 'contact_card', locale, path: asPath })}
+              >
                 {t.hero.github}
               </a>
 

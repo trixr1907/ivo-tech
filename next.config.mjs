@@ -42,12 +42,6 @@ const nextConfig = {
     root: __dirname
   },
 
-  i18n: {
-    locales: ['de', 'en'],
-    defaultLocale: 'de',
-    localeDetection: false
-  },
-
   images: {
     // Default is [75]. We also use 85/90 for some local project thumbnails.
     qualities: [75, 85, 90],
