@@ -48,7 +48,7 @@
     "@testing-library/user-event": "^14.6.1",
     "@types/node": "24.3.1",
     "@types/react": "19.1.11",
-    "@types/react-dom": "19.1.7",
+    "@types/react-dom": "19.2.3",
     "eslint": "9.39.0",
     "eslint-config-next": "16.1.6",
     "jsdom": "^28.1.0",
