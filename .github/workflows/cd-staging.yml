@@ -143,4 +143,7 @@ jobs:
           echo "Deployed to ${DEPLOYMENT_URL}"
 
       - name: Alias deployment to staging domain
-        run: npx vercel alias set "${{ steps.deploy.outputs.deployment_url }}" staging.ivo-tech.com --scope="$VERCEL_ORG_ID" --token="$VERCEL_TOKEN"
+        run: |
+          if ! npx vercel alias set "${{ steps.deploy.outputs.deployment_url }}" staging.ivo-tech.com --scope="$VERCEL_ORG_ID" --token="$VERCEL_TOKEN"; then
+            echo "::warning::Could not alias to staging.ivo-tech.com. Verify the domain is attached to this Vercel team."
+          fi
