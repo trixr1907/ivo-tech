@@ -1,0 +1,29 @@
+---
+slug: api-integration-readiness-playbook
+locale: de
+title: API Integration Readiness Playbook
+description: "Vor dem Go-Live: das Minimalset fuer robuste API-Integrationen im produktiven Betrieb."
+summary: Checkliste fuer Idempotenz, Timeouts, Retries, Alerting und Fehlerpfade.
+category: Playbook
+readMinutes: 10
+publishedAt: '2026-02-17'
+updatedAt: '2026-02-17'
+schemaType: HowTo
+internalLinks:
+  - /insights/api-integration-failure-modes
+  - /case-studies/configurator-live
+  - /#contact
+draft: false
+---
+
+## Vor dem Release
+
+- Klare Timeout-Strategie pro Upstream
+- Retries mit exponentiellem Backoff
+- Idempotenz fuer write-Operationen
+- Fallback bei partiellen Ausfaellen
+
+## Nach dem Release
+
+- Error-Budgets beobachten
+- Incident-Taxonomie dokumentieren

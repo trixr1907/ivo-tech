@@ -1,0 +1,26 @@
+---
+slug: api-integration-failure-modes
+locale: de
+title: "API-Integrationen: Die haeufigsten Failure-Modes"
+description: Welche Integrationsfehler in Produktion am teuersten sind und wie man sie frueh abfaengt.
+summary: Ein Risiko-Katalog fuer API-Integrationen mit konkreten Gegenmassnahmen.
+category: Backend
+readMinutes: 8
+publishedAt: '2026-02-17'
+updatedAt: '2026-02-17'
+schemaType: Article
+internalLinks:
+  - /playbooks/api-integration-readiness-playbook
+  - /case-studies/configurator-live
+  - /#contact
+draft: false
+---
+
+Die teuersten Integrationsfehler sind selten Syntax-Fehler, sondern Annahmen ueber Verhalten externer Systeme.
+
+## Kritische Failure-Modes
+
+- Instabile Rate-Limits ohne Backoff
+- Nicht-idempotente Retry-Logik
+- Schema-Drift ohne Versionierung
+- Fehlende Dead-Letter-Strategien
