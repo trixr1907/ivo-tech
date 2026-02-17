@@ -18,6 +18,7 @@ jobs:
     timeout-minutes: 20
     permissions:
       contents: read
+      pull-requests: read
       security-events: write
 
     steps:
@@ -38,7 +39,13 @@ jobs:
       - name: Dependency vulnerability scan
         run: npm run security:scan
 
-      - name: Secret scan (Gitleaks)
-        uses: gitleaks/gitleaks-action@v2
+      - name: Install Gitleaks
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITLEAKS_VERSION: 8.24.3
+        run: |
+          curl -sSL "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz" -o /tmp/gitleaks.tar.gz
+          tar -xzf /tmp/gitleaks.tar.gz -C /tmp gitleaks
+          chmod +x /tmp/gitleaks
+
+      - name: Secret scan (Gitleaks)
+        run: /tmp/gitleaks detect --no-banner --redact --no-git --source .
