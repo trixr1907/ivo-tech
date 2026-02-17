@@ -24,7 +24,7 @@ const ACTIONS: QuickAction[] = [
   {
     id: 'voicebot',
     label: { de: 'Voicebot', en: 'Voicebot' },
-    detail: { de: 'Private Beta | AI Orchestrierung', en: 'Private beta | AI orchestration' }
+    detail: { de: 'Private Beta | Sprach-Workflows', en: 'Private beta | voice workflows' }
   },
   {
     id: 'sorare',

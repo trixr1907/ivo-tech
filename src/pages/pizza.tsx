@@ -1,6 +1,8 @@
 import type { GetServerSideProps } from 'next';
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async ({ res }) => {
+  res.setHeader('X-Robots-Tag', 'noindex, follow');
+
   return {
     redirect: {
       destination: '/pizza/index.html',
