@@ -40,6 +40,9 @@ jobs:
         with:
           ref: ${{ inputs.ref }}
 
+      - name: Remove repository Vercel linkage
+        run: rm -rf .vercel
+
       - name: Resolve target sha
         id: target
         run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
