@@ -5,6 +5,16 @@ import createBundleAnalyzer from '@next/bundle-analyzer';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const withBundleAnalyzer = createBundleAnalyzer({ enabled: process.env.ANALYZE === 'true' });
 const cspReportUri = process.env.NEXT_PUBLIC_CSP_REPORT_URI ?? '';
+const configuredSiteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim() ?? 'https://ivo-tech.com';
+let apexHost = 'ivo-tech.com';
+
+try {
+  apexHost = new URL(configuredSiteUrl).host.replace(/^www\./, '');
+} catch {
+  apexHost = 'ivo-tech.com';
+}
+
+const wwwHost = `www.${apexHost}`;
 const cspReportOnly = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
@@ -44,6 +54,17 @@ const nextConfig = {
     formats: ['image/avif', 'image/webp']
   },
 
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: wwwHost }],
+        destination: `https://${apexHost}/:path*`,
+        permanent: true
+      }
+    ];
+  },
+
   async headers() {
     return [
       {
@@ -65,6 +86,14 @@ const nextConfig = {
           },
           { key: 'Content-Security-Policy-Report-Only', value: cspReportOnly }
         ]
+      },
+      {
+        source: '/pizza/:path*',
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, follow' }]
+      },
+      {
+        source: '/en/pizza/:path*',
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, follow' }]
       },
       {
         source: '/_next/static/:path*',
