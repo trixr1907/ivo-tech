@@ -9,6 +9,7 @@ export const copy = {
       heroCase: 'Case Study',
       featured: 'Projekte',
       paths: 'Pfade',
+      insights: 'Insights',
       contact: 'Kontakt',
       cta: 'Kontaktgespraech'
     },
@@ -17,8 +18,10 @@ export const copy = {
       title: 'Webprodukte von Idee bis Betrieb - fuer Teams, die schnell liefern wollen.',
       lead:
         'Ich unterstuetze Hiring-Teams als Junior Full-Stack Engineer und Projektteams bei Frontend, API-Integration und Deployment.',
+      sublead: 'Klarer Scope, verstaendliche Entscheidungen und reproduzierbare Uebergaben.',
       primary: 'Kontaktgespraech anfragen',
       secondary: 'Case Study ansehen',
+      audit: 'Kostenlose Tech-Review anfragen',
       linksLabel: 'Direktlinks',
       github: 'GitHub',
       cv: 'CV (PDF)',
@@ -31,6 +34,52 @@ export const copy = {
           'work model: remote-first (Mannheim optional)'
         ]
       }
+    },
+    proof: {
+      title: 'Proof statt Behauptung',
+      desc: 'Drei konkrete Signale aus realer Delivery.',
+      items: [
+        {
+          id: 'live-system',
+          metric: 'Live-System im Betrieb',
+          detail: 'Der 3D-Konfigurator ist produktiv und deckt den End-to-End-Fluss bis Checkout ab.',
+          cta: 'Case Study ansehen',
+          href: '/configurator'
+        },
+        {
+          id: 'delivery',
+          metric: 'Strukturierte Delivery',
+          detail: 'Scope, Fortschritt und Uebergaben werden nachvollziehbar dokumentiert.',
+          cta: 'Arbeitsweise ansehen',
+          href: '#method'
+        },
+        {
+          id: 'quality-gates',
+          metric: 'Qualitaets-Gates',
+          detail: 'Lint, Typing, Unit, E2E und Lighthouse sind fester Teil des Delivery-Loops.',
+          cta: 'Qualitaetsfokus ansehen',
+          href: '#quick-facts'
+        }
+      ]
+    },
+    method: {
+      title: 'Methodik',
+      desc: 'Klarer Ablauf fuer belastbare Entscheidungen und stabile Umsetzung.',
+      steps: [
+        {
+          title: '1) Scope klaeren',
+          desc: 'Problem, Ziel und Risiken vor der Umsetzung gemeinsam praezisieren.'
+        },
+        {
+          title: '2) Mit Guardrails bauen',
+          desc: 'Architektur und Komponenten so umsetzen, dass Betrieb und Wartung realistisch bleiben.'
+        },
+        {
+          title: '3) Wirkung messen',
+          desc: 'Ergebnisse ueber Qualitaetsmetriken und klare Uebergaben absichern.'
+        }
+      ],
+      cta: 'Tech-Review anfragen'
     },
     quick_facts: {
       title: 'Quick Facts',
@@ -67,6 +116,11 @@ export const copy = {
           cta: 'Projektanfrage senden'
         }
       ]
+    },
+    insights: {
+      title: 'Engineering Insights',
+      desc: 'Praxisnahe Notizen zu Architektur, Delivery und Betrieb.',
+      cta: 'Alle Insights ansehen'
     },
     career_switch: {
       title: 'Arbeitsweise',
@@ -164,6 +218,7 @@ export const copy = {
       heroCase: 'Case study',
       featured: 'Projects',
       paths: 'Paths',
+      insights: 'Insights',
       contact: 'Contact',
       cta: 'Book contact call'
     },
@@ -172,8 +227,10 @@ export const copy = {
       title: 'Web products from idea to operations - for teams that need to ship fast.',
       lead:
         'I support hiring teams as a junior full-stack engineer and project teams with frontend, API integrations, and deployment.',
+      sublead: 'Clear scope, explicit decisions, and reproducible handovers.',
       primary: 'Request a contact call',
       secondary: 'View case study',
+      audit: 'Request a free tech review',
       linksLabel: 'Quick links',
       github: 'GitHub',
       cv: 'CV (PDF)',
@@ -186,6 +243,52 @@ export const copy = {
           'work model: remote-first (Mannheim optional)'
         ]
       }
+    },
+    proof: {
+      title: 'Proof over claims',
+      desc: 'Three concrete signals from real delivery work.',
+      items: [
+        {
+          id: 'live-system',
+          metric: 'Live system in production',
+          detail: 'The 3D configurator is live and covers the end-to-end flow up to checkout.',
+          cta: 'View case study',
+          href: '/configurator'
+        },
+        {
+          id: 'delivery',
+          metric: 'Structured delivery',
+          detail: 'Scope, progress, and handovers are documented and easy to follow.',
+          cta: 'See methodology',
+          href: '#method'
+        },
+        {
+          id: 'quality-gates',
+          metric: 'Quality gates',
+          detail: 'Lint, typing, unit, e2e, and Lighthouse are part of the standard delivery loop.',
+          cta: 'See quality focus',
+          href: '#quick-facts'
+        }
+      ]
+    },
+    method: {
+      title: 'Method',
+      desc: 'A simple process for defensible decisions and stable implementation.',
+      steps: [
+        {
+          title: '1) Clarify scope',
+          desc: 'Align problem, target, and risks before implementation starts.'
+        },
+        {
+          title: '2) Build with guardrails',
+          desc: 'Implement architecture and components so operations and maintenance stay realistic.'
+        },
+        {
+          title: '3) Measure impact',
+          desc: 'Validate outcomes with quality metrics and clear handover criteria.'
+        }
+      ],
+      cta: 'Request a tech review'
     },
     quick_facts: {
       title: 'Quick facts',
@@ -222,6 +325,11 @@ export const copy = {
           cta: 'Send project request'
         }
       ]
+    },
+    insights: {
+      title: 'Engineering insights',
+      desc: 'Short notes on architecture, delivery, and operations decisions.',
+      cta: 'See all insights'
     },
     career_switch: {
       title: 'Way of working',

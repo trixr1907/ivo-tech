@@ -11,7 +11,7 @@
     "prebuild": "node scripts/copy-vendor.mjs",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint app src scripts --cache --cache-location .cache/eslint --max-warnings 0",
+    "lint": "eslint src scripts --cache --cache-location .cache/eslint --max-warnings 0",
     "typecheck": "tsc --noEmit",
     "test": "npm run test:unit && npm run test:e2e",
     "test:unit": "vitest run",

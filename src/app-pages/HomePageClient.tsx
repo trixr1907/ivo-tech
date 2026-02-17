@@ -77,11 +77,11 @@ export function HomePageClient({ locale, featuredInsights }: Props) {
   const router = useRouter();
   const pathname = usePathname() || (locale === 'en' ? '/en' : '/');
   const searchParams = useSearchParams();
-  const search = searchParams.toString();
+  const search = searchParams?.toString() ?? '';
   const asPath = `${pathname}${search ? `?${search}` : ''}`;
   const t = copy[locale];
 
-  const projectParam = searchParams.get('project');
+  const projectParam = searchParams?.get('project') ?? null;
   const activeProject = getProjectById(projectParam);
 
   const heroProject = getProjectsByTier('hero')[0] ?? null;

@@ -6,7 +6,7 @@ import { AppRuntime } from '@/components/AppRuntime';
 
 import '@/styles/globals.css';
 import '@/styles/modal.css';
-import '../packages/dld3d-core/dist/dld3d-core.css';
+import '../../packages/dld3d-core/dist/dld3d-core.css';
 
 const heading = Space_Grotesk({
   subsets: ['latin'],
