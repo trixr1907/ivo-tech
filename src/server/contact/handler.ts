@@ -45,6 +45,8 @@ type RedisRestConfig = {
   token: string;
 };
 
+const defaultContactRecipients = ['contact@ivo-tech.com', 'ivo@ivo-tech.com'];
+
 const globalRateStore = globalThis as typeof globalThis & { __ivoContactRateStore?: Map<string, RateBucket> };
 const rateStore = globalRateStore.__ivoContactRateStore ?? new Map<string, RateBucket>();
 globalRateStore.__ivoContactRateStore = rateStore;
@@ -169,6 +171,39 @@ function buildRequestId() {
   return `contact_${Date.now()}_${Math.random().toString(36).slice(2, 9)}`;
 }
 
+function buildSafeRequest(request: ContactRequest) {
+  return {
+    name: request.name,
+    email: request.email,
+    intent: request.intent,
+    intent_detail: request.intent_detail,
+    timeline_band: request.timeline_band,
+    project_scope: request.project_scope,
+    company: request.company,
+    message: request.message,
+    locale: request.locale,
+    sourcePath: request.sourcePath,
+    website: request.website
+  };
+}
+
+function parseCsvList(value: string | undefined) {
+  return (value ?? '')
+    .split(',')
+    .map((entry) => entry.trim())
+    .filter(Boolean);
+}
+
+function getContactRecipients() {
+  const configuredRecipients = parseCsvList(process.env.CONTACT_TO_EMAILS);
+  if (configuredRecipients.length > 0) return configuredRecipients;
+  return defaultContactRecipients;
+}
+
+function getContactFromAddress() {
+  return process.env.CONTACT_FROM_EMAIL?.trim() ?? defaultContactRecipients[0];
+}
+
 async function verifyTurnstileToken(token: string, clientIp: string) {
   const secret = process.env.TURNSTILE_SECRET_KEY?.trim();
   if (!secret) return true;
@@ -200,21 +235,9 @@ async function verifyTurnstileToken(token: string, clientIp: string) {
 
 async function deliverToWebhook(request: ContactRequest, requestId: string) {
   const webhookUrl = process.env.CONTACT_WEBHOOK_URL?.trim();
-  if (!webhookUrl) return;
+  if (!webhookUrl) return false;
 
-  const safeRequest = {
-    name: request.name,
-    email: request.email,
-    intent: request.intent,
-    intent_detail: request.intent_detail,
-    timeline_band: request.timeline_band,
-    project_scope: request.project_scope,
-    company: request.company,
-    message: request.message,
-    locale: request.locale,
-    sourcePath: request.sourcePath,
-    website: request.website
-  };
+  const safeRequest = buildSafeRequest(request);
 
   const payload = {
     requestId,
@@ -232,6 +255,93 @@ async function deliverToWebhook(request: ContactRequest, requestId: string) {
 
   if (!response.ok) {
     throw new Error(`Webhook rejected with status ${response.status}`);
+  }
+
+  return true;
+}
+
+async function deliverToEmail(request: ContactRequest, requestId: string) {
+  const resendApiKey = process.env.RESEND_API_KEY?.trim();
+  if (!resendApiKey) return false;
+
+  const recipients = getContactRecipients();
+  const fromAddress = getContactFromAddress();
+
+  if (!fromAddress || recipients.length === 0) {
+    throw new Error('Resend delivery misconfigured: CONTACT_FROM_EMAIL/CONTACT_TO_EMAILS');
+  }
+
+  const safeRequest = buildSafeRequest(request);
+  const localeLabel = safeRequest.locale.toUpperCase();
+  const intentLabel = safeRequest.intent === 'hiring' ? 'Hiring' : 'Client';
+  const subject = `[ivo-tech.com] ${intentLabel} Anfrage (${localeLabel}) - ${safeRequest.name}`;
+  const text = [
+    `Request ID: ${requestId}`,
+    `Created At: ${new Date().toISOString()}`,
+    `Source: ivo-tech.com`,
+    '',
+    `Name: ${safeRequest.name}`,
+    `Email: ${safeRequest.email}`,
+    `Intent: ${safeRequest.intent}`,
+    `Intent Detail: ${safeRequest.intent_detail}`,
+    `Timeline Band: ${safeRequest.timeline_band}`,
+    `Project Scope: ${safeRequest.project_scope}`,
+    `Company: ${safeRequest.company || '-'}`,
+    `Locale: ${safeRequest.locale}`,
+    `Source Path: ${safeRequest.sourcePath}`,
+    '',
+    'Message:',
+    safeRequest.message
+  ].join('\n');
+
+  const response = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${resendApiKey}`,
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify({
+      from: fromAddress,
+      to: recipients,
+      reply_to: safeRequest.email,
+      subject,
+      text
+    }),
+    signal: AbortSignal.timeout(5000)
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text().catch(() => '');
+    throw new Error(`Resend rejected with status ${response.status}${errorText ? `: ${errorText.slice(0, 180)}` : ''}`);
+  }
+
+  return true;
+}
+
+function normalizeError(error: unknown) {
+  if (error instanceof Error) return error;
+  return new Error(String(error));
+}
+
+async function deliverSubmission(request: ContactRequest, requestId: string) {
+  const errors: Error[] = [];
+  let delivered = false;
+
+  try {
+    delivered = (await deliverToEmail(request, requestId)) || delivered;
+  } catch (error) {
+    errors.push(normalizeError(error));
+  }
+
+  try {
+    delivered = (await deliverToWebhook(request, requestId)) || delivered;
+  } catch (error) {
+    errors.push(normalizeError(error));
+  }
+
+  if (delivered) return;
+  if (errors.length > 0) {
+    throw errors[0];
   }
 }
 
@@ -281,27 +391,25 @@ export async function handleContactRequest(request: Request) {
   }
 
   try {
-    await deliverToWebhook(parsedRequest, requestId);
+    await deliverSubmission(parsedRequest, requestId);
   } catch (error) {
     console.error('[contact-api] delivery failed', error);
     return createJsonResponse(502, { ok: false, errorCode: 'delivery_failed' });
   }
 
-  if (!process.env.CONTACT_WEBHOOK_URL) {
-    const safeRequest = {
-      name: parsedRequest.name,
-      email: parsedRequest.email,
-      intent: parsedRequest.intent,
-      intent_detail: parsedRequest.intent_detail,
-      timeline_band: parsedRequest.timeline_band,
-      project_scope: parsedRequest.project_scope,
-      locale: parsedRequest.locale,
-      sourcePath: parsedRequest.sourcePath
-    };
+  if (!process.env.CONTACT_WEBHOOK_URL && !process.env.RESEND_API_KEY) {
+    const safeRequest = buildSafeRequest(parsedRequest);
 
     console.info('[contact-api] submission', {
       requestId,
-      ...safeRequest
+      name: safeRequest.name,
+      email: safeRequest.email,
+      intent: safeRequest.intent,
+      intent_detail: safeRequest.intent_detail,
+      timeline_band: safeRequest.timeline_band,
+      project_scope: safeRequest.project_scope,
+      locale: safeRequest.locale,
+      sourcePath: safeRequest.sourcePath
     });
   }
 

@@ -25,3 +25,5 @@ public/vendor/
 
 .vercel
 .env*.local
+contact-preview.jsonl
+contact-production.jsonl

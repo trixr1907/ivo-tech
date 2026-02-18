@@ -5,6 +5,23 @@
 - `main` is always releasable.
 - No direct commits to `main`.
 
+## Release log
+
+### 2026-02-17 - App Router + MDX Authority Hub migration
+- Status: released to `main`.
+- Merged PRs:
+  - `#15` - `feat(content): MDX foundation + neue Hub-Routen`
+  - `#16` - `feat(app): Vollmigration der Kernseiten auf App Router`
+  - `#17` - `feat(platform): API/Sitemap/Pizza-Cutover + Cleanup`
+- Merge commits on `main`:
+  - `34e66e5` (`#15`)
+  - `dc1e526` (`#16`)
+  - `312ea7f` (`#17`)
+- Post-release smoke checks (2026-02-17):
+  - `npm run verify:live` passed (`ivo-tech.com`, `www.ivo-tech.com`, TLS samples `12/12`).
+  - Production smoke (`https://ivo-tech.com`): `7/7` critical non-mutating e2e checks passed.
+  - Staging smoke (`https://staging.ivo-tech.com`): `7/7` critical non-mutating e2e checks passed.
+
 ## Release checklist
 1. Ensure all required checks are green on merge commit.
 2. Verify `cd-staging` deployment succeeded.

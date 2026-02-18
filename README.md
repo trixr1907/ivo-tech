@@ -20,6 +20,7 @@ npm run typecheck
 npm run test:unit
 npm run test:e2e
 npm run perf:lighthouse
+npm run perf:lighthouse:demo
 npm run security:scan
 npm run verify:live
 ```
@@ -34,9 +35,13 @@ cp .env.example .env.local
 Variables:
 - `NEXT_PUBLIC_SITE_URL`
 - `NEXT_PUBLIC_APP_ENV` (`development` | `staging` | `production`)
+- `NEXT_PUBLIC_ANALYTICS_ALLOWED_HOSTS` (optional, comma-separated host allow-list; defaults to `ivo-tech.com` + `www.ivo-tech.com`)
 - `NEXT_PUBLIC_SENTRY_DSN` (optional)
 - `NEXT_PUBLIC_CSP_REPORT_URI` (optional)
-- `CONTACT_WEBHOOK_URL` (optional, receives `POST /api/contact` submissions)
+- `RESEND_API_KEY` (optional, enables direct email delivery for contact form submissions)
+- `CONTACT_FROM_EMAIL` (optional, sender address for Resend; defaults to `contact@ivo-tech.com`)
+- `CONTACT_TO_EMAILS` (optional, comma-separated recipient list; defaults to `contact@ivo-tech.com,ivo@ivo-tech.com`)
+- `CONTACT_WEBHOOK_URL` (optional fallback sink for `POST /api/contact` submissions)
 - `CONTACT_RATE_LIMIT_PER_IP` (optional)
 - `CONTACT_RATE_LIMIT_WINDOW_MINUTES` (optional)
 - `NEXT_PUBLIC_TURNSTILE_SITE_KEY` (optional, enables Turnstile on contact form)
@@ -51,9 +56,11 @@ Variables:
 Runbooks:
 - `docs/deploy.md`
 - `docs/release.md`
+- `docs/changelog.md`
 - `docs/rollback.md`
 - `docs/branching.md`
 - `docs/quality-gates.md`
+- `docs/security-hardening.md`
 - `docs/github-setup.md`
 - `docs/cloudflare-cli.md`
 - `docs/styleframes.md`

@@ -2,6 +2,75 @@ import { track } from '@vercel/analytics';
 
 type EventValue = string | number | boolean;
 type EventPayloadInput = Record<string, EventValue | null | undefined>;
+export type AnalyticsEventName =
+  | 'authority_asset_view'
+  | 'proof_expand'
+  | 'insight_read_75'
+  | 'audit_cta_click'
+  | 'contact_quality_submit'
+  | 'case_study_open'
+  | 'cta_contact_click'
+  | 'cv_download'
+  | 'contact_form_submit'
+  | 'contact_form_success'
+  | 'contact_form_error'
+  | 'web_vital_recorded'
+  | (string & {});
+
+const analyticsFallbackHost = 'ivo-tech.com';
+
+function normalizeEventName(eventName: string) {
+  return eventName.trim().toLowerCase().replace(/[^a-z0-9_:-]+/g, '_');
+}
+
+function normalizeHost(value: string) {
+  return value.trim().toLowerCase().replace(/\.$/, '');
+}
+
+function parseHost(value: string) {
+  const trimmed = value.trim();
+  if (!trimmed) return null;
+
+  try {
+    const normalizedInput = trimmed.includes('://') ? trimmed : `https://${trimmed}`;
+    return normalizeHost(new URL(normalizedInput).hostname);
+  } catch {
+    return null;
+  }
+}
+
+function buildAllowedAnalyticsHosts() {
+  const configuredSiteHost = parseHost(process.env.NEXT_PUBLIC_SITE_URL ?? '') ?? analyticsFallbackHost;
+  const apexHost = configuredSiteHost.replace(/^www\./, '');
+  const allowedHosts = new Set([configuredSiteHost, apexHost, `www.${apexHost}`]);
+  const additionalHosts = (process.env.NEXT_PUBLIC_ANALYTICS_ALLOWED_HOSTS ?? '')
+    .split(',')
+    .map((entry) => parseHost(entry))
+    .filter((host): host is string => Boolean(host));
+
+  for (const host of additionalHosts) {
+    allowedHosts.add(host);
+  }
+
+  return allowedHosts;
+}
+
+const allowedAnalyticsHosts = buildAllowedAnalyticsHosts();
+
+export function isAnalyticsHostAllowed(hostname: string | null | undefined) {
+  if (!hostname) return false;
+  return allowedAnalyticsHosts.has(normalizeHost(hostname));
+}
+
+export function shouldTrackAnalyticsUrl(url: string | null | undefined) {
+  if (!url) return false;
+  try {
+    const baseUrl = typeof window !== 'undefined' ? window.location.origin : `https://${analyticsFallbackHost}`;
+    return isAnalyticsHostAllowed(new URL(url, baseUrl).hostname);
+  } catch {
+    return false;
+  }
+}
 
 function sanitizePayload(payload: EventPayloadInput): Record<string, EventValue> {
   const entries = Object.entries(payload).filter(
@@ -10,18 +79,20 @@ function sanitizePayload(payload: EventPayloadInput): Record<string, EventValue>
   return Object.fromEntries(entries);
 }
 
-export function trackEvent(eventName: string, payload: EventPayloadInput = {}) {
+export function trackEvent(eventName: AnalyticsEventName, payload: EventPayloadInput = {}) {
   if (typeof window === 'undefined') return;
+  if (!isAnalyticsHostAllowed(window.location.hostname)) return;
 
+  const normalizedName = normalizeEventName(eventName);
   const cleanPayload = sanitizePayload(payload);
 
   try {
-    track(eventName, cleanPayload);
+    track(normalizedName, cleanPayload);
   } catch {
     // Keep UX flow resilient if analytics transport fails.
   }
 
   if (Array.isArray(window.dataLayer)) {
-    window.dataLayer.push({ event: eventName, ...cleanPayload });
+    window.dataLayer.push({ event: normalizedName, ...cleanPayload });
   }
 }
