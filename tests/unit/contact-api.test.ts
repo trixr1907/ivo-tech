@@ -13,8 +13,11 @@ type ContactResponse =
 
 const scopedEnvKeys = [
   'CONTACT_WEBHOOK_URL',
+  'CONTACT_FROM_EMAIL',
+  'CONTACT_TO_EMAILS',
   'CONTACT_RATE_LIMIT_PER_IP',
   'CONTACT_RATE_LIMIT_WINDOW_MINUTES',
+  'RESEND_API_KEY',
   'TURNSTILE_SECRET_KEY'
 ] as const;
 
@@ -176,5 +179,68 @@ describe('/api/contact', () => {
 
     expect(result.statusCode).toBe(502);
     expect(result.payload).toEqual({ ok: false, errorCode: 'delivery_failed' });
+  });
+
+  it('sends contact submissions directly via Resend when configured', async () => {
+    process.env.RESEND_API_KEY = 're_test_key';
+    process.env.CONTACT_FROM_EMAIL = 'IVO TECH <contact@ivo-tech.com>';
+    process.env.CONTACT_TO_EMAILS = 'contact@ivo-tech.com, ivo@ivo-tech.com';
+
+    const fetchMock = vi.spyOn(globalThis, 'fetch').mockResolvedValue({
+      ok: true,
+      status: 200
+    } as unknown as Response);
+
+    const result = await parseResponse(await handleContactRequest(createRequest()));
+
+    expect(result.statusCode).toBe(200);
+    expect(result.payload.ok).toBe(true);
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(fetchMock.mock.calls[0]?.[0]).toBe('https://api.resend.com/emails');
+
+    const init = fetchMock.mock.calls[0]?.[1] as RequestInit;
+    const body = JSON.parse(String(init.body)) as {
+      from: string;
+      to: string[];
+      reply_to: string;
+      subject: string;
+      text: string;
+    };
+
+    expect(body.from).toBe('IVO TECH <contact@ivo-tech.com>');
+    expect(body.to).toEqual(['contact@ivo-tech.com', 'ivo@ivo-tech.com']);
+    expect(body.reply_to).toBe('test@example.com');
+    expect(body.subject).toContain('[ivo-tech.com]');
+  });
+
+  it('keeps webhook fallback when Resend fails', async () => {
+    process.env.RESEND_API_KEY = 're_test_key';
+    process.env.CONTACT_WEBHOOK_URL = 'https://example.com/hook';
+
+    const fetchMock = vi.spyOn(globalThis, 'fetch').mockImplementation(async (input) => {
+      const target = typeof input === 'string' ? input : input.toString();
+      if (target === 'https://api.resend.com/emails') {
+        return {
+          ok: false,
+          status: 500,
+          text: async () => 'resend failed'
+        } as unknown as Response;
+      }
+
+      if (target === 'https://example.com/hook') {
+        return {
+          ok: true,
+          status: 204
+        } as unknown as Response;
+      }
+
+      throw new Error(`Unexpected fetch target: ${target}`);
+    });
+
+    const result = await parseResponse(await handleContactRequest(createRequest()));
+
+    expect(result.statusCode).toBe(200);
+    expect(result.payload.ok).toBe(true);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
   });
 });

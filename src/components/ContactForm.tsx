@@ -5,10 +5,19 @@ import type { Locale } from '@/content/copy';
 import { trackEvent } from '@/lib/analytics';
 
 type ContactIntent = 'hiring' | 'client';
+type ContactIntentDetail = 'hiring' | 'project' | 'collab';
+type TimelineBand = 'asap' | '30d' | '90d+';
+type ProjectScope = 'audit' | 'build' | 'optimize' | 'unknown';
 
 type ContactFormText = {
   intentLegend: string;
   intentOptions: Record<ContactIntent, string>;
+  intentDetailLabel: string;
+  intentDetailOptions: Record<ContactIntentDetail, string>;
+  timelineLabel: string;
+  timelineOptions: Record<TimelineBand, string>;
+  scopeLabel: string;
+  scopeOptions: Record<ProjectScope, string>;
   nameLabel: string;
   emailLabel: string;
   companyLabel: string;
@@ -31,6 +40,9 @@ type Props = {
 
 type FormState = {
   intent: ContactIntent;
+  intentDetail: ContactIntentDetail;
+  timelineBand: TimelineBand;
+  projectScope: ProjectScope;
   name: string;
   email: string;
   company: string;
@@ -40,6 +52,9 @@ type FormState = {
 
 const initialFormState: FormState = {
   intent: 'hiring',
+  intentDetail: 'hiring',
+  timelineBand: '30d',
+  projectScope: 'unknown',
   name: '',
   email: '',
   company: '',
@@ -102,13 +117,29 @@ export function ContactForm({ locale, text }: Props) {
         : `${window.location.pathname}${window.location.search}${window.location.hash}`;
 
     trackEvent('contact_form_submit', { intent: form.intent, locale, sourcePath });
+    trackEvent('contact_quality_submit', {
+      intent: form.intent,
+      intentDetail: form.intentDetail,
+      timelineBand: form.timelineBand,
+      projectScope: form.projectScope,
+      locale,
+      sourcePath
+    });
 
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify({
-          ...form,
+          intent: form.intent,
+          intent_detail: form.intentDetail,
+          timeline_band: form.timelineBand,
+          project_scope: form.projectScope,
+          name: form.name,
+          email: form.email,
+          company: form.company,
+          message: form.message,
+          website: form.website,
           locale,
           sourcePath,
           turnstileToken
@@ -158,7 +189,11 @@ export function ContactForm({ locale, text }: Props) {
                     name="intent"
                     value={intent}
                     checked={selected}
-                    onChange={(e) => onFieldChange('intent', e.target.value as ContactIntent)}
+                    onChange={(e) => {
+                      const nextIntent = e.target.value as ContactIntent;
+                      onFieldChange('intent', nextIntent);
+                      onFieldChange('intentDetail', nextIntent === 'hiring' ? 'hiring' : 'project');
+                    }}
                   />
                   <span>{text.intentOptions[intent]}</span>
                 </label>
@@ -168,6 +203,54 @@ export function ContactForm({ locale, text }: Props) {
         </fieldset>
 
         <div className="contact-fields">
+          <label className="field">
+            <span>{text.intentDetailLabel}</span>
+            <select
+              name="intentDetail"
+              required
+              value={form.intentDetail}
+              onChange={(e) => onFieldChange('intentDetail', e.target.value as ContactIntentDetail)}
+            >
+              {(['hiring', 'project', 'collab'] as ContactIntentDetail[]).map((value) => (
+                <option key={value} value={value}>
+                  {text.intentDetailOptions[value]}
+                </option>
+              ))}
+            </select>
+          </label>
+
+          <label className="field">
+            <span>{text.timelineLabel}</span>
+            <select
+              name="timelineBand"
+              required
+              value={form.timelineBand}
+              onChange={(e) => onFieldChange('timelineBand', e.target.value as TimelineBand)}
+            >
+              {(['asap', '30d', '90d+'] as TimelineBand[]).map((value) => (
+                <option key={value} value={value}>
+                  {text.timelineOptions[value]}
+                </option>
+              ))}
+            </select>
+          </label>
+
+          <label className="field">
+            <span>{text.scopeLabel}</span>
+            <select
+              name="projectScope"
+              required
+              value={form.projectScope}
+              onChange={(e) => onFieldChange('projectScope', e.target.value as ProjectScope)}
+            >
+              {(['audit', 'build', 'optimize', 'unknown'] as ProjectScope[]).map((value) => (
+                <option key={value} value={value}>
+                  {text.scopeOptions[value]}
+                </option>
+              ))}
+            </select>
+          </label>
+
           <label className="field">
             <span>{text.nameLabel}</span>
             <input

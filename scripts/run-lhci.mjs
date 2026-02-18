@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import { chromium } from '@playwright/test';
 
 const chromePath = process.env.CHROME_PATH || chromium.executablePath();
+const configPath = process.argv[2] || process.env.LHCI_CONFIG_PATH || './lighthouserc.json';
 
 if (!chromePath || !fs.existsSync(chromePath)) {
   console.error('LHCI: Chromium executable not found.');
@@ -13,7 +14,7 @@ if (!chromePath || !fs.existsSync(chromePath)) {
 
 const npxCommand = process.platform === 'win32' ? 'npx.cmd' : 'npx';
 
-const child = spawn(npxCommand, ['lhci', 'autorun', '--config=./lighthouserc.json'], {
+const child = spawn(npxCommand, ['lhci', 'autorun', `--config=${configPath}`], {
   stdio: 'inherit',
   env: {
     ...process.env,

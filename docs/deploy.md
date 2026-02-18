@@ -40,7 +40,11 @@
   - `NEXT_PUBLIC_SITE_URL`
   - `NEXT_PUBLIC_APP_ENV`
   - optional: `NEXT_PUBLIC_SENTRY_DSN`, `NEXT_PUBLIC_CSP_REPORT_URI`
-  - optional contact funnel: `CONTACT_WEBHOOK_URL`, `CONTACT_RATE_LIMIT_PER_IP`, `CONTACT_RATE_LIMIT_WINDOW_MINUTES`
+  - optional analytics guard override: `NEXT_PUBLIC_ANALYTICS_ALLOWED_HOSTS`
+  - optional direct contact mail delivery: `RESEND_API_KEY`, `CONTACT_FROM_EMAIL`, `CONTACT_TO_EMAILS`
+  - optional contact webhook fallback: `CONTACT_WEBHOOK_URL`
+  - optional contact rate limits: `CONTACT_RATE_LIMIT_PER_IP`, `CONTACT_RATE_LIMIT_WINDOW_MINUTES`
+  - optional persistent contact rate store: `KV_REST_API_URL`, `KV_REST_API_TOKEN` (or Upstash aliases)
   - optional bot protection: `NEXT_PUBLIC_TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET_KEY`
 
 ## Cloudflare DNS setup (current)
