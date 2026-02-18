@@ -25,6 +25,7 @@ export function ConfiguratorPageClient({ locale }: Props) {
   const pathname = usePathname() || localizePath('/configurator', locale);
   const heroProject = getProjectById('configurator_3d');
   const contactHref = localizePath('/#contact', locale);
+  const attribution = heroProject?.attribution_note?.[locale];
 
   useEffect(() => {
     trackEvent('case_study_open', {
@@ -41,40 +42,39 @@ export function ConfiguratorPageClient({ locale }: Props) {
           {
             title: 'Ausgangslage',
             points: [
-              'Manuelle Angebotserstellung fuer 3D-Druck war langsam, fehleranfaellig und schwer skalierbar.',
-              'Kunden brauchten schnellere Preisorientierung statt Rueckruf- oder Mail-Schleifen.'
+              'Angebotsrunden fuer 3D-Druck liefen manuell und erzeugten wiederkehrende Rueckfrage-Schleifen.',
+              'Ziel war ein klarer Datei-zu-Preis-Prozess mit direktem Uebergang in den Kaufpfad.'
             ]
           },
           {
-            title: 'Umsetzung',
+            title: 'Delivery Scope',
             points: [
-              'Webbasierter 3D-Konfigurator mit Modell-Upload, Analyse und automatischer Preislogik.',
-              'Direkte Uebergabe der Konfiguration in den Kaufprozess ohne Medienbruch.'
+              'Frontend: Three.js/WebGL Viewer mit STL-/3MF-Upload, Modellkontrolle und Echtzeit-Feedback.',
+              'Backend: WordPress Plugin mit AJAX-Endpunkten fuer Analyse- und Pricing-Kontext.',
+              'Commerce: WooCommerce-Handoff fuer Cart/Order ohne Medienbruch.'
+            ]
+          },
+          {
+            title: 'Architektur',
+            points: [
+              'Regelbasierte Preis-Engine (Material, Qualitaet, Farbe, Menge, Mindestpreis) fuer reproduzierbare Ausgaben.',
+              'Clientseitige Interaktionslogik und serverseitiger Kontext bleiben sauber getrennt.',
+              'Die technische Strecke ist als durchgaengiger Systemflow implementiert, nicht als isolierter Viewer.'
             ]
           },
           {
             title: 'Betrieb',
             points: [
-              'Frontend: Three.js Viewer fuer 3D-Interaktion und Visualisierung.',
-              'Backend: WordPress Plugin mit AJAX-Endpunkten fuer Berechnung und Analyse.',
-              'Commerce: WooCommerce Integration fuer Warenkorb und Preisuebergabe.',
-              'Verarbeitung: Docker-gestuetzte Slicing-/Analysepipeline.'
+              'Der End-to-End Flow laeuft im Live-Kundenbetrieb stabil von Upload bis Checkout.',
+              'Standardanfragen werden gefuehrt statt ueber manuelle Rueckfrage-Prozesse abgewickelt.'
             ]
           },
           {
-            title: 'Ergebnis',
+            title: 'Rollenklarheit',
             points: [
-              'Qualitative Wirkung: klarerer Funnel von Datei-Upload bis Kaufentscheidung.',
-              'Der Self-Service-Flow reduziert manuelle Rueckfragen bei Standardanfragen.'
-            ]
-          },
-          {
-            title: 'Screenshots / Demos',
-            points: [
-              'Screen 1: Upload + 3D-Ansicht',
-              'Screen 2: Material-/Optionenaenderung mit Preisreaktion in Echtzeit',
-              'Screen 3: Uebergabe in Warenkorb/Kaufprozess',
-              'Optional: 30-45 Sekunden Walkthrough-Video'
+              'Technische Umsetzung: IVO TECH.',
+              'Betrieb und Vermarktung erfolgen beim Kundenprojekt.',
+              'Live-Link dient als qualitativer Proof fuer die implementierte Strecke.'
             ]
           }
         ]
@@ -82,40 +82,39 @@ export function ConfiguratorPageClient({ locale }: Props) {
           {
             title: 'Context',
             points: [
-              'Manual 3D print quotation was slow, error-prone, and hard to scale.',
-              'Customers needed instant pricing orientation instead of callback/email loops.'
+              '3D print quote loops were manual and created repeated back-and-forth.',
+              'The target was a clear file-to-price process with direct handoff into purchase.'
             ]
           },
           {
-            title: 'Implementation',
+            title: 'Delivery scope',
             points: [
-              'Web-based 3D configurator with model upload, analysis, and automatic pricing logic.',
-              'Direct handoff from configuration into checkout without context switching.'
+              'Frontend: Three.js/WebGL viewer with STL/3MF upload, model control, and real-time feedback.',
+              'Backend: WordPress plugin with AJAX endpoints for analysis and pricing context.',
+              'Commerce: WooCommerce handoff into cart/order without context switching.'
             ]
           },
           {
-            title: 'Operations',
+            title: 'Architecture',
             points: [
-              'Frontend: Three.js viewer for 3D interaction and visualization.',
-              'Backend: WordPress plugin with AJAX endpoints for calculation and analysis.',
-              'Commerce: WooCommerce integration for cart and price handoff.',
-              'Processing: docker-backed slicing/analysis pipeline.'
+              'Rule-based pricing engine (material, quality, color, quantity, minimum price) for reproducible outputs.',
+              'Client interaction logic and server-side context are kept clearly separated.',
+              'The technical delivery is built as one continuous system flow, not an isolated viewer.'
             ]
           },
           {
             title: 'Outcome',
             points: [
-              'Qualitative impact: a clearer funnel from file upload to purchase decision.',
-              'The self-service flow reduces manual back-and-forth for standard requests.'
+              'The end-to-end flow runs stably in live client operations from upload to checkout.',
+              'Standard requests are handled in a guided self-service flow instead of manual loops.'
             ]
           },
           {
-            title: 'Screenshots / Demos',
+            title: 'Role clarity',
             points: [
-              'Screen 1: upload + 3D viewport',
-              'Screen 2: material/options change with real-time price update',
-              'Screen 3: handoff into cart/checkout',
-              'Optional: 30-45 second walkthrough video'
+              'Technical implementation by IVO TECH.',
+              'Platform operations and commercial ownership remain with the client project.',
+              'The live link is provided as qualitative proof of the implemented flow.'
             ]
           }
         ];
@@ -150,15 +149,17 @@ export function ConfiguratorPageClient({ locale }: Props) {
         <section className="hero" aria-labelledby="cfg-title">
           <div className="hero-copy">
             <p className="eyebrow">{locale === 'de' ? 'Premium Case Study' : 'Premium case study'}</p>
-            <h1 id="cfg-title">{locale === 'de' ? '3D-Konfigurator (Live)' : '3D configurator (live)'}</h1>
+            <h1 id="cfg-title">{locale === 'de' ? '3D-Konfigurator als Tech-Referenz' : '3D configurator as a tech reference'}</h1>
             <p className="lead">
-              {locale === 'de'
-                ? 'Live Business System fuer den Weg von der 3D-Datei zum Preisangebot und Checkout.'
-                : 'Live business system for moving from 3D file to quotation and checkout.'}
+              {heroProject?.one_liner[locale] ??
+                (locale === 'de'
+                  ? 'Produktionsfaehige Datei-zu-Angebot-Architektur mit WebGL-Viewer, Preislogik und Checkout-Handoff.'
+                  : 'Production-ready file-to-quote architecture with a WebGL viewer, pricing logic, and checkout handoff.')}
             </p>
+            {attribution ? <p className="hero-sublead">{attribution}</p> : null}
             <div className="hero-actions">
               <a className="primary" href={LIVE_LINK} target="_blank" rel="noopener noreferrer">
-                {locale === 'de' ? 'Live Konfigurator oeffnen' : 'Open live configurator'}
+                {locale === 'de' ? 'Live beim Kunden oeffnen' : 'Open live client flow'}
               </a>
               <Link
                 className="ghost"

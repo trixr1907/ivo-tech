@@ -19,4 +19,12 @@ describe('projects content API', () => {
     expect(getProjectStatusLabel('live', 'de')).toBe('Live');
     expect(getProjectStatusLabel('beta', 'en')).toBe('Private beta');
   });
+
+  it('exposes hero-specific attribution and engineering highlights for configurator project', () => {
+    const hero = getProjectById('configurator_3d');
+    expect(hero?.attribution_note?.de).toContain('Technische Umsetzung');
+    expect(hero?.attribution_note?.en).toContain('Technical implementation');
+    expect(hero?.engineering_highlights?.de.length).toBeGreaterThanOrEqual(4);
+    expect(hero?.engineering_highlights?.en.length).toBeGreaterThanOrEqual(4);
+  });
 });

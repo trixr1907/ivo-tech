@@ -88,6 +88,8 @@ export function HomePageClient({ locale, featuredInsights }: Props) {
   const featuredProjects = getProjectsByTier('featured');
   const labsProjects = getProjectsByTier('labs');
   const heroProofLink = heroProject?.proof_link ?? localizePath('/configurator', locale);
+  const heroAttribution = heroProject?.attribution_note?.[locale] ?? null;
+  const heroEngineeringHighlights = heroProject?.engineering_highlights?.[locale] ?? [];
 
   const openProject = (id: ProjectId, source = 'unknown') => {
     trackEvent('case_study_open', { projectId: id, source, locale, path: asPath });
@@ -452,9 +454,25 @@ export function HomePageClient({ locale, featuredInsights }: Props) {
                 </div>
               </div>
 
-              <p className="hero-case-lead">{heroProject.one_liner[locale]}</p>
-              <p className="hero-case-outcome">{heroProject.business_outcome[locale]}</p>
-              <p className="hero-case-proof">{heroProject.proof_statement[locale]}</p>
+              <div className="hero-case-layout">
+                <div className="hero-case-copy">
+                  <p className="hero-case-lead">{heroProject.one_liner[locale]}</p>
+                  <p className="hero-case-outcome">{heroProject.business_outcome[locale]}</p>
+                  <p className="hero-case-proof">{heroProject.proof_statement[locale]}</p>
+                  {heroAttribution ? <p className="hero-case-attribution">{heroAttribution}</p> : null}
+                </div>
+                {heroEngineeringHighlights.length > 0 ? (
+                  <aside className="hero-case-engineering" aria-label={locale === 'de' ? 'Engineering Snapshot' : 'Engineering snapshot'}>
+                    <h4>{locale === 'de' ? 'Engineering Snapshot' : 'Engineering snapshot'}</h4>
+                    <ul>
+                      {heroEngineeringHighlights.map((line) => (
+                        <li key={line}>{line}</li>
+                      ))}
+                    </ul>
+                  </aside>
+                ) : null}
+              </div>
+
               <div className="outcome-grid">
                 {heroProject.outcome_metrics.map((metric) => (
                   <div key={metric.label[locale]} className="outcome-item">
@@ -529,14 +547,14 @@ export function HomePageClient({ locale, featuredInsights }: Props) {
                   rel="noopener noreferrer"
                   onClick={() => trackEvent('case_study_open', { projectId: heroProject.id, source: 'hero_case_live', locale })}
                 >
-                  {locale === 'de' ? 'Live Konfigurator' : 'Live configurator'}
+                  {locale === 'de' ? 'Live beim Kunden' : 'Live on client site'}
                 </a>
                 <Link
                   className="ghost"
                   href={localizePath('/configurator', locale)}
                   onClick={() => trackEvent('case_study_open', { projectId: heroProject.id, source: 'hero_case_page', locale })}
                 >
-                  {locale === 'de' ? 'Premium Case Study' : 'Premium case study'}
+                  {locale === 'de' ? 'Case Study' : 'Case study'}
                 </Link>
                 <a className="ghost" href={buildProjectHref(heroProject.id)} onClick={(e) => onProjectLinkClick(e, heroProject.id, 'hero_case_modal')}>
                   {locale === 'de' ? 'Technische Details' : 'Technical details'}

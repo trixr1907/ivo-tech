@@ -39,9 +39,14 @@ export function Dld3dDemo({ locale }: Props) {
       // Demo vars (client-side estimate only)
       const demoVars = {
         full_viewer_url: '',
-        demo_model_url: '/assets/demo-cube.stl',
+        demo_model_url: '/assets/demo-brand-hybrid-v2.stl',
+        demo_model_filename: 'demo-brand-hybrid-v2.stl',
         demo_disable_upload: true,
-        brand_logo_enabled: false,
+        brand_logo_enabled: true,
+        brand_logo_url: '/assets/brand/ivo-tech-logo.glb',
+        brand_logo_target_size: 48,
+        brand_logo_scale: 1,
+        brand_logo_offset: '28,18,24',
         max_upload_mb: 60,
 
         // Pricing (Estimate): MaterialCost + Setup + PostProcess, then preset + margin + tier discount.
@@ -103,7 +108,7 @@ export function Dld3dDemo({ locale }: Props) {
         locale === 'de'
           ? {
               title: '3D CONFIGURATOR',
-              subtitle_demo: 'STL / 3MF • WebGL Vorschau • Pricing (Demo)',
+              subtitle_demo: 'STL / 3MF • WebGL Vorschau • Branded Showcase',
               rotate_title: 'Drehen',
               rotate_hint: 'Drag zum freien Drehen (Rotate Mode).',
               dimensions_label: 'Abmessungen (B x T x H)',
@@ -135,7 +140,7 @@ export function Dld3dDemo({ locale }: Props) {
             }
           : {
               title: '3D CONFIGURATOR',
-              subtitle_demo: 'STL / 3MF • WebGL preview • demo pricing',
+              subtitle_demo: 'STL / 3MF • WebGL preview • branded showcase',
               rotate_title: 'Rotate',
               rotate_hint: 'Drag to freely rotate (rotate mode).',
               dimensions_label: 'Dimensions (W x D x H)',
