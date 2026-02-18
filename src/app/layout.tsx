@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Inter, JetBrains_Mono, Space_Grotesk } from 'next/font/google';
 import type { ReactNode } from 'react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import { AppRuntime } from '@/components/AppRuntime';
 
@@ -54,6 +55,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className={`${heading.variable} ${body.variable} ${mono.variable}`}>
         <AppRuntime />
         {children}
+        <SpeedInsights />
       </body>
     </html>
   );
