@@ -36,6 +36,7 @@ Variables:
 - `NEXT_PUBLIC_SITE_URL`
 - `NEXT_PUBLIC_APP_ENV` (`development` | `staging` | `production`)
 - `NEXT_PUBLIC_ANALYTICS_ALLOWED_HOSTS` (optional, comma-separated host allow-list; defaults to `ivo-tech.com` + `www.ivo-tech.com`)
+- Runtime telemetry: Vercel Analytics + Vercel Speed Insights are enabled and use the same host allow-list (`NEXT_PUBLIC_ANALYTICS_ALLOWED_HOSTS`).
 - `NEXT_PUBLIC_SENTRY_DSN` (optional)
 - `NEXT_PUBLIC_CSP_REPORT_URI` (optional)
 - `RESEND_API_KEY` (optional, enables direct email delivery for contact form submissions)
