@@ -63,6 +63,8 @@ export type Project = ProjectCard & {
   tier: ProjectTier;
   thumbSrc: string;
   techLine: Record<Locale, string>;
+  attribution_note?: Record<Locale, string>;
+  engineering_highlights?: Record<Locale, string[]>;
   modal: {
     title: Record<Locale, string>;
     desc: Record<Locale, string>;
@@ -80,73 +82,91 @@ export const projects: Project[] = [
     status: 'live',
     thumbSrc: '/assets/thumb_viewer_neon.png',
     title: {
-      de: '3D-Konfigurator fuer 3D-Druck-Angebote in Echtzeit',
-      en: '3D configurator for real-time print quotations'
+      de: '3D-Konfigurator fuer Datei-zu-Angebot-Workflows im Live-Betrieb',
+      en: '3D configurator for live file-to-quote workflows'
     },
     one_liner: {
-      de: 'Live Business System: Upload, Analyse, Preislogik und WooCommerce-Checkout in einem Flow.',
-      en: 'Live business system: upload, analysis, pricing logic, and WooCommerce checkout in one flow.'
+      de: 'Ich habe einen produktionsfaehigen 3D-Konfigurator fuer Datei-zu-Angebot-Workflows entwickelt: Upload, Geometrie-Analyse, Preislogik und WooCommerce-Handoff in einem durchgaengigen Web-Flow.',
+      en: 'I built a production-ready 3D configurator for file-to-quote workflows: upload, geometry analysis, pricing logic, and WooCommerce handoff in one continuous web flow.'
     },
     business_outcome: {
-      de: 'Schneller von Datei zu Preisangebot, weniger manueller Angebotsaufwand, klarer Conversion-Pfad.',
-      en: 'Faster file-to-quote journey, lower manual quoting effort, and a clear conversion path.'
+      de: 'Das System reduziert manuelle Rueckfrage-Schleifen bei Standardanfragen und schafft einen klaren Pfad von Modellpruefung zu Kaufentscheidung.',
+      en: 'The system reduces manual back-and-forth for standard requests and creates a clear path from model review to purchase decision.'
     },
     proof_statement: {
-      de: 'Die End-to-End Strecke (Upload bis Checkout) ist im realen Shopbetrieb aktiv und stabil.',
-      en: 'The end-to-end journey (upload to checkout) runs in a live production shop.'
+      de: 'Der Live-Flow von Upload bis Checkout laeuft stabil im realen Shopbetrieb.',
+      en: 'The live flow from upload to checkout runs stably in production shop operations.'
     },
     seo_title: {
       de: '3D-Konfigurator Case Study | IVO TECH',
       en: '3D Configurator Case Study | IVO TECH'
     },
     seo_description: {
-      de: 'Qualitative Case Study: Upload, Analyse, Preislogik und WooCommerce-Handoff in einem produktiven 3D-Flow.',
-      en: 'Qualitative case study: upload, analysis, pricing logic, and WooCommerce handoff in one production 3D flow.'
+      de: 'Tech-first Case Study: WebGL/Three.js Viewer, Plugin-Architektur, Preis-Engine und WooCommerce-Handoff im produktiven Flow.',
+      en: 'Tech-first case study: WebGL/Three.js viewer, plugin architecture, pricing engine, and WooCommerce handoff in a production flow.'
     },
     outcome_metrics: [
       {
-        label: { de: 'Live-Einsatz', en: 'Live usage' },
+        label: { de: 'Live-Prozess', en: 'Live process' },
         value: {
-          de: 'Der Konfigurator ist produktiv im Shop eingebunden (Upload -> Preis -> Checkout).',
-          en: 'The configurator is integrated in production (upload -> pricing -> checkout).'
+          de: 'Upload -> Analyse -> Preis -> Checkout ist produktiv im Kundenprojekt integriert.',
+          en: 'Upload -> analysis -> pricing -> checkout is integrated in live client operations.'
         }
       },
       {
-        label: { de: 'Prozesswirkung', en: 'Process impact' },
+        label: { de: 'Prozessqualitaet', en: 'Process quality' },
         value: {
-          de: 'Self-service Flow ersetzt Rueckruf-/Mail-Schleifen bei Standardanfragen.',
-          en: 'Self-service flow replaces callback/email loops for standard requests.'
+          de: 'Self-service ersetzt standardisierte Rueckfrage-Schleifen und macht Anfragen reproduzierbar.',
+          en: 'Self-service replaces standard back-and-forth loops and keeps requests reproducible.'
         }
       }
     ],
     stack_tags: ['THREE.JS', 'WORDPRESS', 'WOOCOMMERCE', 'DOCKER'],
     proof_link: 'https://deinlieblingsdruck.de/3d-konfigurator/#preisrechner',
     techLine: {
-      de: 'THREE.JS | WORDPRESS | WOOCOMMERCE | PRICING LOGIC',
-      en: 'THREE.JS | WORDPRESS | WOOCOMMERCE | PRICING LOGIC'
+      de: 'THREE.JS / WEBGL | WORDPRESS PLUGIN | PRICING ENGINE | WOOCOMMERCE',
+      en: 'THREE.JS / WEBGL | WORDPRESS PLUGIN | PRICING ENGINE | WOOCOMMERCE'
+    },
+    attribution_note: {
+      de: 'Technische Umsetzung: IVO TECH. Betrieb und Vermarktung erfolgen beim Kunden.',
+      en: 'Technical implementation by IVO TECH. Platform operations and commercial ownership remain with the client.'
+    },
+    engineering_highlights: {
+      de: [
+        'WebGL-/Three.js-Viewer mit STL/3MF Upload und interaktiver Modellinspektion.',
+        'WordPress Plugin-Architektur mit AJAX-Endpunkten fuer Analyse- und Preis-Kontext.',
+        'Preis-Engine mit Material-, Qualitaets- und Mengenlogik fuer reproduzierbare Angebotsstrecken.',
+        'WooCommerce-Handoff fuer den medienbruchfreien Uebergang in den Checkout.'
+      ],
+      en: [
+        'WebGL/Three.js viewer with STL/3MF upload and interactive model inspection.',
+        'WordPress plugin architecture with AJAX endpoints for analysis and pricing context.',
+        'Pricing engine with material, quality, and quantity logic for reproducible quote flows.',
+        'WooCommerce handoff for context-preserving transition into checkout.'
+      ]
     },
     modal: {
       title: { de: '3D-KONFIGURATOR (LIVE)', en: '3D CONFIGURATOR (LIVE)' },
       desc: {
-        de: 'Produktionstaugliche Konfigurator-Architektur: 3D-Analyse im Browser, Material/Preset/Color-Logik und Uebergabe in WooCommerce.',
-        en: 'Production-oriented configurator architecture: browser-based 3D analysis, material/preset/color logic, and WooCommerce handoff.'
+        de: 'Tech-first Delivery fuer ein Kundenprojekt: browserbasierte 3D-Analyse, Plugin-Backbone fuer Preislogik und stabiler Checkout-Handoff.',
+        en: 'Tech-first delivery for a client project: browser-based 3D analysis, plugin backbone for pricing logic, and stable checkout handoff.'
       },
       specs: {
         de: [
-          { label: 'Problem', value: 'Manuelle Angebote waren langsam und schlecht skalierbar.' },
-          { label: 'Loesung', value: 'Self-service Preislogik direkt am 3D-Modell.' },
-          { label: 'Frontend', value: 'Three.js Viewer, Orbit Controls, STL/3MF Handling.' },
-          { label: 'Backend', value: 'WordPress Plugin + AJAX-Endpunkte fuer Preis-/Analysepfade.' },
-          { label: 'Commerce', value: 'WooCommerce Cart/Order Integration.' },
-          { label: 'Betrieb', value: 'PrusaSlicer-/Docker-Pipeline fuer reproduzierbare Verarbeitung.' }
+          { label: 'Problem', value: 'Manuelle Angebotsrunden waren langsam und schwer skalierbar.' },
+          { label: 'Loesung', value: 'Datei-zu-Preis als gefuehrter Self-service Flow im Browser.' },
+          { label: '3D Frontend', value: 'Three.js/WebGL Viewer, Orbit Controls, STL/3MF Verarbeitung.' },
+          { label: 'Plugin-Backend', value: 'WordPress Plugin mit AJAX-Endpunkten fuer Analyse und Pricing-Kontext.' },
+          { label: 'Pricing Engine', value: 'Material-, Qualitaets-, Mengen- und Mindestpreislogik fuer reproduzierbare Ergebnisse.' },
+          { label: 'Commerce', value: 'WooCommerce Cart/Order-Handoff ohne Medienbruch.' }
         ],
         en: [
-          { label: 'Problem', value: 'Manual quoting was slow and hard to scale.' },
-          { label: 'Solution', value: 'Self-service pricing logic directly on the 3D model.' },
-          { label: 'Frontend', value: 'Three.js viewer, orbit controls, STL/3MF handling.' },
-          { label: 'Backend', value: 'WordPress plugin + AJAX endpoints for pricing/analysis.' },
-          { label: 'Commerce', value: 'WooCommerce cart/order integration.' },
-          { label: 'Operations', value: 'PrusaSlicer/docker pipeline for reproducible processing.' }
+          { label: 'Problem', value: 'Manual quote loops were slow and hard to scale.' },
+          { label: 'Solution', value: 'File-to-price as a guided self-service browser flow.' },
+          { label: '3D Frontend', value: 'Three.js/WebGL viewer, orbit controls, STL/3MF processing.' },
+          { label: 'Plugin Backend', value: 'WordPress plugin with AJAX endpoints for analysis and pricing context.' },
+          { label: 'Pricing Engine', value: 'Material, quality, quantity, and minimum-price logic for reproducible outputs.' },
+          { label: 'Commerce', value: 'WooCommerce cart/order handoff without context switching.' }
         ]
       },
       actions: {
@@ -174,29 +194,32 @@ export const projects: Project[] = [
     case_study: {
       kpis: [
         {
-          label: { de: 'Time-to-Quote (TTR)', en: 'Time-to-quote (TTR)' },
-          value: { de: 'Messstrecke live seit Februar 2026', en: 'Measurement pipeline live since February 2026' },
-          note: {
-            de: 'Erste 30-Tage-Auswertung wird fortlaufend aktualisiert.',
-            en: 'First 30-day review is updated continuously.'
-          }
-        },
-        {
-          label: { de: 'Checkout-Handoff', en: 'Checkout handoff' },
+          label: { de: 'Live Flow', en: 'Live flow' },
           value: {
-            de: 'Konfiguration wird ohne Medienbruch in WooCommerce uebergeben.',
-            en: 'Configuration is handed off into WooCommerce without context switching.'
+            de: 'Upload -> Analyse -> Preis -> Checkout laeuft produktiv im Kundenprojekt.',
+            en: 'Upload -> analysis -> pricing -> checkout runs in production client operations.'
           },
           note: {
-            de: 'Live in der Produktionsumgebung.',
-            en: 'Live in the production environment.'
+            de: 'Qualitativer Proof aus laufendem Shopbetrieb.',
+            en: 'Qualitative proof from ongoing production operations.'
           }
         },
         {
-          label: { de: 'Angebotsprozess', en: 'Quoting process' },
+          label: { de: 'Engineering Scope', en: 'Engineering scope' },
           value: {
-            de: 'Von manueller Rueckfrage auf gefuehrten Online-Flow umgestellt.',
-            en: 'Moved from manual back-and-forth to a guided online flow.'
+            de: 'Viewer, Plugin-Backend, Pricing-Engine und WooCommerce-Handoff wurden als ein System umgesetzt.',
+            en: 'Viewer, plugin backend, pricing engine, and WooCommerce handoff were delivered as one system.'
+          },
+          note: {
+            de: 'Technische Umsetzung durch IVO TECH.',
+            en: 'Technical implementation by IVO TECH.'
+          }
+        },
+        {
+          label: { de: 'Operational Fit', en: 'Operational fit' },
+          value: {
+            de: 'Standardanfragen laufen gefuehrt statt ueber manuelle Rueckfrage-Schleifen.',
+            en: 'Standard requests run in a guided flow instead of manual back-and-forth loops.'
           },
           note: {
             de: 'Fokus auf reproduzierbare Bearbeitung pro Anfrage.',
@@ -206,60 +229,62 @@ export const projects: Project[] = [
       ],
       problem: {
         de: [
-          'Manuelle Angebotserstellung fuer 3D-Druck war zeitintensiv und inkonsistent.',
-          'Kunden brauchten schnelle Preisorientierung statt Rueckruf-/Mail-Schleifen.'
+          'Angebote fuer 3D-Druck liefen manuell und verursachten wiederkehrende Rueckfrage-Schleifen.',
+          'Kunden brauchten eine schnelle, nachvollziehbare Preisorientierung direkt nach dem Upload.'
         ],
         en: [
-          'Manual 3D-print quotation was time-consuming and inconsistent.',
-          'Customers needed instant pricing orientation instead of callback/email loops.'
+          '3D-print quotes were handled manually and created repeated back-and-forth loops.',
+          'Customers needed fast, traceable pricing orientation immediately after upload.'
         ]
       },
       solution: {
         de: [
-          'Webbasierter Konfigurator mit Modell-Upload, Analyse und Preisberechnung.',
-          'Direkte Uebergabe der Konfiguration in den Kaufprozess.'
+          'Webbasierter Konfigurator mit Modell-Upload, Geometrieanalyse und regelbasierter Preislogik.',
+          'Direkte Uebergabe der Konfiguration in den WooCommerce-Kaufprozess.'
         ],
         en: [
-          'Web configurator with model upload, analysis, and pricing.',
-          'Direct handoff from configuration into checkout.'
+          'Web configurator with model upload, geometry analysis, and rule-based pricing logic.',
+          'Direct handoff from configuration into the WooCommerce checkout flow.'
         ]
       },
       technology: {
         de: [
-          'Frontend: 3D-Interaktion und Visualisierung mit Three.js.',
-          'Backend: WordPress Plugin mit AJAX-Endpunkten.',
-          'Commerce: WooCommerce Preis-/Cart-Integration.',
-          'Verarbeitung: Docker-gestuetzte Slicing-/Analysepipeline.'
+          'Frontend: Three.js/WebGL Viewer mit STL-/3MF-Verarbeitung und interaktiver Modellsteuerung.',
+          'Backend: WordPress Plugin mit AJAX-Endpunkten fuer Analyse, Preis-Context und Repricing.',
+          'Pricing: Material-, Qualitaets-, Farb- und Mengenlogik fuer reproduzierbare Angebotsausgabe.',
+          'Commerce: WooCommerce Cart/Order-Handoff mit sauberer Konfigurationsuebergabe.'
         ],
         en: [
-          'Frontend: 3D interaction and visualization with Three.js.',
-          'Backend: WordPress plugin with AJAX endpoints.',
-          'Commerce: WooCommerce pricing/cart integration.',
-          'Processing: docker-backed slicing/analysis pipeline.'
+          'Frontend: Three.js/WebGL viewer with STL/3MF processing and interactive model controls.',
+          'Backend: WordPress plugin with AJAX endpoints for analysis, pricing context, and repricing.',
+          'Pricing: material, quality, color, and quantity logic for reproducible quote outputs.',
+          'Commerce: WooCommerce cart/order handoff with clean configuration transfer.'
         ]
       },
       impact: {
         de: [
-          'Live-Integration vom Upload bis zum Checkout ohne Medienbruch.',
-          'Klarerer Funnel fuer Kunden und weniger manuelle Rueckfragen im Angebotsprozess.'
+          'Durchgaengiger Live-Flow vom Upload bis zum Checkout ohne Medienbruch.',
+          'Weniger manuelle Rueckfragen bei Standardanfragen und klarere Entscheidungswege fuer Kunden.',
+          'Rollenklarheit: Technische Umsetzung durch IVO TECH, Betrieb beim Kunden.'
         ],
         en: [
-          'Live integration from upload to checkout without context switching.',
-          'Clearer customer funnel and fewer manual loops in the quoting process.'
+          'End-to-end live flow from upload to checkout without context switching.',
+          'Fewer manual loops for standard requests and clearer decision paths for customers.',
+          'Clear role split: technical implementation by IVO TECH, operations by the client.'
         ]
       },
       media_assets: {
         de: [
-          'Screen 1: Upload + 3D-Ansicht',
-          'Screen 2: Material/Optionen + Echtzeitpreis',
-          'Screen 3: Uebergabe in Warenkorb/Kaufprozess',
-          'Optional: 30-45s Walkthrough-Video'
+          'Screen 1: Modell-Upload + 3D-Inspektion im Viewer',
+          'Screen 2: Material/Qualitaet/Farbe + Preisreaktion',
+          'Screen 3: Konfigurationsuebergabe in Cart/Checkout',
+          'Optional: 30-45s Walkthrough mit Engineering-Kommentar'
         ],
         en: [
-          'Screen 1: upload + 3D viewport',
-          'Screen 2: material/options + real-time pricing',
-          'Screen 3: handoff into cart/checkout',
-          'Optional: 30-45s walkthrough video'
+          'Screen 1: model upload + 3D inspection in the viewer',
+          'Screen 2: material/quality/color + pricing response',
+          'Screen 3: configuration handoff into cart/checkout',
+          'Optional: 30-45s walkthrough with engineering commentary'
         ]
       }
     }

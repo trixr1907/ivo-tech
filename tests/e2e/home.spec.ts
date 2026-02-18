@@ -5,13 +5,24 @@ test.describe('homepage critical journeys', () => {
     await page.goto('/');
 
     const heroCommand = page.locator('.hero-cmd').first();
+    const brandModelRequest = page.waitForRequest((req) => req.url().includes('/assets/demo-brand-hybrid-v2.stl'));
+    const brandLogoRequest = page.waitForRequest((req) => req.url().includes('/assets/brand/ivo-tech-logo.glb'));
     await heroCommand.click();
 
     await expect(page).toHaveURL(/\?project=/);
     await expect(page.getByRole('dialog')).toBeVisible();
+    await brandModelRequest;
+    await brandLogoRequest;
 
     await page.locator('.dialog-close').click();
     await expect(page).not.toHaveURL(/\?project=/);
+  });
+
+  test('renders hero-case attribution and engineering snapshot', async ({ page }) => {
+    await page.goto('/#hero-case');
+    await expect(page.locator('.hero-case-attribution')).toBeVisible();
+    await expect(page.locator('.hero-case-engineering h4')).toContainText(/engineering/i);
+    await expect(page.locator('.hero-case-engineering li').first()).toBeVisible();
   });
 
   test('keeps hash when toggling language', async ({ page }) => {
@@ -23,7 +34,10 @@ test.describe('homepage critical journeys', () => {
 
   test('serves configurator page and pizza static route', async ({ page }) => {
     await page.goto('/configurator');
-    await expect(page.getByRole('heading', { level: 1 })).toContainText(/3D/i);
+    await expect(page.getByRole('heading', { level: 1 })).toContainText(/3D.*Tech/i);
+
+    await page.goto('/en/configurator');
+    await expect(page.getByRole('heading', { level: 1 })).toContainText(/3D.*tech/i);
 
     await page.goto('/pizza/');
     await expect(page.getByRole('heading', { level: 1 })).toContainText(/Amore/i);

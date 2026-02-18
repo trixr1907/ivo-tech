@@ -1,13 +1,13 @@
 ---
 slug: configurator-live
 locale: de
-title: "Case Study: 3D Konfigurator Live-System"
-description: End-to-End Delivery von Upload bis Checkout fuer einen produktiven 3D-Konfigurator.
-summary: Wie ein Self-Service-Flow den Weg von Datei-Upload zu Preis und Kaufentscheidung verkuerzt.
+title: "Case Study: 3D-Konfigurator als Tech-Referenz im Live-Betrieb"
+description: Tech-first Delivery eines produktiven Datei-zu-Angebot-Flows mit Three.js/WebGL, Plugin-Architektur, Preis-Engine und WooCommerce-Handoff.
+summary: Wie ein durchgaengiger 3D-Flow von Upload bis Checkout manuelle Rueckfrage-Schleifen reduziert und reproduzierbare Angebotsprozesse schafft.
 category: Case Study
 readMinutes: 8
 publishedAt: '2026-02-17'
-updatedAt: '2026-02-17'
+updatedAt: '2026-02-18'
 schemaType: Article
 internalLinks:
   - /insights/architecture-decisions-under-pressure
@@ -16,14 +16,38 @@ internalLinks:
 draft: false
 ---
 
+## Projektkontext
+
+Dieses Projekt wurde als technischer Kern fuer einen produktiven Datei-zu-Angebot-Workflow umgesetzt.
+Der Zielzustand war klar: von Modell-Upload ueber Analyse und Preislogik bis zur Checkout-Uebergabe in einem gefuehrten Web-Flow.
+
 ## Ausgangslage
 
-Die Angebotslogik war manuell und schlecht skalierbar.
+- 3D-Druck-Anfragen liefen zuvor ueber manuelle Angebotsrunden.
+- Rueckfragen zu Geometrie, Material und Preislogik machten die Strecke langsam und schwer skalierbar.
+- Kunden brauchten schnelle Preisorientierung direkt nach dem Upload statt asynchroner Mail-Schleifen.
 
-## Loesung
+## Umsetzungsarchitektur
 
-Ein durchgaengiger Web-Flow fuer Upload, Analyse, Preislogik und Checkout.
+- **Frontend (Three.js/WebGL):** Interaktiver Viewer mit STL-/3MF-Verarbeitung, Orbit Controls und klaren Modellzustands-Feedbacks.
+- **Plugin-Backend (WordPress):** AJAX-Endpunkte fuer Analyse-Kontext, Preisberechnungen und Repricing-Operationen.
+- **Pricing-Engine:** Regelbasierte Logik fuer Material, Qualitaet, Farbe, Menge und Mindestpreis.
+- **Commerce-Handoff (WooCommerce):** Uebergabe der finalen Konfiguration ohne Medienbruch in Cart/Checkout.
+
+## Delivery-Scope
+
+- Entwicklung als durchgaengiger Systemflow statt als isolierte Viewer-Komponente.
+- Strukturierte Trennung zwischen clientseitiger Interaktion und serverseitigem Preis-/Kontext-Handling.
+- Fokus auf reproduzierbare Ergebnisse fuer Standardanfragen.
 
 ## Ergebnis
 
-Weniger Rueckfragen bei Standardanfragen und klarere Kaufpfade.
+- Der Upload-zu-Checkout-Flow ist im Live-Betrieb aktiv.
+- Standardanfragen werden gefuehrt statt manuell in Rueckfrage-Schleifen verarbeitet.
+- Der Entscheidungsweg fuer Kunden ist klarer, weil Preis- und Konfigurationsstatus unmittelbar sichtbar sind.
+
+## Rollenabgrenzung
+
+Technische Umsetzung: **IVO TECH**.
+Betrieb und Vermarktung erfolgen beim Kunden.
+Die Live-Version dient als qualitativer Proof der implementierten Architektur.
