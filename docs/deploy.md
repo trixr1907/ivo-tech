@@ -45,7 +45,36 @@
   - optional contact webhook fallback: `CONTACT_WEBHOOK_URL`
   - optional contact rate limits: `CONTACT_RATE_LIMIT_PER_IP`, `CONTACT_RATE_LIMIT_WINDOW_MINUTES`
   - optional persistent contact rate store: `KV_REST_API_URL`, `KV_REST_API_TOKEN` (or Upstash aliases)
+  - optional A/B event ingest rate limits: `AB_EVENT_RATE_LIMIT_PER_IP`, `AB_EVENT_RATE_LIMIT_WINDOW_MINUTES`
+  - optional A/B ingest host allow-list override: `AB_EVENT_ALLOWED_HOSTS`
+  - optional A/B decision gates: `AB_REPORT_MIN_EXPOSURE_PER_VARIANT`, `AB_REPORT_MIN_SUBMIT_EVENTS_TOTAL`, `AB_REPORT_MIN_DELTA_PERCENTAGE_POINTS`
+  - optional source-level decision gates: `AB_REPORT_SOURCE_MIN_EXPOSURE_PER_VARIANT`, `AB_REPORT_SOURCE_MIN_SUBMIT_EVENTS_TOTAL`, `AB_REPORT_SOURCE_MIN_DELTA_PERCENTAGE_POINTS`
+  - optional internal dashboard protection key: `INTERNAL_REPORT_TOKEN` (used by `/internal/ab-report?key=...` and `/api/internal/ab-report?...&key=...`)
   - optional bot protection: `NEXT_PUBLIC_TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET_KEY`
+
+## AB_REPORT Gate Presets
+Wenn die `AB_REPORT*`-Variablen nicht gesetzt sind, nutzt die App feste Defaults basierend auf `NEXT_PUBLIC_APP_ENV`.
+Fuer reproduzierbare Releases empfiehlt sich trotzdem das explizite Setzen pro Environment.
+
+Staging (schnelleres Lernen, niedrigere Huerden):
+```bash
+AB_REPORT_MIN_EXPOSURE_PER_VARIANT=70
+AB_REPORT_MIN_SUBMIT_EVENTS_TOTAL=7
+AB_REPORT_MIN_DELTA_PERCENTAGE_POINTS=0.9
+AB_REPORT_SOURCE_MIN_EXPOSURE_PER_VARIANT=25
+AB_REPORT_SOURCE_MIN_SUBMIT_EVENTS_TOTAL=3
+AB_REPORT_SOURCE_MIN_DELTA_PERCENTAGE_POINTS=0.75
+```
+
+Production (stabilere Entscheidungen, hoehere Huerden):
+```bash
+AB_REPORT_MIN_EXPOSURE_PER_VARIANT=120
+AB_REPORT_MIN_SUBMIT_EVENTS_TOTAL=12
+AB_REPORT_MIN_DELTA_PERCENTAGE_POINTS=1.0
+AB_REPORT_SOURCE_MIN_EXPOSURE_PER_VARIANT=40
+AB_REPORT_SOURCE_MIN_SUBMIT_EVENTS_TOTAL=5
+AB_REPORT_SOURCE_MIN_DELTA_PERCENTAGE_POINTS=1.0
+```
 
 ## Cloudflare DNS setup (current)
 Domain ownership stays in Cloudflare. Keep Cloudflare nameservers and set these DNS records:

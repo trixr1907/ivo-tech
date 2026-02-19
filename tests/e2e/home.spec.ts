@@ -4,10 +4,10 @@ test.describe('homepage critical journeys', () => {
   test('opens and closes project modal via query-state routing', async ({ page }) => {
     await page.goto('/');
 
-    const heroCommand = page.locator('.hero-cmd').first();
+    const technicalDetailsLink = page.getByRole('link', { name: /Technische Details|Technical details/i });
     const brandModelRequest = page.waitForRequest((req) => req.url().includes('/assets/demo-brand-hybrid-v2.stl'));
     const brandLogoRequest = page.waitForRequest((req) => req.url().includes('/assets/brand/ivo-tech-logo.glb'));
-    await heroCommand.click();
+    await technicalDetailsLink.click();
 
     await expect(page).toHaveURL(/\?project=/);
     await expect(page.getByRole('dialog')).toBeVisible();
@@ -23,6 +23,12 @@ test.describe('homepage critical journeys', () => {
     await expect(page.locator('.hero-case-attribution')).toBeVisible();
     await expect(page.locator('.hero-case-engineering h4')).toContainText(/engineering/i);
     await expect(page.locator('.hero-case-engineering li').first()).toBeVisible();
+  });
+
+  test('renders proof bar and hero teaser media', async ({ page }) => {
+    await page.goto('/');
+    await expect(page.locator('.proof-bar-item')).toHaveCount(3);
+    await expect(page.locator('.hero-teaser-video, .hero-teaser-poster')).toBeVisible();
   });
 
   test('keeps hash when toggling language', async ({ page }) => {
@@ -46,7 +52,7 @@ test.describe('homepage critical journeys', () => {
 
   test('submits contact form successfully on homepage', async ({ page }) => {
     await page.goto('/');
-    await page.getByRole('link', { name: /(Architekturgespraech|Kontaktgespraech)/i }).first().click();
+    await page.getByRole('link', { name: /(Strategiegespraech|strategy call|Tech-Einschaetzung|Tech assessment)/i }).first().click();
 
     await page.getByLabel('Name').fill('Test User');
     await page.getByLabel('E-Mail').fill('test@example.com');
