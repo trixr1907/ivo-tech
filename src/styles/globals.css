@@ -1763,6 +1763,108 @@ button.primary:disabled {
   color: var(--text);
 }
 
+.brand-review-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 14px;
+}
+
+.brand-review-card {
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-md);
+  background: rgba(11, 16, 28, 0.9);
+  padding: 14px;
+  display: grid;
+  gap: 12px;
+}
+
+.brand-review-card h2 {
+  font-family: var(--font-heading), system-ui, sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.brand-preview-surface {
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 16px;
+  display: grid;
+  place-items: center;
+}
+
+.brand-preview-surface--dark {
+  background: radial-gradient(circle at 20% 18%, rgba(0, 234, 255, 0.1), rgba(6, 9, 16, 0.94) 52%);
+}
+
+.brand-preview-surface--light {
+  background: #eff4ff;
+}
+
+.brand-preview-wordmark {
+  width: min(100%, 380px);
+  height: auto;
+}
+
+.brand-preview-submark {
+  width: min(100%, 180px);
+  height: auto;
+}
+
+.brand-size-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+}
+
+.brand-size-chip {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  display: grid;
+  gap: 8px;
+  align-items: center;
+}
+
+.brand-size-chip span {
+  color: var(--muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.brand-preview-video {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #04060d;
+}
+
+.brand-score-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 0.7fr 0.7fr;
+  gap: 8px 10px;
+  align-items: center;
+}
+
+.brand-score-head {
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+}
+
+.brand-score-total {
+  color: var(--cyan);
+  font-weight: 700;
+}
+
+.brand-score-note {
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
 :focus-visible {
   outline: 2px solid var(--cyan);
   outline-offset: 3px;
@@ -1879,6 +1981,10 @@ button.primary:disabled {
     width: calc(100vw - 28px);
     max-width: 360px;
     justify-content: center;
+  }
+
+  .brand-score-grid {
+    grid-template-columns: 1.35fr 0.8fr 0.8fr;
   }
 }
 

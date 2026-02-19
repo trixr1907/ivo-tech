@@ -11,6 +11,8 @@
 - Route A/B exploration:
   - `design/logo/routes/ivo-tech-logo-route-a.svg`
   - `design/logo/routes/ivo-tech-logo-route-b.svg`
+- Entscheidungs-Scorecard:
+  - `design/logo/route-scorecard.md`
 - Regeln: `design/logo/usage-rules.md`
 
 ## 3) Produktions-Assets (live)
@@ -68,3 +70,10 @@ node scripts/optimize-images.mjs
 - Product:
   - metadata/social previews consume latest logo assets.
   - primary brand string remains `ivo-tech` consistently.
+
+## 7) Internal QA Surface
+- URL: `/internal/brand-review`
+- Zweck:
+  - visuelle Abnahme fuer wordmark/submark auf dark/light
+  - small-size Checks (16/24/32 px)
+  - motion preview und Asset-Vollstaendigkeit in einer Ansicht
