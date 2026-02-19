@@ -18,6 +18,8 @@
     "test:unit:watch": "vitest",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
+    "brand:generate": "python3 scripts/generate_logo_system.py && node scripts/optimize-images.mjs",
+    "brand:verify": "vitest run tests/unit/logo-assets.test.ts && CI=1 playwright test tests/e2e/brand.spec.ts tests/e2e/internal-brand-review.spec.ts",
     "perf:lighthouse": "node scripts/run-lhci.mjs",
     "perf:lighthouse:demo": "node scripts/run-lhci.mjs ./lighthouserc.demo.json",
     "optimize:images": "node scripts/optimize-images.mjs",
