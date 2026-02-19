@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from 'react';
+import { useRef, useState, type FormEvent } from 'react';
 import Script from 'next/script';
 
 import type { Locale } from '@/content/copy';
@@ -11,6 +11,8 @@ type ProjectScope = 'audit' | 'build' | 'optimize' | 'unknown';
 
 type ContactFormText = {
   intentLegend: string;
+  optionalDetailsSummary: string;
+  optionalDetailsHint: string;
   intentOptions: Record<ContactIntent, string>;
   intentDetailLabel: string;
   intentDetailOptions: Record<ContactIntentDetail, string>;
@@ -36,6 +38,11 @@ type ContactFormText = {
 type Props = {
   locale: Locale;
   text: ContactFormText;
+  trackingContext?: {
+    experiment: 'home_cta_proof_v1';
+    variant: 'a' | 'b';
+    source?: string;
+  };
 };
 
 type FormState = {
@@ -62,16 +69,34 @@ const initialFormState: FormState = {
   website: ''
 };
 
-export function ContactForm({ locale, text }: Props) {
+export function ContactForm({ locale, text, trackingContext }: Props) {
   const [form, setForm] = useState<FormState>(initialFormState);
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [feedback, setFeedback] = useState('');
+  const didTrackStart = useRef(false);
   const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY?.trim();
   const hasTurnstile = Boolean(turnstileSiteKey);
+  const source = trackingContext?.source ?? 'contact_form';
+  const abPayload =
+    trackingContext === undefined
+      ? {}
+      : {
+          experiment: trackingContext.experiment,
+          variant: trackingContext.variant
+        };
 
   const isSubmitting = status === 'submitting';
 
   const onFieldChange = <K extends keyof FormState>(field: K, value: FormState[K]) => {
+    if (!didTrackStart.current) {
+      didTrackStart.current = true;
+      const sourcePath =
+        typeof window === 'undefined'
+          ? '/'
+          : `${window.location.pathname}${window.location.search}${window.location.hash}`;
+      trackEvent('contact_form_start', { source, locale, sourcePath, ...abPayload });
+    }
+
     setForm((prev) => ({ ...prev, [field]: value }));
     if (status === 'error') {
       setStatus('idle');
@@ -102,11 +127,13 @@ export function ContactForm({ locale, text }: Props) {
       trackEvent('contact_form_error', {
         intent: form.intent,
         locale,
+        source,
         sourcePath:
           typeof window === 'undefined'
             ? '/'
             : `${window.location.pathname}${window.location.search}${window.location.hash}`,
-        errorCode: 'verification_missing'
+        errorCode: 'verification_missing',
+        ...abPayload
       });
       return;
     }
@@ -116,14 +143,16 @@ export function ContactForm({ locale, text }: Props) {
         ? '/'
         : `${window.location.pathname}${window.location.search}${window.location.hash}`;
 
-    trackEvent('contact_form_submit', { intent: form.intent, locale, sourcePath });
+    trackEvent('contact_form_submit', { intent: form.intent, source, locale, sourcePath, ...abPayload });
     trackEvent('contact_quality_submit', {
       intent: form.intent,
       intentDetail: form.intentDetail,
       timelineBand: form.timelineBand,
       projectScope: form.projectScope,
+      source,
       locale,
-      sourcePath
+      sourcePath,
+      ...abPayload
     });
 
     try {
@@ -153,7 +182,8 @@ export function ContactForm({ locale, text }: Props) {
 
       setStatus('success');
       setFeedback(text.success);
-      trackEvent('contact_form_success', { intent: form.intent, locale, sourcePath });
+      trackEvent('contact_form_success', { intent: form.intent, source, locale, sourcePath, ...abPayload });
+      trackEvent('contact_form_submit_success', { intent: form.intent, source, locale, sourcePath, ...abPayload });
       setForm(initialFormState);
     } catch (error) {
       const errorCode = error instanceof Error ? error.message : 'request_failed';
@@ -166,7 +196,7 @@ export function ContactForm({ locale, text }: Props) {
 
       setStatus('error');
       setFeedback(message);
-      trackEvent('contact_form_error', { intent: form.intent, locale, sourcePath, errorCode });
+      trackEvent('contact_form_error', { intent: form.intent, source, locale, sourcePath, errorCode, ...abPayload });
     }
   };
 
@@ -203,54 +233,6 @@ export function ContactForm({ locale, text }: Props) {
         </fieldset>
 
         <div className="contact-fields">
-          <label className="field">
-            <span>{text.intentDetailLabel}</span>
-            <select
-              name="intentDetail"
-              required
-              value={form.intentDetail}
-              onChange={(e) => onFieldChange('intentDetail', e.target.value as ContactIntentDetail)}
-            >
-              {(['hiring', 'project', 'collab'] as ContactIntentDetail[]).map((value) => (
-                <option key={value} value={value}>
-                  {text.intentDetailOptions[value]}
-                </option>
-              ))}
-            </select>
-          </label>
-
-          <label className="field">
-            <span>{text.timelineLabel}</span>
-            <select
-              name="timelineBand"
-              required
-              value={form.timelineBand}
-              onChange={(e) => onFieldChange('timelineBand', e.target.value as TimelineBand)}
-            >
-              {(['asap', '30d', '90d+'] as TimelineBand[]).map((value) => (
-                <option key={value} value={value}>
-                  {text.timelineOptions[value]}
-                </option>
-              ))}
-            </select>
-          </label>
-
-          <label className="field">
-            <span>{text.scopeLabel}</span>
-            <select
-              name="projectScope"
-              required
-              value={form.projectScope}
-              onChange={(e) => onFieldChange('projectScope', e.target.value as ProjectScope)}
-            >
-              {(['audit', 'build', 'optimize', 'unknown'] as ProjectScope[]).map((value) => (
-                <option key={value} value={value}>
-                  {text.scopeOptions[value]}
-                </option>
-              ))}
-            </select>
-          </label>
-
           <label className="field">
             <span>{text.nameLabel}</span>
             <input
@@ -300,6 +282,45 @@ export function ContactForm({ locale, text }: Props) {
               onChange={(e) => onFieldChange('message', e.target.value)}
             />
           </label>
+
+          <details className="contact-optional">
+            <summary>{text.optionalDetailsSummary}</summary>
+            <p className="form-note optional-note">{text.optionalDetailsHint}</p>
+            <div className="contact-optional-grid">
+              <label className="field">
+                <span>{text.intentDetailLabel}</span>
+                <select name="intentDetail" value={form.intentDetail} onChange={(e) => onFieldChange('intentDetail', e.target.value as ContactIntentDetail)}>
+                  {(['hiring', 'project', 'collab'] as ContactIntentDetail[]).map((value) => (
+                    <option key={value} value={value}>
+                      {text.intentDetailOptions[value]}
+                    </option>
+                  ))}
+                </select>
+              </label>
+
+              <label className="field">
+                <span>{text.timelineLabel}</span>
+                <select name="timelineBand" value={form.timelineBand} onChange={(e) => onFieldChange('timelineBand', e.target.value as TimelineBand)}>
+                  {(['asap', '30d', '90d+'] as TimelineBand[]).map((value) => (
+                    <option key={value} value={value}>
+                      {text.timelineOptions[value]}
+                    </option>
+                  ))}
+                </select>
+              </label>
+
+              <label className="field">
+                <span>{text.scopeLabel}</span>
+                <select name="projectScope" value={form.projectScope} onChange={(e) => onFieldChange('projectScope', e.target.value as ProjectScope)}>
+                  {(['audit', 'build', 'optimize', 'unknown'] as ProjectScope[]).map((value) => (
+                    <option key={value} value={value}>
+                      {text.scopeOptions[value]}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            </div>
+          </details>
 
           <label className="field hp-field" aria-hidden="true">
             <span>{text.honeypotLabel}</span>
