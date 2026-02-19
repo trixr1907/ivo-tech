@@ -16,6 +16,6 @@
 
 ## Verbotene Anwendungen
 - Kein Verzerren
-- Kein überstarkes Glow
+- Kein ueberstarkes Glow
 - Keine Magenta-Primärvariante
 - Keine Farbverlaeufe ausserhalb definierter Exporte

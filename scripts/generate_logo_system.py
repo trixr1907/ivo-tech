@@ -5,7 +5,7 @@ Generate ivo-tech logo system assets:
 - Favicon from submark
 - Route SVGs + master SVG/AI placeholder
 - 3D STL + GLB brand assets
-- 4s logo sting video (mp4/webm) + poster png
+- 4s logo sting video (mp4/webm) + poster png + captions vtt
 """
 
 from __future__ import annotations
@@ -497,6 +497,15 @@ def render_logo_sting(wordmark: Image.Image, submark: Image.Image) -> None:
     tmp_webm.replace(out_webm)
 
 
+def write_logo_sting_captions(path: Path) -> None:
+    vtt = """WEBVTT
+
+00:00.000 --> 00:04.000
+[Logo animation without spoken dialogue]
+"""
+    path.write_text(vtt, encoding="utf-8")
+
+
 def main() -> None:
     ensure_dirs()
     write_route_svgs()
@@ -519,6 +528,7 @@ def main() -> None:
     write_glb(BRAND_DIR / "ivo-tech-logo.glb", base_vertices, base_faces)
 
     render_logo_sting(wordmark_primary, submark_primary)
+    write_logo_sting_captions(VIDEO_DIR / "logo-sting-captions.vtt")
     print("Generated logo system assets successfully.")
 
 
