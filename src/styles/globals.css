@@ -1785,6 +1785,18 @@ button.primary:disabled {
   text-transform: uppercase;
 }
 
+.brand-review-card h3 {
+  font-family: var(--font-heading), system-ui, sans-serif;
+  font-size: 0.92rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.brand-review-card p {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
 .brand-preview-surface {
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -1863,6 +1875,58 @@ button.primary:disabled {
 .brand-score-note {
   color: var(--muted);
   font-size: 0.84rem;
+}
+
+.brand-showcase-main {
+  gap: 44px;
+}
+
+.brand-showcase-hero {
+  align-items: start;
+}
+
+.brand-showcase-section {
+  gap: 12px;
+}
+
+.brand-download-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px;
+}
+
+.brand-download-link {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.03);
+  display: grid;
+  gap: 6px;
+}
+
+.brand-download-link span {
+  color: var(--text);
+  font-size: 0.83rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.brand-download-link code {
+  color: var(--muted);
+  font-size: 0.74rem;
+}
+
+.brand-download-link:hover {
+  border-color: rgba(0, 234, 255, 0.42);
+  box-shadow: var(--shadow-sm);
+}
+
+.brand-quality-list {
+  margin-left: 18px;
+  display: grid;
+  gap: 8px;
+  color: var(--muted);
+  line-height: 1.65;
 }
 
 :focus-visible {

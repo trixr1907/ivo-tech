@@ -77,3 +77,10 @@ node scripts/optimize-images.mjs
   - visuelle Abnahme fuer wordmark/submark auf dark/light
   - small-size Checks (16/24/32 px)
   - motion preview und Asset-Vollstaendigkeit in einer Ansicht
+
+## 8) Public Showcase Surface
+- URL: `/brand` und `/en/brand`
+- Zweck:
+  - saubere externe Praesentation des finalen Logo-Systems
+  - Download-Entry-Point fuer aktuelle Produktionsdateien
+  - konsistente DE/EN-Ausgabe ohne Design-Drift

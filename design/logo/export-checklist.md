@@ -24,3 +24,5 @@
 - [ ] Submark still distinct at favicon size
 - [ ] Header lockup does not overlap nav on mobile
 - [ ] OG and Twitter previews show current logo
+- [ ] `/internal/brand-review` loads all key assets
+- [ ] `/brand` and `/en/brand` render without layout regressions
