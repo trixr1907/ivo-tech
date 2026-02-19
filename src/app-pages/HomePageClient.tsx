@@ -3,10 +3,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import type { MouseEvent } from 'react';
+import { useEffect, useMemo, useRef, type MouseEvent } from 'react';
 
 import { ContactForm } from '@/components/ContactForm';
-import { HeroCommands } from '@/components/HeroCommands';
+import { BrandLockup } from '@/components/BrandLockup';
 import { LanguageToggle } from '@/components/LanguageToggle';
 import { ProjectModal } from '@/components/ProjectModal';
 import { copy, type Locale } from '@/content/copy';
@@ -28,6 +28,20 @@ type Props = {
   locale: Locale;
   featuredInsights: FeaturedInsightTeaser[];
 };
+
+type ProofBarItem = {
+  id: string;
+  label: string;
+  value: string;
+  href: string;
+};
+
+type HomeVariant = 'a' | 'b';
+
+function parseVariant(raw: string | null): HomeVariant | null {
+  if (raw === 'a' || raw === 'b') return raw;
+  return null;
+}
 
 function renderProjectCard(
   project: Project,
@@ -61,13 +75,11 @@ function renderProjectCard(
         <h3>{project.title[locale]}</h3>
         <p>{project.one_liner[locale]}</p>
         <p className="project-outcome">{project.business_outcome[locale]}</p>
-        <p className="project-proof">{project.proof_statement[locale]}</p>
         {firstMetric ? (
           <p className="project-metric">
             <span>{firstMetric.label[locale]}:</span> {firstMetric.value[locale]}
           </p>
         ) : null}
-        <span className="meta">{project.stack_tags.join(' | ')}</span>
       </span>
     </a>
   );
@@ -85,11 +97,70 @@ export function HomePageClient({ locale, featuredInsights }: Props) {
   const activeProject = getProjectById(projectParam);
 
   const heroProject = getProjectsByTier('hero')[0] ?? null;
-  const featuredProjects = getProjectsByTier('featured');
-  const labsProjects = getProjectsByTier('labs');
+  const featuredProjects = getProjectsByTier('featured').slice(0, 3);
   const heroProofLink = heroProject?.proof_link ?? localizePath('/configurator', locale);
   const heroAttribution = heroProject?.attribution_note?.[locale] ?? null;
   const heroEngineeringHighlights = heroProject?.engineering_highlights?.[locale] ?? [];
+  const heroMedia = heroProject?.media;
+  const hasHeroVideo = Boolean(heroMedia?.videoMp4 || heroMedia?.videoWebm);
+  const didTrackHeroVideo = useRef(false);
+  const didTrackVariantExposure = useRef(false);
+  const variant = useMemo<HomeVariant>(() => {
+    if (typeof window === 'undefined') return 'a';
+
+    const storageKey = 'ivo_home_cta_proof_v1';
+    const fromQuery = parseVariant(new URLSearchParams(window.location.search).get('variant'));
+    if (fromQuery) {
+      try {
+        window.localStorage.setItem(storageKey, fromQuery);
+      } catch {
+        // Best effort: fallback behavior remains deterministic.
+      }
+      return fromQuery;
+    }
+
+    try {
+      const fromStorage = parseVariant(window.localStorage.getItem(storageKey));
+      if (fromStorage) return fromStorage;
+    } catch {
+      // Ignore and fallback to random assignment.
+    }
+
+    const seed = `${window.location.hostname}|${navigator.userAgent}`;
+    let hash = 0;
+    for (let i = 0; i < seed.length; i += 1) {
+      hash = (hash << 5) - hash + seed.charCodeAt(i);
+      hash |= 0;
+    }
+    const assigned: HomeVariant = Math.abs(hash) % 2 === 0 ? 'a' : 'b';
+    try {
+      window.localStorage.setItem(storageKey, assigned);
+    } catch {
+      // Ignore storage failures.
+    }
+    return assigned;
+  }, []);
+
+  useEffect(() => {
+    if (didTrackVariantExposure.current) return;
+    didTrackVariantExposure.current = true;
+    trackEvent('ab_home_variant_exposure', {
+      experiment: 'home_cta_proof_v1',
+      variant,
+      locale,
+      path: asPath
+    });
+  }, [asPath, locale, variant]);
+
+  const primaryCtaLabel =
+    variant === 'b'
+      ? locale === 'de'
+        ? 'Kostenlose Tech-Einschaetzung anfragen'
+        : 'Request free tech assessment'
+      : t.primaryCta.label;
+
+  const primaryCtaShortLabel =
+    variant === 'b' ? (locale === 'de' ? 'Tech-Einschaetzung' : 'Tech assessment') : t.primaryCta.shortLabel;
 
   const openProject = (id: ProjectId, source = 'unknown') => {
     trackEvent('case_study_open', { projectId: id, source, locale, path: asPath });
@@ -115,67 +186,155 @@ export function HomePageClient({ locale, featuredInsights }: Props) {
     openProject(id, source);
   };
 
-  const onContactCtaClick = (location: string, intent: 'hiring' | 'client' | 'hybrid' = 'hybrid') => {
-    trackEvent('cta_contact_click', {
-      location,
-      intent,
+  const onPrimaryCtaClick = (source: string) => {
+    trackEvent('cta_primary_click', {
+      source,
       locale,
-      path: asPath
+      path: asPath,
+      intent: t.primaryCta.intent,
+      experiment: 'home_cta_proof_v1',
+      variant
+    });
+    trackEvent('cta_contact_click', {
+      source,
+      location: source,
+      intent: 'hybrid',
+      locale,
+      path: asPath,
+      experiment: 'home_cta_proof_v1',
+      variant
     });
   };
 
-  const onCvClick = (location: string) => {
+  const onCvClick = (source: string) => {
     trackEvent('authority_asset_view', {
       asset: 'cv',
-      location,
+      source,
       locale,
       path: asPath
     });
     trackEvent('cv_download', {
-      location,
+      source,
       locale,
       path: asPath
     });
   };
 
+  const proofBarItems: ProofBarItem[] =
+    locale === 'de'
+      ? variant === 'b'
+        ? [
+            {
+              id: 'live_system',
+              label: 'Live-Proof',
+              value: 'Case mit End-to-End Upload-Flow',
+              href: '#hero-case'
+            },
+            {
+              id: 'delivery_quality',
+              label: 'Qualitaets-Gates',
+              value: 'Stabile Releases ueber klare Guardrails',
+              href: '#services'
+            },
+            {
+              id: 'response_window',
+              label: 'Kapazitaet',
+              value: '2 Deep-Dive Slots pro Monat',
+              href: '#contact'
+            }
+          ]
+        : [
+            {
+              id: 'live_system',
+              label: 'Live-System',
+              value: 'Upload bis Checkout im Betrieb',
+              href: '#hero-case'
+            },
+            {
+              id: 'delivery_quality',
+              label: 'Delivery-Qualitaet',
+              value: 'Lint, Typing, Unit, E2E, Lighthouse',
+              href: '#services'
+            },
+            {
+              id: 'response_window',
+              label: 'Antwortzeit',
+              value: 'In der Regel innerhalb von 24h',
+              href: '#contact'
+            }
+          ]
+      : variant === 'b'
+        ? [
+            {
+              id: 'live_system',
+              label: 'Live proof',
+              value: 'Case study with end-to-end upload flow',
+              href: '#hero-case'
+            },
+            {
+              id: 'delivery_quality',
+              label: 'Quality gates',
+              value: 'Stable releases through clear guardrails',
+              href: '#services'
+            },
+            {
+              id: 'response_window',
+              label: 'Capacity',
+              value: '2 deep-dive slots per month',
+              href: '#contact'
+            }
+          ]
+        : [
+            {
+              id: 'live_system',
+              label: 'Live system',
+              value: 'Upload to checkout in production',
+              href: '#hero-case'
+            },
+            {
+              id: 'delivery_quality',
+              label: 'Delivery quality',
+              value: 'Lint, typing, unit, e2e, lighthouse',
+              href: '#services'
+            },
+            {
+              id: 'response_window',
+              label: 'Response window',
+              value: 'Typically within 24h',
+              href: '#contact'
+            }
+          ];
+
   const cvPath = locale === 'en' ? CV_PATH.en : CV_PATH.de;
 
-  const stackItems =
+  const serviceCards =
     locale === 'de'
       ? [
           {
             title: 'Frontend & Product Delivery',
-            desc: 'React/Next.js + TypeScript, responsive UI-Umsetzung und klare Informationsarchitektur.'
+            desc: 'Next.js/React + TypeScript, klare Informationsarchitektur und robuste UI-Umsetzung.'
           },
           {
             title: 'Backend & API Integrationen',
-            desc: 'FastAPI-Services, Prozess-Orchestrierung und API-Integrationen fuer stabile Web-Workflows.'
+            desc: 'FastAPI-Services, Datenfluesse und Integrationen fuer stabile End-to-End-Prozesse.'
           },
           {
-            title: 'Datenlogik & Optimierung',
-            desc: 'Python-Modelling, Szenario-Simulation und regelbasierte Optimierungslogik fuer Entscheidungen.'
-          },
-          {
-            title: 'Deployment & Betrieb',
-            desc: 'Docker, Caddy, Monitoring-Basis und serviceorientierte Integrationen fuer reproduzierbaren Betrieb.'
+            title: 'Betrieb & Guardrails',
+            desc: 'Deployment, QA-Gates und Monitoring-Basis fuer reproduzierbare Delivery.'
           }
         ]
       : [
           {
             title: 'Frontend & Product Delivery',
-            desc: 'React/Next.js + TypeScript, responsive UI implementation, and clear information architecture.'
+            desc: 'Next.js/React + TypeScript, clear information architecture, and robust UI delivery.'
           },
           {
             title: 'Backend & API Integrations',
-            desc: 'FastAPI services, process orchestration, and API integrations for reliable web workflows.'
+            desc: 'FastAPI services, data flows, and integrations for stable end-to-end processes.'
           },
           {
-            title: 'Data Logic & Optimization',
-            desc: 'Python modeling, scenario simulation, and rule-based optimization logic for decision support.'
-          },
-          {
-            title: 'Deployment & Operations',
-            desc: 'Docker, Caddy, basic monitoring, and service-oriented integrations for reproducible delivery.'
+            title: 'Operations & Guardrails',
+            desc: 'Deployment, QA gates, and monitoring basics for reproducible delivery.'
           }
         ];
 
@@ -187,36 +346,37 @@ export function HomePageClient({ locale, featuredInsights }: Props) {
         {skipText}
       </a>
 
-      <header className="site-header">
-        <div className="brand">IVO TECH</div>
+      <header className="site-header home-v2-header">
+        <BrandLockup variant="header" />
         <nav className="nav" aria-label={locale === 'de' ? 'Hauptnavigation' : 'Primary'}>
+          <a href="#proof-bar">{locale === 'de' ? 'Proof' : 'Proof'}</a>
           <a href="#hero-case">{t.nav.heroCase}</a>
+          <a href="#services">{locale === 'de' ? 'Services' : 'Services'}</a>
           <a href="#featured">{t.nav.featured}</a>
-          <a href="#paths">{t.nav.paths}</a>
-          <Link href={localizePath('/insights', locale)}>{t.nav.insights}</Link>
           <a href="#contact">{t.nav.contact}</a>
         </nav>
         <div className="header-right">
           <LanguageToggle />
-          <a className="cta" href="#contact" onClick={() => onContactCtaClick('header')}>
-            {t.nav.cta}
+          <a className="cta" href={t.primaryCta.href} onClick={() => onPrimaryCtaClick('header_primary')}>
+            {primaryCtaShortLabel}
           </a>
         </div>
       </header>
 
-      <main id="main">
-        <section className="hero" aria-labelledby="hero-title">
+      <main id="main" className="home-v2-main">
+        <section className="hero home-v2-hero" aria-labelledby="hero-title">
           <div className="hero-copy">
             <p className="eyebrow">{t.hero.eyebrow}</p>
             <h1 id="hero-title">{t.hero.title}</h1>
             <p className="lead">{t.hero.lead}</p>
             <p className="hero-sublead">{t.hero.sublead}</p>
+
             <div className="hero-actions">
-              <a className="primary" href="#contact" onClick={() => onContactCtaClick('hero_primary')}>
-                {t.hero.primary}
+              <a className="primary" href={t.primaryCta.href} onClick={() => onPrimaryCtaClick('hero_primary')}>
+                {primaryCtaLabel}
               </a>
               <Link
-                className="ghost"
+                className="hero-text-link"
                 href={localizePath('/configurator', locale)}
                 onClick={() =>
                   trackEvent('case_study_open', {
@@ -229,25 +389,14 @@ export function HomePageClient({ locale, featuredInsights }: Props) {
               >
                 {t.hero.secondary}
               </Link>
-              <a
-                className="ghost"
-                href="#contact"
-                onClick={() => {
-                  trackEvent('audit_cta_click', { source: 'hero_audit', locale, path: asPath });
-                  onContactCtaClick('hero_audit');
-                }}
-              >
-                {t.hero.audit}
-              </a>
             </div>
+
             <div className="hero-links" aria-label={t.hero.linksLabel}>
               <a
                 href={GITHUB_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() =>
-                  trackEvent('authority_asset_view', { asset: 'github', location: 'hero_links', locale, path: asPath })
-                }
+                onClick={() => trackEvent('authority_asset_view', { asset: 'github', source: 'hero_links', locale, path: asPath })}
               >
                 {t.hero.github}
               </a>
@@ -255,182 +404,68 @@ export function HomePageClient({ locale, featuredInsights }: Props) {
                 {t.hero.cv}
               </a>
             </div>
-
-            <HeroCommands locale={locale} onOpenProject={(id) => openProject(id, 'hero_command')} />
           </div>
 
-          <div className="terminal-mini" role="presentation">
-            <div className="terminal-bar">
-              <span className="dot red" />
-              <span className="dot yellow" />
-              <span className="dot green" />
-              <span className="title">{t.hero.terminal.title}</span>
-            </div>
-            <div className="terminal-body terminal-simple">
-              {t.hero.terminal.lines.map((line) => (
-                <p key={line} className="line">
-                  {line}
-                </p>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="proof" className="section" aria-labelledby="proof-title">
-          <div className="section-head">
-            <h2 id="proof-title">{t.proof.title}</h2>
-            <p>{t.proof.desc}</p>
-          </div>
-          <div className="proof-grid">
-            {t.proof.items.map((item) => (
-              <details
-                key={item.id}
-                className="proof-card"
-                onToggle={(event) => {
-                  if (event.currentTarget.open) {
-                    trackEvent('proof_expand', { proofId: item.id, locale, path: asPath });
-                  }
+          <article className="hero-media-card" aria-label={locale === 'de' ? 'Hero Case Teaser' : 'Hero case teaser'}>
+            {hasHeroVideo ? (
+              <video
+                className="hero-teaser-video"
+                muted
+                loop
+                autoPlay
+                playsInline
+                preload="none"
+                poster={heroMedia?.poster ?? heroProject?.thumbSrc}
+                onPlay={() => {
+                  if (didTrackHeroVideo.current) return;
+                  didTrackHeroVideo.current = true;
+                  trackEvent('hero_video_play', { source: 'hero_teaser', locale, path: asPath });
                 }}
               >
-                <summary>
-                  <span className="proof-metric">{item.metric}</span>
-                  <span className="proof-toggle">{locale === 'de' ? 'Details' : 'Details'}</span>
-                </summary>
-                <p>{item.detail}</p>
-                {item.href.startsWith('/') ? (
-                  <Link
-                    href={localizePath(item.href, locale)}
-                    className="proof-link"
-                    onClick={() =>
-                      trackEvent('authority_asset_view', {
-                        asset: `proof_${item.id}`,
-                        destination: item.href,
-                        locale,
-                        path: asPath
-                      })
-                    }
-                  >
-                    {item.cta}
-                  </Link>
-                ) : (
-                  <a
-                    href={item.href}
-                    className="proof-link"
-                    onClick={() =>
-                      trackEvent('authority_asset_view', {
-                        asset: `proof_${item.id}`,
-                        destination: item.href,
-                        locale,
-                        path: asPath
-                      })
-                    }
-                  >
-                    {item.cta}
-                  </a>
-                )}
-              </details>
-            ))}
-          </div>
+                {heroMedia?.videoWebm ? <source src={heroMedia.videoWebm} type="video/webm" /> : null}
+                {heroMedia?.videoMp4 ? <source src={heroMedia.videoMp4} type="video/mp4" /> : null}
+              </video>
+            ) : (
+              <div className="hero-teaser-poster">
+                <Image
+                  src={heroMedia?.poster ?? heroProject?.thumbSrc ?? '/assets/thumb_viewer_neon.avif'}
+                  alt=""
+                  fill
+                  sizes="(max-width: 900px) 92vw, 520px"
+                  style={{ objectFit: 'cover' }}
+                />
+              </div>
+            )}
+            <p className="hero-media-caption">
+              {heroMedia?.caption[locale] ??
+                (locale === 'de'
+                  ? 'Live-Kontext: Datei-Upload, Analyse und Checkout-Handoff.'
+                  : 'Live context: file upload, analysis, and checkout handoff.')}
+            </p>
+          </article>
         </section>
 
-        <section id="method" className="section" aria-labelledby="method-title">
-          <div className="section-head">
-            <h2 id="method-title">{t.method.title}</h2>
-            <p>{t.method.desc}</p>
-          </div>
-          <div className="method-grid">
-            {t.method.steps.map((step) => (
-              <article key={step.title} className="method-card">
-                <h3>{step.title}</h3>
-                <p>{step.desc}</p>
-              </article>
-            ))}
-          </div>
-          <div className="method-actions">
-            <a
-              className="ghost"
-              href="#contact"
-              onClick={() => {
-                trackEvent('audit_cta_click', { source: 'method_section', locale, path: asPath });
-                onContactCtaClick('method_review');
-              }}
-            >
-              {t.method.cta}
-            </a>
-          </div>
-        </section>
-
-        <section id="quick-facts" className="section" aria-labelledby="quick-facts-title">
-          <div className="section-head">
-            <h2 id="quick-facts-title">{t.quick_facts.title}</h2>
-            <p>{t.quick_facts.desc}</p>
-          </div>
-          <div className="facts-grid">
-            {t.quick_facts.items.map((item) => (
-              <div key={item.label} className="fact-item">
+        <section id="proof-bar" className="section proof-bar-section" aria-label={locale === 'de' ? 'Proof Bar' : 'Proof bar'}>
+          <div className="proof-bar">
+            {proofBarItems.map((item) => (
+              <a
+                key={item.id}
+                className="proof-bar-item"
+                href={item.href}
+                onClick={() =>
+                  trackEvent('proof_asset_open', {
+                    source: `proof_bar_${item.id}`,
+                    locale,
+                    path: asPath,
+                    experiment: 'home_cta_proof_v1',
+                    variant
+                  })
+                }
+              >
                 <span>{item.label}</span>
                 <strong>{item.value}</strong>
-              </div>
+              </a>
             ))}
-          </div>
-        </section>
-
-        <section id="paths" className="section" aria-labelledby="paths-title">
-          <div className="section-head">
-            <h2 id="paths-title">{t.audience_paths.title}</h2>
-            <p>{t.audience_paths.desc}</p>
-          </div>
-          <div className="paths-grid">
-            {t.audience_paths.cards.map((card) => (
-              <article key={card.id} className="path-card">
-                <h3>{card.title}</h3>
-                <ul>
-                  {card.bullets.map((bullet) => (
-                    <li key={bullet}>{bullet}</li>
-                  ))}
-                </ul>
-                <a className="ghost" href="#contact" onClick={() => onContactCtaClick(`path_${card.id}`, card.id as 'hiring' | 'client')}>
-                  {card.cta}
-                </a>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section id="insights" className="section" aria-labelledby="insights-title">
-          <div className="section-head">
-            <h2 id="insights-title">{t.insights.title}</h2>
-            <p>{t.insights.desc}</p>
-          </div>
-          <div className="insights-grid">
-            {featuredInsights.map((insight) => (
-              <article key={insight.slug} className="insight-card">
-                <span className="insight-meta">
-                  {insight.category} | {insight.readMinutes} min
-                </span>
-                <h3>{insight.title}</h3>
-                <p>{insight.summary}</p>
-                <Link
-                  href={localizePath(`/insights/${insight.slug}`, locale)}
-                  className="insight-link"
-                  onClick={() =>
-                    trackEvent('authority_asset_view', {
-                      asset: `insight_${insight.slug}`,
-                      location: 'home_insights',
-                      locale,
-                      path: asPath
-                    })
-                  }
-                >
-                  {locale === 'de' ? 'Insight lesen' : 'Read insight'}
-                </Link>
-              </article>
-            ))}
-          </div>
-          <div className="insights-actions">
-            <Link href={localizePath('/insights', locale)} className="ghost">
-              {t.insights.cta}
-            </Link>
           </div>
         </section>
 
@@ -482,77 +517,24 @@ export function HomePageClient({ locale, featuredInsights }: Props) {
                 ))}
               </div>
 
-              {heroProject.case_study ? (
-                <>
-                  <div className="kpi-grid" aria-label={locale === 'de' ? 'KPI Snapshot' : 'KPI snapshot'}>
-                    {heroProject.case_study.kpis.map((kpi) => (
-                      <div key={kpi.label[locale]} className="kpi-card">
-                        <div className="kpi-label">{kpi.label[locale]}</div>
-                        <div className="kpi-value">{kpi.value[locale]}</div>
-                        {kpi.note ? <div className="kpi-note">{kpi.note[locale]}</div> : null}
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="case-study-grid">
-                    <div>
-                      <h4>{locale === 'de' ? 'Ausgangslage' : 'Context'}</h4>
-                      <ul>
-                        {heroProject.case_study.problem[locale].map((line) => (
-                          <li key={line}>{line}</li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div>
-                      <h4>{locale === 'de' ? 'Umsetzung' : 'Implementation'}</h4>
-                      <ul>
-                        {heroProject.case_study.solution[locale].map((line) => (
-                          <li key={line}>{line}</li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div>
-                      <h4>{locale === 'de' ? 'Betrieb' : 'Operations'}</h4>
-                      <ul>
-                        {heroProject.case_study.technology[locale].map((line) => (
-                          <li key={line}>{line}</li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div>
-                      <h4>{locale === 'de' ? 'Ergebnis' : 'Outcome'}</h4>
-                      <ul>
-                        {heroProject.case_study.impact[locale].map((line) => (
-                          <li key={line}>{line}</li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div>
-                      <h4>{locale === 'de' ? 'Assets' : 'Assets'}</h4>
-                      <ul>
-                        {heroProject.case_study.media_assets[locale].map((line) => (
-                          <li key={line}>{line}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </>
-              ) : null}
-
               <div className="hero-case-actions">
                 <a
                   className="primary"
                   href={heroProofLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => trackEvent('case_study_open', { projectId: heroProject.id, source: 'hero_case_live', locale })}
+                  onClick={() =>
+                    trackEvent('case_study_open', { projectId: heroProject.id, source: 'hero_case_live', locale, path: asPath })
+                  }
                 >
                   {locale === 'de' ? 'Live beim Kunden' : 'Live on client site'}
                 </a>
                 <Link
-                  className="ghost"
+                  className="hero-text-link"
                   href={localizePath('/configurator', locale)}
-                  onClick={() => trackEvent('case_study_open', { projectId: heroProject.id, source: 'hero_case_page', locale })}
+                  onClick={() =>
+                    trackEvent('case_study_open', { projectId: heroProject.id, source: 'hero_case_page', locale, path: asPath })
+                  }
                 >
                   {locale === 'de' ? 'Case Study' : 'Case study'}
                 </Link>
@@ -564,51 +546,79 @@ export function HomePageClient({ locale, featuredInsights }: Props) {
           </section>
         ) : null}
 
+        <section id="services" className="section" aria-labelledby="services-title">
+          <div className="section-head">
+            <h2 id="services-title">{t.method.title}</h2>
+            <p>{t.method.desc}</p>
+          </div>
+
+          <div className="method-grid">
+            {t.method.steps.map((step) => (
+              <article key={step.title} className="method-card">
+                <h3>{step.title}</h3>
+                <p>{step.desc}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="services-grid">
+            {serviceCards.map((item) => (
+              <article key={item.title} className="service-card">
+                <h3>{item.title}</h3>
+                <p>{item.desc}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="method-actions">
+            <a className="primary" href={t.primaryCta.href} onClick={() => onPrimaryCtaClick('services_primary')}>
+              {primaryCtaLabel}
+            </a>
+          </div>
+        </section>
+
         <section id="featured" className="section" aria-labelledby="featured-title">
           <div className="section-head">
-            <h2 id="featured-title">{t.sections.featured.title}</h2>
-            <p>{t.sections.featured.desc}</p>
+            <h2 id="featured-title">{locale === 'de' ? 'Kuratierte Projekte' : 'Curated projects'}</h2>
+            <p>
+              {locale === 'de'
+                ? 'Ausgewaehlte Referenzen mit klarem Tech-Fokus und nachvollziehbarer Wirkung.'
+                : 'Selected references with clear technical focus and traceable outcomes.'}
+            </p>
           </div>
           <div className="project-grid">{featuredProjects.map((p) => renderProjectCard(p, locale, onProjectLinkClick))}</div>
         </section>
 
-        <section id="career-switch" className="section" aria-labelledby="career-switch-title">
+        <section id="insights" className="section" aria-labelledby="insights-title">
           <div className="section-head">
-            <h2 id="career-switch-title">{t.career_switch.title}</h2>
-            <p>{t.career_switch.desc}</p>
+            <h2 id="insights-title">{t.insights.title}</h2>
+            <p>{t.insights.desc}</p>
           </div>
-          <div className="career-grid">
-            <p>{t.career_switch.intro}</p>
-            <p>{t.career_switch.prior_experience}</p>
-            <ul>
-              {t.career_switch.bullets.map((bullet) => (
-                <li key={bullet}>{bullet}</li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
-        <section id="stack" className="section" aria-labelledby="stack-title">
-          <div className="section-head">
-            <h2 id="stack-title">{t.sections.stack.title}</h2>
-            <p>{t.sections.stack.desc}</p>
-          </div>
-          <div className="stack-grid">
-            {stackItems.map((item) => (
-              <div key={item.title}>
-                <h3>{item.title}</h3>
-                <p>{item.desc}</p>
-              </div>
+          <div className="insights-grid">
+            {featuredInsights.map((insight) => (
+              <article key={insight.slug} className="insight-card">
+                <span className="insight-meta">
+                  {insight.category} | {insight.readMinutes} min
+                </span>
+                <h3>{insight.title}</h3>
+                <p>{insight.summary}</p>
+                <Link
+                  href={localizePath(`/insights/${insight.slug}`, locale)}
+                  className="insight-link"
+                  onClick={() =>
+                    trackEvent('authority_asset_view', {
+                      asset: `insight_${insight.slug}`,
+                      source: 'home_insights',
+                      locale,
+                      path: asPath
+                    })
+                  }
+                >
+                  {locale === 'de' ? 'Insight lesen' : 'Read insight'}
+                </Link>
+              </article>
             ))}
           </div>
-        </section>
-
-        <section id="labs" className="section" aria-labelledby="labs-title">
-          <div className="section-head">
-            <h2 id="labs-title">{t.sections.labs.title}</h2>
-            <p>{t.sections.labs.desc}</p>
-          </div>
-          <div className="project-grid labs-grid">{labsProjects.map((p) => renderProjectCard(p, locale, onProjectLinkClick))}</div>
         </section>
 
         <section id="contact" className="section" aria-labelledby="contact-title">
@@ -617,11 +627,19 @@ export function HomePageClient({ locale, featuredInsights }: Props) {
             <p>{t.sections.contact.desc}</p>
           </div>
           <div className="contact-layout">
-            <ContactForm locale={locale} text={t.contact_form} />
+            <ContactForm
+              locale={locale}
+              text={t.contact_form}
+              trackingContext={{
+                experiment: 'home_cta_proof_v1',
+                variant,
+                source: 'contact_form_home'
+              }}
+            />
 
             <aside className="contact-card">
               <p>{t.sections.contact.card}</p>
-              <a className="primary" href={`mailto:${CONTACT_EMAIL}`} onClick={() => onContactCtaClick('contact_mailto')}>
+              <a className="primary" href={`mailto:${CONTACT_EMAIL}`} onClick={() => onPrimaryCtaClick('contact_mailto_primary')}>
                 {locale === 'de' ? 'Direkt per E-Mail' : 'Email directly'}
               </a>
               <a href={cvPath} className="ghost" target="_blank" rel="noopener noreferrer" onClick={() => onCvClick('contact_card')}>
@@ -632,7 +650,7 @@ export function HomePageClient({ locale, featuredInsights }: Props) {
                 href={GITHUB_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => trackEvent('authority_asset_view', { asset: 'github', location: 'contact_card', locale, path: asPath })}
+                onClick={() => trackEvent('authority_asset_view', { asset: 'github', source: 'contact_card', locale, path: asPath })}
               >
                 {t.hero.github}
               </a>
@@ -670,8 +688,8 @@ export function HomePageClient({ locale, featuredInsights }: Props) {
         <span>{t.footer.right}</span>
       </footer>
 
-      <a className="mobile-contact-cta" href="#contact" onClick={() => onContactCtaClick('mobile_sticky')}>
-        {t.sections.contact.cta}
+      <a className="global-contact-cta" href={t.primaryCta.href} onClick={() => onPrimaryCtaClick('sticky_primary')}>
+        {primaryCtaShortLabel}
       </a>
 
       <ProjectModal project={activeProject} locale={locale} onClose={closeModal} />

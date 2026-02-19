@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+import { BrandLockup } from '@/components/BrandLockup';
 import { LanguageToggle } from '@/components/LanguageToggle';
 import type { Locale } from '@/content/copy';
 import type { HubEntry, HubKind } from '@/content/hub';
@@ -64,7 +65,7 @@ export function HubIndexPage({ locale, kind, entries }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <header className="site-header">
-        <div className="brand">IVO TECH</div>
+        <BrandLockup variant="header" />
         <nav className="nav" aria-label={locale === 'de' ? 'Hauptnavigation' : 'Primary'}>
           <Link href={localizePath('/', locale)}>{locale === 'de' ? 'Startseite' : 'Home'}</Link>
           <a href="#hub-list">{locale === 'de' ? 'Artikel' : 'Articles'}</a>

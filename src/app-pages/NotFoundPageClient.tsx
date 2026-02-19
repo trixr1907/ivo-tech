@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
+import { BrandLockup } from '@/components/BrandLockup';
 import { LanguageToggle } from '@/components/LanguageToggle';
 import { copy, type Locale } from '@/content/copy';
 import { CONTACT_EMAIL } from '@/lib/site';
@@ -26,7 +27,7 @@ export function NotFoundPageClient({ locale }: Props) {
   return (
     <>
       <header className="site-header">
-        <div className="brand">IVO TECH</div>
+        <BrandLockup variant="header" />
         <nav className="nav" aria-label={effectiveLocale === 'de' ? 'Hauptnavigation' : 'Primary'}>
           <Link href={`${homeHref}#featured`}>{t.nav.featured}</Link>
           <Link href={`${homeHref}#contact`}>{t.nav.contact}</Link>

@@ -9,6 +9,7 @@ import { CONTACT_EMAIL, GITHUB_URL, SITE_URL } from '@/lib/site';
 const locale = 'de';
 const t = copy[locale];
 const canonical = `${SITE_URL}/`;
+const ogLogo = `${SITE_URL}/assets/logo.png`;
 
 const featuredInsights = getFeaturedInsights(locale, 3).map((entry) => ({
   slug: entry.slug,
@@ -32,18 +33,18 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    siteName: 'IVO TECH',
+    siteName: 'ivo-tech',
     title: t.meta.title,
     description: t.meta.description,
     url: canonical,
-    images: [`${SITE_URL}/assets/logo.png`],
+    images: [ogLogo],
     locale: 'de_DE'
   },
   twitter: {
     card: 'summary_large_image',
     title: t.meta.title,
     description: t.meta.description,
-    images: [`${SITE_URL}/assets/logo.png`]
+    images: [ogLogo]
   }
 };
 
@@ -65,7 +66,7 @@ export default function HomePage() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@graph': [
-      { '@type': 'WebSite', '@id': `${SITE_URL}#website`, url: SITE_URL, name: 'IVO TECH' },
+      { '@type': 'WebSite', '@id': `${SITE_URL}#website`, url: SITE_URL, name: 'ivo-tech' },
       {
         '@type': 'WebPage',
         '@id': `${canonical}#webpage`,

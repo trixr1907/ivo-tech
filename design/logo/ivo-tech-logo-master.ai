@@ -1,0 +1,16 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%Creator: ivo-tech logo generator
+%%Title: ivo-tech-logo-master.ai
+%%BoundingBox: 0 0 2000 1200
+%%LanguageLevel: 2
+%%EndComments
+/Helvetica-BoldOblique findfont 320 scalefont setfont
+0.0 0.92 1.0 setrgbcolor
+200 620 moveto
+(ivo-tech) show
+0.58 0.66 0.79 setrgbcolor
+/Helvetica findfont 64 scalefont setfont
+200 280 moveto
+(ivo-tech master placeholder for Adobe Illustrator workflow) show
+showpage
+%%EOF

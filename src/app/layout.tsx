@@ -30,14 +30,14 @@ const mono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://ivo-tech.com'),
-  title: 'IVO TECH',
+  title: 'ivo-tech',
   description: 'Authority-first web engineering portfolio',
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },
-      { url: '/assets/logo.png', type: 'image/png' }
+      { url: '/assets/logo-mark.png', type: 'image/png' }
     ],
-    apple: [{ url: '/assets/logo.png' }]
+    apple: [{ url: '/assets/logo-mark.png' }]
   }
 };
 

@@ -24,6 +24,14 @@ export type ProjectOutcomeMetric = {
   value: Record<Locale, string>;
 };
 
+export type ProjectTeaserMedia = {
+  poster: string;
+  videoWebm?: string;
+  videoMp4?: string;
+  duration: number;
+  caption: Record<Locale, string>;
+};
+
 // Public card interface used by homepage sections.
 export type ProjectCard = {
   title: Record<Locale, string>;
@@ -37,6 +45,7 @@ export type ProjectCard = {
   stack_tags: string[];
   proof_link?: string;
   indexable?: boolean;
+  media?: ProjectTeaserMedia;
 };
 
 // Structured case-study interface for premium writeups.
@@ -98,8 +107,8 @@ export const projects: Project[] = [
       en: 'The live flow from upload to checkout runs stably in production shop operations.'
     },
     seo_title: {
-      de: '3D-Konfigurator Case Study | IVO TECH',
-      en: '3D Configurator Case Study | IVO TECH'
+      de: '3D-Konfigurator Case Study | ivo-tech',
+      en: '3D Configurator Case Study | ivo-tech'
     },
     seo_description: {
       de: 'Tech-first Case Study: WebGL/Three.js Viewer, Plugin-Architektur, Preis-Engine und WooCommerce-Handoff im produktiven Flow.',
@@ -123,13 +132,23 @@ export const projects: Project[] = [
     ],
     stack_tags: ['THREE.JS', 'WORDPRESS', 'WOOCOMMERCE', 'DOCKER'],
     proof_link: 'https://deinlieblingsdruck.de/3d-konfigurator/#preisrechner',
+    media: {
+      poster: '/assets/thumb_viewer_neon.avif',
+      videoWebm: '/assets/video/hero-case-teaser.webm',
+      videoMp4: '/assets/video/hero-case-teaser.mp4',
+      duration: 36,
+      caption: {
+        de: '36s Brand-Teaser: Authority-first Engineering von Proof bis Live-Handoff.',
+        en: '36s brand teaser: authority-first engineering from proof to live handoff.'
+      }
+    },
     techLine: {
       de: 'THREE.JS / WEBGL | WORDPRESS PLUGIN | PRICING ENGINE | WOOCOMMERCE',
       en: 'THREE.JS / WEBGL | WORDPRESS PLUGIN | PRICING ENGINE | WOOCOMMERCE'
     },
     attribution_note: {
-      de: 'Technische Umsetzung: IVO TECH. Betrieb und Vermarktung erfolgen beim Kunden.',
-      en: 'Technical implementation by IVO TECH. Platform operations and commercial ownership remain with the client.'
+      de: 'Technische Umsetzung: ivo-tech. Betrieb und Vermarktung erfolgen beim Kunden.',
+      en: 'Technical implementation by ivo-tech. Platform operations and commercial ownership remain with the client.'
     },
     engineering_highlights: {
       de: [
@@ -211,8 +230,8 @@ export const projects: Project[] = [
             en: 'Viewer, plugin backend, pricing engine, and WooCommerce handoff were delivered as one system.'
           },
           note: {
-            de: 'Technische Umsetzung durch IVO TECH.',
-            en: 'Technical implementation by IVO TECH.'
+            de: 'Technische Umsetzung durch ivo-tech.',
+            en: 'Technical implementation by ivo-tech.'
           }
         },
         {
@@ -265,12 +284,12 @@ export const projects: Project[] = [
         de: [
           'Durchgaengiger Live-Flow vom Upload bis zum Checkout ohne Medienbruch.',
           'Weniger manuelle Rueckfragen bei Standardanfragen und klarere Entscheidungswege fuer Kunden.',
-          'Rollenklarheit: Technische Umsetzung durch IVO TECH, Betrieb beim Kunden.'
+          'Rollenklarheit: Technische Umsetzung durch ivo-tech, Betrieb beim Kunden.'
         ],
         en: [
           'End-to-end live flow from upload to checkout without context switching.',
           'Fewer manual loops for standard requests and clearer decision paths for customers.',
-          'Clear role split: technical implementation by IVO TECH, operations by the client.'
+          'Clear role split: technical implementation by ivo-tech, operations by the client.'
         ]
       },
       media_assets: {
@@ -311,8 +330,8 @@ export const projects: Project[] = [
       en: 'The consent process is structured as a multi-step, versioned flow with audit logging.'
     },
     seo_title: {
-      de: 'Voicebot Consent Orchestrator | IVO TECH',
-      en: 'Voicebot Consent Orchestrator | IVO TECH'
+      de: 'Voicebot Consent Orchestrator | ivo-tech',
+      en: 'Voicebot Consent Orchestrator | ivo-tech'
     },
     seo_description: {
       de: 'Private-Beta Referenz fuer Einwilligungs-Orchestrierung mit API-, Voice- und Audit-Fokus.',
@@ -382,8 +401,8 @@ export const projects: Project[] = [
       en: 'The MVP combines projections, scoring, and optimization in one decision workflow.'
     },
     seo_title: {
-      de: 'Sorare NBA Edge Tool | IVO TECH',
-      en: 'Sorare NBA Edge Tool | IVO TECH'
+      de: 'Sorare NBA Edge Tool | ivo-tech',
+      en: 'Sorare NBA Edge Tool | ivo-tech'
     },
     seo_description: {
       de: 'Datenprodukt in Entwicklung mit Projektionen, OR-Tools-Optimierung und Monte-Carlo-Szenarien.',
@@ -453,8 +472,8 @@ export const projects: Project[] = [
       en: 'The lab reproduces role and admin workflows in a controlled environment.'
     },
     seo_title: {
-      de: 'Botsystem Lab | IVO TECH',
-      en: 'Botsystem Lab | IVO TECH'
+      de: 'Botsystem Lab | ivo-tech',
+      en: 'Botsystem Lab | ivo-tech'
     },
     seo_description: {
       de: 'Experimentelles Messaging-Lab fuer Rollen, Tiering und Admin-Prozesse.',
@@ -516,8 +535,8 @@ export const projects: Project[] = [
       en: 'The lab validates edge integrations iteratively and documents operational runbooks.'
     },
     seo_title: {
-      de: 'IoT Edge Automation Lab | IVO TECH',
-      en: 'IoT Edge Automation Lab | IVO TECH'
+      de: 'IoT Edge Automation Lab | ivo-tech',
+      en: 'IoT Edge Automation Lab | ivo-tech'
     },
     seo_description: {
       de: 'ESP32- und Home-Assistant-Lab fuer Edge-Automation und lokale Integrationen.',

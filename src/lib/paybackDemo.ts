@@ -68,7 +68,7 @@ export function startPaybackDemo(container: HTMLElement, timing: Partial<Payback
           ACTIVATE COUPONS
         </button>
 
-        <div class="payback-logo-footer">IVO TECH EDITION</div>
+        <div class="payback-logo-footer">ivo-tech edition</div>
       </div>
 
       <div class="payback-cursor" data-payback-cursor></div>
@@ -192,4 +192,3 @@ export function startPaybackDemo(container: HTMLElement, timing: Partial<Payback
     }
   };
 }
-

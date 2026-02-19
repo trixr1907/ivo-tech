@@ -1,7 +1,7 @@
 export const copy = {
   de: {
     meta: {
-      title: 'IVO TECH | Web Engineering, Delivery-Exzellenz und klare Architektur',
+      title: 'ivo-tech | Web Engineering, Delivery-Exzellenz und klare Architektur',
       description:
         'Portfolio fuer Web Engineering: klare Architekturentscheidungen, messbare Qualitaet und reproduzierbare Delivery fuer Teams, die sauber bauen und stabil betreiben wollen.'
     },
@@ -13,6 +13,12 @@ export const copy = {
       contact: 'Kontakt',
       cta: 'Architekturgespraech'
     },
+    primaryCta: {
+      label: 'Strategiegespraech anfragen',
+      shortLabel: 'Strategiegespraech',
+      href: '#contact',
+      intent: 'authority'
+    },
     hero: {
       eyebrow: 'Authority-first Web Engineering | Mannheim | Remote-first',
       title: 'Ich baue Websysteme, die technisch sauber starten und im Betrieb stabil bleiben.',
@@ -20,8 +26,8 @@ export const copy = {
         'Der Fokus liegt auf nachvollziehbaren Entscheidungen, klarer Informationsarchitektur und messbarer Qualitaet statt auf Buzzwords.',
       sublead:
         'So entstehen Gespraeche aus Vertrauen in die Denkweise - nicht aus Sales-Druck.',
-      primary: 'Architekturgespraech anfragen',
-      secondary: 'Case Study mit Messwerten ansehen',
+      primary: 'Strategiegespraech anfragen',
+      secondary: 'Case Study ansehen',
       audit: 'Kostenlose 10-Punkte Tech-Review',
       linksLabel: 'Direktlinks',
       github: 'GitHub',
@@ -158,11 +164,13 @@ export const copy = {
         title: 'Kontakt',
         desc: 'Ob Hiring oder Projekt: ein kurzer Kontext reicht fuer einen klaren Start.',
         card: 'Typisches Antwortfenster: innerhalb von 24 Stunden an Werktagen.',
-        cta: 'Architekturgespraech anfragen'
+        cta: 'Strategiegespraech anfragen'
       }
     },
     contact_form: {
       intentLegend: 'Anliegen',
+      optionalDetailsSummary: 'Optionale Projektdetails',
+      optionalDetailsHint: 'Nur ausfuellen, wenn du den Rahmen bereits konkreter kennst.',
       intentOptions: {
         hiring: 'Hiring-Team',
         client: 'Projektanfrage'
@@ -234,11 +242,11 @@ export const copy = {
         }
       ]
     },
-    footer: { left: '(c) 2026 IVO TECH', right: 'Authority-first Web Delivery | Mannheim | Remote-first' }
+    footer: { left: '(c) 2026 ivo-tech', right: 'Authority-first Web Delivery | Mannheim | Remote-first' }
   },
   en: {
     meta: {
-      title: 'IVO TECH | Web engineering, delivery excellence, and clear architecture',
+      title: 'ivo-tech | Web engineering, delivery excellence, and clear architecture',
       description:
         'Portfolio for web engineering: clear architecture decisions, measurable quality, and reproducible delivery for teams that need robust execution.'
     },
@@ -250,6 +258,12 @@ export const copy = {
       contact: 'Contact',
       cta: 'Architecture call'
     },
+    primaryCta: {
+      label: 'Request strategy call',
+      shortLabel: 'Strategy call',
+      href: '#contact',
+      intent: 'authority'
+    },
     hero: {
       eyebrow: 'Authority-first web engineering | Mannheim | Remote-first',
       title: 'I build web systems that start clean and remain stable in real operations.',
@@ -257,8 +271,8 @@ export const copy = {
         'The focus is on traceable decisions, clear information architecture, and measurable quality rather than buzzwords.',
       sublead:
         'This creates conversations from trust in the thinking process - not from sales pressure.',
-      primary: 'Request architecture call',
-      secondary: 'View case study with metrics',
+      primary: 'Request strategy call',
+      secondary: 'View case study',
       audit: 'Free 10-point tech review',
       linksLabel: 'Quick links',
       github: 'GitHub',
@@ -395,11 +409,13 @@ export const copy = {
         title: 'Contact',
         desc: 'Hiring or project context is enough to start with clarity.',
         card: 'Typical response window: within 24 hours on business days.',
-        cta: 'Request architecture call'
+        cta: 'Request strategy call'
       }
     },
     contact_form: {
       intentLegend: 'Request type',
+      optionalDetailsSummary: 'Optional project details',
+      optionalDetailsHint: 'Fill in only if you already know the scope in more detail.',
       intentOptions: {
         hiring: 'Hiring team',
         client: 'Project request'
@@ -471,7 +487,7 @@ export const copy = {
         }
       ]
     },
-    footer: { left: '(c) 2026 IVO TECH', right: 'Authority-first web delivery | Mannheim | Remote-first' }
+    footer: { left: '(c) 2026 ivo-tech', right: 'Authority-first web delivery | Mannheim | Remote-first' }
   }
 } as const;
 

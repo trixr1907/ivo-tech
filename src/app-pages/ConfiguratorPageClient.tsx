@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 
+import { BrandLockup } from '@/components/BrandLockup';
 import { LanguageToggle } from '@/components/LanguageToggle';
 import type { Locale } from '@/content/copy';
 import { getProjectById } from '@/content/projects';
@@ -72,7 +73,7 @@ export function ConfiguratorPageClient({ locale }: Props) {
           {
             title: 'Rollenklarheit',
             points: [
-              'Technische Umsetzung: IVO TECH.',
+              'Technische Umsetzung: ivo-tech.',
               'Betrieb und Vermarktung erfolgen beim Kundenprojekt.',
               'Live-Link dient als qualitativer Proof fuer die implementierte Strecke.'
             ]
@@ -112,7 +113,7 @@ export function ConfiguratorPageClient({ locale }: Props) {
           {
             title: 'Role clarity',
             points: [
-              'Technical implementation by IVO TECH.',
+              'Technical implementation by ivo-tech.',
               'Platform operations and commercial ownership remain with the client project.',
               'The live link is provided as qualitative proof of the implemented flow.'
             ]
@@ -124,7 +125,7 @@ export function ConfiguratorPageClient({ locale }: Props) {
   return (
     <>
       <header className="site-header">
-        <div className="brand">IVO TECH</div>
+        <BrandLockup variant="header" />
         <nav className="nav" aria-label={locale === 'de' ? 'Hauptnavigation' : 'Primary'}>
           <Link href={localizePath('/', locale)}>{locale === 'de' ? 'Startseite' : 'Home'}</Link>
           <a href={LIVE_LINK} target="_blank" rel="noopener noreferrer">
@@ -132,7 +133,15 @@ export function ConfiguratorPageClient({ locale }: Props) {
           </a>
           <Link
             href={contactHref}
-            onClick={() => trackEvent('cta_contact_click', { location: 'configurator_nav', intent: 'hybrid', locale, path: pathname })}
+            onClick={() =>
+              trackEvent('cta_contact_click', {
+                source: 'configurator_nav',
+                location: 'configurator_nav',
+                intent: 'hybrid',
+                locale,
+                path: pathname
+              })
+            }
           >
             {locale === 'de' ? 'Kontakt' : 'Contact'}
           </Link>
@@ -164,7 +173,15 @@ export function ConfiguratorPageClient({ locale }: Props) {
               <Link
                 className="ghost"
                 href={contactHref}
-                onClick={() => trackEvent('cta_contact_click', { location: 'configurator_hero', intent: 'hybrid', locale, path: pathname })}
+                onClick={() =>
+                  trackEvent('cta_contact_click', {
+                    source: 'configurator_hero',
+                    location: 'configurator_hero',
+                    intent: 'hybrid',
+                    locale,
+                    path: pathname
+                  })
+                }
               >
                 {locale === 'de' ? 'Kontaktgespraech anfragen' : 'Request contact call'}
               </Link>

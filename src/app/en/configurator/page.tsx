@@ -6,7 +6,7 @@ import { SITE_URL } from '@/lib/site';
 
 const locale = 'en';
 const heroProject = getProjectById('configurator_3d');
-const title = heroProject?.seo_title[locale] ?? '3D configurator case study | IVO TECH';
+const title = heroProject?.seo_title[locale] ?? '3D configurator case study | ivo-tech';
 const description =
   heroProject?.seo_description[locale] ??
   'Premium case study: problem, solution, technology, and impact of the live 3D configurator.';
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'article',
-    siteName: 'IVO TECH',
+    siteName: 'ivo-tech',
     title,
     description,
     url: `${SITE_URL}/en/configurator`,

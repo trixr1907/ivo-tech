@@ -6,6 +6,8 @@ import type { HubEntry, HubKind } from '@/content/hub';
 import { localizePath } from '@/lib/localeRouting';
 import { SITE_URL } from '@/lib/site';
 
+const ogLogo = `${SITE_URL}/assets/logo.png`;
+
 export function buildHubIndexMetadata(kind: HubKind, locale: Locale): Metadata {
   const config = HUB_CONFIG[kind];
   const basePath = getHubBasePath(kind);
@@ -13,7 +15,7 @@ export function buildHubIndexMetadata(kind: HubKind, locale: Locale): Metadata {
   const canonical = `${SITE_URL}${canonicalPath}`;
 
   return {
-    title: `${config.indexTitle[locale]} | IVO TECH`,
+    title: `${config.indexTitle[locale]} | ivo-tech`,
     description: config.indexDescription[locale],
     robots: { index: true, follow: true },
     alternates: {
@@ -26,10 +28,10 @@ export function buildHubIndexMetadata(kind: HubKind, locale: Locale): Metadata {
     },
     openGraph: {
       type: 'website',
-      title: `${config.indexTitle[locale]} | IVO TECH`,
+      title: `${config.indexTitle[locale]} | ivo-tech`,
       description: config.indexDescription[locale],
       url: canonical,
-      images: [`${SITE_URL}/assets/logo.png`]
+      images: [ogLogo]
     }
   };
 }
@@ -39,7 +41,7 @@ export function buildHubDetailMetadata(kind: HubKind, locale: Locale, entry: Hub
   const canonicalPath = localizePath(`${basePath}/${entry.slug}`, locale);
 
   return {
-    title: `${entry.title} | IVO TECH`,
+    title: `${entry.title} | ivo-tech`,
     description: entry.description,
     robots: { index: true, follow: true },
     alternates: {
@@ -55,7 +57,7 @@ export function buildHubDetailMetadata(kind: HubKind, locale: Locale, entry: Hub
       title: entry.title,
       description: entry.description,
       url: `${SITE_URL}${canonicalPath}`,
-      images: [`${SITE_URL}/assets/logo.png`]
+      images: [ogLogo]
     }
   };
 }

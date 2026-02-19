@@ -1,0 +1,29 @@
+{
+  "brand": "ivo-tech",
+  "system": "wordmark-first",
+  "style": "aggressive-futuristic",
+  "colorCore": "neon-cyan",
+  "publicAssets": [
+    "/assets/logo.png",
+    "/assets/logo.webp",
+    "/assets/logo.avif",
+    "/assets/logo-mark.png",
+    "/assets/logo-mark.webp",
+    "/assets/logo-mark.avif",
+    "/assets/video/logo-sting.mp4",
+    "/assets/video/logo-sting.webm",
+    "/assets/video/logo-sting-poster.avif",
+    "/favicon.ico",
+    "/assets/brand/ivo-tech-logo.glb",
+    "/assets/demo-brand-base.stl",
+    "/assets/demo-brand-hybrid-v2.stl"
+  ],
+  "designSources": [
+    "design/logo/ivo-tech-logo-master.ai",
+    "design/logo/ivo-tech-logo-master.svg",
+    "design/logo/routes/ivo-tech-logo-route-a.svg",
+    "design/logo/routes/ivo-tech-logo-route-b.svg",
+    "design/logo/usage-rules.md"
+  ],
+  "generator": "scripts/generate_logo_system.py"
+}

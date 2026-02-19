@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 
 import { HUB_CONFIG, getHubBasePath } from '@/app-pages/hubShared';
+import { BrandLockup } from '@/components/BrandLockup';
 import { LanguageToggle } from '@/components/LanguageToggle';
 import { HubReadTracker } from '@/components/HubReadTracker';
 import type { Locale } from '@/content/copy';
@@ -37,7 +38,7 @@ export function HubDetailPage({ locale, kind, entry }: Props) {
         },
         publisher: {
           '@type': 'Organization',
-          name: 'IVO TECH'
+          name: 'ivo-tech'
         },
         mainEntityOfPage: canonical
       },
@@ -73,7 +74,7 @@ export function HubDetailPage({ locale, kind, entry }: Props) {
       <HubReadTracker locale={locale} kind={kind} slug={entry.slug} />
 
       <header className="site-header">
-        <div className="brand">IVO TECH</div>
+        <BrandLockup variant="header" />
         <nav className="nav" aria-label={locale === 'de' ? 'Hauptnavigation' : 'Primary'}>
           <Link href={localizePath('/', locale)}>{locale === 'de' ? 'Startseite' : 'Home'}</Link>
           <Link href={localizePath(basePath, locale)}>{config.label[locale]}</Link>
