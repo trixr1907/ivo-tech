@@ -16,6 +16,7 @@
 - `/assets/video/logo-sting.mp4`
 - `/assets/video/logo-sting.webm`
 - `/assets/video/logo-sting-poster.avif`
+- `/assets/video/logo-sting-captions.vtt`
 - `/favicon.ico`
 
 ## Design Working Files

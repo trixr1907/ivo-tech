@@ -30,6 +30,7 @@
   - `public/assets/video/logo-sting.mp4`
   - `public/assets/video/logo-sting.webm`
   - `public/assets/video/logo-sting-poster.avif`
+  - `public/assets/video/logo-sting-captions.vtt`
 - 3D:
   - `public/assets/brand/ivo-tech-logo.glb`
   - `public/assets/demo-brand-base.stl`
@@ -59,6 +60,13 @@ python3 scripts/generate_logo_system.py
 ```bash
 node scripts/optimize-images.mjs
 ```
+
+## 5.1) Manifest Sync
+- Source of truth: `design/logo/asset-manifest.json`
+- Guarded by test: `tests/unit/logo-assets.test.ts`
+- Regel:
+  - neue/entfernte Logo-Assets immer zuerst im Manifest aktualisieren
+  - erst danach Exporte/Integrations-PR abschliessen
 
 ## 6) Quality Gates
 - Visual:
