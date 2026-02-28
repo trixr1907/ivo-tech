@@ -1,0 +1,162 @@
+@keyframes edgeSweep {
+  0% {
+    transform: translateX(-120%);
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 0.62;
+  }
+
+  100% {
+    transform: translateX(140%);
+    opacity: 0;
+  }
+}
+
+@keyframes energyTrail {
+  0% {
+    opacity: 0;
+    transform: translate3d(-32px, 0, 0) scale(0.96);
+  }
+
+  16% {
+    opacity: 0.6;
+  }
+
+  52% {
+    opacity: 0.3;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(38px, -4px, 0) scale(1.02);
+  }
+}
+
+@keyframes logoRevealFloat {
+  0% {
+    opacity: 0;
+    transform: perspective(800px) rotateX(14deg) translateY(8px) scale(0.96);
+  }
+
+  100% {
+    opacity: 1;
+    transform: perspective(800px) rotateX(0deg) translateY(0) scale(1);
+  }
+}
+
+@keyframes sectionReveal {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0) scale(0.992);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes depthDrift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(0, -5px, 0) scale(1.01);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+.motion-edge-sweep {
+  position: relative;
+  overflow: hidden;
+}
+
+.motion-edge-sweep::after {
+  content: '';
+  position: absolute;
+  top: -40%;
+  bottom: -40%;
+  width: 38%;
+  left: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(189, 223, 255, 0.18) 40%, transparent 100%);
+  pointer-events: none;
+  opacity: 0;
+}
+
+.motion-edge-sweep:hover::after,
+.motion-edge-sweep:focus-visible::after {
+  animation: edgeSweep 780ms var(--easing-standard);
+}
+
+.motion-trail {
+  position: relative;
+}
+
+.motion-trail::before {
+  content: '';
+  position: absolute;
+  inset: 12% 2% 36% 34%;
+  background: radial-gradient(circle, rgba(103, 193, 255, 0.3), transparent 66%);
+  filter: blur(12px);
+  pointer-events: none;
+  opacity: 0;
+}
+
+.motion-trail:hover::before {
+  animation: energyTrail var(--duration-trail) var(--easing-standard);
+}
+
+.brand-lockup--visual-premium .brand-lockup-lockup,
+.brand-lockup--visual-premium .brand-lockup-mark,
+.brand-lockup--visual-premium .brand-lockup-wordmark {
+  animation: logoRevealFloat 620ms var(--easing-standard) both;
+}
+
+.motion-section-reveal {
+  animation: sectionReveal var(--duration-section-reveal) var(--easing-expressive) both;
+}
+
+.motion-section-reveal--delay-1 {
+  animation-delay: 80ms;
+}
+
+.motion-section-reveal--delay-2 {
+  animation-delay: 150ms;
+}
+
+.motion-depth-drift {
+  animation: depthDrift var(--duration-depth) var(--easing-standard) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ui-btn,
+  .ui-card--interactive {
+    transition:
+      opacity var(--duration-micro) linear,
+      border-color var(--duration-micro) linear,
+      box-shadow var(--duration-micro) linear;
+  }
+
+  .ui-btn:hover,
+  .ui-card--interactive:hover {
+    transform: none !important;
+  }
+
+  .motion-edge-sweep::after,
+  .motion-trail::before,
+  .motion-section-reveal,
+  .motion-section-reveal--delay-1,
+  .motion-section-reveal--delay-2,
+  .motion-depth-drift,
+  .brand-lockup--visual-premium .brand-lockup-lockup,
+  .brand-lockup--visual-premium .brand-lockup-mark,
+  .brand-lockup--visual-premium .brand-lockup-wordmark {
+    animation: none !important;
+  }
+}
