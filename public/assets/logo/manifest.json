@@ -1,0 +1,447 @@
+{
+  "manifestVersion": 1,
+  "brand": "ivo-tech",
+  "sourceMasterId": "chatgpt-2026-02-20-103632",
+  "secondarySourceMasterId": "chatgpt-2026-02-20-105850",
+  "generatedAt": "2026-02-26T19:52:27.551Z",
+  "namingPattern": "ivo-logo__{asset}__{variant}__{theme}__v{semver}.{ext}",
+  "defaults": {
+    "theme": "dark",
+    "version": "1.0.0"
+  },
+  "assets": [
+    {
+      "id": "ivo-logo__lockup-horizontal__static__dark__v1.0.0",
+      "role": "lockup",
+      "asset": "lockup-horizontal",
+      "variant": "static",
+      "theme": "dark",
+      "version": "1.0.0",
+      "publicPath": "/assets/logo/ivo-logo__lockup-horizontal__static__dark__v1.0.0.svg",
+      "bytes": 548773,
+      "sha256": "c8f5652acc84365ba2bf073c9d50246ee1100d7100792dba797b08335693aef1",
+      "recommendedUsagePx": [
+        180,
+        240,
+        320,
+        400
+      ]
+    },
+    {
+      "id": "ivo-logo__lockup-horizontal__static__light__v1.0.0",
+      "role": "lockup",
+      "asset": "lockup-horizontal",
+      "variant": "static",
+      "theme": "light",
+      "version": "1.0.0",
+      "publicPath": "/assets/logo/ivo-logo__lockup-horizontal__static__light__v1.0.0.svg",
+      "bytes": 548773,
+      "sha256": "c8f5652acc84365ba2bf073c9d50246ee1100d7100792dba797b08335693aef1",
+      "recommendedUsagePx": [
+        180,
+        240,
+        320,
+        400
+      ]
+    },
+    {
+      "id": "ivo-logo__lockup-horizontal__static__mono__v1.0.0",
+      "role": "lockup",
+      "asset": "lockup-horizontal",
+      "variant": "static",
+      "theme": "mono",
+      "version": "1.0.0",
+      "publicPath": "/assets/logo/ivo-logo__lockup-horizontal__static__mono__v1.0.0.svg",
+      "bytes": 548773,
+      "sha256": "c8f5652acc84365ba2bf073c9d50246ee1100d7100792dba797b08335693aef1",
+      "recommendedUsagePx": [
+        180,
+        240,
+        320,
+        400
+      ]
+    },
+    {
+      "id": "ivo-logo__lockup-stacked__static__dark__v1.0.0",
+      "role": "lockup",
+      "asset": "lockup-stacked",
+      "variant": "static",
+      "theme": "dark",
+      "version": "1.0.0",
+      "publicPath": "/assets/logo/ivo-logo__lockup-stacked__static__dark__v1.0.0.svg",
+      "bytes": 548773,
+      "sha256": "c8f5652acc84365ba2bf073c9d50246ee1100d7100792dba797b08335693aef1",
+      "recommendedUsagePx": [
+        180,
+        256,
+        320
+      ]
+    },
+    {
+      "id": "ivo-logo__lockup-stacked__static__light__v1.0.0",
+      "role": "lockup",
+      "asset": "lockup-stacked",
+      "variant": "static",
+      "theme": "light",
+      "version": "1.0.0",
+      "publicPath": "/assets/logo/ivo-logo__lockup-stacked__static__light__v1.0.0.svg",
+      "bytes": 548773,
+      "sha256": "c8f5652acc84365ba2bf073c9d50246ee1100d7100792dba797b08335693aef1",
+      "recommendedUsagePx": [
+        180,
+        256,
+        320
+      ]
+    },
+    {
+      "id": "ivo-logo__lockup-stacked__static__mono__v1.0.0",
+      "role": "lockup",
+      "asset": "lockup-stacked",
+      "variant": "static",
+      "theme": "mono",
+      "version": "1.0.0",
+      "publicPath": "/assets/logo/ivo-logo__lockup-stacked__static__mono__v1.0.0.svg",
+      "bytes": 548773,
+      "sha256": "c8f5652acc84365ba2bf073c9d50246ee1100d7100792dba797b08335693aef1",
+      "recommendedUsagePx": [
+        180,
+        256,
+        320
+      ]
+    },
+    {
+      "id": "ivo-logo__mark-core__static__dark__v1.0.0",
+      "role": "mark",
+      "asset": "mark-core",
+      "variant": "static",
+      "theme": "dark",
+      "version": "1.0.0",
+      "publicPath": "/assets/logo/ivo-logo__mark-core__static__dark__v1.0.0.svg",
+      "bytes": 178981,
+      "sha256": "f75e2218e02d4e08db35139386facbbd7a904f82dce60e88ad00bba40331fe71",
+      "recommendedUsagePx": [
+        32,
+        48,
+        64,
+        96,
+        128
+      ]
+    },
+    {
+      "id": "ivo-logo__mark-core__static__light__v1.0.0",
+      "role": "mark",
+      "asset": "mark-core",
+      "variant": "static",
+      "theme": "light",
+      "version": "1.0.0",
+      "publicPath": "/assets/logo/ivo-logo__mark-core__static__light__v1.0.0.svg",
+      "bytes": 178981,
+      "sha256": "f75e2218e02d4e08db35139386facbbd7a904f82dce60e88ad00bba40331fe71",
+      "recommendedUsagePx": [
+        32,
+        48,
+        64,
+        96,
+        128
+      ]
+    },
+    {
+      "id": "ivo-logo__mark-core__static__mono__v1.0.0",
+      "role": "mark",
+      "asset": "mark-core",
+      "variant": "static",
+      "theme": "mono",
+      "version": "1.0.0",
+      "publicPath": "/assets/logo/ivo-logo__mark-core__static__mono__v1.0.0.svg",
+      "bytes": 178981,
+      "sha256": "f75e2218e02d4e08db35139386facbbd7a904f82dce60e88ad00bba40331fe71",
+      "recommendedUsagePx": [
+        32,
+        48,
+        64,
+        96,
+        128
+      ]
+    },
+    {
+      "id": "ivo-logo__mark-detailed__static__dark__v1.0.0",
+      "role": "mark",
+      "asset": "mark-detailed",
+      "variant": "static",
+      "theme": "dark",
+      "version": "1.0.0",
+      "publicPath": "/assets/logo/ivo-logo__mark-detailed__static__dark__v1.0.0.svg",
+      "bytes": 178981,
+      "sha256": "f75e2218e02d4e08db35139386facbbd7a904f82dce60e88ad00bba40331fe71",
+      "recommendedUsagePx": [
+        160,
+        256,
+        384,
+        512
+      ]
+    },
+    {
+      "id": "ivo-logo__mark-detailed__static__light__v1.0.0",
+      "role": "mark",
+      "asset": "mark-detailed",
+      "variant": "static",
+      "theme": "light",
+      "version": "1.0.0",
+      "publicPath": "/assets/logo/ivo-logo__mark-detailed__static__light__v1.0.0.svg",
+      "bytes": 178981,
+      "sha256": "f75e2218e02d4e08db35139386facbbd7a904f82dce60e88ad00bba40331fe71",
+      "recommendedUsagePx": [
+        160,
+        256,
+        384,
+        512
+      ]
+    },
+    {
+      "id": "ivo-logo__mark-detailed__static__mono__v1.0.0",
+      "role": "mark",
+      "asset": "mark-detailed",
+      "variant": "static",
+      "theme": "mono",
+      "version": "1.0.0",
+      "publicPath": "/assets/logo/ivo-logo__mark-detailed__static__mono__v1.0.0.svg",
+      "bytes": 178981,
+      "sha256": "f75e2218e02d4e08db35139386facbbd7a904f82dce60e88ad00bba40331fe71",
+      "recommendedUsagePx": [
+        160,
+        256,
+        384,
+        512
+      ]
+    },
+    {
+      "id": "ivo-logo__mark-micro__static__dark__v1.0.0",
+      "role": "mark",
+      "asset": "mark-micro",
+      "variant": "static",
+      "theme": "dark",
+      "version": "1.0.0",
+      "publicPath": "/assets/logo/ivo-logo__mark-micro__static__dark__v1.0.0.svg",
+      "bytes": 47063,
+      "sha256": "a0815e33723acb8f8d10ea0bfa625423fe40da078f9e5c72e144b9924e1fe38a",
+      "recommendedUsagePx": [
+        16,
+        24,
+        32
+      ]
+    },
+    {
+      "id": "ivo-logo__mark-micro__static__light__v1.0.0",
+      "role": "mark",
+      "asset": "mark-micro",
+      "variant": "static",
+      "theme": "light",
+      "version": "1.0.0",
+      "publicPath": "/assets/logo/ivo-logo__mark-micro__static__light__v1.0.0.svg",
+      "bytes": 47063,
+      "sha256": "a0815e33723acb8f8d10ea0bfa625423fe40da078f9e5c72e144b9924e1fe38a",
+      "recommendedUsagePx": [
+        16,
+        24,
+        32
+      ]
+    },
+    {
+      "id": "ivo-logo__mark-micro__static__mono__v1.0.0",
+      "role": "mark",
+      "asset": "mark-micro",
+      "variant": "static",
+      "theme": "mono",
+      "version": "1.0.0",
+      "publicPath": "/assets/logo/ivo-logo__mark-micro__static__mono__v1.0.0.svg",
+      "bytes": 47063,
+      "sha256": "a0815e33723acb8f8d10ea0bfa625423fe40da078f9e5c72e144b9924e1fe38a",
+      "recommendedUsagePx": [
+        16,
+        24,
+        32
+      ]
+    },
+    {
+      "id": "ivo-logo__wordmark__static__dark__v1.0.0",
+      "role": "wordmark",
+      "asset": "wordmark",
+      "variant": "static",
+      "theme": "dark",
+      "version": "1.0.0",
+      "publicPath": "/assets/logo/ivo-logo__wordmark__static__dark__v1.0.0.svg",
+      "bytes": 211271,
+      "sha256": "a72476e4c6cebdfb87ec5b6c1e08f8547deec0b0762e5e427418284ae4a23700",
+      "recommendedUsagePx": [
+        120,
+        180,
+        240,
+        320
+      ]
+    },
+    {
+      "id": "ivo-logo__wordmark__static__light__v1.0.0",
+      "role": "wordmark",
+      "asset": "wordmark",
+      "variant": "static",
+      "theme": "light",
+      "version": "1.0.0",
+      "publicPath": "/assets/logo/ivo-logo__wordmark__static__light__v1.0.0.svg",
+      "bytes": 211271,
+      "sha256": "a72476e4c6cebdfb87ec5b6c1e08f8547deec0b0762e5e427418284ae4a23700",
+      "recommendedUsagePx": [
+        120,
+        180,
+        240,
+        320
+      ]
+    },
+    {
+      "id": "ivo-logo__wordmark__static__mono__v1.0.0",
+      "role": "wordmark",
+      "asset": "wordmark",
+      "variant": "static",
+      "theme": "mono",
+      "version": "1.0.0",
+      "publicPath": "/assets/logo/ivo-logo__wordmark__static__mono__v1.0.0.svg",
+      "bytes": 211271,
+      "sha256": "a72476e4c6cebdfb87ec5b6c1e08f8547deec0b0762e5e427418284ae4a23700",
+      "recommendedUsagePx": [
+        120,
+        180,
+        240,
+        320
+      ]
+    },
+    {
+      "id": "ivo-logo__lockup-horizontal__premium__dark__v1.1.0",
+      "role": "lockup",
+      "asset": "lockup-horizontal",
+      "variant": "premium",
+      "theme": "dark",
+      "version": "1.1.0",
+      "publicPath": "/assets/logo/ivo-logo__lockup-horizontal__premium__dark__v1.1.0.svg",
+      "recommendedUsagePx": [
+        180,
+        240,
+        320,
+        400
+      ],
+      "bytes": 548773,
+      "sha256": "c8f5652acc84365ba2bf073c9d50246ee1100d7100792dba797b08335693aef1"
+    },
+    {
+      "id": "ivo-logo__lockup-horizontal__premium__light__v1.1.0",
+      "role": "lockup",
+      "asset": "lockup-horizontal",
+      "variant": "premium",
+      "theme": "light",
+      "version": "1.1.0",
+      "publicPath": "/assets/logo/ivo-logo__lockup-horizontal__premium__light__v1.1.0.svg",
+      "recommendedUsagePx": [
+        180,
+        240,
+        320,
+        400
+      ],
+      "bytes": 548773,
+      "sha256": "c8f5652acc84365ba2bf073c9d50246ee1100d7100792dba797b08335693aef1"
+    },
+    {
+      "id": "ivo-logo__mark-core__premium__dark__v1.1.0",
+      "role": "mark",
+      "asset": "mark-core",
+      "variant": "premium",
+      "theme": "dark",
+      "version": "1.1.0",
+      "publicPath": "/assets/logo/ivo-logo__mark-core__premium__dark__v1.1.0.svg",
+      "recommendedUsagePx": [
+        32,
+        48,
+        64,
+        96,
+        128
+      ],
+      "bytes": 178981,
+      "sha256": "f75e2218e02d4e08db35139386facbbd7a904f82dce60e88ad00bba40331fe71"
+    },
+    {
+      "id": "ivo-logo__mark-core__premium__light__v1.1.0",
+      "role": "mark",
+      "asset": "mark-core",
+      "variant": "premium",
+      "theme": "light",
+      "version": "1.1.0",
+      "publicPath": "/assets/logo/ivo-logo__mark-core__premium__light__v1.1.0.svg",
+      "recommendedUsagePx": [
+        32,
+        48,
+        64,
+        96,
+        128
+      ],
+      "bytes": 178981,
+      "sha256": "f75e2218e02d4e08db35139386facbbd7a904f82dce60e88ad00bba40331fe71"
+    },
+    {
+      "id": "ivo-logo__wordmark__premium__dark__v1.1.0",
+      "role": "wordmark",
+      "asset": "wordmark",
+      "variant": "premium",
+      "theme": "dark",
+      "version": "1.1.0",
+      "publicPath": "/assets/logo/ivo-logo__wordmark__premium__dark__v1.1.0.svg",
+      "recommendedUsagePx": [
+        120,
+        180,
+        240,
+        320
+      ],
+      "bytes": 211271,
+      "sha256": "a72476e4c6cebdfb87ec5b6c1e08f8547deec0b0762e5e427418284ae4a23700"
+    },
+    {
+      "id": "ivo-logo__wordmark__premium__light__v1.1.0",
+      "role": "wordmark",
+      "asset": "wordmark",
+      "variant": "premium",
+      "theme": "light",
+      "version": "1.1.0",
+      "publicPath": "/assets/logo/ivo-logo__wordmark__premium__light__v1.1.0.svg",
+      "recommendedUsagePx": [
+        120,
+        180,
+        240,
+        320
+      ],
+      "bytes": 211271,
+      "sha256": "a72476e4c6cebdfb87ec5b6c1e08f8547deec0b0762e5e427418284ae4a23700"
+    }
+  ],
+  "legacyAliases": [
+    {
+      "publicPath": "/assets/logo.png",
+      "mapsTo": "/assets/logo/ivo-logo__lockup-horizontal__static__dark__v1.0.0.svg"
+    },
+    {
+      "publicPath": "/assets/logo.webp",
+      "mapsTo": "/assets/logo/ivo-logo__lockup-horizontal__static__dark__v1.0.0.svg"
+    },
+    {
+      "publicPath": "/assets/logo.avif",
+      "mapsTo": "/assets/logo/ivo-logo__lockup-horizontal__static__dark__v1.0.0.svg"
+    },
+    {
+      "publicPath": "/assets/logo-mark.png",
+      "mapsTo": "/assets/logo/ivo-logo__mark-core__static__dark__v1.0.0.svg"
+    },
+    {
+      "publicPath": "/assets/logo-mark.webp",
+      "mapsTo": "/assets/logo/ivo-logo__mark-core__static__dark__v1.0.0.svg"
+    },
+    {
+      "publicPath": "/assets/logo-mark.avif",
+      "mapsTo": "/assets/logo/ivo-logo__mark-core__static__dark__v1.0.0.svg"
+    }
+  ]
+}

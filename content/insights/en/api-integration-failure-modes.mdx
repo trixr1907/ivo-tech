@@ -1,0 +1,26 @@
+---
+slug: api-integration-failure-modes
+locale: en
+title: 'API integrations: the most common failure modes'
+description: Which integration failures are most expensive in production and how to catch them early.
+summary: A risk catalog for API integrations with practical countermeasures.
+category: Backend
+readMinutes: 8
+publishedAt: '2026-02-17'
+updatedAt: '2026-02-17'
+schemaType: Article
+internalLinks:
+  - /en/playbooks/api-integration-readiness-playbook
+  - /en/case-studies/configurator-live
+  - /en#contact
+draft: false
+---
+
+The most expensive integration issues are rarely syntax errors. They are incorrect assumptions about external system behavior.
+
+## Critical failure modes
+
+- Unstable rate limits without backoff
+- Non-idempotent retry logic
+- Schema drift without versioning
+- Missing dead-letter strategies

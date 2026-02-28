@@ -9,17 +9,21 @@ describe('hub content loader', () => {
     expect(getHubSlugs('insights', 'de')).toEqual(insights.map((entry) => entry.slug));
   });
 
-  it('returns null when EN translation is missing', () => {
-    expect(getHubEntry('insights', 'en', 'architecture-decisions-under-pressure')).toBeNull();
+  it('loads EN translations for hub detail pages', () => {
+    expect(getHubEntry('insights', 'en', 'architecture-decisions-under-pressure')?.slug).toBe(
+      'architecture-decisions-under-pressure'
+    );
+    expect(getHubEntry('playbooks', 'en', 'performance-budget-guardrails')?.slug).toBe('performance-budget-guardrails');
+    expect(getHubEntry('case-studies', 'en', 'configurator-live')?.slug).toBe('configurator-live');
   });
 
   it('returns featured insights with requested limit', () => {
     expect(getFeaturedInsights('de', 3)).toHaveLength(3);
   });
 
-  it('builds route groups only for available locale files', () => {
+  it('builds route groups for DE and EN locale files', () => {
     const routeGroups = getHubRouteGroups();
     expect(routeGroups.some((group) => group.locale === 'de')).toBe(true);
-    expect(routeGroups.some((group) => group.locale === 'en')).toBe(false);
+    expect(routeGroups.some((group) => group.locale === 'en')).toBe(true);
   });
 });

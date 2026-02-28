@@ -1,0 +1,53 @@
+---
+slug: configurator-live
+locale: en
+title: 'Case study: 3D configurator as a live technical reference'
+description: Tech-first delivery of a production file-to-quote flow with Three.js/WebGL, plugin architecture, pricing engine, and WooCommerce handoff.
+summary: How one continuous 3D flow from upload to checkout reduces manual back-and-forth and creates reproducible quote handling.
+category: Case Study
+readMinutes: 8
+publishedAt: '2026-02-17'
+updatedAt: '2026-02-18'
+schemaType: Article
+internalLinks:
+  - /en/insights/architecture-decisions-under-pressure
+  - /en/playbooks/api-integration-readiness-playbook
+  - /en#contact
+draft: false
+---
+
+## Project context
+
+This project was built as the technical core of a production file-to-quote workflow.
+The target state was clear: from model upload through analysis and pricing to checkout handoff in one guided web flow.
+
+## Initial situation
+
+- 3D print requests were previously handled through manual quote rounds.
+- Follow-up loops around geometry, material, and pricing slowed delivery and limited scalability.
+- Customers needed immediate pricing orientation after upload instead of asynchronous email loops.
+
+## Delivery architecture
+
+- **Frontend (Three.js/WebGL):** Interactive viewer with STL/3MF processing, orbit controls, and clear model-state feedback.
+- **Plugin backend (WordPress):** AJAX endpoints for analysis context, price calculation, and repricing operations.
+- **Pricing engine:** Rule-based logic for material, quality, color, quantity, and minimum price.
+- **Commerce handoff (WooCommerce):** Final configuration handed off to cart/checkout without context loss.
+
+## Delivery scope
+
+- Implemented as a continuous system flow, not an isolated viewer component.
+- Clear separation between client interaction logic and server-side pricing/context handling.
+- Focused on reproducible handling of standard requests.
+
+## Outcome
+
+- The upload-to-checkout flow is active in live operations.
+- Standard requests are guided instead of processed through manual follow-up loops.
+- Customer decision paths are clearer because pricing and configuration status are visible immediately.
+
+## Role clarity
+
+Technical implementation: **IVO TECH**.
+Operations and commercial ownership remain with the client.
+The live version serves as qualitative proof of the delivered architecture.

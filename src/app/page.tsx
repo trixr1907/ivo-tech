@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   }
 };
 
-export default function HomePage() {
+export default async function HomePage() {
   const faqSchema = {
     '@type': 'FAQPage',
     '@id': `${canonical}#faq`,
@@ -80,7 +80,7 @@ export default function HomePage() {
         '@type': 'Person',
         '@id': `${SITE_URL}#person`,
         name: 'Ivo',
-        jobTitle: 'Junior Full-Stack Engineer',
+        jobTitle: 'Web Engineering Consultant',
         url: SITE_URL,
         email: `mailto:${CONTACT_EMAIL}`,
         sameAs: [GITHUB_URL]

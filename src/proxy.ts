@@ -12,6 +12,11 @@ function getApexHost() {
   }
 }
 
+function getLocaleFromPath(pathname: string) {
+  if (pathname === '/en' || pathname.startsWith('/en/')) return 'en';
+  return 'de';
+}
+
 export function proxy(request: NextRequest) {
   const headerHost = request.headers.get('host')?.toLowerCase();
   const urlHost = request.nextUrl.host.toLowerCase();
@@ -21,13 +26,25 @@ export function proxy(request: NextRequest) {
   const apexHost = getApexHost();
   const wwwHost = `www.${apexHost}`;
 
-  if (host !== wwwHost) return NextResponse.next();
+  if (host === wwwHost) {
+    const redirectUrl = request.nextUrl.clone();
+    redirectUrl.host = apexHost;
+    redirectUrl.protocol = 'https';
 
-  const redirectUrl = request.nextUrl.clone();
-  redirectUrl.host = apexHost;
-  redirectUrl.protocol = 'https';
+    return NextResponse.redirect(redirectUrl, 308);
+  }
 
-  return NextResponse.redirect(redirectUrl, 308);
+  const requestHeaders = new Headers(request.headers);
+  const locale = getLocaleFromPath(request.nextUrl.pathname);
+  requestHeaders.set('x-ivo-locale', locale);
+
+  const response = NextResponse.next({
+    request: { headers: requestHeaders }
+  });
+
+  response.headers.set('Content-Language', locale);
+
+  return response;
 }
 
 export const config = {

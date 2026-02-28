@@ -4,11 +4,12 @@ type EventValue = string | number | boolean;
 type EventPayloadInput = Record<string, EventValue | null | undefined>;
 export type AnalyticsEventName =
   | 'authority_asset_view'
-  | 'ab_home_variant_exposure'
   | 'proof_expand'
   | 'proof_asset_open'
   | 'insight_read_75'
   | 'audit_cta_click'
+  | 'cta_case_primary_click'
+  | 'cta_contact_secondary_click'
   | 'cta_primary_click'
   | 'contact_quality_submit'
   | 'contact_form_start'
@@ -24,14 +25,6 @@ export type AnalyticsEventName =
   | (string & {});
 
 const analyticsFallbackHost = 'ivo-tech.com';
-const abServerEventNames = new Set([
-  'ab_home_variant_exposure',
-  'cta_primary_click',
-  'proof_asset_open',
-  'contact_form_start',
-  'contact_form_submit_success'
-]);
-
 function normalizeEventName(eventName: string) {
   return eventName.trim().toLowerCase().replace(/[^a-z0-9_:-]+/g, '_');
 }
@@ -92,53 +85,6 @@ function sanitizePayload(payload: EventPayloadInput): Record<string, EventValue>
   return Object.fromEntries(entries);
 }
 
-function readString(payload: Record<string, EventValue>, key: string) {
-  const value = payload[key];
-  return typeof value === 'string' ? value : '';
-}
-
-function maybeSendAbServerEvent(eventName: string, payload: Record<string, EventValue>) {
-  if (!abServerEventNames.has(eventName)) return;
-
-  const experiment = readString(payload, 'experiment');
-  const variant = readString(payload, 'variant');
-  if (experiment !== 'home_cta_proof_v1') return;
-  if (variant !== 'a' && variant !== 'b') return;
-
-  const locale = readString(payload, 'locale');
-  const source = readString(payload, 'source') || readString(payload, 'location') || 'unknown';
-  const path = readString(payload, 'path') || readString(payload, 'sourcePath') || window.location.pathname;
-
-  const body = JSON.stringify({
-    event: eventName,
-    experiment,
-    variant,
-    locale: locale === 'de' || locale === 'en' ? locale : undefined,
-    source,
-    path,
-    occurredAt: new Date().toISOString()
-  });
-
-  try {
-    if (typeof navigator.sendBeacon === 'function') {
-      const blob = new Blob([body], { type: 'application/json' });
-      navigator.sendBeacon('/api/analytics/ab-event', blob);
-      return;
-    }
-  } catch {
-    // Fallback to fetch below.
-  }
-
-  void fetch('/api/analytics/ab-event', {
-    method: 'POST',
-    headers: { 'content-type': 'application/json' },
-    body,
-    keepalive: true
-  }).catch(() => {
-    // Ignore transport failures to avoid blocking UX.
-  });
-}
-
 export function trackEvent(eventName: AnalyticsEventName, payload: EventPayloadInput = {}) {
   if (typeof window === 'undefined') return;
   if (!isAnalyticsHostAllowed(window.location.hostname)) return;
@@ -155,6 +101,4 @@ export function trackEvent(eventName: AnalyticsEventName, payload: EventPayloadI
   if (Array.isArray(window.dataLayer)) {
     window.dataLayer.push({ event: normalizedName, ...cleanPayload });
   }
-
-  maybeSendAbServerEvent(normalizedName, cleanPayload);
 }

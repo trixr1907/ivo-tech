@@ -1,6 +1,6 @@
 import * as Dialog from '@radix-ui/react-dialog';
 import dynamic from 'next/dynamic';
-import { useId } from 'react';
+import { useId, useRef } from 'react';
 
 import type { Locale } from '@/content/copy';
 import { getProjectStatusLabel, type Project } from '@/content/projects';
@@ -35,6 +35,7 @@ export function ProjectModal({ project, locale, onClose }: Props) {
   const open = !!project;
   const titleId = useId();
   const descriptionId = useId();
+  const closeButtonRef = useRef<HTMLButtonElement | null>(null);
   const closeLabel = locale === 'de' ? 'Dialog schliessen' : 'Close dialog';
   const specsLabel = locale === 'de' ? 'Spezifikationen' : 'Specs';
   const actionsLabel = locale === 'de' ? 'Aktionen' : 'Actions';
@@ -49,10 +50,18 @@ export function ProjectModal({ project, locale, onClose }: Props) {
       <Dialog.Portal>
         <Dialog.Overlay className="dialog-overlay" />
         {project ? (
-          <Dialog.Content className="dialog-content" aria-labelledby={titleId} aria-describedby={descriptionId}>
+          <Dialog.Content
+            className="dialog-content"
+            aria-labelledby={titleId}
+            aria-describedby={descriptionId}
+            onOpenAutoFocus={(event) => {
+              event.preventDefault();
+              closeButtonRef.current?.focus();
+            }}
+          >
             <div className="dialog-header">
               <div className="status-badge">{getProjectStatusLabel(project.status, locale)}</div>
-              <Dialog.Close className="dialog-close" aria-label={closeLabel}>
+              <Dialog.Close ref={closeButtonRef} className="dialog-close" aria-label={closeLabel}>
                 x
               </Dialog.Close>
             </div>

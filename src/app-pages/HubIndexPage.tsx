@@ -1,7 +1,8 @@
 import Link from 'next/link';
 
-import { BrandLockup } from '@/components/BrandLockup';
 import { LanguageToggle } from '@/components/LanguageToggle';
+import { SiteHeader } from '@/components/layout/SiteHeader';
+import { SectionFrame } from '@/components/ui/SectionFrame';
 import type { Locale } from '@/content/copy';
 import type { HubEntry, HubKind } from '@/content/hub';
 import { HUB_CONFIG, getHubBasePath, getLocalizedHubDetailPath } from '@/app-pages/hubShared';
@@ -63,24 +64,33 @@ export function HubIndexPage({ locale, kind, entries }: Props) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <div className="theme-ref103632" data-theme="dark">
 
-      <header className="site-header">
-        <BrandLockup variant="header" />
-        <nav className="nav" aria-label={locale === 'de' ? 'Hauptnavigation' : 'Primary'}>
-          <Link href={localizePath('/', locale)}>{locale === 'de' ? 'Startseite' : 'Home'}</Link>
-          <a href="#hub-list">{locale === 'de' ? 'Artikel' : 'Articles'}</a>
-          <Link href={localizePath('/#contact', locale)}>{locale === 'de' ? 'Kontakt' : 'Contact'}</Link>
-        </nav>
-        <div className="header-right">
-          <LanguageToggle />
-          <Link className="cta" href={localizePath('/#contact', locale)}>
-            {locale === 'de' ? 'Architekturgespraech' : 'Architecture call'}
-          </Link>
-        </div>
-      </header>
+      <SiteHeader
+        ariaLabel={locale === 'de' ? 'Hauptnavigation' : 'Primary'}
+        className="home-v2-header"
+        logoPreset="ref103632"
+        logoVisualPreset="premium"
+        logoEdgeGlow="medium"
+        nav={
+          <>
+            <Link href={localizePath('/', locale)}>{locale === 'de' ? 'Startseite' : 'Home'}</Link>
+            <a href="#hub-list">{locale === 'de' ? 'Artikel' : 'Articles'}</a>
+            <Link href={localizePath('/#contact', locale)}>{locale === 'de' ? 'Kontakt' : 'Contact'}</Link>
+          </>
+        }
+        rightSlot={
+          <>
+            <LanguageToggle />
+            <Link className="cta ui-btn ui-btn--metal btn-md motion-edge-sweep" href={localizePath('/#contact', locale)}>
+              {locale === 'de' ? 'Erstgespraech' : 'Intro call'}
+            </Link>
+          </>
+        }
+      />
 
-      <main id="main">
-        <section className="section" aria-labelledby="hub-title">
+      <main id="main-content" className="home-v2-main">
+        <SectionFrame className="section" aria-labelledby="hub-title" tone="panel">
           <div className="section-head">
             <h1 id="hub-title" className="insights-title">
               {config.indexTitle[locale]}
@@ -102,8 +112,9 @@ export function HubIndexPage({ locale, kind, entries }: Props) {
               </article>
             ))}
           </div>
-        </section>
+        </SectionFrame>
       </main>
+      </div>
     </>
   );
 }

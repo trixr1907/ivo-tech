@@ -2,8 +2,10 @@
 .dialog-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.78);
-  backdrop-filter: blur(10px);
+  background:
+    radial-gradient(circle at 28% 12%, rgba(95, 156, 235, 0.16), transparent 35%),
+    rgba(2, 6, 12, 0.8);
+  backdrop-filter: blur(14px);
   z-index: 100;
 }
 
@@ -15,10 +17,12 @@
   width: min(1180px, 94vw);
   height: min(90vh, 940px);
   z-index: 101;
-  background: rgba(10, 14, 24, 0.92);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background:
+    linear-gradient(160deg, rgba(19, 28, 42, 0.97), rgba(10, 16, 25, 0.95)),
+    var(--noise-overlay);
+  border: 1px solid rgba(146, 191, 244, 0.28);
   border-radius: 16px;
-  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(0, 243, 255, 0.12) inset;
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(110, 178, 255, 0.16) inset;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -29,16 +33,16 @@
   align-items: center;
   justify-content: space-between;
   padding: 14px 16px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent);
+  border-bottom: 1px solid rgba(146, 190, 239, 0.2);
+  background: linear-gradient(180deg, rgba(220, 237, 255, 0.07), transparent);
 }
 
 .status-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  border: 1px solid rgba(0, 243, 255, 0.35);
-  background: rgba(0, 243, 255, 0.06);
+  border: 1px solid rgba(131, 190, 255, 0.44);
+  background: linear-gradient(150deg, rgba(55, 93, 139, 0.32), rgba(18, 32, 51, 0.42));
   color: var(--text);
   border-radius: 999px;
   padding: 8px 12px;
@@ -49,11 +53,13 @@
 
 .dialog-close {
   appearance: none;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(158, 196, 244, 0.24);
+  background: linear-gradient(160deg, rgba(45, 62, 86, 0.6), rgba(16, 24, 37, 0.72));
   color: var(--text);
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
   border-radius: 12px;
   cursor: pointer;
   display: inline-flex;
@@ -64,7 +70,7 @@
 }
 
 .dialog-close:hover {
-  border-color: rgba(255, 255, 255, 0.24);
+  border-color: rgba(167, 208, 255, 0.42);
 }
 
 .dialog-grid {
@@ -77,10 +83,10 @@
 
 .dialog-media {
   min-height: 0;
-  background: radial-gradient(circle at 16% 14%, rgba(0, 243, 255, 0.12), transparent 46%),
-    radial-gradient(circle at 86% 84%, rgba(255, 0, 255, 0.1), transparent 44%),
+  background: radial-gradient(circle at 16% 14%, rgba(114, 184, 255, 0.2), transparent 46%),
+    radial-gradient(circle at 86% 84%, rgba(61, 119, 207, 0.16), transparent 44%),
     rgba(0, 0, 0, 0.34);
-  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  border-right: 1px solid rgba(139, 178, 228, 0.16);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -124,8 +130,8 @@
 }
 
 .spec-item {
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(137, 176, 224, 0.2);
+  background: linear-gradient(160deg, rgba(36, 49, 72, 0.58), rgba(14, 22, 35, 0.66));
   border-radius: 12px;
   padding: 12px;
   display: grid;
@@ -171,8 +177,8 @@
 
 .action-btn.primary {
   color: var(--text);
-  border-color: rgba(0, 243, 255, 0.6);
-  background: linear-gradient(135deg, rgba(0, 243, 255, 0.18), rgba(255, 0, 255, 0.16));
+  border-color: rgba(137, 198, 255, 0.58);
+  background: linear-gradient(145deg, rgba(76, 113, 161, 0.42), rgba(26, 44, 70, 0.66));
 }
 
 .action-btn.secondary {
@@ -182,7 +188,7 @@
 }
 
 .action-btn.primary:hover {
-  border-color: rgba(0, 243, 255, 0.95);
+  border-color: rgba(176, 220, 255, 0.88);
 }
 
 .action-btn.secondary:hover {
@@ -200,7 +206,7 @@
   padding: 16px;
   margin: 10px;
   border-radius: 14px;
-  border: 1px solid rgba(0, 243, 255, 0.18);
+  border: 1px solid rgba(118, 178, 241, 0.24);
   background: linear-gradient(155deg, rgba(5, 9, 15, 0.85), rgba(8, 10, 16, 0.76));
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
 }
@@ -225,7 +231,7 @@
   width: 320px;
   height: 320px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(0, 243, 255, 0.18), transparent 70%);
+  background: radial-gradient(circle, rgba(97, 171, 255, 0.24), transparent 70%);
   pointer-events: none;
 }
 
