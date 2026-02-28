@@ -1,8 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { BrandLockup } from '@/components/BrandLockup';
 import { LanguageToggle } from '@/components/LanguageToggle';
+import { SiteHeader } from '@/components/layout/SiteHeader';
+import { Button } from '@/components/ui/Button';
+import { SectionFrame } from '@/components/ui/SectionFrame';
 import type { Locale } from '@/content/copy';
 import { localizePath } from '@/lib/localeRouting';
 
@@ -11,16 +13,32 @@ type Props = {
 };
 
 const ASSET_LINKS = [
+  { label: 'Logo Manifest', href: '/assets/logo/manifest.json' },
   { label: 'Logo PNG', href: '/assets/logo.png' },
-  { label: 'Logo WebP', href: '/assets/logo.webp' },
   { label: 'Logo AVIF', href: '/assets/logo.avif' },
   { label: 'Logo Mark PNG', href: '/assets/logo-mark.png' },
-  { label: 'Logo Mark WebP', href: '/assets/logo-mark.webp' },
   { label: 'Logo Mark AVIF', href: '/assets/logo-mark.avif' },
+  { label: 'Mark Detailed (Dark)', href: '/assets/logo/ivo-logo__mark-detailed__static__dark__v1.0.0.svg' },
+  { label: 'Mark Core (Dark)', href: '/assets/logo/ivo-logo__mark-core__static__dark__v1.0.0.svg' },
+  { label: 'Mark Core Premium (Dark)', href: '/assets/logo/ivo-logo__mark-core__premium__dark__v1.1.0.svg' },
+  { label: 'Mark Micro (Dark)', href: '/assets/logo/ivo-logo__mark-micro__static__dark__v1.0.0.svg' },
+  { label: 'Wordmark (Light)', href: '/assets/logo/ivo-logo__wordmark__static__light__v1.0.0.svg' },
+  { label: 'Wordmark Premium (Dark)', href: '/assets/logo/ivo-logo__wordmark__premium__dark__v1.1.0.svg' },
+  { label: 'Lockup Horizontal (Dark)', href: '/assets/logo/ivo-logo__lockup-horizontal__static__dark__v1.0.0.svg' },
+  { label: 'Lockup Horizontal Premium (Dark)', href: '/assets/logo/ivo-logo__lockup-horizontal__premium__dark__v1.1.0.svg' },
+  { label: 'Lockup Stacked (Mono)', href: '/assets/logo/ivo-logo__lockup-stacked__static__mono__v1.0.0.svg' },
   { label: 'Favicon ICO', href: '/favicon.ico' },
   { label: 'Logo Sting MP4', href: '/assets/video/logo-sting.mp4' },
   { label: 'Logo Sting WebM', href: '/assets/video/logo-sting.webm' },
   { label: 'Logo Sting Poster', href: '/assets/video/logo-sting-poster.avif' }
+] as const;
+
+const MOTION_SYSTEM = [
+  '120ms micro, 220ms base, 420ms expressive, 650ms reveal.',
+  'Easing standard: cubic-bezier(0.22, 1, 0.36, 1).',
+  'Easing technical in/out: cubic-bezier(0.4, 0, 0.2, 1).',
+  'Tier 1 UI standard, Tier 2 hero, Tier 3 campaign only.',
+  'prefers-reduced-motion falls back to opacity-only reveal.'
 ] as const;
 
 export function BrandShowcasePage({ locale }: Props) {
@@ -29,7 +47,7 @@ export function BrandShowcasePage({ locale }: Props) {
   const copy = isDe
     ? {
         title: 'Brand Showcase',
-        lead: 'Das finale ivo-tech Logo-System fuer Wordmark, Submark, Motion und produktionsreife Web-Assets.',
+        lead: 'Praezise-Neon Logo-System mit Mark Detailed/Core/Micro, Theme-Varianten und produktionsnahen Motion-Interfaces.',
         system: 'Logo-System',
         motion: 'Motion',
         downloads: 'Downloads',
@@ -39,18 +57,18 @@ export function BrandShowcasePage({ locale }: Props) {
         cta: 'Asset Paket',
         summaryTitle: 'System-Zusammenfassung',
         summaryText:
-          'Wordmark-first in Neon-Cyan, aggressive-futuristische Formensprache, plus kompakte Submark fuer Header, Favicons und Avatare.',
+          'Das System basiert auf klaren Rollen: Detailed fuer Hero, Core fuer Header/Cards, Micro fuer Favicon und enge UI-Flaechen.',
         qualityTitle: 'Abnahmepunkte',
         qualityPoints: [
-          'Lesbarkeit bei 16, 24 und 32 Pixeln',
-          'Kontrast auf Dark und Light Surface',
-          'Konsistente Auslieferung fuer PNG, WebP und AVIF',
-          'Motion-Sting mit 3-5 Sekunden Laufzeit'
+          'Lesbarkeit bei 16, 24, 32, 48, 64, 96, 128 Pixeln',
+          'Dark/Light Kontrast fuer Mark und Wordmark',
+          'Deterministische Dateinamen + Manifest + Hashes',
+          'Motion-Fallback ohne Lottie-Runtime-Abhaengigkeit'
         ]
       }
     : {
         title: 'Brand Showcase',
-        lead: 'The final ivo-tech logo system for wordmark, submark, motion, and production-ready web assets.',
+        lead: 'Precision-neon logo system with detailed/core/micro marks, theme variants, and production-grade motion interfaces.',
         system: 'Logo system',
         motion: 'Motion',
         downloads: 'Downloads',
@@ -60,64 +78,116 @@ export function BrandShowcasePage({ locale }: Props) {
         cta: 'Asset package',
         summaryTitle: 'System summary',
         summaryText:
-          'Wordmark-first in neon cyan, aggressive futuristic geometry, plus compact submark for headers, favicons, and avatars.',
+          'The system uses clear roles: detailed for hero, core for headers/cards, and micro for favicon and tight UI surfaces.',
         qualityTitle: 'Acceptance points',
         qualityPoints: [
-          'Readability at 16, 24, and 32 pixels',
-          'Contrast on dark and light surfaces',
-          'Consistent delivery for PNG, WebP, and AVIF',
-          'Motion sting with 3-5 second duration'
+          'Readability at 16, 24, 32, 48, 64, 96, 128 pixels',
+          'Dark/light contrast for mark and wordmark',
+          'Deterministic file names + manifest + hashes',
+          'Motion fallback without Lottie runtime dependency'
         ]
       };
 
   return (
-    <>
-      <header className="site-header">
-        <BrandLockup variant="header" />
-        <nav className="nav" aria-label={isDe ? 'Hauptnavigation' : 'Primary'}>
-          <a href="#system">{copy.system}</a>
-          <a href="#motion">{copy.motion}</a>
-          <a href="#downloads">{copy.downloads}</a>
-          <a href="#quality">{copy.quality}</a>
-          <Link href={localizePath('/', locale)}>{copy.home}</Link>
-          <Link href={localizePath('/#contact', locale)}>{copy.contact}</Link>
-        </nav>
-        <div className="header-right">
-          <LanguageToggle />
-          <a className="cta" href="#downloads">
-            {copy.cta}
-          </a>
-        </div>
-      </header>
+    <div className="theme-ref103632" data-theme="dark">
+      {/* Contract reference: <BrandLockup variant="header" motionTier="tier2" /> */}
+      <SiteHeader
+        ariaLabel={isDe ? 'Hauptnavigation' : 'Primary'}
+        className="home-v2-header"
+        logoPreset="ref103632"
+        logoTier="tier2"
+        logoVisualPreset="premium"
+        logoEdgeGlow="medium"
+        nav={
+          <>
+            <a href="#system">{copy.system}</a>
+            <a href="#motion">{copy.motion}</a>
+            <a href="#downloads">{copy.downloads}</a>
+            <a href="#quality">{copy.quality}</a>
+            <Link href={localizePath('/', locale)}>{copy.home}</Link>
+            <Link href={localizePath('/#contact', locale)}>{copy.contact}</Link>
+          </>
+        }
+        rightSlot={
+          <>
+            <LanguageToggle />
+            <Button href="#downloads" className="cta" variant="metal">
+              {copy.cta}
+            </Button>
+          </>
+        }
+      />
 
-      <main id="main" className="brand-showcase-main">
-        <section className="hero brand-showcase-hero" aria-labelledby="brand-showcase-title">
+      <main id="main-content" className="brand-showcase-main home-v2-main">
+        <SectionFrame className="hero brand-showcase-hero" aria-labelledby="brand-showcase-title" tone="metal" sectionTheme="primary">
           <div className="hero-copy">
-            <p className="eyebrow">ivo-tech brand</p>
+            <p className="eyebrow">ivo-tech brand system</p>
             <h1 id="brand-showcase-title">{copy.title}</h1>
             <p className="lead">{copy.lead}</p>
           </div>
-        </section>
+        </SectionFrame>
 
-        <section id="system" className="section brand-showcase-section" aria-labelledby="brand-system-title">
+        <SectionFrame id="system" className="section brand-showcase-section" aria-labelledby="brand-system-title" tone="panel">
           <div className="section-head">
             <h2 id="brand-system-title">{copy.system}</h2>
           </div>
-          <article className="brand-review-card">
-            <div className="brand-preview-surface brand-preview-surface--dark">
-              <Image src="/assets/logo.png" alt="ivo-tech wordmark" width={880} height={338} className="brand-preview-wordmark" />
-            </div>
-            <div className="brand-preview-surface brand-preview-surface--light">
-              <Image src="/assets/logo-mark.png" alt="ivo-tech submark" width={420} height={420} className="brand-preview-submark" />
-            </div>
-          </article>
-          <article className="brand-review-card">
+          <div className="brand-review-grid">
+            <article className="brand-review-card">
+              <h3>Lockup Horizontal</h3>
+              <div className="brand-preview-surface brand-preview-surface--dark">
+                <Image
+                  src="/assets/logo/ivo-logo__lockup-horizontal__static__dark__v1.0.0.svg"
+                  alt="ivo-tech wordmark"
+                  width={1600}
+                  height={620}
+                  className="brand-preview-wordmark"
+                />
+              </div>
+            </article>
+            <article className="brand-review-card">
+              <h3>Mark Detailed</h3>
+              <div className="brand-preview-surface brand-preview-surface--dark">
+                <Image
+                  src="/assets/logo/ivo-logo__mark-detailed__static__dark__v1.0.0.svg"
+                  alt="ivo-tech submark"
+                  width={512}
+                  height={512}
+                  className="brand-preview-submark"
+                />
+              </div>
+            </article>
+            <article className="brand-review-card">
+              <h3>Mark Core</h3>
+              <div className="brand-preview-surface brand-preview-surface--dark">
+                <Image
+                  src="/assets/logo/ivo-logo__mark-core__static__dark__v1.0.0.svg"
+                  alt="ivo-tech core mark"
+                  width={512}
+                  height={512}
+                  className="brand-preview-submark"
+                />
+              </div>
+            </article>
+            <article className="brand-review-card">
+              <h3>Mark Micro</h3>
+              <div className="brand-preview-surface brand-preview-surface--light">
+                <Image
+                  src="/assets/logo/ivo-logo__mark-micro__static__light__v1.0.0.svg"
+                  alt="ivo-tech micro mark"
+                  width={512}
+                  height={512}
+                  className="brand-preview-submark"
+                />
+              </div>
+            </article>
+          </div>
+          <article className="brand-review-card" data-theme="secondary">
             <h3>{copy.summaryTitle}</h3>
             <p>{copy.summaryText}</p>
           </article>
-        </section>
+        </SectionFrame>
 
-        <section id="motion" className="section brand-showcase-section" aria-labelledby="brand-motion-title">
+        <SectionFrame id="motion" className="section brand-showcase-section" aria-labelledby="brand-motion-title" tone="metal" sectionTheme="primary">
           <div className="section-head">
             <h2 id="brand-motion-title">{copy.motion}</h2>
           </div>
@@ -128,9 +198,17 @@ export function BrandShowcasePage({ locale }: Props) {
               <track src="/assets/video/logo-sting-captions.vtt" kind="captions" srcLang={isDe ? 'de' : 'en'} label={isDe ? 'Deutsch' : 'English'} default />
             </video>
           </article>
-        </section>
+          <article className="brand-review-card">
+            <h3>Motion System</h3>
+            <ul className="brand-quality-list">
+              {MOTION_SYSTEM.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </article>
+        </SectionFrame>
 
-        <section id="downloads" className="section brand-showcase-section" aria-labelledby="brand-download-title">
+        <SectionFrame id="downloads" className="section brand-showcase-section" aria-labelledby="brand-download-title" tone="panel" sectionTheme="secondary">
           <div className="section-head">
             <h2 id="brand-download-title">{copy.downloads}</h2>
           </div>
@@ -142,9 +220,9 @@ export function BrandShowcasePage({ locale }: Props) {
               </a>
             ))}
           </div>
-        </section>
+        </SectionFrame>
 
-        <section id="quality" className="section brand-showcase-section" aria-labelledby="brand-quality-title">
+        <SectionFrame id="quality" className="section brand-showcase-section" aria-labelledby="brand-quality-title" tone="panel">
           <div className="section-head">
             <h2 id="brand-quality-title">{copy.qualityTitle}</h2>
           </div>
@@ -155,8 +233,8 @@ export function BrandShowcasePage({ locale }: Props) {
               ))}
             </ul>
           </article>
-        </section>
+        </SectionFrame>
       </main>
-    </>
+    </div>
   );
 }
