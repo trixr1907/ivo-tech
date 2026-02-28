@@ -41,14 +41,26 @@ export function LanguageToggle() {
     };
   }, [hash, pathname, search]);
 
+  const labels = isEn
+    ? {
+        nav: 'Language selector',
+        de: 'Sprache auf Deutsch wechseln',
+        en: 'English (current language)'
+      }
+    : {
+        nav: 'Sprachauswahl',
+        de: 'Deutsch (aktuelle Sprache)',
+        en: 'Switch language to English'
+      };
+
   return (
-    <div className="locale-toggle" aria-label="Language">
-      <Link href={deHref} aria-current={!isEn ? 'page' : undefined}>
+    <nav className="locale-toggle" aria-label={labels.nav}>
+      <Link href={deHref} aria-current={!isEn ? 'page' : undefined} aria-label={labels.de} hrefLang="de" lang="de">
         DE
       </Link>
-      <Link href={enHref} aria-current={isEn ? 'page' : undefined}>
+      <Link href={enHref} aria-current={isEn ? 'page' : undefined} aria-label={labels.en} hrefLang="en" lang="en">
         EN
       </Link>
-    </div>
+    </nav>
   );
 }

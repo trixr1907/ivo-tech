@@ -28,7 +28,6 @@ const cspReportOnly = [
   "base-uri 'self'",
   "form-action 'self' mailto:",
   "object-src 'none'",
-  'upgrade-insecure-requests',
   ...(cspReportUri ? [`report-uri ${cspReportUri}`] : [])
 ].join('; ');
 
@@ -54,6 +53,36 @@ const nextConfig = {
         source: '/:path*',
         has: [{ type: 'host', value: wwwHost }],
         destination: `https://${apexHost}/:path*`,
+        permanent: true
+      },
+      {
+        source: '/services',
+        destination: '/#services',
+        permanent: true
+      },
+      {
+        source: '/en/services',
+        destination: '/en#services',
+        permanent: true
+      },
+      {
+        source: '/projects',
+        destination: '/#featured',
+        permanent: true
+      },
+      {
+        source: '/en/projects',
+        destination: '/en#featured',
+        permanent: true
+      },
+      {
+        source: '/contact',
+        destination: '/#contact',
+        permanent: true
+      },
+      {
+        source: '/en/contact',
+        destination: '/en#contact',
         permanent: true
       }
     ];

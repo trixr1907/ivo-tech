@@ -2,9 +2,10 @@ import Link from 'next/link';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 
 import { HUB_CONFIG, getHubBasePath } from '@/app-pages/hubShared';
-import { BrandLockup } from '@/components/BrandLockup';
 import { LanguageToggle } from '@/components/LanguageToggle';
 import { HubReadTracker } from '@/components/HubReadTracker';
+import { SiteHeader } from '@/components/layout/SiteHeader';
+import { SectionFrame } from '@/components/ui/SectionFrame';
 import type { Locale } from '@/content/copy';
 import type { HubEntry, HubKind } from '@/content/hub';
 import { localizePath } from '@/lib/localeRouting';
@@ -72,31 +73,40 @@ export function HubDetailPage({ locale, kind, entry }: Props) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <HubReadTracker locale={locale} kind={kind} slug={entry.slug} />
+      <div className="theme-ref103632" data-theme="dark">
 
-      <header className="site-header">
-        <BrandLockup variant="header" />
-        <nav className="nav" aria-label={locale === 'de' ? 'Hauptnavigation' : 'Primary'}>
-          <Link href={localizePath('/', locale)}>{locale === 'de' ? 'Startseite' : 'Home'}</Link>
-          <Link href={localizePath(basePath, locale)}>{config.label[locale]}</Link>
-          <Link href={localizePath('/#contact', locale)}>{locale === 'de' ? 'Kontakt' : 'Contact'}</Link>
-        </nav>
-        <div className="header-right">
-          <LanguageToggle />
-          <Link className="cta" href={localizePath('/#contact', locale)}>
-            {locale === 'de' ? 'Architekturgespraech' : 'Architecture call'}
-          </Link>
-        </div>
-      </header>
+      <SiteHeader
+        ariaLabel={locale === 'de' ? 'Hauptnavigation' : 'Primary'}
+        className="home-v2-header"
+        logoPreset="ref103632"
+        logoVisualPreset="premium"
+        logoEdgeGlow="medium"
+        nav={
+          <>
+            <Link href={localizePath('/', locale)}>{locale === 'de' ? 'Startseite' : 'Home'}</Link>
+            <Link href={localizePath(basePath, locale)}>{config.label[locale]}</Link>
+            <Link href={localizePath('/#contact', locale)}>{locale === 'de' ? 'Kontakt' : 'Contact'}</Link>
+          </>
+        }
+        rightSlot={
+          <>
+            <LanguageToggle />
+            <Link className="cta ui-btn ui-btn--metal btn-md motion-edge-sweep" href={localizePath('/#contact', locale)}>
+              {locale === 'de' ? 'Erstgespraech' : 'Intro call'}
+            </Link>
+          </>
+        }
+      />
 
-      <main id="main">
+      <main id="main-content" className="home-v2-main">
         <article className="insight-article" aria-labelledby="hub-detail-title">
-          <header className="insight-hero">
+          <SectionFrame as="header" className="insight-hero" aria-labelledby="hub-detail-title" tone="metal" sectionTheme="primary">
             <p className="eyebrow">
               {entry.category} | {entry.readMinutes} min
             </p>
             <h1 id="hub-detail-title">{entry.title}</h1>
             <p className="lead">{entry.description}</p>
-          </header>
+          </SectionFrame>
 
           <div className="insight-body">
             <MDXRemote source={entry.body} />
@@ -122,11 +132,12 @@ export function HubDetailPage({ locale, kind, entry }: Props) {
               })}
             </ul>
             <Link className="primary" href={localizePath('/#contact', locale)}>
-              {locale === 'de' ? 'Tech-Review anfragen' : 'Request tech review'}
+              {locale === 'de' ? 'Erstgespraech anfragen' : 'Request free intro call'}
             </Link>
           </aside>
         </article>
       </main>
+      </div>
     </>
   );
 }

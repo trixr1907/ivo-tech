@@ -8,187 +8,196 @@ export const copy = {
     nav: {
       heroCase: 'Case Study',
       featured: 'Projekte',
-      paths: 'Pfade',
-      insights: 'Insights',
       contact: 'Kontakt',
-      cta: 'Architekturgespraech'
+      cta: 'Erstgespraech'
     },
     primaryCta: {
-      label: 'Strategiegespraech anfragen',
-      shortLabel: 'Strategiegespraech',
-      href: '#contact',
-      intent: 'authority'
+      label: 'Case Study ansehen',
+      shortLabel: 'Case Study',
+      href: '/configurator',
+      intent: 'case_study'
     },
-    hero: {
-      eyebrow: 'Authority-first Web Engineering | Mannheim | Remote-first',
-      title: 'Ich baue Websysteme, die technisch sauber starten und im Betrieb stabil bleiben.',
-      lead:
-        'Der Fokus liegt auf nachvollziehbaren Entscheidungen, klarer Informationsarchitektur und messbarer Qualitaet statt auf Buzzwords.',
-      sublead:
-        'So entstehen Gespraeche aus Vertrauen in die Denkweise - nicht aus Sales-Druck.',
-      primary: 'Strategiegespraech anfragen',
-      secondary: 'Case Study ansehen',
-      audit: 'Kostenlose 10-Punkte Tech-Review',
-      linksLabel: 'Direktlinks',
-      github: 'GitHub',
-      cv: 'CV (PDF)',
-      terminal: {
-        title: 'decision.log',
-        lines: [
-          'principle: clarity before complexity',
-          'proof: live 3D configurator in production',
-          'method: plan -> build -> measure -> handover',
-          'availability: 2 deep-dive slots / month'
-        ]
+    sectionCtas: {
+      hero: {
+        primary: { label: 'Kostenloses Erstgespraech anfragen', href: '#contact', trackingSource: 'hero_primary_contact', intent: 'contact' },
+        secondary: { label: 'Case Study ansehen', href: '/configurator', trackingSource: 'hero_secondary_case', intent: 'case_study' }
+      },
+      services: {
+        primary: { label: 'Kostenloses Erstgespraech anfragen', href: '#contact', trackingSource: 'services_primary_contact', intent: 'contact' }
+      },
+      insights: {
+        primary: { label: 'Alle Insights', href: '/insights', trackingSource: 'insights_primary_index', intent: 'authority' }
+      },
+      footer: {
+        primary: { label: 'Erstgespraech', href: '#contact', trackingSource: 'footer_primary_contact', intent: 'contact' }
+      },
+      sticky: {
+        primary: { label: 'Erstgespraech', href: '#contact', trackingSource: 'sticky_primary_contact', intent: 'contact' }
       }
     },
-    proof: {
-      title: 'Proof statt Behauptung',
-      desc: 'Drei Signale, die fuer Arbeitsweise und Ergebnisqualitaet stehen.',
-      items: [
+    home: {
+      hero: {
+        eyebrow: 'Web Engineering | Mannheim | Remote-first',
+        title: 'Web-Projekte, die in Produktion stabil laufen und messbar Wirkung zeigen.',
+        lead: 'Ich unterstuetze Teams bei Architektur, Umsetzung und sauberem Handover - mit klarem Fokus auf Projektresultate.',
+        sublead: 'Klare Entscheidungen, robuste Umsetzung und reproduzierbare Delivery ohne unnoetige Komplexitaet.'
+      },
+      proof: [
         {
-          id: 'live-system',
-          metric: 'Live-System im Betrieb',
-          detail: '3D-Konfigurator ist produktiv integriert - von Upload ueber Pricing bis Checkout.',
-          cta: 'Case Study oeffnen',
-          href: '/configurator'
+          id: 'live_system',
+          label: 'Live-System',
+          value: 'End-to-End Upload-Flow im produktiven Betrieb',
+          href: '#hero-case'
         },
         {
-          id: 'delivery-discipline',
-          metric: 'Delivery mit Struktur',
-          detail: 'Klare Scope-Abgrenzung, transparente Updates und reproduzierbare Uebergaben.',
-          cta: 'Arbeitsweise ansehen',
-          href: '#method'
+          id: 'delivery_quality',
+          label: 'Delivery-Qualitaet',
+          value: 'Feste QA-Gates vor jedem Release',
+          href: '#services'
         },
         {
-          id: 'quality-guardrails',
-          metric: 'Messbare Qualitaets-Gates',
-          detail: 'Lint, Typing, Unit, E2E und Lighthouse laufen als feste Qualitaetsstufe.',
-          cta: 'Qualitaets-Gates ansehen',
-          href: '#quick-facts'
+          id: 'response_window',
+          label: 'Antwortzeit',
+          value: 'Rueckmeldung werktags meist innerhalb von 24h',
+          href: '#contact'
         }
-      ]
+      ],
+      case: {
+        title: 'Hero-Projekt: 3D-Konfigurator als Tech-Referenz',
+        desc: 'Ein Projektbeispiel mit klarer Ausgangslage, technischer Umsetzung und operativem Ergebnis.'
+      },
+      method: {
+        title: 'Wie ich entscheide und liefere',
+        desc: 'Ein klarer Delivery-Rahmen, damit Teams Entscheidungen und Fortschritt jederzeit nachvollziehen koennen.',
+        steps: [
+          {
+            title: '1) Problem praezisieren',
+            desc: 'Zielbild, Scope und Risiko vor dem Build klarziehen, um teure Richtungswechsel zu vermeiden.'
+          },
+          {
+            title: '2) Loesung mit Guardrails bauen',
+            desc: 'Komponenten, Datenfluesse und Betrieb so umsetzen, dass Wartung und Skalierung realistisch bleiben.'
+          },
+          {
+            title: '3) Wirkung messen und uebergeben',
+            desc: 'Performance, UX und Betriebsmetriken sichtbar machen und sauber ins Team uebergeben.'
+          }
+        ]
+      },
+      services: [
+        {
+          icon: 'frontend',
+          title: 'Frontend & Product Delivery',
+          desc: 'Next.js/React + TypeScript, klare Informationsarchitektur und robuste UI-Umsetzung.'
+        },
+        {
+          icon: 'backend',
+          title: 'Backend & API Integrationen',
+          desc: 'FastAPI-Services, Datenfluesse und Integrationen fuer stabile End-to-End-Prozesse.'
+        },
+        {
+          icon: 'ops',
+          title: 'Betrieb & Guardrails',
+          desc: 'Deployment, QA-Gates und Monitoring-Basis fuer reproduzierbare Delivery.'
+        }
+      ],
+      projects: {
+        title: 'Kuratierte Projekte',
+        desc: 'Ausgewaehlte Referenzen mit klarem Tech-Fokus und nachvollziehbarer Wirkung.'
+      },
+      insights: {
+        title: 'Engineering Insights',
+        desc: 'Kurze, praxisnahe Deep Dives zu Architektur, Performance und Delivery-Entscheidungen.',
+        linkLabel: 'Insight lesen'
+      },
+      contact: {
+        title: 'Kontakt',
+        desc: '2-3 Saetze zu Ziel, aktuellem Engpass und Zeitrahmen reichen fuer einen konkreten Start.',
+        card: 'Typisches Antwortfenster: Rueckmeldung werktags innerhalb von 24 Stunden.',
+        emailCta: 'Direkt per E-Mail',
+        advanced: {
+          toggle: 'Optionale Projektdetails',
+          hint: 'Nur ausfuellen, wenn es fuer den Erstkontakt hilfreich ist.'
+        }
+      },
+      faq: {
+        title: 'FAQ',
+        desc: 'Die wichtigsten Fragen vor einem Erstgespraech.'
+      }
+    },
+    hero: {
+      eyebrow: 'Web Engineering | Mannheim | Remote-first',
+      title: 'Ich baue Websysteme, die stabil laufen und Ergebnisse liefern.',
+      lead: 'Der Fokus liegt auf nachvollziehbaren Entscheidungen, klarer Informationsarchitektur und messbarer Qualitaet statt auf Buzzwords.',
+      sublead: 'So entstehen Gespraeche aus Vertrauen in die Denkweise und nicht aus Sales-Druck.',
+      secondary: 'Kostenloses Erstgespraech anfragen',
+      linksLabel: 'Direktlinks',
+      github: 'GitHub',
+      cv: 'CV (PDF)'
     },
     method: {
       title: 'Wie ich entscheide und liefere',
-      desc: 'Die Methodik ist bewusst simpel, damit Entscheidungen fuer Teams nachvollziehbar bleiben.',
+      desc: 'Ein einfacher Rahmen: Problem klar machen, robust umsetzen, Wirkung messbar machen.',
       steps: [
         {
-          title: '1) Problem praezisieren',
-          desc: 'Ziel, Scope und Risikobild vor dem Build klarziehen, damit keine Schein-Komplexitaet entsteht.'
+          title: '1) Problem klarziehen',
+          desc: 'Ziel, Scope und Risiko vor dem Build konkret machen, damit keine Zeit in Richtungswechsel fliesst.'
         },
         {
-          title: '2) Loesung mit Guardrails bauen',
-          desc: 'Komponenten, Datenfluesse und Betriebsaspekte so umsetzen, dass Wartung und Skalierung realistisch bleiben.'
+          title: '2) Robust umsetzen',
+          desc: 'Komponenten, APIs und Betriebslogik so bauen, dass Wartung und Skalierung realistisch bleiben.'
         },
         {
-          title: '3) Wirkung messen und uebergeben',
-          desc: 'Performance-, UX- und Betriebsmetriken sichtbar machen und sauber in bestehende Teamprozesse uebergeben.'
-        }
-      ],
-      cta: 'Kostenlose Tech-Review anfragen'
-    },
-    quick_facts: {
-      title: 'Quick Facts',
-      desc: 'Die wichtigsten Signale fuer Positionierung und Zusammenarbeit auf einen Blick.',
-      items: [
-        { label: 'Fokus', value: 'Web Engineering mit sichtbarer Denkqualitaet' },
-        { label: 'Arbeitsmodell', value: 'Remote-first, optional im Raum Mannheim' },
-        { label: 'Qualitaetsstandard', value: 'Lint + Typing + Unit + E2E + Lighthouse' },
-        { label: 'Verfuegbarkeit', value: 'Ab sofort (2 Deep-Dive Slots pro Monat)' }
-      ]
-    },
-    audience_paths: {
-      title: 'Zwei klare Pfade',
-      desc: 'Schnelles Routing fuer Recruiting oder Projektkontext - ohne unnoetige Reibung.',
-      cards: [
-        {
-          id: 'hiring',
-          title: 'Fuer Hiring-Teams',
-          bullets: [
-            'Junior-Entry mit produktionsnahen Referenzen und klarer Delivery-Haltung.',
-            'Schnelles Onboarding in bestehende Produkt- und Teamprozesse.',
-            'Hohe Transparenz ueber Fortschritt, Risiken und naechste Schritte.'
-          ],
-          cta: 'Hiring-Gespraech starten'
-        },
-        {
-          id: 'client',
-          title: 'Fuer Projektanfragen',
-          bullets: [
-            'Klare Umsetzungsphasen fuer Frontend, API-Integration und Deployment.',
-            'Technische Entscheidungen werden dokumentiert und begruendet.',
-            'Saubere Uebergabe fuer stabilen Betrieb nach dem Build.'
-          ],
-          cta: 'Projektgespraech starten'
+          title: '3) Wirkung belegen',
+          desc: 'Performance, UX und Betriebskennzahlen sichtbar machen und sauber ins Team uebergeben.'
         }
       ]
     },
     insights: {
       title: 'Engineering Insights',
-      desc: 'Kurze, praxisnahe Deep Dives zu Architektur, Performance und Delivery-Entscheidungen.',
-      cta: 'Alle Insights ansehen'
-    },
-    career_switch: {
-      title: 'Arbeitsweise',
-      desc: 'Praxisorientierter IT-Einstieg mit belastbarer Berufserfahrung.',
-      intro:
-        'Ich kombiniere 15 Jahre Berufserfahrung aus kundennahem Umfeld mit sauber aufgebauten Webprojekten.',
-      prior_experience:
-        'Ownership, klare Kommunikation und reproduzierbare Delivery sind die Konstanten in meiner Arbeit.',
-      bullets: [
-        'Puenktliche Lieferung mit klaren Zwischenstaenden.',
-        'Nachvollziehbare Entscheidungen statt Black-Box-Implementierung.',
-        'Schnelle Einarbeitung in neue Anforderungen und Systeme.',
-        'Iteratives Arbeiten: planen, bauen, testen, verbessern.'
-      ]
+      desc: 'Praxisnahe Deep Dives zu Architektur, Performance und Delivery-Entscheidungen.'
     },
     sections: {
       heroCase: {
         title: 'Hero-Projekt: 3D-Konfigurator als Tech-Referenz',
-        desc: 'Tech-first Case Study aus einem Live-Kundenprojekt: WebGL/Three.js, Plugin-Architektur, Preis-Engine und Checkout-Handoff.'
+        desc: 'Konkreter Live-Case mit technischem Aufbau, klarer Prozesskette und nachvollziehbarem Betriebsergebnis.'
+      },
+      services: {
+        title: 'Leistungsfokus',
+        desc: 'Drei Schwerpunkte, die Projekte vom ersten Konzept bis zum stabilen Live-Betrieb tragen.'
       },
       featured: {
-        title: 'Featured Projekte',
-        desc: 'Referenzen mit Fokus auf Produktdenken, technische Praezision und klare Uebergabe.'
-      },
-      stack: {
-        title: 'Tech-Stack Showcase',
-        desc: 'Kompetenzorientiert gruppiert mit Fokus auf reale Delivery.'
-      },
-      labs: {
-        title: 'Experimente / Labs',
-        desc: 'Labs bleiben sichtbar, sind aber klar als explorative Flaeche markiert.'
+        title: 'Kuratierte Projekte',
+        desc: 'Ausgewaehlte Referenzen mit technischer Tiefe und klarer Wirkung.'
       },
       contact: {
         title: 'Kontakt',
-        desc: 'Ob Hiring oder Projekt: ein kurzer Kontext reicht fuer einen klaren Start.',
-        card: 'Typisches Antwortfenster: innerhalb von 24 Stunden an Werktagen.',
-        cta: 'Strategiegespraech anfragen'
+        desc: '2-3 Saetze zu Ziel, Engpass und Zeitrahmen reichen fuer einen konkreten Start.',
+        card: 'Typisches Antwortfenster: Rueckmeldung werktags innerhalb von 24 Stunden.'
       }
     },
     contact_form: {
       intentLegend: 'Anliegen',
-      optionalDetailsSummary: 'Optionale Projektdetails',
-      optionalDetailsHint: 'Nur ausfuellen, wenn du den Rahmen bereits konkreter kennst.',
       intentOptions: {
         hiring: 'Hiring-Team',
         client: 'Projektanfrage'
       },
-      intentDetailLabel: 'Kontext-Detail',
+      advancedToggleLabel: 'Optionale Projektdetails',
+      advancedHint: 'Ergaenze Details nur wenn sie fuer den Start relevant sind.',
+      intentDetailLabel: 'Anliegen-Detail',
       intentDetailOptions: {
         hiring: 'Hiring / Teamaufbau',
         project: 'Projektumsetzung',
         collab: 'Kooperation / Sparring'
       },
-      timelineLabel: 'Zeithorizont',
+      timelineLabel: 'Zeitrahmen',
       timelineOptions: {
         asap: 'ASAP',
         '30d': 'In 30 Tagen',
         '90d+': 'In 90+ Tagen'
       },
-      scopeLabel: 'Scope-Fokus',
-      scopeOptions: {
+      projectScopeLabel: 'Projektfokus',
+      projectScopeOptions: {
         audit: 'Audit / Review',
         build: 'Build / Implementierung',
         optimize: 'Optimierung / Refactoring',
@@ -211,232 +220,233 @@ export const copy = {
     trust: {
       title: 'Trust Signals',
       items: [
-        'Authority-first: Technik + Denken + Wirkung',
-        'Remote-first, Mannheim optional',
-        'Saubere Uebergaben und dokumentierte Delivery'
+        'Live-System mit End-to-End-Flow im Betrieb',
+        'Klare Delivery-Gates vor jedem Release',
+        'Dokumentierte Uebergaben fuer stabile Team-Weiterarbeit'
       ]
     },
     faq: {
       title: 'FAQ',
-      desc: 'Die haeufigsten Fragen vor einem Erstgespraech.',
+      desc: 'Die wichtigsten Fragen vor einem Erstgespraech.',
       items: [
         {
-          q: 'Wie laeuft ein erstes Architekturgespraech ab?',
-          a: 'Du teilst kurz den Kontext. Danach klären wir Zielbild, Risiken und den realistischen naechsten Schritt - ohne Sales-Pitch.'
+          q: 'Wie startet eine Zusammenarbeit?',
+          a: 'Du gibst kurz Kontext zu Ziel, Engpass und Zeitrahmen. Danach klaeren wir den naechsten belastbaren Schritt ohne Sales-Druck.'
         },
         {
-          q: 'Wie triffst du technische Entscheidungen unter Zeitdruck?',
-          a: 'Ich priorisiere zuerst Verstaendlichkeit und Betriebsstabilitaet. Komplexitaet wird nur eingefuehrt, wenn sie einen messbaren Vorteil bringt.'
-        },
-        {
-          q: 'Wie misst du, ob eine Loesung wirklich gut ist?',
-          a: 'Ich kombiniere technische Metriken (Performance, Fehlerquote, Testabdeckung) mit Nutzerfluss-Signalen und klaren Uebergabekriterien.'
+          q: 'Welche Deliverables lieferst du typischerweise?',
+          a: 'Je nach Scope: Architektur-Entscheidungen, robuste Implementierung, QA-Gates und eine dokumentierte Uebergabe fuer das Team.'
         },
         {
           q: 'Arbeitest du mit bestehenden Teams und Codebases?',
-          a: 'Ja. Der Fokus liegt auf schnellem Ramp-up, klarer Kommunikation und nachvollziehbaren Deliverables.'
-        },
-        {
-          q: 'Welche Aufgaben uebernimmst du typischerweise?',
-          a: 'Frontend mit Next.js/React, API-Integrationen, Performance-Optimierung und strukturierte Deployment-/Handover-Vorbereitung.'
+          a: 'Ja. Fokus ist schneller Ramp-up, klare Kommunikation und nachvollziehbare Ergebnisse ohne Reibungsverluste.'
         }
       ]
     },
-    footer: { left: '(c) 2026 ivo-tech', right: 'Authority-first Web Delivery | Mannheim | Remote-first' }
+    footer: { left: '(c) 2026 ivo-tech', right: 'Web Engineering mit klarer Delivery | Mannheim | Remote-first' }
   },
   en: {
     meta: {
-      title: 'ivo-tech | Web engineering, delivery excellence, and clear architecture',
+      title: 'ivo-tech | Web Engineering, Delivery Excellence and Clear Architecture',
       description:
-        'Portfolio for web engineering: clear architecture decisions, measurable quality, and reproducible delivery for teams that need robust execution.'
+        'Web engineering portfolio with clear architecture decisions, measurable quality, and reproducible delivery.'
     },
     nav: {
       heroCase: 'Case study',
       featured: 'Projects',
-      paths: 'Paths',
-      insights: 'Insights',
       contact: 'Contact',
-      cta: 'Architecture call'
+      cta: 'Intro call'
     },
     primaryCta: {
-      label: 'Request strategy call',
-      shortLabel: 'Strategy call',
-      href: '#contact',
-      intent: 'authority'
+      label: 'View case study',
+      shortLabel: 'Case study',
+      href: '/en/configurator',
+      intent: 'case_study'
     },
-    hero: {
-      eyebrow: 'Authority-first web engineering | Mannheim | Remote-first',
-      title: 'I build web systems that start clean and remain stable in real operations.',
-      lead:
-        'The focus is on traceable decisions, clear information architecture, and measurable quality rather than buzzwords.',
-      sublead:
-        'This creates conversations from trust in the thinking process - not from sales pressure.',
-      primary: 'Request strategy call',
-      secondary: 'View case study',
-      audit: 'Free 10-point tech review',
-      linksLabel: 'Quick links',
-      github: 'GitHub',
-      cv: 'CV (PDF)',
-      terminal: {
-        title: 'decision.log',
-        lines: [
-          'principle: clarity before complexity',
-          'proof: live 3D configurator in production',
-          'method: plan -> build -> measure -> handover',
-          'availability: 2 deep-dive slots / month'
-        ]
+    sectionCtas: {
+      hero: {
+        primary: { label: 'Request free intro call', href: '#contact', trackingSource: 'hero_primary_contact', intent: 'contact' },
+        secondary: { label: 'View case study', href: '/en/configurator', trackingSource: 'hero_secondary_case', intent: 'case_study' }
+      },
+      services: {
+        primary: { label: 'Request free intro call', href: '#contact', trackingSource: 'services_primary_contact', intent: 'contact' }
+      },
+      insights: {
+        primary: { label: 'Browse all insights', href: '/en/insights', trackingSource: 'insights_primary_index', intent: 'authority' }
+      },
+      footer: {
+        primary: { label: 'Intro call', href: '#contact', trackingSource: 'footer_primary_contact', intent: 'contact' }
+      },
+      sticky: {
+        primary: { label: 'Intro call', href: '#contact', trackingSource: 'sticky_primary_contact', intent: 'contact' }
       }
     },
-    proof: {
-      title: 'Proof over claims',
-      desc: 'Three signals that represent execution quality and delivery discipline.',
-      items: [
+    home: {
+      hero: {
+        eyebrow: 'Web engineering | Mannheim | Remote-first',
+        title: 'Web projects that stay stable in production and create measurable impact.',
+        lead: 'I support teams with architecture, implementation, and clean handover with a clear focus on project outcomes.',
+        sublead: 'Clear decisions, robust execution, and reproducible delivery without unnecessary complexity.'
+      },
+      proof: [
         {
-          id: 'live-system',
-          metric: 'Live system in production',
-          detail: '3D configurator is integrated end-to-end: upload, pricing logic, and checkout handoff.',
-          cta: 'Open case study',
-          href: '/configurator'
+          id: 'live_system',
+          label: 'Live system',
+          value: 'End-to-end upload flow in production',
+          href: '#hero-case'
         },
         {
-          id: 'delivery-discipline',
-          metric: 'Structured delivery',
-          detail: 'Clear scope boundaries, transparent updates, and reproducible handovers.',
-          cta: 'View delivery method',
-          href: '#method'
+          id: 'delivery_quality',
+          label: 'Delivery quality',
+          value: 'Fixed QA gates before every release',
+          href: '#services'
         },
         {
-          id: 'quality-guardrails',
-          metric: 'Measurable quality gates',
-          detail: 'Lint, typing, unit, e2e, and lighthouse are enforced as non-negotiable checks.',
-          cta: 'View quality gates',
-          href: '#quick-facts'
+          id: 'response_window',
+          label: 'Response window',
+          value: 'Weekday response usually within 24h',
+          href: '#contact'
         }
-      ]
+      ],
+      case: {
+        title: 'Hero project: 3D configurator as a technical reference',
+        desc: 'A project example with clear context, technical implementation, and operational impact.'
+      },
+      method: {
+        title: 'How I decide and deliver',
+        desc: 'A clear delivery framework so teams can follow decisions and progress at every step.',
+        steps: [
+          {
+            title: '1) Clarify the problem',
+            desc: 'Define target state, scope, and risk before implementation to avoid costly course corrections.'
+          },
+          {
+            title: '2) Build with guardrails',
+            desc: 'Implement components, data flows, and operational aspects so maintenance and scaling remain realistic.'
+          },
+          {
+            title: '3) Measure and hand over',
+            desc: 'Make performance, UX, and operational signals visible and hand over cleanly to the team.'
+          }
+        ]
+      },
+      services: [
+        {
+          icon: 'frontend',
+          title: 'Frontend & Product Delivery',
+          desc: 'Next.js/React + TypeScript, clear information architecture, and robust UI delivery.'
+        },
+        {
+          icon: 'backend',
+          title: 'Backend & API Integrations',
+          desc: 'FastAPI services, data flows, and integrations for stable end-to-end processes.'
+        },
+        {
+          icon: 'ops',
+          title: 'Operations & Guardrails',
+          desc: 'Deployment, QA gates, and monitoring basics for reproducible delivery.'
+        }
+      ],
+      projects: {
+        title: 'Curated projects',
+        desc: 'Selected references with technical focus and traceable impact.'
+      },
+      insights: {
+        title: 'Engineering insights',
+        desc: 'Short, practical deep dives on architecture, performance, and delivery decisions.',
+        linkLabel: 'Read insight'
+      },
+      contact: {
+        title: 'Contact',
+        desc: '2-3 sentences about your goal, current bottleneck, and timeline are enough for a concrete starting point.',
+        card: 'Typical response window: weekday response within 24 hours.',
+        emailCta: 'Email directly',
+        advanced: {
+          toggle: 'Optional project details',
+          hint: 'Add only if useful for first contact.'
+        }
+      },
+      faq: {
+        title: 'FAQ',
+        desc: 'The key questions before an intro call.'
+      }
+    },
+    hero: {
+      eyebrow: 'Web engineering | Mannheim | Remote-first',
+      title: 'I build web systems that stay stable and deliver outcomes.',
+      lead: 'The focus is traceable decisions, clear information architecture, and measurable quality instead of buzzword-heavy messaging.',
+      sublead: 'This creates conversations based on trust in the thinking, not sales pressure.',
+      secondary: 'Request free intro call',
+      linksLabel: 'Quick links',
+      github: 'GitHub',
+      cv: 'CV (PDF)'
     },
     method: {
       title: 'How I decide and deliver',
-      desc: 'The method stays intentionally simple so teams can follow technical decisions easily.',
+      desc: 'A simple framework: clarify the problem, implement robustly, and verify impact.',
       steps: [
         {
           title: '1) Clarify the problem',
-          desc: 'Define target, scope, and risk profile first to avoid fake complexity.'
+          desc: 'Define target state, scope, and risk before implementation so time is not lost on reversals.'
         },
         {
-          title: '2) Build with guardrails',
-          desc: 'Implement components, data flow, and operations with long-term maintainability in mind.'
+          title: '2) Implement robustly',
+          desc: 'Build components, APIs, and operational logic so maintenance and scaling remain realistic.'
         },
         {
-          title: '3) Measure and hand over',
-          desc: 'Make performance, UX, and reliability visible, then hand over in a way teams can run confidently.'
-        }
-      ],
-      cta: 'Request free tech review'
-    },
-    quick_facts: {
-      title: 'Quick facts',
-      desc: 'Key signals for positioning and collaboration at a glance.',
-      items: [
-        { label: 'Focus', value: 'Web engineering with visible thinking quality' },
-        { label: 'Work model', value: 'Remote-first, optional around Mannheim' },
-        { label: 'Quality standard', value: 'Lint + typing + unit + e2e + lighthouse' },
-        { label: 'Availability', value: 'Available now (2 deep-dive slots per month)' }
-      ]
-    },
-    audience_paths: {
-      title: 'Two clear paths',
-      desc: 'Fast routing for recruiting or project context with minimal friction.',
-      cards: [
-        {
-          id: 'hiring',
-          title: 'For hiring teams',
-          bullets: [
-            'Junior entry with production-oriented references and delivery discipline.',
-            'Fast onboarding into existing product and team processes.',
-            'High transparency on progress, risks, and next steps.'
-          ],
-          cta: 'Start hiring conversation'
-        },
-        {
-          id: 'client',
-          title: 'For project requests',
-          bullets: [
-            'Clear implementation phases for frontend, API integration, and deployment.',
-            'Technical decisions are documented and explainable.',
-            'Clean handover for stable operations after shipping.'
-          ],
-          cta: 'Start project conversation'
+          title: '3) Prove impact',
+          desc: 'Make performance, UX, and operational metrics visible and hand over cleanly to the team.'
         }
       ]
     },
     insights: {
       title: 'Engineering insights',
-      desc: 'Short, practical deep dives on architecture, performance, and delivery decisions.',
-      cta: 'View all insights'
-    },
-    career_switch: {
-      title: 'Way of working',
-      desc: 'Practical IT entry backed by consistent professional experience.',
-      intro:
-        'I combine 15 years of customer-facing professional experience with carefully built web projects.',
-      prior_experience:
-        'Ownership, clear communication, and reproducible delivery are constants in how I work.',
-      bullets: [
-        'Reliable delivery with clear status updates.',
-        'Traceable decisions instead of black-box implementation.',
-        'Fast ramp-up on new requirements and systems.',
-        'Iterative execution: plan, build, test, improve.'
-      ]
+      desc: 'Practical deep dives on architecture, performance, and delivery decisions.'
     },
     sections: {
       heroCase: {
-        title: 'Hero project: 3D configurator as a tech reference',
-        desc: 'Tech-first case study from a live client project: WebGL/Three.js, plugin architecture, pricing engine, and checkout handoff.'
+        title: 'Hero project: 3D configurator as a technical reference',
+        desc: 'A concrete live case with technical structure, clear process chain, and traceable operational impact.'
+      },
+      services: {
+        title: 'Delivery focus',
+        desc: 'Three focus areas that carry projects from concept to stable live operation.'
       },
       featured: {
-        title: 'Featured projects',
-        desc: 'References focused on product thinking, technical precision, and clean handover.'
-      },
-      stack: {
-        title: 'Tech stack showcase',
-        desc: 'Grouped by capability with a strong delivery focus.'
-      },
-      labs: {
-        title: 'Experiments / Labs',
-        desc: 'Labs stay visible but clearly marked as exploratory work.'
+        title: 'Curated projects',
+        desc: 'Selected references with technical depth and clear outcomes.'
       },
       contact: {
         title: 'Contact',
-        desc: 'Hiring or project context is enough to start with clarity.',
-        card: 'Typical response window: within 24 hours on business days.',
-        cta: 'Request strategy call'
+        desc: '2-3 sentences about your goal, bottleneck, and timeline are enough for a concrete starting point.',
+        card: 'Typical response window: weekday response within 24 hours.'
       }
     },
     contact_form: {
       intentLegend: 'Request type',
-      optionalDetailsSummary: 'Optional project details',
-      optionalDetailsHint: 'Fill in only if you already know the scope in more detail.',
       intentOptions: {
         hiring: 'Hiring team',
         client: 'Project request'
       },
-      intentDetailLabel: 'Context detail',
+      advancedToggleLabel: 'Optional project details',
+      advancedHint: 'Add details only when useful for kickoff.',
+      intentDetailLabel: 'Request detail',
       intentDetailOptions: {
         hiring: 'Hiring / team setup',
-        project: 'Project implementation',
+        project: 'Project delivery',
         collab: 'Collaboration / sparring'
       },
       timelineLabel: 'Timeline',
       timelineOptions: {
         asap: 'ASAP',
         '30d': 'Within 30 days',
-        '90d+': 'Within 90+ days'
+        '90d+': 'In 90+ days'
       },
-      scopeLabel: 'Scope focus',
-      scopeOptions: {
+      projectScopeLabel: 'Project scope',
+      projectScopeOptions: {
         audit: 'Audit / review',
         build: 'Build / implementation',
-        optimize: 'Optimization / refactoring',
+        optimize: 'Optimization / refactor',
         unknown: 'Still open'
       },
       nameLabel: 'Name',
@@ -456,38 +466,30 @@ export const copy = {
     trust: {
       title: 'Trust signals',
       items: [
-        'Authority-first: technology + thinking + outcome',
-        'Remote-first, Mannheim optional',
-        'Clean handovers and documented delivery'
+        'Live system with an end-to-end production flow',
+        'Clear QA gates before every release',
+        'Documented handovers for stable team continuity'
       ]
     },
     faq: {
       title: 'FAQ',
-      desc: 'Common questions before a first conversation.',
+      desc: 'The most relevant questions before an intro call.',
       items: [
         {
-          q: 'How does an architecture call usually work?',
-          a: 'You share brief context first. Then we align on target state, risks, and the next realistic step without a sales script.'
+          q: 'How does collaboration typically start?',
+          a: 'You share short context on goal, bottleneck, and timeline. Then we define the next practical step without a sales pitch.'
         },
         {
-          q: 'How do you make technical decisions under time pressure?',
-          a: 'I prioritize clarity and operational stability first. Complexity is added only when there is measurable upside.'
-        },
-        {
-          q: 'How do you evaluate whether a solution is actually good?',
-          a: 'I combine technical metrics (performance, error rate, tests) with user-flow signals and explicit handover criteria.'
+          q: 'Which deliverables do you usually provide?',
+          a: 'Depending on scope: architecture decisions, robust implementation, QA gates, and a clean handover package for the team.'
         },
         {
           q: 'Do you work with existing teams and codebases?',
-          a: 'Yes. The focus is fast ramp-up, clear communication, and traceable deliverables.'
-        },
-        {
-          q: 'Which tasks do you typically take on?',
-          a: 'Frontend in Next.js/React, API integrations, performance optimization, and structured deployment/handover preparation.'
+          a: 'Yes. The focus is fast ramp-up, clear communication, and traceable outcomes without unnecessary disruption.'
         }
       ]
     },
-    footer: { left: '(c) 2026 ivo-tech', right: 'Authority-first web delivery | Mannheim | Remote-first' }
+    footer: { left: '(c) 2026 ivo-tech', right: 'Web engineering with clear delivery | Mannheim | Remote-first' }
   }
 } as const;
 

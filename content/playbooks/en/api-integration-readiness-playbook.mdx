@@ -1,0 +1,29 @@
+---
+slug: api-integration-readiness-playbook
+locale: en
+title: API integration readiness playbook
+description: 'Before go-live: the minimum standard for robust API integrations in production.'
+summary: Checklist for idempotency, timeouts, retries, alerting, and failure paths.
+category: Playbook
+readMinutes: 10
+publishedAt: '2026-02-17'
+updatedAt: '2026-02-17'
+schemaType: HowTo
+internalLinks:
+  - /en/insights/api-integration-failure-modes
+  - /en/case-studies/configurator-live
+  - /en#contact
+draft: false
+---
+
+## Before release
+
+- Explicit timeout strategy per upstream
+- Retries with exponential backoff
+- Idempotency for write operations
+- Fallback behavior for partial failures
+
+## After release
+
+- Track error budgets continuously
+- Document incident taxonomy

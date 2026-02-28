@@ -4,8 +4,10 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 
-import { BrandLockup } from '@/components/BrandLockup';
 import { LanguageToggle } from '@/components/LanguageToggle';
+import { SiteHeader } from '@/components/layout/SiteHeader';
+import { Button } from '@/components/ui/Button';
+import { SectionFrame } from '@/components/ui/SectionFrame';
 import type { Locale } from '@/content/copy';
 import { getProjectById } from '@/content/projects';
 import { trackEvent } from '@/lib/analytics';
@@ -123,39 +125,47 @@ export function ConfiguratorPageClient({ locale }: Props) {
   const kpis = heroProject?.case_study?.kpis ?? [];
 
   return (
-    <>
-      <header className="site-header">
-        <BrandLockup variant="header" />
-        <nav className="nav" aria-label={locale === 'de' ? 'Hauptnavigation' : 'Primary'}>
-          <Link href={localizePath('/', locale)}>{locale === 'de' ? 'Startseite' : 'Home'}</Link>
-          <a href={LIVE_LINK} target="_blank" rel="noopener noreferrer">
-            {locale === 'de' ? 'Live Demo' : 'Live demo'}
-          </a>
-          <Link
-            href={contactHref}
-            onClick={() =>
-              trackEvent('cta_contact_click', {
-                source: 'configurator_nav',
-                location: 'configurator_nav',
-                intent: 'hybrid',
-                locale,
-                path: pathname
-              })
-            }
-          >
-            {locale === 'de' ? 'Kontakt' : 'Contact'}
-          </Link>
-        </nav>
-        <div className="header-right">
-          <LanguageToggle />
-          <Link className="cta" href={localizePath('/', locale)}>
-            {locale === 'de' ? 'Zurueck' : 'Back'}
-          </Link>
-        </div>
-      </header>
+    <div data-theme="dark" className="theme-ref103632">
+      <SiteHeader
+        ariaLabel={locale === 'de' ? 'Hauptnavigation' : 'Primary'}
+        className="home-v2-header"
+        logoPreset="ref103632"
+        logoVisualPreset="premium"
+        logoEdgeGlow="medium"
+        nav={
+          <>
+            <Link href={localizePath('/', locale)}>{locale === 'de' ? 'Startseite' : 'Home'}</Link>
+            <a href={LIVE_LINK} target="_blank" rel="noopener noreferrer">
+              {locale === 'de' ? 'Live Demo' : 'Live demo'}
+            </a>
+            <Link
+              href={contactHref}
+              onClick={() =>
+                trackEvent('cta_contact_click', {
+                  source: 'configurator_nav',
+                  location: 'configurator_nav',
+                  intent: 'hybrid',
+                  locale,
+                  path: pathname
+                })
+              }
+            >
+              {locale === 'de' ? 'Kontakt' : 'Contact'}
+            </Link>
+          </>
+        }
+        rightSlot={
+          <>
+            <LanguageToggle />
+            <Link className="cta ui-btn ui-btn--metal btn-md motion-edge-sweep" href={localizePath('/', locale)}>
+              {locale === 'de' ? 'Zurueck' : 'Back'}
+            </Link>
+          </>
+        }
+      />
 
-      <main id="main">
-        <section className="hero" aria-labelledby="cfg-title">
+      <main id="main-content" className="home-v2-main">
+        <section className="hero home-v2-hero" aria-labelledby="cfg-title" data-theme="primary">
           <div className="hero-copy">
             <p className="eyebrow">{locale === 'de' ? 'Premium Case Study' : 'Premium case study'}</p>
             <h1 id="cfg-title">{locale === 'de' ? '3D-Konfigurator als Tech-Referenz' : '3D configurator as a tech reference'}</h1>
@@ -167,9 +177,9 @@ export function ConfiguratorPageClient({ locale }: Props) {
             </p>
             {attribution ? <p className="hero-sublead">{attribution}</p> : null}
             <div className="hero-actions">
-              <a className="primary" href={LIVE_LINK} target="_blank" rel="noopener noreferrer">
+              <Button className="primary" href={LIVE_LINK} target="_blank" rel="noopener noreferrer" variant="primary">
                 {locale === 'de' ? 'Live beim Kunden oeffnen' : 'Open live client flow'}
-              </a>
+              </Button>
               <Link
                 className="ghost"
                 href={contactHref}
@@ -183,13 +193,13 @@ export function ConfiguratorPageClient({ locale }: Props) {
                   })
                 }
               >
-                {locale === 'de' ? 'Kontaktgespraech anfragen' : 'Request contact call'}
+                {locale === 'de' ? 'Erstgespraech anfragen' : 'Request free intro call'}
               </Link>
             </div>
           </div>
         </section>
 
-        <section className="section" aria-label="Case study details">
+        <SectionFrame className="section" aria-label="Case study details" tone="metal">
           {kpis.length > 0 ? (
             <div className="kpi-grid" aria-label={locale === 'de' ? 'KPI Snapshot' : 'KPI snapshot'}>
               {kpis.map((kpi) => (
@@ -214,8 +224,8 @@ export function ConfiguratorPageClient({ locale }: Props) {
               </div>
             ))}
           </div>
-        </section>
+        </SectionFrame>
       </main>
-    </>
+    </div>
   );
 }

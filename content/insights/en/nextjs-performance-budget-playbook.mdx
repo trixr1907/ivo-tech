@@ -1,0 +1,29 @@
+---
+slug: nextjs-performance-budget-playbook
+locale: en
+title: Next.js performance budget playbook
+description: Performance budgets as a binding team contract for stable App Router delivery.
+summary: Concrete budget values and CI guardrails that prevent gradual performance regressions.
+category: Performance
+readMinutes: 6
+publishedAt: '2026-02-17'
+updatedAt: '2026-02-17'
+schemaType: Article
+internalLinks:
+  - /en/playbooks/performance-budget-guardrails
+  - /en/case-studies/configurator-live
+  - /en#contact
+draft: false
+---
+
+Performance should be treated as a product constraint, not a late audit.
+
+## Budget fields
+
+- LCP (lab): &lt;= 2.0s
+- CLS: &lt;= 0.05
+- JS on critical route: &lt;= 170KB gzip
+
+## Guardrails
+
+Every PR touching core routes gets Lighthouse checks and a budget review.
