@@ -1,6 +1,6 @@
 'use client';
 
-import { domAnimation, LazyMotion, m, useReducedMotion, type HTMLMotionProps } from 'framer-motion';
+import { domAnimation, LazyMotion, m, useReducedMotion, type HTMLMotionProps } from '@/lib/motion-lite';
 
 export function Pressable(props: HTMLMotionProps<'button'>) {
   const prefersReducedMotion = useReducedMotion();

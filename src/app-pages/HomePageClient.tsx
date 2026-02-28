@@ -1,6 +1,5 @@
 'use client';
 
-import { domAnimation, LazyMotion, m, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
@@ -28,6 +27,7 @@ import { getProjectById, getProjectStatusLabel, getProjectsByTier, type Project,
 import { buildProjectHref } from '@/features/home/projectState';
 import { trackEvent } from '@/lib/analytics';
 import { localizePath } from '@/lib/localeRouting';
+import { domAnimation, LazyMotion, m, useReducedMotion, useScroll, useTransform } from '@/lib/motion-lite';
 import { CONTACT_EMAIL, CV_PATH, GITHUB_URL } from '@/lib/site';
 
 type FeaturedInsightTeaser = {

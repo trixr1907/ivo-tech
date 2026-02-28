@@ -1,6 +1,6 @@
 'use client';
 
-import { domAnimation, LazyMotion, m, useReducedMotion, type HTMLMotionProps } from 'framer-motion';
+import { domAnimation, LazyMotion, m, useReducedMotion, type HTMLMotionProps } from '@/lib/motion-lite';
 
 type Props = HTMLMotionProps<'div'> & {
   delayMs?: number;
