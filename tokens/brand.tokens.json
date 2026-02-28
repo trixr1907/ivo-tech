@@ -1,0 +1,151 @@
+{
+  "$schema": "https://json.schemastore.org/web-manifest-combined.json",
+  "brand": "ivo-tech",
+  "version": "1.0.0",
+  "namingPattern": "ivo-{domain}__{asset}__{variant}__{theme}__v{semver}.{ext}",
+  "palette": {
+    "bg900": "#04060D",
+    "bg800": "#0B1020",
+    "bg700": "#121A2E",
+    "brand600": "#1C5E8F",
+    "brand500": "#3594E0",
+    "brand400": "#59BCF4",
+    "text100": "#EBF1FF",
+    "text300": "#9AA8CB",
+    "lineSoft": "rgba(89,188,244,0.18)",
+    "lineStrong": "rgba(89,188,244,0.38)"
+  },
+  "semantic": {
+    "success": "#58D49C",
+    "warning": "#F6C46D",
+    "error": "#FF8B97"
+  },
+  "gradient": {
+    "logoPrimary": ["#EBF1FF", "#59BCF4", "#3594E0", "#1C5E8F"]
+  },
+  "theme": {
+    "dark": {
+      "bgBase": "#04060D",
+      "bgElev1": "#0B1020",
+      "bgElev2": "#121A2E",
+      "bgElev3": "#1A2438",
+      "textStrong": "#EBF1FF",
+      "textMuted": "#9AA8CB",
+      "textSubtle": "#7F8CA3",
+      "accentCyan": "#3594E0",
+      "accentMagenta": "#1C5E8F",
+      "borderSoft": "rgba(89,188,244,0.18)",
+      "borderAccent": "rgba(89,188,244,0.38)",
+      "focus": "#3594E0"
+    },
+    "primary": {
+      "bgBase": "#09101B",
+      "bgElev1": "#111D31",
+      "bgElev2": "#15253C",
+      "bgElev3": "#1B2D49",
+      "textStrong": "#EEF4FF",
+      "textMuted": "#A5B7D3",
+      "textSubtle": "#8496B3",
+      "accentCyan": "#62B8FF",
+      "accentMagenta": "#4E93E5",
+      "borderSoft": "rgba(131,179,245,0.26)",
+      "borderAccent": "rgba(145,211,255,0.50)",
+      "focus": "#67B7FF"
+    },
+    "secondary": {
+      "bgBase": "#F0F4FB",
+      "bgElev1": "#E6EDF8",
+      "bgElev2": "#DAE4F2",
+      "bgElev3": "#CFDBEB",
+      "textStrong": "#12192B",
+      "textMuted": "#38496A",
+      "textSubtle": "#516180",
+      "accentCyan": "#1D5FA1",
+      "accentMagenta": "#2F6EB3",
+      "borderSoft": "rgba(24,44,75,0.16)",
+      "borderAccent": "rgba(42,97,166,0.36)",
+      "focus": "#226BBB"
+    },
+    "light": {
+      "bgBase": "#EFF5FF",
+      "bgElev1": "#E4EEFF",
+      "bgElev2": "#D6E5FF",
+      "textStrong": "#081227",
+      "textMuted": "#31466A",
+      "accentCyan": "#1C5E8F",
+      "accentMagenta": "#0C4F85",
+      "borderSoft": "rgba(8,18,39,0.14)",
+      "borderAccent": "rgba(12,95,174,0.34)",
+      "focus": "#0C5FAE"
+    }
+  },
+  "glow": {
+    "xs": "0 0 8px rgba(89,188,244,0.20)",
+    "sm": "0 0 16px rgba(89,188,244,0.24)",
+    "md": "0 0 28px rgba(89,188,244,0.28)",
+    "lg": "0 0 38px rgba(89,188,244,0.33)",
+    "edgeSoft": "0 0 12px rgba(116,180,255,0.18)",
+    "edgeMedium": "0 0 16px rgba(116,180,255,0.32)"
+  },
+  "radius": {
+    "sm": 8,
+    "md": 12,
+    "lg": 16,
+    "xl": 24,
+    "pill": 999
+  },
+  "spacing": {
+    "base": 8,
+    "steps": [4, 8, 12, 16, 24, 32, 40, 48, 64, 80, 96, 128]
+  },
+  "motion": {
+    "durationsMs": {
+      "micro": 180,
+      "base": 220,
+      "expressive": 420,
+      "reveal": 460,
+      "hero": 900
+    },
+    "easing": {
+      "standard": "cubic-bezier(0.22, 1, 0.36, 1)",
+      "technicalInOut": "cubic-bezier(0.4, 0, 0.2, 1)"
+    },
+    "tiers": {
+      "tier1": "UI standard",
+      "tier2": "Hero",
+      "tier3": "Campaign only"
+    },
+    "effects": {
+      "edgeSweepMs": 780,
+      "energyTrailMs": 1800,
+      "logoRevealFloatMs": 620
+    }
+  },
+  "zIndex": {
+    "base": 1,
+    "header": 40,
+    "overlay": 80,
+    "modal": 90,
+    "toast": 110
+  },
+  "surface": {
+    "metalGradientDark": "radial+linear multi-stop metallic",
+    "metalGradientPrimary": "radial+linear energy-metal blend",
+    "panelGradientDark": "linear(165deg, rgba(30,42,63,0.98), rgba(13,20,32,0.94))",
+    "noiseOverlay": "tiny-dot svg data-uri"
+  },
+  "elevation": {
+    "e0": "0 2px 6px rgba(0,0,0,0.24)",
+    "e1": "0 10px 24px rgba(0,0,0,0.32)",
+    "e2": "0 18px 40px rgba(0,0,0,0.40)",
+    "e3": "0 28px 58px rgba(0,0,0,0.50)",
+    "e4": "0 36px 84px rgba(0,0,0,0.58)"
+  },
+  "performanceBudgets": {
+    "lcpMs": 2500,
+    "cls": 0.03,
+    "heroLogoBudgetGzipBytes": 184320,
+    "headerLottieMaxBytes": 61440,
+    "heroLottieMaxBytes": 122880
+  }
+}
