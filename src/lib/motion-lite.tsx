@@ -14,7 +14,9 @@ type MotionMetaProps = {
 
 export type HTMLMotionProps<T extends keyof React.JSX.IntrinsicElements> = React.ComponentPropsWithoutRef<T> & MotionMetaProps;
 
-type MotionTagComponent = React.ForwardRefExoticComponent<any>;
+type MotionTagComponent = React.ForwardRefExoticComponent<
+  React.PropsWithoutRef<Record<string, unknown>> & React.RefAttributes<unknown>
+>;
 
 const motionTagCache = new Map<string, MotionTagComponent>();
 
@@ -52,9 +54,9 @@ function createMotionTag<T extends keyof React.JSX.IntrinsicElements>(tagName: T
       ref,
       style: normalizeStyle(style)
     });
-  });
+  }) as unknown as MotionTagComponent;
 
-  motionTagCache.set(String(tagName), Component as MotionTagComponent);
+  motionTagCache.set(String(tagName), Component);
   return Component;
 }
 
