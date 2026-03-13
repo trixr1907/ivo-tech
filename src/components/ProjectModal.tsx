@@ -80,12 +80,16 @@ export function ProjectModal({ project, locale, onClose }: Props) {
               </div>
 
               <div className="dialog-body">
-                <Dialog.Title className="dialog-title" id={titleId}>
-                  {project.modal.title[locale]}
+                <Dialog.Title asChild>
+                  <h2 className="dialog-title" id={titleId}>
+                    {project.modal.title[locale]}
+                  </h2>
                 </Dialog.Title>
                 <p className="dialog-tech">{project.techLine[locale]}</p>
-                <Dialog.Description className="dialog-desc" id={descriptionId}>
-                  {project.modal.desc[locale]}
+                <Dialog.Description asChild>
+                  <p className="dialog-desc" id={descriptionId}>
+                    {project.modal.desc[locale]}
+                  </p>
                 </Dialog.Description>
 
                 <div className="specs-grid" aria-label={specsLabel}>

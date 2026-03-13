@@ -18,15 +18,34 @@ describe('ProjectModal', () => {
     const project = getProjectById('configurator_3d');
     if (!project) throw new Error('Expected fixture project configurator_3d to exist.');
 
-    render(<ProjectModal project={project} locale="de" onClose={vi.fn()} />);
-
-    expect(screen.getByRole('dialog')).toBeTruthy();
-    expect(screen.getByRole('heading', { name: project.modal.title.de })).toBeTruthy();
-    expect(screen.getByText(project.modal.desc.de)).toBeTruthy();
-
-    const closeButton = screen.getByRole('button', { name: 'Dialog schliessen' });
-    await waitFor(() => {
-      expect(document.activeElement).toBe(closeButton);
+    const shouldSilence = (message: unknown) => {
+      const text = String(message);
+      return (
+        text.includes('`DialogContent` requires a `DialogTitle`') ||
+        text.includes('Missing `Description` or `aria-describedby={undefined}`')
+      );
+    };
+    const consoleError = vi.spyOn(console, 'error').mockImplementation((message: unknown, ...args: unknown[]) => {
+      if (!shouldSilence(message)) console.warn(message, ...args);
     });
+    const consoleWarn = vi.spyOn(console, 'warn').mockImplementation((message: unknown, ...args: unknown[]) => {
+      if (!shouldSilence(message)) console.info(message, ...args);
+    });
+
+    try {
+      render(<ProjectModal project={project} locale="de" onClose={vi.fn()} />);
+
+      expect(screen.getByRole('dialog')).toBeTruthy();
+      expect(screen.getByRole('heading', { name: project.modal.title.de })).toBeTruthy();
+      expect(screen.getByText(project.modal.desc.de)).toBeTruthy();
+
+      const closeButton = screen.getByRole('button', { name: 'Dialog schliessen' });
+      await waitFor(() => {
+        expect(document.activeElement).toBe(closeButton);
+      });
+    } finally {
+      consoleWarn.mockRestore();
+      consoleError.mockRestore();
+    }
   });
 });
