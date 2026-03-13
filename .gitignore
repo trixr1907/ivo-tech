@@ -11,10 +11,16 @@ firebase-debug.log
 .next/
 .vercel/
 out/
+output/
 coverage/
 playwright-report/
 test-results/
 .lighthouseci/
+public/assets/brand-reference/
+public/assets/logo/backup-*/
+public/assets/logo/preview/
+public/assets/logo/source/
+public/assets/logo/svg/
 public/vendor/
 .cache/
 *.tsbuildinfo
