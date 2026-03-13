@@ -1,14 +1,15 @@
-# ivo-tech Logo Regeln (v1)
+# ivo-tech Logo Regeln (v1.0.0)
 
 ## Varianten
-- Primary Cyan auf Dark
-- Monochrom Hell
-- Monochrom Dunkel
-- Invertiert
-- Submark fuer kleine Flaechen
+- Mark Detailed fuer Hero und Kampagnen
+- Mark Core fuer Header, Cards, Navigation
+- Mark Micro fuer 16-32 px (Favicon/App icon)
+- Wordmark fuer horizontalen Einsatz
+- Lockup Horizontal und Lockup Stacked
+- Theme-Ausgaben: Dark, Light, Mono
 
 ## Mindestgroesse
-- Wordmark: 90 px Breite
+- Wordmark: 120 px Breite
 - Submark: 16 px fuer Favicon
 
 ## Clearspace
@@ -16,6 +17,7 @@
 
 ## Verbotene Anwendungen
 - Kein Verzerren
-- Kein ueberstarkes Glow
-- Keine Magenta-Primärvariante
+- Kein ueberstarkes Glow in Header/UI-States
+- Keine Magenta-Primärvariante (Magenta nur als Akzent)
 - Keine Farbverlaeufe ausserhalb definierter Exporte
+- Keine Detailed-Variante in 16-32 px

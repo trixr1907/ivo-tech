@@ -1,94 +1,114 @@
-# ivo-tech Logo Handoff (Adobe CC)
+# ivo-tech Adobe CC Handoff (Deep-Tech Blue System)
 
 ## 1) Zielbild
-- Brand: `ivo-tech` (lowercase, wordmark-first).
-- Stil: aggressive futuristic, neon-cyan on dark-tech background.
-- Core: klare Lesbarkeit in 16/24/32 px und hohe Wiedererkennbarkeit im Header.
+- Brand: `ivo-tech`
+- Positioning: High-end tech / AI, minimal, praezise, skalierbar
+- Master source (approved): `design/logo/reference/logo-master-chatgpt-2026-02-20-103632.svg`
+- Rollenmodell:
+  - `mark-detailed`: Hero / Campaign Visual
+  - `mark-core`: Header, Cards, Primary Brand Touchpoints
+  - `mark-micro`: 16-32 px, favicon, dichte UI-Flaechen
+  - `wordmark`, `lockup-horizontal`, `lockup-stacked`
 
 ## 2) Source of Truth
-- Wordmark master: `design/logo/ivo-tech-logo-master.ai`
-- Wordmark preview: `design/logo/ivo-tech-logo-master.svg`
-- Route A/B exploration:
-  - `design/logo/routes/ivo-tech-logo-route-a.svg`
-  - `design/logo/routes/ivo-tech-logo-route-b.svg`
-- Entscheidungs-Scorecard:
-  - `design/logo/route-scorecard.md`
-- Regeln: `design/logo/usage-rules.md`
+- Runtime logo manifest: `public/assets/logo/manifest.json`
+- Design manifest: `design/logo/asset-manifest.json`
+- Design token source: `design-tokens.json`
+- Token mirror: `tokens/brand.tokens.json`
+- Naming rules: `design/logo/naming-convention.md`
+- Usage rules: `design/logo/usage-rules.md`
 
-## 3) Produktions-Assets (live)
-- Wordmark:
-  - `public/assets/logo.png`
-  - `public/assets/logo.webp`
-  - `public/assets/logo.avif`
-- Submark:
-  - `public/assets/logo-mark.png`
-  - `public/assets/logo-mark.webp`
-  - `public/assets/logo-mark.avif`
-- Favicon:
-  - `public/favicon.ico`
-- Motion:
-  - `public/assets/video/logo-sting.mp4`
-  - `public/assets/video/logo-sting.webm`
-  - `public/assets/video/logo-sting-poster.avif`
-  - `public/assets/video/logo-sting-captions.vtt`
-- 3D:
-  - `public/assets/brand/ivo-tech-logo.glb`
-  - `public/assets/demo-brand-base.stl`
-  - `public/assets/demo-brand-hybrid-v2.stl`
+## 3) Illustrator Dokumentstruktur (verbindlich)
+1. `00_GUIDES`
+2. `01_LOGO_MASTER`
+3. `02_LOGO_RESPONSIVE`
+4. `03_ICON_SYSTEM_24`
+5. `04_3D_BASE_SHAPES`
+6. `05_3D_LIGHT_PASS`
+7. `06_MOTION_KEYFRAMES`
+8. `07_EXPORT_SLICES`
 
-## 4) Adobe Workflow (recommended)
-1. Illustrator:
-   - Final curves and lockups in `ivo-tech-logo-master.ai`.
-   - Keep clearspace and min-size constraints from `usage-rules.md`.
-2. Photoshop:
-   - Social/preview composites on dark-tech backplates.
-   - Only export-ready finishing, no shape edits on master curves.
-3. After Effects:
-   - 3-5s sting, single build and final hold.
-   - Render master comp to mezzanine and transcode to web deliverables.
-4. Firefly:
-   - Ideation only (backplates/style exploration), never final logo geometry.
-5. Creative Cloud Libraries:
-   - Keep brand swatches, logo components, and export presets in one shared library.
+## 4) Logo Produktionsregeln
+1. Master als saubere Vektorpfade, keine unnötigen Ankerpunkte.
+2. Varianten:
+   - `logo-horizontal`
+   - `logo-stacked`
+   - `logo-mark-only`
+   - `logo-mono-light`
+   - `logo-mono-dark`
+3. Clearspace: `0.5x` Symbolhoehe.
+4. Mindestgroessen:
+   - horizontal: `120px`
+   - mark-only: `24px`
+   - favicon master: `32 / 48 / 64`
 
-## 5) Regeneration (engineering)
-- Rebuild complete logo package from script:
-```bash
-python3 scripts/generate_logo_system.py
-```
-- Recreate optimized derivatives:
-```bash
-node scripts/optimize-images.mjs
-```
+## 5) Icon-System Produktionsregeln
+1. Grid: `24x24`, aktive Flaeche `20x20`.
+2. Stroke: `1.75px`, cap/join `round`.
+3. Interner Corner Radius: `2px`.
+4. Varianten:
+   - `outline` (Default fuer UI)
+   - `duotone` (nur Hero/Marketing)
+5. Naming: `ic_[name]_[size]_[style]`
 
-## 5.1) Manifest Sync
-- Source of truth: `design/logo/asset-manifest.json`
-- Guarded by test: `tests/unit/logo-assets.test.ts`
-- Regel:
-  - neue/entfernte Logo-Assets immer zuerst im Manifest aktualisieren
-  - erst danach Exporte/Integrations-PR abschliessen
+## 6) 3D- und Motion-Guidelines
+1. 3D Forms: weich-geometrisch, kein organischer Noise.
+2. Material:
+   - roughness `0.22-0.35`
+   - metallic `0.08-0.15`
+3. Licht:
+   - key light: kalt oben links
+   - fill light: neutral rechts
+4. Motion:
+   - easing: `cubic-bezier(0.22, 1, 0.36, 1)`
+   - UI hover: `160-200ms`
+   - section reveal: `500-700ms`
+   - hero entry: `800-1000ms`
+   - keine Endlosschleifen in Core-UI
 
-## 6) Quality Gates
+## 7) Naming + Export Workflow
+1. Naming:
+   - Logos: `logo_[variant]_[theme]_[size]`
+   - 3D: `3d_[module]_[angle]_[light]`
+   - Motion: `motion_[section]_[trigger]_[duration]`
+2. Export:
+   - SVG 1.1: minified, responsive, IDs bereinigt
+   - PNG: `@1x @2x @3x`, transparent
+   - WebP: quality `82-88` (3D Raster Assets)
+   - Lottie: `<90KB` pro UI-Animation
+3. Web pipeline:
+   - `node scripts/build-logo-system.mjs`
+   - `node scripts/optimize-images.mjs`
+   - `node scripts/verify-logo-assets.mjs`
+
+## 8) Motion Contract (frontend)
+- API in `src/lib/logoMotion.ts`:
+  - `playLogoReveal(target, tier, theme)`
+  - `attachLogoHover(target, options)`
+  - `setLogoMotionMode('full' | 'reduced' | 'off')`
+- Durations:
+  - 180ms micro
+  - 220ms base
+  - 560ms expressive
+  - 680ms reveal
+- Easing:
+  - `cubic-bezier(0.22, 1, 0.36, 1)`
+  - `cubic-bezier(0.4, 0, 0.2, 1)`
+
+## 9) Quality Gates
 - Visual:
-  - 16/24/32 px readability check on dark background.
-  - no clipping, no stretched mark, no bloom overuse.
-- Technical:
-  - stable public paths (`/assets/logo*`, `/assets/logo-mark*`, `/assets/video/logo-sting*`).
-  - no regressions in header layout desktop/mobile.
-- Product:
-  - metadata/social previews consume latest logo assets.
-  - primary brand string remains `ivo-tech` consistently.
+  - readability on 16/24/32 and 48/64/96/128 px
+  - dark/light contrast checks
+  - no noisy bloom on header-scale marks
+- Performance:
+  - LCP <= 2.5s
+  - CLS < 0.03
+  - hero/logo budget <= 180KB gzip
+  - lottie budget <= 60KB header, <= 120KB hero
+- Automated guardrails:
+  - `scripts/verify-logo-assets.mjs`
+  - `tests/e2e/home.spec.ts`
 
-## 7) Internal QA Surface
-- URL: `/internal/brand-review`
-- Zweck:
-  - visuelle Abnahme fuer wordmark/submark auf dark/light
-  - small-size Checks (16/24/32 px)
-  - motion preview und Asset-Vollstaendigkeit in einer Ansicht
-
-## 8) Public Showcase Surface
-- URL: `/brand` und `/en/brand`
-- Zweck:
-  - saubere externe Praesentation des finalen Logo-Systems
-  - Download-Entry-Point fuer aktuelle Produktionsdateien
-  - konsistente DE/EN-Ausgabe ohne Design-Drift
+## 10) QA Surfaces
+- Public DE: `/brand`
+- Public EN: `/en/brand`

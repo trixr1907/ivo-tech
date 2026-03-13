@@ -1,5 +1,20 @@
 # Changelog
 
+## 2026-02-24
+
+### Added
+- Machine-readable brand contract at `docs/brand-board-contract.json`.
+- CDD operating playbook for homepage workflow at `docs/cdd-homepage-playbook.md`.
+- Contract validation script `scripts/brand-board-contract-check.mjs` with token, selector, segment, and asset checks.
+- Visual Playwright regression suite `tests/e2e/brand-visual.spec.ts` for homepage, brand showcase, and internal brand review.
+- User-provided master reference images under `public/assets/brand-reference/` as local review inputs for the logo refresh workflow.
+
+### Changed
+- `package.json` scripts:
+  - `verify:homepage:full` remains the functional release gate.
+- CI validates functional quality gates (lint, typecheck, build, tests) without automated visual baseline enforcement.
+- Quality and release runbooks aligned to manual visual QA plus functional/security automation.
+
 ## 2026-02-18
 
 ### Changed
