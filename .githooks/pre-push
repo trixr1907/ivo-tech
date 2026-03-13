@@ -13,3 +13,5 @@ if [[ "$current_branch" == "main" ]]; then
   echo "Emergency override: ALLOW_MAIN_PUSH=1 git push ..."
   exit 1
 fi
+
+echo "Pre-push check passed."

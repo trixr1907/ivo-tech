@@ -20,7 +20,7 @@ const VisualsEngine = {
 
         // Scene Setup
         this.scene = new THREE.Scene();
-        this.scene.fog = new THREE.FogExp2(0x000000, 0.03); // Deep fog
+        this.scene.fog = new THREE.FogExp2(0x030913, 0.024); // Calibrated deep-tech fog
 
         // Camera
         this.camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -54,10 +54,10 @@ const VisualsEngine = {
         // }
 
         const material = new THREE.MeshBasicMaterial({ 
-            color: 0x00f3ff, // Cyan
+            color: 0x5fa8ff,
             wireframe: true,
             transparent: true,
-            opacity: 0.15
+            opacity: 0.09
         });
 
         this.terrain = new THREE.Mesh(geometry, material);
@@ -69,7 +69,7 @@ const VisualsEngine = {
         const topGrid = this.terrain.clone();
         topGrid.position.y = 10;
         topGrid.material = material.clone();
-        topGrid.material.opacity = 0.05;
+        topGrid.material.opacity = 0.03;
         this.scene.add(topGrid);
     },
 
@@ -84,7 +84,7 @@ const VisualsEngine = {
             );
         }
         geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
-        const material = new THREE.PointsMaterial({ color: 0xff00ff, size: 0.2, transparent: true, opacity: 0.6 });
+        const material = new THREE.PointsMaterial({ color: 0x78c6ff, size: 0.14, transparent: true, opacity: 0.34 });
         this.particles = new THREE.Points(geometry, material);
         this.scene.add(this.particles);
     },
@@ -106,8 +106,8 @@ const VisualsEngine = {
         // Simple visual trick: just move particles and oscillate grid
         
         if(this.particles) {
-            this.particles.rotation.y = time * 0.05;
-            this.particles.position.z = (time * 2) % 20; 
+            this.particles.rotation.y = time * 0.02;
+            this.particles.rotation.x = Math.sin(time * 0.08) * 0.03;
         }
 
         if(this.terrain) {

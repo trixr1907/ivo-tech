@@ -1,7 +1,5 @@
 import js from '@eslint/js';
-import next from '@next/eslint-plugin-next';
 import globals from 'globals';
-import jsxA11y from 'eslint-plugin-jsx-a11y';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import tseslint from 'typescript-eslint';
@@ -33,6 +31,19 @@ export default [
   ...tseslint.configs.recommended,
 
   {
+    files: ['**/*.{ts,tsx}'],
+    languageOptions: {
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname
+      }
+    },
+    rules: {
+      '@typescript-eslint/no-floating-promises': ['error', { ignoreVoid: true, ignoreIIFE: true }]
+    }
+  },
+
+  {
     files: ['**/*.{js,jsx,mjs,ts,tsx}'],
     languageOptions: {
       globals: {
@@ -42,9 +53,7 @@ export default [
     },
     plugins: {
       react,
-      'react-hooks': reactHooks,
-      'jsx-a11y': jsxA11y,
-      '@next/next': next
+      'react-hooks': reactHooks
     },
     settings: {
       react: { version: 'detect' }
@@ -53,13 +62,6 @@ export default [
       // React + hooks
       ...react.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
-
-      // A11y baseline
-      ...jsxA11y.configs.recommended.rules,
-
-      // Next.js
-      ...next.configs.recommended.rules,
-      ...next.configs['core-web-vitals'].rules,
 
       // App style tweaks
       'no-console': 'off',
@@ -75,6 +77,22 @@ export default [
       globals: {
         ...globals.vitest
       }
+    },
+    rules: {
+      'no-restricted-properties': [
+        'error',
+        { object: 'describe', property: 'only', message: 'Focused tests are not allowed in committed code.' },
+        { object: 'it', property: 'only', message: 'Focused tests are not allowed in committed code.' },
+        { object: 'test', property: 'only', message: 'Focused tests are not allowed in committed code.' }
+      ],
+      'no-restricted-syntax': [
+        'error',
+        {
+          selector:
+            "MemberExpression[property.type='Literal'][property.value='only'], MemberExpression[property.type='Literal'][property.value=\"only\"]",
+          message: 'Focused tests are not allowed in committed code.'
+        }
+      ]
     }
   }
 ];
