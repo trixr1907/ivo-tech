@@ -7,7 +7,7 @@ describe('home copy parity', () => {
     const deHomeKeys = Object.keys(copy.de.home).sort();
     const enHomeKeys = Object.keys(copy.en.home).sort();
     expect(enHomeKeys).toEqual(deHomeKeys);
-    expect(deHomeKeys).toEqual(['case', 'contact', 'faq', 'hero', 'insights', 'method', 'projects', 'proof', 'services']);
+    expect(deHomeKeys).toEqual(['about', 'case', 'contact', 'faq', 'hero', 'insights', 'method', 'projects', 'proof', 'services']);
   });
 
   it('defines advanced contact labels in both locales', () => {

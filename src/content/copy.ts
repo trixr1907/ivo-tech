@@ -86,6 +86,27 @@ export const copy = {
           }
         ]
       },
+      about: {
+        title: 'Ueber mich',
+        desc: 'Kein generisches Freelancer-Profil, sondern die Art von technischer Arbeit, fuer die ich am liebsten Verantwortung uebernehme.',
+        paragraphs: [
+          'Ich bin Ivo, Web- und Produktentwickler mit Fokus auf technische Systeme, die nicht nur gut aussehen, sondern unter realen Bedingungen zuverlaessig funktionieren. Mich interessieren Projekte dort, wo Produktdenken, Architektur und Umsetzung zusammenkommen.',
+          'Besonders gern arbeite ich an datengetriebenen Webprodukten, 3D- und Visualisierungsoberflaechen, Integrationen, Automatisierungen und AI-gestuetzten Workflows mit klarem Prozessbezug.',
+          'Mein Ziel ist nicht, moeglichst viel Technologie zu zeigen, sondern tragfaehige Loesungen zu bauen, die verstaendlich, wartbar und produktiv einsetzbar sind.'
+        ],
+        focusTitle: 'Woran ich gern arbeite',
+        bullets: [
+          'Produktorientierte Webanwendungen mit klarer Nutzerfuehrung und technischer Tiefe',
+          'Frontend-Systeme, bei denen Performance, Interaktion und Architektur gemeinsam wichtig sind',
+          'API-Integrationen, Automatisierungen und AI-nahe Workflows mit realem Prozessbezug',
+          'Projekte, in denen technische Entscheidungen nachvollziehbar und sauber dokumentiert sein muessen'
+        ],
+        stats: [
+          { label: 'Kernprofil', value: 'Product Engineer mit Full-Stack- und Frontend-Schwerpunkt' },
+          { label: 'Besonders stark', value: 'React, Next.js, TypeScript, Integrationen, 3D und Automatisierung' },
+          { label: 'Arbeitsstil', value: 'Pragmatisch, strukturiert und mit Blick auf Betrieb und Wartbarkeit' }
+        ]
+      },
       services: [
         {
           icon: 'frontend',
@@ -335,6 +356,27 @@ export const copy = {
             title: '3) Measure and hand over',
             desc: 'Make performance, UX, and operational signals visible and hand over cleanly to the team.'
           }
+        ]
+      },
+      about: {
+        title: 'About me',
+        desc: 'Not a generic freelancer profile, but the kind of technical work I most enjoy taking responsibility for.',
+        paragraphs: [
+          'I am Ivo, a web and product developer focused on technical systems that do not just look good but stay reliable under real conditions. I am most interested in projects where product thinking, architecture, and implementation meet.',
+          'I especially enjoy data-driven web products, 3D and visualization interfaces, integrations, automation, and AI-assisted workflows with real process value.',
+          'My goal is not to show off as much technology as possible but to build solutions that are understandable, maintainable, and genuinely usable in production.'
+        ],
+        focusTitle: 'What I like building',
+        bullets: [
+          'Product-oriented web applications with clear user guidance and technical depth',
+          'Frontend systems where performance, interaction, and architecture all matter together',
+          'API integrations, automation, and AI-adjacent workflows with real process value',
+          'Projects where technical decisions need to be understandable and cleanly documented'
+        ],
+        stats: [
+          { label: 'Core profile', value: 'Product engineer with full-stack and frontend emphasis' },
+          { label: 'Strongest in', value: 'React, Next.js, TypeScript, integrations, 3D, and automation' },
+          { label: 'Working style', value: 'Pragmatic, structured, and attentive to operations and maintainability' }
         ]
       },
       services: [

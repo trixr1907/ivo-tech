@@ -130,6 +130,7 @@ export function HomePageClient({ locale, featuredInsights }: Props) {
   const didTrackHeroVideo = useRef(false);
   const [isHeaderCondensed, setIsHeaderCondensed] = useState(false);
   const [isHeroVideoActive, setIsHeroVideoActive] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>('hero-case');
 
   const prefersReducedMotion = useReducedMotion();
   const { scrollY } = useScroll();
@@ -141,6 +142,48 @@ export function HomePageClient({ locale, featuredInsights }: Props) {
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  useEffect(() => {
+    const sectionIds = ['hero-case', 'featured', 'about', 'insights', 'contact'];
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((section): section is HTMLElement => section instanceof HTMLElement);
+
+    if (!sections.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio || a.boundingClientRect.top - b.boundingClientRect.top);
+
+        if (visible[0]?.target.id) {
+          setActiveSection(visible[0].target.id);
+        }
+      },
+      {
+        rootMargin: '-22% 0px -58% 0px',
+        threshold: [0.16, 0.35, 0.6]
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    const syncFromHash = () => {
+      const hash = window.location.hash.replace('#', '');
+      if (hash && sectionIds.includes(hash)) {
+        setActiveSection(hash);
+      }
+    };
+
+    syncFromHash();
+    window.addEventListener('hashchange', syncFromHash);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('hashchange', syncFromHash);
+    };
   }, []);
 
   const openProject = (id: ProjectId, source = 'unknown') => {
@@ -202,6 +245,13 @@ export function HomePageClient({ locale, featuredInsights }: Props) {
 
   const proofBarItems = home.proof as readonly ProofBarItemData[];
   const serviceCards = home.services;
+  const navItems = [
+    { href: '#hero-case', label: t.nav.heroCase, id: 'hero-case' },
+    { href: '#featured', label: t.nav.featured, id: 'featured' },
+    { href: '#about', label: locale === 'de' ? 'Ueber mich' : 'About', id: 'about' },
+    { href: '#insights', label: locale === 'de' ? 'Insights' : 'Insights', id: 'insights' },
+    { href: '#contact', label: t.nav.contact, id: 'contact' }
+  ] as const;
 
   const cvPath = locale === 'en' ? CV_PATH.en : CV_PATH.de;
   const heroPrimaryContactHref = t.sectionCtas.hero.primary.href;
@@ -225,11 +275,11 @@ export function HomePageClient({ locale, featuredInsights }: Props) {
           visualMode="portfolio"
           nav={
             <>
-              <a href="#proof-bar">Proof</a>
-              <a href="#hero-case">{t.nav.heroCase}</a>
-              <a href="#services">Services</a>
-              <a href="#featured">{t.nav.featured}</a>
-              <a href="#contact">{t.nav.contact}</a>
+              {navItems.map((item) => (
+                <a key={item.id} href={item.href} data-active={activeSection === item.id ? 'true' : undefined}>
+                  {item.label}
+                </a>
+              ))}
             </>
           }
           rightSlot={
@@ -492,6 +542,69 @@ export function HomePageClient({ locale, featuredInsights }: Props) {
           ) : null}
 
           <m.div whileInView={sectionMotion.whileInView} transition={sectionMotion.transition} viewport={{ once: true, amount: 0.2 }}>
+            <SectionFrame id="about" className="section" aria-labelledby="about-title" tone="panel" density="spacious" sectionTheme="fusion">
+              <SectionHead
+                titleId="about-title"
+                title={home.about.title}
+                description={home.about.desc}
+                actions={
+                  <CTACluster className="section-head-actions">
+                    <Button href={cvPath} target="_blank" rel="noopener noreferrer" variant="flat" onClick={() => onCvClick('about_section_head')}>
+                      {t.hero.cv}
+                    </Button>
+                    <Button href="#contact" variant="secondary" onClick={() => onContactSecondaryClick('about_section_head')}>
+                      {t.hero.contact}
+                    </Button>
+                  </CTACluster>
+                }
+              />
+
+              <div className="about-grid">
+                <div className="about-copy">
+                  {home.about.paragraphs.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+
+                  <div className="about-links" aria-label={locale === 'de' ? 'Profil-Links' : 'Profile links'}>
+                    <a href={cvPath} target="_blank" rel="noopener noreferrer" onClick={() => onCvClick('about_links')}>
+                      {t.hero.cv}
+                    </a>
+                    <a
+                      href={GITHUB_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => trackEvent('authority_asset_view', { asset: 'github', source: 'about_links', locale, path: asPath })}
+                    >
+                      {t.hero.github}
+                    </a>
+                    <a href="#contact" onClick={() => onContactSecondaryClick('about_links')}>
+                      {t.hero.contact}
+                    </a>
+                  </div>
+                </div>
+
+                <div className="about-cards">
+                  <article className="about-card">
+                    <p className="about-card-title">{home.about.focusTitle}</p>
+                    <ul className="hero-case-list">
+                      {home.about.bullets.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </article>
+
+                  {home.about.stats.map((stat) => (
+                    <article key={stat.label} className="about-card">
+                      <p className="about-card-title">{stat.label}</p>
+                      <p className="about-card-value">{stat.value}</p>
+                    </article>
+                  ))}
+                </div>
+              </div>
+            </SectionFrame>
+          </m.div>
+
+          <m.div whileInView={sectionMotion.whileInView} transition={sectionMotion.transition} viewport={{ once: true, amount: 0.2 }}>
             <SectionFrame id="services" className="section" aria-labelledby="services-title" tone="panel" density="spacious" sectionTheme="fusion">
               <SectionHead titleId="services-title" title={home.method.title} description={home.method.desc} />
 
@@ -526,14 +639,32 @@ export function HomePageClient({ locale, featuredInsights }: Props) {
 
           <m.div whileInView={sectionMotion.whileInView} transition={sectionMotion.transition} viewport={{ once: true, amount: 0.2 }}>
             <SectionFrame id="featured" className="section" aria-labelledby="featured-title" tone="panel" density="spacious" sectionTheme="fusion">
-              <SectionHead titleId="featured-title" title={home.projects.title} description={home.projects.desc} />
+              <SectionHead
+                titleId="featured-title"
+                title={home.projects.title}
+                description={home.projects.desc}
+                actions={
+                  <Button href={localizePath('/case-studies', locale)} variant="flat" onClick={() => onCasePrimaryClick('featured_section_index')}>
+                    {locale === 'de' ? 'Alle Case Studies' : 'All case studies'}
+                  </Button>
+                }
+              />
               <div className="project-grid">{featuredProjects.map((p) => renderProjectCard(p, locale, onProjectLinkClick))}</div>
             </SectionFrame>
           </m.div>
 
           <m.div whileInView={sectionMotion.whileInView} transition={sectionMotion.transition} viewport={{ once: true, amount: 0.2 }}>
             <SectionFrame id="insights" className="section" aria-labelledby="insights-title" tone="panel" density="spacious" sectionTheme="fusion">
-              <SectionHead titleId="insights-title" title={home.insights.title} description={home.insights.desc} />
+              <SectionHead
+                titleId="insights-title"
+                title={home.insights.title}
+                description={home.insights.desc}
+                actions={
+                  <Button href={t.sectionCtas.insights.primary.href} variant="flat" onClick={() => onCasePrimaryClick(t.sectionCtas.insights.primary.trackingSource)}>
+                    {t.sectionCtas.insights.primary.label}
+                  </Button>
+                }
+              />
               <div className="insights-grid">
                 {featuredInsights.map((insight) => (
                   <InsightCard
@@ -556,11 +687,6 @@ export function HomePageClient({ locale, featuredInsights }: Props) {
                 ))}
               </div>
 
-              <div className="method-actions">
-                <Button href={t.sectionCtas.insights.primary.href} variant="flat" onClick={() => onCasePrimaryClick(t.sectionCtas.insights.primary.trackingSource)}>
-                  {t.sectionCtas.insights.primary.label}
-                </Button>
-              </div>
             </SectionFrame>
           </m.div>
 
