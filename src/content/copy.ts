@@ -38,9 +38,11 @@ export const copy = {
     home: {
       hero: {
         eyebrow: 'Web Engineering | Mannheim | Remote-first',
-        title: 'Web-Projekte, die in Produktion stabil laufen und messbar Wirkung zeigen.',
-        lead: 'Ich unterstuetze Teams bei Architektur, Umsetzung und sauberem Handover - mit klarem Fokus auf Projektresultate.',
-        sublead: 'Klare Entscheidungen, robuste Umsetzung und reproduzierbare Delivery ohne unnoetige Komplexitaet.'
+        title: 'Ich entwickle digitale Produkte und Websysteme, die im Alltag wirklich funktionieren.',
+        lead: 'Ich arbeite an Full-Stack-Webentwicklung, 3D- und Frontend-Erlebnissen, API-Integrationen und AI-gestuetzten Automatisierungs-Workflows.',
+        sublead:
+          'Die Seite ist mein technisches Portfolio fuer Teams, Arbeitgeber und Partner, die nachvollziehbare Engineering-Kompetenz, Produktdenken und saubere Umsetzung suchen.',
+        highlights: ['Produktionsnahe Websysteme', '3D & Visualisierung', 'AI & Automatisierung', 'Offen fuer Hiring']
       },
       proof: [
         {
@@ -287,9 +289,11 @@ export const copy = {
     home: {
       hero: {
         eyebrow: 'Web engineering | Mannheim | Remote-first',
-        title: 'Web projects that stay stable in production and create measurable impact.',
-        lead: 'I support teams with architecture, implementation, and clean handover with a clear focus on project outcomes.',
-        sublead: 'Clear decisions, robust execution, and reproducible delivery without unnecessary complexity.'
+        title: 'I build digital products and web systems that genuinely work in day-to-day use.',
+        lead: 'My focus spans full-stack web development, 3D and frontend experiences, API integrations, and AI-assisted automation workflows.',
+        sublead:
+          'This site is my technical portfolio for teams, employers, and partners looking for visible engineering judgment, product thinking, and clean execution.',
+        highlights: ['Production-ready web systems', '3D and visualization', 'AI and automation', 'Open to hiring']
       },
       proof: [
         {

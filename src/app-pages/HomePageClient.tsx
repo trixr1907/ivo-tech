@@ -261,9 +261,9 @@ export function HomePageClient({ locale, featuredInsights }: Props) {
               <p className="lead">{home.hero.lead}</p>
               <p className="hero-sublead">{home.hero.sublead}</p>
 
-              {'highlights' in t.hero && Array.isArray(t.hero.highlights) && t.hero.highlights.length ? (
+              {'highlights' in home.hero && Array.isArray(home.hero.highlights) && home.hero.highlights.length ? (
                 <div className="hero-highlights" aria-label={locale === 'de' ? 'Kernfokus' : 'Key focus areas'}>
-                  {t.hero.highlights.map((item) => (
+                  {home.hero.highlights.map((item) => (
                     <span key={item} className="hero-highlight">
                       {item}
                     </span>
