@@ -261,6 +261,16 @@ export function HomePageClient({ locale, featuredInsights }: Props) {
               <p className="lead">{home.hero.lead}</p>
               <p className="hero-sublead">{home.hero.sublead}</p>
 
+              {'highlights' in t.hero && Array.isArray(t.hero.highlights) && t.hero.highlights.length ? (
+                <div className="hero-highlights" aria-label={locale === 'de' ? 'Kernfokus' : 'Key focus areas'}>
+                  {t.hero.highlights.map((item) => (
+                    <span key={item} className="hero-highlight">
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              ) : null}
+
               <CTACluster className="hero-actions">
                 <Button
                   href={heroPrimaryContactHref}
@@ -300,6 +310,9 @@ export function HomePageClient({ locale, featuredInsights }: Props) {
                 </a>
                 <a href={cvPath} target="_blank" rel="noopener noreferrer" onClick={() => onCvClick('hero_links')}>
                   {t.hero.cv}
+                </a>
+                <a href="#contact" onClick={() => onContactSecondaryClick('hero_links')}>
+                  {t.hero.contact}
                 </a>
               </div>
             </m.div>

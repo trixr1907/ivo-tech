@@ -127,13 +127,16 @@ export const copy = {
     },
     hero: {
       eyebrow: 'Web Engineering | Mannheim | Remote-first',
-      title: 'Ich baue Websysteme, die stabil laufen und Ergebnisse liefern.',
-      lead: 'Der Fokus liegt auf nachvollziehbaren Entscheidungen, klarer Informationsarchitektur und messbarer Qualitaet statt auf Buzzwords.',
-      sublead: 'So entstehen Gespraeche aus Vertrauen in die Denkweise und nicht aus Sales-Druck.',
+      title: 'Ich entwickle digitale Produkte und Websysteme, die im Alltag wirklich funktionieren.',
+      lead: 'Ich arbeite an Full-Stack-Webentwicklung, 3D- und Frontend-Erlebnissen, API-Integrationen und AI-gestuetzten Automatisierungs-Workflows.',
+      sublead:
+        'Die Seite ist mein technisches Portfolio fuer Teams, Arbeitgeber und Partner, die nachvollziehbare Engineering-Kompetenz, Produktdenken und saubere Umsetzung suchen.',
+      highlights: ['Produktionsnahe Websysteme', '3D & Visualisierung', 'AI & Automatisierung', 'Offen fuer Hiring'],
       secondary: 'Kostenloses Erstgespraech anfragen',
       linksLabel: 'Direktlinks',
       github: 'GitHub',
-      cv: 'CV (PDF)'
+      cv: 'CV (PDF)',
+      contact: 'Kontakt'
     },
     method: {
       title: 'Wie ich entscheide und liefere',
@@ -373,13 +376,16 @@ export const copy = {
     },
     hero: {
       eyebrow: 'Web engineering | Mannheim | Remote-first',
-      title: 'I build web systems that stay stable and deliver outcomes.',
-      lead: 'The focus is traceable decisions, clear information architecture, and measurable quality instead of buzzword-heavy messaging.',
-      sublead: 'This creates conversations based on trust in the thinking, not sales pressure.',
+      title: 'I build digital products and web systems that genuinely work in day-to-day use.',
+      lead: 'My focus spans full-stack web development, 3D and frontend experiences, API integrations, and AI-assisted automation workflows.',
+      sublead:
+        'This site is my technical portfolio for teams, employers, and partners looking for visible engineering judgment, product thinking, and clean execution.',
+      highlights: ['Production-ready web systems', '3D and visualization', 'AI and automation', 'Open to hiring'],
       secondary: 'Request free intro call',
       linksLabel: 'Quick links',
       github: 'GitHub',
-      cv: 'CV (PDF)'
+      cv: 'CV (PDF)',
+      contact: 'Contact'
     },
     method: {
       title: 'How I decide and deliver',
