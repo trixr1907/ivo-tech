@@ -83,7 +83,7 @@ function renderProjectCard(
           fill
           sizes="(max-width: 900px) 92vw, 420px"
           quality={85}
-          style={{ objectFit: 'cover' }}
+          className="project-bg-image"
         />
       </span>
       <span className="project-overlay" aria-hidden="true" />
@@ -361,7 +361,7 @@ export function HomePageClient({ locale, copyText, featuredInsights }: Props) {
                         alt=""
                         fill
                         sizes="(max-width: 900px) 92vw, 520px"
-                        style={{ objectFit: 'cover' }}
+                        className="hero-teaser-image"
                       />
                       <button
                         type="button"
@@ -402,7 +402,7 @@ export function HomePageClient({ locale, copyText, featuredInsights }: Props) {
                     alt=""
                     fill
                     sizes="(max-width: 900px) 92vw, 520px"
-                    style={{ objectFit: 'cover' }}
+                    className="hero-teaser-image"
                   />
                 </div>
               )}

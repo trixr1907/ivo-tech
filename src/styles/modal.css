@@ -706,6 +706,10 @@
   background: #050510;
 }
 
+.android-screen-image {
+  object-fit: cover;
+}
+
 .android-meta {
   width: min(520px, 100%);
   display: grid;

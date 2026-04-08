@@ -22,7 +22,7 @@ export function AndroidDemo({ locale }: Props) {
             fill
             sizes="(max-width: 900px) 92vw, 740px"
             quality={90}
-            style={{ objectFit: 'cover' }}
+            className="android-screen-image"
             priority={false}
           />
         </div>

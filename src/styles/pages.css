@@ -1053,6 +1053,7 @@ section[id] {
 }
 
 .project-bg img {
+  object-fit: cover;
   transform: scale(1.01);
   filter: saturate(1.08) contrast(1.05);
   transition: transform 240ms ease, filter 240ms ease;
@@ -1971,6 +1972,10 @@ section[id] {
 .hero-teaser-poster {
   position: relative;
   overflow: hidden;
+}
+
+.hero-teaser-image {
+  object-fit: cover;
 }
 
 .hero-teaser-trigger {
