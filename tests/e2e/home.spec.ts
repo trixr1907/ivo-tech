@@ -1,4 +1,5 @@
 import { expect, test, type APIRequestContext, type APIResponse } from '@playwright/test';
+import AxeBuilder from '@axe-core/playwright';
 
 async function requestGetWithRetry(request: APIRequestContext, path: string, attempts = 3): Promise<APIResponse> {
   let lastError: unknown;
@@ -16,6 +17,18 @@ async function requestGetWithRetry(request: APIRequestContext, path: string, att
 }
 
 test.describe('homepage critical journeys', () => {
+  test('has no critical accessibility violations on DE and EN homepages', async ({ page }) => {
+    for (const path of ['/', '/en']) {
+      await page.goto(path);
+      await page.waitForLoadState('networkidle');
+
+      const analysis = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa']).analyze();
+      const criticalViolations = analysis.violations.filter((violation) => violation.impact === 'critical');
+
+      expect(criticalViolations, `${path} has critical axe violations`).toEqual([]);
+    }
+  });
+
   test('opens and closes project modal via query-state routing', async ({ page }) => {
     await page.goto('/');
 
