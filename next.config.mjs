@@ -24,7 +24,7 @@ const cspEnforceDirectives = [
   "script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com",
   "script-src-attr 'none'",
   // Keep backward-compatible fallback while tightening CSP3 style handling via style-src-elem/style-src-attr.
-  "style-src 'self' 'unsafe-inline' https://challenges.cloudflare.com",
+  "style-src 'self' https://challenges.cloudflare.com",
   "style-src-elem 'self' https://challenges.cloudflare.com",
   "style-src-attr 'unsafe-inline'",
   "img-src 'self' data: blob: https:",
