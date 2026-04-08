@@ -1,12 +1,41 @@
 #!/usr/bin/env node
 
-import { execSync } from 'node:child_process';
+import { execFileSync } from 'node:child_process';
 
-function parseArg(name, fallback) {
-  const prefix = `--${name}=`;
-  const arg = process.argv.find((entry) => entry.startsWith(prefix));
-  if (!arg) return fallback;
-  return arg.slice(prefix.length);
+function parseCliArgs(argv) {
+  const parsed = new Map();
+  for (let index = 0; index < argv.length; index += 1) {
+    const token = argv[index];
+    if (!token.startsWith('--')) continue;
+
+    const body = token.slice(2);
+    if (!body) continue;
+
+    const equalsIndex = body.indexOf('=');
+    if (equalsIndex >= 0) {
+      const key = body.slice(0, equalsIndex);
+      const value = body.slice(equalsIndex + 1);
+      parsed.set(key, value);
+      continue;
+    }
+
+    const key = body;
+    const nextToken = argv[index + 1];
+    if (nextToken && !nextToken.startsWith('--')) {
+      parsed.set(key, nextToken);
+      index += 1;
+    } else {
+      parsed.set(key, 'true');
+    }
+  }
+
+  return parsed;
+}
+
+function readArg(cliArgs, name, fallback) {
+  const value = cliArgs.get(name);
+  if (value === undefined || value === '') return fallback;
+  return value;
 }
 
 function normalizeSample(sample) {
@@ -23,24 +52,32 @@ function increment(map, key) {
   map.set(key, (map.get(key) ?? 0) + 1);
 }
 
-const project = parseArg('project', process.env.CSP_LOG_PROJECT?.trim() || 'ivo-tech');
-const since = parseArg('since', process.env.CSP_LOG_SINCE?.trim() || '24h');
-const environment = parseArg('environment', process.env.CSP_LOG_ENVIRONMENT?.trim() || 'production');
-const maxRows = Number.parseInt(parseArg('limit', process.env.CSP_LOG_LIMIT?.trim() || '300'), 10);
-
-const command = [
-  'npx vercel logs',
-  `--project ${project}`,
-  `--environment ${environment}`,
-  `--since ${since}`,
-  '--query "[csp-report]"',
-  '--json',
-  '--no-branch'
-].join(' ');
+const cliArgs = parseCliArgs(process.argv.slice(2));
+const project = readArg(cliArgs, 'project', process.env.CSP_LOG_PROJECT?.trim() || 'ivo-tech');
+const since = readArg(cliArgs, 'since', process.env.CSP_LOG_SINCE?.trim() || '24h');
+const environment = readArg(cliArgs, 'environment', process.env.CSP_LOG_ENVIRONMENT?.trim() || 'production');
+const maxRows = Number.parseInt(readArg(cliArgs, 'limit', process.env.CSP_LOG_LIMIT?.trim() || '300'), 10);
 
 let output = '';
 try {
-  output = execSync(command, { encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe'] });
+  output = execFileSync(
+    'npx',
+    [
+      'vercel',
+      'logs',
+      '--project',
+      project,
+      '--environment',
+      environment,
+      '--since',
+      since,
+      '--query',
+      '[csp-report]',
+      '--json',
+      '--no-branch'
+    ],
+    { encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe'] }
+  );
 } catch (error) {
   const stderr = error instanceof Error && 'stderr' in error ? String(error.stderr || '') : '';
   const stdout = error instanceof Error && 'stdout' in error ? String(error.stdout || '') : '';

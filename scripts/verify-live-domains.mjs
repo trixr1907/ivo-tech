@@ -113,6 +113,11 @@ async function run() {
   expect(apexCsp.length > 0, 'Expected apex / to include content-security-policy');
   expect(apexCspReportOnly.length > 0, 'Expected apex / to include content-security-policy-report-only');
   expect(apexCspReportOnly.includes("'nonce-"), 'Expected apex CSP report-only to include nonce-based script-src');
+  expect(apexCspReportOnly.includes("'strict-dynamic'"), "Expected apex CSP report-only script-src to include 'strict-dynamic'");
+  expect(
+    !/script-src[^;]*'unsafe-inline'/.test(apexCspReportOnly),
+    "Expected apex CSP report-only script-src to exclude 'unsafe-inline'"
+  );
   expect(apexCsp.includes("script-src-attr 'none'"), "Expected apex CSP to include script-src-attr 'none'");
   expect(
     apexCspReportOnly.includes('report-uri /api/security/csp-report'),
@@ -126,9 +131,17 @@ async function run() {
   const apexPizza = await request({ hostname: apexHost, path: '/pizza/index.html' });
   expect(apexPizza.statusCode === 200, `Expected apex /pizza/index.html to be 200, got ${apexPizza.statusCode}`);
   const pizzaCsp = headerString(apexPizza.headers, 'content-security-policy');
+  const pizzaCspReportOnly = headerString(apexPizza.headers, 'content-security-policy-report-only');
   expect(
     pizzaCsp.includes('fonts.googleapis.com') && pizzaCsp.includes('www.google.com'),
     'Expected pizza CSP to include scoped Google sources (fonts + maps frame)'
+  );
+  expect(
+    pizzaCspReportOnly.includes('fonts.googleapis.com') &&
+      pizzaCspReportOnly.includes('www.google.com') &&
+      pizzaCspReportOnly.includes("'nonce-") &&
+      pizzaCspReportOnly.includes("'strict-dynamic'"),
+    'Expected pizza CSP report-only to include scoped Google sources and nonce-based script-src'
   );
 
   const wwwRoot = await request({ hostname: wwwHost, path: '/', rejectUnauthorized: false });
