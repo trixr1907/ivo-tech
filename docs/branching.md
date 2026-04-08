@@ -12,6 +12,7 @@
 - Required checks:
   - `ci`
   - `unit-integration`
+  - `e2e`
   - `security`
 - No force push to `main`.
 - No direct push to `main`.

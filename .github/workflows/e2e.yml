@@ -1,6 +1,10 @@
 name: e2e
 
 on:
+  pull_request:
+  push:
+    branches:
+      - main
   workflow_dispatch:
     inputs:
       base_url:
@@ -17,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env:
-      E2E_BASE_URL: ${{ inputs.base_url || '' }}
+      E2E_BASE_URL: ${{ github.event.inputs.base_url || '' }}
 
     steps:
       - name: Checkout

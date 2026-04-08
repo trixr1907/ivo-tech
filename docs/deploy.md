@@ -6,7 +6,7 @@
 
 ## CI/CD flow
 1. Open PR from short-lived branch (`feat/*`, `fix/*`, `chore/*`).
-2. Required checks must pass: `ci`, `unit-integration`, `security`.
+2. Required checks must pass: `ci`, `unit-integration`, `e2e`, `security`.
 3. Merge PR into `main`.
 4. `live-guardrails` verifies the current live site (`ivo-tech.com`) after each `main` push and daily.
 5. Trigger `cd-production` manually with protected `production` environment approval. The workflow re-validates required checks for the target SHA before deploy.

@@ -49,7 +49,7 @@ const repo = runJson('gh repo view --json nameWithOwner,defaultBranchRef');
 const repoName = repo.nameWithOwner;
 const defaultBranch = repo.defaultBranchRef?.name || 'main';
 
-const checks = ['ci', 'unit-integration', 'security'];
+const checks = ['ci', 'unit-integration', 'e2e', 'security'];
 
 console.log(`Configuring governance for ${repoName} (branch: ${defaultBranch})`);
 

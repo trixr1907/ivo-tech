@@ -13,7 +13,7 @@ npm run governance:apply
 
 This applies:
 - Branch protection on default branch (if available on your plan).
-- Required status checks: `ci`, `unit-integration`, `security`.
+- Required status checks: `ci`, `unit-integration`, `e2e`, `security`.
 - Minimum 1 approving review.
 - Dismiss stale reviews on push.
 - Enforce rules for admins.
