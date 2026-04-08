@@ -7,6 +7,12 @@ const apexHost = process.env.VERIFY_APEX_HOST?.trim() || 'ivo-tech.com';
 const wwwHost = process.env.VERIFY_WWW_HOST?.trim() || `www.${apexHost}`;
 const tlsSampleSize = Number(process.env.VERIFY_TLS_SAMPLES || 12);
 
+function headerString(headers, name) {
+  const value = headers[name.toLowerCase()];
+  if (Array.isArray(value)) return value.join('; ');
+  return typeof value === 'string' ? value : '';
+}
+
 function request({ hostname, path = '/', rejectUnauthorized = true }) {
   return new Promise((resolve, reject) => {
     const req = https.request(
@@ -102,6 +108,27 @@ async function run() {
 
   const apexRoot = await request({ hostname: apexHost, path: '/' });
   expect(apexRoot.statusCode === 200, `Expected apex / to be 200, got ${apexRoot.statusCode}`);
+  const apexCsp = headerString(apexRoot.headers, 'content-security-policy');
+  const apexCspReportOnly = headerString(apexRoot.headers, 'content-security-policy-report-only');
+  expect(apexCsp.length > 0, 'Expected apex / to include content-security-policy');
+  expect(apexCspReportOnly.length > 0, 'Expected apex / to include content-security-policy-report-only');
+  expect(apexCsp.includes("script-src-attr 'none'"), "Expected apex CSP to include script-src-attr 'none'");
+  expect(
+    apexCspReportOnly.includes('report-uri /api/security/csp-report'),
+    'Expected apex CSP report-only to include report-uri /api/security/csp-report'
+  );
+  expect(
+    !apexCsp.includes('fonts.googleapis.com') && !apexCsp.includes('www.google.com'),
+    'Expected apex CSP to keep Google sources scoped away from root'
+  );
+
+  const apexPizza = await request({ hostname: apexHost, path: '/pizza/index.html' });
+  expect(apexPizza.statusCode === 200, `Expected apex /pizza/index.html to be 200, got ${apexPizza.statusCode}`);
+  const pizzaCsp = headerString(apexPizza.headers, 'content-security-policy');
+  expect(
+    pizzaCsp.includes('fonts.googleapis.com') && pizzaCsp.includes('www.google.com'),
+    'Expected pizza CSP to include scoped Google sources (fonts + maps frame)'
+  );
 
   const wwwRoot = await request({ hostname: wwwHost, path: '/', rejectUnauthorized: false });
   expect(wwwRoot.statusCode === 308, `Expected www / to be 308, got ${wwwRoot.statusCode}`);
