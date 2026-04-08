@@ -127,7 +127,7 @@ export default async function HomePage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Suspense fallback={null}>
-        <HomePageClient locale={locale} featuredInsights={featuredInsights} />
+        <HomePageClient locale={locale} copyText={t} featuredInsights={featuredInsights} />
       </Suspense>
     </>
   );

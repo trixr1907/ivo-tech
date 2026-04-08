@@ -21,12 +21,11 @@ import { MetricCard } from '@/components/ui/MetricCard';
 import { ProofBarItem } from '@/components/ui/ProofBarItem';
 import { SectionFrame } from '@/components/ui/SectionFrame';
 import { SectionHead } from '@/components/ui/SectionHead';
-import { copy, type Locale } from '@/content/copy';
 import { getProjectById, getProjectStatusLabel, getProjectsByTier, type Project, type ProjectId } from '@/content/projects';
 import { buildProjectHref } from '@/features/home/projectState';
 import { trackEvent } from '@/lib/analytics';
 import { localizePath } from '@/lib/localeRouting';
-import { CONTACT_EMAIL, CV_PATH, GITHUB_URL } from '@/lib/site';
+import { CONTACT_EMAIL, CV_PATH, GITHUB_URL } from '@/lib/sitePublic';
 
 const ContactForm = dynamic(() => import('@/components/ContactForm').then((m) => m.ContactForm), {
   ssr: false,
@@ -47,6 +46,7 @@ type FeaturedInsightTeaser = {
 
 type Props = {
   locale: Locale;
+  copyText: HomeCopy;
   featuredInsights: FeaturedInsightTeaser[];
 };
 
@@ -56,6 +56,9 @@ type ProofBarItemData = {
   value: string;
   href: string;
 };
+
+type Locale = keyof typeof import('@/content/copy').copy;
+type HomeCopy = (typeof import('@/content/copy').copy)[Locale];
 
 function renderProjectCard(
   project: Project,
@@ -99,14 +102,14 @@ function renderProjectCard(
   );
 }
 
-export function HomePageClient({ locale, featuredInsights }: Props) {
+export function HomePageClient({ locale, copyText, featuredInsights }: Props) {
   const router = useRouter();
   const pathname = usePathname() || (locale === 'en' ? '/en' : '/');
   const searchParams = useSearchParams();
   const search = searchParams?.toString() ?? '';
   const asPath = `${pathname}${search ? `?${search}` : ''}`;
-  const t = copy[locale];
-  const home = t.home;
+  const t = copyText;
+  const home = copyText.home;
 
   const projectParam = searchParams?.get('project') ?? null;
   const activeProject = getProjectById(projectParam);

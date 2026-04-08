@@ -8,7 +8,7 @@ import { SiteHeader } from '@/components/layout/SiteHeader';
 import { Button } from '@/components/ui/Button';
 import { SectionFrame } from '@/components/ui/SectionFrame';
 import { copy, type Locale } from '@/content/copy';
-import { CONTACT_EMAIL } from '@/lib/site';
+import { CONTACT_EMAIL } from '@/lib/sitePublic';
 
 type Props = {
   locale: Locale;
