@@ -4,7 +4,10 @@ import createBundleAnalyzer from '@next/bundle-analyzer';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const withBundleAnalyzer = createBundleAnalyzer({ enabled: process.env.ANALYZE === 'true' });
-const cspReportUri = process.env.NEXT_PUBLIC_CSP_REPORT_URI ?? '';
+const cspReportUri =
+  process.env.CSP_REPORT_URI?.trim() ??
+  process.env.NEXT_PUBLIC_CSP_REPORT_URI?.trim() ??
+  '/api/security/csp-report';
 const configuredSiteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim() ?? 'https://ivo-tech.com';
 let apexHost = 'ivo-tech.com';
 
@@ -48,7 +51,7 @@ const cspReportOnlyDirectives = [
 ];
 
 const cspEnforce = cspEnforceDirectives.join('; ');
-const cspReportOnly = [...cspReportOnlyDirectives, ...(cspReportUri ? [`report-uri ${cspReportUri}`] : [])].join('; ');
+const cspReportOnly = [...cspReportOnlyDirectives, `report-uri ${cspReportUri}`].join('; ');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
