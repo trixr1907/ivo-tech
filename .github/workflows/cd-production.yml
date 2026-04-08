@@ -58,7 +58,7 @@ jobs:
           TARGET_SHA: ${{ steps.target.outputs.sha }}
         with:
           script: |
-            const required = ['ci', 'unit-integration', 'security'];
+            const required = ['ci', 'unit-integration', 'security', 'live-guardrails'];
             const timeoutMs = 10 * 60 * 1000;
             const pollMs = 15 * 1000;
             const started = Date.now();
