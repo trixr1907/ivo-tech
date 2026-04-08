@@ -25,6 +25,7 @@
     "verify:homepage:full": "npm run lint && npm run lint:i18n && npm run typecheck && npm run test:unit && npm run test:e2e",
     "optimize:images": "node scripts/optimize-images.mjs",
     "analyze": "ANALYZE=true next build",
+    "budget:bundle": "node scripts/check-bundle-budgets.mjs",
     "security:scan": "npm audit --omit=dev --audit-level=high",
     "cf": "node scripts/cloudflare-cli.mjs",
     "cf:verify": "npm run cf -- verify-token",
