@@ -18,47 +18,55 @@ try {
 }
 
 const wwwHost = `www.${apexHost}`;
-const cspEnforceDirectives = [
-  "default-src 'self'",
-  // Cloudflare Turnstile is required by the contact form challenge widget.
-  "script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com",
-  "script-src-attr 'none'",
-  // Keep backward-compatible fallback while tightening CSP3 style handling via style-src-elem/style-src-attr.
-  "style-src 'self' https://challenges.cloudflare.com https://fonts.googleapis.com",
-  "style-src-elem 'self' https://challenges.cloudflare.com https://fonts.googleapis.com",
-  "style-src-attr 'unsafe-inline'",
-  "img-src 'self' data: blob: https:",
-  "font-src 'self' data: https:",
-  "connect-src 'self' https:",
-  "media-src 'self' data: https:",
-  "frame-src 'self' https://challenges.cloudflare.com https://www.google.com",
-  "frame-ancestors 'self'",
-  "base-uri 'self'",
-  "form-action 'self' mailto:",
-  "object-src 'none'"
-];
+function buildCsp({ reportOnly = false, allowPizzaThirdParty = false } = {}) {
+  const styleSources = ["'self'", 'https://challenges.cloudflare.com'];
+  const styleElemSources = ["'self'", 'https://challenges.cloudflare.com'];
+  const frameSources = ["'self'", 'https://challenges.cloudflare.com'];
 
-// Stage 2 CSP hardening: keep enforce stable, but report stricter policy without unsafe-inline.
-const cspReportOnlyDirectives = [
-  "default-src 'self'",
-  "script-src 'self' https://challenges.cloudflare.com 'report-sample'",
-  "script-src-attr 'none'",
-  "style-src 'self' https://challenges.cloudflare.com https://fonts.googleapis.com 'report-sample'",
-  "style-src-elem 'self' https://challenges.cloudflare.com https://fonts.googleapis.com",
-  "style-src-attr 'unsafe-inline'",
-  "img-src 'self' data: blob: https:",
-  "font-src 'self' data: https:",
-  "connect-src 'self' https:",
-  "media-src 'self' data: https:",
-  "frame-src 'self' https://challenges.cloudflare.com https://www.google.com",
-  "frame-ancestors 'self'",
-  "base-uri 'self'",
-  "form-action 'self' mailto:",
-  "object-src 'none'"
-];
+  if (allowPizzaThirdParty) {
+    // /pizza embeds Google Fonts and Google Maps iframe.
+    styleSources.push('https://fonts.googleapis.com');
+    styleElemSources.push('https://fonts.googleapis.com');
+    frameSources.push('https://www.google.com');
+  }
 
-const cspEnforce = cspEnforceDirectives.join('; ');
-const cspReportOnly = [...cspReportOnlyDirectives, `report-uri ${cspReportUri}`].join('; ');
+  const scriptSrc = reportOnly
+    ? "script-src 'self' https://challenges.cloudflare.com 'report-sample'"
+    : "script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com";
+
+  const styleSrc = reportOnly
+    ? `style-src ${styleSources.join(' ')} 'report-sample'`
+    : `style-src ${styleSources.join(' ')}`;
+
+  const directives = [
+    "default-src 'self'",
+    scriptSrc,
+    "script-src-attr 'none'",
+    styleSrc,
+    `style-src-elem ${styleElemSources.join(' ')}`,
+    "style-src-attr 'unsafe-inline'",
+    "img-src 'self' data: blob: https:",
+    "font-src 'self' data: https:",
+    "connect-src 'self' https:",
+    "media-src 'self' data: https:",
+    `frame-src ${frameSources.join(' ')}`,
+    "frame-ancestors 'self'",
+    "base-uri 'self'",
+    "form-action 'self' mailto:",
+    "object-src 'none'"
+  ];
+
+  if (reportOnly) {
+    directives.push(`report-uri ${cspReportUri}`);
+  }
+
+  return directives.join('; ');
+}
+
+const cspEnforce = buildCsp();
+const cspReportOnly = buildCsp({ reportOnly: true });
+const cspPizzaEnforce = buildCsp({ allowPizzaThirdParty: true });
+const cspPizzaReportOnly = buildCsp({ reportOnly: true, allowPizzaThirdParty: true });
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -142,11 +150,19 @@ const nextConfig = {
       },
       {
         source: '/pizza/:path*',
-        headers: [{ key: 'X-Robots-Tag', value: 'noindex, follow' }]
+        headers: [
+          { key: 'X-Robots-Tag', value: 'noindex, follow' },
+          { key: 'Content-Security-Policy', value: cspPizzaEnforce },
+          { key: 'Content-Security-Policy-Report-Only', value: cspPizzaReportOnly }
+        ]
       },
       {
         source: '/en/pizza/:path*',
-        headers: [{ key: 'X-Robots-Tag', value: 'noindex, follow' }]
+        headers: [
+          { key: 'X-Robots-Tag', value: 'noindex, follow' },
+          { key: 'Content-Security-Policy', value: cspPizzaEnforce },
+          { key: 'Content-Security-Policy-Report-Only', value: cspPizzaReportOnly }
+        ]
       },
       {
         source: '/_next/static/:path*',
