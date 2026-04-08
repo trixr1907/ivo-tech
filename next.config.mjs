@@ -15,7 +15,7 @@ try {
 }
 
 const wwwHost = `www.${apexHost}`;
-const cspDirectives = [
+const cspEnforceDirectives = [
   "default-src 'self'",
   // Cloudflare Turnstile is required by the contact form challenge widget.
   "script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com",
@@ -30,8 +30,25 @@ const cspDirectives = [
   "form-action 'self' mailto:",
   "object-src 'none'"
 ];
-const cspEnforce = cspDirectives.join('; ');
-const cspReportOnly = [...cspDirectives, ...(cspReportUri ? [`report-uri ${cspReportUri}`] : [])].join('; ');
+
+// Stage 2 CSP hardening: keep enforce stable, but report stricter policy without unsafe-inline.
+const cspReportOnlyDirectives = [
+  "default-src 'self'",
+  "script-src 'self' https://challenges.cloudflare.com 'report-sample'",
+  "style-src 'self' 'report-sample'",
+  "img-src 'self' data: blob: https:",
+  "font-src 'self' data: https:",
+  "connect-src 'self' https:",
+  "media-src 'self' data: https:",
+  "frame-src 'self' https://challenges.cloudflare.com",
+  "frame-ancestors 'self'",
+  "base-uri 'self'",
+  "form-action 'self' mailto:",
+  "object-src 'none'"
+];
+
+const cspEnforce = cspEnforceDirectives.join('; ');
+const cspReportOnly = [...cspReportOnlyDirectives, ...(cspReportUri ? [`report-uri ${cspReportUri}`] : [])].join('; ');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
