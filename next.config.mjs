@@ -4,10 +4,6 @@ import createBundleAnalyzer from '@next/bundle-analyzer';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const withBundleAnalyzer = createBundleAnalyzer({ enabled: process.env.ANALYZE === 'true' });
-const cspReportUri =
-  process.env.CSP_REPORT_URI?.trim() ??
-  process.env.NEXT_PUBLIC_CSP_REPORT_URI?.trim() ??
-  '/api/security/csp-report';
 const configuredSiteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim() ?? 'https://ivo-tech.com';
 let apexHost = 'ivo-tech.com';
 
@@ -18,7 +14,7 @@ try {
 }
 
 const wwwHost = `www.${apexHost}`;
-function buildCsp({ reportOnly = false, allowPizzaThirdParty = false } = {}) {
+function buildCsp({ allowPizzaThirdParty = false } = {}) {
   const styleSources = ["'self'", 'https://challenges.cloudflare.com'];
   const styleElemSources = ["'self'", 'https://challenges.cloudflare.com'];
   const frameSources = ["'self'", 'https://challenges.cloudflare.com'];
@@ -30,13 +26,9 @@ function buildCsp({ reportOnly = false, allowPizzaThirdParty = false } = {}) {
     frameSources.push('https://www.google.com');
   }
 
-  const scriptSrc = reportOnly
-    ? "script-src 'self' https://challenges.cloudflare.com 'report-sample'"
-    : "script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com";
+  const scriptSrc = "script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com";
 
-  const styleSrc = reportOnly
-    ? `style-src ${styleSources.join(' ')} 'report-sample'`
-    : `style-src ${styleSources.join(' ')}`;
+  const styleSrc = `style-src ${styleSources.join(' ')}`;
 
   const directives = [
     "default-src 'self'",
@@ -56,17 +48,11 @@ function buildCsp({ reportOnly = false, allowPizzaThirdParty = false } = {}) {
     "object-src 'none'"
   ];
 
-  if (reportOnly) {
-    directives.push(`report-uri ${cspReportUri}`);
-  }
-
   return directives.join('; ');
 }
 
 const cspEnforce = buildCsp();
-const cspReportOnly = buildCsp({ reportOnly: true });
 const cspPizzaEnforce = buildCsp({ allowPizzaThirdParty: true });
-const cspPizzaReportOnly = buildCsp({ reportOnly: true, allowPizzaThirdParty: true });
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -144,24 +130,21 @@ const nextConfig = {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=()'
           },
-          { key: 'Content-Security-Policy', value: cspEnforce },
-          { key: 'Content-Security-Policy-Report-Only', value: cspReportOnly }
+          { key: 'Content-Security-Policy', value: cspEnforce }
         ]
       },
       {
         source: '/pizza/:path*',
         headers: [
           { key: 'X-Robots-Tag', value: 'noindex, follow' },
-          { key: 'Content-Security-Policy', value: cspPizzaEnforce },
-          { key: 'Content-Security-Policy-Report-Only', value: cspPizzaReportOnly }
+          { key: 'Content-Security-Policy', value: cspPizzaEnforce }
         ]
       },
       {
         source: '/en/pizza/:path*',
         headers: [
           { key: 'X-Robots-Tag', value: 'noindex, follow' },
-          { key: 'Content-Security-Policy', value: cspPizzaEnforce },
-          { key: 'Content-Security-Policy-Report-Only', value: cspPizzaReportOnly }
+          { key: 'Content-Security-Policy', value: cspPizzaEnforce }
         ]
       },
       {

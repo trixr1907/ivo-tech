@@ -1,13 +1,16 @@
 # Security Hardening Notes
 
 ## CSP hardening path
-Current state uses `Content-Security-Policy-Report-Only` in `next.config.mjs`.
+Current state:
+- Enforce-CSP is static in `next.config.mjs`.
+- Report-Only-CSP is generated per request in `src/proxy.ts` with a nonce-based `script-src` and `report-uri /api/security/csp-report`.
+- `/pizza` and `/en/pizza` keep scoped third-party sources (Google Fonts + Maps frame) in both enforce/report-only policies.
 
 Recommended rollout:
-1. Keep report-only while collecting violations for at least 14 days.
-2. Remove unsafe sources incrementally (start with `unsafe-eval`, then `unsafe-inline` for scripts).
-3. Move critical inline logic to external scripts and use nonce/hash strategy.
-4. Switch to enforcing `Content-Security-Policy` only after zero high-confidence breakage.
+1. Keep nonce-based report-only active while collecting violations for at least 14 days.
+2. Remove/nonce remaining inline scripts (JSON-LD + framework/runtime outliers) until no high-confidence `script-src` violations remain.
+3. Move nonce-based `script-src` from report-only into enforce and remove `unsafe-inline` for scripts.
+4. Keep scoped third-party allowances route-local (`/pizza` only), never globalize them.
 
 ## Contact API rate-limit store
 `/api/contact` supports persistent rate limiting via Redis REST (with memory fallback).

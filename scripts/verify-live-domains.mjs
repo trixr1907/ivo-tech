@@ -112,6 +112,7 @@ async function run() {
   const apexCspReportOnly = headerString(apexRoot.headers, 'content-security-policy-report-only');
   expect(apexCsp.length > 0, 'Expected apex / to include content-security-policy');
   expect(apexCspReportOnly.length > 0, 'Expected apex / to include content-security-policy-report-only');
+  expect(apexCspReportOnly.includes("'nonce-"), 'Expected apex CSP report-only to include nonce-based script-src');
   expect(apexCsp.includes("script-src-attr 'none'"), "Expected apex CSP to include script-src-attr 'none'");
   expect(
     apexCspReportOnly.includes('report-uri /api/security/csp-report'),
