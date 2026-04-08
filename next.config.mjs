@@ -22,6 +22,7 @@ const cspEnforceDirectives = [
   "default-src 'self'",
   // Cloudflare Turnstile is required by the contact form challenge widget.
   "script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com",
+  "script-src-attr 'none'",
   // Keep backward-compatible fallback while tightening CSP3 style handling via style-src-elem/style-src-attr.
   "style-src 'self' 'unsafe-inline' https://challenges.cloudflare.com",
   "style-src-elem 'self' https://challenges.cloudflare.com",
@@ -41,6 +42,7 @@ const cspEnforceDirectives = [
 const cspReportOnlyDirectives = [
   "default-src 'self'",
   "script-src 'self' https://challenges.cloudflare.com 'report-sample'",
+  "script-src-attr 'none'",
   "style-src 'self' https://challenges.cloudflare.com 'report-sample'",
   "style-src-elem 'self' https://challenges.cloudflare.com",
   "style-src-attr 'unsafe-inline'",
