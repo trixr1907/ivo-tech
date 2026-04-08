@@ -72,7 +72,7 @@ async function main() {
 
   if (allFiles.length === 0) {
     throw new Error(
-      `No static assets found under ${buildDir}/static. Run \"npm run build\" before checking budgets.`
+      `No static assets found under ${buildDir}/static. Run "npm run build" before checking budgets.`
     );
   }
 
