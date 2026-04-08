@@ -13,13 +13,13 @@ npm run governance:apply
 
 This applies:
 - Branch protection on default branch (if available on your plan).
-- Required status checks: `ci`, `unit-integration`, `e2e`, `security`.
+- Required status checks: `ci`, `unit-integration`, `security`.
 - Minimum 1 approving review.
 - Dismiss stale reviews on push.
 - Enforce rules for admins.
 - Merge strategy policy (squash/rebase enabled, merge-commit disabled).
 - Auto-delete merged branches.
-- Environments: `staging`, `production`.
+- Environment: `production`.
 
 ## Manual follow-up in GitHub UI
 1. Repository Settings -> Environments -> `production`.
@@ -38,4 +38,4 @@ Recommended fallback:
 2. Enable local pre-push hook:
    - `npm run setup:githooks`
 3. Use PR workflow by convention.
-4. Keep deploy guardrails enabled (`cd-staging` and `cd-production` validate checks before deploy).
+4. Keep deploy guardrails enabled (`cd-production` and `live-guardrails` validate checks before deploy).

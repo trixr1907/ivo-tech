@@ -49,7 +49,7 @@ cp .env.example .env.local
 
 Variables:
 - `NEXT_PUBLIC_SITE_URL`
-- `NEXT_PUBLIC_APP_ENV` (`development` | `staging` | `production`)
+- `NEXT_PUBLIC_APP_ENV` (`development` | `production`)
 - `NEXT_PUBLIC_ANALYTICS_ALLOWED_HOSTS` (optional, comma-separated host allow-list; defaults to `ivo-tech.com` + `www.ivo-tech.com`)
 - Runtime telemetry: Vercel Analytics + Vercel Speed Insights are enabled and use the same host allow-list (`NEXT_PUBLIC_ANALYTICS_ALLOWED_HOSTS`).
 - `NEXT_PUBLIC_SENTRY_DSN` (optional)
@@ -66,7 +66,7 @@ Variables:
 ## CI/CD
 - PR quality gates: `.github/workflows/ci.yml`, `unit-integration.yml`, `e2e.yml`, `security.yml`
 - Security analysis: `.github/workflows/codeql.yml`
-- Staging deploy from `main`: `.github/workflows/cd-staging.yml`
+- Live guardrails on `main`: `.github/workflows/live-guardrails.yml`
 - Production deploy (manual approval): `.github/workflows/cd-production.yml`
 
 Runbooks:

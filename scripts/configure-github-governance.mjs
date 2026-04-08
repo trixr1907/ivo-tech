@@ -49,7 +49,7 @@ const repo = runJson('gh repo view --json nameWithOwner,defaultBranchRef');
 const repoName = repo.nameWithOwner;
 const defaultBranch = repo.defaultBranchRef?.name || 'main';
 
-const checks = ['ci', 'unit-integration', 'e2e', 'security'];
+const checks = ['ci', 'unit-integration', 'security'];
 
 console.log(`Configuring governance for ${repoName} (branch: ${defaultBranch})`);
 
@@ -88,8 +88,8 @@ run(
     `-f delete_branch_on_merge=true`
 );
 
-// Create/update deployment environments
-for (const envName of ['staging', 'production']) {
+// Create/update deployment environment
+for (const envName of ['production']) {
   run(`gh api --method PUT repos/${repoName}/environments/${envName}`);
 }
 

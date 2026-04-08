@@ -30,7 +30,6 @@ Commands:
       Ensure Vercel-ready DNS records:
       - <zone>              -> 76.76.21.21
       - www.<zone>          -> 76.76.21.21
-      - staging.<zone>      -> 76.76.21.21
       Both with proxied=false.
       If zone omitted, uses CLOUDFLARE_ZONE_NAME or ivo-tech.com.
 `);
@@ -136,10 +135,8 @@ async function ensureVercel(zoneName) {
   const zone = zoneName || process.env.CLOUDFLARE_ZONE_NAME || "ivo-tech.com";
   const apex = zone;
   const www = `www.${zone}`;
-  const staging = `staging.${zone}`;
   await upsertDns(zone, "A", apex, "76.76.21.21", "false");
   await upsertDns(zone, "A", www, "76.76.21.21", "false");
-  await upsertDns(zone, "A", staging, "76.76.21.21", "false");
   console.log(`ok\tensured vercel records for ${zone}`);
 }
 

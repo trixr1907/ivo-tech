@@ -20,27 +20,21 @@
 - Post-release smoke checks (2026-02-17):
   - `npm run verify:live` passed (`ivo-tech.com`, `www.ivo-tech.com`, TLS samples `12/12`).
   - Production smoke (`https://ivo-tech.com`): `7/7` critical non-mutating e2e checks passed.
-  - Staging smoke (`https://staging.ivo-tech.com`): `7/7` critical non-mutating e2e checks passed.
 
 ## Release checklist
 1. Ensure all required checks are green on merge commit.
 2. Run local full gate before release decision:
    - `npm run verify:homepage:full`
-3. Verify `cd-staging` deployment succeeded.
-4. Execute staging smoke test:
-   - Homepage loads in `de` and `en`.
-   - Modal open/close query-state works.
-   - `/configurator` and `/pizza/` reachable.
-   - Contact CTA and canonical tags are valid.
-5. Trigger `cd-production` (`ref=main` by default).
-6. Approve `production` environment in GitHub.
-7. Verify production smoke test.
-8. Log release notes in PR or changelog.
+3. Verify `live-guardrails` status on `main` is green.
+4. Trigger `cd-production` (`ref=main` by default).
+5. Approve `production` environment in GitHub.
+6. Verify production smoke test.
+7. Log release notes in PR or changelog.
 
 ## Weekly release cadence (CDD default)
 - Monday: choose max three homepage priorities for the week.
 - Tuesday-Thursday: ship small PRs, each with full local gate before review.
-- Friday: merge, validate staging, then make production decision.
+- Friday: merge, validate live guardrails, then make production decision.
 
 ## Safe mode (default)
 - `cd-production` runs in safe mode by default:

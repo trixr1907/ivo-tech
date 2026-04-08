@@ -36,7 +36,6 @@ npm run cf:dns -- ivo-tech.com
 This ensures:
 - `A ivo-tech.com -> 76.76.21.21`
 - `A www.ivo-tech.com -> 76.76.21.21`
-- `A staging.ivo-tech.com -> 76.76.21.21`
 - both `proxied=false` (DNS only)
 
 ```bash
@@ -49,7 +48,7 @@ npm run cf:ensure:vercel -- ivo-tech.com
 npm run cf -- dns:list ivo-tech.com
 
 # upsert one record
-npm run cf -- dns:upsert ivo-tech.com A staging.ivo-tech.com 76.76.21.21 false
+npm run cf -- dns:upsert ivo-tech.com A www.ivo-tech.com 76.76.21.21 false
 
 # delete by record id
 npm run cf -- dns:delete ivo-tech.com <record_id>
@@ -61,12 +60,11 @@ npm run cf:wrangler -- whoami
 ## 6) Validate in Vercel
 ```bash
 npx vercel domains inspect ivo-tech.com --scope "$VERCEL_ORG_ID"
-npx vercel domains inspect staging.ivo-tech.com --scope "$VERCEL_ORG_ID"
 ```
 
 Expected: no DNS misconfiguration warning for those domains.
 
 ## Safety notes
 - Keep Cloudflare as DNS owner (nameservers stay on Cloudflare).
-- Keep records as `DNS only` for Vercel apex/staging target.
+- Keep records as `DNS only` for Vercel apex/www target.
 - Never put `CLOUDFLARE_API_TOKEN` in repo files or GitHub Actions unless intentionally needed for automation.

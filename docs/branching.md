@@ -12,7 +12,6 @@
 - Required checks:
   - `ci`
   - `unit-integration`
-  - `e2e`
   - `security`
 - No force push to `main`.
 - No direct push to `main`.
@@ -21,7 +20,7 @@
 - Local hard-stop for direct pushes via `.githooks/pre-push`.
 - Enable once per machine:
   - `npm run setup:githooks`
-- Staging/production deployments validate required checks before deploy.
+- Production deployments validate required checks before deploy.
 - If GitHub branch protection is unavailable, this setup is the no-cost fallback.
 
 ## Code ownership

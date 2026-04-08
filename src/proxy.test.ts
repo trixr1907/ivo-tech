@@ -31,7 +31,7 @@ describe('proxy', () => {
   });
 
   it('does not redirect unrelated hosts', () => {
-    const request = new NextRequest('https://staging.ivo-tech.com/en/configurator?from=test');
+    const request = new NextRequest('https://preview.ivo-tech.test/en/configurator?from=test');
     const response = proxy(request);
 
     expect(response.status).toBe(200);
