@@ -20,6 +20,7 @@ export type AnalyticsEventName =
   | 'contact_form_submit_success'
   | 'contact_form_success'
   | 'contact_form_error'
+  | 'homepage_scroll_depth'
   | 'hero_video_play'
   | 'web_vital_recorded'
   | (string & {});

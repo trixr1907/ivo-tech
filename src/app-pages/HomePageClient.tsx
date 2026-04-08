@@ -122,6 +122,8 @@ export function HomePageClient({ locale, copyText, featuredInsights }: Props) {
   const heroMedia = heroProject?.media;
   const hasHeroVideo = Boolean(heroMedia?.videoMp4 || heroMedia?.videoWebm);
   const didTrackHeroVideo = useRef(false);
+  const didTrackScrollDepth50 = useRef(false);
+  const didTrackScrollDepth90 = useRef(false);
   const [isHeaderCondensed, setIsHeaderCondensed] = useState(false);
   const [isHeroVideoActive, setIsHeroVideoActive] = useState(false);
   const [activeSection, setActiveSection] = useState<string>('hero-case');
@@ -132,6 +134,42 @@ export function HomePageClient({ locale, copyText, featuredInsights }: Props) {
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  useEffect(() => {
+    didTrackScrollDepth50.current = false;
+    didTrackScrollDepth90.current = false;
+
+    const onScrollDepth = () => {
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      if (maxScroll <= 0) return;
+
+      const progress = window.scrollY / maxScroll;
+
+      if (!didTrackScrollDepth50.current && progress >= 0.5) {
+        didTrackScrollDepth50.current = true;
+        trackEvent('homepage_scroll_depth', {
+          depth: 50,
+          locale,
+          path: pathname,
+          source: 'home_scroll_depth'
+        });
+      }
+
+      if (!didTrackScrollDepth90.current && progress >= 0.9) {
+        didTrackScrollDepth90.current = true;
+        trackEvent('homepage_scroll_depth', {
+          depth: 90,
+          locale,
+          path: pathname,
+          source: 'home_scroll_depth'
+        });
+      }
+    };
+
+    onScrollDepth();
+    window.addEventListener('scroll', onScrollDepth, { passive: true });
+    return () => window.removeEventListener('scroll', onScrollDepth);
+  }, [locale, pathname]);
 
   useEffect(() => {
     const sectionIds = ['hero-case', 'featured', 'about', 'insights', 'contact'];
