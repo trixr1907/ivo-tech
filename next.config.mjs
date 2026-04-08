@@ -15,7 +15,7 @@ try {
 }
 
 const wwwHost = `www.${apexHost}`;
-const cspReportOnly = [
+const cspDirectives = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
   "style-src 'self' 'unsafe-inline'",
@@ -27,9 +27,10 @@ const cspReportOnly = [
   "frame-ancestors 'self'",
   "base-uri 'self'",
   "form-action 'self' mailto:",
-  "object-src 'none'",
-  ...(cspReportUri ? [`report-uri ${cspReportUri}`] : [])
-].join('; ');
+  "object-src 'none'"
+];
+const cspEnforce = cspDirectives.join('; ');
+const cspReportOnly = [...cspDirectives, ...(cspReportUri ? [`report-uri ${cspReportUri}`] : [])].join('; ');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -107,6 +108,7 @@ const nextConfig = {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=()'
           },
+          { key: 'Content-Security-Policy', value: cspEnforce },
           { key: 'Content-Security-Policy-Report-Only', value: cspReportOnly }
         ]
       },
