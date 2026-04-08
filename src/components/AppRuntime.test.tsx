@@ -1,21 +1,31 @@
-import { render } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-
-import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import { AppRuntime } from '@/components/AppRuntime';
 
-vi.mock('@vercel/analytics/react', () => ({
-  Analytics: vi.fn(() => null)
+const { injectAnalyticsMock, injectSpeedInsightsMock } = vi.hoisted(() => ({
+  injectAnalyticsMock: vi.fn(),
+  injectSpeedInsightsMock: vi.fn()
 }));
 
-vi.mock('@vercel/speed-insights/next', () => ({
-  SpeedInsights: vi.fn(() => null)
+vi.mock('@vercel/analytics', () => ({
+  inject: injectAnalyticsMock
 }));
 
-vi.mock('@/components/BackgroundFX', () => ({
-  BackgroundFX: vi.fn(() => null)
+vi.mock('@vercel/speed-insights', () => ({
+  injectSpeedInsights: injectSpeedInsightsMock
+}));
+
+vi.mock('next/navigation', () => ({
+  usePathname: () => '/'
+}));
+
+vi.mock('next/web-vitals', () => ({
+  useReportWebVitals: vi.fn()
+}));
+
+vi.mock('@/lib/webVitals', () => ({
+  reportWebVital: vi.fn()
 }));
 
 type AnalyticsBeforeSend = (event: { url: string }) => { url: string } | null;
@@ -26,21 +36,27 @@ describe('AppRuntime', () => {
     vi.clearAllMocks();
   });
 
-  it('renders analytics and speed insights with a 100% sample rate', () => {
+  it('renders analytics and speed insights with a 100% sample rate', async () => {
     render(<AppRuntime />);
 
-    expect(vi.mocked(Analytics)).toHaveBeenCalledTimes(1);
-    expect(vi.mocked(SpeedInsights)).toHaveBeenCalledTimes(1);
+    await waitFor(() => {
+      expect(injectAnalyticsMock).toHaveBeenCalledTimes(1);
+      expect(injectSpeedInsightsMock).toHaveBeenCalledTimes(1);
+    });
 
-    const speedInsightsProps = vi.mocked(SpeedInsights).mock.calls[0]?.[0] as { sampleRate?: number };
+    const speedInsightsProps = injectSpeedInsightsMock.mock.calls[0]?.[0] as { sampleRate?: number };
     expect(speedInsightsProps.sampleRate).toBe(1);
   });
 
-  it('allows live-domain events in both telemetry filters', () => {
+  it('allows live-domain events in both telemetry filters', async () => {
     render(<AppRuntime />);
+    await waitFor(() => {
+      expect(injectAnalyticsMock).toHaveBeenCalledTimes(1);
+      expect(injectSpeedInsightsMock).toHaveBeenCalledTimes(1);
+    });
 
-    const analyticsProps = vi.mocked(Analytics).mock.calls[0]?.[0] as { beforeSend?: AnalyticsBeforeSend };
-    const speedInsightsProps = vi.mocked(SpeedInsights).mock.calls[0]?.[0] as {
+    const analyticsProps = injectAnalyticsMock.mock.calls[0]?.[0] as { beforeSend?: AnalyticsBeforeSend };
+    const speedInsightsProps = injectSpeedInsightsMock.mock.calls[0]?.[0] as {
       beforeSend?: SpeedInsightsBeforeSend;
     };
 
@@ -51,11 +67,15 @@ describe('AppRuntime', () => {
     expect(speedInsightsProps.beforeSend?.(speedInsightsEvent)).toBe(speedInsightsEvent);
   });
 
-  it('drops preview-domain events in both telemetry filters', () => {
+  it('drops preview-domain events in both telemetry filters', async () => {
     render(<AppRuntime />);
+    await waitFor(() => {
+      expect(injectAnalyticsMock).toHaveBeenCalledTimes(1);
+      expect(injectSpeedInsightsMock).toHaveBeenCalledTimes(1);
+    });
 
-    const analyticsProps = vi.mocked(Analytics).mock.calls[0]?.[0] as { beforeSend?: AnalyticsBeforeSend };
-    const speedInsightsProps = vi.mocked(SpeedInsights).mock.calls[0]?.[0] as {
+    const analyticsProps = injectAnalyticsMock.mock.calls[0]?.[0] as { beforeSend?: AnalyticsBeforeSend };
+    const speedInsightsProps = injectSpeedInsightsMock.mock.calls[0]?.[0] as {
       beforeSend?: SpeedInsightsBeforeSend;
     };
 
