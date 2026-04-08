@@ -26,6 +26,7 @@
     "optimize:images": "node scripts/optimize-images.mjs",
     "analyze": "ANALYZE=true next build",
     "budget:bundle": "node scripts/check-bundle-budgets.mjs",
+    "security:csp:summary": "node scripts/csp-report-summary.mjs",
     "security:scan": "npm audit --omit=dev --audit-level=high",
     "cf": "node scripts/cloudflare-cli.mjs",
     "cf:verify": "npm run cf -- verify-token",

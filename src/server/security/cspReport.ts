@@ -14,9 +14,48 @@ type NormalizedCspReport = {
   referrer: string;
 };
 
+type CspReportBucket = {
+  count: number;
+  resetAt: number;
+};
+
 function asRecord(value: unknown): UnknownRecord | null {
   if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
   return value as UnknownRecord;
+}
+
+const globalCspStore = globalThis as typeof globalThis & { __ivoCspReportBuckets?: Map<string, CspReportBucket> };
+const cspBuckets = globalCspStore.__ivoCspReportBuckets ?? new Map<string, CspReportBucket>();
+globalCspStore.__ivoCspReportBuckets = cspBuckets;
+
+const cspBucketWindowMs = 10 * 60 * 1000;
+
+function buildReportKey(report: NormalizedCspReport) {
+  return [
+    report.effectiveDirective || 'unknown',
+    report.violatedDirective || 'unknown',
+    report.blockedUri || 'unknown',
+    report.documentUri || 'unknown',
+    report.sourceFile || 'unknown',
+    report.sample || ''
+  ].join('|');
+}
+
+function registerReportOccurrence(report: NormalizedCspReport) {
+  const now = Date.now();
+  const key = buildReportKey(report);
+  const bucket = cspBuckets.get(key);
+
+  if (!bucket || now > bucket.resetAt) {
+    const next = { count: 1, resetAt: now + cspBucketWindowMs };
+    cspBuckets.set(key, next);
+    return { key, count: next.count, shouldLog: true };
+  }
+
+  bucket.count += 1;
+  cspBuckets.set(key, bucket);
+  const shouldLog = bucket.count === 10 || bucket.count === 50 || bucket.count % 100 === 0;
+  return { key, count: bucket.count, shouldLog };
 }
 
 function asString(value: unknown) {
@@ -136,9 +175,15 @@ export async function handleCspReportRequest(request: Request) {
 
   const clientIp = getClientIp(request);
   const userAgent = asString(request.headers.get('user-agent'));
+  const occurrence = registerReportOccurrence(normalized);
+
+  if (!occurrence.shouldLog) {
+    return createNoContentResponse();
+  }
 
   console.warn('[csp-report]', {
     at: new Date().toISOString(),
+    count: occurrence.count,
     clientIp,
     userAgent: clampText(userAgent, 180),
     disposition: normalized.disposition,
