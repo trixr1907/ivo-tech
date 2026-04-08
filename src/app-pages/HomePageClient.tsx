@@ -1,15 +1,13 @@
 'use client';
 
-import { domAnimation, LazyMotion, m, useReducedMotion, useScroll, useTransform } from 'framer-motion';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useRef, useState, type MouseEvent } from 'react';
 
 import { BackgroundFX } from '@/components/BackgroundFX';
-import { ContactForm } from '@/components/ContactForm';
 import { LanguageToggle } from '@/components/LanguageToggle';
-import { ProjectModal } from '@/components/ProjectModal';
 import { SiteFooter } from '@/components/layout/SiteFooter';
 import { SiteHeader } from '@/components/layout/SiteHeader';
 import { Accordion } from '@/components/ui/Accordion';
@@ -29,6 +27,15 @@ import { buildProjectHref } from '@/features/home/projectState';
 import { trackEvent } from '@/lib/analytics';
 import { localizePath } from '@/lib/localeRouting';
 import { CONTACT_EMAIL, CV_PATH, GITHUB_URL } from '@/lib/site';
+
+const ContactForm = dynamic(() => import('@/components/ContactForm').then((m) => m.ContactForm), {
+  ssr: false,
+  loading: () => <div className="contact-form-card" aria-busy="true" />
+});
+
+const ProjectModal = dynamic(() => import('@/components/ProjectModal').then((m) => m.ProjectModal), {
+  ssr: false
+});
 
 type FeaturedInsightTeaser = {
   slug: string;
@@ -92,22 +99,6 @@ function renderProjectCard(
   );
 }
 
-function getSectionMotion(prefersReducedMotion: boolean) {
-  if (prefersReducedMotion) {
-    return {
-      initial: { opacity: 1, y: 0, scale: 1 },
-      whileInView: { opacity: 1, y: 0, scale: 1 },
-      transition: { duration: 0 }
-    };
-  }
-
-  return {
-    initial: { opacity: 0, y: 24, scale: 0.992 },
-    whileInView: { opacity: 1, y: 0, scale: 1 },
-    transition: { duration: 0.52, ease: [0.22, 1, 0.36, 1] as const }
-  };
-}
-
 export function HomePageClient({ locale, featuredInsights }: Props) {
   const router = useRouter();
   const pathname = usePathname() || (locale === 'en' ? '/en' : '/');
@@ -131,11 +122,6 @@ export function HomePageClient({ locale, featuredInsights }: Props) {
   const [isHeaderCondensed, setIsHeaderCondensed] = useState(false);
   const [isHeroVideoActive, setIsHeroVideoActive] = useState(false);
   const [activeSection, setActiveSection] = useState<string>('hero-case');
-
-  const prefersReducedMotion = useReducedMotion();
-  const { scrollY } = useScroll();
-  const heroDepthY = useTransform(scrollY, [0, 420], [0, prefersReducedMotion ? 0 : -24]);
-  const sectionMotion = getSectionMotion(Boolean(prefersReducedMotion));
 
   useEffect(() => {
     const onScroll = () => setIsHeaderCondensed(window.scrollY > 14);
@@ -258,7 +244,7 @@ export function HomePageClient({ locale, featuredInsights }: Props) {
   const heroSecondaryCaseHref = t.sectionCtas.hero.secondary.href;
 
   return (
-    <LazyMotion features={domAnimation}>
+    <>
       <div className="theme-ref103632 ui-main-surface home-v3" data-theme="fusion">
         <BackgroundFX />
 
@@ -300,12 +286,7 @@ export function HomePageClient({ locale, featuredInsights }: Props) {
 
         <main id="main-content" className="home-v2-main home-v3-main">
           <HeroShell className="hero home-v2-hero home-v3-hero" aria-labelledby="hero-title">
-            <m.div
-              className="hero-copy"
-              initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: prefersReducedMotion ? 0 : 0.6, ease: [0.22, 1, 0.36, 1] }}
-            >
+            <div className="hero-copy">
               <p className="eyebrow">{home.hero.eyebrow}</p>
               <h1 id="hero-title">{home.hero.title}</h1>
               <p className="lead">{home.hero.lead}</p>
@@ -365,13 +346,9 @@ export function HomePageClient({ locale, featuredInsights }: Props) {
                   {t.hero.contact}
                 </a>
               </div>
-            </m.div>
+            </div>
 
-            <m.article
-              className="hero-media-card motion-depth-drift"
-              aria-label={locale === 'de' ? 'Hero Case Teaser' : 'Hero case teaser'}
-              style={{ y: heroDepthY }}
-            >
+            <article className="hero-media-card motion-depth-drift" aria-label={locale === 'de' ? 'Hero Case Teaser' : 'Hero case teaser'}>
               {hasHeroVideo ? (
                 <div className="hero-teaser-poster">
                   {!isHeroVideoActive ? (
@@ -432,10 +409,10 @@ export function HomePageClient({ locale, featuredInsights }: Props) {
                     ? '36s Brand-Teaser: Authority-first Engineering von Proof bis Live-Handoff.'
                     : '36s brand teaser: authority-first engineering from proof to live handoff.')}
               </p>
-            </m.article>
+            </article>
           </HeroShell>
 
-          <m.div whileInView={sectionMotion.whileInView} transition={sectionMotion.transition} viewport={{ once: true, amount: 0.4 }}>
+          <div>
             <section id="proof-bar" className="section proof-bar-section" aria-label={locale === 'de' ? 'Proof Bar' : 'Proof bar'}>
               <div className="proof-bar">
                 {proofBarItems.map((item) => (
@@ -455,10 +432,10 @@ export function HomePageClient({ locale, featuredInsights }: Props) {
                 ))}
               </div>
             </section>
-          </m.div>
+          </div>
 
           {heroProject ? (
-            <m.div whileInView={sectionMotion.whileInView} transition={sectionMotion.transition} viewport={{ once: true, amount: 0.2 }}>
+            <div>
               <SectionFrame
                 id="hero-case"
                 className="section"
@@ -538,10 +515,10 @@ export function HomePageClient({ locale, featuredInsights }: Props) {
                   </CTACluster>
                 </article>
               </SectionFrame>
-            </m.div>
+            </div>
           ) : null}
 
-          <m.div whileInView={sectionMotion.whileInView} transition={sectionMotion.transition} viewport={{ once: true, amount: 0.2 }}>
+          <div>
             <SectionFrame id="about" className="section" aria-labelledby="about-title" tone="panel" density="spacious" sectionTheme="fusion">
               <SectionHead
                 titleId="about-title"
@@ -602,9 +579,9 @@ export function HomePageClient({ locale, featuredInsights }: Props) {
                 </div>
               </div>
             </SectionFrame>
-          </m.div>
+          </div>
 
-          <m.div whileInView={sectionMotion.whileInView} transition={sectionMotion.transition} viewport={{ once: true, amount: 0.2 }}>
+          <div>
             <SectionFrame id="services" className="section" aria-labelledby="services-title" tone="panel" density="spacious" sectionTheme="fusion">
               <SectionHead titleId="services-title" title={home.method.title} description={home.method.desc} />
 
@@ -635,9 +612,9 @@ export function HomePageClient({ locale, featuredInsights }: Props) {
                 </Button>
               </div>
             </SectionFrame>
-          </m.div>
+          </div>
 
-          <m.div whileInView={sectionMotion.whileInView} transition={sectionMotion.transition} viewport={{ once: true, amount: 0.2 }}>
+          <div>
             <SectionFrame id="featured" className="section" aria-labelledby="featured-title" tone="panel" density="spacious" sectionTheme="fusion">
               <SectionHead
                 titleId="featured-title"
@@ -651,9 +628,9 @@ export function HomePageClient({ locale, featuredInsights }: Props) {
               />
               <div className="project-grid">{featuredProjects.map((p) => renderProjectCard(p, locale, onProjectLinkClick))}</div>
             </SectionFrame>
-          </m.div>
+          </div>
 
-          <m.div whileInView={sectionMotion.whileInView} transition={sectionMotion.transition} viewport={{ once: true, amount: 0.2 }}>
+          <div>
             <SectionFrame id="insights" className="section" aria-labelledby="insights-title" tone="panel" density="spacious" sectionTheme="fusion">
               <SectionHead
                 titleId="insights-title"
@@ -688,9 +665,9 @@ export function HomePageClient({ locale, featuredInsights }: Props) {
               </div>
 
             </SectionFrame>
-          </m.div>
+          </div>
 
-          <m.div whileInView={sectionMotion.whileInView} transition={sectionMotion.transition} viewport={{ once: true, amount: 0.2 }}>
+          <div>
             <SectionFrame
               id="contact"
               className="section"
@@ -738,9 +715,9 @@ export function HomePageClient({ locale, featuredInsights }: Props) {
                 </aside>
               </div>
             </SectionFrame>
-          </m.div>
+          </div>
 
-          <m.div whileInView={sectionMotion.whileInView} transition={sectionMotion.transition} viewport={{ once: true, amount: 0.2 }}>
+          <div>
             <SectionFrame id="faq" className="section" aria-labelledby="faq-title" tone="panel" density="spacious" sectionTheme="fusion">
               <SectionHead titleId="faq-title" title={home.faq.title} description={home.faq.desc} />
               <Accordion
@@ -752,7 +729,7 @@ export function HomePageClient({ locale, featuredInsights }: Props) {
                 }))}
               />
             </SectionFrame>
-          </m.div>
+          </div>
         </main>
 
         <SiteFooter
@@ -788,8 +765,8 @@ export function HomePageClient({ locale, featuredInsights }: Props) {
           {t.sectionCtas.sticky.primary.label}
         </a>
 
-        <ProjectModal project={activeProject} locale={locale} onClose={closeModal} />
+        {activeProject ? <ProjectModal project={activeProject} locale={locale} onClose={closeModal} /> : null}
       </div>
-    </LazyMotion>
+    </>
   );
 }

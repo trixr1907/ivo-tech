@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from 'next';
 import { Inter, JetBrains_Mono, Oxanium, Space_Grotesk } from 'next/font/google';
-import { headers } from 'next/headers';
 import type { ReactNode } from 'react';
 
 import { AppRuntime } from '@/components/AppRuntime';
@@ -57,16 +56,12 @@ export const viewport: Viewport = {
   colorScheme: 'dark light'
 };
 
-export default async function RootLayout({ children }: { children: ReactNode }) {
-  const headerStore = await headers();
-  const locale = headerStore.get('x-ivo-locale') === 'en' ? 'en' : 'de';
-  const skipText = locale === 'de' ? 'Zum Hauptinhalt springen' : 'Skip to main content';
-
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang={locale}>
+    <html lang="de">
       <body className={`${heading.variable} ${body.variable} ${mono.variable} ${display.variable}`} data-theme="dark">
         <a className="skip-link" href="#main-content">
-          {skipText}
+          Zum Hauptinhalt springen
         </a>
         <AppRuntime />
         {children}
