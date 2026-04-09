@@ -126,6 +126,8 @@ export function HomePageClient({ locale, copyText, featuredInsights }: Props) {
   const [isHeaderCondensed, setIsHeaderCondensed] = useState(false);
   const [isHeroVideoActive, setIsHeroVideoActive] = useState(false);
   const [activeSection, setActiveSection] = useState<string>('hero-case');
+  const [shouldMountContactForm, setShouldMountContactForm] = useState(false);
+  const contactSectionRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const onScroll = () => setIsHeaderCondensed(window.scrollY > 14);
@@ -211,6 +213,28 @@ export function HomePageClient({ locale, copyText, featuredInsights }: Props) {
       window.removeEventListener('hashchange', syncFromHash);
     };
   }, []);
+
+  useEffect(() => {
+    if (shouldMountContactForm) return;
+
+    const sectionEl = contactSectionRef.current;
+    if (!sectionEl || typeof IntersectionObserver === 'undefined') {
+      const timeoutId = window.setTimeout(() => setShouldMountContactForm(true), 0);
+      return () => window.clearTimeout(timeoutId);
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (!entries.some((entry) => entry.isIntersecting)) return;
+        setShouldMountContactForm(true);
+        observer.disconnect();
+      },
+      { rootMargin: '420px 0px' }
+    );
+
+    observer.observe(sectionEl);
+    return () => observer.disconnect();
+  }, [shouldMountContactForm]);
 
   const openProject = (id: ProjectId, source = 'unknown') => {
     trackEvent('case_study_open', { projectId: id, source, locale, path: asPath });
@@ -558,7 +582,7 @@ export function HomePageClient({ locale, copyText, featuredInsights }: Props) {
             </div>
           ) : null}
 
-          <div>
+          <div className="deferred-section">
             <SectionFrame id="about" className="section" aria-labelledby="about-title" tone="panel" density="spacious" sectionTheme="fusion">
               <SectionHead
                 titleId="about-title"
@@ -621,7 +645,7 @@ export function HomePageClient({ locale, copyText, featuredInsights }: Props) {
             </SectionFrame>
           </div>
 
-          <div>
+          <div className="deferred-section">
             <SectionFrame id="services" className="section" aria-labelledby="services-title" tone="panel" density="spacious" sectionTheme="fusion">
               <SectionHead titleId="services-title" title={home.method.title} description={home.method.desc} />
 
@@ -654,7 +678,7 @@ export function HomePageClient({ locale, copyText, featuredInsights }: Props) {
             </SectionFrame>
           </div>
 
-          <div>
+          <div className="deferred-section">
             <SectionFrame id="featured" className="section" aria-labelledby="featured-title" tone="panel" density="spacious" sectionTheme="fusion">
               <SectionHead
                 titleId="featured-title"
@@ -670,7 +694,7 @@ export function HomePageClient({ locale, copyText, featuredInsights }: Props) {
             </SectionFrame>
           </div>
 
-          <div>
+          <div className="deferred-section">
             <SectionFrame id="insights" className="section" aria-labelledby="insights-title" tone="panel" density="spacious" sectionTheme="fusion">
               <SectionHead
                 titleId="insights-title"
@@ -707,7 +731,7 @@ export function HomePageClient({ locale, copyText, featuredInsights }: Props) {
             </SectionFrame>
           </div>
 
-          <div>
+          <div ref={contactSectionRef} className="deferred-section">
             <SectionFrame
               id="contact"
               className="section"
@@ -720,11 +744,11 @@ export function HomePageClient({ locale, copyText, featuredInsights }: Props) {
             >
               <SectionHead titleId="contact-title" title={home.contact.title} description={home.contact.desc} />
               <div className="contact-layout">
-                <ContactForm
-                  locale={locale}
-                  text={t.contact_form}
-                  trackingSource="contact_form_home"
-                />
+                {shouldMountContactForm ? (
+                  <ContactForm locale={locale} text={t.contact_form} trackingSource="contact_form_home" />
+                ) : (
+                  <div className="contact-form-card" aria-busy="true" />
+                )}
 
                 <aside className="contact-card">
                   <p>{home.contact.card}</p>
@@ -757,7 +781,7 @@ export function HomePageClient({ locale, copyText, featuredInsights }: Props) {
             </SectionFrame>
           </div>
 
-          <div>
+          <div className="deferred-section">
             <SectionFrame id="faq" className="section" aria-labelledby="faq-title" tone="panel" density="spacious" sectionTheme="fusion">
               <SectionHead titleId="faq-title" title={home.faq.title} description={home.faq.desc} />
               <Accordion
