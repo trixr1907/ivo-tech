@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter, JetBrains_Mono, Oxanium, Space_Grotesk } from 'next/font/google';
+import { Inter, JetBrains_Mono, Space_Grotesk } from 'next/font/google';
 import type { ReactNode } from 'react';
 
 import { AppRuntime } from '@/components/AppRuntime';
@@ -28,13 +28,6 @@ const mono = JetBrains_Mono({
   variable: '--font-mono'
 });
 
-const display = Oxanium({
-  subsets: ['latin'],
-  weight: ['500', '600', '700'],
-  display: 'swap',
-  variable: '--font-display'
-});
-
 export const metadata: Metadata = {
   metadataBase: new URL('https://ivo-tech.com'),
   title: 'ivo-tech',
@@ -59,7 +52,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="de">
-      <body className={`${heading.variable} ${body.variable} ${mono.variable} ${display.variable}`} data-theme="dark">
+      <body className={`${heading.variable} ${body.variable} ${mono.variable}`} data-theme="dark">
         <a className="skip-link" href="#main-content">
           Zum Hauptinhalt springen
         </a>
