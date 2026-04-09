@@ -123,7 +123,6 @@ export function HomePageClient({ locale, copyText, featuredInsights }: Props) {
   const didTrackScrollDepth90 = useRef(false);
   const [isHeaderCondensed, setIsHeaderCondensed] = useState(false);
   const [isHeroVideoActive, setIsHeroVideoActive] = useState(false);
-  const [activeSection, setActiveSection] = useState<string>('hero-case');
   const [shouldMountBackgroundFx, setShouldMountBackgroundFx] = useState(false);
   const [shouldMountContactForm, setShouldMountContactForm] = useState(false);
   const contactSectionRef = useRef<HTMLDivElement | null>(null);
@@ -232,68 +231,6 @@ export function HomePageClient({ locale, copyText, featuredInsights }: Props) {
       cleanup?.();
     };
   }, [locale, pathname]);
-
-  useEffect(() => {
-    let started = false;
-    let cleanup: (() => void) | undefined;
-
-    const start = () => {
-      if (started) return;
-      started = true;
-
-      const sectionIds = ['hero-case', 'featured', 'about', 'insights', 'contact'];
-      const sections = sectionIds
-        .map((id) => document.getElementById(id))
-        .filter((section): section is HTMLElement => section instanceof HTMLElement);
-
-      if (!sections.length) return;
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          const visible = entries
-            .filter((entry) => entry.isIntersecting)
-            .sort((a, b) => b.intersectionRatio - a.intersectionRatio || a.boundingClientRect.top - b.boundingClientRect.top);
-
-          if (visible[0]?.target.id) {
-            setActiveSection(visible[0].target.id);
-          }
-        },
-        {
-          rootMargin: '-22% 0px -58% 0px',
-          threshold: [0.16, 0.35, 0.6]
-        }
-      );
-
-      sections.forEach((section) => observer.observe(section));
-
-      const syncFromHash = () => {
-        const hash = window.location.hash.replace('#', '');
-        if (hash && sectionIds.includes(hash)) {
-          setActiveSection(hash);
-        }
-      };
-
-      syncFromHash();
-      window.addEventListener('hashchange', syncFromHash);
-      cleanup = () => {
-        observer.disconnect();
-        window.removeEventListener('hashchange', syncFromHash);
-      };
-    };
-
-    const ric = (window as unknown as { requestIdleCallback?: (cb: () => void, opts?: { timeout?: number }) => number }).requestIdleCallback;
-    const cancelRic = (window as unknown as { cancelIdleCallback?: (id: number) => void }).cancelIdleCallback;
-    const id = ric ? ric(start, { timeout: 1400 }) : window.setTimeout(start, 500);
-
-    return () => {
-      if (ric && cancelRic) {
-        cancelRic(id);
-      } else if (!ric) {
-        window.clearTimeout(id);
-      }
-      cleanup?.();
-    };
-  }, []);
 
   useEffect(() => {
     if (shouldMountContactForm) return;
@@ -431,7 +368,7 @@ export function HomePageClient({ locale, copyText, featuredInsights }: Props) {
           nav={
             <>
               {navItems.map((item) => (
-                <a key={item.id} href={item.href} data-active={activeSection === item.id ? 'true' : undefined}>
+                <a key={item.id} href={item.href}>
                   {item.label}
                 </a>
               ))}
