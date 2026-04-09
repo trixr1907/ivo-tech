@@ -9,9 +9,10 @@ type Props = HTMLAttributes<HTMLElement> & {
   href: string;
   linkLabel: string;
   onLinkClick?: () => void;
+  linkProps?: Record<string, string>;
 };
 
-export function InsightCard({ category, readMinutes, title, summary, href, linkLabel, onLinkClick, className, ...rest }: Props) {
+export function InsightCard({ category, readMinutes, title, summary, href, linkLabel, onLinkClick, linkProps, className, ...rest }: Props) {
   return (
     <article {...rest} className={['insight-card', className].filter(Boolean).join(' ')}>
       <span className="insight-meta">
@@ -19,7 +20,7 @@ export function InsightCard({ category, readMinutes, title, summary, href, linkL
       </span>
       <h3>{title}</h3>
       <p>{summary}</p>
-      <Link className="insight-link" href={href} onClick={onLinkClick}>
+      <Link className="insight-link" href={href} onClick={onLinkClick} {...linkProps}>
         {linkLabel}
       </Link>
     </article>

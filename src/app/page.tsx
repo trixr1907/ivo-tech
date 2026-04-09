@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { headers } from 'next/headers';
 import { Suspense } from 'react';
 
-import { HomePageClient } from '@/app-pages/HomePageClient';
+import { HomePage as HomePageContent } from '@/app-pages/HomePage';
 import { copy } from '@/content/copy';
 import { getFeaturedInsights } from '@/content/hub';
 import { CONTACT_EMAIL, GITHUB_URL, SITE_URL } from '@/lib/site';
@@ -131,7 +131,7 @@ export default async function HomePage() {
     <>
       <script nonce={nonce} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Suspense fallback={null}>
-        <HomePageClient locale={locale} copyText={t} featuredInsights={featuredInsights} />
+        <HomePageContent locale={locale} copyText={t} featuredInsights={featuredInsights} />
       </Suspense>
     </>
   );
