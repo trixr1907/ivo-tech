@@ -3,7 +3,6 @@
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useRef, useState, type MouseEvent } from 'react';
 
 import { BackgroundFX } from '@/components/BackgroundFX';
@@ -102,15 +101,14 @@ function renderProjectCard(
 }
 
 export function HomePageClient({ locale, copyText, featuredInsights }: Props) {
-  const router = useRouter();
-  const pathname = usePathname() || (locale === 'en' ? '/en' : '/');
-  const searchParams = useSearchParams();
-  const search = searchParams?.toString() ?? '';
+  const defaultPath = locale === 'en' ? '/en' : '/';
+  const [pathname, setPathname] = useState(defaultPath);
+  const [search, setSearch] = useState('');
   const asPath = `${pathname}${search ? `?${search}` : ''}`;
   const t = copyText;
   const home = copyText.home;
 
-  const projectParam = searchParams?.get('project') ?? null;
+  const [projectParam, setProjectParam] = useState<string | null>(null);
   const activeProject = getProjectById(projectParam);
 
   const heroProject = getProjectsByTier('hero')[0] ?? null;
@@ -129,6 +127,22 @@ export function HomePageClient({ locale, copyText, featuredInsights }: Props) {
   const [shouldMountBackgroundFx, setShouldMountBackgroundFx] = useState(false);
   const [shouldMountContactForm, setShouldMountContactForm] = useState(false);
   const contactSectionRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const syncLocation = () => {
+      const nextPathname = window.location.pathname || defaultPath;
+      const nextSearch = window.location.search.startsWith('?') ? window.location.search.slice(1) : '';
+      const nextProject = new URLSearchParams(nextSearch).get('project');
+
+      setPathname(nextPathname);
+      setSearch(nextSearch);
+      setProjectParam(nextProject);
+    };
+
+    syncLocation();
+    window.addEventListener('popstate', syncLocation);
+    return () => window.removeEventListener('popstate', syncLocation);
+  }, [defaultPath]);
 
   useEffect(() => {
     const onScroll = () => setIsHeaderCondensed(window.scrollY > 14);
@@ -261,14 +275,20 @@ export function HomePageClient({ locale, copyText, featuredInsights }: Props) {
     const nextParams = new URLSearchParams(search);
     nextParams.set('project', id);
     const nextQuery = nextParams.toString();
-    router.push(`${pathname}${nextQuery ? `?${nextQuery}` : ''}#featured`, { scroll: false });
+    const nextUrl = `${pathname}${nextQuery ? `?${nextQuery}` : ''}#featured`;
+    window.history.pushState({ project: id }, '', nextUrl);
+    setSearch(nextQuery);
+    setProjectParam(id);
   };
 
   const closeModal = () => {
     const nextParams = new URLSearchParams(search);
     nextParams.delete('project');
     const nextQuery = nextParams.toString();
-    router.replace(`${pathname}${nextQuery ? `?${nextQuery}` : ''}#featured`, { scroll: false });
+    const nextUrl = `${pathname}${nextQuery ? `?${nextQuery}` : ''}#featured`;
+    window.history.replaceState({}, '', nextUrl);
+    setSearch(nextQuery);
+    setProjectParam(null);
   };
 
   const onProjectLinkClick = (e: MouseEvent<HTMLAnchorElement>, id: ProjectId, source: string) => {
