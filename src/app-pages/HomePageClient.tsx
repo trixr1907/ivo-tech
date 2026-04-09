@@ -126,6 +126,7 @@ export function HomePageClient({ locale, copyText, featuredInsights }: Props) {
   const [isHeaderCondensed, setIsHeaderCondensed] = useState(false);
   const [isHeroVideoActive, setIsHeroVideoActive] = useState(false);
   const [activeSection, setActiveSection] = useState<string>('hero-case');
+  const [shouldMountBackgroundFx, setShouldMountBackgroundFx] = useState(false);
   const [shouldMountContactForm, setShouldMountContactForm] = useState(false);
   const contactSectionRef = useRef<HTMLDivElement | null>(null);
 
@@ -236,6 +237,24 @@ export function HomePageClient({ locale, copyText, featuredInsights }: Props) {
     return () => observer.disconnect();
   }, [shouldMountContactForm]);
 
+  useEffect(() => {
+    if (shouldMountBackgroundFx) return;
+
+    const ric = (window as unknown as { requestIdleCallback?: (cb: () => void, opts?: { timeout?: number }) => number }).requestIdleCallback;
+    const cancelRic = (window as unknown as { cancelIdleCallback?: (id: number) => void }).cancelIdleCallback;
+
+    const mount = () => setShouldMountBackgroundFx(true);
+    const id = ric ? ric(mount, { timeout: 1000 }) : window.setTimeout(mount, 450);
+
+    return () => {
+      if (ric && cancelRic) {
+        cancelRic(id);
+      } else if (!ric) {
+        window.clearTimeout(id);
+      }
+    };
+  }, [shouldMountBackgroundFx]);
+
   const openProject = (id: ProjectId, source = 'unknown') => {
     trackEvent('case_study_open', { projectId: id, source, locale, path: asPath });
 
@@ -310,7 +329,7 @@ export function HomePageClient({ locale, copyText, featuredInsights }: Props) {
   return (
     <>
       <div className="theme-ref103632 ui-main-surface home-v3" data-theme="fusion">
-        <BackgroundFX />
+        {shouldMountBackgroundFx ? <BackgroundFX /> : null}
 
         <SiteHeader
           className="home-v2-header"
