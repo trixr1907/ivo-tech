@@ -74,7 +74,6 @@ function renderProjectCard(
       href={buildProjectHref(project.id)}
       onClick={(e) => onProjectLinkClick(e, project.id, 'project_card')}
       aria-haspopup="dialog"
-      aria-label={`${project.title[locale]} - ${project.one_liner[locale]}`}
     >
       <span className="project-bg" aria-hidden="true">
         <Image
