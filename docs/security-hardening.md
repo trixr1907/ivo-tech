@@ -12,6 +12,17 @@ Recommended rollout:
 3. Move nonce-based `script-src` from report-only into enforce and remove `unsafe-inline` for scripts.
 4. Keep scoped third-party allowances route-local (`/pizza` only), never globalize them.
 
+Observed telemetry (2026-04-09):
+- `npm run security:csp:summary -- --since=7d` analyzed 100 production rows.
+- All sampled violations were `script-src-elem` on `https://ivo-tech.com/`.
+- Samples point to Next.js streaming/runtime inline payloads (`self.__next_f.push(...)`) plus baseline inline blocks.
+
+Practical implication:
+- Switching enforce policy to nonce-only `script-src` right now would likely break hydration on static pages.
+- Keep enforce policy with `unsafe-inline` until runtime inline scripts are either:
+  - nonce-compatible via dynamic rendering strategy, or
+  - covered by a deterministic hash strategy.
+
 ## Contact API rate-limit store
 `/api/contact` supports persistent rate limiting via Redis REST (with memory fallback).
 
