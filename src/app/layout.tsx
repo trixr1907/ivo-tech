@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter, JetBrains_Mono, Space_Grotesk } from 'next/font/google';
+import { Space_Grotesk } from 'next/font/google';
 import type { ReactNode } from 'react';
 
 import { AppRuntime } from '@/components/AppRuntime';
@@ -13,19 +13,6 @@ const heading = Space_Grotesk({
   weight: ['400', '600', '700'],
   display: 'swap',
   variable: '--font-heading'
-});
-
-const body = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-body'
-});
-
-const mono = JetBrains_Mono({
-  subsets: ['latin'],
-  weight: ['400', '600'],
-  display: 'swap',
-  variable: '--font-mono'
 });
 
 export const metadata: Metadata = {
@@ -52,7 +39,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="de">
-      <body className={`${heading.variable} ${body.variable} ${mono.variable}`} data-theme="dark">
+      <body className={heading.variable} data-theme="dark">
         <a className="skip-link" href="#main-content">
           Zum Hauptinhalt springen
         </a>

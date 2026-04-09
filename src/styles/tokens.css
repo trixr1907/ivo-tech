@@ -1,5 +1,7 @@
 :root {
   color-scheme: dark light;
+  --font-body: system-ui;
+  --font-mono: ui-monospace;
 
   /* Core neutrals */
   --metal-990: #02040a;
