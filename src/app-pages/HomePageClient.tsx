@@ -145,87 +145,153 @@ export function HomePageClient({ locale, copyText, featuredInsights }: Props) {
   }, [defaultPath]);
 
   useEffect(() => {
-    const onScroll = () => setIsHeaderCondensed(window.scrollY > 14);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    let started = false;
+    let cleanup: (() => void) | undefined;
+
+    const start = () => {
+      if (started) return;
+      started = true;
+
+      const onScroll = () => {
+        const condensed = window.scrollY > 14;
+        setIsHeaderCondensed((prev) => (prev === condensed ? prev : condensed));
+      };
+
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+      cleanup = () => window.removeEventListener('scroll', onScroll);
+    };
+
+    const ric = (window as unknown as { requestIdleCallback?: (cb: () => void, opts?: { timeout?: number }) => number }).requestIdleCallback;
+    const cancelRic = (window as unknown as { cancelIdleCallback?: (id: number) => void }).cancelIdleCallback;
+    const id = ric ? ric(start, { timeout: 1200 }) : window.setTimeout(start, 400);
+
+    return () => {
+      if (ric && cancelRic) {
+        cancelRic(id);
+      } else if (!ric) {
+        window.clearTimeout(id);
+      }
+      cleanup?.();
+    };
   }, []);
 
   useEffect(() => {
-    didTrackScrollDepth50.current = false;
-    didTrackScrollDepth90.current = false;
+    let started = false;
+    let cleanup: (() => void) | undefined;
 
-    const onScrollDepth = () => {
-      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-      if (maxScroll <= 0) return;
+    const start = () => {
+      if (started) return;
+      started = true;
 
-      const progress = window.scrollY / maxScroll;
+      didTrackScrollDepth50.current = false;
+      didTrackScrollDepth90.current = false;
 
-      if (!didTrackScrollDepth50.current && progress >= 0.5) {
-        didTrackScrollDepth50.current = true;
-        trackEvent('homepage_scroll_depth', {
-          depth: 50,
-          locale,
-          path: pathname,
-          source: 'home_scroll_depth'
-        });
-      }
+      const onScrollDepth = () => {
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        if (maxScroll <= 0) return;
 
-      if (!didTrackScrollDepth90.current && progress >= 0.9) {
-        didTrackScrollDepth90.current = true;
-        trackEvent('homepage_scroll_depth', {
-          depth: 90,
-          locale,
-          path: pathname,
-          source: 'home_scroll_depth'
-        });
-      }
+        const progress = window.scrollY / maxScroll;
+
+        if (!didTrackScrollDepth50.current && progress >= 0.5) {
+          didTrackScrollDepth50.current = true;
+          trackEvent('homepage_scroll_depth', {
+            depth: 50,
+            locale,
+            path: pathname,
+            source: 'home_scroll_depth'
+          });
+        }
+
+        if (!didTrackScrollDepth90.current && progress >= 0.9) {
+          didTrackScrollDepth90.current = true;
+          trackEvent('homepage_scroll_depth', {
+            depth: 90,
+            locale,
+            path: pathname,
+            source: 'home_scroll_depth'
+          });
+        }
+      };
+
+      onScrollDepth();
+      window.addEventListener('scroll', onScrollDepth, { passive: true });
+      cleanup = () => window.removeEventListener('scroll', onScrollDepth);
     };
 
-    onScrollDepth();
-    window.addEventListener('scroll', onScrollDepth, { passive: true });
-    return () => window.removeEventListener('scroll', onScrollDepth);
+    const ric = (window as unknown as { requestIdleCallback?: (cb: () => void, opts?: { timeout?: number }) => number }).requestIdleCallback;
+    const cancelRic = (window as unknown as { cancelIdleCallback?: (id: number) => void }).cancelIdleCallback;
+    const id = ric ? ric(start, { timeout: 1600 }) : window.setTimeout(start, 700);
+
+    return () => {
+      if (ric && cancelRic) {
+        cancelRic(id);
+      } else if (!ric) {
+        window.clearTimeout(id);
+      }
+      cleanup?.();
+    };
   }, [locale, pathname]);
 
   useEffect(() => {
-    const sectionIds = ['hero-case', 'featured', 'about', 'insights', 'contact'];
-    const sections = sectionIds
-      .map((id) => document.getElementById(id))
-      .filter((section): section is HTMLElement => section instanceof HTMLElement);
+    let started = false;
+    let cleanup: (() => void) | undefined;
 
-    if (!sections.length) return;
+    const start = () => {
+      if (started) return;
+      started = true;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio || a.boundingClientRect.top - b.boundingClientRect.top);
+      const sectionIds = ['hero-case', 'featured', 'about', 'insights', 'contact'];
+      const sections = sectionIds
+        .map((id) => document.getElementById(id))
+        .filter((section): section is HTMLElement => section instanceof HTMLElement);
 
-        if (visible[0]?.target.id) {
-          setActiveSection(visible[0].target.id);
+      if (!sections.length) return;
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          const visible = entries
+            .filter((entry) => entry.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio || a.boundingClientRect.top - b.boundingClientRect.top);
+
+          if (visible[0]?.target.id) {
+            setActiveSection(visible[0].target.id);
+          }
+        },
+        {
+          rootMargin: '-22% 0px -58% 0px',
+          threshold: [0.16, 0.35, 0.6]
         }
-      },
-      {
-        rootMargin: '-22% 0px -58% 0px',
-        threshold: [0.16, 0.35, 0.6]
-      }
-    );
+      );
 
-    sections.forEach((section) => observer.observe(section));
+      sections.forEach((section) => observer.observe(section));
 
-    const syncFromHash = () => {
-      const hash = window.location.hash.replace('#', '');
-      if (hash && sectionIds.includes(hash)) {
-        setActiveSection(hash);
-      }
+      const syncFromHash = () => {
+        const hash = window.location.hash.replace('#', '');
+        if (hash && sectionIds.includes(hash)) {
+          setActiveSection(hash);
+        }
+      };
+
+      syncFromHash();
+      window.addEventListener('hashchange', syncFromHash);
+      cleanup = () => {
+        observer.disconnect();
+        window.removeEventListener('hashchange', syncFromHash);
+      };
     };
 
-    syncFromHash();
-    window.addEventListener('hashchange', syncFromHash);
+    const ric = (window as unknown as { requestIdleCallback?: (cb: () => void, opts?: { timeout?: number }) => number }).requestIdleCallback;
+    const cancelRic = (window as unknown as { cancelIdleCallback?: (id: number) => void }).cancelIdleCallback;
+    const id = ric ? ric(start, { timeout: 1400 }) : window.setTimeout(start, 500);
 
     return () => {
-      observer.disconnect();
-      window.removeEventListener('hashchange', syncFromHash);
+      if (ric && cancelRic) {
+        cancelRic(id);
+      } else if (!ric) {
+        window.clearTimeout(id);
+      }
+      cleanup?.();
     };
   }, []);
 
