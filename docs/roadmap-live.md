@@ -74,10 +74,11 @@ Update-Frequenz: bei jeder Session und nach jedem relevanten Merge
 | 2026-04-10 | Hero Log Auto-Sync + Runner Opt-In (`N2`/`N3` Prep) | `hero:log:sync:plausible` eingefuehrt und Daily-Workflow auf Node24-Opt-in umgestellt; Dispatch-Run `24255415962` erfolgreich | Action-Versionen auf Node24-native Versionen heben und Warning-frei verifizieren |
 | 2026-04-10 | Workflow Version-Hardening (`N2`) | `analytics-ops-daily` auf `actions/checkout@v5` + `actions/setup-node@v5` aktualisiert; Run `24255468313` erfolgreich ohne Node20-Runner-Annotation | Externes Blocking-Thema bleibt `PLAUSIBLE_STATS_API_KEY` fuer echte KPI-/Alert-Auswertung |
 | 2026-04-10 | Frontend/IA Rebuild Gate (`F1`/`F2` + Basis `N2`) | Voller Gate-Lauf wieder gruen (`lint`, `typecheck`, `unit`, `e2e` 16/16) nach Harmonisierung von Hero-Lifecycle, Hub-Detail-CTA und E2E-Assertions | Arbeitsstand als zusammenhaengenden Meilenstein committen und weiter auf offene N2/N3/N4-Blocker fokussieren |
+| 2026-04-10 | Meilenstein-Commit Frontend-Rebuild | Großer zusammenhaengender Rollout auf `main` gepusht (`d413ca4`): neue IA-Routen, Services/Hub-/Case-/Contact-Flows, Analytics-Contracts, Readiness-Skripte und Dokumentationsboards live im Repo | Fokus bleibt auf externen Blockern: `PLAUSIBLE_STATS_API_KEY`, 14-Tage-Experimentlog und zwei freigegebene Kundenstimmen |
 
 <!-- ROADMAP_SYNC_START -->
 ## Auto-Sync Snapshot
-Generiert: 2026-04-10T17:33:08.277Z
+Generiert: 2026-04-10T17:33:48.360Z
 
 - Masterplan-Checklist: **7/13** erledigt (**53.8%**).
 - Offene Punkte: **6**.
