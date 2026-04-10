@@ -101,6 +101,7 @@ Variables:
 - Production deploy (manual approval): `.github/workflows/cd-production.yml`
 
 Runbooks:
+- `docs/ops-control-center.md` (zentraler Einstieg fuer Daily Ops, Release, Incident)
 - `docs/deploy.md`
 - `docs/release.md`
 - `docs/changelog.md`

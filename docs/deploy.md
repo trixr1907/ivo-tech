@@ -1,5 +1,8 @@
 # Deploy Runbook
 
+## Operational entrypoint
+- Zentrale Steuerdatei fuer Betrieb, Release und Incident: `docs/ops-control-center.md`
+
 ## Environment model
 - `development`: local machine + PR preview URLs.
 - `production`: manual release workflow; by default deploys with `--skip-domain` (custom domains are not updated).

@@ -9,6 +9,7 @@ Update-Frequenz: bei jeder Session und nach jedem relevanten Merge
 2. Nach jedem abgeschlossenen Block: Status in dieser Datei aktualisieren.
 3. Vor Abschluss/Release: `npm run roadmap:sync` + `npm run masterplan:progress`.
 4. Diese Datei ist die operative Referenz fuer "was jetzt", "was danach", "was blockiert".
+5. Operative Ausfuehrung (Daily Ops/Release/Incident): `docs/ops-control-center.md`.
 
 ## Prioritaetsmodus (ab sofort)
 1. `Human-visible first`: Alles was Nutzer direkt sehen (Hero, Sections, Copy, Trust, Seitenkonsistenz, mobile Wirkung) hat Vorrang.
@@ -80,7 +81,7 @@ Update-Frequenz: bei jeder Session und nach jedem relevanten Merge
 
 <!-- ROADMAP_SYNC_START -->
 ## Auto-Sync Snapshot
-Generiert: 2026-04-10T18:35:46.379Z
+Generiert: 2026-04-10T18:38:47.641Z
 
 - Masterplan-Checklist: **13/13** erledigt (**100.0%**).
 - Offene Punkte: **0**.
