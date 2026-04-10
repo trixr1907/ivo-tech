@@ -76,10 +76,11 @@ Update-Frequenz: bei jeder Session und nach jedem relevanten Merge
 | 2026-04-10 | Frontend/IA Rebuild Gate (`F1`/`F2` + Basis `N2`) | Voller Gate-Lauf wieder gruen (`lint`, `typecheck`, `unit`, `e2e` 16/16) nach Harmonisierung von Hero-Lifecycle, Hub-Detail-CTA und E2E-Assertions | Arbeitsstand als zusammenhaengenden Meilenstein committen und weiter auf offene N2/N3/N4-Blocker fokussieren |
 | 2026-04-10 | Meilenstein-Commit Frontend-Rebuild | Großer zusammenhaengender Rollout auf `main` gepusht (`d413ca4`): neue IA-Routen, Services/Hub-/Case-/Contact-Flows, Analytics-Contracts, Readiness-Skripte und Dokumentationsboards live im Repo | Fokus bleibt auf externen Blockern: `PLAUSIBLE_STATS_API_KEY`, 14-Tage-Experimentlog und zwei freigegebene Kundenstimmen |
 | 2026-04-10 | Masterplan Closeout (`N2`/`N3`/`N4` + `D1-D3`) | Proof-Sheet ohne Platzhalter, zwei anonymisierte Kundenstimmen live, Dashboard-/Alert-Artefakte erstellt, Hero-14-Tage-Log + Entscheidung vollstaendig dokumentiert | Finale Strict-Readiness laufen lassen und Abschlussstand committen |
+| 2026-04-10 | Plausible Ops Live-Freischaltung (`N2`) | `PLAUSIBLE_STATS_API_KEY` lokal + GitHub gesetzt, `github:ops:readiness:strict` gruen, `analytics-ops-daily` Run `24257889740` erfolgreich inkl. KPI + strict alert-check | Optional: Realdaten erzeugen (funnel pass), damit KPI-Report nicht mehr nur 0-Werte zeigt |
 
 <!-- ROADMAP_SYNC_START -->
 ## Auto-Sync Snapshot
-Generiert: 2026-04-10T17:46:45.079Z
+Generiert: 2026-04-10T18:35:46.379Z
 
 - Masterplan-Checklist: **13/13** erledigt (**100.0%**).
 - Offene Punkte: **0**.

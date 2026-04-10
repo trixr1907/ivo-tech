@@ -55,6 +55,8 @@ Automation helper:
 | 2026-04-10 | remote | `analytics-ops-daily` workflow dispatch (Run `24255122948`) | pass | Job erfolgreich; KPI/strict steps wurden wegen fehlendem `PLAUSIBLE_STATS_API_KEY` korrekt auf `skip` gesetzt |
 | 2026-04-10 | remote | `analytics-ops-daily` workflow dispatch (Run `24255415962`) | pass | Erfolgreich auf Commit `139ab57`; Node24 erzwungen, Annotation zeigt verbleibendes Action-Versionsthema (`actions/*@v4`) |
 | 2026-04-10 | remote | `analytics-ops-daily` workflow dispatch (Run `24255468313`) | pass | Erfolgreich auf Commit `9df926a`; `actions/checkout@v5` + `actions/setup-node@v5`, keine Node20-Runner-Annotation mehr |
+| 2026-04-10 | repo/remote | GitHub ops readiness (strict) | pass | `PLAUSIBLE_STATS_API_KEY` gesetzt; `npm run github:ops:readiness:strict` gruen |
+| 2026-04-10 | remote | `analytics-ops-daily` workflow dispatch (Run `24257889740`) | pass | KPI snapshot + strict hard-alert-check erfolgreich ausgefuehrt (kein Skip-Pfad), aktuell noch 0 Events im 7d-Fenster |
 | 2026-04-10 | repo | Dashboard pack dokumentiert | pass | Fuenf operative Dashboard-Artefakte unter `docs/analytics-dashboards/` erstellt |
 | 2026-04-10 | repo | Alert-Regeln dokumentiert + an Workflow gebunden | pass | Regeln in `docs/analytics-dashboards/alerts.md`, Ausfuehrung ueber `analytics-ops-daily.yml` |
 

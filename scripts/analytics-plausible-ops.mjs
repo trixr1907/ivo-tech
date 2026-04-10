@@ -200,6 +200,7 @@ async function main() {
     'contact_form_start',
     'contact_form_submit_success',
     'thank_you_view',
+    'thank_you_cta_click',
     'service_detail_view',
     'service_detail_cta_click'
   ];
