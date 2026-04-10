@@ -40,6 +40,7 @@
     "analytics:live:readiness:strict": "node scripts/analytics-live-readiness.mjs --strict",
     "hero:log:readiness": "node scripts/hero-log-readiness.mjs",
     "hero:log:readiness:strict": "node scripts/hero-log-readiness.mjs --strict",
+    "hero:log:sync:plausible": "node scripts/hero-log-sync-plausible.mjs",
     "ops:readiness": "node scripts/ops-readiness.mjs",
     "ops:readiness:strict": "node scripts/ops-readiness.mjs --strict",
     "github:ops:readiness": "node scripts/github-ops-readiness.mjs",

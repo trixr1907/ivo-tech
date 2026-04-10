@@ -31,6 +31,7 @@ The open work is operational:
    - `PLAUSIBLE_STATS_API_KEY` is set locally/CI for read-only Stats API queries
    - run `npm run analytics:plausible:ops` for weekly snapshot + alert evaluation
    - run `npm run analytics:plausible:ops:strict` to fail on triggered hard alerts
+   - run `npm run hero:log:sync:plausible -- --day=YYYY-MM-DD` to write daily experiment metrics into `docs/hero-experiment-log.md`
 
 ## 2a) Repo implementation status (2026-04-10)
 

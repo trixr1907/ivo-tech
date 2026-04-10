@@ -37,6 +37,7 @@ npm run analytics:live:readiness:strict
 npm run hero:experiment:plan -- --start=YYYY-MM-DD
 npm run hero:log:readiness
 npm run hero:log:readiness:strict
+npm run hero:log:sync:plausible -- --day=YYYY-MM-DD
 npm run ops:readiness
 npm run ops:readiness:strict
 npm run github:ops:readiness
@@ -81,6 +82,7 @@ Variables:
 - `NEXT_PUBLIC_SCHEDULER_URL` (optional, scheduler link override for contact/thank-you CTAs; defaults to `https://cal.com/ivo-tech/intro-call`)
 - `NEXT_PUBLIC_HERO_EXPERIMENT_ENABLED` (optional, `true/false` toggle for persistent hero variant assignment)
 - `NEXT_PUBLIC_HERO_EXPERIMENT_WEIGHTS` (optional, CSV `default,outcome,speed`, e.g. `50,25,25`)
+- `PLAUSIBLE_STATS_API_KEY` (required for `analytics:plausible:ops*` and `hero:log:sync:plausible`)
 - `NEXT_PUBLIC_SENTRY_DSN` (optional)
 - `NEXT_PUBLIC_CSP_REPORT_URI` (optional)
 - `RESEND_API_KEY` (optional, enables direct email delivery for contact form submissions)
