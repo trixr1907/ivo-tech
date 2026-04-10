@@ -137,7 +137,16 @@ jobs:
         run: |
           npm run lint
           npm run typecheck
+          npm run analytics:verify:map:strict
           npm run build
+
+      - name: Ops readiness (report mode)
+        if: ${{ inputs.promote_to_custom_domains != true }}
+        run: npm run ops:readiness
+
+      - name: Ops readiness (strict for custom-domain promotion)
+        if: ${{ inputs.promote_to_custom_domains == true }}
+        run: npm run ops:readiness:strict
 
       - name: Pull Vercel project settings (production env)
         run: npx vercel pull --yes --environment=production --scope="$VERCEL_ORG_ID" --token="$VERCEL_TOKEN"

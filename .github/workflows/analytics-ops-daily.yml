@@ -1,0 +1,64 @@
+name: analytics-ops-daily
+
+on:
+  schedule:
+    - cron: '15 6 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: analytics-ops-daily
+  cancel-in-progress: true
+
+jobs:
+  plausible-alert-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      NEXT_PUBLIC_SITE_URL: https://ivo-tech.com
+      ANALYTICS_SINK_PLAUSIBLE_DOMAIN: ivo-tech.com
+      ANALYTICS_SINK_PLAUSIBLE_HOST: https://plausible.io
+      PLAUSIBLE_STATS_API_KEY: ${{ secrets.PLAUSIBLE_STATS_API_KEY }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run KPI snapshot report
+        shell: bash
+        run: |
+          if [ -z "${PLAUSIBLE_STATS_API_KEY}" ]; then
+            echo "PLAUSIBLE_STATS_API_KEY missing; skipping analytics ops checks."
+            {
+              echo "## Analytics ops daily"
+              echo ""
+              echo "- status: skipped"
+              echo "- reason: missing secret \`PLAUSIBLE_STATS_API_KEY\`"
+            } >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+
+          npm run analytics:plausible:ops | tee analytics-ops-report.txt
+          {
+            echo "## Analytics ops daily"
+            echo ""
+            echo '```txt'
+            cat analytics-ops-report.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Enforce hard-alert thresholds
+        shell: bash
+        run: |
+          if [ -z "${PLAUSIBLE_STATS_API_KEY}" ]; then
+            exit 0
+          fi
+          npm run analytics:plausible:ops:strict
