@@ -74,7 +74,7 @@ Update-Frequenz: bei jeder Session und nach jedem relevanten Merge
 
 <!-- ROADMAP_SYNC_START -->
 ## Auto-Sync Snapshot
-Generiert: 2026-04-10T17:15:49.117Z
+Generiert: 2026-04-10T17:20:34.330Z
 
 - Masterplan-Checklist: **7/13** erledigt (**53.8%**).
 - Offene Punkte: **6**.
@@ -96,4 +96,5 @@ Generiert: 2026-04-10T17:15:49.117Z
 - [ ] Experimentbetrieb: 14-Tage-Log in `docs/hero-experiment-log.md` ausgefuellt.
 - [ ] Experimentbetrieb: Keep/Revert/Iterate-Entscheidung datenbasiert dokumentiert.
 <!-- ROADMAP_SYNC_END -->
+
 
