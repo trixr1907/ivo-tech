@@ -78,11 +78,10 @@ Variables:
   - `ANALYTICS_SINK_POSTHOG_HOST`
   - `ANALYTICS_SINK_PLAUSIBLE_DOMAIN`
   - `ANALYTICS_SINK_PLAUSIBLE_HOST`
-  - `PLAUSIBLE_STATS_API_KEY` (optional, required for `analytics:plausible:ops*` scripts)
+  - `PLAUSIBLE_STATS_API_KEY` (optional, required for live Plausible stats queries used by `analytics:plausible:ops*` and `hero:log:sync:plausible`)
 - `NEXT_PUBLIC_SCHEDULER_URL` (optional, scheduler link override for contact/thank-you CTAs; defaults to `https://cal.com/ivo-tech/intro-call`)
 - `NEXT_PUBLIC_HERO_EXPERIMENT_ENABLED` (optional, `true/false` toggle for persistent hero variant assignment)
 - `NEXT_PUBLIC_HERO_EXPERIMENT_WEIGHTS` (optional, CSV `default,outcome,speed`, e.g. `50,25,25`)
-- `PLAUSIBLE_STATS_API_KEY` (required for `analytics:plausible:ops*` and `hero:log:sync:plausible`)
 - `NEXT_PUBLIC_SENTRY_DSN` (optional)
 - `NEXT_PUBLIC_CSP_REPORT_URI` (optional)
 - `RESEND_API_KEY` (optional, enables direct email delivery for contact form submissions)
@@ -93,6 +92,7 @@ Variables:
 - `CONTACT_RATE_LIMIT_WINDOW_MINUTES` (optional)
 - `NEXT_PUBLIC_TURNSTILE_SITE_KEY` (optional, enables Turnstile on contact form)
 - `TURNSTILE_SECRET_KEY` (optional, validates Turnstile token server-side)
+- `.env.ops` contains non-secret defaults for `ops:readiness*` strict checks.
 
 ## CI/CD
 - PR quality gates: `.github/workflows/ci.yml`, `unit-integration.yml`, `e2e.yml`, `security.yml`
@@ -112,6 +112,7 @@ Runbooks:
 - `docs/cloudflare-cli.md`
 - `docs/styleframes.md`
 - `docs/analytics-activation-runbook.md`
+- `docs/analytics-dashboards/`
 - `docs/proof-asset-collection.md`
 - `docs/hero-experiment-log.md`
 - `docs/masterplan-closeout-checklist.md`

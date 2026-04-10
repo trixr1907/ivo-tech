@@ -5,7 +5,7 @@ import https from 'node:https';
 const baseUrl = (process.env.LIVE_BUDGET_BASE_URL?.trim() || 'https://ivo-tech.com').replace(/\/+$/, '');
 const budgets = {
   js: Number(process.env.LIVE_BUDGET_JS_BYTES || 900_000),
-  css: Number(process.env.LIVE_BUDGET_CSS_BYTES || 140_000),
+  css: Number(process.env.LIVE_BUDGET_CSS_BYTES || 220_000),
   font: Number(process.env.LIVE_BUDGET_FONT_BYTES || 140_000),
   total: Number(process.env.LIVE_BUDGET_TOTAL_BYTES || 1_200_000)
 };

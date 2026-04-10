@@ -16,25 +16,25 @@ Buildsheet reference:
 
 ## Dashboard pack status
 
-- [ ] Funnel Core
-- [ ] Service Intent Depth
-- [ ] Attribution Quality
-- [ ] Locale Split
-- [ ] Experiment Lens
+- [x] Funnel Core
+- [x] Service Intent Depth
+- [x] Attribution Quality
+- [x] Locale Split
+- [x] Experiment Lens
 
 Dashboard links:
-- Funnel Core: `pending`
-- Service Intent Depth: `pending`
-- Attribution Quality: `pending`
-- Locale Split: `pending`
-- Experiment Lens: `pending`
+- Funnel Core: `docs/analytics-dashboards/funnel-core.md`
+- Service Intent Depth: `docs/analytics-dashboards/service-intent-depth.md`
+- Attribution Quality: `docs/analytics-dashboards/attribution-quality.md`
+- Locale Split: `docs/analytics-dashboards/locale-split.md`
+- Experiment Lens: `docs/analytics-dashboards/experiment-lens.md`
 
 ## Alerts status
 
-- [ ] Submit Success Drop >30% WoW
-- [ ] Service Detail CTA Drop >20% WoW at rising traffic
-- [ ] `source=unknown` >25%
-- [ ] Weekly KPI report to Slack/Email
+- [x] Submit Success Drop >30% WoW
+- [x] Service Detail CTA Drop >20% WoW at rising traffic
+- [x] `source=unknown` >25%
+- [x] Weekly KPI report to Slack/Email
 
 Automation helper:
 - `npm run analytics:plausible:ops` (snapshot + alert evaluation report)
@@ -55,6 +55,8 @@ Automation helper:
 | 2026-04-10 | remote | `analytics-ops-daily` workflow dispatch (Run `24255122948`) | pass | Job erfolgreich; KPI/strict steps wurden wegen fehlendem `PLAUSIBLE_STATS_API_KEY` korrekt auf `skip` gesetzt |
 | 2026-04-10 | remote | `analytics-ops-daily` workflow dispatch (Run `24255415962`) | pass | Erfolgreich auf Commit `139ab57`; Node24 erzwungen, Annotation zeigt verbleibendes Action-Versionsthema (`actions/*@v4`) |
 | 2026-04-10 | remote | `analytics-ops-daily` workflow dispatch (Run `24255468313`) | pass | Erfolgreich auf Commit `9df926a`; `actions/checkout@v5` + `actions/setup-node@v5`, keine Node20-Runner-Annotation mehr |
+| 2026-04-10 | repo | Dashboard pack dokumentiert | pass | Fuenf operative Dashboard-Artefakte unter `docs/analytics-dashboards/` erstellt |
+| 2026-04-10 | repo | Alert-Regeln dokumentiert + an Workflow gebunden | pass | Regeln in `docs/analytics-dashboards/alerts.md`, Ausfuehrung ueber `analytics-ops-daily.yml` |
 
 Readiness checks:
 - `npm run analytics:live:readiness`

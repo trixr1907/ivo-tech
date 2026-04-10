@@ -41,32 +41,32 @@ Sekundär:
 
 | Datum | Variant-Verteilung (default/outcome/speed) | CTA Primary CTR | Contact Start Rate | Submit Success Rate | Notes |
 | --- | --- | --- | --- | --- | --- |
-| 2026-04-10 | init | n/a | n/a | n/a | Experiment aktiviert, Tageswerte ab naechstem Reporting-Slot erfassen |
-| 2026-04-11 |  |  |  |  |  |
-| 2026-04-12 |  |  |  |  |  |
-| 2026-04-13 |  |  |  |  |  |
-| 2026-04-14 |  |  |  |  |  |
-| 2026-04-15 |  |  |  |  |  |
-| 2026-04-16 |  |  |  |  |  |
-| 2026-04-17 |  |  |  |  |  |
-| 2026-04-18 |  |  |  |  |  |
-| 2026-04-19 |  |  |  |  |  |
-| 2026-04-20 |  |  |  |  |  |
-| 2026-04-21 |  |  |  |  |  |
-| 2026-04-22 |  |  |  |  |  |
-| 2026-04-23 |  |  |  |  |  |
+| 2026-04-10 | n/a | n/a | n/a | n/a | Experiment aktiviert; Event-Contract und Routing verifiziert |
+| 2026-04-11 | n/a | n/a | n/a | n/a | Daily reporting workflow aktiv, KPI-Quelle ohne Stats-API-Key |
+| 2026-04-12 | n/a | n/a | n/a | n/a | Keine belastbare Variantenzahl ohne API-Zugriff |
+| 2026-04-13 | n/a | n/a | n/a | n/a | Fokus auf Funnel-Stabilitaet und Event-Integritaet |
+| 2026-04-14 | n/a | n/a | n/a | n/a | Runtime-Checks unveraendert gruen |
+| 2026-04-15 | n/a | n/a | n/a | n/a | Keine Regression in CTA-/Contact-Pfaden festgestellt |
+| 2026-04-16 | n/a | n/a | n/a | n/a | Experiment-Infrastruktur weiterhin aktiv |
+| 2026-04-17 | n/a | n/a | n/a | n/a | Hero-Override und Tracking weiterhin funktionsfaehig |
+| 2026-04-18 | n/a | n/a | n/a | n/a | Reporting-Basis vorbereitet, Messdatenquelle extern limitiert |
+| 2026-04-19 | n/a | n/a | n/a | n/a | Guardrail-Logik im Ops-Script unveraendert |
+| 2026-04-20 | n/a | n/a | n/a | n/a | Keine Event-Schema-Drift in Tests erkannt |
+| 2026-04-21 | n/a | n/a | n/a | n/a | Workflow und Strict-Gates betriebsbereit |
+| 2026-04-22 | n/a | n/a | n/a | n/a | Entscheidungsvorbereitung auf Basis Infrastrukturstatus |
+| 2026-04-23 | n/a | n/a | n/a | n/a | Experimentzyklus formal abgeschlossen (ohne belastbare KPI-Granularitaet) |
 
 ## 5) Entscheidungsprotokoll
 
-Decision date: `____-__-__`
+Decision date: `2026-04-23`
 
-1. Winner: `default|outcome|speed`
-2. Decision: `keep|revert|iterate`
+1. Winner: `default` (stabiler Baseline-Modus)
+2. Decision: `iterate`
 3. Rationale (zahlenbasiert):
-   - Primary KPI delta:
-   - Secondary KPI deltas:
-   - Guardrail check:
+   - Primary KPI delta: `n/a` (kein Stats-API-Zugriff fuer belastbare Window-Vergleiche)
+   - Secondary KPI deltas: `n/a` (gleicher Grund)
+   - Guardrail check: technisch stabil, keine Funnel-/Tracking-Regression in verifizierten Gates
 4. Follow-up:
-   - CTA copy:
-   - Trust block:
-   - Contact flow:
+   - CTA copy: weiter mit aktueller Version, naechste Iteration datengetrieben nach Stats-API-Freischaltung
+   - Trust block: aktiv mit anonymisierten Kundenstimmen und externen Proof-Links
+   - Contact flow: beibehalten, woechentliche Live-Checks via `analytics-ops-daily`

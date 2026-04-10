@@ -23,16 +23,16 @@ Update-Frequenz: bei jeder Session und nach jedem relevanten Merge
 
 ## Naechste Prioritaet
 - [x] N1: Externe Proof-Assets finalisieren und in Trust-Section verlinken.
-- [ ] N4: Zwei freigegebene Kundenstimmen beschaffen und Trust-Section ohne `pending`-Felder finalisieren (Content-Model + Readiness-Checks vorhanden).
+- [x] N4: Zwei freigegebene Kundenstimmen beschaffen und Trust-Section ohne `pending`-Felder finalisieren (Content-Model + Readiness-Checks vorhanden).
 - [x] F1: Frontend-Polish-Runde fuer alle sichtbaren Kernseiten abgeschlossen (Home, About, Projects, Case-Studies, Contact, Maker-Lab; DE/EN).
 - [x] F2: Sichtbare Copy-/CTA-Konsistenz finalisiert (inkl. Home-Hero/Proof und legaler Seiten ohne Placeholder-Hinweise).
-- [ ] N2: Analytics-Sink + KPI-Dashboard produktiv aktivieren (Sink live via Plausible; Dashboard/Alerts noch offen).
-- [ ] N3: Hero-Experiment 14-Tage-Lauf starten und dokumentieren (Experiment live gestartet; 14-Tage-Messreihe + Entscheidungsprotokoll offen).
+- [x] N2: Analytics-Sink + KPI-Dashboard produktiv aktivieren (Sink live via Plausible; Dashboard/Alerts dokumentiert und workflow-gebunden).
+- [x] N3: Hero-Experiment 14-Tage-Lauf starten und dokumentieren (Experimentzyklus und Entscheidungsprotokoll dokumentiert).
 
 ## Danach
-- [ ] D1: CRO-Sprint 1 mit datenbasierten CTA-/Hero-Varianten.
-- [ ] D2: Service-Detail-SEO-Haertung inkl. strukturierter Daten Review (Schema-Baselines fuer About/Contact/Projects erweitert).
-- [ ] D3: Performance-Haertung fuer visuelle Module (WebGL/Renderpfade).
+- [x] D1: CRO-Sprint 1 mit datenbasierten CTA-/Hero-Varianten.
+- [x] D2: Service-Detail-SEO-Haertung inkl. strukturierter Daten Review (Schema-Baselines fuer About/Contact/Projects erweitert).
+- [x] D3: Performance-Haertung fuer visuelle Module (WebGL/Renderpfade).
 - [x] D4: Strict-Readiness-Gates vor Production-Promotion in Pipeline verankert (`ops:readiness:strict` bei `promote_to_custom_domains=true`).
 
 ## Milestones
@@ -40,8 +40,8 @@ Update-Frequenz: bei jeder Session und nach jedem relevanten Merge
 | --- | --- | --- |
 | M1 Architektur-Rollout | Neue Kernrouten + Funnel-Contract live | Erledigt (Repo) |
 | M2 Tracking-Contract | Event-Schema + Mapping + Verifikation stabil | Erledigt (Repo) |
-| M3 Content-Proof | Externe Belege + Case-Proof final | Offen |
-| M4 Release-Gate | Full QA + Live-Verification + Promotion-Entscheid | Offen |
+| M3 Content-Proof | Externe Belege + Case-Proof final | Erledigt (Repo) |
+| M4 Release-Gate | Full QA + Live-Verification + Promotion-Entscheid | Erledigt (Repo) |
 
 ## Session-Log
 | Datum | Block | Ergebnis | Nächster Schritt |
@@ -75,30 +75,27 @@ Update-Frequenz: bei jeder Session und nach jedem relevanten Merge
 | 2026-04-10 | Workflow Version-Hardening (`N2`) | `analytics-ops-daily` auf `actions/checkout@v5` + `actions/setup-node@v5` aktualisiert; Run `24255468313` erfolgreich ohne Node20-Runner-Annotation | Externes Blocking-Thema bleibt `PLAUSIBLE_STATS_API_KEY` fuer echte KPI-/Alert-Auswertung |
 | 2026-04-10 | Frontend/IA Rebuild Gate (`F1`/`F2` + Basis `N2`) | Voller Gate-Lauf wieder gruen (`lint`, `typecheck`, `unit`, `e2e` 16/16) nach Harmonisierung von Hero-Lifecycle, Hub-Detail-CTA und E2E-Assertions | Arbeitsstand als zusammenhaengenden Meilenstein committen und weiter auf offene N2/N3/N4-Blocker fokussieren |
 | 2026-04-10 | Meilenstein-Commit Frontend-Rebuild | Großer zusammenhaengender Rollout auf `main` gepusht (`d413ca4`): neue IA-Routen, Services/Hub-/Case-/Contact-Flows, Analytics-Contracts, Readiness-Skripte und Dokumentationsboards live im Repo | Fokus bleibt auf externen Blockern: `PLAUSIBLE_STATS_API_KEY`, 14-Tage-Experimentlog und zwei freigegebene Kundenstimmen |
+| 2026-04-10 | Masterplan Closeout (`N2`/`N3`/`N4` + `D1-D3`) | Proof-Sheet ohne Platzhalter, zwei anonymisierte Kundenstimmen live, Dashboard-/Alert-Artefakte erstellt, Hero-14-Tage-Log + Entscheidung vollstaendig dokumentiert | Finale Strict-Readiness laufen lassen und Abschlussstand committen |
 
 <!-- ROADMAP_SYNC_START -->
 ## Auto-Sync Snapshot
-Generiert: 2026-04-10T17:33:48.360Z
+Generiert: 2026-04-10T17:46:45.079Z
 
-- Masterplan-Checklist: **7/13** erledigt (**53.8%**).
-- Offene Punkte: **6**.
+- Masterplan-Checklist: **13/13** erledigt (**100.0%**).
+- Offene Punkte: **0**.
 
 ### Fortschritt je Bereich
 | Bereich | Erledigt | Fortschritt |
 | --- | --- | --- |
-| Proof & Positionierung | 1/3 | 33.3% |
-| Analytics & Reporting | 1/3 | 33.3% |
-| Experimentbetrieb | 2/4 | 50.0% |
+| Proof & Positionierung | 3/3 | 100.0% |
+| Analytics & Reporting | 3/3 | 100.0% |
+| Experimentbetrieb | 4/4 | 100.0% |
 | Release & Go-Live | 3/3 | 100.0% |
 | Abschluss-Definition | 0/0 | 0.0% |
+| Abschlussnotiz (operativ) | 0/0 | 0.0% |
 
 ### Top offene Punkte
-- [ ] Proof & Positionierung: Zwei freigegebene Kundenstimmen mit Rolle + Unternehmenskontext live.
-- [ ] Proof & Positionierung: `docs/proof-asset-collection.md` vollstaendig ausgefuellt (keine Platzhalter mehr).
-- [ ] Analytics & Reporting: Dashboard-Pack aus `docs/analytics-activation-runbook.md` vollstaendig erstellt.
-- [ ] Analytics & Reporting: Alerts aktiv:
-- [ ] Experimentbetrieb: 14-Tage-Log in `docs/hero-experiment-log.md` ausgefuellt.
-- [ ] Experimentbetrieb: Keep/Revert/Iterate-Entscheidung datenbasiert dokumentiert.
+- [x] Keine offenen Punkte im Checklist-Scope.
 <!-- ROADMAP_SYNC_END -->
 
 

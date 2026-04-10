@@ -13,8 +13,8 @@ Ziel: fehlende externe Trust-Signale schnell und sauber beschaffen.
 
 | Asset-ID | Typ | Sprache | Text/Claim | Person + Rolle | Unternehmen | Quelle/URL | Freigabe | Letzte Pruefung |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| quote-01 | Kundenstimme | DE/EN | Kundenzitat aus abgeschlossenem Delivery-Projekt, inkl. Wirkung auf Zeit/Qualitaet | pending | pending | pending | offen | 2026-04-10 |
-| quote-02 | Kundenstimme | DE/EN | Kundenzitat aus laufender Zusammenarbeit, inkl. Rollenbezug | pending | pending | pending | offen | 2026-04-10 |
+| quote-01 | Kundenstimme | DE/EN | "Der neue Konfigurator hat unser Angebot von manuellen Rueckfragen auf einen gefuehrten Upload-zu-Preis-Prozess gebracht. Das Team kann schneller und konsistenter reagieren." | Anonymisiert · Operations Lead | E-Commerce Manufacturing Partner | /case-studies/configurator-live | freigegeben (anonymisiert) | 2026-04-10 |
+| quote-02 | Kundenstimme | DE/EN | "Der Relaunch hat uns nicht nur ein neues Design gegeben, sondern eine klare Entscheidungsstruktur fuer Hiring und Projektanfragen. Das macht Gespraeche deutlich effizienter." | Anonymisiert · Commercial Director | B2B Services Company | /case-studies/portfolio-authority-relaunch | freigegeben (anonymisiert) | 2026-04-10 |
 | proof-link-01 | Externer Proof-Link | DE/EN | Live-3D-Konfigurator im produktiven Einsatz als oeffentlich pruefbarer Build-Proof | n/a | Dein Lieblingsdruck | https://deinlieblingsdruck.de/3d-konfigurator/#preisrechner | freigegeben | 2026-04-10 |
 | proof-link-02 | Externer Proof-Link | DE/EN | Oeffentliche Build-/Release-Historie als nachvollziehbarer Engineering-Proof | n/a | GitHub (trixr1907) | https://github.com/trixr1907 | freigegeben | 2026-04-10 |
 

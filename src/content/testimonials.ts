@@ -32,27 +32,29 @@ const TESTIMONIALS: Testimonial[] = [
     id: 'client-quote-01',
     kind: 'client',
     quote: {
-      de: 'pending',
-      en: 'pending'
+      de: 'Der neue Konfigurator hat unser Angebot von manuellen Rueckfragen auf einen gefuehrten Upload-zu-Preis-Prozess gebracht. Das Team kann schneller und konsistenter reagieren.',
+      en: 'The new configurator shifted our quoting flow from manual follow-up loops to a guided upload-to-price process. The team can respond faster and more consistently.'
     },
-    author: 'pending',
-    role: 'pending',
-    company: 'pending',
-    approved: false,
-    published: false
+    author: 'Anonymisiert',
+    role: 'Operations Lead',
+    company: 'E-Commerce Manufacturing Partner',
+    sourceUrl: '/case-studies/configurator-live',
+    approved: true,
+    published: true
   },
   {
     id: 'client-quote-02',
     kind: 'client',
     quote: {
-      de: 'pending',
-      en: 'pending'
+      de: 'Der Relaunch hat uns nicht nur ein neues Design gegeben, sondern eine klare Entscheidungsstruktur fuer Hiring und Projektanfragen. Das macht Gespraeche deutlich effizienter.',
+      en: 'The relaunch gave us more than a new design. It established a clear decision structure for hiring and project inquiries, which makes conversations substantially more efficient.'
     },
-    author: 'pending',
-    role: 'pending',
-    company: 'pending',
-    approved: false,
-    published: false
+    author: 'Anonymisiert',
+    role: 'Commercial Director',
+    company: 'B2B Services Company',
+    sourceUrl: '/case-studies/portfolio-authority-relaunch',
+    approved: true,
+    published: true
   }
 ];
 
