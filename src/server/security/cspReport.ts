@@ -19,6 +19,8 @@ type CspReportBucket = {
   resetAt: number;
 };
 
+export type CspNoiseClass = 'none' | 'next_runtime_inline' | 'browser_extension' | 'local_development';
+
 function asRecord(value: unknown): UnknownRecord | null {
   if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
   return value as UnknownRecord;
@@ -30,31 +32,48 @@ globalCspStore.__ivoCspReportBuckets = cspBuckets;
 
 const cspBucketWindowMs = 10 * 60 * 1000;
 
+function normalizeKeyText(value: string) {
+  return value
+    .toLowerCase()
+    .replace(/[a-f0-9]{16,}/g, '*')
+    .replace(/\b\d+\b/g, '#')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
 function buildReportKey(report: NormalizedCspReport) {
   return [
     report.effectiveDirective || 'unknown',
     report.violatedDirective || 'unknown',
-    report.blockedUri || 'unknown',
-    report.documentUri || 'unknown',
-    report.sourceFile || 'unknown',
-    report.sample || ''
+    normalizeKeyText(report.blockedUri || 'unknown'),
+    normalizeKeyText(report.documentUri || 'unknown'),
+    normalizeKeyText(report.sourceFile || 'unknown'),
+    normalizeKeyText(report.sample || '')
   ].join('|');
 }
 
-function registerReportOccurrence(report: NormalizedCspReport) {
+function shouldLogNoiseOccurrence(count: number) {
+  return count === 50 || count === 200 || count === 500 || count % 1000 === 0;
+}
+
+function registerReportOccurrence(report: NormalizedCspReport, noiseClass: CspNoiseClass) {
   const now = Date.now();
-  const key = buildReportKey(report);
+  const key = `${noiseClass}|${buildReportKey(report)}`;
   const bucket = cspBuckets.get(key);
 
   if (!bucket || now > bucket.resetAt) {
     const next = { count: 1, resetAt: now + cspBucketWindowMs };
     cspBuckets.set(key, next);
-    return { key, count: next.count, shouldLog: true };
+    const shouldLog = noiseClass === 'none';
+    return { key, count: next.count, shouldLog };
   }
 
   bucket.count += 1;
   cspBuckets.set(key, bucket);
-  const shouldLog = bucket.count === 10 || bucket.count === 50 || bucket.count % 100 === 0;
+  const shouldLog =
+    noiseClass === 'none'
+      ? bucket.count === 10 || bucket.count === 50 || bucket.count % 100 === 0
+      : shouldLogNoiseOccurrence(bucket.count);
   return { key, count: bucket.count, shouldLog };
 }
 
@@ -74,6 +93,61 @@ function asNumber(value: unknown) {
 function clampText(value: string, maxLength = 360) {
   if (value.length <= maxLength) return value;
   return `${value.slice(0, maxLength - 1)}…`;
+}
+
+function isBrowserExtensionUrl(value: string) {
+  return /^(chrome-extension|moz-extension|safari-web-extension|edge-extension):/i.test(value);
+}
+
+function isLikelyNextRuntimeNoise(report: NormalizedCspReport) {
+  const directive = report.effectiveDirective.toLowerCase();
+  const blockedInline = report.blockedUri.toLowerCase() === 'inline';
+  const sample = report.sample.toLowerCase();
+  const sourceFile = report.sourceFile.toLowerCase();
+  const documentUri = report.documentUri.toLowerCase();
+  const looksLikeNextRuntime =
+    sample.includes('__next_f.push') ||
+    sourceFile.includes('/_next/static/') ||
+    (sourceFile.endsWith('.js') && sourceFile.includes('/_next/'));
+
+  return (
+    blockedInline &&
+    (directive === 'script-src' || directive === 'script-src-elem' || directive === 'script-src-attr') &&
+    looksLikeNextRuntime &&
+    (documentUri.startsWith('http://') || documentUri.startsWith('https://'))
+  );
+}
+
+function isLocalDevelopmentDocument(documentUri: string) {
+  const uri = documentUri.trim();
+  if (!uri) return false;
+
+  try {
+    const host = new URL(uri).hostname.toLowerCase();
+    return host === '127.0.0.1' || host === 'localhost' || host === '::1';
+  } catch {
+    return false;
+  }
+}
+
+export function classifyCspNoise(report: NormalizedCspReport): CspNoiseClass {
+  if (isLocalDevelopmentDocument(report.documentUri)) {
+    return 'local_development';
+  }
+
+  if (
+    isBrowserExtensionUrl(report.blockedUri) ||
+    isBrowserExtensionUrl(report.sourceFile) ||
+    isBrowserExtensionUrl(report.documentUri)
+  ) {
+    return 'browser_extension';
+  }
+
+  if (isLikelyNextRuntimeNoise(report)) {
+    return 'next_runtime_inline';
+  }
+
+  return 'none';
 }
 
 function normalizeLegacyReport(payload: unknown): NormalizedCspReport | null {
@@ -175,15 +249,18 @@ export async function handleCspReportRequest(request: Request) {
 
   const clientIp = getClientIp(request);
   const userAgent = asString(request.headers.get('user-agent'));
-  const occurrence = registerReportOccurrence(normalized);
+  const noiseClass = classifyCspNoise(normalized);
+  const occurrence = registerReportOccurrence(normalized, noiseClass);
 
   if (!occurrence.shouldLog) {
     return createNoContentResponse();
   }
 
-  console.warn('[csp-report]', {
+  const logTag = noiseClass === 'none' ? '[csp-report]' : '[csp-report-noise]';
+  console.warn(logTag, {
     at: new Date().toISOString(),
     count: occurrence.count,
+    noiseClass,
     clientIp,
     userAgent: clampText(userAgent, 180),
     disposition: normalized.disposition,

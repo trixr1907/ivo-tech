@@ -71,10 +71,13 @@ Update-Frequenz: bei jeder Session und nach jedem relevanten Merge
 | 2026-04-10 | Alert Workflow Automation (`N2` Prep) | Daily GitHub-Workflow fuer KPI-Report + strict Hard-Alert-Check hinzugefuegt (`analytics-ops-daily.yml`) | Secret `PLAUSIBLE_STATS_API_KEY` setzen, ersten Lauf protokollieren und Alert-Checkboxen schliessen |
 | 2026-04-10 | GitHub Ops Preflight (`N2` unblocker) | Readiness-Script fuer remote Workflows/Secrets hinzugefuegt; aktueller Status: `PLAUSIBLE_STATS_API_KEY` fehlt und `analytics-ops-daily` remote noch nicht vorhanden | Nach Push + Secret-Set den ersten Daily-Lauf triggern und N2-Checkboxen schliessen |
 | 2026-04-10 | Daily Workflow Live-Verifikation (`N2`) | `analytics-ops-daily` auf GitHub gepusht und per Dispatch erfolgreich ausgefuehrt (Run `24255122948`); Lockfile-Mismatch gefixt (`chore: sync lockfile for ci installs`) | Secret `PLAUSIBLE_STATS_API_KEY` setzen, damit KPI/Alert-Auswertung nicht mehr im Skip-Pfad laeuft |
+| 2026-04-10 | Hero Log Auto-Sync + Runner Opt-In (`N2`/`N3` Prep) | `hero:log:sync:plausible` eingefuehrt und Daily-Workflow auf Node24-Opt-in umgestellt; Dispatch-Run `24255415962` erfolgreich | Action-Versionen auf Node24-native Versionen heben und Warning-frei verifizieren |
+| 2026-04-10 | Workflow Version-Hardening (`N2`) | `analytics-ops-daily` auf `actions/checkout@v5` + `actions/setup-node@v5` aktualisiert; Run `24255468313` erfolgreich ohne Node20-Runner-Annotation | Externes Blocking-Thema bleibt `PLAUSIBLE_STATS_API_KEY` fuer echte KPI-/Alert-Auswertung |
+| 2026-04-10 | Frontend/IA Rebuild Gate (`F1`/`F2` + Basis `N2`) | Voller Gate-Lauf wieder gruen (`lint`, `typecheck`, `unit`, `e2e` 16/16) nach Harmonisierung von Hero-Lifecycle, Hub-Detail-CTA und E2E-Assertions | Arbeitsstand als zusammenhaengenden Meilenstein committen und weiter auf offene N2/N3/N4-Blocker fokussieren |
 
 <!-- ROADMAP_SYNC_START -->
 ## Auto-Sync Snapshot
-Generiert: 2026-04-10T17:20:34.330Z
+Generiert: 2026-04-10T17:33:08.277Z
 
 - Masterplan-Checklist: **7/13** erledigt (**53.8%**).
 - Offene Punkte: **6**.

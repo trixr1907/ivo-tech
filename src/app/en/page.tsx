@@ -92,8 +92,8 @@ export default async function HomePageEn() {
       {
         '@type': 'Service',
         '@id': `${SITE_URL}#service`,
-        name: 'Authority-first web engineering',
-        serviceType: 'Web engineering and delivery support',
+        name: 'Technical delivery for conversion-critical B2B websites',
+        serviceType: 'Web engineering, UX guidance, and delivery support',
         provider: { '@id': `${SITE_URL}#person` },
         areaServed: 'Remote',
         availableChannel: {
@@ -129,7 +129,7 @@ export default async function HomePageEn() {
 
   return (
     <>
-      <script nonce={nonce} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script nonce={nonce} suppressHydrationWarning type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Suspense fallback={null}>
         <HomePageContent locale={locale} copyText={t} featuredInsights={featuredInsights} />
       </Suspense>

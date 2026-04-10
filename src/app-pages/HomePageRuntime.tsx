@@ -58,6 +58,7 @@ export function HomePageRuntime({ locale, defaultPath }: Props) {
 
   const openProject = useCallback(
     (id: ProjectId, source = 'unknown') => {
+      trackEvent('case_open', { projectId: id, source, locale, path: getPath() });
       trackEvent('case_study_open', { projectId: id, source, locale, path: getPath() });
 
       const nextParams = new URLSearchParams(window.location.search);
@@ -72,7 +73,6 @@ export function HomePageRuntime({ locale, defaultPath }: Props) {
 
   useEffect(() => {
     const syncLocation = () => {
-      const nextPathname = window.location.pathname || defaultPath;
       const nextSearch = window.location.search.startsWith('?') ? window.location.search.slice(1) : '';
       const nextProject = new URLSearchParams(nextSearch).get('project');
       setProjectParam(nextProject);

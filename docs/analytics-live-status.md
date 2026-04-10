@@ -54,6 +54,7 @@ Automation helper:
 | 2026-04-10 | repo/remote | GitHub ops readiness | fail | Missing secret `PLAUSIBLE_STATS_API_KEY` (workflow ist remote vorhanden) |
 | 2026-04-10 | remote | `analytics-ops-daily` workflow dispatch (Run `24255122948`) | pass | Job erfolgreich; KPI/strict steps wurden wegen fehlendem `PLAUSIBLE_STATS_API_KEY` korrekt auf `skip` gesetzt |
 | 2026-04-10 | remote | `analytics-ops-daily` workflow dispatch (Run `24255415962`) | pass | Erfolgreich auf Commit `139ab57`; Node24 erzwungen, Annotation zeigt verbleibendes Action-Versionsthema (`actions/*@v4`) |
+| 2026-04-10 | remote | `analytics-ops-daily` workflow dispatch (Run `24255468313`) | pass | Erfolgreich auf Commit `9df926a`; `actions/checkout@v5` + `actions/setup-node@v5`, keine Node20-Runner-Annotation mehr |
 
 Readiness checks:
 - `npm run analytics:live:readiness`

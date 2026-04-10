@@ -12,7 +12,7 @@ type HubConfig = {
 export const HUB_CONFIG: Record<HubKind, HubConfig> = {
   insights: {
     label: { de: 'Insights', en: 'Insights' },
-    indexTitle: { de: 'Engineering Insights', en: 'Engineering insights' },
+    indexTitle: { de: 'Engineering-Insights', en: 'Engineering insights' },
     indexDescription: {
       de: 'Praxisnahe Deep Dives zu Architektur, Performance und Delivery-Entscheidungen.',
       en: 'Practical deep dives on architecture, performance, and delivery decisions.'
@@ -29,8 +29,8 @@ export const HUB_CONFIG: Record<HubKind, HubConfig> = {
     readLabel: { de: 'Playbook lesen', en: 'Read playbook' }
   },
   'case-studies': {
-    label: { de: 'Case Studies', en: 'Case studies' },
-    indexTitle: { de: 'Case Studies', en: 'Case studies' },
+    label: { de: 'Fallstudien', en: 'Case studies' },
+    indexTitle: { de: 'Fallstudien', en: 'Case studies' },
     indexDescription: {
       de: 'Projektbelege mit Ausgangslage, Umsetzung, Betrieb und Wirkung.',
       en: 'Project proof with context, implementation, operations, and impact.'

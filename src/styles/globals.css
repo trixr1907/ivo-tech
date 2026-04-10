@@ -1,3 +1,7 @@
+@import 'tailwindcss';
+@config '../../tailwind.config.ts';
+@source '../**/*.{ts,tsx,js,jsx,mdx}';
+
 @layer reset, tokens, themes, base, components, utilities, pages;
 
 @import './tokens.css' layer(tokens);

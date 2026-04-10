@@ -1,4 +1,5 @@
 import { getHubRouteGroups } from '@/content/hub';
+import { getServiceDetailSlugs } from '@/content/services';
 import { localizePath } from '@/lib/localeRouting';
 import { SITE_URL } from '@/lib/site';
 
@@ -33,6 +34,34 @@ const STATIC_ROUTE_GROUPS: RouteGroup[] = [
     priority: '0.8'
   },
   {
+    de: '/about',
+    en: '/en/about',
+    xDefault: '/about',
+    changefreq: 'monthly',
+    priority: '0.8'
+  },
+  {
+    de: '/projects',
+    en: '/en/projects',
+    xDefault: '/projects',
+    changefreq: 'weekly',
+    priority: '0.8'
+  },
+  {
+    de: '/maker-lab',
+    en: '/en/maker-lab',
+    xDefault: '/maker-lab',
+    changefreq: 'weekly',
+    priority: '0.8'
+  },
+  {
+    de: '/contact',
+    en: '/en/contact',
+    xDefault: '/contact',
+    changefreq: 'weekly',
+    priority: '0.8'
+  },
+  {
     de: '/playbooks',
     en: '/en/playbooks',
     xDefault: '/playbooks',
@@ -45,6 +74,27 @@ const STATIC_ROUTE_GROUPS: RouteGroup[] = [
     xDefault: '/case-studies',
     changefreq: 'weekly',
     priority: '0.8'
+  },
+  {
+    de: '/leistungen',
+    en: '/en/services',
+    xDefault: '/leistungen',
+    changefreq: 'weekly',
+    priority: '0.8'
+  },
+  {
+    de: '/impressum',
+    en: '/en/legal',
+    xDefault: '/impressum',
+    changefreq: 'monthly',
+    priority: '0.7'
+  },
+  {
+    de: '/datenschutz',
+    en: '/en/privacy',
+    xDefault: '/datenschutz',
+    changefreq: 'monthly',
+    priority: '0.7'
   }
 ];
 
@@ -76,8 +126,18 @@ function buildDynamicRouteGroups(): RouteGroup[] {
   return [...grouped.values()];
 }
 
+function buildServiceDetailRouteGroups(): RouteGroup[] {
+  return getServiceDetailSlugs().map((slug) => ({
+    de: `/leistungen/${slug}`,
+    en: `/en/services/${slug}`,
+    xDefault: `/leistungen/${slug}`,
+    changefreq: 'monthly' as const,
+    priority: '0.7' as const
+  }));
+}
+
 function buildSitemap(lastModified: string) {
-  const allGroups = [...STATIC_ROUTE_GROUPS, ...buildDynamicRouteGroups()];
+  const allGroups = [...STATIC_ROUTE_GROUPS, ...buildServiceDetailRouteGroups(), ...buildDynamicRouteGroups()];
 
   const urls = allGroups
     .flatMap((group) => {

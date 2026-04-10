@@ -23,6 +23,14 @@ Practical implication:
   - nonce-compatible via dynamic rendering strategy, or
   - covered by a deterministic hash strategy.
 
+Noise reduction (2026-04-09):
+- CSP ingestion now classifies low-signal noise buckets:
+  - `next_runtime_inline` (typical `self.__next_f.push(...)` inline runtime reports)
+  - `browser_extension` (`chrome-extension://`, `moz-extension://`, etc.)
+  - `local_development` (`localhost` / `127.0.0.1` reports during local QA)
+- Noise buckets are throttled with high thresholds (first logs skipped, log on larger count milestones only).
+- Actionable violations (`noiseClass=none`) keep the original low-threshold logging behavior.
+
 ## Contact API rate-limit store
 `/api/contact` supports persistent rate limiting via Redis REST (with memory fallback).
 

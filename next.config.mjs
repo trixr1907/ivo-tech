@@ -14,10 +14,31 @@ try {
 }
 
 const wwwHost = `www.${apexHost}`;
+const allowedDevOrigins = Array.from(
+  new Set(
+    [
+      'http://localhost:3000',
+      'http://127.0.0.1:3000',
+      'http://0.0.0.0:3000',
+      'http://localhost:3001',
+      'http://127.0.0.1:3001',
+      'http://0.0.0.0:3001'
+    ].concat(
+      (process.env.NEXT_ALLOWED_DEV_ORIGINS ?? '')
+        .split(',')
+        .map((origin) => origin.trim())
+        .filter(Boolean)
+    )
+  )
+);
+
 function buildCsp({ allowPizzaThirdParty = false } = {}) {
+  const isDev = process.env.NODE_ENV !== 'production';
   const styleSources = ["'self'", 'https://challenges.cloudflare.com'];
   const styleElemSources = ["'self'", 'https://challenges.cloudflare.com'];
   const frameSources = ["'self'", 'https://challenges.cloudflare.com'];
+  const connectSources = ["'self'", 'https:'];
+  const scriptSources = ["'self'", "'unsafe-inline'", 'https://challenges.cloudflare.com'];
 
   if (allowPizzaThirdParty) {
     // /pizza embeds Google Fonts and Google Maps iframe.
@@ -26,7 +47,14 @@ function buildCsp({ allowPizzaThirdParty = false } = {}) {
     frameSources.push('https://www.google.com');
   }
 
-  const scriptSrc = "script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com";
+  if (isDev) {
+    // Keep local development diagnostics visible while preserving strict production defaults.
+    styleElemSources.push("'unsafe-inline'");
+    connectSources.push('ws:', 'http:');
+    scriptSources.push('https://va.vercel-scripts.com');
+  }
+
+  const scriptSrc = `script-src ${scriptSources.join(' ')}`;
 
   const styleSrc = `style-src ${styleSources.join(' ')}`;
 
@@ -39,7 +67,7 @@ function buildCsp({ allowPizzaThirdParty = false } = {}) {
     "style-src-attr 'unsafe-inline'",
     "img-src 'self' data: blob: https:",
     "font-src 'self' data: https:",
-    "connect-src 'self' https:",
+    `connect-src ${connectSources.join(' ')}`,
     "media-src 'self' data: https:",
     `frame-src ${frameSources.join(' ')}`,
     "frame-ancestors 'self'",
@@ -58,6 +86,7 @@ const cspPizzaEnforce = buildCsp({ allowPizzaThirdParty: true });
 const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  allowedDevOrigins,
 
   // Prevent Turbopack from inferring the wrong workspace root when multiple lockfiles exist.
   turbopack: {
@@ -80,32 +109,7 @@ const nextConfig = {
       },
       {
         source: '/services',
-        destination: '/#services',
-        permanent: true
-      },
-      {
-        source: '/en/services',
-        destination: '/en#services',
-        permanent: true
-      },
-      {
-        source: '/projects',
-        destination: '/#featured',
-        permanent: true
-      },
-      {
-        source: '/en/projects',
-        destination: '/en#featured',
-        permanent: true
-      },
-      {
-        source: '/contact',
-        destination: '/#contact',
-        permanent: true
-      },
-      {
-        source: '/en/contact',
-        destination: '/en#contact',
+        destination: '/leistungen',
         permanent: true
       }
     ];

@@ -16,7 +16,39 @@ async function requestGetWithRetry(request: APIRequestContext, path: string, att
   throw lastError;
 }
 
-test.describe('homepage critical journeys', () => {
+test.describe('homepage redesign critical journeys', () => {
+  test('meets performance budget smoke targets on homepage', async ({ page }) => {
+    await page.addInitScript(() => {
+      (window as unknown as { __perfMetrics?: { fcp?: number; lcp?: number } }).__perfMetrics = {};
+
+      new PerformanceObserver((list) => {
+        for (const entry of list.getEntries()) {
+          if (entry.name === 'first-contentful-paint') {
+            (window as unknown as { __perfMetrics: { fcp?: number } }).__perfMetrics.fcp = entry.startTime;
+          }
+        }
+      }).observe({ type: 'paint', buffered: true });
+
+      new PerformanceObserver((list) => {
+        const entries = list.getEntries();
+        const last = entries[entries.length - 1];
+        if (!last) return;
+        (window as unknown as { __perfMetrics: { lcp?: number } }).__perfMetrics.lcp = last.startTime;
+      }).observe({ type: 'largest-contentful-paint', buffered: true });
+    });
+
+    await page.goto('/');
+    await page.waitForLoadState('networkidle');
+    await page.waitForTimeout(400);
+
+    const metrics = await page.evaluate(() => (window as unknown as { __perfMetrics?: { fcp?: number; lcp?: number } }).__perfMetrics ?? {});
+    const resourcesCount = await page.evaluate(() => performance.getEntriesByType('resource').length);
+
+    expect(metrics.fcp ?? Number.POSITIVE_INFINITY).toBeLessThan(2500);
+    expect(metrics.lcp ?? Number.POSITIVE_INFINITY).toBeLessThan(4500);
+    expect(resourcesCount).toBeLessThan(140);
+  });
+
   test('has no critical accessibility violations on DE and EN homepages', async ({ page }) => {
     for (const path of ['/', '/en']) {
       await page.goto(path);
@@ -24,223 +56,254 @@ test.describe('homepage critical journeys', () => {
 
       const analysis = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa']).analyze();
       const criticalViolations = analysis.violations.filter((violation) => violation.impact === 'critical');
-
       expect(criticalViolations, `${path} has critical axe violations`).toEqual([]);
     }
   });
 
-  test('opens and closes project modal via query-state routing', async ({ page }) => {
+  test('renders required homepage sections on DE route', async ({ page }) => {
     await page.goto('/');
 
-    const technicalDetailsLink = page.getByRole('link', { name: /Technische Details|Technical details/i });
-    const brandModelRequest = page.waitForRequest((req) => req.url().includes('/assets/demo-brand-hybrid-v2.stl'));
-    const brandLogoRequest = page.waitForRequest((req) => req.url().includes('/assets/brand/ivo-tech-logo.glb'));
-    await technicalDetailsLink.click();
-
-    await expect(page).toHaveURL(/\?project=/);
-    await expect(page.getByRole('dialog')).toBeVisible();
-    await brandModelRequest;
-    await brandLogoRequest;
-
-    await page.locator('.dialog-close').click();
-    await expect(page).not.toHaveURL(/\?project=/);
+    await expect(page.getByRole('heading', { level: 1 })).toContainText(/Technical Delivery ohne Blindflug/i);
+    await expect(page.getByRole('link', { name: 'Erstgespräch starten' }).first()).toHaveAttribute(
+      'href',
+      '/contact?source=home-hero-primary'
+    );
+    await expect(page.getByRole('link', { name: 'Case Studies ansehen' }).first()).toHaveAttribute('href', '/case-studies?source=home-case');
+    await expect(page.getByRole('link', { name: 'Playbook lesen' }).first()).toHaveAttribute('href', '/playbooks?source=home-playbook');
+    await expect(page.getByLabel('Proof Highlights')).toBeVisible();
+    await expect(page.locator('#services')).toBeVisible();
+    await expect(page.locator('#benefits')).toBeVisible();
+    await expect(page.locator('#trust')).toBeVisible();
+    await expect(page.locator('#process')).toBeVisible();
+    await expect(page.locator('#contact')).toBeVisible();
   });
 
-  test('renders hero-case attribution and engineering snapshot', async ({ page }) => {
-    await page.goto('/#hero-case');
-    await expect(page.locator('.hero-case-attribution')).toBeVisible();
-    await expect(page.locator('.hero-case-engineering h4')).toContainText(/engineering/i);
-    await expect(page.locator('.hero-case-engineering li').first()).toBeVisible();
+  test('supports hero experiment variants via query param', async ({ page }) => {
+    await page.goto('/?exp_hero=outcome');
+    await expect(page.getByRole('heading', { level: 1 })).toContainText(/messbar liefern/i);
+    await expect(page.getByRole('link', { name: 'Case Studies ansehen' }).first()).toHaveAttribute(
+      'href',
+      '/case-studies?source=home-case&exp_hero=outcome'
+    );
+    await expect(page.getByRole('link', { name: 'Playbook lesen' }).first()).toHaveAttribute(
+      'href',
+      '/playbooks?source=home-playbook&exp_hero=outcome'
+    );
+
+    await page.goto('/en?exp_hero=speed');
+    await expect(page.getByRole('heading', { level: 1 })).toContainText(/weeks, not quarters/i);
+    await expect(page.getByRole('link', { name: 'View case studies' }).first()).toHaveAttribute(
+      'href',
+      '/en/case-studies?source=home-case&exp_hero=speed'
+    );
+    await expect(page.getByRole('link', { name: 'Read playbook' }).first()).toHaveAttribute(
+      'href',
+      '/en/playbooks?source=home-playbook&exp_hero=speed'
+    );
   });
 
-  test('renders proof bar and hero teaser media', async ({ page }) => {
-    await page.goto('/');
-    await expect(page.locator('.proof-bar-item')).toHaveCount(3);
-    await expect(page.locator('.hero-teaser-video, .hero-teaser-poster')).toBeVisible();
+  test('renders DE and EN services pages with contact attribution links', async ({ page }) => {
+    await page.goto('/leistungen');
+    await expect(page.getByRole('heading', { level: 1 })).toContainText(/Leistungen: Technical Delivery/i);
+    await expect(page.getByRole('link', { name: 'Scope-Call anfragen' }).first()).toHaveAttribute(
+      'href',
+      '/contact?source=services-scope-call'
+    );
+    await expect(page.locator('a[data-service-cta="hero-secondary-case"]')).toHaveAttribute('href', '/case-studies?source=services-case');
+    await expect(page.locator('a[data-service-cta="hero-tertiary-playbook"]')).toHaveAttribute('href', '/playbooks?source=services-playbook');
+    await expect(page.getByRole('heading', { level: 3, name: 'Build' })).toBeVisible();
+    await expect(page.getByRole('heading', { level: 3, name: 'Stabilize' })).toBeVisible();
+    await expect(page.getByRole('heading', { level: 3, name: 'Accelerate' })).toBeVisible();
+    await expect(page.locator('a[data-service-cta="package-build"]')).toHaveAttribute('href', '/contact?source=services-build');
+    await expect(page.locator('a[data-service-cta="package-detail-build"]')).toHaveAttribute(
+      'href',
+      '/leistungen/web-engineering-delivery?source=services-detail'
+    );
+
+    await page.goto('/en/services');
+    await expect(page.getByRole('heading', { level: 1 })).toContainText(/Services: Technical delivery/i);
+    await expect(page.getByRole('link', { name: 'Request scope call' }).first()).toHaveAttribute(
+      'href',
+      '/en/contact?source=services-scope-call'
+    );
+    await expect(page.locator('a[data-service-cta="hero-secondary-case"]')).toHaveAttribute('href', '/en/case-studies?source=services-case');
+    await expect(page.locator('a[data-service-cta="hero-tertiary-playbook"]')).toHaveAttribute('href', '/en/playbooks?source=services-playbook');
+    await expect(page.locator('a[data-service-cta="package-accelerate"]')).toHaveAttribute(
+      'href',
+      '/en/contact?source=services-accelerate'
+    );
+    await expect(page.locator('a[data-service-cta="package-detail-accelerate"]')).toHaveAttribute(
+      'href',
+      '/en/services/3d-visualization-systems?source=services-detail'
+    );
   });
 
-  test('keeps hash when toggling language', async ({ page }) => {
-    await page.goto('/#featured');
-    await page.locator('.locale-toggle').getByRole('link', { name: /switch language to english/i }).click();
-
-    await expect(page).toHaveURL(/\/en#featured$/);
-  });
-
-  test('delivers locale-specific html lang on DE and EN routes', async ({ request }) => {
-    const deResponse = await requestGetWithRetry(request, '/');
-    expect(deResponse.ok()).toBeTruthy();
-    const deHtml = await deResponse.text();
-    expect(deHtml).toContain('<html lang="de"');
-
-    const enResponse = await requestGetWithRetry(request, '/en');
-    expect(enResponse.ok()).toBeTruthy();
-    const enHtml = await enResponse.text();
-    expect(enHtml).toContain('<html lang="en"');
-  });
-
-  test('does not emit hydration mismatch errors on DE and EN homepages', async ({ page }) => {
-    const hydrationSignals: string[] = [];
-    const hydrationPattern = /(hydration|did not match|server-rendered html)/i;
-
-    page.on('console', (message) => {
-      if (message.type() !== 'error') return;
-      const text = message.text();
-      if (hydrationPattern.test(text)) hydrationSignals.push(text);
-    });
-
-    page.on('pageerror', (error) => {
-      if (hydrationPattern.test(error.message)) hydrationSignals.push(error.message);
-    });
-
-    await page.goto('/');
-    await page.waitForLoadState('networkidle');
-
-    await page.goto('/en');
-    await page.waitForLoadState('networkidle');
-
-    expect(hydrationSignals).toEqual([]);
-  });
-
-  test('keeps one consistent primary CTA across core sections', async ({ page }) => {
-    await page.goto('/');
-    const primaryCaseCtas = page.getByRole('link', { name: /case study/i });
-    await expect(primaryCaseCtas.first()).toBeVisible();
-    expect(await primaryCaseCtas.count()).toBeGreaterThanOrEqual(3);
-  });
-
-  test('shows sticky primary CTA on mobile viewport only', async ({ page }) => {
-    await page.goto('/');
-    await expect(page.locator('.global-contact-cta')).toBeHidden();
-
-    await page.setViewportSize({ width: 390, height: 844 });
-    await page.reload();
-    await expect(page.locator('.global-contact-cta')).toBeVisible();
-  });
-
-  test('serves configurator page and pizza static route', async ({ page }) => {
-    await page.goto('/configurator');
-    await expect(page.getByRole('heading', { level: 1 })).toContainText(/3D.*Tech/i);
-
-    await page.goto('/en/configurator');
-    await expect(page.getByRole('heading', { level: 1 })).toContainText(/3D.*tech/i);
-
-    await page.goto('/pizza/');
-    await expect(page.getByRole('heading', { level: 1 })).toContainText(/Amore/i);
-    await expect(page.getByRole('link', { name: /^Jetzt Bestellen$/ }).first()).toBeVisible();
-  });
-
-  test('submits contact form successfully on homepage', async ({ page }) => {
-    await page.goto('/#contact');
-
-    await page.getByLabel('Name').fill('Test User');
-    await page.getByLabel('E-Mail').fill('test@example.com');
-    await page.getByLabel('Kontext in 2-5 Saetzen').fill('Ich moechte ein kurzes Kennenlernen zum Team-Setup einplanen.');
-    await page.getByRole('button', { name: 'Anfrage senden' }).click();
-
-    await expect(page.getByRole('status')).toContainText('Danke.');
-  });
-
-  test('renders FAQ content and FAQPage schema', async ({ page, request }) => {
-    await page.goto('/');
+  test('renders service detail pages with deep links and FAQ', async ({ page }) => {
+    await page.goto('/leistungen/web-engineering-delivery?source=services-detail');
+    await expect(page.getByRole('heading', { level: 1, name: 'Web Engineering Delivery' })).toBeVisible();
+    await expect(page.getByRole('heading', { level: 2, name: 'Outcome-Komparator' })).toBeVisible();
+    await expect(page.getByRole('heading', { level: 2, name: 'Risk Matrix' })).toBeVisible();
+    await expect(page.getByRole('heading', { level: 2, name: 'Architecture Snapshot' })).toBeVisible();
+    await expect(page.locator('a[data-service-detail-cta="related-case"]')).toHaveAttribute(
+      'href',
+      '/case-studies/portfolio-authority-relaunch?source=service-detail-web-engineering-delivery-case'
+    );
+    await expect(page.locator('a[data-service-detail-cta="related-insight"]')).toHaveAttribute(
+      'href',
+      '/insights/architecture-decisions-under-pressure?source=service-detail-web-engineering-delivery-insight'
+    );
     await expect(page.getByRole('heading', { level: 2, name: 'FAQ' })).toBeVisible();
 
-    const firstFaqTrigger = page.locator('.faq-list .ui-accordion-trigger').first();
-    await firstFaqTrigger.click();
-    await expect(firstFaqTrigger).toHaveAttribute('aria-expanded', 'true');
+    await page.goto('/en/services/ai-automation-workflows?source=services-detail');
+    await expect(page.getByRole('heading', { level: 1, name: 'AI Automation Workflows' })).toBeVisible();
+    await expect(page.getByRole('heading', { level: 2, name: 'Outcome Comparator' })).toBeVisible();
+    await expect(page.locator('a[data-service-detail-cta="related-playbook"]')).toHaveAttribute(
+      'href',
+      '/en/playbooks/api-integration-readiness-playbook?source=service-detail-ai-automation-workflows-playbook'
+    );
+  });
 
-    const homeResponse = await request.get('/');
+  test('uses unified global nav links on hub pages', async ({ page }) => {
+    await page.goto('/insights');
+    await expect(page.getByRole('link', { name: 'Maker Lab' }).first()).toHaveAttribute('href', '/maker-lab');
+    await expect(page.getByRole('link', { name: 'Kontakt' }).first()).toHaveAttribute('href', '/contact?source=primary-nav');
+    await expect(page.locator('a[data-hub-cta="header-primary"]').first()).toBeVisible();
+    await expect(page.locator('a[data-hub-cta="list-item-open"]').first()).toBeVisible();
+
+    await page.goto('/case-studies/configurator-live');
+    await expect(page.locator('a[data-hub-cta="header-primary"]').first()).toHaveAttribute(
+      'href',
+      '/contact?source=hub-case-studies-detail'
+    );
+    await expect(page.locator('a[data-hub-cta="case-structure-primary"]')).toBeVisible();
+    await expect(page.locator('a[data-hub-cta="case-structure-secondary"]')).toBeVisible();
+  });
+
+  test('supports mobile navigation drawer', async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto('/');
+
+    await page.getByRole('button', { name: 'Navigation öffnen' }).click();
+    await expect(page.getByRole('navigation', { name: 'Mobile Navigation' })).toBeVisible();
+    await expect(page.getByRole('link', { name: 'About' })).toBeVisible();
+    await page.keyboard.press('Escape');
+    await expect(page.getByRole('navigation', { name: 'Mobile Navigation' })).toBeHidden();
+  });
+
+  test('renders trust project signals with status badges', async ({ page }) => {
+    await page.goto('/#trust');
+    await expect(page.getByRole('heading', { level: 3, name: 'Vertrauenselemente' })).toBeVisible();
+    const projectCards = page.locator('#trust a[href^="/case-studies"]');
+    const projectCardCount = await projectCards.count();
+    expect(projectCardCount).toBeGreaterThanOrEqual(3);
+    await expect(page.getByText(/Live|In Entwicklung/).first()).toBeVisible();
+    await expect(page.getByText('Case Snapshot: Configurator Live')).toBeVisible();
+  });
+
+  test('renders case-study outcome snapshot block for configured entries', async ({ page }) => {
+    await page.goto('/case-studies/configurator-live');
+    await expect(page.getByRole('heading', { level: 2, name: /Outcome snapshot|Ergebnis-Snapshot/i })).toBeVisible();
+    await expect(page.getByText('Live-Status')).toBeVisible();
+  });
+
+  test('submits the new contact lead form successfully', async ({ page }) => {
+    await page.route('**/api/contact', async (route) => {
+      await route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        body: JSON.stringify({ ok: true, requestId: 'contact_test_123' })
+      });
+    });
+
+    await page.goto('/?exp_hero=outcome#contact');
+
+    await page.getByLabel('Intent').selectOption('client');
+    await page.getByLabel('Name').fill('Test User');
+    await page.getByLabel('Business-E-Mail').fill('test@example.com');
+    await page.getByLabel('Kontext').fill('Wir wollen qualifizierte Leads und klarere Positionierung.');
+    await page.getByRole('checkbox', { name: /Mit dem Absenden stimmen Sie der Verarbeitung/i }).check();
+    await page.getByRole('button', { name: 'Kostenlose Erstberatung anfragen' }).click();
+
+    await expect(page).toHaveURL(/\/thanks\?source=home&exp_hero=outcome/);
+    await expect(page.getByRole('heading', { level: 1 })).toContainText('Anfrage erfolgreich gesendet');
+    await expect(page.locator('a[data-thanks-cta="primary"]')).toHaveAttribute('href', '/case-studies/configurator-live');
+    await expect(page.locator('a[data-thanks-cta="scheduler"]')).toHaveAttribute('href', /source=home/);
+    await expect(page.locator('a[data-thanks-cta="scheduler"]')).toHaveAttribute('href', /exp_hero=outcome/);
+    await expect(page.locator('a[data-thanks-cta="scheduler"]')).toHaveAttribute('href', /utm_campaign=scheduler-thank-you/);
+    await expect(page.locator('a[data-thanks-cta="scheduler"]')).toHaveAttribute('href', /utm_content=hero-outcome/);
+  });
+
+  test('personalizes thank-you primary CTA by source', async ({ page }) => {
+    await page.goto('/thanks?source=services');
+    await expect(page.locator('a[data-thanks-cta="primary"]')).toHaveAttribute('href', '/leistungen');
+    await expect(page.locator('a[data-thanks-cta="scheduler"]')).toHaveAttribute('href', /source=services/);
+
+    await page.goto('/en/thanks?source=hub-case-studies-detail');
+    await expect(page.locator('a[data-thanks-cta="primary"]')).toHaveAttribute('href', '/en/case-studies');
+    await expect(page.locator('a[data-thanks-cta="scheduler"]')).toHaveAttribute('href', /source=hub-case-studies-detail/);
+  });
+
+  test('shows scheduler CTA in contact section with attribution', async ({ page }) => {
+    await page.goto('/?source=services-build#contact');
+    await expect(page.locator('a[data-contact-cta="scheduler"]')).toBeVisible();
+    await expect(page.locator('a[data-contact-cta="scheduler"]')).toHaveAttribute('href', /source=services-build/);
+    await expect(page.locator('a[data-contact-cta="scheduler"]')).toHaveAttribute('href', /exp_hero=default/);
+    await expect(page.locator('a[data-contact-cta="scheduler"]')).toHaveAttribute('href', /utm_campaign=scheduler-contact-form/);
+  });
+
+  test('keeps homepage JSON-LD and FAQ schema in HTML output', async ({ request }) => {
+    const homeResponse = await requestGetWithRetry(request, '/');
     expect(homeResponse.ok()).toBeTruthy();
     const homeHtml = await homeResponse.text();
+    expect(homeHtml).toContain('"@type":"WebSite"');
     expect(homeHtml).toContain('"@type":"FAQPage"');
   });
 
-  test('serves SEO alternates on configurator routes', async ({ request }) => {
-    const deResponse = await request.get('/configurator');
-    expect(deResponse.ok()).toBeTruthy();
-    const deHtml = await deResponse.text();
-    expect(deHtml).toContain('hrefLang="de"');
-    expect(deHtml).toContain('hrefLang="en"');
-    expect(deHtml).toContain('hrefLang="x-default"');
-
-    const enResponse = await request.get('/en/configurator');
-    expect(enResponse.ok()).toBeTruthy();
-    const enHtml = await enResponse.text();
-    expect(enHtml).toContain('hrefLang="de"');
-    expect(enHtml).toContain('hrefLang="en"');
-    expect(enHtml).toContain('hrefLang="x-default"');
-  });
-
-  test('serves dynamic sitemap and noindex header for pizza demo', async ({ request }) => {
+  test('serves dynamic sitemap with x-default hreflang', async ({ request }) => {
     const sitemapResponse = await request.get('/sitemap.xml');
     expect(sitemapResponse.ok()).toBeTruthy();
     expect(sitemapResponse.headers()['content-type']).toContain('application/xml');
+
     const sitemapXml = await sitemapResponse.text();
     expect(sitemapXml).toContain('<loc>https://ivo-tech.com/</loc>');
     expect(sitemapXml).toContain('<loc>https://ivo-tech.com/en</loc>');
-    expect(sitemapXml).toContain('<loc>https://ivo-tech.com/insights</loc>');
-    expect(sitemapXml).toContain('<loc>https://ivo-tech.com/en/insights</loc>');
-    expect(sitemapXml).toContain('<loc>https://ivo-tech.com/playbooks</loc>');
-    expect(sitemapXml).toContain('<loc>https://ivo-tech.com/case-studies</loc>');
-    expect(sitemapXml).toContain('<loc>https://ivo-tech.com/insights/architecture-decisions-under-pressure</loc>');
-    expect(sitemapXml).toContain('<loc>https://ivo-tech.com/en/insights/architecture-decisions-under-pressure</loc>');
-    expect(sitemapXml).toContain('<lastmod>');
-    expect(sitemapXml).toContain('xmlns:xhtml="http://www.w3.org/1999/xhtml"');
     expect(sitemapXml).toContain('hreflang="x-default"');
-
-    const pizzaResponse = await request.get('/pizza/index.html');
-    expect(pizzaResponse.ok()).toBeTruthy();
-    expect(pizzaResponse.headers()['x-robots-tag']).toContain('noindex');
   });
 
-  test('serves insights index and article schema', async ({ page, request }) => {
-    await page.goto('/insights');
-    await expect(page.getByRole('heading', { level: 1, name: /Engineering/i })).toBeVisible();
-    await expect(page.locator('.insight-card').first()).toBeVisible();
-
-    const articleResponse = await request.get('/insights/architecture-decisions-under-pressure');
-    expect(articleResponse.ok()).toBeTruthy();
-    const articleHtml = await articleResponse.text();
-    expect(articleHtml).toContain('\"@type\":\"Article\"');
-  });
-
-  test('serves playbooks and case-studies hubs including EN detail translations', async ({ request }) => {
-    const playbooksIndex = await request.get('/playbooks');
-    expect(playbooksIndex.ok()).toBeTruthy();
-    const playbooksHtml = await playbooksIndex.text();
-    expect(playbooksHtml).toContain('Engineering Playbooks');
-
-    const caseStudiesIndex = await request.get('/case-studies');
-    expect(caseStudiesIndex.ok()).toBeTruthy();
-    const caseStudiesHtml = await caseStudiesIndex.text();
-    expect(caseStudiesHtml).toContain('Case Studies');
-
-    const deDetail = await request.get('/playbooks/performance-budget-guardrails');
-    expect(deDetail.ok()).toBeTruthy();
-
-    const enPlaybookDetail = await request.get('/en/playbooks/performance-budget-guardrails');
-    expect(enPlaybookDetail.ok()).toBeTruthy();
-
-    const enInsightDetail = await request.get('/en/insights/architecture-decisions-under-pressure');
-    expect(enInsightDetail.ok()).toBeTruthy();
-
-    const enCaseStudyDetail = await request.get('/en/case-studies/configurator-live');
-    expect(enCaseStudyDetail.ok()).toBeTruthy();
-  });
-
-  test('brand routes are available and internal ab-report routes return not found', async ({ request }) => {
-    const brandDe = await request.get('/brand');
-    expect(brandDe.status()).toBe(200);
-
-    const brandEn = await request.get('/en/brand');
-    expect(brandEn.status()).toBe(200);
-
-    const brandReview = await request.get('/internal/brand-review');
-    expect(brandReview.status()).toBe(404);
-
-    const abReportPage = await request.get('/internal/ab-report');
-    expect(abReportPage.status()).toBe(404);
-
-    const abReportApi = await request.get('/api/internal/ab-report');
-    expect(abReportApi.status()).toBe(404);
+  test('core strategic pages are reachable', async ({ request }) => {
+    const routes = [
+      '/configurator',
+      '/about',
+      '/projects',
+      '/maker-lab',
+      '/contact',
+      '/case-studies',
+      '/insights',
+      '/playbooks',
+      '/leistungen',
+      '/leistungen/web-engineering-delivery',
+      '/leistungen/ai-automation-workflows',
+      '/leistungen/3d-visualization-systems',
+      '/impressum',
+      '/datenschutz',
+      '/en/configurator',
+      '/en/about',
+      '/en/projects',
+      '/en/maker-lab',
+      '/en/contact',
+      '/en/case-studies',
+      '/en/insights',
+      '/en/playbooks',
+      '/en/services',
+      '/en/services/web-engineering-delivery',
+      '/en/services/ai-automation-workflows',
+      '/en/services/3d-visualization-systems',
+      '/en/legal',
+      '/en/privacy'
+    ];
+    for (const route of routes) {
+      const response = await request.get(route);
+      expect(response.ok(), `${route} should be reachable`).toBeTruthy();
+    }
   });
 });

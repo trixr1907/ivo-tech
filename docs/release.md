@@ -7,6 +7,18 @@
 
 ## Release log
 
+### 2026-04-10 - Masterplan closeout candidate verification
+- Status: candidate verified (not yet production-promoted).
+- Candidate note:
+  - `docs/release-candidate-2026-04-10.md`
+- Verification:
+  - `npm run verify:homepage:full` passed.
+  - `npm run verify:live:full` passed.
+- Pending before production promotion:
+  - external testimonial/proof approvals
+  - analytics sink/dashboard/alert activation
+  - explicit production promotion decision
+
 ### 2026-02-17 - App Router + MDX Authority Hub migration
 - Status: released to `main`.
 - Merged PRs:
@@ -25,6 +37,7 @@
 1. Ensure all required checks are green on merge commit.
 2. Run local full gate before release decision:
    - `npm run verify:homepage:full`
+   - includes strict analytics consistency check (`analytics:verify:map:strict`)
 3. Verify `live-guardrails` status on `main` is green.
 4. Trigger `cd-production` (`ref=main` by default).
 5. Approve `production` environment in GitHub.

@@ -25,7 +25,12 @@ const baseFrontmatterSchema = z.object({
   internalLinks: z
     .array(z.string().trim().min(1))
     .min(3)
-    .refine((links) => links.some((link) => link.includes('#contact')), 'internalLinks must contain contact path')
+    .refine(
+      (links) =>
+        links.some((link) => link.includes('#contact')) ||
+        links.some((link) => /(^|\/)(en\/)?contact(\?|$|#)/.test(link)),
+      'internalLinks must contain contact path'
+    )
     .refine(
       (links) =>
         links.some((link) => link.includes('/insights/')) ||

@@ -1,12 +1,14 @@
 import Link from 'next/link';
 
 import { LanguageToggle } from '@/components/LanguageToggle';
+import { HubPageTracker } from '@/components/hub/HubPageTracker';
 import { SiteHeader } from '@/components/layout/SiteHeader';
 import { SectionFrame } from '@/components/ui/SectionFrame';
 import type { Locale } from '@/content/copy';
 import type { HubEntry, HubKind } from '@/content/hub';
 import { HUB_CONFIG, getHubBasePath, getLocalizedHubDetailPath } from '@/app-pages/hubShared';
 import { localizePath } from '@/lib/localeRouting';
+import { getContactPath, getPrimaryNavLinks } from '@/lib/navigation';
 import { SITE_URL } from '@/lib/site';
 
 type Props = {
@@ -19,6 +21,8 @@ export function HubIndexPage({ locale, kind, entries }: Props) {
   const config = HUB_CONFIG[kind];
   const basePath = getHubBasePath(kind);
   const canonical = `${SITE_URL}${localizePath(basePath, locale)}`;
+  const navLinks = getPrimaryNavLinks(locale);
+  const contactPath = getContactPath(locale, `hub-${kind}`);
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -64,7 +68,8 @@ export function HubIndexPage({ locale, kind, entries }: Props) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <div className="theme-ref103632" data-theme="dark">
+      <HubPageTracker locale={locale} kind={kind} pageType="index" />
+      <div className="theme-ref103632 hub-index-page" data-theme="dark">
 
       <SiteHeader
         ariaLabel={locale === 'de' ? 'Hauptnavigation' : 'Primary'}
@@ -74,39 +79,41 @@ export function HubIndexPage({ locale, kind, entries }: Props) {
         logoEdgeGlow="medium"
         nav={
           <>
-            <Link href={localizePath('/', locale)}>{locale === 'de' ? 'Startseite' : 'Home'}</Link>
-            <a href="#hub-list">{locale === 'de' ? 'Artikel' : 'Articles'}</a>
-            <Link href={localizePath('/#contact', locale)}>{locale === 'de' ? 'Kontakt' : 'Contact'}</Link>
+            {navLinks.map((link) => (
+              <Link key={link.href} href={link.href}>
+                {link.label}
+              </Link>
+            ))}
           </>
         }
         rightSlot={
           <>
             <LanguageToggle />
-            <Link className="cta ui-btn ui-btn--metal btn-md motion-edge-sweep" href={localizePath('/#contact', locale)}>
+            <Link className="cta ui-btn ui-btn--metal btn-md motion-edge-sweep" href={contactPath} data-hub-cta="header-primary">
               {locale === 'de' ? 'Erstgespraech' : 'Intro call'}
             </Link>
           </>
         }
       />
 
-      <main id="main-content" className="home-v2-main">
-        <SectionFrame className="section" aria-labelledby="hub-title" tone="panel">
+      <main id="main-content" className="home-v2-main hub-index-main">
+        <SectionFrame className="section hub-index-hero-section" aria-labelledby="hub-title" tone="panel">
           <div className="section-head">
-            <h1 id="hub-title" className="insights-title">
+            <h1 id="hub-title" className="insights-title text-ink-900">
               {config.indexTitle[locale]}
             </h1>
-            <p>{config.indexDescription[locale]}</p>
+            <p className="text-ink-700">{config.indexDescription[locale]}</p>
           </div>
 
-          <div id="hub-list" className="insights-grid insights-grid-page">
+          <div id="hub-list" className="insights-grid insights-grid-page hub-index-grid">
             {entries.map((entry) => (
-              <article key={entry.slug} className="insight-card">
+              <article key={entry.slug} className="insight-card text-ink-700">
                 <span className="insight-meta">
                   {entry.category} | {entry.readMinutes} min
                 </span>
-                <h2>{entry.title}</h2>
-                <p>{entry.summary}</p>
-                <Link href={getLocalizedHubDetailPath(kind, locale, entry.slug)} className="insight-link">
+                <h2 className="text-ink-900">{entry.title}</h2>
+                <p className="text-ink-700">{entry.summary}</p>
+                <Link href={getLocalizedHubDetailPath(kind, locale, entry.slug)} className="insight-link" data-hub-cta="list-item-open">
                   {config.readLabel[locale]}
                 </Link>
               </article>

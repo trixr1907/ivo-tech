@@ -8,7 +8,9 @@ const contactRequestSchema = z.object({
   timeline_band: z.enum(['asap', '30d', '90d+']).optional().default('30d'),
   project_scope: z.enum(['audit', 'build', 'optimize', 'unknown']).optional().default('unknown'),
   company: z.string().trim().max(120).optional().default(''),
+  portfolio_reference: z.string().trim().max(280).optional().default(''),
   message: z.string().trim().min(10).max(2000),
+  gdpr_consent: z.literal(true),
   locale: z.enum(['de', 'en']),
   sourcePath: z
     .string()
@@ -180,7 +182,9 @@ function buildSafeRequest(request: ContactRequest) {
     timeline_band: request.timeline_band,
     project_scope: request.project_scope,
     company: request.company,
+    portfolio_reference: request.portfolio_reference,
     message: request.message,
+    gdpr_consent: request.gdpr_consent,
     locale: request.locale,
     sourcePath: request.sourcePath,
     website: request.website
@@ -287,6 +291,8 @@ async function deliverToEmail(request: ContactRequest, requestId: string) {
     `Timeline Band: ${safeRequest.timeline_band}`,
     `Project Scope: ${safeRequest.project_scope}`,
     `Company: ${safeRequest.company || '-'}`,
+    `Portfolio Reference: ${safeRequest.portfolio_reference || '-'}`,
+    `GDPR Consent: ${safeRequest.gdpr_consent ? 'true' : 'false'}`,
     `Locale: ${safeRequest.locale}`,
     `Source Path: ${safeRequest.sourcePath}`,
     '',
@@ -408,6 +414,7 @@ export async function handleContactRequest(request: Request) {
       intent_detail: safeRequest.intent_detail,
       timeline_band: safeRequest.timeline_band,
       project_scope: safeRequest.project_scope,
+      gdpr_consent: safeRequest.gdpr_consent,
       locale: safeRequest.locale,
       sourcePath: safeRequest.sourcePath
     });

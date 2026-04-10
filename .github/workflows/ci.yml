@@ -37,6 +37,9 @@ jobs:
       - name: Typecheck
         run: npm run typecheck
 
+      - name: Verify analytics map consistency (strict)
+        run: npm run analytics:verify:map:strict
+
       - name: Build
         run: npm run build
 

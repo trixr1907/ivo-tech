@@ -86,6 +86,21 @@ export function ContactForm({ locale, text, trackingSource = 'contact_form' }: P
   const isSubmitting = status === 'submitting';
   const validationOrder = [ 'name', 'email', 'company', 'message' ] as const;
 
+  const trackContactFormStart = () => {
+    if (didTrackStart.current) return;
+    didTrackStart.current = true;
+    const sourcePath =
+      typeof window === 'undefined'
+        ? '/'
+        : `${window.location.pathname}${window.location.search}${window.location.hash}`;
+    trackEvent('contact_form_start', {
+      source: trackingSource,
+      locale,
+      sourcePath,
+      intent: form.intent
+    });
+  };
+
   const getField = (formElement: HTMLFormElement, name: (typeof validationOrder)[number]) => {
     const field = formElement.elements.namedItem(name);
     if (field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement || field instanceof HTMLSelectElement) {
@@ -105,14 +120,7 @@ export function ContactForm({ locale, text, trackingSource = 'contact_form' }: P
   };
 
   const onFieldChange = <K extends keyof FormState>(field: K, value: FormState[K]) => {
-    if (!didTrackStart.current) {
-      didTrackStart.current = true;
-      const sourcePath =
-        typeof window === 'undefined'
-          ? '/'
-          : `${window.location.pathname}${window.location.search}${window.location.hash}`;
-      trackEvent('contact_form_start', { source: trackingSource, locale, sourcePath });
-    }
+    trackContactFormStart();
 
     setForm((prev) => ({ ...prev, [field]: value }));
     if (field in fieldErrors) {
@@ -200,6 +208,7 @@ export function ContactForm({ locale, text, trackingSource = 'contact_form' }: P
         : `${window.location.pathname}${window.location.search}${window.location.hash}`;
 
     trackEvent('contact_form_submit', { intent: form.intent, source: trackingSource, locale, sourcePath });
+    trackEvent('contact_submit', { intent: form.intent, source: trackingSource, locale, sourcePath });
     trackEvent('contact_quality_submit', {
       intent: form.intent,
       intentDetail: form.intentDetail,
@@ -222,7 +231,9 @@ export function ContactForm({ locale, text, trackingSource = 'contact_form' }: P
           name: form.name,
           email: form.email,
           company: form.company,
+          portfolio_reference: '',
           message: form.message,
+          gdpr_consent: true,
           website: form.website,
           locale,
           sourcePath,
@@ -268,7 +279,7 @@ export function ContactForm({ locale, text, trackingSource = 'contact_form' }: P
         <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" strategy="afterInteractive" />
       ) : null}
 
-      <form ref={formRef} className="contact-form" onSubmit={onSubmit} noValidate>
+      <form ref={formRef} className="contact-form" onSubmit={onSubmit} onFocusCapture={trackContactFormStart} noValidate>
         <RadioGroup
           legend={text.intentLegend}
           name="intent"

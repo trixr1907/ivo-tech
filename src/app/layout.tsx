@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from 'next';
-import { Space_Grotesk } from 'next/font/google';
 import type { ReactNode } from 'react';
 
 import { AppRuntime } from '@/components/AppRuntime';
@@ -7,13 +6,6 @@ import { AppRuntime } from '@/components/AppRuntime';
 import '@/styles/globals.css';
 import '@/styles/modal.css';
 import '../../packages/dld3d-core/dist/dld3d-core.css';
-
-const heading = Space_Grotesk({
-  subsets: ['latin'],
-  weight: ['400', '600', '700'],
-  display: 'swap',
-  variable: '--font-heading'
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://ivo-tech.com'),
@@ -39,7 +31,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="de">
-      <body className={heading.variable} data-theme="dark">
+      <body className="font-sans" data-theme="dark">
         <a className="skip-link" href="#main-content">
           Zum Hauptinhalt springen
         </a>
