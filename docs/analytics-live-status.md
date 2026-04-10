@@ -51,6 +51,7 @@ Automation helper:
 | 2026-04-10 | repo | Plausible ops snapshot script vorhanden | pass | `scripts/analytics-plausible-ops.mjs` fuer KPI-/Alert-Auswertung bereit |
 | 2026-04-10 | repo | Daily alert workflow vorhanden | pass | `.github/workflows/analytics-ops-daily.yml` (wartet auf Secret `PLAUSIBLE_STATS_API_KEY`) |
 | 2026-04-10 | repo/remote | GitHub ops readiness | fail | Missing secret `PLAUSIBLE_STATS_API_KEY`; remote workflow `analytics-ops-daily` noch nicht sichtbar (lokale Aenderungen nicht gepusht) |
+| 2026-04-10 | remote | `analytics-ops-daily` workflow dispatch (Run `24255122948`) | pass | Job erfolgreich; KPI/strict steps wurden wegen fehlendem `PLAUSIBLE_STATS_API_KEY` korrekt auf `skip` gesetzt |
 
 Readiness checks:
 - `npm run analytics:live:readiness`

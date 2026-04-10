@@ -70,6 +70,7 @@ Update-Frequenz: bei jeder Session und nach jedem relevanten Merge
 | 2026-04-10 | Plausible Ops Automation (`N2` Prep) | Neues Ops-Script fuer KPI-Snapshot + Alert-Auswertung implementiert (`analytics:plausible:ops`, strict-Variante), Runbooks/Statusdoku erweitert | Plausible Stats API Key setzen und Dashboard/Alert-Check taeglich laufen lassen |
 | 2026-04-10 | Alert Workflow Automation (`N2` Prep) | Daily GitHub-Workflow fuer KPI-Report + strict Hard-Alert-Check hinzugefuegt (`analytics-ops-daily.yml`) | Secret `PLAUSIBLE_STATS_API_KEY` setzen, ersten Lauf protokollieren und Alert-Checkboxen schliessen |
 | 2026-04-10 | GitHub Ops Preflight (`N2` unblocker) | Readiness-Script fuer remote Workflows/Secrets hinzugefuegt; aktueller Status: `PLAUSIBLE_STATS_API_KEY` fehlt und `analytics-ops-daily` remote noch nicht vorhanden | Nach Push + Secret-Set den ersten Daily-Lauf triggern und N2-Checkboxen schliessen |
+| 2026-04-10 | Daily Workflow Live-Verifikation (`N2`) | `analytics-ops-daily` auf GitHub gepusht und per Dispatch erfolgreich ausgefuehrt (Run `24255122948`); Lockfile-Mismatch gefixt (`chore: sync lockfile for ci installs`) | Secret `PLAUSIBLE_STATS_API_KEY` setzen, damit KPI/Alert-Auswertung nicht mehr im Skip-Pfad laeuft |
 
 <!-- ROADMAP_SYNC_START -->
 ## Auto-Sync Snapshot
@@ -95,5 +96,4 @@ Generiert: 2026-04-10T17:15:49.117Z
 - [ ] Experimentbetrieb: 14-Tage-Log in `docs/hero-experiment-log.md` ausgefuellt.
 - [ ] Experimentbetrieb: Keep/Revert/Iterate-Entscheidung datenbasiert dokumentiert.
 <!-- ROADMAP_SYNC_END -->
-
 
