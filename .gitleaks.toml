@@ -1,0 +1,14 @@
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Knowledge base research files — crawled HTML, embedding vectors, and benchmark data contain no real secrets"
+paths = [
+  "knowledge/embeddings/.*\\.jsonl",
+  "knowledge/chunks/.*\\.jsonl",
+  "knowledge/crawled_pages/.*",
+  "knowledge/inspiration/benchmarks/.*",
+  "knowledge/extracted_content/.*\\.json",
+  "knowledge/normalized_content/.*\\.json",
+  "knowledge/knowledge_graph/.*\\.json"
+]
