@@ -10,7 +10,6 @@ import { CONTACT_EMAIL, GITHUB_URL, SITE_URL } from '@/lib/site';
 const locale = 'de';
 const t = copy[locale];
 const canonical = `${SITE_URL}/`;
-const ogLogo = `${SITE_URL}/assets/logo.png`;
 
 const featuredInsights = getFeaturedInsights(locale, 3).map((entry) => ({
   slug: entry.slug,
@@ -38,14 +37,12 @@ export const metadata: Metadata = {
     title: t.meta.title,
     description: t.meta.description,
     url: canonical,
-    images: [ogLogo],
     locale: 'de_DE'
   },
   twitter: {
     card: 'summary_large_image',
     title: t.meta.title,
-    description: t.meta.description,
-    images: [ogLogo]
+    description: t.meta.description
   }
 };
 
@@ -131,7 +128,7 @@ export default async function HomePage() {
     <>
       <script nonce={nonce} suppressHydrationWarning type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Suspense fallback={null}>
-        <HomePageContent locale={locale} copyText={t} featuredInsights={featuredInsights} />
+        <HomePageContent locale={locale} featuredInsights={featuredInsights} />
       </Suspense>
     </>
   );

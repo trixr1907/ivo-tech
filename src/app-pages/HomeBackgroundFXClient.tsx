@@ -1,8 +1,11 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
 
-import { BackgroundFX } from '@/components/BackgroundFX';
+const BackgroundFX = dynamic(() => import('@/components/BackgroundFX').then((m) => m.BackgroundFX), {
+  ssr: false
+});
 
 export function HomeBackgroundFXClient() {
   const [shouldMount, setShouldMount] = useState(false);

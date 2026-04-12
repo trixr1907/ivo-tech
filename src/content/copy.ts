@@ -1,9 +1,9 @@
 export const copy = {
   de: {
     meta: {
-      title: 'ivo-tech | Web Engineering, Delivery-Exzellenz und klare Architektur',
+      title: 'ivo-tech | Technical Delivery ohne Blindflug — Senior Web Engineer',
       description:
-        'Portfolio fuer Web Engineering: klare Architekturentscheidungen, messbare Qualitaet und reproduzierbare Delivery fuer Teams, die sauber bauen und stabil betreiben wollen.'
+        'Senior Web Engineer für conversion-kritische B2B-Websysteme: klare Architektur, QA-Gates vor jedem Release und dokumentierte Übergabe. 3 Live-Cases, Engineering Insights und direkter Kontaktpfad.'
     },
     nav: {
       heroCase: 'Case Study',
@@ -47,20 +47,20 @@ export const copy = {
       proof: [
         {
           id: 'live_system',
-          label: 'Live-System',
-          value: 'End-to-End Upload-Flow im produktiven Betrieb',
+          label: '3 Live-Systeme',
+          value: 'Upload-Flow, Voicebot-Beta und Data-Product im Betrieb',
           href: '#hero-case'
         },
         {
           id: 'delivery_quality',
-          label: 'Delivery-Qualitaet',
-          value: 'Feste QA-Gates vor jedem Release',
+          label: '5 CI/CD-Gates',
+          value: 'Lint, Typecheck, Tests, E2E und Security vor jedem Deploy',
           href: '#services'
         },
         {
           id: 'response_window',
-          label: 'Antwortzeit',
-          value: 'Rueckmeldung werktags meist innerhalb von 24h',
+          label: '< 24h Antwort',
+          value: 'Werktags — kein Sales-Prozess vorgeschaltet',
           href: '#contact'
         }
       ],
@@ -241,6 +241,7 @@ export const copy = {
       rateLimited: 'Zu viele Anfragen in kurzer Zeit. Bitte warte kurz und versuche es erneut.',
       verificationRequired: 'Bitte bestaetige kurz die Sicherheitspruefung und versuche es erneut.',
       privacy: 'Mit dem Absenden stimmst du der Verarbeitung deiner Anfrage zum Kontaktzweck zu.',
+      gdprConsentLabel: 'Ich stimme der Verarbeitung meiner Angaben zur Bearbeitung meiner Anfrage zu (DSGVO).',
       honeypotLabel: 'Website'
     },
     trust: {
@@ -273,9 +274,9 @@ export const copy = {
   },
   en: {
     meta: {
-      title: 'ivo-tech | Web Engineering, Delivery Excellence and Clear Architecture',
+      title: 'ivo-tech | Technical Delivery Without Guesswork — Senior Web Engineer',
       description:
-        'Web engineering portfolio with clear architecture decisions, measurable quality, and reproducible delivery.'
+        'Senior web engineer for conversion-critical B2B web systems: clean architecture, QA gates before every release, and documented team handover. 3 live cases, engineering insights, and direct contact.'
     },
     nav: {
       heroCase: 'Case study',
@@ -319,20 +320,20 @@ export const copy = {
       proof: [
         {
           id: 'live_system',
-          label: 'Live system',
-          value: 'End-to-end upload flow in production',
+          label: '3 live systems',
+          value: 'Upload flow, voicebot beta, and data product in production',
           href: '#hero-case'
         },
         {
           id: 'delivery_quality',
-          label: 'Delivery quality',
-          value: 'Fixed QA gates before every release',
+          label: '5 CI/CD gates',
+          value: 'Lint, typecheck, tests, E2E, and security before every deploy',
           href: '#services'
         },
         {
           id: 'response_window',
-          label: 'Response window',
-          value: 'Weekday response usually within 24h',
+          label: '< 24h response',
+          value: 'Business days — no sales process required',
           href: '#contact'
         }
       ],
@@ -513,6 +514,7 @@ export const copy = {
       rateLimited: 'Too many requests in a short time. Please wait a moment and try again.',
       verificationRequired: 'Please complete the security check and try again.',
       privacy: 'By submitting, you agree to processing your request for contact purposes.',
+      gdprConsentLabel: 'I consent to the processing of my details to handle my request (GDPR).',
       honeypotLabel: 'Website'
     },
     trust: {

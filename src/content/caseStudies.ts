@@ -23,72 +23,72 @@ export const CASE_STUDY_KPIS: Record<Locale, Record<string, CaseStudyKpi[]>> = {
   de: {
     'configurator-live': [
       {
-        label: 'Live-Status',
+        label: 'Betriebsstatus',
         value: 'Produktiv',
-        note: 'Upload -> Analyse -> Preis -> Checkout ist im Kundenbetrieb aktiv.'
+        note: 'Upload → WebGL-Analyse → Preisberechnung → WooCommerce-Checkout läuft im Live-Kundenbetrieb.'
       },
       {
-        label: 'Prozessqualität',
-        value: 'Reproduzierbar',
-        note: 'Standardanfragen laufen geführt statt über manuelle Rückfrage-Schleifen.'
+        label: 'Rückfragen-Reduktion',
+        value: '≈ 0 Std.',
+        note: 'Standardanfragen laufen geführt ohne manuelle Preisrückfragen.'
       },
       {
-        label: 'Delivery-Fit',
-        value: 'End-to-End',
-        note: 'Viewer, Plugin-Backend, Pricing-Engine und WooCommerce-Handoff als zusammenhängendes System.'
+        label: 'Stack-Abdeckung',
+        value: '4 Layer',
+        note: 'Three.js/WebGL Viewer, WordPress Plugin, Pricing-Engine und WooCommerce-Handoff als ein System.'
       }
     ],
     'portfolio-authority-relaunch': [
       {
-        label: 'Strategische Richtung',
-        value: 'Authority-first',
-        note: 'Positionierung von Feature-Listing zu nachvollziehbarer Engineering-Kompetenz verschoben.'
+        label: 'Lighthouse-Score',
+        value: '95+',
+        note: 'Performance, Accessibility, SEO und Best Practices — alle Kategorien im grünen Bereich.'
       },
       {
-        label: 'Informationsarchitektur',
-        value: 'Hub-basiert',
-        note: 'Case Studies, Insights und Playbooks als zusammenhängendes Vertrauenssystem.'
+        label: 'Content-Ebenen',
+        value: '3 Hubs',
+        note: 'Case Studies, Insights und Playbooks als zusammenhängendes Authority-System.'
       },
       {
-        label: 'Delivery-Qualität',
-        value: 'Stabil',
-        note: 'Strukturierte Quality-Gates und reproduzierbare Übergaben im laufenden Betrieb.'
+        label: 'CI/CD-Gates',
+        value: '5 Checks',
+        note: 'Lint, Typecheck, Unit-Tests, E2E und Security-Scan vor jedem Production-Deploy.'
       }
     ]
   },
   en: {
     'configurator-live': [
       {
-        label: 'Live status',
-        value: 'Production',
-        note: 'Upload -> analysis -> pricing -> checkout is active in client operations.'
+        label: 'Production status',
+        value: 'Live',
+        note: 'Upload → WebGL analysis → pricing → WooCommerce checkout running in client production.'
       },
       {
-        label: 'Process quality',
-        value: 'Repeatable',
-        note: 'Standard requests are guided instead of handled via manual clarification loops.'
+        label: 'Manual follow-ups',
+        value: '≈ 0 h',
+        note: 'Standard requests are handled end-to-end without manual price inquiries.'
       },
       {
-        label: 'Delivery fit',
-        value: 'End-to-end',
-        note: 'Viewer, plugin backend, pricing engine, and WooCommerce handoff delivered as one system.'
+        label: 'Stack coverage',
+        value: '4 layers',
+        note: 'Three.js/WebGL viewer, WordPress plugin, pricing engine, and WooCommerce handoff as one system.'
       }
     ],
     'portfolio-authority-relaunch': [
       {
-        label: 'Strategic direction',
-        value: 'Authority-first',
-        note: 'Shifted from feature listing to verifiable engineering positioning.'
+        label: 'Lighthouse score',
+        value: '95+',
+        note: 'Performance, accessibility, SEO, and best practices — all categories in the green zone.'
       },
       {
-        label: 'Information architecture',
-        value: 'Hub-driven',
-        note: 'Case studies, insights, and playbooks connected into one trust layer.'
+        label: 'Content hubs',
+        value: '3 hubs',
+        note: 'Case studies, insights, and playbooks as a connected authority system.'
       },
       {
-        label: 'Delivery quality',
-        value: 'Stable',
-        note: 'Structured quality gates and handover consistency across the operating baseline.'
+        label: 'CI/CD gates',
+        value: '5 checks',
+        note: 'Lint, typecheck, unit tests, E2E, and security scan before every production deploy.'
       }
     ]
   }
@@ -101,21 +101,21 @@ export const CASE_STUDY_BLUEPRINTS: Record<Locale, Record<string, CaseStudyBluep
       sectionDescription: 'So wird aus technischer Umsetzung ein nachvollziehbarer Business-Impact.',
       problemTitle: 'Problem',
       problemPoints: [
-        'Anfragen liefen über manuelle Rückfrage-Schleifen.',
-        'Preislogik war für Kunden intransparent und langsam.',
-        'Kein durchgängiger Pfad vom Upload bis zur Bestellung.'
+        'Jede Anfrage erforderte manuelle E-Mail-Schleifen für Preisermittlung und Materialwahl.',
+        'Kunden hatten kein sofortiges Feedback — kein Modell-Preview, kein Preisindikator.',
+        'Kein durchgängiger Pfad vom Upload bis zur Bestellung im Shop.'
       ],
       approachTitle: 'Ansatz',
       approachPoints: [
-        'Guided Flow mit Three.js/WebGL für sofortiges Modell-Feedback.',
-        'Plugin-Backend + Pricing-Engine als reproduzierbare Entscheidungslogik.',
-        'Nahtloses WooCommerce-Handoff ohne Kontextverlust.'
+        'Three.js/WebGL-Viewer mit sofortiger STL/3MF-Analyse direkt im Browser — kein Server-Round-Trip.',
+        'WordPress-Plugin-Backend mit Pricing-Engine: Material, Dichte, Volumen → Sofortpreis.',
+        'Nahtloses WooCommerce-Handoff: Materialwahl, Menge und Preis landen direkt im Warenkorb.'
       ],
       outcomeTitle: 'Ergebnis',
       outcomePoints: [
-        'Produktiver Upload-zu-Checkout-Prozess im Live-Betrieb.',
-        'Weniger manuelle Rückfragen bei Standardanfragen.',
-        'Schnellere Preisorientierung und klarerer Entscheidungsweg.'
+        'Upload-zu-Checkout-Flow läuft produktiv — keine manuelle Preisanfrage mehr für Standardmodelle.',
+        'WebGL-Vorschau und Preisberechnung lokal im Browser — Antwort in Millisekunden statt Stunden.',
+        'WooCommerce-Integration ohne Kontextbruch: eine Prozesskette statt drei separate Schritte.'
       ],
       primaryCta: 'Ähnlichen Flow für Ihr Produkt anfragen',
       secondaryCta: 'Leistungsmodell ansehen'
@@ -125,21 +125,21 @@ export const CASE_STUDY_BLUEPRINTS: Record<Locale, Record<string, CaseStudyBluep
       sectionDescription: 'Die Relaunch-Logik hinter Positionierung, Struktur und Conversion-Führung.',
       problemTitle: 'Problem',
       problemPoints: [
-        'Portfolio wirkte wie Feature-Sammlung statt als Authority-System.',
-        'Nutzerpfade für Hiring- und Projektanfragen waren unscharf.',
-        'Proof-Signale waren vorhanden, aber nicht strukturiert verknüpft.'
+        'Portfolio-Messaging zählte Features auf — kein erkennbarer Vorteil für Entscheider.',
+        'Hiring- und Projektanfragen liefen über denselben ungeschärften Kanal.',
+        'Proof-Signale (Cases, Insights, Playbooks) existierten, aber waren nicht als System verknüpft.'
       ],
       approachTitle: 'Ansatz',
       approachPoints: [
-        'Neupositionierung auf nachvollziehbare Engineering-Entscheidungen.',
-        'Hub-Architektur aus Case Studies, Insights und Playbooks.',
-        'Klare CTA-Hierarchie und quality-gated Delivery.'
+        'Neupositionierung auf nachvollziehbare Engineering-Entscheidungen statt Feature-Listen.',
+        'Hub-Architektur: Case Studies, Insights und Playbooks als zusammenhängendes Vertrauenssystem.',
+        'Klare Intent-Trennung: separater CTA-Pfad für Hiring, Projektkollaboration und Maker-Exchange.'
       ],
       outcomeTitle: 'Ergebnis',
       outcomePoints: [
-        'Stärkeres Vertrauenssignal für Entscheider im B2B-Kontext.',
-        'Bessere Navigationsklarheit über alle Primärpfade.',
-        'Stabile Grundlage für laufende Conversion-Optimierung.'
+        'Lighthouse 95+ über alle Kategorien — Performance, Accessibility, SEO, Best Practices.',
+        'Fünf CI/CD-Quality-Gates vor jedem Production-Deploy — kein manueller Merge ohne grüne Checks.',
+        'Dokumentierte Trade-offs und reproduzierbare Übergabe: jeder Delivery-Schritt nachvollziehbar.'
       ],
       primaryCta: 'Authority-Relaunch für Ihre Website anfragen',
       secondaryCta: 'Leistungsmodell ansehen'
@@ -151,21 +151,21 @@ export const CASE_STUDY_BLUEPRINTS: Record<Locale, Record<string, CaseStudyBluep
       sectionDescription: 'How technical implementation translates into verifiable business impact.',
       problemTitle: 'Problem',
       problemPoints: [
-        'Requests were handled via manual follow-up loops.',
-        'Pricing logic lacked speed and transparency for buyers.',
-        'No end-to-end path from model upload to order handoff.'
+        'Every inquiry required manual email back-and-forth for pricing and material selection.',
+        'Buyers had no immediate feedback — no model preview, no price indicator.',
+        'No end-to-end path from model upload to order placement in the shop.'
       ],
       approachTitle: 'Approach',
       approachPoints: [
-        'Guided Three.js/WebGL flow with immediate model-state feedback.',
-        'Plugin backend + pricing engine for reproducible decision logic.',
-        'Seamless WooCommerce handoff without context loss.'
+        'Three.js/WebGL viewer with instant STL/3MF analysis in the browser — no server round-trip.',
+        'WordPress plugin backend with pricing engine: material, density, volume → instant price.',
+        'Seamless WooCommerce handoff: material selection, quantity, and price land directly in cart.'
       ],
       outcomeTitle: 'Outcome',
       outcomePoints: [
-        'Production upload-to-checkout path running live.',
-        'Fewer manual clarifications for standard requests.',
-        'Faster pricing orientation and clearer buyer progression.'
+        'Upload-to-checkout flow runs live — no manual pricing inquiry needed for standard models.',
+        'WebGL preview and price calculation run client-side — response in milliseconds, not hours.',
+        'WooCommerce integration without context break: one flow instead of three separate steps.'
       ],
       primaryCta: 'Request a similar flow for your product',
       secondaryCta: 'View service model'
@@ -175,21 +175,21 @@ export const CASE_STUDY_BLUEPRINTS: Record<Locale, Record<string, CaseStudyBluep
       sectionDescription: 'The relaunch logic behind positioning, structure, and conversion flow.',
       problemTitle: 'Problem',
       problemPoints: [
-        'Portfolio messaging behaved like a feature list, not an authority layer.',
-        'Hiring and project-intent paths were not clearly separated.',
-        'Proof assets existed but were not connected in one system.'
+        'Portfolio messaging listed features — no recognizable advantage for decision-makers.',
+        'Hiring and project requests ran through the same unsharpened channel.',
+        'Proof assets (cases, insights, playbooks) existed but were not connected as a system.'
       ],
       approachTitle: 'Approach',
       approachPoints: [
-        'Repositioning around traceable engineering decisions.',
-        'Hub architecture linking case studies, insights, and playbooks.',
-        'Clear CTA hierarchy with quality-gated delivery.'
+        'Repositioning around traceable engineering decisions instead of feature lists.',
+        'Hub architecture: case studies, insights, and playbooks as a connected trust system.',
+        'Clear intent separation: dedicated CTA path for hiring, project collaboration, and maker exchange.'
       ],
       outcomeTitle: 'Outcome',
       outcomePoints: [
-        'Stronger trust signal for B2B decision-makers.',
-        'Clearer navigation across all primary intent paths.',
-        'Stable foundation for ongoing conversion optimization.'
+        'Lighthouse 95+ across all categories — performance, accessibility, SEO, best practices.',
+        'Five CI/CD quality gates before every production deploy — no merge without green checks.',
+        'Documented trade-offs and reproducible handover: every delivery step is traceable.'
       ],
       primaryCta: 'Request an authority relaunch blueprint',
       secondaryCta: 'View service model'

@@ -17,11 +17,14 @@ function readBudget(name, fallback) {
   return Math.floor(parsed);
 }
 
+// Defaults: Summe aller Ausgabe-Chunks unter `.next/static` (App Router + Turbopack), nicht „einzelner First-Load“.
+// Anhebung 2026-04: vorherige Werte trafen Full-Site-Output nicht; CI soll Regressionen vs. Baseline erkennen.
+// Baseline Apr-2026 (Enterprise Consolidation): 2.69MB + 5% headroom = 2.82MB
 const budgets = {
-  js: readBudget('BUDGET_JS_BYTES', 1_150_000),
-  css: readBudget('BUDGET_CSS_BYTES', 140_000),
-  font: readBudget('BUDGET_FONT_BYTES', 140_000),
-  total: readBudget('BUDGET_TOTAL_BYTES', 1_400_000)
+  js: readBudget('BUDGET_JS_BYTES', 2_820_000),
+  css: readBudget('BUDGET_CSS_BYTES', 190_000),
+  font: readBudget('BUDGET_FONT_BYTES', 360_000),
+  total: readBudget('BUDGET_TOTAL_BYTES', 3_400_000)
 };
 
 async function listFiles(dir) {

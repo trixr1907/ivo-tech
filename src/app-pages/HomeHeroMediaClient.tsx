@@ -29,7 +29,7 @@ export function HomeHeroMediaClient({ locale, heroMedia, heroProject }: Props) {
         <div className="hero-teaser-poster">
           {!isHeroVideoActive ? (
             <>
-              <Image src={posterSrc} alt="" fill sizes="(max-width: 900px) 92vw, 520px" className="hero-teaser-image" />
+              <Image src={posterSrc} alt="" fill sizes="(max-width: 900px) 92vw, 520px" className="hero-teaser-image" priority />
               <button
                 type="button"
                 className="hero-teaser-trigger"
@@ -64,7 +64,7 @@ export function HomeHeroMediaClient({ locale, heroMedia, heroProject }: Props) {
         </div>
       ) : (
         <div className="hero-teaser-poster">
-          <Image src={posterSrc} alt="" fill sizes="(max-width: 900px) 92vw, 520px" className="hero-teaser-image" />
+          <Image src={posterSrc} alt="" fill sizes="(max-width: 900px) 92vw, 520px" className="hero-teaser-image" priority />
         </div>
       )}
       <p className="hero-media-caption">

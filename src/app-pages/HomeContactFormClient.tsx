@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 
 import type { Locale } from '@/content/copy';
 
-const ContactForm = dynamic(() => import('@/components/ContactForm').then((m) => m.ContactForm), {
+const ContactForm = dynamic(() => import('@/components/contact/ContactForm').then((m) => m.ContactForm), {
   ssr: false,
   loading: () => <div className="contact-form-card" aria-busy="true" />
 });

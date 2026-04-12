@@ -62,6 +62,20 @@ const STATIC_ROUTE_GROUPS: RouteGroup[] = [
     priority: '0.8'
   },
   {
+    de: '/hiring',
+    en: '/en/hiring',
+    xDefault: '/hiring',
+    changefreq: 'weekly',
+    priority: '0.8'
+  },
+  {
+    de: '/resume',
+    en: '/en/resume',
+    xDefault: '/resume',
+    changefreq: 'monthly',
+    priority: '0.7'
+  },
+  {
     de: '/playbooks',
     en: '/en/playbooks',
     xDefault: '/playbooks',
@@ -81,6 +95,13 @@ const STATIC_ROUTE_GROUPS: RouteGroup[] = [
     xDefault: '/leistungen',
     changefreq: 'weekly',
     priority: '0.8'
+  },
+  {
+    de: '/brand',
+    en: '/en/brand',
+    xDefault: '/brand',
+    changefreq: 'monthly',
+    priority: '0.7'
   },
   {
     de: '/impressum',
