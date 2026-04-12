@@ -3,10 +3,8 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import { LanguageToggle } from '@/components/LanguageToggle';
-import { SiteHeader } from '@/components/layout/SiteHeader';
-import { Button } from '@/components/ui/Button';
-import { SectionFrame } from '@/components/ui/SectionFrame';
+import { RelaunchMarketingShell } from '@/components/layout/RelaunchMarketingShell';
+import { Button } from '@/components/shadcn/button';
 import { copy, type Locale } from '@/content/copy';
 import { CONTACT_EMAIL } from '@/lib/sitePublic';
 
@@ -26,47 +24,41 @@ export function NotFoundPageClient({ locale }: Props) {
 
   const homeHref = effectiveLocale === 'en' ? '/en' : '/';
 
-  return (
-    <div className="theme-ref103632" data-theme="dark">
-      <SiteHeader
-        ariaLabel={effectiveLocale === 'de' ? 'Hauptnavigation' : 'Primary'}
-        className="home-v2-header"
-        logoPreset="ref103632"
-        logoVisualPreset="premium"
-        logoEdgeGlow="medium"
-        nav={
-          <>
-            <Link href={`${homeHref}#featured`}>{t.nav.featured}</Link>
-            <Link href={`${homeHref}#contact`}>{t.nav.contact}</Link>
-          </>
-        }
-        rightSlot={
-          <>
-            <LanguageToggle />
-            <Link className="cta ui-btn ui-btn--metal btn-md motion-edge-sweep" href={homeHref}>
-              Home
-            </Link>
-          </>
-        }
-      />
+  const navLinks = [
+    { href: `${homeHref}#featured`, label: t.nav.featured },
+    { href: `${homeHref}#contact`, label: t.nav.contact }
+  ];
 
-      <main id="main-content" className="home-v2-main">
-        <SectionFrame className="hero home-v2-hero" aria-labelledby="nf-title" tone="metal" sectionTheme="primary">
-          <div className="hero-copy">
-            <p className="eyebrow">404</p>
-            <h1 id="nf-title">{effectiveLocale === 'de' ? 'Nicht gefunden.' : 'Not found.'}</h1>
-            <p className="lead">{desc}</p>
-            <div className="hero-actions">
-              <Button href={homeHref} className="primary">
-                {effectiveLocale === 'de' ? 'Zurueck zur Startseite' : 'Back to home'}
-              </Button>
-              <Button className="ghost" variant="ghost" href={`mailto:${CONTACT_EMAIL}`}>
-                {effectiveLocale === 'de' ? 'Kontakt' : 'Contact'}
-              </Button>
-            </div>
+  return (
+    <RelaunchMarketingShell
+      locale={effectiveLocale}
+      shellClassName="not-found-page"
+      homeHref={homeHref}
+      navLinks={navLinks}
+      desktopCtaHref={homeHref}
+      desktopCtaLabel="Home"
+      mobileNavCtaLabel="Home"
+      mobileNavCtaHref={homeHref}
+      desktopContactTrackingSource="not-found-header-home"
+      mobileNavPrimaryTrackingSource="not-found-mobile-home"
+    >
+      <main id="main-content" className="mx-auto flex w-full max-w-[720px] flex-1 flex-col items-center justify-center px-4 pb-20 pt-16 sm:px-6">
+        <section className="w-full rounded-3xl border border-slate-800/90 bg-slate-950/55 p-8 text-center shadow-[0_24px_80px_rgba(3,8,18,0.35)] backdrop-blur-sm sm:p-10">
+          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sky-400/90">404</p>
+          <h1 id="nf-title" className="mt-3 font-display text-3xl font-semibold text-slate-100 sm:text-4xl">
+            {effectiveLocale === 'de' ? 'Nicht gefunden.' : 'Not found.'}
+          </h1>
+          <p className="mt-4 text-base leading-relaxed text-slate-300">{desc}</p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
+            <Button asChild className="bg-sky-500 text-slate-950 hover:bg-sky-400">
+              <Link href={homeHref}>{effectiveLocale === 'de' ? 'Zurueck zur Startseite' : 'Back to home'}</Link>
+            </Button>
+            <Button asChild variant="outline" className="border-slate-600 bg-transparent text-slate-100 hover:bg-slate-800/60">
+              <a href={`mailto:${CONTACT_EMAIL}`}>{effectiveLocale === 'de' ? 'Kontakt' : 'Contact'}</a>
+            </Button>
           </div>
-        </SectionFrame>
+        </section>
       </main>
-    </div>
+    </RelaunchMarketingShell>
   );
 }

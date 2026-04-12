@@ -1,0 +1,1121 @@
+{
+  "extraction_date": "2026-04-10",
+  "manifest_path": "knowledge/crawled_pages/2026-04-10-preview/manifest.json",
+  "documents": [
+    {
+      "document_id": "doc_src_ivo_preview__home",
+      "source_id": "src_ivo_preview__home",
+      "url": "https://ivo-tech-bcz4r4dcb-ivos-projects-77f7d33c.vercel.app/",
+      "title": "ivo-tech | Web Engineering, Delivery-Exzellenz und klare Architektur",
+      "language": "de",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Ich entwickle digitale Produkte und Websysteme, die im Alltag wirklich funktionieren."
+        },
+        {
+          "level": "h2",
+          "text": "Hero-Projekt: 3D-Konfigurator als Tech-Referenz"
+        },
+        {
+          "level": "h3",
+          "text": "3D-Konfigurator fuer Datei-zu-Angebot-Workflows im Live-Betrieb"
+        },
+        {
+          "level": "h2",
+          "text": "Ueber mich"
+        },
+        {
+          "level": "h2",
+          "text": "Wie ich entscheide und liefere"
+        },
+        {
+          "level": "h3",
+          "text": "1) Problem praezisieren"
+        },
+        {
+          "level": "h3",
+          "text": "2) Loesung mit Guardrails bauen"
+        },
+        {
+          "level": "h3",
+          "text": "3) Wirkung messen und uebergeben"
+        },
+        {
+          "level": "h3",
+          "text": "Frontend & Product Delivery"
+        },
+        {
+          "level": "h3",
+          "text": "Backend & API Integrationen"
+        },
+        {
+          "level": "h3",
+          "text": "Betrieb & Guardrails"
+        },
+        {
+          "level": "h2",
+          "text": "Kuratierte Projekte"
+        },
+        {
+          "level": "h3",
+          "text": "Voicebot Einwilligungs-Orchestrator"
+        },
+        {
+          "level": "h3",
+          "text": "Sorare NBA Edge Tool"
+        },
+        {
+          "level": "h2",
+          "text": "Engineering Insights"
+        },
+        {
+          "level": "h3",
+          "text": "AI-Assisted PR Review Loop"
+        },
+        {
+          "level": "h3",
+          "text": "API-Integrationen: Die haeufigsten Failure-Modes"
+        },
+        {
+          "level": "h3",
+          "text": "Architekturentscheidungen unter Zeitdruck"
+        },
+        {
+          "level": "h2",
+          "text": "Kontakt"
+        },
+        {
+          "level": "h3",
+          "text": "Trust Signals"
+        },
+        {
+          "level": "h2",
+          "text": "FAQ"
+        },
+        {
+          "level": "h3",
+          "text": "Wie startet eine Zusammenarbeit? +"
+        },
+        {
+          "level": "h3",
+          "text": "Welche Deliverables lieferst du typischerweise? +"
+        },
+        {
+          "level": "h3",
+          "text": "Arbeitest du mit bestehenden Teams und Codebases? +"
+        }
+      ],
+      "sections": [
+        {
+          "section_id": "section_1",
+          "section_type": "other",
+          "headline": "Ich entwickle digitale Produkte und Websysteme, die im Alltag wirklich funktionieren.",
+          "aria_label": "",
+          "text": "Web Engineering | Mannheim | Remote-first Ich entwickle digitale Produkte und Websysteme, die im Alltag wirklich funktionieren. Ich arbeite an Full-Stack-Webentwicklung, 3D- und Frontend-Erlebnissen, API-Integrationen und AI-gestuetzten Automatisierungs-Workflows. Die Seite ist mein technisches Portfolio fuer Teams, Arbeitgeber und Partner, die nachvollziehbare Engineering-Kompetenz, Produktdenken und saubere Umsetzung suchen. Produktionsnahe Websysteme 3D & Visualisierung AI & Automatisierung Offen fuer Hiring Kostenloses Erstgespraech anfragen Case Study ansehen GitHub CV (PDF) Kontakt Teaser laden 36s Brand-Teaser: Authority-first Engineering von Proof bis Live-Handoff."
+        },
+        {
+          "section_id": "proof-bar",
+          "section_type": "proof_bar",
+          "headline": "",
+          "aria_label": "Proof Bar",
+          "text": "Live-System End-to-End Upload-Flow im produktiven Betrieb Delivery-Qualitaet Feste QA-Gates vor jedem Release Antwortzeit Rueckmeldung werktags meist innerhalb von 24h"
+        },
+        {
+          "section_id": "hero-case",
+          "section_type": "hero",
+          "headline": "Hero-Projekt: 3D-Konfigurator als Tech-Referenz",
+          "aria_label": "",
+          "text": "Hero-Projekt: 3D-Konfigurator als Tech-Referenz Ein Projektbeispiel mit klarer Ausgangslage, technischer Umsetzung und operativem Ergebnis. Live 3D-Konfigurator fuer Datei-zu-Angebot-Workflows im Live-Betrieb THREE.JS WORDPRESS WOOCOMMERCE DOCKER Ich habe einen produktionsfaehigen 3D-Konfigurator fuer Datei-zu-Angebot-Workflows entwickelt: Upload, Geometrie-Analyse, Preislogik und WooCommerce-Handoff in einem durchgaengigen Web-Flow. Das System reduziert manuelle Rueckfrage-Schleifen bei Standardanfragen und schafft einen klaren Pfad von Modellpruefung zu Kaufentscheidung. Der Live-Flow von Upload bis Checkout laeuft stabil im realen Shopbetrieb. Technische Umsetzung: ivo-tech. Betrieb und Vermarktung erfolgen beim Kunden. Engineering Snapshot WebGL-/Three.js-Viewer mit STL/3MF Upload und interaktiver Modellinspektion. WordPress Plugin-Architektur mit AJAX-Endpunkten fuer Analyse- und Pr"
+        },
+        {
+          "section_id": "about",
+          "section_type": "other",
+          "headline": "Ueber mich",
+          "aria_label": "",
+          "text": "Ueber mich Kein generisches Freelancer-Profil, sondern die Art von technischer Arbeit, fuer die ich am liebsten Verantwortung uebernehme. CV (PDF) Kontakt Ich bin Ivo, Web- und Produktentwickler mit Fokus auf technische Systeme, die nicht nur gut aussehen, sondern unter realen Bedingungen zuverlaessig funktionieren. Mich interessieren Projekte dort, wo Produktdenken, Architektur und Umsetzung zusammenkommen. Besonders gern arbeite ich an datengetriebenen Webprodukten, 3D- und Visualisierungsoberflaechen, Integrationen, Automatisierungen und AI-gestuetzten Workflows mit klarem Prozessbezug. Mein Ziel ist nicht, moeglichst viel Technologie zu zeigen, sondern tragfaehige Loesungen zu bauen, die verstaendlich, wartbar und produktiv einsetzbar sind. CV (PDF) GitHub Kontakt Woran ich gern arbeite Produktorientierte Webanwendungen mit klarer Nutzerfuehrung und technischer Tiefe Frontend-Systeme"
+        },
+        {
+          "section_id": "services",
+          "section_type": "services",
+          "headline": "Wie ich entscheide und liefere",
+          "aria_label": "",
+          "text": "Wie ich entscheide und liefere Ein klarer Delivery-Rahmen, damit Teams Entscheidungen und Fortschritt jederzeit nachvollziehen koennen. 1) Problem praezisieren Zielbild, Scope und Risiko vor dem Build klarziehen, um teure Richtungswechsel zu vermeiden. 2) Loesung mit Guardrails bauen Komponenten, Datenfluesse und Betrieb so umsetzen, dass Wartung und Skalierung realistisch bleiben. 3) Wirkung messen und uebergeben Performance, UX und Betriebsmetriken sichtbar machen und sauber ins Team uebergeben. Frontend & Product Delivery Next.js/React + TypeScript, klare Informationsarchitektur und robuste UI-Umsetzung. Backend & API Integrationen FastAPI-Services, Datenfluesse und Integrationen fuer stabile End-to-End-Prozesse. Betrieb & Guardrails Deployment, QA-Gates und Monitoring-Basis fuer reproduzierbare Delivery. Kostenloses Erstgespraech anfragen"
+        },
+        {
+          "section_id": "featured",
+          "section_type": "other",
+          "headline": "Kuratierte Projekte",
+          "aria_label": "",
+          "text": "Kuratierte Projekte Ausgewaehlte Referenzen mit klarem Tech-Fokus und nachvollziehbarer Wirkung. Alle Case Studies Private Beta Voicebot Einwilligungs-Orchestrator Mehrstufige Sprach- und Prozessorchestrierung fuer DE/EU-Einwilligungsflows. Nachvollziehbare Consent-Ablaufkette mit sauberer Agent-Unterstuetzung. Beta-Status : Private Beta mit mehrstufigem Consent-Flow und Audit-Log aktiv. In Entwicklung Sorare NBA Edge Tool Datenprodukt mit Projektionen, Optimierung und Monte-Carlo-Simulation. Bessere Entscheidungen durch transparente Scores, Unsicherheit und Szenarien. MVP-Umfang : Projektionen, Value-Scoring und Lineup-Optimierung in einem Web-Flow kombiniert."
+        },
+        {
+          "section_id": "insights",
+          "section_type": "insights",
+          "headline": "Engineering Insights",
+          "aria_label": "",
+          "text": "Engineering Insights Kurze, praxisnahe Deep Dives zu Architektur, Performance und Delivery-Entscheidungen. Alle Insights AI Engineering | 6 min AI-Assisted PR Review Loop Ein pragmatischer Review-Loop fuer schnellere Iteration mit stabiler Qualitaet. Insight lesen Backend | 8 min API-Integrationen: Die haeufigsten Failure-Modes Ein Risiko-Katalog fuer API-Integrationen mit konkreten Gegenmassnahmen. Insight lesen Architektur | 7 min Architekturentscheidungen unter Zeitdruck Wie Teams unter Zeitdruck bessere Architekturentscheidungen treffen, ohne spaeteren Betriebsaufwand zu explodieren. Insight lesen"
+        },
+        {
+          "section_id": "contact",
+          "section_type": "contact",
+          "headline": "Kontakt",
+          "aria_label": "",
+          "text": "Kontakt 2-3 Saetze zu Ziel, aktuellem Engpass und Zeitrahmen reichen fuer einen konkreten Start. Typisches Antwortfenster: Rueckmeldung werktags innerhalb von 24 Stunden. Direkt per E-Mail CV (PDF) GitHub Trust Signals Live-System mit End-to-End-Flow im Betrieb Klare Delivery-Gates vor jedem Release Dokumentierte Uebergaben fuer stabile Team-Weiterarbeit"
+        },
+        {
+          "section_id": "faq",
+          "section_type": "faq",
+          "headline": "FAQ",
+          "aria_label": "",
+          "text": "FAQ Die wichtigsten Fragen vor einem Erstgespraech. Wie startet eine Zusammenarbeit? + Du gibst kurz Kontext zu Ziel, Engpass und Zeitrahmen. Danach klaeren wir den naechsten belastbaren Schritt ohne Sales-Druck."
+        },
+        {
+          "section_id": "section_10",
+          "section_type": "other",
+          "headline": "Welche Deliverables lieferst du typischerweise? +",
+          "aria_label": "",
+          "text": "Welche Deliverables lieferst du typischerweise? + Je nach Scope: Architektur-Entscheidungen, robuste Implementierung, QA-Gates und eine dokumentierte Uebergabe fuer das Team."
+        },
+        {
+          "section_id": "section_11",
+          "section_type": "other",
+          "headline": "Arbeitest du mit bestehenden Teams und Codebases? +",
+          "aria_label": "",
+          "text": "Arbeitest du mit bestehenden Teams und Codebases? + Ja. Fokus ist schneller Ramp-up, klare Kommunikation und nachvollziehbare Ergebnisse ohne Reibungsverluste."
+        }
+      ],
+      "ctas": [
+        {
+          "href": "#hero-case",
+          "label": "Case Study"
+        },
+        {
+          "href": "#contact",
+          "label": "Kontakt"
+        },
+        {
+          "href": "#contact",
+          "label": "Erstgespraech"
+        },
+        {
+          "href": "#contact",
+          "label": "Kostenloses Erstgespraech anfragen"
+        },
+        {
+          "href": "/configurator",
+          "label": "Case Study ansehen"
+        },
+        {
+          "href": "#contact",
+          "label": "Kontakt"
+        },
+        {
+          "href": "/configurator",
+          "label": "Case Study"
+        },
+        {
+          "href": "#contact",
+          "label": "Kontakt"
+        },
+        {
+          "href": "#contact",
+          "label": "Kontakt"
+        },
+        {
+          "href": "#contact",
+          "label": "Kostenloses Erstgespraech anfragen"
+        },
+        {
+          "href": "#hero-case",
+          "label": "Case Study"
+        },
+        {
+          "href": "#contact",
+          "label": "Kontakt"
+        },
+        {
+          "href": "#contact",
+          "label": "Erstgespraech"
+        },
+        {
+          "href": "#contact",
+          "label": "Erstgespraech"
+        }
+      ],
+      "trust_signals": [
+        "Hero-Projekt: 3D-Konfigurator als Tech-Referenz",
+        "Trust Signals"
+      ],
+      "faq_questions": [
+        "Wie startet eine Zusammenarbeit?",
+        "Welche Deliverables lieferst du typischerweise?",
+        "Arbeitest du mit bestehenden Teams und Codebases?"
+      ]
+    },
+    {
+      "document_id": "doc_src_ivo_preview__en",
+      "source_id": "src_ivo_preview__en",
+      "url": "https://ivo-tech-bcz4r4dcb-ivos-projects-77f7d33c.vercel.app/en",
+      "title": "ivo-tech | Web Engineering, Delivery Excellence and Clear Architecture",
+      "language": "en",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "I build digital products and web systems that genuinely work in day-to-day use."
+        },
+        {
+          "level": "h2",
+          "text": "Hero project: 3D configurator as a technical reference"
+        },
+        {
+          "level": "h3",
+          "text": "3D configurator for live file-to-quote workflows"
+        },
+        {
+          "level": "h2",
+          "text": "About me"
+        },
+        {
+          "level": "h2",
+          "text": "How I decide and deliver"
+        },
+        {
+          "level": "h3",
+          "text": "1) Clarify the problem"
+        },
+        {
+          "level": "h3",
+          "text": "2) Build with guardrails"
+        },
+        {
+          "level": "h3",
+          "text": "3) Measure and hand over"
+        },
+        {
+          "level": "h3",
+          "text": "Frontend & Product Delivery"
+        },
+        {
+          "level": "h3",
+          "text": "Backend & API Integrations"
+        },
+        {
+          "level": "h3",
+          "text": "Operations & Guardrails"
+        },
+        {
+          "level": "h2",
+          "text": "Curated projects"
+        },
+        {
+          "level": "h3",
+          "text": "Voicebot consent orchestrator"
+        },
+        {
+          "level": "h3",
+          "text": "Sorare NBA Edge Tool"
+        },
+        {
+          "level": "h2",
+          "text": "Engineering insights"
+        },
+        {
+          "level": "h3",
+          "text": "AI-Assisted PR Review Loop"
+        },
+        {
+          "level": "h3",
+          "text": "API integrations: the most common failure modes"
+        },
+        {
+          "level": "h3",
+          "text": "Architecture decisions under time pressure"
+        },
+        {
+          "level": "h2",
+          "text": "Contact"
+        },
+        {
+          "level": "h3",
+          "text": "Trust signals"
+        },
+        {
+          "level": "h2",
+          "text": "FAQ"
+        },
+        {
+          "level": "h3",
+          "text": "How does collaboration typically start? +"
+        },
+        {
+          "level": "h3",
+          "text": "Which deliverables do you usually provide? +"
+        },
+        {
+          "level": "h3",
+          "text": "Do you work with existing teams and codebases? +"
+        }
+      ],
+      "sections": [
+        {
+          "section_id": "section_1",
+          "section_type": "other",
+          "headline": "I build digital products and web systems that genuinely work in day-to-day use.",
+          "aria_label": "",
+          "text": "Web engineering | Mannheim | Remote-first I build digital products and web systems that genuinely work in day-to-day use. My focus spans full-stack web development, 3D and frontend experiences, API integrations, and AI-assisted automation workflows. This site is my technical portfolio for teams, employers, and partners looking for visible engineering judgment, product thinking, and clean execution. Production-ready web systems 3D and visualization AI and automation Open to hiring Request free intro call View case study GitHub CV (PDF) Contact Load teaser 36s brand teaser: authority-first engineering from proof to live handoff."
+        },
+        {
+          "section_id": "proof-bar",
+          "section_type": "proof_bar",
+          "headline": "",
+          "aria_label": "Proof bar",
+          "text": "Live system End-to-end upload flow in production Delivery quality Fixed QA gates before every release Response window Weekday response usually within 24h"
+        },
+        {
+          "section_id": "hero-case",
+          "section_type": "hero",
+          "headline": "Hero project: 3D configurator as a technical reference",
+          "aria_label": "",
+          "text": "Hero project: 3D configurator as a technical reference A project example with clear context, technical implementation, and operational impact. Live 3D configurator for live file-to-quote workflows THREE.JS WORDPRESS WOOCOMMERCE DOCKER I built a production-ready 3D configurator for file-to-quote workflows: upload, geometry analysis, pricing logic, and WooCommerce handoff in one continuous web flow. The system reduces manual back-and-forth for standard requests and creates a clear path from model review to purchase decision. The live flow from upload to checkout runs stably in production shop operations. Technical implementation by ivo-tech. Platform operations and commercial ownership remain with the client. Engineering snapshot WebGL/Three.js viewer with STL/3MF upload and interactive model inspection. WordPress plugin architecture with AJAX endpoints for analysis and pricing context. Pr"
+        },
+        {
+          "section_id": "about",
+          "section_type": "other",
+          "headline": "About me",
+          "aria_label": "",
+          "text": "About me Not a generic freelancer profile, but the kind of technical work I most enjoy taking responsibility for. CV (PDF) Contact I am Ivo, a web and product developer focused on technical systems that do not just look good but stay reliable under real conditions. I am most interested in projects where product thinking, architecture, and implementation meet. I especially enjoy data-driven web products, 3D and visualization interfaces, integrations, automation, and AI-assisted workflows with real process value. My goal is not to show off as much technology as possible but to build solutions that are understandable, maintainable, and genuinely usable in production. CV (PDF) GitHub Contact What I like building Product-oriented web applications with clear user guidance and technical depth Frontend systems where performance, interaction, and architecture all matter together API integrations,"
+        },
+        {
+          "section_id": "services",
+          "section_type": "services",
+          "headline": "How I decide and deliver",
+          "aria_label": "",
+          "text": "How I decide and deliver A clear delivery framework so teams can follow decisions and progress at every step. 1) Clarify the problem Define target state, scope, and risk before implementation to avoid costly course corrections. 2) Build with guardrails Implement components, data flows, and operational aspects so maintenance and scaling remain realistic. 3) Measure and hand over Make performance, UX, and operational signals visible and hand over cleanly to the team. Frontend & Product Delivery Next.js/React + TypeScript, clear information architecture, and robust UI delivery. Backend & API Integrations FastAPI services, data flows, and integrations for stable end-to-end processes. Operations & Guardrails Deployment, QA gates, and monitoring basics for reproducible delivery. Request free intro call"
+        },
+        {
+          "section_id": "featured",
+          "section_type": "other",
+          "headline": "Curated projects",
+          "aria_label": "",
+          "text": "Curated projects Selected references with technical focus and traceable impact. All case studies Private beta Voicebot consent orchestrator Multi-step voice and process orchestration for DE/EU consent workflows. Auditable consent flow chain with clear agent support. Beta status : Private beta with multi-step consent flow and active audit logging. In development Sorare NBA Edge Tool Data product with projections, optimization, and Monte Carlo simulation. Better decisions through transparent scores, uncertainty, and scenarios. MVP scope : Projections, value scoring, and lineup optimization combined in one web flow."
+        },
+        {
+          "section_id": "insights",
+          "section_type": "insights",
+          "headline": "Engineering insights",
+          "aria_label": "",
+          "text": "Engineering insights Short, practical deep dives on architecture, performance, and delivery decisions. Browse all insights AI Engineering | 6 min AI-Assisted PR Review Loop A pragmatic review loop for faster iteration with stable quality. Read insight Backend | 8 min API integrations: the most common failure modes A risk catalog for API integrations with practical countermeasures. Read insight Architecture | 7 min Architecture decisions under time pressure How teams make better architecture decisions under pressure without exploding operational cost later. Read insight"
+        },
+        {
+          "section_id": "contact",
+          "section_type": "contact",
+          "headline": "Contact",
+          "aria_label": "",
+          "text": "Contact 2-3 sentences about your goal, current bottleneck, and timeline are enough for a concrete starting point. Typical response window: weekday response within 24 hours. Email directly CV (PDF) GitHub Trust signals Live system with an end-to-end production flow Clear QA gates before every release Documented handovers for stable team continuity"
+        },
+        {
+          "section_id": "faq",
+          "section_type": "faq",
+          "headline": "FAQ",
+          "aria_label": "",
+          "text": "FAQ The key questions before an intro call. How does collaboration typically start? + You share short context on goal, bottleneck, and timeline. Then we define the next practical step without a sales pitch."
+        },
+        {
+          "section_id": "section_10",
+          "section_type": "other",
+          "headline": "Which deliverables do you usually provide? +",
+          "aria_label": "",
+          "text": "Which deliverables do you usually provide? + Depending on scope: architecture decisions, robust implementation, QA gates, and a clean handover package for the team."
+        },
+        {
+          "section_id": "section_11",
+          "section_type": "other",
+          "headline": "Do you work with existing teams and codebases? +",
+          "aria_label": "",
+          "text": "Do you work with existing teams and codebases? + Yes. The focus is fast ramp-up, clear communication, and traceable outcomes without unnecessary disruption."
+        }
+      ],
+      "ctas": [
+        {
+          "href": "#hero-case",
+          "label": "Case study"
+        },
+        {
+          "href": "/en/configurator",
+          "label": "View case study"
+        },
+        {
+          "href": "/en/configurator",
+          "label": "Case study"
+        },
+        {
+          "href": "#hero-case",
+          "label": "Case study"
+        }
+      ],
+      "trust_signals": [
+        "Trust signals"
+      ],
+      "faq_questions": [
+        "How does collaboration typically start?",
+        "Which deliverables do you usually provide?",
+        "Do you work with existing teams and codebases?"
+      ]
+    },
+    {
+      "document_id": "doc_src_ivo_preview__contact",
+      "source_id": "src_ivo_preview__contact",
+      "url": "https://ivo-tech-bcz4r4dcb-ivos-projects-77f7d33c.vercel.app/contact",
+      "title": "ivo-tech | Web Engineering, Delivery-Exzellenz und klare Architektur",
+      "language": "de",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Ich entwickle digitale Produkte und Websysteme, die im Alltag wirklich funktionieren."
+        },
+        {
+          "level": "h2",
+          "text": "Hero-Projekt: 3D-Konfigurator als Tech-Referenz"
+        },
+        {
+          "level": "h3",
+          "text": "3D-Konfigurator fuer Datei-zu-Angebot-Workflows im Live-Betrieb"
+        },
+        {
+          "level": "h2",
+          "text": "Ueber mich"
+        },
+        {
+          "level": "h2",
+          "text": "Wie ich entscheide und liefere"
+        },
+        {
+          "level": "h3",
+          "text": "1) Problem praezisieren"
+        },
+        {
+          "level": "h3",
+          "text": "2) Loesung mit Guardrails bauen"
+        },
+        {
+          "level": "h3",
+          "text": "3) Wirkung messen und uebergeben"
+        },
+        {
+          "level": "h3",
+          "text": "Frontend & Product Delivery"
+        },
+        {
+          "level": "h3",
+          "text": "Backend & API Integrationen"
+        },
+        {
+          "level": "h3",
+          "text": "Betrieb & Guardrails"
+        },
+        {
+          "level": "h2",
+          "text": "Kuratierte Projekte"
+        },
+        {
+          "level": "h3",
+          "text": "Voicebot Einwilligungs-Orchestrator"
+        },
+        {
+          "level": "h3",
+          "text": "Sorare NBA Edge Tool"
+        },
+        {
+          "level": "h2",
+          "text": "Engineering Insights"
+        },
+        {
+          "level": "h3",
+          "text": "AI-Assisted PR Review Loop"
+        },
+        {
+          "level": "h3",
+          "text": "API-Integrationen: Die haeufigsten Failure-Modes"
+        },
+        {
+          "level": "h3",
+          "text": "Architekturentscheidungen unter Zeitdruck"
+        },
+        {
+          "level": "h2",
+          "text": "Kontakt"
+        },
+        {
+          "level": "h3",
+          "text": "Trust Signals"
+        },
+        {
+          "level": "h2",
+          "text": "FAQ"
+        },
+        {
+          "level": "h3",
+          "text": "Wie startet eine Zusammenarbeit? +"
+        },
+        {
+          "level": "h3",
+          "text": "Welche Deliverables lieferst du typischerweise? +"
+        },
+        {
+          "level": "h3",
+          "text": "Arbeitest du mit bestehenden Teams und Codebases? +"
+        }
+      ],
+      "sections": [
+        {
+          "section_id": "section_1",
+          "section_type": "other",
+          "headline": "Ich entwickle digitale Produkte und Websysteme, die im Alltag wirklich funktionieren.",
+          "aria_label": "",
+          "text": "Web Engineering | Mannheim | Remote-first Ich entwickle digitale Produkte und Websysteme, die im Alltag wirklich funktionieren. Ich arbeite an Full-Stack-Webentwicklung, 3D- und Frontend-Erlebnissen, API-Integrationen und AI-gestuetzten Automatisierungs-Workflows. Die Seite ist mein technisches Portfolio fuer Teams, Arbeitgeber und Partner, die nachvollziehbare Engineering-Kompetenz, Produktdenken und saubere Umsetzung suchen. Produktionsnahe Websysteme 3D & Visualisierung AI & Automatisierung Offen fuer Hiring Kostenloses Erstgespraech anfragen Case Study ansehen GitHub CV (PDF) Kontakt Teaser laden 36s Brand-Teaser: Authority-first Engineering von Proof bis Live-Handoff."
+        },
+        {
+          "section_id": "proof-bar",
+          "section_type": "proof_bar",
+          "headline": "",
+          "aria_label": "Proof Bar",
+          "text": "Live-System End-to-End Upload-Flow im produktiven Betrieb Delivery-Qualitaet Feste QA-Gates vor jedem Release Antwortzeit Rueckmeldung werktags meist innerhalb von 24h"
+        },
+        {
+          "section_id": "hero-case",
+          "section_type": "hero",
+          "headline": "Hero-Projekt: 3D-Konfigurator als Tech-Referenz",
+          "aria_label": "",
+          "text": "Hero-Projekt: 3D-Konfigurator als Tech-Referenz Ein Projektbeispiel mit klarer Ausgangslage, technischer Umsetzung und operativem Ergebnis. Live 3D-Konfigurator fuer Datei-zu-Angebot-Workflows im Live-Betrieb THREE.JS WORDPRESS WOOCOMMERCE DOCKER Ich habe einen produktionsfaehigen 3D-Konfigurator fuer Datei-zu-Angebot-Workflows entwickelt: Upload, Geometrie-Analyse, Preislogik und WooCommerce-Handoff in einem durchgaengigen Web-Flow. Das System reduziert manuelle Rueckfrage-Schleifen bei Standardanfragen und schafft einen klaren Pfad von Modellpruefung zu Kaufentscheidung. Der Live-Flow von Upload bis Checkout laeuft stabil im realen Shopbetrieb. Technische Umsetzung: ivo-tech. Betrieb und Vermarktung erfolgen beim Kunden. Engineering Snapshot WebGL-/Three.js-Viewer mit STL/3MF Upload und interaktiver Modellinspektion. WordPress Plugin-Architektur mit AJAX-Endpunkten fuer Analyse- und Pr"
+        },
+        {
+          "section_id": "about",
+          "section_type": "other",
+          "headline": "Ueber mich",
+          "aria_label": "",
+          "text": "Ueber mich Kein generisches Freelancer-Profil, sondern die Art von technischer Arbeit, fuer die ich am liebsten Verantwortung uebernehme. CV (PDF) Kontakt Ich bin Ivo, Web- und Produktentwickler mit Fokus auf technische Systeme, die nicht nur gut aussehen, sondern unter realen Bedingungen zuverlaessig funktionieren. Mich interessieren Projekte dort, wo Produktdenken, Architektur und Umsetzung zusammenkommen. Besonders gern arbeite ich an datengetriebenen Webprodukten, 3D- und Visualisierungsoberflaechen, Integrationen, Automatisierungen und AI-gestuetzten Workflows mit klarem Prozessbezug. Mein Ziel ist nicht, moeglichst viel Technologie zu zeigen, sondern tragfaehige Loesungen zu bauen, die verstaendlich, wartbar und produktiv einsetzbar sind. CV (PDF) GitHub Kontakt Woran ich gern arbeite Produktorientierte Webanwendungen mit klarer Nutzerfuehrung und technischer Tiefe Frontend-Systeme"
+        },
+        {
+          "section_id": "services",
+          "section_type": "services",
+          "headline": "Wie ich entscheide und liefere",
+          "aria_label": "",
+          "text": "Wie ich entscheide und liefere Ein klarer Delivery-Rahmen, damit Teams Entscheidungen und Fortschritt jederzeit nachvollziehen koennen. 1) Problem praezisieren Zielbild, Scope und Risiko vor dem Build klarziehen, um teure Richtungswechsel zu vermeiden. 2) Loesung mit Guardrails bauen Komponenten, Datenfluesse und Betrieb so umsetzen, dass Wartung und Skalierung realistisch bleiben. 3) Wirkung messen und uebergeben Performance, UX und Betriebsmetriken sichtbar machen und sauber ins Team uebergeben. Frontend & Product Delivery Next.js/React + TypeScript, klare Informationsarchitektur und robuste UI-Umsetzung. Backend & API Integrationen FastAPI-Services, Datenfluesse und Integrationen fuer stabile End-to-End-Prozesse. Betrieb & Guardrails Deployment, QA-Gates und Monitoring-Basis fuer reproduzierbare Delivery. Kostenloses Erstgespraech anfragen"
+        },
+        {
+          "section_id": "featured",
+          "section_type": "other",
+          "headline": "Kuratierte Projekte",
+          "aria_label": "",
+          "text": "Kuratierte Projekte Ausgewaehlte Referenzen mit klarem Tech-Fokus und nachvollziehbarer Wirkung. Alle Case Studies Private Beta Voicebot Einwilligungs-Orchestrator Mehrstufige Sprach- und Prozessorchestrierung fuer DE/EU-Einwilligungsflows. Nachvollziehbare Consent-Ablaufkette mit sauberer Agent-Unterstuetzung. Beta-Status : Private Beta mit mehrstufigem Consent-Flow und Audit-Log aktiv. In Entwicklung Sorare NBA Edge Tool Datenprodukt mit Projektionen, Optimierung und Monte-Carlo-Simulation. Bessere Entscheidungen durch transparente Scores, Unsicherheit und Szenarien. MVP-Umfang : Projektionen, Value-Scoring und Lineup-Optimierung in einem Web-Flow kombiniert."
+        },
+        {
+          "section_id": "insights",
+          "section_type": "insights",
+          "headline": "Engineering Insights",
+          "aria_label": "",
+          "text": "Engineering Insights Kurze, praxisnahe Deep Dives zu Architektur, Performance und Delivery-Entscheidungen. Alle Insights AI Engineering | 6 min AI-Assisted PR Review Loop Ein pragmatischer Review-Loop fuer schnellere Iteration mit stabiler Qualitaet. Insight lesen Backend | 8 min API-Integrationen: Die haeufigsten Failure-Modes Ein Risiko-Katalog fuer API-Integrationen mit konkreten Gegenmassnahmen. Insight lesen Architektur | 7 min Architekturentscheidungen unter Zeitdruck Wie Teams unter Zeitdruck bessere Architekturentscheidungen treffen, ohne spaeteren Betriebsaufwand zu explodieren. Insight lesen"
+        },
+        {
+          "section_id": "contact",
+          "section_type": "contact",
+          "headline": "Kontakt",
+          "aria_label": "",
+          "text": "Kontakt 2-3 Saetze zu Ziel, aktuellem Engpass und Zeitrahmen reichen fuer einen konkreten Start. Typisches Antwortfenster: Rueckmeldung werktags innerhalb von 24 Stunden. Direkt per E-Mail CV (PDF) GitHub Trust Signals Live-System mit End-to-End-Flow im Betrieb Klare Delivery-Gates vor jedem Release Dokumentierte Uebergaben fuer stabile Team-Weiterarbeit"
+        },
+        {
+          "section_id": "faq",
+          "section_type": "faq",
+          "headline": "FAQ",
+          "aria_label": "",
+          "text": "FAQ Die wichtigsten Fragen vor einem Erstgespraech. Wie startet eine Zusammenarbeit? + Du gibst kurz Kontext zu Ziel, Engpass und Zeitrahmen. Danach klaeren wir den naechsten belastbaren Schritt ohne Sales-Druck."
+        },
+        {
+          "section_id": "section_10",
+          "section_type": "other",
+          "headline": "Welche Deliverables lieferst du typischerweise? +",
+          "aria_label": "",
+          "text": "Welche Deliverables lieferst du typischerweise? + Je nach Scope: Architektur-Entscheidungen, robuste Implementierung, QA-Gates und eine dokumentierte Uebergabe fuer das Team."
+        },
+        {
+          "section_id": "section_11",
+          "section_type": "other",
+          "headline": "Arbeitest du mit bestehenden Teams und Codebases? +",
+          "aria_label": "",
+          "text": "Arbeitest du mit bestehenden Teams und Codebases? + Ja. Fokus ist schneller Ramp-up, klare Kommunikation und nachvollziehbare Ergebnisse ohne Reibungsverluste."
+        }
+      ],
+      "ctas": [
+        {
+          "href": "#hero-case",
+          "label": "Case Study"
+        },
+        {
+          "href": "#contact",
+          "label": "Kontakt"
+        },
+        {
+          "href": "#contact",
+          "label": "Erstgespraech"
+        },
+        {
+          "href": "#contact",
+          "label": "Kostenloses Erstgespraech anfragen"
+        },
+        {
+          "href": "/configurator",
+          "label": "Case Study ansehen"
+        },
+        {
+          "href": "#contact",
+          "label": "Kontakt"
+        },
+        {
+          "href": "/configurator",
+          "label": "Case Study"
+        },
+        {
+          "href": "#contact",
+          "label": "Kontakt"
+        },
+        {
+          "href": "#contact",
+          "label": "Kontakt"
+        },
+        {
+          "href": "#contact",
+          "label": "Kostenloses Erstgespraech anfragen"
+        },
+        {
+          "href": "#hero-case",
+          "label": "Case Study"
+        },
+        {
+          "href": "#contact",
+          "label": "Kontakt"
+        },
+        {
+          "href": "#contact",
+          "label": "Erstgespraech"
+        },
+        {
+          "href": "#contact",
+          "label": "Erstgespraech"
+        }
+      ],
+      "trust_signals": [
+        "Hero-Projekt: 3D-Konfigurator als Tech-Referenz",
+        "Trust Signals"
+      ],
+      "faq_questions": [
+        "Wie startet eine Zusammenarbeit?",
+        "Welche Deliverables lieferst du typischerweise?",
+        "Arbeitest du mit bestehenden Teams und Codebases?"
+      ]
+    },
+    {
+      "document_id": "doc_src_ivo_preview__services",
+      "source_id": "src_ivo_preview__services",
+      "url": "https://ivo-tech-bcz4r4dcb-ivos-projects-77f7d33c.vercel.app/services",
+      "title": "ivo-tech | Web Engineering, Delivery-Exzellenz und klare Architektur",
+      "language": "de",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Ich entwickle digitale Produkte und Websysteme, die im Alltag wirklich funktionieren."
+        },
+        {
+          "level": "h2",
+          "text": "Hero-Projekt: 3D-Konfigurator als Tech-Referenz"
+        },
+        {
+          "level": "h3",
+          "text": "3D-Konfigurator fuer Datei-zu-Angebot-Workflows im Live-Betrieb"
+        },
+        {
+          "level": "h2",
+          "text": "Ueber mich"
+        },
+        {
+          "level": "h2",
+          "text": "Wie ich entscheide und liefere"
+        },
+        {
+          "level": "h3",
+          "text": "1) Problem praezisieren"
+        },
+        {
+          "level": "h3",
+          "text": "2) Loesung mit Guardrails bauen"
+        },
+        {
+          "level": "h3",
+          "text": "3) Wirkung messen und uebergeben"
+        },
+        {
+          "level": "h3",
+          "text": "Frontend & Product Delivery"
+        },
+        {
+          "level": "h3",
+          "text": "Backend & API Integrationen"
+        },
+        {
+          "level": "h3",
+          "text": "Betrieb & Guardrails"
+        },
+        {
+          "level": "h2",
+          "text": "Kuratierte Projekte"
+        },
+        {
+          "level": "h3",
+          "text": "Voicebot Einwilligungs-Orchestrator"
+        },
+        {
+          "level": "h3",
+          "text": "Sorare NBA Edge Tool"
+        },
+        {
+          "level": "h2",
+          "text": "Engineering Insights"
+        },
+        {
+          "level": "h3",
+          "text": "AI-Assisted PR Review Loop"
+        },
+        {
+          "level": "h3",
+          "text": "API-Integrationen: Die haeufigsten Failure-Modes"
+        },
+        {
+          "level": "h3",
+          "text": "Architekturentscheidungen unter Zeitdruck"
+        },
+        {
+          "level": "h2",
+          "text": "Kontakt"
+        },
+        {
+          "level": "h3",
+          "text": "Trust Signals"
+        },
+        {
+          "level": "h2",
+          "text": "FAQ"
+        },
+        {
+          "level": "h3",
+          "text": "Wie startet eine Zusammenarbeit? +"
+        },
+        {
+          "level": "h3",
+          "text": "Welche Deliverables lieferst du typischerweise? +"
+        },
+        {
+          "level": "h3",
+          "text": "Arbeitest du mit bestehenden Teams und Codebases? +"
+        }
+      ],
+      "sections": [
+        {
+          "section_id": "section_1",
+          "section_type": "other",
+          "headline": "Ich entwickle digitale Produkte und Websysteme, die im Alltag wirklich funktionieren.",
+          "aria_label": "",
+          "text": "Web Engineering | Mannheim | Remote-first Ich entwickle digitale Produkte und Websysteme, die im Alltag wirklich funktionieren. Ich arbeite an Full-Stack-Webentwicklung, 3D- und Frontend-Erlebnissen, API-Integrationen und AI-gestuetzten Automatisierungs-Workflows. Die Seite ist mein technisches Portfolio fuer Teams, Arbeitgeber und Partner, die nachvollziehbare Engineering-Kompetenz, Produktdenken und saubere Umsetzung suchen. Produktionsnahe Websysteme 3D & Visualisierung AI & Automatisierung Offen fuer Hiring Kostenloses Erstgespraech anfragen Case Study ansehen GitHub CV (PDF) Kontakt Teaser laden 36s Brand-Teaser: Authority-first Engineering von Proof bis Live-Handoff."
+        },
+        {
+          "section_id": "proof-bar",
+          "section_type": "proof_bar",
+          "headline": "",
+          "aria_label": "Proof Bar",
+          "text": "Live-System End-to-End Upload-Flow im produktiven Betrieb Delivery-Qualitaet Feste QA-Gates vor jedem Release Antwortzeit Rueckmeldung werktags meist innerhalb von 24h"
+        },
+        {
+          "section_id": "hero-case",
+          "section_type": "hero",
+          "headline": "Hero-Projekt: 3D-Konfigurator als Tech-Referenz",
+          "aria_label": "",
+          "text": "Hero-Projekt: 3D-Konfigurator als Tech-Referenz Ein Projektbeispiel mit klarer Ausgangslage, technischer Umsetzung und operativem Ergebnis. Live 3D-Konfigurator fuer Datei-zu-Angebot-Workflows im Live-Betrieb THREE.JS WORDPRESS WOOCOMMERCE DOCKER Ich habe einen produktionsfaehigen 3D-Konfigurator fuer Datei-zu-Angebot-Workflows entwickelt: Upload, Geometrie-Analyse, Preislogik und WooCommerce-Handoff in einem durchgaengigen Web-Flow. Das System reduziert manuelle Rueckfrage-Schleifen bei Standardanfragen und schafft einen klaren Pfad von Modellpruefung zu Kaufentscheidung. Der Live-Flow von Upload bis Checkout laeuft stabil im realen Shopbetrieb. Technische Umsetzung: ivo-tech. Betrieb und Vermarktung erfolgen beim Kunden. Engineering Snapshot WebGL-/Three.js-Viewer mit STL/3MF Upload und interaktiver Modellinspektion. WordPress Plugin-Architektur mit AJAX-Endpunkten fuer Analyse- und Pr"
+        },
+        {
+          "section_id": "about",
+          "section_type": "other",
+          "headline": "Ueber mich",
+          "aria_label": "",
+          "text": "Ueber mich Kein generisches Freelancer-Profil, sondern die Art von technischer Arbeit, fuer die ich am liebsten Verantwortung uebernehme. CV (PDF) Kontakt Ich bin Ivo, Web- und Produktentwickler mit Fokus auf technische Systeme, die nicht nur gut aussehen, sondern unter realen Bedingungen zuverlaessig funktionieren. Mich interessieren Projekte dort, wo Produktdenken, Architektur und Umsetzung zusammenkommen. Besonders gern arbeite ich an datengetriebenen Webprodukten, 3D- und Visualisierungsoberflaechen, Integrationen, Automatisierungen und AI-gestuetzten Workflows mit klarem Prozessbezug. Mein Ziel ist nicht, moeglichst viel Technologie zu zeigen, sondern tragfaehige Loesungen zu bauen, die verstaendlich, wartbar und produktiv einsetzbar sind. CV (PDF) GitHub Kontakt Woran ich gern arbeite Produktorientierte Webanwendungen mit klarer Nutzerfuehrung und technischer Tiefe Frontend-Systeme"
+        },
+        {
+          "section_id": "services",
+          "section_type": "services",
+          "headline": "Wie ich entscheide und liefere",
+          "aria_label": "",
+          "text": "Wie ich entscheide und liefere Ein klarer Delivery-Rahmen, damit Teams Entscheidungen und Fortschritt jederzeit nachvollziehen koennen. 1) Problem praezisieren Zielbild, Scope und Risiko vor dem Build klarziehen, um teure Richtungswechsel zu vermeiden. 2) Loesung mit Guardrails bauen Komponenten, Datenfluesse und Betrieb so umsetzen, dass Wartung und Skalierung realistisch bleiben. 3) Wirkung messen und uebergeben Performance, UX und Betriebsmetriken sichtbar machen und sauber ins Team uebergeben. Frontend & Product Delivery Next.js/React + TypeScript, klare Informationsarchitektur und robuste UI-Umsetzung. Backend & API Integrationen FastAPI-Services, Datenfluesse und Integrationen fuer stabile End-to-End-Prozesse. Betrieb & Guardrails Deployment, QA-Gates und Monitoring-Basis fuer reproduzierbare Delivery. Kostenloses Erstgespraech anfragen"
+        },
+        {
+          "section_id": "featured",
+          "section_type": "other",
+          "headline": "Kuratierte Projekte",
+          "aria_label": "",
+          "text": "Kuratierte Projekte Ausgewaehlte Referenzen mit klarem Tech-Fokus und nachvollziehbarer Wirkung. Alle Case Studies Private Beta Voicebot Einwilligungs-Orchestrator Mehrstufige Sprach- und Prozessorchestrierung fuer DE/EU-Einwilligungsflows. Nachvollziehbare Consent-Ablaufkette mit sauberer Agent-Unterstuetzung. Beta-Status : Private Beta mit mehrstufigem Consent-Flow und Audit-Log aktiv. In Entwicklung Sorare NBA Edge Tool Datenprodukt mit Projektionen, Optimierung und Monte-Carlo-Simulation. Bessere Entscheidungen durch transparente Scores, Unsicherheit und Szenarien. MVP-Umfang : Projektionen, Value-Scoring und Lineup-Optimierung in einem Web-Flow kombiniert."
+        },
+        {
+          "section_id": "insights",
+          "section_type": "insights",
+          "headline": "Engineering Insights",
+          "aria_label": "",
+          "text": "Engineering Insights Kurze, praxisnahe Deep Dives zu Architektur, Performance und Delivery-Entscheidungen. Alle Insights AI Engineering | 6 min AI-Assisted PR Review Loop Ein pragmatischer Review-Loop fuer schnellere Iteration mit stabiler Qualitaet. Insight lesen Backend | 8 min API-Integrationen: Die haeufigsten Failure-Modes Ein Risiko-Katalog fuer API-Integrationen mit konkreten Gegenmassnahmen. Insight lesen Architektur | 7 min Architekturentscheidungen unter Zeitdruck Wie Teams unter Zeitdruck bessere Architekturentscheidungen treffen, ohne spaeteren Betriebsaufwand zu explodieren. Insight lesen"
+        },
+        {
+          "section_id": "contact",
+          "section_type": "contact",
+          "headline": "Kontakt",
+          "aria_label": "",
+          "text": "Kontakt 2-3 Saetze zu Ziel, aktuellem Engpass und Zeitrahmen reichen fuer einen konkreten Start. Typisches Antwortfenster: Rueckmeldung werktags innerhalb von 24 Stunden. Direkt per E-Mail CV (PDF) GitHub Trust Signals Live-System mit End-to-End-Flow im Betrieb Klare Delivery-Gates vor jedem Release Dokumentierte Uebergaben fuer stabile Team-Weiterarbeit"
+        },
+        {
+          "section_id": "faq",
+          "section_type": "faq",
+          "headline": "FAQ",
+          "aria_label": "",
+          "text": "FAQ Die wichtigsten Fragen vor einem Erstgespraech. Wie startet eine Zusammenarbeit? + Du gibst kurz Kontext zu Ziel, Engpass und Zeitrahmen. Danach klaeren wir den naechsten belastbaren Schritt ohne Sales-Druck."
+        },
+        {
+          "section_id": "section_10",
+          "section_type": "other",
+          "headline": "Welche Deliverables lieferst du typischerweise? +",
+          "aria_label": "",
+          "text": "Welche Deliverables lieferst du typischerweise? + Je nach Scope: Architektur-Entscheidungen, robuste Implementierung, QA-Gates und eine dokumentierte Uebergabe fuer das Team."
+        },
+        {
+          "section_id": "section_11",
+          "section_type": "other",
+          "headline": "Arbeitest du mit bestehenden Teams und Codebases? +",
+          "aria_label": "",
+          "text": "Arbeitest du mit bestehenden Teams und Codebases? + Ja. Fokus ist schneller Ramp-up, klare Kommunikation und nachvollziehbare Ergebnisse ohne Reibungsverluste."
+        }
+      ],
+      "ctas": [
+        {
+          "href": "#hero-case",
+          "label": "Case Study"
+        },
+        {
+          "href": "#contact",
+          "label": "Kontakt"
+        },
+        {
+          "href": "#contact",
+          "label": "Erstgespraech"
+        },
+        {
+          "href": "#contact",
+          "label": "Kostenloses Erstgespraech anfragen"
+        },
+        {
+          "href": "/configurator",
+          "label": "Case Study ansehen"
+        },
+        {
+          "href": "#contact",
+          "label": "Kontakt"
+        },
+        {
+          "href": "/configurator",
+          "label": "Case Study"
+        },
+        {
+          "href": "#contact",
+          "label": "Kontakt"
+        },
+        {
+          "href": "#contact",
+          "label": "Kontakt"
+        },
+        {
+          "href": "#contact",
+          "label": "Kostenloses Erstgespraech anfragen"
+        },
+        {
+          "href": "#hero-case",
+          "label": "Case Study"
+        },
+        {
+          "href": "#contact",
+          "label": "Kontakt"
+        },
+        {
+          "href": "#contact",
+          "label": "Erstgespraech"
+        },
+        {
+          "href": "#contact",
+          "label": "Erstgespraech"
+        }
+      ],
+      "trust_signals": [
+        "Hero-Projekt: 3D-Konfigurator als Tech-Referenz",
+        "Trust Signals"
+      ],
+      "faq_questions": [
+        "Wie startet eine Zusammenarbeit?",
+        "Welche Deliverables lieferst du typischerweise?",
+        "Arbeitest du mit bestehenden Teams und Codebases?"
+      ]
+    },
+    {
+      "document_id": "doc_src_ivo_preview__case_studies",
+      "source_id": "src_ivo_preview__case_studies",
+      "url": "https://ivo-tech-bcz4r4dcb-ivos-projects-77f7d33c.vercel.app/case-studies",
+      "title": "Case Studies | ivo-tech",
+      "language": "de",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Case Studies"
+        },
+        {
+          "level": "h2",
+          "text": "Case Study: 3D-Konfigurator als Tech-Referenz im Live-Betrieb"
+        },
+        {
+          "level": "h2",
+          "text": "Case Study: Authority-First Portfolio Relaunch"
+        }
+      ],
+      "sections": [
+        {
+          "section_id": "section_1",
+          "section_type": "other",
+          "headline": "Case Studies",
+          "aria_label": "",
+          "text": "Case Studies Projektbelege mit Ausgangslage, Umsetzung, Betrieb und Wirkung. Case Study | 8 min Case Study: 3D-Konfigurator als Tech-Referenz im Live-Betrieb Wie ein durchgaengiger 3D-Flow von Upload bis Checkout manuelle Rueckfrage-Schleifen reduziert und reproduzierbare Angebotsprozesse schafft. Case Study lesen Case Study | 7 min Case Study: Authority-First Portfolio Relaunch Von Showcase-Seite zu strukturierter Authority-Engine mit Content-Hubs. Case Study lesen"
+        }
+      ],
+      "ctas": [
+        {
+          "href": "/#contact",
+          "label": "Kontakt"
+        },
+        {
+          "href": "/#contact",
+          "label": "Erstgespraech"
+        },
+        {
+          "href": "/case-studies/configurator-live",
+          "label": "Case Study lesen"
+        },
+        {
+          "href": "/case-studies/portfolio-authority-relaunch",
+          "label": "Case Study lesen"
+        }
+      ],
+      "trust_signals": [
+        "Case Study: 3D-Konfigurator als Tech-Referenz im Live-Betrieb"
+      ],
+      "faq_questions": []
+    },
+    {
+      "document_id": "doc_src_ivo_preview__insights",
+      "source_id": "src_ivo_preview__insights",
+      "url": "https://ivo-tech-bcz4r4dcb-ivos-projects-77f7d33c.vercel.app/insights",
+      "title": "Engineering Insights | ivo-tech",
+      "language": "de",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Engineering Insights"
+        },
+        {
+          "level": "h2",
+          "text": "AI-Assisted PR Review Loop"
+        },
+        {
+          "level": "h2",
+          "text": "API-Integrationen: Die haeufigsten Failure-Modes"
+        },
+        {
+          "level": "h2",
+          "text": "Architekturentscheidungen unter Zeitdruck"
+        },
+        {
+          "level": "h2",
+          "text": "Next.js Performance Budget Playbook"
+        },
+        {
+          "level": "h2",
+          "text": "Stable Handover Checklist"
+        }
+      ],
+      "sections": [
+        {
+          "section_id": "section_1",
+          "section_type": "insights",
+          "headline": "Engineering Insights",
+          "aria_label": "",
+          "text": "Engineering Insights Praxisnahe Deep Dives zu Architektur, Performance und Delivery-Entscheidungen. AI Engineering | 6 min AI-Assisted PR Review Loop Ein pragmatischer Review-Loop fuer schnellere Iteration mit stabiler Qualitaet. Artikel lesen Backend | 8 min API-Integrationen: Die haeufigsten Failure-Modes Ein Risiko-Katalog fuer API-Integrationen mit konkreten Gegenmassnahmen. Artikel lesen Architektur | 7 min Architekturentscheidungen unter Zeitdruck Wie Teams unter Zeitdruck bessere Architekturentscheidungen treffen, ohne spaeteren Betriebsaufwand zu explodieren. Artikel lesen Performance | 6 min Next.js Performance Budget Playbook Konkrete Budget-Werte und CI-Guardrails, damit Performance nicht schleichend regressiert. Artikel lesen Delivery | 5 min Stable Handover Checklist Welche Artefakte in einer Uebergabe zwingend enthalten sein muessen. Artikel lesen"
+        }
+      ],
+      "ctas": [
+        {
+          "href": "/#contact",
+          "label": "Kontakt"
+        },
+        {
+          "href": "/#contact",
+          "label": "Erstgespraech"
+        }
+      ],
+      "trust_signals": [],
+      "faq_questions": []
+    },
+    {
+      "document_id": "doc_src_ivo_preview__playbooks",
+      "source_id": "src_ivo_preview__playbooks",
+      "url": "https://ivo-tech-bcz4r4dcb-ivos-projects-77f7d33c.vercel.app/playbooks",
+      "title": "Engineering Playbooks | ivo-tech",
+      "language": "de",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Engineering Playbooks"
+        },
+        {
+          "level": "h2",
+          "text": "API Integration Readiness Playbook"
+        },
+        {
+          "level": "h2",
+          "text": "Handover Production Readiness Playbook"
+        },
+        {
+          "level": "h2",
+          "text": "Performance Budget Guardrails"
+        }
+      ],
+      "sections": [
+        {
+          "section_id": "section_1",
+          "section_type": "other",
+          "headline": "Engineering Playbooks",
+          "aria_label": "",
+          "text": "Engineering Playbooks Wiederverwendbare Umsetzungs- und Betriebsmuster fuer stabile Delivery. Playbook | 10 min API Integration Readiness Playbook Checkliste fuer Idempotenz, Timeouts, Retries, Alerting und Fehlerpfade. Playbook lesen Playbook | 8 min Handover Production Readiness Playbook Standard fuer Dokumentation, Monitoring, Ownership und Rollback-Plan. Playbook lesen Playbook | 9 min Performance Budget Guardrails Team-Playbook fuer LCP/CLS/JS-Budgets in CI und Release-Reviews. Playbook lesen"
+        }
+      ],
+      "ctas": [
+        {
+          "href": "/#contact",
+          "label": "Kontakt"
+        },
+        {
+          "href": "/#contact",
+          "label": "Erstgespraech"
+        }
+      ],
+      "trust_signals": [],
+      "faq_questions": []
+    }
+  ]
+}

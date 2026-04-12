@@ -33,7 +33,7 @@ Ziel: fehlende externe Trust-Signale schnell und sauber beschaffen.
 
 1. Homepage Trust-Section:
    - `src/content/trustEvidence.ts`
-   - `src/components/home/HomePageRedesign.tsx`
+   - `src/components/home/HomePageRelaunch2026.tsx`
 2. Case Study Detail:
    - KPI + Zitat + Referenzlink im oberen Drittel.
 3. Nach jeder Aenderung:

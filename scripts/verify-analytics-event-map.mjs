@@ -41,6 +41,16 @@ function readEmittedEvents(fileContent) {
   return events;
 }
 
+/** Declarative `data-track-event` literals (e.g. client wrappers that mirror the same event names). */
+function readDataTrackEventLiterals(fileContent) {
+  const events = [];
+  const regex = /data-track-event=["']([a-z0-9_:-]+)["']/gim;
+  for (const match of fileContent.matchAll(regex)) {
+    events.push(match[1]);
+  }
+  return events;
+}
+
 function readTypedEvents(fileContent) {
   const events = new Set();
   const typeBlockMatch = fileContent.match(
@@ -54,6 +64,52 @@ function readTypedEvents(fileContent) {
     events.add(match[1]);
   }
   return events;
+}
+
+/** Mirrors `trackEvent`: primary names plus `eventAliasMap[primary]` targets count as emitted for doc coverage. */
+function readEventAliasMap(fileContent) {
+  const map = Object.create(null);
+  const marker = 'const eventAliasMap';
+  const start = fileContent.indexOf(marker);
+  if (start === -1) return map;
+  const open = fileContent.indexOf('{', start);
+  if (open === -1) return map;
+  let depth = 0;
+  let i = open;
+  for (; i < fileContent.length; i += 1) {
+    const ch = fileContent[i];
+    if (ch === '{') depth += 1;
+    else if (ch === '}') {
+      depth -= 1;
+      if (depth === 0) break;
+    }
+  }
+  const body = fileContent.slice(open + 1, i);
+  const entryRegex = /^\s*([a-z0-9_]+)\s*:\s*\[([^\]]*)\]/gm;
+  for (const match of body.matchAll(entryRegex)) {
+    const key = match[1];
+    const inner = match[2];
+    const aliases = [];
+    const litRegex = /'([a-z0-9_:-]+)'/g;
+    let lit;
+    while ((lit = litRegex.exec(inner)) !== null) {
+      aliases.push(lit[1]);
+    }
+    map[key] = aliases;
+  }
+  return map;
+}
+
+function expandEmittedForDocCoverage(rawEmitted, aliasMap) {
+  const out = new Set(rawEmitted);
+  for (const name of rawEmitted) {
+    const aliases = aliasMap[name];
+    if (!aliases) continue;
+    for (const a of aliases) {
+      out.add(a);
+    }
+  }
+  return out;
 }
 
 function sortAlpha(values) {
@@ -92,8 +148,10 @@ if (documentedEvents.size === 0) {
 }
 
 const sourceFiles = walkFiles(srcRoot);
-const emittedEvents = new Set();
-const typedEvents = readTypedEvents(fs.readFileSync(analyticsTypePath, 'utf8'));
+const analyticsFileContent = fs.readFileSync(analyticsTypePath, 'utf8');
+const emittedEventsRaw = new Set();
+const typedEvents = readTypedEvents(analyticsFileContent);
+const eventAliasMap = readEventAliasMap(analyticsFileContent);
 
 if (typedEvents.size === 0) {
   console.error('[analytics-verify] No typed events found in src/lib/analytics.ts');
@@ -102,22 +160,34 @@ if (typedEvents.size === 0) {
 
 for (const filePath of sourceFiles) {
   const content = fs.readFileSync(filePath, 'utf8');
-  const events = readEmittedEvents(content);
-  for (const eventName of events) {
-    emittedEvents.add(eventName);
+  for (const eventName of readEmittedEvents(content)) {
+    emittedEventsRaw.add(eventName);
+  }
+  for (const eventName of readDataTrackEventLiterals(content)) {
+    emittedEventsRaw.add(eventName);
   }
 }
 
-const missingEmitter = sortAlpha([...documentedEvents].filter((eventName) => !emittedEvents.has(eventName)));
-const undocumentedEmitter = sortAlpha([...emittedEvents].filter((eventName) => !documentedEvents.has(eventName)));
+const emittedEventsForDocs = expandEmittedForDocCoverage(emittedEventsRaw, eventAliasMap);
+
+const missingEmitter = sortAlpha(
+  [...documentedEvents].filter((eventName) => !emittedEventsForDocs.has(eventName))
+);
+const undocumentedEmitter = sortAlpha(
+  [...emittedEventsRaw].filter((eventName) => !documentedEvents.has(eventName))
+);
 const undocumentedType = sortAlpha([...documentedEvents].filter((eventName) => !typedEvents.has(eventName)));
-const untypedEmitter = sortAlpha([...emittedEvents].filter((eventName) => !typedEvents.has(eventName)));
-const staleTyped = sortAlpha([...typedEvents].filter((eventName) => !documentedEvents.has(eventName) && !emittedEvents.has(eventName)));
+const untypedEmitter = sortAlpha([...emittedEventsRaw].filter((eventName) => !typedEvents.has(eventName)));
+const staleTyped = sortAlpha(
+  [...typedEvents].filter(
+    (eventName) => !documentedEvents.has(eventName) && !emittedEventsRaw.has(eventName)
+  )
+);
 const strictUndocumented = readFlag('strict-undocumented');
 
 console.log('[analytics-verify] Event map consistency check');
 console.log(`- documented events: ${documentedEvents.size}`);
-console.log(`- emitted events: ${emittedEvents.size}`);
+console.log(`- emitted events (raw): ${emittedEventsRaw.size}`);
 console.log(`- typed events: ${typedEvents.size}`);
 
 printList('Documented but not emitted (must fix)', missingEmitter);

@@ -1,6 +1,8 @@
 @import 'tailwindcss';
 @config '../../tailwind.config.ts';
-@source '../**/*.{ts,tsx,js,jsx,mdx}';
+/* Crawled benchmark HTML under knowledge/ contains third-party class strings — exclude from Tailwind scan */
+@source not "../../knowledge/**";
+@source "../**/*.{ts,tsx}";
 
 @layer reset, tokens, themes, base, components, utilities, pages;
 
@@ -10,3 +12,4 @@
 @import './motion.css' layer(utilities);
 @import './components.css' layer(components);
 @import './pages.css' layer(pages);
+@import './home-relaunch-shell.css' layer(pages);

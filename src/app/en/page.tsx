@@ -131,7 +131,7 @@ export default async function HomePageEn() {
     <>
       <script nonce={nonce} suppressHydrationWarning type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Suspense fallback={null}>
-        <HomePageContent locale={locale} copyText={t} featuredInsights={featuredInsights} />
+        <HomePageContent locale={locale} featuredInsights={featuredInsights} />
       </Suspense>
     </>
   );

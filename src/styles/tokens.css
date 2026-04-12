@@ -1,9 +1,10 @@
 :root {
   color-scheme: dark light;
+  /* --font-heading, --font-sans, --font-mono: gesetzt via next/font auf <html>; Fallbacks für Edge-Fälle */
   --font-heading: 'Space Grotesk', 'Avenir Next', 'Segoe UI', sans-serif;
-  --font-sans: 'Manrope', 'Avenir Next', 'Segoe UI', sans-serif;
-  --font-body: system-ui;
-  --font-mono: ui-monospace;
+  --font-sans: 'Inter', 'Avenir Next', 'Segoe UI', sans-serif;
+  --font-body: var(--font-sans);
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 
   /* Core neutrals */
   --metal-990: #02040a;

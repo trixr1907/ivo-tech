@@ -1,0 +1,3736 @@
+{
+  "extraction_date": "2026-04-10",
+  "manifest_path": "knowledge/crawled_pages/2026-04-10/manifest.json",
+  "documents": [
+    {
+      "document_id": "doc_src_ivo_live__home",
+      "source_id": "src_ivo_live__home",
+      "url": "https://ivo-tech.com/",
+      "title": "ivo-tech | Web Engineering, Delivery-Exzellenz und klare Architektur",
+      "language": "de",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Technical Delivery ohne Blindflug: Websysteme, die stabil laufen und klar konvertieren."
+        },
+        {
+          "level": "h3",
+          "text": "Authority-first Web Engineering für produktkritische Plattformen"
+        },
+        {
+          "level": "h2",
+          "text": "Von Positionierung bis Produktionsbetrieb in einem sauberen Delivery-Flow."
+        },
+        {
+          "level": "h3",
+          "text": "UX & Informationsarchitektur"
+        },
+        {
+          "level": "h3",
+          "text": "UI-System & Frontend Engineering"
+        },
+        {
+          "level": "h3",
+          "text": "Performance & Qualitätssicherung"
+        },
+        {
+          "level": "h2",
+          "text": "Technisch stark, inhaltlich klar, operativ zuverlässig."
+        },
+        {
+          "level": "h3",
+          "text": "Klare Hierarchie statt Informationsrauschen"
+        },
+        {
+          "level": "h3",
+          "text": "Hochwertiger Eindruck ohne visuelle Überladung"
+        },
+        {
+          "level": "h3",
+          "text": "Conversion-orientierte Architektur"
+        },
+        {
+          "level": "h3",
+          "text": "Skalierbares Komponentenmodell"
+        },
+        {
+          "level": "h2",
+          "text": "Entscheider:innen vertrauen auf nachvollziehbare Delivery."
+        },
+        {
+          "level": "h3",
+          "text": "Vertrauenselemente"
+        },
+        {
+          "level": "h3",
+          "text": "Kundenstimme"
+        },
+        {
+          "level": "h3",
+          "text": "Case Snapshot: Configurator Live"
+        },
+        {
+          "level": "h3",
+          "text": "Case Snapshot: Portfolio Authority Relaunch"
+        },
+        {
+          "level": "h2",
+          "text": "Aktuelle Engineering-Pattern fuer Teams mit hohem Delivery-Druck."
+        },
+        {
+          "level": "h3",
+          "text": "AI-Assisted PR Review Loop"
+        },
+        {
+          "level": "h3",
+          "text": "API-Integrationen: Die haeufigsten Failure-Modes"
+        },
+        {
+          "level": "h3",
+          "text": "Architekturentscheidungen unter Zeitdruck"
+        },
+        {
+          "level": "h3",
+          "text": "Editorial Signal"
+        },
+        {
+          "level": "h2",
+          "text": "Ein transparenter Prozess mit klaren Entscheidungspunkten."
+        },
+        {
+          "level": "h3",
+          "text": "1. Discovery & Priorisierung"
+        },
+        {
+          "level": "h3",
+          "text": "2. UX/UI-System & Prototyp"
+        },
+        {
+          "level": "h3",
+          "text": "3. Implementierung & QA"
+        },
+        {
+          "level": "h3",
+          "text": "4. Launch & Iteration"
+        },
+        {
+          "level": "h2",
+          "text": "Lass uns deine Homepage auf Enterprise-Niveau bringen."
+        }
+      ],
+      "sections": [
+        {
+          "section_id": "section_1",
+          "section_type": "other",
+          "headline": "Technical Delivery ohne Blindflug: Websysteme, die stabil laufen und klar konvertieren.",
+          "aria_label": "",
+          "text": "Delivery cockpit B2B Web Engineering UX Funnel Systems Conversion Telemetry Engineering Delivery Technical Delivery ohne Blindflug: Websysteme, die stabil laufen und klar konvertieren. Ich kombiniere Architektur, UX-Führung und produktionsnahe Umsetzung. Das Ergebnis sind B2B-Webseiten, die Entscheidungssicherheit schaffen und qualifizierte Anfragen planbar erzeugen. Erstgespräch starten Case Studies ansehen Playbook lesen Pipeline-Fokus Mehr qualifizierte Erstgespräche Delivery-Sicherheit Scope, QA und Launch sauber verzahnt Technische Autorität Engineering-Proof statt Marketing-Floskeln Enterprise-nahe Frontends Klare Informationsarchitektur Performante Umsetzung mit Next.js Delivery-Qualität mit klaren QA-Gates Nachvollziehbarer Scope statt Feature-Chaos Antwortzeit typischerweise unter 24h S SaaS Plattform I Industrial Tech D Digital Product Studio B B2B Services Outcome Pulse Live S"
+        },
+        {
+          "section_id": "section_2",
+          "section_type": "other",
+          "headline": "",
+          "aria_label": "Delivery Spectrum",
+          "text": "Pipeline-Fokus Mehr qualifizierte Erstgespräche Delivery-Sicherheit Scope, QA und Launch sauber verzahnt Technische Autorität Engineering-Proof statt Marketing-Floskeln"
+        },
+        {
+          "section_id": "section_3",
+          "section_type": "proof_bar",
+          "headline": "",
+          "aria_label": "Proof Highlights",
+          "text": "Trusted Context S SaaS Plattform I Industrial Tech D Digital Product Studio B B2B Services SaaS Plattform Industrial Tech Digital Product Studio B2B Services QA Gates Telemetry Speed Budget Operational Readiness SaaS Plattform Industrial Tech Digital Product Studio B2B Services QA Gates Telemetry Speed Budget Operational Readiness Proof Module Labs Systems Proof Module Voicebot Flows Proof Module Realtime Dashboards < 10 Tage Typisches Projekt-Setup 95+ Lighthouse Performance Ziel 3+ Segmente B2B-Kontexte aus realer Delivery “ Der Proof-Block zeigt nur verifizierbare Referenzen. Kundenstimmen werden erst nach expliziter Freigabe veroeffentlicht. ” ivo-tech · Editorial trust note · Operational policy Branchenkontext: SaaS Plattform · Industrial Tech · Digital Product Studio · B2B Services"
+        },
+        {
+          "section_id": "services",
+          "section_type": "services",
+          "headline": "Von Positionierung bis Produktionsbetrieb in einem sauberen Delivery-Flow.",
+          "aria_label": "",
+          "text": "Leistungen Von Positionierung bis Produktionsbetrieb in einem sauberen Delivery-Flow. Du bekommst keine lose Design-Datei, sondern ein belastbares Frontend-System mit klaren Uebergaben fuer Marketing und Product. Delivery Preview Rail Live Cases 3D-Konfigurator fuer Datei-zu-Angebot-Workflows im Live-Betrieb Live Voicebot Einwilligungs-Orchestrator Private Beta Sorare NBA Edge Tool In Entwicklung UX & Informationsarchitektur Struktur, Messaging und Conversion-Führung entlang realer B2B-Entscheidungswege. Nutzerpfade und Funnel-Logik Content-Hierarchie mit klaren CTA-Stufen Delivery-ready Scope UI-System & Frontend Engineering Modulares UI auf Next.js, Tailwind und shadcn/ui für schnelle Iteration ohne Qualitätsverlust. Komponentenbibliothek mit Tokens Semantisch, barrierearm, responsive Delivery-ready Scope Performance & Qualitätssicherung Performance-Budgets und technische Guardrails vo"
+        },
+        {
+          "section_id": "benefits",
+          "section_type": "other",
+          "headline": "Technisch stark, inhaltlich klar, operativ zuverlässig.",
+          "aria_label": "",
+          "text": "Warum dieses Setup Technisch stark, inhaltlich klar, operativ zuverlässig. Gerade im B2B-Kontext entscheidet nicht nur Designqualität, sondern auch Verständlichkeit und technische Robustheit. Klare Hierarchie statt Informationsrauschen Jede Section erfüllt eine eindeutige Funktion im Entscheidungsprozess. Hochwertiger Eindruck ohne visuelle Überladung Bewusste Typografie, viel Weißraum und präzise Interaktionsmuster. Conversion-orientierte Architektur Primäre und sekundäre CTAs sind konsistent, wiederholbar und messbar. Skalierbares Komponentenmodell Neue Inhalte und Seiten lassen sich ohne Redesign-Wildwuchs erweitern."
+        },
+        {
+          "section_id": "trust",
+          "section_type": "trust",
+          "headline": "Entscheider:innen vertrauen auf nachvollziehbare Delivery.",
+          "aria_label": "",
+          "text": "Referenzen & Trust Entscheider:innen vertrauen auf nachvollziehbare Delivery. Statt reiner Design-Versprechen zeigen reale Build-Artefakte belastbare Signale aus Umsetzung, Zusammenarbeit und Ergebnisqualitaet. Vertrauenselemente Reale Projekt- und Delivery-Signale aus bestehenden Umsetzungen. 3D-Konfigurator fuer Datei-zu-Angebot-Workflows im Live-Betrieb Live THREE.JS / WEBGL | WORDPRESS PLUGIN | PRICING ENGINE | WOOCOMMERCE Voicebot Einwilligungs-Orchestrator Private Beta FASTAPI | SPEECH API | TWILIO | ORCHESTRATION Sorare NBA Edge Tool In Entwicklung NEXT.JS | FASTAPI | PYTHON | OR-TOOLS Kundenstimme “ Der Proof-Block zeigt nur verifizierbare Referenzen. Kundenstimmen werden erst nach expliziter Freigabe veroeffentlicht. ” ivo-tech · Editorial trust note · Operational policy Kundenfreigaben in Arbeit Live-Referenz: 3D-Konfigurator im Kundenbetrieb Produktive Datei-zu-Preis-Strecke m"
+        },
+        {
+          "section_id": "insights",
+          "section_type": "insights",
+          "headline": "Aktuelle Engineering-Pattern fuer Teams mit hohem Delivery-Druck.",
+          "aria_label": "",
+          "text": "Insights Aktuelle Engineering-Pattern fuer Teams mit hohem Delivery-Druck. Kurze, praxisnahe Insights zu Architektur, CRO und operationaler Web-Qualitaet. AI Engineering 6 Min Lesezeit AI-Assisted PR Review Loop Ein pragmatischer Review-Loop fuer schnellere Iteration mit stabiler Qualitaet. Insight lesen Backend 8 Min Lesezeit API-Integrationen: Die haeufigsten Failure-Modes Ein Risiko-Katalog fuer API-Integrationen mit konkreten Gegenmassnahmen. Insight lesen Architektur 7 Min Lesezeit Architekturentscheidungen unter Zeitdruck Wie Teams unter Zeitdruck bessere Architekturentscheidungen treffen, ohne spaeteren Betriebsaufwand zu explodieren. Insight lesen Editorial Signal Engineering-Insights als Vertrauenshebel: klar, konkret, wiederverwendbar im Team. Jeder Insight verlinkt auf Cases oder Services, damit aus Lesen direkt Handlung wird. So wird Thought Leadership zu messbarer Conversion"
+        },
+        {
+          "section_id": "process",
+          "section_type": "process",
+          "headline": "Ein transparenter Prozess mit klaren Entscheidungspunkten.",
+          "aria_label": "",
+          "text": "Zusammenarbeit Ein transparenter Prozess mit klaren Entscheidungspunkten. So bleibt das Projekt steuerbar und Teams behalten jederzeit Überblick über Scope, Qualität und Timing. 1 Discovery & Priorisierung 2 UX/UI-System & Prototyp 3 Implementierung & QA 4 Launch & Iteration 1 1. Discovery & Priorisierung Ziele, Zielgruppen, Kernbotschaft und Business-Constraints auf eine belastbare Seite bringen. 2 2. UX/UI-System & Prototyp Struktur und visuelle Sprache validieren, bevor umfangreich entwickelt wird. 3 3. Implementierung & QA Komponenten, Content und technische Qualität in einem reproduzierbaren Delivery-Prozess liefern. 4 4. Launch & Iteration Tracking, Optimierung und weitere Conversion-Hebel nach dem Go-live iterativ ausbauen."
+        },
+        {
+          "section_id": "contact",
+          "section_type": "contact",
+          "headline": "Lass uns deine Homepage auf Enterprise-Niveau bringen.",
+          "aria_label": "",
+          "text": "Call to Action Lass uns deine Homepage auf Enterprise-Niveau bringen. Kurzer Kontext reicht: Ziel, aktueller Engpass, gewuenschter Zeitrahmen. Du bekommst einen klaren naechsten Schritt. Naechster Schritt: Du erhaeltst innerhalb eines Werktags eine konkrete Rueckmeldung mit Scope-Empfehlung. 1 Scope in 30 Min geklärt Ziele, Engpass und realistischer Umsetzungsrahmen. 2 Technische Risiken früh sichtbar Klare Einschätzung zu Architektur-, QA- und Delivery-Fragen. 3 Konkreter nächster Schritt Sie erhalten eine belastbare Empfehlung statt losem Feedback. Delivery Footprints S SaaS Plattform I Industrial Tech D Digital Product Studio B B2B Services < 10 Tage Typisches Projekt-Setup 95+ Lighthouse Performance Ziel < 24h Antwortzeit im Projekt Decision Flow Brief Scope Kickoff Intent Projekt / Zusammenarbeit Hiring / Rolle Name Business-E-Mail Firma (optional) Portfolio/Hobby Referenz (optional"
+        }
+      ],
+      "ctas": [
+        {
+          "href": "/contact?source=primary-nav",
+          "label": "Kontakt"
+        },
+        {
+          "href": "/contact?source=home-hero-primary",
+          "label": "Erstgespräch starten"
+        },
+        {
+          "href": "#contact",
+          "label": "Kontakt"
+        },
+        {
+          "href": "/contact?source=home-hero-primary",
+          "label": "Erstgespräch starten"
+        },
+        {
+          "href": "/case-studies/configurator-live",
+          "label": "3D-Konfigurator fuer Datei-zu-Angebot-Workflows im Live-Betrieb Live"
+        },
+        {
+          "href": "/case-studies/configurator-live",
+          "label": "3D-Konfigurator fuer Datei-zu-Angebot-Workflows im Live-Betrieb Live THREE.JS / WEBGL | WORDPRESS PLUGIN | PRICING ENGINE | WOOCOMMERCE"
+        },
+        {
+          "href": "/case-studies/portfolio-authority-relaunch",
+          "label": "Case Study: Authority Relaunch mit KPI-Snapshots Dokumentierte Informationsarchitektur, CTA-Funnel und Performance-Guardrails."
+        },
+        {
+          "href": "https://cal.com/ivo-tech/intro-call?locale=de&amp;source=home&amp;exp_hero=default&amp;utm_source=ivo-tech.com&amp;utm_medium=website&amp;utm_campaign=scheduler-contact-form&amp;utm_content=hero-default",
+          "label": "Oder direkt Termin buchen"
+        },
+        {
+          "href": "/contact?source=home-hero-primary",
+          "label": "Erstgespräch starten"
+        }
+      ],
+      "trust_signals": [
+        "Kundenstimme"
+      ],
+      "faq_questions": [
+        "Wie startet eine Zusammenarbeit?",
+        "Welche Deliverables lieferst du typischerweise?",
+        "Arbeitest du mit bestehenden Teams und Codebases?"
+      ]
+    },
+    {
+      "document_id": "doc_src_ivo_live__en",
+      "source_id": "src_ivo_live__en",
+      "url": "https://ivo-tech.com/en",
+      "title": "ivo-tech | Web Engineering, Delivery Excellence and Clear Architecture",
+      "language": "en",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Technical delivery without guesswork: web systems that stay stable and convert clearly."
+        },
+        {
+          "level": "h3",
+          "text": "Authority-first engineering for product-critical web platforms"
+        },
+        {
+          "level": "h2",
+          "text": "From positioning to production-ready delivery."
+        },
+        {
+          "level": "h3",
+          "text": "UX & Information Architecture"
+        },
+        {
+          "level": "h3",
+          "text": "UI System & Frontend Engineering"
+        },
+        {
+          "level": "h3",
+          "text": "Performance & Quality"
+        },
+        {
+          "level": "h2",
+          "text": "Technically strong, operationally dependable."
+        },
+        {
+          "level": "h3",
+          "text": "Intentional hierarchy"
+        },
+        {
+          "level": "h3",
+          "text": "Premium look without gimmicks"
+        },
+        {
+          "level": "h3",
+          "text": "Conversion-ready architecture"
+        },
+        {
+          "level": "h3",
+          "text": "Scalable components"
+        },
+        {
+          "level": "h2",
+          "text": "Teams trust delivery they can verify."
+        },
+        {
+          "level": "h3",
+          "text": "Trust elements"
+        },
+        {
+          "level": "h3",
+          "text": "Client signal"
+        },
+        {
+          "level": "h3",
+          "text": "Case snapshot: Configurator live"
+        },
+        {
+          "level": "h3",
+          "text": "Case snapshot: Portfolio authority relaunch"
+        },
+        {
+          "level": "h2",
+          "text": "Current engineering patterns for teams under delivery pressure."
+        },
+        {
+          "level": "h3",
+          "text": "AI-Assisted PR Review Loop"
+        },
+        {
+          "level": "h3",
+          "text": "API integrations: the most common failure modes"
+        },
+        {
+          "level": "h3",
+          "text": "Architecture decisions under time pressure"
+        },
+        {
+          "level": "h3",
+          "text": "Editorial signal"
+        },
+        {
+          "level": "h2",
+          "text": "Transparent collaboration with clear checkpoints."
+        },
+        {
+          "level": "h3",
+          "text": "1. Discovery & Prioritization"
+        },
+        {
+          "level": "h3",
+          "text": "2. UX/UI System & Prototype"
+        },
+        {
+          "level": "h3",
+          "text": "3. Implementation & QA"
+        },
+        {
+          "level": "h3",
+          "text": "4. Launch & Iteration"
+        },
+        {
+          "level": "h2",
+          "text": "Upgrade your homepage to enterprise-grade quality."
+        }
+      ],
+      "sections": [
+        {
+          "section_id": "section_1",
+          "section_type": "other",
+          "headline": "Technical delivery without guesswork: web systems that stay stable and convert clearly.",
+          "aria_label": "",
+          "text": "Delivery cockpit B2B Web Engineering UX funnel systems Conversion telemetry Engineering delivery Technical delivery without guesswork: web systems that stay stable and convert clearly. I combine architecture, conversion-focused UX, and production-grade implementation. You get a B2B website that creates decision confidence and qualified pipeline. Start discovery call View case studies Read playbook Pipeline focus More qualified first meetings Delivery certainty Scope, QA, and launch stay aligned Technical authority Engineering proof over marketing fluff Enterprise-grade frontend quality Clear information architecture Fast Next.js delivery Delivery quality with explicit QA gates Clear scope instead of feature chaos Typical response window under 24h S SaaS Platform I Industrial Tech D Digital Product Studio B B2B Services Outcome pulse Live Scope in 30 min QA gates visible Go-live without g"
+        },
+        {
+          "section_id": "section_2",
+          "section_type": "other",
+          "headline": "",
+          "aria_label": "Delivery spectrum",
+          "text": "Pipeline focus More qualified first meetings Delivery certainty Scope, QA, and launch stay aligned Technical authority Engineering proof over marketing fluff"
+        },
+        {
+          "section_id": "section_3",
+          "section_type": "proof_bar",
+          "headline": "",
+          "aria_label": "Proof highlights",
+          "text": "Trusted context S SaaS Platform I Industrial Tech D Digital Product Studio B B2B Services SaaS Platform Industrial Tech Digital Product Studio B2B Services QA gates Telemetry Speed budget Operational readiness SaaS Platform Industrial Tech Digital Product Studio B2B Services QA gates Telemetry Speed budget Operational readiness Proof module Labs systems Proof module Voicebot flows Proof module Realtime dashboards < 10 days Typical project kickoff 95+ Lighthouse performance target 3+ segments B2B contexts from real delivery “ The proof block only shows verifiable references. Client testimonials are published only after explicit approval. ” ivo-tech · Editorial trust note · Operational policy Industry context: SaaS Platform · Industrial Tech · Digital Product Studio · B2B Services"
+        },
+        {
+          "section_id": "services",
+          "section_type": "services",
+          "headline": "From positioning to production-ready delivery.",
+          "aria_label": "",
+          "text": "Services From positioning to production-ready delivery. You do not get disconnected mockups. You get a coherent frontend system that marketing and product teams can actually operate. Delivery preview rail Live cases 3D configurator for live file-to-quote workflows Live Voicebot consent orchestrator Private beta Sorare NBA Edge Tool In development UX & Information Architecture Messaging, structure, and conversion flow aligned to real B2B buying behavior. Decision-stage user journeys Clear CTA hierarchy Delivery-ready scope UI System & Frontend Engineering Modular delivery with Next.js, Tailwind and shadcn/ui to scale without design drift. Token-driven component library Accessible and responsive by default Delivery-ready scope Performance & Quality Performance budgets and implementation guardrails from day one. Core Web Vitals focused build Repeatable QA and release standards Delivery-read"
+        },
+        {
+          "section_id": "benefits",
+          "section_type": "other",
+          "headline": "Technically strong, operationally dependable.",
+          "aria_label": "",
+          "text": "Why us Technically strong, operationally dependable. For B2B websites, credibility is won by clarity and delivery quality, not visual noise. Intentional hierarchy Every section has a clear job in the decision flow. Premium look without gimmicks Strong typography, space, and focused interaction states. Conversion-ready architecture Primary and secondary CTAs are consistent and measurable. Scalable components Expand pages and content without redesign chaos."
+        },
+        {
+          "section_id": "trust",
+          "section_type": "trust",
+          "headline": "Teams trust delivery they can verify.",
+          "aria_label": "",
+          "text": "Proof Teams trust delivery they can verify. We show concrete quality signals across execution, collaboration, and outcomes. Trust elements Real project and delivery signals from existing implementations. 3D configurator for live file-to-quote workflows Live THREE.JS / WEBGL | WORDPRESS PLUGIN | PRICING ENGINE | WOOCOMMERCE Voicebot consent orchestrator Private beta FASTAPI | SPEECH API | TWILIO | ORCHESTRATION Sorare NBA Edge Tool In development NEXT.JS | FASTAPI | PYTHON | OR-TOOLS Client signal “ The proof block only shows verifiable references. Client testimonials are published only after explicit approval. ” ivo-tech · Editorial trust note · Operational policy Client approvals in progress Live reference: 3D configurator in client production Production file-to-price flow with checkout handoff as public proof. Public proof: GitHub build history and release artifacts Transparent commits"
+        },
+        {
+          "section_id": "insights",
+          "section_type": "insights",
+          "headline": "Current engineering patterns for teams under delivery pressure.",
+          "aria_label": "",
+          "text": "Insights Current engineering patterns for teams under delivery pressure. Practical insights on architecture, CRO, and operational web quality. AI Engineering 6 min read AI-Assisted PR Review Loop A pragmatic review loop for faster iteration with stable quality. Read insight Backend 8 min read API integrations: the most common failure modes A risk catalog for API integrations with practical countermeasures. Read insight Architecture 7 min read Architecture decisions under time pressure How teams make better architecture decisions under pressure without exploding operational cost later. Read insight Editorial signal Engineering insights as a trust lever: clear, concrete, reusable across teams. Each insight links to cases or services so reading turns into action. This converts thought leadership into measurable conversion support. View all insights"
+        },
+        {
+          "section_id": "process",
+          "section_type": "process",
+          "headline": "Transparent collaboration with clear checkpoints.",
+          "aria_label": "",
+          "text": "Process Transparent collaboration with clear checkpoints. The workflow stays measurable, aligned, and predictable across design, engineering, and stakeholders. 1 Discovery & Prioritization 2 UX/UI System & Prototype 3 Implementation & QA 4 Launch & Iteration 1 1. Discovery & Prioritization Align goals, audience, positioning, and constraints. 2 2. UX/UI System & Prototype Validate structure and visual language before full implementation. 3 3. Implementation & QA Ship components and content with repeatable quality gates. 4 4. Launch & Iteration Track, optimize, and continuously improve conversion outcomes."
+        },
+        {
+          "section_id": "contact",
+          "section_type": "contact",
+          "headline": "Upgrade your homepage to enterprise-grade quality.",
+          "aria_label": "",
+          "text": "Call to Action Upgrade your homepage to enterprise-grade quality. Share your goal, current bottleneck, and timeline. We reply with a concrete next step. Next step: You receive a concrete scope recommendation within one business day. 1 Scope clarified in 30 min Goals, bottleneck, and a realistic delivery frame. 2 Technical risks visible early Clear take on architecture, QA, and delivery risks. 3 Concrete next step You get an actionable recommendation, not vague feedback. Delivery footprints S SaaS Platform I Industrial Tech D Digital Product Studio B B2B Services < 10 days Typical project kickoff 95+ Lighthouse performance target < 24h Project response window Decision flow Brief Scope Kickoff Intent Project / collaboration Hiring / role Name Business email Company (optional) Portfolio/hobby reference (optional) Context Website By submitting, you agree to processing your request for contac"
+        }
+      ],
+      "ctas": [
+        {
+          "href": "/en/case-studies/portfolio-authority-relaunch",
+          "label": "Case study: Authority relaunch with KPI snapshots Documented information architecture, CTA funnel, and performance guardrails."
+        }
+      ],
+      "trust_signals": [
+        "Teams trust delivery they can verify.",
+        "Trust elements"
+      ],
+      "faq_questions": [
+        "How does collaboration typically start?",
+        "Which deliverables do you usually provide?",
+        "Do you work with existing teams and codebases?"
+      ]
+    },
+    {
+      "document_id": "doc_src_ivo_live__configurator",
+      "source_id": "src_ivo_live__configurator",
+      "url": "https://ivo-tech.com/configurator",
+      "title": "3D-Konfigurator Case Study | ivo-tech",
+      "language": "de",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "3D-Konfigurator als Tech-Referenz"
+        }
+      ],
+      "sections": [
+        {
+          "section_id": "section_1",
+          "section_type": "trust",
+          "headline": "3D-Konfigurator als Tech-Referenz",
+          "aria_label": "",
+          "text": "Premium Case Study 3D-Konfigurator als Tech-Referenz Ich habe einen produktionsfaehigen 3D-Konfigurator fuer Datei-zu-Angebot-Workflows entwickelt: Upload, Geometrie-Analyse, Preislogik und WooCommerce-Handoff in einem durchgaengigen Web-Flow. Technische Umsetzung: ivo-tech. Betrieb und Vermarktung erfolgen beim Kunden. Live beim Kunden oeffnen Erstgespraech anfragen"
+        },
+        {
+          "section_id": "section_2",
+          "section_type": "other",
+          "headline": "",
+          "aria_label": "Case study details",
+          "text": "Live Flow Upload -> Analyse -> Preis -> Checkout laeuft produktiv im Kundenprojekt. Qualitativer Proof aus laufendem Shopbetrieb. Engineering Scope Viewer, Plugin-Backend, Pricing-Engine und WooCommerce-Handoff wurden als ein System umgesetzt. Technische Umsetzung durch ivo-tech. Operational Fit Standardanfragen laufen gefuehrt statt ueber manuelle Rueckfrage-Schleifen. Fokus auf reproduzierbare Bearbeitung pro Anfrage. Ausgangslage Angebotsrunden fuer 3D-Druck liefen manuell und erzeugten wiederkehrende Rueckfrage-Schleifen. Ziel war ein klarer Datei-zu-Preis-Prozess mit direktem Uebergang in den Kaufpfad. Delivery Scope Frontend: Three.js/WebGL Viewer mit STL-/3MF-Upload, Modellkontrolle und Echtzeit-Feedback. Backend: WordPress Plugin mit AJAX-Endpunkten fuer Analyse- und Pricing-Kontext. Commerce: WooCommerce-Handoff fuer Cart/Order ohne Medienbruch. Architektur Regelbasierte Preis-E"
+        }
+      ],
+      "ctas": [
+        {
+          "href": "https://deinlieblingsdruck.de/3d-konfigurator/#preisrechner",
+          "label": "Live Demo"
+        },
+        {
+          "href": "/#contact",
+          "label": "Kontakt"
+        },
+        {
+          "href": "/#contact",
+          "label": "Erstgespraech anfragen"
+        }
+      ],
+      "trust_signals": [
+        "3D-Konfigurator als Tech-Referenz"
+      ],
+      "faq_questions": []
+    },
+    {
+      "document_id": "doc_src_ivo_live__en_configurator",
+      "source_id": "src_ivo_live__en_configurator",
+      "url": "https://ivo-tech.com/en/configurator",
+      "title": "3D Configurator Case Study | ivo-tech",
+      "language": "en",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "3D configurator as a tech reference"
+        }
+      ],
+      "sections": [
+        {
+          "section_id": "section_1",
+          "section_type": "other",
+          "headline": "3D configurator as a tech reference",
+          "aria_label": "",
+          "text": "Premium case study 3D configurator as a tech reference I built a production-ready 3D configurator for file-to-quote workflows: upload, geometry analysis, pricing logic, and WooCommerce handoff in one continuous web flow. Technical implementation by ivo-tech. Platform operations and commercial ownership remain with the client. Open live client flow Request free intro call"
+        },
+        {
+          "section_id": "section_2",
+          "section_type": "other",
+          "headline": "",
+          "aria_label": "Case study details",
+          "text": "Live flow Upload -> analysis -> pricing -> checkout runs in production client operations. Qualitative proof from ongoing production operations. Engineering scope Viewer, plugin backend, pricing engine, and WooCommerce handoff were delivered as one system. Technical implementation by ivo-tech. Operational fit Standard requests run in a guided flow instead of manual back-and-forth loops. Focus on reproducible handling per request. Context 3D print quote loops were manual and created repeated back-and-forth. The target was a clear file-to-price process with direct handoff into purchase. Delivery scope Frontend: Three.js/WebGL viewer with STL/3MF upload, model control, and real-time feedback. Backend: WordPress plugin with AJAX endpoints for analysis and pricing context. Commerce: WooCommerce handoff into cart/order without context switching. Architecture Rule-based pricing engine (material,"
+        }
+      ],
+      "ctas": [
+        {
+          "href": "https://deinlieblingsdruck.de/3d-konfigurator/#preisrechner",
+          "label": "Live demo"
+        }
+      ],
+      "trust_signals": [],
+      "faq_questions": []
+    },
+    {
+      "document_id": "doc_src_ivo_live__insights",
+      "source_id": "src_ivo_live__insights",
+      "url": "https://ivo-tech.com/insights",
+      "title": "Engineering-Insights | ivo-tech",
+      "language": "de",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Engineering-Insights"
+        },
+        {
+          "level": "h2",
+          "text": "AI-Assisted PR Review Loop"
+        },
+        {
+          "level": "h2",
+          "text": "API-Integrationen: Die haeufigsten Failure-Modes"
+        },
+        {
+          "level": "h2",
+          "text": "Architekturentscheidungen unter Zeitdruck"
+        },
+        {
+          "level": "h2",
+          "text": "Next.js Performance Budget Playbook"
+        },
+        {
+          "level": "h2",
+          "text": "Stable Handover Checklist"
+        }
+      ],
+      "sections": [
+        {
+          "section_id": "section_1",
+          "section_type": "insights",
+          "headline": "Engineering-Insights",
+          "aria_label": "",
+          "text": "Engineering-Insights Praxisnahe Deep Dives zu Architektur, Performance und Delivery-Entscheidungen. AI Engineering | 6 min AI-Assisted PR Review Loop Ein pragmatischer Review-Loop fuer schnellere Iteration mit stabiler Qualitaet. Artikel lesen Backend | 8 min API-Integrationen: Die haeufigsten Failure-Modes Ein Risiko-Katalog fuer API-Integrationen mit konkreten Gegenmassnahmen. Artikel lesen Architektur | 7 min Architekturentscheidungen unter Zeitdruck Wie Teams unter Zeitdruck bessere Architekturentscheidungen treffen, ohne spaeteren Betriebsaufwand zu explodieren. Artikel lesen Performance | 6 min Next.js Performance Budget Playbook Konkrete Budget-Werte und CI-Guardrails, damit Performance nicht schleichend regressiert. Artikel lesen Delivery | 5 min Stable Handover Checklist Welche Artefakte in einer Uebergabe zwingend enthalten sein muessen. Artikel lesen"
+        }
+      ],
+      "ctas": [
+        {
+          "href": "/contact?source=primary-nav",
+          "label": "Kontakt"
+        },
+        {
+          "href": "/contact?source=hub-insights",
+          "label": "Erstgespraech"
+        }
+      ],
+      "trust_signals": [],
+      "faq_questions": []
+    },
+    {
+      "document_id": "doc_src_ivo_live__en_insights",
+      "source_id": "src_ivo_live__en_insights",
+      "url": "https://ivo-tech.com/en/insights",
+      "title": "Engineering insights | ivo-tech",
+      "language": "en",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Engineering insights"
+        },
+        {
+          "level": "h2",
+          "text": "AI-Assisted PR Review Loop"
+        },
+        {
+          "level": "h2",
+          "text": "API integrations: the most common failure modes"
+        },
+        {
+          "level": "h2",
+          "text": "Architecture decisions under time pressure"
+        },
+        {
+          "level": "h2",
+          "text": "Next.js performance budget playbook"
+        },
+        {
+          "level": "h2",
+          "text": "Stable handover checklist"
+        }
+      ],
+      "sections": [
+        {
+          "section_id": "section_1",
+          "section_type": "insights",
+          "headline": "Engineering insights",
+          "aria_label": "",
+          "text": "Engineering insights Practical deep dives on architecture, performance, and delivery decisions. AI Engineering | 6 min AI-Assisted PR Review Loop A pragmatic review loop for faster iteration with stable quality. Read article Backend | 8 min API integrations: the most common failure modes A risk catalog for API integrations with practical countermeasures. Read article Architecture | 7 min Architecture decisions under time pressure How teams make better architecture decisions under pressure without exploding operational cost later. Read article Performance | 6 min Next.js performance budget playbook Concrete budget values and CI guardrails that prevent gradual performance regressions. Read article Delivery | 5 min Stable handover checklist Which artifacts must be included in every technical handover. Read article"
+        }
+      ],
+      "ctas": [],
+      "trust_signals": [],
+      "faq_questions": []
+    },
+    {
+      "document_id": "doc_src_ivo_live__about",
+      "source_id": "src_ivo_live__about",
+      "url": "https://ivo-tech.com/about",
+      "title": "Ueber mich | ivo-tech",
+      "language": "de",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Ich baue digitale Systeme, die technisch sauber laufen und als Portfolio wirklich wirken."
+        },
+        {
+          "level": "h2",
+          "text": "Arbeitsprinzipien"
+        },
+        {
+          "level": "h2",
+          "text": "Journey"
+        },
+        {
+          "level": "h3",
+          "text": "Fokus auf produktionsnahe Web-Delivery"
+        },
+        {
+          "level": "h3",
+          "text": "3D und Maker Workflows als Kern-Differenzierung"
+        },
+        {
+          "level": "h3",
+          "text": "AI Assist und Workflow-Automation integriert"
+        },
+        {
+          "level": "h3",
+          "text": "Creator-Engineer Brand ausgebaut"
+        },
+        {
+          "level": "h2",
+          "text": "Trust Layers"
+        },
+        {
+          "level": "h3",
+          "text": "Live Referenz im echten Kundenbetrieb"
+        },
+        {
+          "level": "h3",
+          "text": "Nachvollziehbare Case-Study-Blueprints"
+        },
+        {
+          "level": "h3",
+          "text": "Delivery mit QA- und Performance-Guardrails"
+        },
+        {
+          "level": "h2",
+          "text": "Ausgewaehlte Referenzen"
+        },
+        {
+          "level": "h3",
+          "text": "3D Konfigurator im Live-Betrieb"
+        },
+        {
+          "level": "h3",
+          "text": "Authority-first Portfolio Relaunch"
+        }
+      ],
+      "sections": [
+        {
+          "section_id": "section_1",
+          "section_type": "other",
+          "headline": "Ich baue digitale Systeme, die technisch sauber laufen und als Portfolio wirklich wirken.",
+          "aria_label": "",
+          "text": "Builder / Engineer / Maker Ich baue digitale Systeme, die technisch sauber laufen und als Portfolio wirklich wirken. Mein Fokus liegt auf der Schnittstelle aus Produktlogik, Frontend-Engineering und Maker-Mindset. Ich arbeite dort, wo technische Entscheidungen sichtbar Auswirkungen auf Vertrauen, Geschwindigkeit und Wartbarkeit haben."
+        },
+        {
+          "section_id": "section_2",
+          "section_type": "other",
+          "headline": "Arbeitsprinzipien",
+          "aria_label": "",
+          "text": "Arbeitsprinzipien Klarheit vor Komplexitaet: Jede technische Entscheidung muss fuer Stakeholder nachvollziehbar sein. Delivery mit Guardrails: QA, Performance und Handover werden von Anfang an mitgedacht. Builder-Mentalitaet: Ideen werden schnell prototypisiert, aber stabil produktionsfaehig gemacht."
+        },
+        {
+          "section_id": "section_3",
+          "section_type": "other",
+          "headline": "Journey",
+          "aria_label": "",
+          "text": "Journey 2023 Fokus auf produktionsnahe Web-Delivery Shift von Einzel-Features zu End-to-End-Systemen mit klaren Betriebskriterien. 2024 3D und Maker Workflows als Kern-Differenzierung Aufbau von browserbasierten Konfiguratoren und technischen Prototyping-Flows. 2025 AI Assist und Workflow-Automation integriert Review- und Delivery-Prozesse mit reproduzierbaren Automationsmustern erweitert. 2026 Creator-Engineer Brand ausgebaut Portfolio kombiniert Hiring-Story, technische Tiefe und Maker-Projekte mit messbarer Wirkung."
+        },
+        {
+          "section_id": "section_4",
+          "section_type": "trust",
+          "headline": "Trust Layers",
+          "aria_label": "",
+          "text": "Trust Layers Live Referenz im echten Kundenbetrieb Produktiver 3D Datei-zu-Preis-Flow mit Checkout-Handoff. Nachvollziehbare Case-Study-Blueprints Problem, Architektur, Trade-offs und Ergebnis pro Projekt transparent dokumentiert. Delivery mit QA- und Performance-Guardrails Playbooks und technische Standards fuer stabile Releases."
+        },
+        {
+          "section_id": "section_5",
+          "section_type": "trust",
+          "headline": "Ausgewaehlte Referenzen",
+          "aria_label": "",
+          "text": "Ausgewaehlte Referenzen LIVE 3D Konfigurator im Live-Betrieb Datei Upload, Geometrie Analyse und Preislogik in einem durchgaengigen Browser-Flow. Upload bis Checkout laeuft produktiv und reduziert manuelle Rueckfrage-Schleifen. Case Study lesen LIVE Authority-first Portfolio Relaunch Von reiner Projektsammlung zu strukturierter Positionierung mit klarer Entscheidungsfuehrung. Strukturierteres Trust-Signal fuer Hiring- und Collaboration-Entscheider. Case Study lesen"
+        }
+      ],
+      "ctas": [
+        {
+          "href": "/contact?source=primary-nav",
+          "label": "Kontakt"
+        },
+        {
+          "href": "/contact?source=header-nav",
+          "label": "Erstgespraech"
+        },
+        {
+          "href": "/case-studies/configurator-live",
+          "label": "Case Study lesen"
+        },
+        {
+          "href": "/case-studies/portfolio-authority-relaunch",
+          "label": "Case Study lesen"
+        },
+        {
+          "href": "/contact?source=primary-nav",
+          "label": "Kontakt"
+        },
+        {
+          "href": "/contact?source=header-nav",
+          "label": "Kontakt aufnehmen"
+        }
+      ],
+      "trust_signals": [
+        "Trust Layers",
+        "Live Referenz im echten Kundenbetrieb",
+        "Ausgewaehlte Referenzen"
+      ],
+      "faq_questions": []
+    },
+    {
+      "document_id": "doc_src_ivo_live__en_about",
+      "source_id": "src_ivo_live__en_about",
+      "url": "https://ivo-tech.com/en/about",
+      "title": "About | ivo-tech",
+      "language": "en",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "I build digital systems that run cleanly and communicate technical authority."
+        },
+        {
+          "level": "h2",
+          "text": "Working principles"
+        },
+        {
+          "level": "h2",
+          "text": "Journey"
+        },
+        {
+          "level": "h3",
+          "text": "Focus on production-grade web delivery"
+        },
+        {
+          "level": "h3",
+          "text": "3D and maker workflows as core differentiation"
+        },
+        {
+          "level": "h3",
+          "text": "Integrated AI assist and workflow automation"
+        },
+        {
+          "level": "h3",
+          "text": "Scaled the creator-engineer brand"
+        },
+        {
+          "level": "h2",
+          "text": "Trust layers"
+        },
+        {
+          "level": "h3",
+          "text": "Live reference in real client operations"
+        },
+        {
+          "level": "h3",
+          "text": "Traceable case study blueprints"
+        },
+        {
+          "level": "h3",
+          "text": "Delivery with QA and performance guardrails"
+        },
+        {
+          "level": "h2",
+          "text": "Selected references"
+        },
+        {
+          "level": "h3",
+          "text": "3D configurator in live operations"
+        },
+        {
+          "level": "h3",
+          "text": "Authority-first portfolio relaunch"
+        }
+      ],
+      "sections": [
+        {
+          "section_id": "section_1",
+          "section_type": "other",
+          "headline": "I build digital systems that run cleanly and communicate technical authority.",
+          "aria_label": "",
+          "text": "Builder / Engineer / Maker I build digital systems that run cleanly and communicate technical authority. My work sits at the intersection of product logic, frontend engineering, and maker execution. I focus on decisions that measurably affect trust, speed, and maintainability."
+        },
+        {
+          "section_id": "section_2",
+          "section_type": "other",
+          "headline": "Working principles",
+          "aria_label": "",
+          "text": "Working principles Clarity over complexity: technical decisions must stay explainable to stakeholders. Delivery with guardrails: QA, performance, and handover are built in from day one. Builder mindset: ideas move fast into prototypes, then into production-ready systems."
+        },
+        {
+          "section_id": "section_3",
+          "section_type": "other",
+          "headline": "Journey",
+          "aria_label": "",
+          "text": "Journey 2023 Focus on production-grade web delivery Shift from isolated features to end-to-end systems with explicit operational criteria. 2024 3D and maker workflows as core differentiation Built browser-based configurators and technical prototyping flows. 2025 Integrated AI assist and workflow automation Extended review and delivery processes with reproducible automation patterns. 2026 Scaled the creator-engineer brand Portfolio combines hiring story, technical depth, and maker projects with measurable impact."
+        },
+        {
+          "section_id": "section_4",
+          "section_type": "trust",
+          "headline": "Trust layers",
+          "aria_label": "",
+          "text": "Trust layers Live reference in real client operations Production 3D file-to-price flow with checkout handoff. Traceable case study blueprints Problem, architecture, trade-offs, and outcomes documented transparently per project. Delivery with QA and performance guardrails Playbooks and technical standards for stable releases."
+        },
+        {
+          "section_id": "section_5",
+          "section_type": "other",
+          "headline": "Selected references",
+          "aria_label": "",
+          "text": "Selected references LIVE 3D configurator in live operations File upload, geometry analysis, and pricing logic in one continuous browser flow. Upload-to-checkout runs in production and reduces manual clarification loops. Read case study LIVE Authority-first portfolio relaunch From project showcase to structured positioning with clear decision flow. Stronger trust signal for hiring and collaboration decision-makers. Read case study"
+        }
+      ],
+      "ctas": [
+        {
+          "href": "/en/case-studies",
+          "label": "Traceable case study blueprints Problem, architecture, trade-offs, and outcomes documented transparently per project."
+        },
+        {
+          "href": "/en/case-studies/configurator-live",
+          "label": "Read case study"
+        },
+        {
+          "href": "/en/case-studies/portfolio-authority-relaunch",
+          "label": "Read case study"
+        }
+      ],
+      "trust_signals": [
+        "Trust layers"
+      ],
+      "faq_questions": []
+    },
+    {
+      "document_id": "doc_src_ivo_live__projects",
+      "source_id": "src_ivo_live__projects",
+      "url": "https://ivo-tech.com/projects",
+      "title": "Projekte | ivo-tech",
+      "language": "de",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Projekte: technische Tiefe fuer Hiring, Produktteams und Collaboration."
+        },
+        {
+          "level": "h2",
+          "text": "Professional Track"
+        },
+        {
+          "level": "h3",
+          "text": "Authority-first Portfolio Relaunch"
+        },
+        {
+          "level": "h3",
+          "text": "Voicebot Consent Orchestrator"
+        },
+        {
+          "level": "h2",
+          "text": "Maker Track"
+        },
+        {
+          "level": "h3",
+          "text": "3D Konfigurator im Live-Betrieb"
+        },
+        {
+          "level": "h3",
+          "text": "Sports Analytics Edge Tool"
+        }
+      ],
+      "sections": [
+        {
+          "section_id": "section_1",
+          "section_type": "other",
+          "headline": "Projekte: technische Tiefe fuer Hiring, Produktteams und Collaboration.",
+          "aria_label": "",
+          "text": "Builder / Engineer / Maker Projekte: technische Tiefe fuer Hiring, Produktteams und Collaboration. Ein Mix aus produktiven Kundenprojekten und Maker-Experimenten. Jeder Eintrag zeigt Ziel, Architektur und Ergebnis statt nur Visuals."
+        },
+        {
+          "section_id": "section_2",
+          "section_type": "other",
+          "headline": "Professional Track",
+          "aria_label": "",
+          "text": "Professional Track LIVE Authority-first Portfolio Relaunch Von reiner Projektsammlung zu strukturierter Positionierung mit klarer Entscheidungsfuehrung. Strukturierteres Trust-Signal fuer Hiring- und Collaboration-Entscheider. Stack Next.js TypeScript Design Tokens Analytics Case Study lesen BETA Voicebot Consent Orchestrator Mehrstufige Sprach- und Prozessfuehrung fuer nachvollziehbare Einwilligungsablaufe. Klarere Consent-Kette mit besserem Audit-Trail. Stack LLM Orchestration FastAPI State Machine Projektuebersicht"
+        },
+        {
+          "section_id": "section_3",
+          "section_type": "other",
+          "headline": "Maker Track",
+          "aria_label": "",
+          "text": "Maker Track LIVE 3D Konfigurator im Live-Betrieb Datei Upload, Geometrie Analyse und Preislogik in einem durchgaengigen Browser-Flow. Upload bis Checkout laeuft produktiv und reduziert manuelle Rueckfrage-Schleifen. Stack Three.js WordPress Plugin WooCommerce Docker Case Study lesen CONCEPT Sports Analytics Edge Tool Projektionen, Optimierung und Simulation fuer datengetriebene Lineup-Entscheidungen. Schnelleres Testen von Hypothesen mit klarer Unsicherheitskommunikation. Stack Python FastAPI Monte Carlo React Roadmap ansehen"
+        }
+      ],
+      "ctas": [
+        {
+          "href": "/contact?source=primary-nav",
+          "label": "Kontakt"
+        },
+        {
+          "href": "/contact?source=header-nav",
+          "label": "Erstgespraech"
+        },
+        {
+          "href": "/case-studies/portfolio-authority-relaunch",
+          "label": "Case Study lesen"
+        },
+        {
+          "href": "/case-studies/configurator-live",
+          "label": "Case Study lesen"
+        },
+        {
+          "href": "/contact?source=primary-nav",
+          "label": "Kontakt"
+        },
+        {
+          "href": "/contact?source=header-nav",
+          "label": "Kontakt aufnehmen"
+        }
+      ],
+      "trust_signals": [],
+      "faq_questions": []
+    },
+    {
+      "document_id": "doc_src_ivo_live__en_projects",
+      "source_id": "src_ivo_live__en_projects",
+      "url": "https://ivo-tech.com/en/projects",
+      "title": "Projects | ivo-tech",
+      "language": "en",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Projects: technical depth for hiring, product teams, and collaboration."
+        },
+        {
+          "level": "h2",
+          "text": "Professional track"
+        },
+        {
+          "level": "h3",
+          "text": "Authority-first portfolio relaunch"
+        },
+        {
+          "level": "h3",
+          "text": "Voicebot consent orchestrator"
+        },
+        {
+          "level": "h2",
+          "text": "Maker track"
+        },
+        {
+          "level": "h3",
+          "text": "3D configurator in live operations"
+        },
+        {
+          "level": "h3",
+          "text": "Sports analytics edge tool"
+        }
+      ],
+      "sections": [
+        {
+          "section_id": "section_1",
+          "section_type": "other",
+          "headline": "Projects: technical depth for hiring, product teams, and collaboration.",
+          "aria_label": "",
+          "text": "Builder / Engineer / Maker Projects: technical depth for hiring, product teams, and collaboration. A mix of production client work and maker experiments. Every entry shows goal, architecture, and outcome instead of surface-level visuals."
+        },
+        {
+          "section_id": "section_2",
+          "section_type": "other",
+          "headline": "Professional track",
+          "aria_label": "",
+          "text": "Professional track LIVE Authority-first portfolio relaunch From project showcase to structured positioning with clear decision flow. Stronger trust signal for hiring and collaboration decision-makers. Stack Next.js TypeScript Design Tokens Analytics Read case study BETA Voicebot consent orchestrator Multi-step voice and process flow for auditable consent journeys. Clearer consent chain with stronger audit trail. Stack LLM Orchestration FastAPI State Machine Project overview"
+        },
+        {
+          "section_id": "section_3",
+          "section_type": "other",
+          "headline": "Maker track",
+          "aria_label": "",
+          "text": "Maker track LIVE 3D configurator in live operations File upload, geometry analysis, and pricing logic in one continuous browser flow. Upload-to-checkout runs in production and reduces manual clarification loops. Stack Three.js WordPress Plugin WooCommerce Docker Read case study CONCEPT Sports analytics edge tool Projection, optimization, and simulation for data-driven lineup decisions. Faster hypothesis testing with transparent uncertainty communication. Stack Python FastAPI Monte Carlo React View roadmap"
+        }
+      ],
+      "ctas": [
+        {
+          "href": "/en/case-studies/portfolio-authority-relaunch",
+          "label": "Read case study"
+        },
+        {
+          "href": "/en/case-studies/configurator-live",
+          "label": "Read case study"
+        }
+      ],
+      "trust_signals": [],
+      "faq_questions": []
+    },
+    {
+      "document_id": "doc_src_ivo_live__maker_lab",
+      "source_id": "src_ivo_live__maker_lab",
+      "url": "https://ivo-tech.com/maker-lab",
+      "title": "Maker Lab | ivo-tech",
+      "language": "de",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Maker Lab: 3D-Printing-Workflows mit klarem Transfer in reale Produktprozesse."
+        },
+        {
+          "level": "h2",
+          "text": "Lab Fokus"
+        },
+        {
+          "level": "h2",
+          "text": "Naechste Builds"
+        },
+        {
+          "level": "h2",
+          "text": "Maker Projekte"
+        },
+        {
+          "level": "h3",
+          "text": "3D Konfigurator im Live-Betrieb"
+        },
+        {
+          "level": "h3",
+          "text": "Sports Analytics Edge Tool"
+        }
+      ],
+      "sections": [
+        {
+          "section_id": "section_1",
+          "section_type": "process",
+          "headline": "Maker Lab: 3D-Printing-Workflows mit klarem Transfer in reale Produktprozesse.",
+          "aria_label": "",
+          "text": "Builder / Engineer / Maker Maker Lab: 3D-Printing-Workflows mit klarem Transfer in reale Produktprozesse. Hier entsteht der Creator-Track: Build-in-public Artefakte, 3D Workflows und explorative Tools, die in produktionsnahe Systeme ueberfuehrt werden."
+        },
+        {
+          "section_id": "section_2",
+          "section_type": "other",
+          "headline": "Lab Fokus",
+          "aria_label": "",
+          "text": "Lab Fokus 3D Datei-zu-Preis Systeme fuer reale Angebotsprozesse Visuelle Interaktionsmuster mit WebGL und performantem Rendering Prototype-to-production Handovers mit klaren technischen Guardrails Maker-Projekt anfragen Maker-Playbook lesen"
+        },
+        {
+          "section_id": "section_3",
+          "section_type": "other",
+          "headline": "Naechste Builds",
+          "aria_label": "",
+          "text": "Naechste Builds 1 Q2: Materialbibliothek mit erweiterten Toleranz- und Kostenchecks 2 Q3: Automatisierte Angebotskonfiguration mit AI-Assists 3 Q4: Public Maker-Playbook mit wiederverwendbaren Modulen"
+        },
+        {
+          "section_id": "section_4",
+          "section_type": "other",
+          "headline": "Maker Projekte",
+          "aria_label": "",
+          "text": "Maker Projekte LIVE 3D Konfigurator im Live-Betrieb Datei Upload, Geometrie Analyse und Preislogik in einem durchgaengigen Browser-Flow. Upload bis Checkout laeuft produktiv und reduziert manuelle Rueckfrage-Schleifen. Case Study lesen CONCEPT Sports Analytics Edge Tool Projektionen, Optimierung und Simulation fuer datengetriebene Lineup-Entscheidungen. Schnelleres Testen von Hypothesen mit klarer Unsicherheitskommunikation. Roadmap ansehen"
+        }
+      ],
+      "ctas": [
+        {
+          "href": "/contact?source=primary-nav",
+          "label": "Kontakt"
+        },
+        {
+          "href": "/contact?source=header-nav",
+          "label": "Erstgespraech"
+        },
+        {
+          "href": "/contact?source=maker-lab-primary",
+          "label": "Maker-Projekt anfragen"
+        },
+        {
+          "href": "/case-studies/configurator-live",
+          "label": "Case Study lesen"
+        },
+        {
+          "href": "/contact?source=primary-nav",
+          "label": "Kontakt"
+        },
+        {
+          "href": "/contact?source=header-nav",
+          "label": "Kontakt aufnehmen"
+        }
+      ],
+      "trust_signals": [],
+      "faq_questions": []
+    },
+    {
+      "document_id": "doc_src_ivo_live__en_maker_lab",
+      "source_id": "src_ivo_live__en_maker_lab",
+      "url": "https://ivo-tech.com/en/maker-lab",
+      "title": "Maker Lab | ivo-tech",
+      "language": "en",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Maker Lab: 3D printing, prototyping, and technical experiments."
+        },
+        {
+          "level": "h2",
+          "text": "Lab focus"
+        },
+        {
+          "level": "h2",
+          "text": "Roadmap"
+        },
+        {
+          "level": "h2",
+          "text": "Maker projects"
+        },
+        {
+          "level": "h3",
+          "text": "3D configurator in live operations"
+        },
+        {
+          "level": "h3",
+          "text": "Sports analytics edge tool"
+        }
+      ],
+      "sections": [
+        {
+          "section_id": "section_1",
+          "section_type": "other",
+          "headline": "Maker Lab: 3D printing, prototyping, and technical experiments.",
+          "aria_label": "",
+          "text": "Builder / Engineer / Maker Maker Lab: 3D printing, prototyping, and technical experiments. This is the creator track: build-in-public artifacts, 3D workflows, and exploratory tools that later feed production-grade systems."
+        },
+        {
+          "section_id": "section_2",
+          "section_type": "other",
+          "headline": "Lab focus",
+          "aria_label": "",
+          "text": "Lab focus 3D file-to-price systems for real quote operations Visual interaction patterns with WebGL and performant rendering Prototype-to-production handovers with explicit technical guardrails Discuss maker project Read playbook"
+        },
+        {
+          "section_id": "section_3",
+          "section_type": "other",
+          "headline": "Roadmap",
+          "aria_label": "",
+          "text": "Roadmap 1 Q2: Material library and extended tolerance checks 2 Q3: AI-assisted automated quote configuration 3 Q4: Public maker playbook with reusable modules"
+        },
+        {
+          "section_id": "section_4",
+          "section_type": "other",
+          "headline": "Maker projects",
+          "aria_label": "",
+          "text": "Maker projects LIVE 3D configurator in live operations File upload, geometry analysis, and pricing logic in one continuous browser flow. Upload-to-checkout runs in production and reduces manual clarification loops. Read case study CONCEPT Sports analytics edge tool Projection, optimization, and simulation for data-driven lineup decisions. Faster hypothesis testing with transparent uncertainty communication. View roadmap"
+        }
+      ],
+      "ctas": [
+        {
+          "href": "/en/case-studies/configurator-live",
+          "label": "Read case study"
+        }
+      ],
+      "trust_signals": [],
+      "faq_questions": []
+    },
+    {
+      "document_id": "doc_src_ivo_live__contact",
+      "source_id": "src_ivo_live__contact",
+      "url": "https://ivo-tech.com/contact",
+      "title": "Kontakt | ivo-tech",
+      "language": "de",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Kontakt: Hiring, Projekt-Kollaboration oder Maker-Exchange."
+        },
+        {
+          "level": "h2",
+          "text": "Direkter Kontaktpfad"
+        }
+      ],
+      "sections": [
+        {
+          "section_id": "section_1",
+          "section_type": "contact",
+          "headline": "Kontakt: Hiring, Projekt-Kollaboration oder Maker-Exchange.",
+          "aria_label": "",
+          "text": "Builder / Engineer / Maker Kontakt: Hiring, Projekt-Kollaboration oder Maker-Exchange. 2-3 Saetze zu Ziel, Engpass und Zeitrahmen reichen. Du bekommst einen klaren naechsten Schritt statt generischer Rueckfragen."
+        },
+        {
+          "section_id": "section_2",
+          "section_type": "contact",
+          "headline": "Direkter Kontaktpfad",
+          "aria_label": "",
+          "text": "Direkter Kontaktpfad Antwort in der Regel innerhalb eines Werktags Optionaler Intro-Call via Cal.com Technischer Scope-Check mit klarer Next-Step-Empfehlung Oder direkt per Mail: contact@ivo-tech.com Intent Projekt / Zusammenarbeit Hiring / Rolle Name Business-E-Mail Firma (optional) Portfolio/Hobby Referenz (optional) Kontext Website Mit dem Absenden stimmst du der Verarbeitung deiner Anfrage zur Kontaktaufnahme zu. Erstgespraech anfragen 15-Min Termin buchen 15 Minuten Intro-Call"
+        }
+      ],
+      "ctas": [
+        {
+          "href": "/contact?source=primary-nav",
+          "label": "Kontakt"
+        },
+        {
+          "href": "/contact?source=header-nav",
+          "label": "Erstgespraech"
+        },
+        {
+          "href": "https://cal.com/ivo-tech/intro-call?locale=de&amp;source=home&amp;exp_hero=default&amp;utm_source=ivo-tech.com&amp;utm_medium=website&amp;utm_campaign=scheduler-contact-form&amp;utm_content=hero-default",
+          "label": "15-Min Termin buchen"
+        },
+        {
+          "href": "/contact?source=primary-nav",
+          "label": "Kontakt"
+        },
+        {
+          "href": "/contact?source=header-nav",
+          "label": "Kontakt aufnehmen"
+        }
+      ],
+      "trust_signals": [],
+      "faq_questions": []
+    },
+    {
+      "document_id": "doc_src_ivo_live__en_contact",
+      "source_id": "src_ivo_live__en_contact",
+      "url": "https://ivo-tech.com/en/contact",
+      "title": "Contact | ivo-tech",
+      "language": "en",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Contact: hiring, project collaboration, or maker exchange."
+        },
+        {
+          "level": "h2",
+          "text": "Direct contact path"
+        }
+      ],
+      "sections": [
+        {
+          "section_id": "section_1",
+          "section_type": "contact",
+          "headline": "Contact: hiring, project collaboration, or maker exchange.",
+          "aria_label": "",
+          "text": "Builder / Engineer / Maker Contact: hiring, project collaboration, or maker exchange. 2-3 lines about goal, bottleneck, and timeline are enough. You get a concrete next step, not generic follow-up questions."
+        },
+        {
+          "section_id": "section_2",
+          "section_type": "contact",
+          "headline": "Direct contact path",
+          "aria_label": "",
+          "text": "Direct contact path Typical response within one business day Optional intro call via Cal.com Technical scope check before kickoff Or email directly: contact@ivo-tech.com Intent Project / collaboration Hiring / role Name Business email Company (optional) Portfolio/hobby reference (optional) Context Website By submitting, you agree that your request data is processed for contact purposes. Send request Book intro call now 15 minute intro call"
+        }
+      ],
+      "ctas": [],
+      "trust_signals": [],
+      "faq_questions": []
+    },
+    {
+      "document_id": "doc_src_ivo_live__playbooks",
+      "source_id": "src_ivo_live__playbooks",
+      "url": "https://ivo-tech.com/playbooks",
+      "title": "Engineering Playbooks | ivo-tech",
+      "language": "de",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Engineering Playbooks"
+        },
+        {
+          "level": "h2",
+          "text": "API Integration Readiness Playbook"
+        },
+        {
+          "level": "h2",
+          "text": "Handover Production Readiness Playbook"
+        },
+        {
+          "level": "h2",
+          "text": "Performance Budget Guardrails"
+        }
+      ],
+      "sections": [
+        {
+          "section_id": "section_1",
+          "section_type": "other",
+          "headline": "Engineering Playbooks",
+          "aria_label": "",
+          "text": "Engineering Playbooks Wiederverwendbare Umsetzungs- und Betriebsmuster fuer stabile Delivery. Playbook | 10 min API Integration Readiness Playbook Checkliste fuer Idempotenz, Timeouts, Retries, Alerting und Fehlerpfade. Playbook lesen Playbook | 8 min Handover Production Readiness Playbook Standard fuer Dokumentation, Monitoring, Ownership und Rollback-Plan. Playbook lesen Playbook | 9 min Performance Budget Guardrails Team-Playbook fuer LCP/CLS/JS-Budgets in CI und Release-Reviews. Playbook lesen"
+        }
+      ],
+      "ctas": [
+        {
+          "href": "/contact?source=primary-nav",
+          "label": "Kontakt"
+        },
+        {
+          "href": "/contact?source=hub-playbooks",
+          "label": "Erstgespraech"
+        }
+      ],
+      "trust_signals": [],
+      "faq_questions": []
+    },
+    {
+      "document_id": "doc_src_ivo_live__en_playbooks",
+      "source_id": "src_ivo_live__en_playbooks",
+      "url": "https://ivo-tech.com/en/playbooks",
+      "title": "Engineering playbooks | ivo-tech",
+      "language": "en",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Engineering playbooks"
+        },
+        {
+          "level": "h2",
+          "text": "API integration readiness playbook"
+        },
+        {
+          "level": "h2",
+          "text": "Handover production readiness playbook"
+        },
+        {
+          "level": "h2",
+          "text": "Performance budget guardrails"
+        }
+      ],
+      "sections": [
+        {
+          "section_id": "section_1",
+          "section_type": "other",
+          "headline": "Engineering playbooks",
+          "aria_label": "",
+          "text": "Engineering playbooks Reusable implementation and operations patterns for stable delivery. Playbook | 10 min API integration readiness playbook Checklist for idempotency, timeouts, retries, alerting, and failure paths. Read playbook Playbook | 8 min Handover production readiness playbook Standard for documentation, monitoring, ownership, and rollback planning. Read playbook Playbook | 9 min Performance budget guardrails Team playbook for LCP/CLS/JS budgets in CI and release reviews. Read playbook"
+        }
+      ],
+      "ctas": [],
+      "trust_signals": [],
+      "faq_questions": []
+    },
+    {
+      "document_id": "doc_src_ivo_live__case_studies",
+      "source_id": "src_ivo_live__case_studies",
+      "url": "https://ivo-tech.com/case-studies",
+      "title": "Fallstudien | ivo-tech",
+      "language": "de",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Fallstudien"
+        },
+        {
+          "level": "h2",
+          "text": "Case Study: 3D-Konfigurator als Tech-Referenz im Live-Betrieb"
+        },
+        {
+          "level": "h2",
+          "text": "Case Study: Authority-First Portfolio Relaunch"
+        }
+      ],
+      "sections": [
+        {
+          "section_id": "section_1",
+          "section_type": "other",
+          "headline": "Fallstudien",
+          "aria_label": "",
+          "text": "Fallstudien Projektbelege mit Ausgangslage, Umsetzung, Betrieb und Wirkung. Case Study | 8 min Case Study: 3D-Konfigurator als Tech-Referenz im Live-Betrieb Wie ein durchgaengiger 3D-Flow von Upload bis Checkout manuelle Rueckfrage-Schleifen reduziert und reproduzierbare Angebotsprozesse schafft. Case Study lesen Case Study | 7 min Case Study: Authority-First Portfolio Relaunch Von Showcase-Seite zu strukturierter Authority-Engine mit Content-Hubs. Case Study lesen"
+        }
+      ],
+      "ctas": [
+        {
+          "href": "/contact?source=primary-nav",
+          "label": "Kontakt"
+        },
+        {
+          "href": "/contact?source=hub-case-studies",
+          "label": "Erstgespraech"
+        },
+        {
+          "href": "/case-studies/configurator-live",
+          "label": "Case Study lesen"
+        },
+        {
+          "href": "/case-studies/portfolio-authority-relaunch",
+          "label": "Case Study lesen"
+        }
+      ],
+      "trust_signals": [
+        "Case Study: 3D-Konfigurator als Tech-Referenz im Live-Betrieb"
+      ],
+      "faq_questions": []
+    },
+    {
+      "document_id": "doc_src_ivo_live__en_case_studies",
+      "source_id": "src_ivo_live__en_case_studies",
+      "url": "https://ivo-tech.com/en/case-studies",
+      "title": "Case studies | ivo-tech",
+      "language": "en",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Case studies"
+        },
+        {
+          "level": "h2",
+          "text": "Case study: 3D configurator as a live technical reference"
+        },
+        {
+          "level": "h2",
+          "text": "Case study: authority-first portfolio relaunch"
+        }
+      ],
+      "sections": [
+        {
+          "section_id": "section_1",
+          "section_type": "other",
+          "headline": "Case studies",
+          "aria_label": "",
+          "text": "Case studies Project proof with context, implementation, operations, and impact. Case Study | 8 min Case study: 3D configurator as a live technical reference How one continuous 3D flow from upload to checkout reduces manual back-and-forth and creates reproducible quote handling. Read case study Case Study | 7 min Case study: authority-first portfolio relaunch From a generic showcase page to a structured authority engine with content hubs. Read case study"
+        }
+      ],
+      "ctas": [
+        {
+          "href": "/en/case-studies/configurator-live",
+          "label": "Read case study"
+        },
+        {
+          "href": "/en/case-studies/portfolio-authority-relaunch",
+          "label": "Read case study"
+        }
+      ],
+      "trust_signals": [],
+      "faq_questions": []
+    },
+    {
+      "document_id": "doc_src_ivo_live__leistungen",
+      "source_id": "src_ivo_live__leistungen",
+      "url": "https://ivo-tech.com/leistungen",
+      "title": "Leistungen | ivo-tech",
+      "language": "de",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Leistungen: Technical Delivery für conversion-kritische B2B-Webseiten"
+        },
+        {
+          "level": "h2",
+          "text": "1) Positionierung und IA"
+        },
+        {
+          "level": "h2",
+          "text": "2) UI-System und Implementierung"
+        },
+        {
+          "level": "h2",
+          "text": "3) Qualität, Betrieb und Handover"
+        },
+        {
+          "level": "h2",
+          "text": "Zusammenarbeitsmodell"
+        },
+        {
+          "level": "h2",
+          "text": "Produktisierte Angebotsformate"
+        },
+        {
+          "level": "h3",
+          "text": "Build"
+        },
+        {
+          "level": "h3",
+          "text": "Stabilize"
+        },
+        {
+          "level": "h3",
+          "text": "Accelerate"
+        },
+        {
+          "level": "h2",
+          "text": "Typischer Scope"
+        }
+      ],
+      "sections": [
+        {
+          "section_id": "services-main",
+          "section_type": "services",
+          "headline": "Leistungen: Technical Delivery für conversion-kritische B2B-Webseiten",
+          "aria_label": "",
+          "text": "Leistungen: Technical Delivery für conversion-kritische B2B-Webseiten Klare Informationsarchitektur, robustes Frontend-Engineering und verlässliche Delivery-Gates für Teams, die professionell shippen und stabil betreiben müssen. Scope-Call anfragen Case Studies ansehen Playbook lesen 1) Positionierung und IA Wir schärfen Angebotsklarheit und Nutzerführung entlang realer Entscheiderpfade. Value Proposition und Messaging-Stack Above-the-fold Struktur mit klarer CTA-Hierarchie Informationsarchitektur für Home, Services und Cases 2) UI-System und Implementierung Aus Design wird ein belastbares, skalierbares Frontend-System. Komponentenbasiertes UI mit Tokens Responsive und barrierearme Umsetzung Saubere technische Baseline für Iteration ohne Redesign-Drift 3) Qualität, Betrieb und Handover Delivery endet nicht beim Go-live, sondern beim sicheren Team-Weiterbetrieb. QA-Gates für Releases Mess"
+        },
+        {
+          "section_id": "section_2",
+          "section_type": "other",
+          "headline": "Zusammenarbeitsmodell",
+          "aria_label": "",
+          "text": "Zusammenarbeitsmodell Discovery: Ziele, Engpässe, Prioritäten Blueprint: IA, Komponenten, Content-Führung Build: Umsetzung mit QA-Checks Launch: Tracking, Feinschliff, Enablement"
+        },
+        {
+          "section_id": "section_3",
+          "section_type": "other",
+          "headline": "Produktisierte Angebotsformate",
+          "aria_label": "",
+          "text": "Produktisierte Angebotsformate Drei klar abgrenzbare Einstiegspfade mit konkretem Ergebnisfokus. Typischer Rahmen: 4-8 Wochen Build Für Teams, die neue Web-Strecken oder Relaunch-Segmente sauber von 0 aufbauen müssen. Klares Angebots-Narrativ mit Conversion-Struktur Skalierbares UI-/Komponentenfundament Produktionsnaher Go-live mit QA-Gates Build Scope klären Delivery-Details Typischer Rahmen: 2-6 Wochen Stabilize Für bestehende Setups mit Qualitäts-, Performance- oder Hand-over-Reibung. Messbare technische Stabilisierung Reduzierte Release-Risiken Klare Ownership- und Handover-Pfade Stabilize Scope klären Automation-Details Typischer Rahmen: 2-5 Wochen Accelerate Für Teams, die Delivery mit AI-gestützten Workflows und Automationen beschleunigen wollen. Schnellere Iterationszyklen Weniger manuelle Übergabe-Schritte Reproduzierbare Workflow-Standards Accelerate Scope klären 3D-System-Deta"
+        },
+        {
+          "section_id": "section_4",
+          "section_type": "other",
+          "headline": "Typischer Scope",
+          "aria_label": "",
+          "text": "Typischer Scope 4-8 Wochen, abhängig von Umfang und Content-Reife Enge Abstimmung mit Product/Marketing/Engineering Klare Deliverables pro Phase statt losem Design-Output Scope-Call anfragen"
+        }
+      ],
+      "ctas": [
+        {
+          "href": "/contact?source=primary-nav",
+          "label": "Kontakt"
+        },
+        {
+          "href": "/contact?source=services-scope-call",
+          "label": "Scope-Call anfragen"
+        },
+        {
+          "href": "/contact?source=services-scope-call",
+          "label": "Scope-Call anfragen"
+        },
+        {
+          "href": "/contact?source=services-scope-call",
+          "label": "Scope-Call anfragen"
+        }
+      ],
+      "trust_signals": [],
+      "faq_questions": []
+    },
+    {
+      "document_id": "doc_src_ivo_live__en_services",
+      "source_id": "src_ivo_live__en_services",
+      "url": "https://ivo-tech.com/en/services",
+      "title": "Services | ivo-tech",
+      "language": "en",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Services: Technical delivery for conversion-critical B2B websites"
+        },
+        {
+          "level": "h2",
+          "text": "1) Positioning and IA"
+        },
+        {
+          "level": "h2",
+          "text": "2) UI system and implementation"
+        },
+        {
+          "level": "h2",
+          "text": "3) Quality, operations, and handover"
+        },
+        {
+          "level": "h2",
+          "text": "Collaboration model"
+        },
+        {
+          "level": "h2",
+          "text": "Productized offer formats"
+        },
+        {
+          "level": "h3",
+          "text": "Build"
+        },
+        {
+          "level": "h3",
+          "text": "Stabilize"
+        },
+        {
+          "level": "h3",
+          "text": "Accelerate"
+        },
+        {
+          "level": "h2",
+          "text": "Typical scope"
+        }
+      ],
+      "sections": [
+        {
+          "section_id": "services-main",
+          "section_type": "services",
+          "headline": "Services: Technical delivery for conversion-critical B2B websites",
+          "aria_label": "",
+          "text": "Services: Technical delivery for conversion-critical B2B websites Clear information architecture, robust frontend engineering, and reliable delivery gates for teams that need to ship confidently and operate sustainably. Request scope call View case studies Read playbook 1) Positioning and IA We sharpen offer clarity and user flow across real buyer journeys. Value proposition and message hierarchy Above-the-fold structure with clear CTA levels Information architecture for home, services, and case studies 2) UI system and implementation Design direction becomes a durable frontend system. Token-driven component architecture Responsive and accessibility-aware implementation Stable baseline for fast iteration without design drift 3) Quality, operations, and handover Delivery only counts when your team can run and extend it safely. Release QA gates Measurable Core Web Vitals guardrails Documen"
+        },
+        {
+          "section_id": "section_2",
+          "section_type": "other",
+          "headline": "Collaboration model",
+          "aria_label": "",
+          "text": "Collaboration model Discovery: goals, bottlenecks, priorities Blueprint: IA, components, content flow Build: implementation with QA checkpoints Launch: tracking, refinement, enablement"
+        },
+        {
+          "section_id": "section_3",
+          "section_type": "other",
+          "headline": "Productized offer formats",
+          "aria_label": "",
+          "text": "Productized offer formats Three clearly defined entry paths with concrete delivery outcomes. Typical scope: 4-8 weeks Build For teams that need to launch new web journeys or relaunch segments from scratch. Clear offer narrative with conversion structure Scalable UI/component baseline Production-ready launch with QA gates Clarify Build scope Delivery details Typical scope: 2-6 weeks Stabilize For existing setups with quality, performance, or handover friction. Measurable technical stabilization Lower release risk Clear ownership and handover paths Clarify Stabilize scope Automation details Typical scope: 2-5 weeks Accelerate For teams that want to speed up delivery with AI-assisted workflows and automation. Faster iteration cycles Less manual handover overhead Repeatable workflow standards Clarify Accelerate scope 3D system details"
+        },
+        {
+          "section_id": "section_4",
+          "section_type": "other",
+          "headline": "Typical scope",
+          "aria_label": "",
+          "text": "Typical scope 4-8 weeks depending on scope and content readiness Close sync with product, marketing, and engineering Phase-based deliverables instead of disconnected design output Request scope call"
+        }
+      ],
+      "ctas": [],
+      "trust_signals": [],
+      "faq_questions": []
+    },
+    {
+      "document_id": "doc_src_ivo_live__impressum",
+      "source_id": "src_ivo_live__impressum",
+      "url": "https://ivo-tech.com/impressum",
+      "title": "Impressum | ivo-tech",
+      "language": "de",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Impressum"
+        },
+        {
+          "level": "h2",
+          "text": "Angaben gemäß § 5 TMG"
+        },
+        {
+          "level": "h2",
+          "text": "Kontakt"
+        },
+        {
+          "level": "h2",
+          "text": "Umsatzsteuer-ID"
+        },
+        {
+          "level": "h2",
+          "text": "Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV"
+        }
+      ],
+      "sections": [
+        {
+          "section_id": "section_1",
+          "section_type": "other",
+          "headline": "Impressum",
+          "aria_label": "",
+          "text": "Impressum Angaben gemäß § 5 TMG Ivo Tech Ivo Mannheim Deutschland"
+        },
+        {
+          "section_id": "section_2",
+          "section_type": "contact",
+          "headline": "Kontakt",
+          "aria_label": "",
+          "text": "Kontakt E-Mail: contact@ivo-tech.com"
+        },
+        {
+          "section_id": "section_3",
+          "section_type": "other",
+          "headline": "Umsatzsteuer-ID",
+          "aria_label": "",
+          "text": "Umsatzsteuer-ID Umsatzsteuer-ID gemaess §27a UStG: wird bei Vorliegen an dieser Stelle veroeffentlicht."
+        },
+        {
+          "section_id": "section_4",
+          "section_type": "other",
+          "headline": "Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV",
+          "aria_label": "",
+          "text": "Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV Ivo Mannheim, Deutschland"
+        }
+      ],
+      "ctas": [],
+      "trust_signals": [],
+      "faq_questions": []
+    },
+    {
+      "document_id": "doc_src_ivo_live__en_legal",
+      "source_id": "src_ivo_live__en_legal",
+      "url": "https://ivo-tech.com/en/legal",
+      "title": "Legal notice | ivo-tech",
+      "language": "en",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Legal notice"
+        },
+        {
+          "level": "h2",
+          "text": "Provider information"
+        },
+        {
+          "level": "h2",
+          "text": "Contact"
+        },
+        {
+          "level": "h2",
+          "text": "VAT ID"
+        }
+      ],
+      "sections": [
+        {
+          "section_id": "section_1",
+          "section_type": "other",
+          "headline": "Legal notice",
+          "aria_label": "",
+          "text": "Legal notice Provider information Ivo Tech Ivo Mannheim Germany"
+        },
+        {
+          "section_id": "section_2",
+          "section_type": "contact",
+          "headline": "Contact",
+          "aria_label": "",
+          "text": "Contact Email: contact@ivo-tech.com"
+        },
+        {
+          "section_id": "section_3",
+          "section_type": "other",
+          "headline": "VAT ID",
+          "aria_label": "",
+          "text": "VAT ID VAT ID pursuant to Section 27a German VAT Act: published here when available."
+        }
+      ],
+      "ctas": [],
+      "trust_signals": [],
+      "faq_questions": []
+    },
+    {
+      "document_id": "doc_src_ivo_live__datenschutz",
+      "source_id": "src_ivo_live__datenschutz",
+      "url": "https://ivo-tech.com/datenschutz",
+      "title": "Datenschutz | ivo-tech",
+      "language": "de",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Datenschutzerklärung"
+        },
+        {
+          "level": "h2",
+          "text": "1. Verantwortlicher"
+        },
+        {
+          "level": "h2",
+          "text": "2. Zweck der Datenverarbeitung"
+        },
+        {
+          "level": "h2",
+          "text": "3. Kontaktformular"
+        },
+        {
+          "level": "h2",
+          "text": "4. Hosting und technische Protokolle"
+        },
+        {
+          "level": "h2",
+          "text": "5. Rechte der betroffenen Personen"
+        },
+        {
+          "level": "h2",
+          "text": "6. Speicherdauer"
+        }
+      ],
+      "sections": [
+        {
+          "section_id": "section_1",
+          "section_type": "other",
+          "headline": "Datenschutzerklärung",
+          "aria_label": "",
+          "text": "Datenschutzerklärung 1. Verantwortlicher Ivo Tech Ivo Mannheim, Deutschland E-Mail: contact@ivo-tech.com"
+        },
+        {
+          "section_id": "section_2",
+          "section_type": "other",
+          "headline": "2. Zweck der Datenverarbeitung",
+          "aria_label": "",
+          "text": "2. Zweck der Datenverarbeitung Wir verarbeiten personenbezogene Daten zur Bearbeitung von Kontaktanfragen, zur technischen Bereitstellung der Website und zur Verbesserung von Stabilität und Nutzerführung."
+        },
+        {
+          "section_id": "section_3",
+          "section_type": "contact",
+          "headline": "3. Kontaktformular",
+          "aria_label": "",
+          "text": "3. Kontaktformular Bei Nutzung des Formulars werden Name, E-Mail, optional Firma, Nachricht und technische Metadaten verarbeitet, um die Anfrage zu beantworten."
+        },
+        {
+          "section_id": "section_4",
+          "section_type": "other",
+          "headline": "4. Hosting und technische Protokolle",
+          "aria_label": "",
+          "text": "4. Hosting und technische Protokolle Beim Aufruf der Website werden technisch erforderliche Verbindungsdaten (z. B. IP-Adresse, Zeitstempel, User-Agent) serverseitig verarbeitet."
+        },
+        {
+          "section_id": "section_5",
+          "section_type": "other",
+          "headline": "5. Rechte der betroffenen Personen",
+          "aria_label": "",
+          "text": "5. Rechte der betroffenen Personen Sie haben nach DSGVO das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung, Widerspruch und Datenübertragbarkeit."
+        },
+        {
+          "section_id": "section_6",
+          "section_type": "other",
+          "headline": "6. Speicherdauer",
+          "aria_label": "",
+          "text": "6. Speicherdauer Daten werden nur so lange gespeichert, wie dies für den jeweiligen Zweck und gesetzliche Aufbewahrungsfristen erforderlich ist."
+        }
+      ],
+      "ctas": [],
+      "trust_signals": [],
+      "faq_questions": []
+    },
+    {
+      "document_id": "doc_src_ivo_live__en_privacy",
+      "source_id": "src_ivo_live__en_privacy",
+      "url": "https://ivo-tech.com/en/privacy",
+      "title": "Privacy policy | ivo-tech",
+      "language": "en",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Privacy policy"
+        },
+        {
+          "level": "h2",
+          "text": "1. Data controller"
+        },
+        {
+          "level": "h2",
+          "text": "2. Processing purposes"
+        },
+        {
+          "level": "h2",
+          "text": "3. Contact form"
+        },
+        {
+          "level": "h2",
+          "text": "4. Data subject rights"
+        }
+      ],
+      "sections": [
+        {
+          "section_id": "section_1",
+          "section_type": "other",
+          "headline": "Privacy policy",
+          "aria_label": "",
+          "text": "Privacy policy 1. Data controller Ivo Tech Ivo Mannheim, Germany Email: contact@ivo-tech.com"
+        },
+        {
+          "section_id": "section_2",
+          "section_type": "process",
+          "headline": "2. Processing purposes",
+          "aria_label": "",
+          "text": "2. Processing purposes We process personal data to handle contact requests, provide the website technically, and improve delivery quality and product stability."
+        },
+        {
+          "section_id": "section_3",
+          "section_type": "contact",
+          "headline": "3. Contact form",
+          "aria_label": "",
+          "text": "3. Contact form When using the form, we process name, email, optional company, message, and technical metadata to respond to your request."
+        },
+        {
+          "section_id": "section_4",
+          "section_type": "other",
+          "headline": "4. Data subject rights",
+          "aria_label": "",
+          "text": "4. Data subject rights You have rights under applicable law to access, rectify, delete, restrict, object, and request portability of your data."
+        }
+      ],
+      "ctas": [],
+      "trust_signals": [],
+      "faq_questions": []
+    },
+    {
+      "document_id": "doc_src_ivo_live__leistungen_web_engineering_delivery",
+      "source_id": "src_ivo_live__leistungen_web_engineering_delivery",
+      "url": "https://ivo-tech.com/leistungen/web-engineering-delivery",
+      "title": "Web Engineering Delivery | ivo-tech",
+      "language": "de",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Web Engineering Delivery"
+        },
+        {
+          "level": "h2",
+          "text": "Ergebnisfokus"
+        },
+        {
+          "level": "h2",
+          "text": "Typische Deliverables"
+        },
+        {
+          "level": "h2",
+          "text": "Wann dieses Format passt"
+        },
+        {
+          "level": "h2",
+          "text": "Outcome-Komparator"
+        },
+        {
+          "level": "h2",
+          "text": "Risk Matrix"
+        },
+        {
+          "level": "h3",
+          "text": "Scope Drift"
+        },
+        {
+          "level": "h3",
+          "text": "Design-Implementation Gap"
+        },
+        {
+          "level": "h3",
+          "text": "QA Debt"
+        },
+        {
+          "level": "h2",
+          "text": "Architecture Snapshot"
+        },
+        {
+          "level": "h3",
+          "text": "Hero, Services, Case-Narrative"
+        },
+        {
+          "level": "h3",
+          "text": "Routing, Tracking, Templates"
+        },
+        {
+          "level": "h3",
+          "text": "QA, Release, Monitoring"
+        },
+        {
+          "level": "h2",
+          "text": "Passende Vertiefungen"
+        },
+        {
+          "level": "h3",
+          "text": "Case: Portfolio Authority Relaunch"
+        },
+        {
+          "level": "h3",
+          "text": "Insight: Architecture decisions under pressure"
+        },
+        {
+          "level": "h3",
+          "text": "Playbook: Performance budget guardrails"
+        },
+        {
+          "level": "h2",
+          "text": "FAQ"
+        }
+      ],
+      "sections": [
+        {
+          "section_id": "section_1",
+          "section_type": "other",
+          "headline": "Web Engineering Delivery",
+          "aria_label": "",
+          "text": "Service Detail Web Engineering Delivery Fuer Teams, die Website-Delivery nicht als Designprojekt, sondern als produktionskritisches System betreiben. Fokus: klare IA, robuste Komponenten, verlässlicher Release-Prozess. Scope-Call fuer Delivery anfragen Case ansehen Playbook lesen"
+        },
+        {
+          "section_id": "section_2",
+          "section_type": "other",
+          "headline": "Ergebnisfokus",
+          "aria_label": "",
+          "text": "Ergebnisfokus Klarere Angebotskommunikation entlang realer Entscheidungswege Schnellere Iteration durch tokenbasiertes Komponentenmodell Weniger Risiko im Rollout durch QA- und Handover-Gates"
+        },
+        {
+          "section_id": "section_3",
+          "section_type": "other",
+          "headline": "Typische Deliverables",
+          "aria_label": "",
+          "text": "Typische Deliverables Informationsarchitektur fuer Home, Services und Cases Komponentenbibliothek mit wiederverwendbaren Mustern Release-Checkliste mit technischen und inhaltlichen Quality Gates Wann dieses Format passt Relaunch oder Segment-Neuaufbau mit hohem Stakeholder-Druck Bestehende Seite wirkt uneinheitlich und konvertiert inkonsistent Team braucht belastbare Basis fuer laufende Erweiterung"
+        },
+        {
+          "section_id": "section_4",
+          "section_type": "other",
+          "headline": "Outcome-Komparator",
+          "aria_label": "",
+          "text": "Outcome-Komparator Typisches Delta zwischen unstrukturiertem Status quo und fokussierter Delivery-Struktur. Bereich Vorher Nachher Angebotsklarheit Uneinheitlich je Seite Konsistente Decision Story Release-Takt Ad-hoc und risikoreich Planbarer Sprint-Rhythmus Technische Stabilitaet Regressionen nach Releases QA-Gates pro Auslieferung"
+        },
+        {
+          "section_id": "section_5",
+          "section_type": "other",
+          "headline": "Risk Matrix",
+          "aria_label": "",
+          "text": "Risk Matrix Haeufige Delivery-Risiken inkl. Gegenmaßnahmen im Projektsetup. Scope Drift Impact: Timeline kippt, Stakeholder verlieren Vertrauen Mitigation: Phase-Deliverables + Change-Lane mit Priorisierung Design-Implementation Gap Impact: Visuelle Inkonsistenz und Nacharbeiten Mitigation: Token-basierte Components + Review-Ritual je Sprint QA Debt Impact: Späte Fehler in kritischen Conversion-Pfaden Mitigation: Release-Gates fuer CTA-Flow, A11y und Performance"
+        },
+        {
+          "section_id": "section_6",
+          "section_type": "other",
+          "headline": "Architecture Snapshot",
+          "aria_label": "",
+          "text": "Architecture Snapshot Referenzbild fuer die operative Lieferarchitektur im laufenden Betrieb. Experience Layer Hero, Services, Case-Narrative Komponenten + Content Hierarchie System Layer Routing, Tracking, Templates Shared primitives + Event Taxonomie Operations Layer QA, Release, Monitoring Checklists + Budget + Incident Loops"
+        },
+        {
+          "section_id": "section_7",
+          "section_type": "other",
+          "headline": "Passende Vertiefungen",
+          "aria_label": "",
+          "text": "Passende Vertiefungen Jede Service-Seite verlinkt gezielt auf Case, Insight und Playbook fuer klare Vertiefungspfade. Fallstudie Case: Portfolio Authority Relaunch Reale Umsetzung und Ergebnisdaten ansehen. Insight Insight: Architecture decisions under pressure Technischen Hintergrund und Entscheidungslogik vertiefen. Playbook Playbook: Performance budget guardrails Wiederverwendbare Umsetzungsmuster direkt uebernehmen."
+        },
+        {
+          "section_id": "section_8",
+          "section_type": "faq",
+          "headline": "FAQ",
+          "aria_label": "",
+          "text": "FAQ Wie schnell ist ein erstes Delivery-Paket umsetzbar? Typisch ist ein erstes, belastbares Paket in 2 bis 3 Wochen, je nach Content-Reife und Freigabegeschwindigkeit. Funktioniert das auch mit bestehendem Design? Ja. Bestehende Assets koennen in ein sauberes Komponenten- und Strukturmodell ueberfuehrt werden. Wie wird Qualitaet abgesichert? Durch feste QA-Gates fuer Struktur, Accessibility, Performance und Conversion-Pfade vor jedem Release."
+        }
+      ],
+      "ctas": [
+        {
+          "href": "/contact?source=primary-nav",
+          "label": "Kontakt"
+        },
+        {
+          "href": "/contact?source=service-detail-web-engineering-delivery-scope",
+          "label": "Scope-Call fuer Delivery anfragen"
+        }
+      ],
+      "trust_signals": [],
+      "faq_questions": [
+        "Wie schnell ist ein erstes Delivery-Paket umsetzbar?",
+        "Funktioniert das auch mit bestehendem Design?",
+        "Wie wird Qualitaet abgesichert?"
+      ]
+    },
+    {
+      "document_id": "doc_src_ivo_live__en_services_web_engineering_delivery",
+      "source_id": "src_ivo_live__en_services_web_engineering_delivery",
+      "url": "https://ivo-tech.com/en/services/web-engineering-delivery",
+      "title": "Web Engineering Delivery | ivo-tech",
+      "language": "en",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Web Engineering Delivery"
+        },
+        {
+          "level": "h2",
+          "text": "Outcome focus"
+        },
+        {
+          "level": "h2",
+          "text": "Typical deliverables"
+        },
+        {
+          "level": "h2",
+          "text": "When this format fits"
+        },
+        {
+          "level": "h2",
+          "text": "Outcome Comparator"
+        },
+        {
+          "level": "h2",
+          "text": "Risk Matrix"
+        },
+        {
+          "level": "h3",
+          "text": "Scope drift"
+        },
+        {
+          "level": "h3",
+          "text": "Design-implementation gap"
+        },
+        {
+          "level": "h3",
+          "text": "QA debt"
+        },
+        {
+          "level": "h2",
+          "text": "Architecture Snapshot"
+        },
+        {
+          "level": "h3",
+          "text": "Hero, services, case narrative"
+        },
+        {
+          "level": "h3",
+          "text": "Routing, tracking, templates"
+        },
+        {
+          "level": "h3",
+          "text": "QA, release, monitoring"
+        },
+        {
+          "level": "h2",
+          "text": "Related deep dives"
+        },
+        {
+          "level": "h3",
+          "text": "Case: Portfolio authority relaunch"
+        },
+        {
+          "level": "h3",
+          "text": "Insight: Architecture decisions under pressure"
+        },
+        {
+          "level": "h3",
+          "text": "Playbook: Performance budget guardrails"
+        },
+        {
+          "level": "h2",
+          "text": "FAQ"
+        }
+      ],
+      "sections": [
+        {
+          "section_id": "section_1",
+          "section_type": "other",
+          "headline": "Web Engineering Delivery",
+          "aria_label": "",
+          "text": "Service detail Web Engineering Delivery For teams that treat web delivery as a production-critical system, not a visual-only project. Focus: clear IA, robust components, and reliable release execution. Request delivery scope call View case Read playbook"
+        },
+        {
+          "section_id": "section_2",
+          "section_type": "other",
+          "headline": "Outcome focus",
+          "aria_label": "",
+          "text": "Outcome focus Clearer offer communication across real buyer journeys Faster iteration via a token-driven component model Lower rollout risk through QA and handover gates"
+        },
+        {
+          "section_id": "section_3",
+          "section_type": "other",
+          "headline": "Typical deliverables",
+          "aria_label": "",
+          "text": "Typical deliverables Information architecture for home, services, and case studies Component library with reusable conversion patterns Release checklist across technical and content quality gates When this format fits Relaunch or segment rebuild with stakeholder pressure Current website is inconsistent and conversion paths are noisy Team needs a stable baseline for ongoing extension"
+        },
+        {
+          "section_id": "section_4",
+          "section_type": "other",
+          "headline": "Outcome Comparator",
+          "aria_label": "",
+          "text": "Outcome Comparator Typical delta between an unstructured baseline and a focused delivery system. Dimension Before After Offer clarity Inconsistent across pages Consistent decision narrative Release cadence Ad hoc and risky Predictable sprint rhythm Technical stability Regression after releases QA gates per release"
+        },
+        {
+          "section_id": "section_5",
+          "section_type": "other",
+          "headline": "Risk Matrix",
+          "aria_label": "",
+          "text": "Risk Matrix Frequent delivery risks and practical mitigations inside the project model. Scope drift Impact: Timeline slips, trust drops Mitigation: Phase deliverables plus explicit change lane Design-implementation gap Impact: Visual inconsistency and rework Mitigation: Tokenized components plus sprint review ritual QA debt Impact: Late defects in critical conversion paths Mitigation: Release gates for CTA flows, a11y, and performance"
+        },
+        {
+          "section_id": "section_6",
+          "section_type": "other",
+          "headline": "Architecture Snapshot",
+          "aria_label": "",
+          "text": "Architecture Snapshot Reference architecture for day-to-day delivery operations. Experience layer Hero, services, case narrative Components + content hierarchy System layer Routing, tracking, templates Shared primitives + event taxonomy Operations layer QA, release, monitoring Checklists + budget + incident loops"
+        },
+        {
+          "section_id": "section_7",
+          "section_type": "other",
+          "headline": "Related deep dives",
+          "aria_label": "",
+          "text": "Related deep dives Each service page links intentionally to one case, insight, and playbook for clear deep-dive paths. Case study Case: Portfolio authority relaunch Review real implementation details and outcome signals. Insight Insight: Architecture decisions under pressure Deepen the technical rationale and decision logic. Playbook Playbook: Performance budget guardrails Reuse implementation patterns directly."
+        },
+        {
+          "section_id": "section_8",
+          "section_type": "faq",
+          "headline": "FAQ",
+          "aria_label": "",
+          "text": "FAQ How quickly can the first delivery package ship? A first reliable package is typically delivered in 2-3 weeks, depending on content readiness and approvals. Can this work with our current design assets? Yes. Existing assets can be migrated into a cleaner component and structure model. How is quality controlled? With explicit quality gates for structure, accessibility, performance, and conversion paths before every release."
+        }
+      ],
+      "ctas": [
+        {
+          "href": "/en/case-studies/portfolio-authority-relaunch?source=service-detail-web-engineering-delivery-case",
+          "label": "Case study Case: Portfolio authority relaunch Review real implementation details and outcome signals."
+        }
+      ],
+      "trust_signals": [],
+      "faq_questions": [
+        "How quickly can the first delivery package ship?",
+        "Can this work with our current design assets?",
+        "How is quality controlled?"
+      ]
+    },
+    {
+      "document_id": "doc_src_ivo_live__leistungen_ai_automation_workflows",
+      "source_id": "src_ivo_live__leistungen_ai_automation_workflows",
+      "url": "https://ivo-tech.com/leistungen/ai-automation-workflows",
+      "title": "AI Automation Workflows | ivo-tech",
+      "language": "de",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "AI Automation Workflows"
+        },
+        {
+          "level": "h2",
+          "text": "Ergebnisfokus"
+        },
+        {
+          "level": "h2",
+          "text": "Typische Deliverables"
+        },
+        {
+          "level": "h2",
+          "text": "Wann dieses Format passt"
+        },
+        {
+          "level": "h2",
+          "text": "Outcome-Komparator"
+        },
+        {
+          "level": "h2",
+          "text": "Risk Matrix"
+        },
+        {
+          "level": "h3",
+          "text": "Automations-Overreach"
+        },
+        {
+          "level": "h3",
+          "text": "Tool Fragmentierung"
+        },
+        {
+          "level": "h3",
+          "text": "Undokumentierte Regeln"
+        },
+        {
+          "level": "h2",
+          "text": "Architecture Snapshot"
+        },
+        {
+          "level": "h3",
+          "text": "Prompt Chains, Summaries, Routing"
+        },
+        {
+          "level": "h3",
+          "text": "APIs, Sync Jobs, Event Hooks"
+        },
+        {
+          "level": "h3",
+          "text": "Freigaben, Audit, KPI Tracking"
+        },
+        {
+          "level": "h2",
+          "text": "Passende Vertiefungen"
+        },
+        {
+          "level": "h3",
+          "text": "Case: Configurator live"
+        },
+        {
+          "level": "h3",
+          "text": "Insight: AI-assisted PR review loop"
+        },
+        {
+          "level": "h3",
+          "text": "Playbook: API integration readiness"
+        },
+        {
+          "level": "h2",
+          "text": "FAQ"
+        }
+      ],
+      "sections": [
+        {
+          "section_id": "section_1",
+          "section_type": "other",
+          "headline": "AI Automation Workflows",
+          "aria_label": "",
+          "text": "Service Detail AI Automation Workflows Fuer Teams, die repetitive Delivery-Schritte reduzieren und Entscheidungsprozesse beschleunigen wollen. Fokus auf sichere Integrationspfade und reproduzierbare Prozesse. Scope-Call fuer Automation anfragen Case ansehen Playbook lesen"
+        },
+        {
+          "section_id": "section_2",
+          "section_type": "other",
+          "headline": "Ergebnisfokus",
+          "aria_label": "",
+          "text": "Ergebnisfokus Schnellere Iterationszyklen in Review- und Handover-Schritten Weniger manuelle Übergaben bei Standardabläufen Mehr Transparenz ueber Workflow-Zustand und Prioritaeten"
+        },
+        {
+          "section_id": "section_3",
+          "section_type": "other",
+          "headline": "Typische Deliverables",
+          "aria_label": "",
+          "text": "Typische Deliverables Workflow-Mapping inkl. Engpass- und Risikoanalyse AI-Assist-Ketten fuer Review, Routing und Dokumentation Monitoring-Konzept fuer Outcome- und Qualitätsmetriken Wann dieses Format passt Team verliert Zeit durch manuelle Abstimmungsrunden Wiederkehrende Aufgaben sind nicht standardisiert Skalierung scheitert an fehlender Prozessautomatisierung"
+        },
+        {
+          "section_id": "section_4",
+          "section_type": "other",
+          "headline": "Outcome-Komparator",
+          "aria_label": "",
+          "text": "Outcome-Komparator Vergleich zwischen manuellen Prozessketten und AI-unterstuetzter Delivery. Bereich Vorher Nachher Review-Zeit Mehrere manuelle Schleifen Assistierte Vorqualifikation Handover-Aufwand Fragmentierte Uebergaben Standardisierte Workflow-Stufen Transparenz Status nur ad-hoc sichtbar Messbare Pipeline je Stage"
+        },
+        {
+          "section_id": "section_5",
+          "section_type": "other",
+          "headline": "Risk Matrix",
+          "aria_label": "",
+          "text": "Risk Matrix Kritische Risiken bei AI-Workflow-Einfuehrung und die passende Governance. Automations-Overreach Impact: Falsche Entscheidungen ohne menschlichen Review Mitigation: Human-in-the-loop an Freigabepunkten Tool Fragmentierung Impact: Neue Silos statt Beschleunigung Mitigation: Flow-Mapping vor Tool-Integration Undokumentierte Regeln Impact: Skalierung bricht bei Teamwechsel Mitigation: Versionierte Workflow-Playbooks + Ownership"
+        },
+        {
+          "section_id": "section_6",
+          "section_type": "other",
+          "headline": "Architecture Snapshot",
+          "aria_label": "",
+          "text": "Architecture Snapshot Sichere AI-Workflow-Architektur fuer operative Teams. Assist Layer Prompt Chains, Summaries, Routing Template Library + Guardrails Execution Layer APIs, Sync Jobs, Event Hooks Schema Contracts + Retry Logic Governance Layer Freigaben, Audit, KPI Tracking Role Model + Alerting + Reporting"
+        },
+        {
+          "section_id": "section_7",
+          "section_type": "other",
+          "headline": "Passende Vertiefungen",
+          "aria_label": "",
+          "text": "Passende Vertiefungen Jede Service-Seite verlinkt gezielt auf Case, Insight und Playbook fuer klare Vertiefungspfade. Fallstudie Case: Configurator live Reale Umsetzung und Ergebnisdaten ansehen. Insight Insight: AI-assisted PR review loop Technischen Hintergrund und Entscheidungslogik vertiefen. Playbook Playbook: API integration readiness Wiederverwendbare Umsetzungsmuster direkt uebernehmen."
+        },
+        {
+          "section_id": "section_8",
+          "section_type": "faq",
+          "headline": "FAQ",
+          "aria_label": "",
+          "text": "FAQ Ersetzt das bestehende Tools komplett? Nein. Ziel ist Integration in bestehende Prozesse mit klaren Uebergaben statt kompletter Tool-Neubau. Wie wird Sicherheit im Workflow behandelt? Mit definierten Zugriffspfaden, Review-Stufen und klarer Trennung zwischen Assistenz und finaler Freigabe. Wann sind erste Effekte sichtbar? Bei klar eingegrenztem Scope oft bereits in den ersten 2 Wochen durch reduzierte manuelle Schritte."
+        }
+      ],
+      "ctas": [
+        {
+          "href": "/contact?source=primary-nav",
+          "label": "Kontakt"
+        },
+        {
+          "href": "/contact?source=service-detail-ai-automation-workflows-scope",
+          "label": "Scope-Call fuer Automation anfragen"
+        }
+      ],
+      "trust_signals": [],
+      "faq_questions": [
+        "Ersetzt das bestehende Tools komplett?",
+        "Wie wird Sicherheit im Workflow behandelt?",
+        "Wann sind erste Effekte sichtbar?"
+      ]
+    },
+    {
+      "document_id": "doc_src_ivo_live__en_services_ai_automation_workflows",
+      "source_id": "src_ivo_live__en_services_ai_automation_workflows",
+      "url": "https://ivo-tech.com/en/services/ai-automation-workflows",
+      "title": "AI Automation Workflows | ivo-tech",
+      "language": "en",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "AI Automation Workflows"
+        },
+        {
+          "level": "h2",
+          "text": "Outcome focus"
+        },
+        {
+          "level": "h2",
+          "text": "Typical deliverables"
+        },
+        {
+          "level": "h2",
+          "text": "When this format fits"
+        },
+        {
+          "level": "h2",
+          "text": "Outcome Comparator"
+        },
+        {
+          "level": "h2",
+          "text": "Risk Matrix"
+        },
+        {
+          "level": "h3",
+          "text": "Automation overreach"
+        },
+        {
+          "level": "h3",
+          "text": "Tool fragmentation"
+        },
+        {
+          "level": "h3",
+          "text": "Undocumented rules"
+        },
+        {
+          "level": "h2",
+          "text": "Architecture Snapshot"
+        },
+        {
+          "level": "h3",
+          "text": "Prompt chains, summaries, routing"
+        },
+        {
+          "level": "h3",
+          "text": "APIs, sync jobs, event hooks"
+        },
+        {
+          "level": "h3",
+          "text": "Approvals, audit, KPI tracking"
+        },
+        {
+          "level": "h2",
+          "text": "Related deep dives"
+        },
+        {
+          "level": "h3",
+          "text": "Case: Configurator live"
+        },
+        {
+          "level": "h3",
+          "text": "Insight: AI-assisted PR review loop"
+        },
+        {
+          "level": "h3",
+          "text": "Playbook: API integration readiness"
+        },
+        {
+          "level": "h2",
+          "text": "FAQ"
+        }
+      ],
+      "sections": [
+        {
+          "section_id": "section_1",
+          "section_type": "other",
+          "headline": "AI Automation Workflows",
+          "aria_label": "",
+          "text": "Service detail AI Automation Workflows For teams that need to reduce repetitive delivery overhead and accelerate decision loops, with safe integration patterns and reproducible execution. Request automation scope call View case Read playbook"
+        },
+        {
+          "section_id": "section_2",
+          "section_type": "other",
+          "headline": "Outcome focus",
+          "aria_label": "",
+          "text": "Outcome focus Faster iteration cycles across review and handover tasks Less manual handoff work in recurring operations Higher workflow transparency across priorities and status"
+        },
+        {
+          "section_id": "section_3",
+          "section_type": "other",
+          "headline": "Typical deliverables",
+          "aria_label": "",
+          "text": "Typical deliverables Workflow map with bottleneck and risk analysis AI-assist chains for review, routing, and documentation Monitoring model for outcome and quality metrics When this format fits Team velocity is slowed by manual coordination loops Recurring tasks are not standardized Scaling is blocked by weak process automation"
+        },
+        {
+          "section_id": "section_4",
+          "section_type": "other",
+          "headline": "Outcome Comparator",
+          "aria_label": "",
+          "text": "Outcome Comparator Comparison of manual process chains vs AI-assisted delivery. Dimension Before After Review time Multiple manual loops Assisted pre-qualification Handover overhead Fragmented transfers Standardized workflow stages Transparency Status visible only ad hoc Measurable pipeline by stage"
+        },
+        {
+          "section_id": "section_5",
+          "section_type": "other",
+          "headline": "Risk Matrix",
+          "aria_label": "",
+          "text": "Risk Matrix Critical risks in AI workflow rollout and the matching governance model. Automation overreach Impact: Wrong decisions without human review Mitigation: Human-in-the-loop at approval points Tool fragmentation Impact: New silos instead of speed Mitigation: Flow mapping before tool integration Undocumented rules Impact: Scaling breaks when teams change Mitigation: Versioned workflow playbooks + ownership"
+        },
+        {
+          "section_id": "section_6",
+          "section_type": "other",
+          "headline": "Architecture Snapshot",
+          "aria_label": "",
+          "text": "Architecture Snapshot Safe AI workflow architecture for delivery teams. Assist layer Prompt chains, summaries, routing Template library + guardrails Execution layer APIs, sync jobs, event hooks Schema contracts + retry logic Governance layer Approvals, audit, KPI tracking Role model + alerting + reporting"
+        },
+        {
+          "section_id": "section_7",
+          "section_type": "other",
+          "headline": "Related deep dives",
+          "aria_label": "",
+          "text": "Related deep dives Each service page links intentionally to one case, insight, and playbook for clear deep-dive paths. Case study Case: Configurator live Review real implementation details and outcome signals. Insight Insight: AI-assisted PR review loop Deepen the technical rationale and decision logic. Playbook Playbook: API integration readiness Reuse implementation patterns directly."
+        },
+        {
+          "section_id": "section_8",
+          "section_type": "faq",
+          "headline": "FAQ",
+          "aria_label": "",
+          "text": "FAQ Does this replace our current tools? No. The focus is integration into your current stack with clear handover logic. How is workflow safety handled? With explicit access paths, review stages, and strict separation between assistance and final approval. When do we see first effects? With a focused scope, measurable impact is often visible within the first 2 weeks."
+        }
+      ],
+      "ctas": [
+        {
+          "href": "/en/case-studies/configurator-live?source=service-detail-ai-automation-workflows-case",
+          "label": "Case study Case: Configurator live Review real implementation details and outcome signals."
+        }
+      ],
+      "trust_signals": [],
+      "faq_questions": [
+        "Does this replace our current tools?",
+        "How is workflow safety handled?",
+        "When do we see first effects?"
+      ]
+    },
+    {
+      "document_id": "doc_src_ivo_live__leistungen_3d_visualization_systems",
+      "source_id": "src_ivo_live__leistungen_3d_visualization_systems",
+      "url": "https://ivo-tech.com/leistungen/3d-visualization-systems",
+      "title": "3D Visualization Systems | ivo-tech",
+      "language": "de",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "3D Visualization Systems"
+        },
+        {
+          "level": "h2",
+          "text": "Ergebnisfokus"
+        },
+        {
+          "level": "h2",
+          "text": "Typische Deliverables"
+        },
+        {
+          "level": "h2",
+          "text": "Wann dieses Format passt"
+        },
+        {
+          "level": "h2",
+          "text": "Outcome-Komparator"
+        },
+        {
+          "level": "h2",
+          "text": "Risk Matrix"
+        },
+        {
+          "level": "h3",
+          "text": "Render Overload"
+        },
+        {
+          "level": "h3",
+          "text": "UX-Komplexitaet"
+        },
+        {
+          "level": "h3",
+          "text": "Backend Entkopplung"
+        },
+        {
+          "level": "h2",
+          "text": "Architecture Snapshot"
+        },
+        {
+          "level": "h3",
+          "text": "Viewer, Materials, Interaction"
+        },
+        {
+          "level": "h3",
+          "text": "Variant Rules, Option Logic"
+        },
+        {
+          "level": "h3",
+          "text": "Pricing, Cart, Lead Routing"
+        },
+        {
+          "level": "h2",
+          "text": "Passende Vertiefungen"
+        },
+        {
+          "level": "h3",
+          "text": "Case: Configurator live"
+        },
+        {
+          "level": "h3",
+          "text": "Insight: API integration failure modes"
+        },
+        {
+          "level": "h3",
+          "text": "Playbook: Handover production readiness"
+        },
+        {
+          "level": "h2",
+          "text": "FAQ"
+        }
+      ],
+      "sections": [
+        {
+          "section_id": "section_1",
+          "section_type": "other",
+          "headline": "3D Visualization Systems",
+          "aria_label": "",
+          "text": "Service Detail 3D Visualization Systems Fuer produktnahe Teams, die komplexe Angebote visuell erfassbar machen muessen. Fokus auf Viewer-Performance, klare Interaktion und saubere Integration in Business-Workflows. Scope-Call fuer 3D-System anfragen Case ansehen Playbook lesen"
+        },
+        {
+          "section_id": "section_2",
+          "section_type": "other",
+          "headline": "Ergebnisfokus",
+          "aria_label": "",
+          "text": "Ergebnisfokus Bessere Produktverständlichkeit in frühen Entscheidungsphasen Kuerzere Rückfrage-Schleifen durch visuelle Konfiguration Robuste Strecke von Visualisierung zu Preis/Checkout"
+        },
+        {
+          "section_id": "section_3",
+          "section_type": "other",
+          "headline": "Typische Deliverables",
+          "aria_label": "",
+          "text": "Typische Deliverables 3D-Viewer-Konzept mit Performance- und UX-Guidelines Interaktionsmodell fuer Konfiguration und Variantenlogik Technische Integration in Pricing- oder Commerce-Flow Wann dieses Format passt Produkte sind ohne Visualisierung schwer vermittelbar Angebotsprozess hat hohe technische Erklaerlast Konfiguration soll in einen kaufnahen Flow uebergehen"
+        },
+        {
+          "section_id": "section_4",
+          "section_type": "other",
+          "headline": "Outcome-Komparator",
+          "aria_label": "",
+          "text": "Outcome-Komparator Vergleich zwischen statischer Darstellung und integriertem 3D-Flow. Bereich Vorher Nachher Produktverstaendnis Viele Rueckfragen im Vertrieb Selbsterklaerende Visualisierung Konfigurationsrate Abbrueche bei Komplexitaet Gefuehrte Variantenauswahl Commercial Handover Bruch zwischen Viewer und Angebot Direkter Pfad zu Preis/Checkout"
+        },
+        {
+          "section_id": "section_5",
+          "section_type": "other",
+          "headline": "Risk Matrix",
+          "aria_label": "",
+          "text": "Risk Matrix Haeufige Risiken bei 3D-Projekten mit kommerziellem Anspruch. Render Overload Impact: Langsame First Interaction Mitigation: Asset Budget + Lazy Loading + LOD-Strategie UX-Komplexitaet Impact: Nutzer verlieren Orientierung Mitigation: Step-by-step Configuration Pattern Backend Entkopplung Impact: Konfiguration ohne kaufnahe Konsequenz Mitigation: API-Contracts fuer Preis- und Angebotslogik"
+        },
+        {
+          "section_id": "section_6",
+          "section_type": "other",
+          "headline": "Architecture Snapshot",
+          "aria_label": "",
+          "text": "Architecture Snapshot Referenzstruktur fuer stabile 3D Delivery im Produktkontext. Visual Layer Viewer, Materials, Interaction Render Budgets + UX States Config Layer Variant Rules, Option Logic Deterministic Rules + Validation Commerce Layer Pricing, Cart, Lead Routing Typed API Contracts + Tracking"
+        },
+        {
+          "section_id": "section_7",
+          "section_type": "other",
+          "headline": "Passende Vertiefungen",
+          "aria_label": "",
+          "text": "Passende Vertiefungen Jede Service-Seite verlinkt gezielt auf Case, Insight und Playbook fuer klare Vertiefungspfade. Fallstudie Case: Configurator live Reale Umsetzung und Ergebnisdaten ansehen. Insight Insight: API integration failure modes Technischen Hintergrund und Entscheidungslogik vertiefen. Playbook Playbook: Handover production readiness Wiederverwendbare Umsetzungsmuster direkt uebernehmen."
+        },
+        {
+          "section_id": "section_8",
+          "section_type": "faq",
+          "headline": "FAQ",
+          "aria_label": "",
+          "text": "FAQ Ist 3D nur fuer Showcases sinnvoll? Nein. Der groesste Hebel entsteht, wenn 3D direkt mit Konfiguration, Preislogik und Angebotsprozess verbunden wird. Wie wird Performance stabil gehalten? Durch modellseitige Optimierung, Lazy-Loading-Strategien und klar definierte Rendering-Budgets. Kann das mit bestehendem Shop/Backend verbunden werden? Ja. Typischerweise ueber API- und Plugin-Schichten mit nachvollziehbarer Handover-Logik."
+        }
+      ],
+      "ctas": [
+        {
+          "href": "/contact?source=primary-nav",
+          "label": "Kontakt"
+        },
+        {
+          "href": "/contact?source=service-detail-3d-visualization-systems-scope",
+          "label": "Scope-Call fuer 3D-System anfragen"
+        }
+      ],
+      "trust_signals": [],
+      "faq_questions": [
+        "Ist 3D nur fuer Showcases sinnvoll?",
+        "Wie wird Performance stabil gehalten?",
+        "Kann das mit bestehendem Shop/Backend verbunden werden?"
+      ]
+    },
+    {
+      "document_id": "doc_src_ivo_live__en_services_3d_visualization_systems",
+      "source_id": "src_ivo_live__en_services_3d_visualization_systems",
+      "url": "https://ivo-tech.com/en/services/3d-visualization-systems",
+      "title": "3D Visualization Systems | ivo-tech",
+      "language": "en",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "3D Visualization Systems"
+        },
+        {
+          "level": "h2",
+          "text": "Outcome focus"
+        },
+        {
+          "level": "h2",
+          "text": "Typical deliverables"
+        },
+        {
+          "level": "h2",
+          "text": "When this format fits"
+        },
+        {
+          "level": "h2",
+          "text": "Outcome Comparator"
+        },
+        {
+          "level": "h2",
+          "text": "Risk Matrix"
+        },
+        {
+          "level": "h3",
+          "text": "Render overload"
+        },
+        {
+          "level": "h3",
+          "text": "UX complexity"
+        },
+        {
+          "level": "h3",
+          "text": "Backend disconnect"
+        },
+        {
+          "level": "h2",
+          "text": "Architecture Snapshot"
+        },
+        {
+          "level": "h3",
+          "text": "Viewer, materials, interaction"
+        },
+        {
+          "level": "h3",
+          "text": "Variant rules, option logic"
+        },
+        {
+          "level": "h3",
+          "text": "Pricing, cart, lead routing"
+        },
+        {
+          "level": "h2",
+          "text": "Related deep dives"
+        },
+        {
+          "level": "h3",
+          "text": "Case: Configurator live"
+        },
+        {
+          "level": "h3",
+          "text": "Insight: API integration failure modes"
+        },
+        {
+          "level": "h3",
+          "text": "Playbook: Handover production readiness"
+        },
+        {
+          "level": "h2",
+          "text": "FAQ"
+        }
+      ],
+      "sections": [
+        {
+          "section_id": "section_1",
+          "section_type": "other",
+          "headline": "3D Visualization Systems",
+          "aria_label": "",
+          "text": "Service detail 3D Visualization Systems For product-heavy teams that need to make complex offers understandable. Focus on viewer performance, intentional interaction, and clean integration into business workflows. Request 3D scope call View case Read playbook"
+        },
+        {
+          "section_id": "section_2",
+          "section_type": "other",
+          "headline": "Outcome focus",
+          "aria_label": "",
+          "text": "Outcome focus Higher product clarity in early buyer decisions Shorter clarification loops through visual configuration Stable path from visualization to pricing/checkout"
+        },
+        {
+          "section_id": "section_3",
+          "section_type": "other",
+          "headline": "Typical deliverables",
+          "aria_label": "",
+          "text": "Typical deliverables 3D viewer concept with performance and UX guidelines Interaction model for configuration and variant logic Technical integration with pricing or commerce flows When this format fits Products are hard to communicate without visualization Offer process has high technical explanation overhead Configuration should connect to a purchase-ready journey"
+        },
+        {
+          "section_id": "section_4",
+          "section_type": "other",
+          "headline": "Outcome Comparator",
+          "aria_label": "",
+          "text": "Outcome Comparator Comparison of static product communication vs integrated 3D flows. Dimension Before After Product understanding Many sales follow-up questions Self-explanatory visualization Configuration completion Drop-off under complexity Guided option flow Commercial handover Break between viewer and offer Direct path to price and checkout"
+        },
+        {
+          "section_id": "section_5",
+          "section_type": "other",
+          "headline": "Risk Matrix",
+          "aria_label": "",
+          "text": "Risk Matrix Frequent risks in commercially relevant 3D delivery. Render overload Impact: Slow first interaction Mitigation: Asset budget, lazy loading, and LOD strategy UX complexity Impact: Users lose orientation Mitigation: Step-by-step configuration pattern Backend disconnect Impact: Configuration without commercial effect Mitigation: API contracts for pricing and quoting logic"
+        },
+        {
+          "section_id": "section_6",
+          "section_type": "other",
+          "headline": "Architecture Snapshot",
+          "aria_label": "",
+          "text": "Architecture Snapshot Reference structure for stable 3D delivery in product flows. Visual layer Viewer, materials, interaction Render budgets + UX states Config layer Variant rules, option logic Deterministic rules + validation Commerce layer Pricing, cart, lead routing Typed API contracts + tracking"
+        },
+        {
+          "section_id": "section_7",
+          "section_type": "other",
+          "headline": "Related deep dives",
+          "aria_label": "",
+          "text": "Related deep dives Each service page links intentionally to one case, insight, and playbook for clear deep-dive paths. Case study Case: Configurator live Review real implementation details and outcome signals. Insight Insight: API integration failure modes Deepen the technical rationale and decision logic. Playbook Playbook: Handover production readiness Reuse implementation patterns directly."
+        },
+        {
+          "section_id": "section_8",
+          "section_type": "faq",
+          "headline": "FAQ",
+          "aria_label": "",
+          "text": "FAQ Is 3D only useful for visual showcase? No. The biggest impact comes when 3D is connected to configuration, pricing logic, and offer execution. How do you keep performance stable? Through model optimization, lazy-loading strategy, and explicit rendering budgets. Can this integrate with existing shop/backends? Yes. Usually via API and plugin layers with traceable handover logic."
+        }
+      ],
+      "ctas": [
+        {
+          "href": "/en/case-studies/configurator-live?source=service-detail-3d-visualization-systems-case",
+          "label": "Case study Case: Configurator live Review real implementation details and outcome signals."
+        }
+      ],
+      "trust_signals": [],
+      "faq_questions": [
+        "Is 3D only useful for visual showcase?",
+        "How do you keep performance stable?",
+        "Can this integrate with existing shop/backends?"
+      ]
+    },
+    {
+      "document_id": "doc_src_ivo_live__insights_ai_assisted_pr_review_loop",
+      "source_id": "src_ivo_live__insights_ai_assisted_pr_review_loop",
+      "url": "https://ivo-tech.com/insights/ai-assisted-pr-review-loop",
+      "title": "AI-Assisted PR Review Loop | ivo-tech",
+      "language": "de",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "AI-Assisted PR Review Loop"
+        },
+        {
+          "level": "h2",
+          "text": "Empfohlener Loop"
+        },
+        {
+          "level": "h2",
+          "text": "Weiterfuehrende Links"
+        }
+      ],
+      "sections": [],
+      "ctas": [
+        {
+          "href": "/contact?source=primary-nav",
+          "label": "Kontakt"
+        },
+        {
+          "href": "/contact?source=hub-insights-detail",
+          "label": "Erstgespraech"
+        },
+        {
+          "href": "/#contact",
+          "label": "Kontakt Direkten naechsten Schritt klaeren"
+        },
+        {
+          "href": "/contact?source=hub-insights-detail",
+          "label": "Erstgespraech starten"
+        }
+      ],
+      "trust_signals": [],
+      "faq_questions": []
+    },
+    {
+      "document_id": "doc_src_ivo_live__en_insights_ai_assisted_pr_review_loop",
+      "source_id": "src_ivo_live__en_insights_ai_assisted_pr_review_loop",
+      "url": "https://ivo-tech.com/en/insights/ai-assisted-pr-review-loop",
+      "title": "AI-Assisted PR Review Loop | ivo-tech",
+      "language": "en",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "AI-Assisted PR Review Loop"
+        },
+        {
+          "level": "h2",
+          "text": "Recommended loop"
+        },
+        {
+          "level": "h2",
+          "text": "Related links"
+        }
+      ],
+      "sections": [],
+      "ctas": [],
+      "trust_signals": [],
+      "faq_questions": []
+    },
+    {
+      "document_id": "doc_src_ivo_live__insights_api_integration_failure_modes",
+      "source_id": "src_ivo_live__insights_api_integration_failure_modes",
+      "url": "https://ivo-tech.com/insights/api-integration-failure-modes",
+      "title": "API-Integrationen: Die haeufigsten Failure-Modes | ivo-tech",
+      "language": "de",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "API-Integrationen: Die haeufigsten Failure-Modes"
+        },
+        {
+          "level": "h2",
+          "text": "Kritische Failure-Modes"
+        },
+        {
+          "level": "h2",
+          "text": "Weiterfuehrende Links"
+        }
+      ],
+      "sections": [],
+      "ctas": [
+        {
+          "href": "/contact?source=primary-nav",
+          "label": "Kontakt"
+        },
+        {
+          "href": "/contact?source=hub-insights-detail",
+          "label": "Erstgespraech"
+        },
+        {
+          "href": "/#contact",
+          "label": "Kontakt Direkten naechsten Schritt klaeren"
+        },
+        {
+          "href": "/contact?source=hub-insights-detail",
+          "label": "Erstgespraech starten"
+        }
+      ],
+      "trust_signals": [],
+      "faq_questions": []
+    },
+    {
+      "document_id": "doc_src_ivo_live__en_insights_api_integration_failure_modes",
+      "source_id": "src_ivo_live__en_insights_api_integration_failure_modes",
+      "url": "https://ivo-tech.com/en/insights/api-integration-failure-modes",
+      "title": "API integrations: the most common failure modes | ivo-tech",
+      "language": "en",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "API integrations: the most common failure modes"
+        },
+        {
+          "level": "h2",
+          "text": "Critical failure modes"
+        },
+        {
+          "level": "h2",
+          "text": "Related links"
+        }
+      ],
+      "sections": [],
+      "ctas": [],
+      "trust_signals": [],
+      "faq_questions": []
+    },
+    {
+      "document_id": "doc_src_ivo_live__en_insights_architecture_decisions_under_pressure",
+      "source_id": "src_ivo_live__en_insights_architecture_decisions_under_pressure",
+      "url": "https://ivo-tech.com/en/insights/architecture-decisions-under-pressure",
+      "title": "Architecture decisions under time pressure | ivo-tech",
+      "language": "en",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Architecture decisions under time pressure"
+        },
+        {
+          "level": "h2",
+          "text": "Decision framework"
+        },
+        {
+          "level": "h2",
+          "text": "Practice"
+        },
+        {
+          "level": "h2",
+          "text": "Related links"
+        }
+      ],
+      "sections": [],
+      "ctas": [],
+      "trust_signals": [],
+      "faq_questions": []
+    },
+    {
+      "document_id": "doc_src_ivo_live__insights_nextjs_performance_budget_playbook",
+      "source_id": "src_ivo_live__insights_nextjs_performance_budget_playbook",
+      "url": "https://ivo-tech.com/insights/nextjs-performance-budget-playbook",
+      "title": "Next.js Performance Budget Playbook | ivo-tech",
+      "language": "de",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Next.js Performance Budget Playbook"
+        },
+        {
+          "level": "h2",
+          "text": "Budget-Felder"
+        },
+        {
+          "level": "h2",
+          "text": "Guardrails"
+        },
+        {
+          "level": "h2",
+          "text": "Weiterfuehrende Links"
+        }
+      ],
+      "sections": [],
+      "ctas": [
+        {
+          "href": "/contact?source=primary-nav",
+          "label": "Kontakt"
+        },
+        {
+          "href": "/contact?source=hub-insights-detail",
+          "label": "Erstgespraech"
+        },
+        {
+          "href": "/#contact",
+          "label": "Kontakt Direkten naechsten Schritt klaeren"
+        },
+        {
+          "href": "/contact?source=hub-insights-detail",
+          "label": "Erstgespraech starten"
+        }
+      ],
+      "trust_signals": [],
+      "faq_questions": []
+    },
+    {
+      "document_id": "doc_src_ivo_live__en_insights_nextjs_performance_budget_playbook",
+      "source_id": "src_ivo_live__en_insights_nextjs_performance_budget_playbook",
+      "url": "https://ivo-tech.com/en/insights/nextjs-performance-budget-playbook",
+      "title": "Next.js performance budget playbook | ivo-tech",
+      "language": "en",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Next.js performance budget playbook"
+        },
+        {
+          "level": "h2",
+          "text": "Budget fields"
+        },
+        {
+          "level": "h2",
+          "text": "Guardrails"
+        },
+        {
+          "level": "h2",
+          "text": "Related links"
+        }
+      ],
+      "sections": [],
+      "ctas": [],
+      "trust_signals": [],
+      "faq_questions": []
+    },
+    {
+      "document_id": "doc_src_ivo_live__insights_stable_handover_checklist",
+      "source_id": "src_ivo_live__insights_stable_handover_checklist",
+      "url": "https://ivo-tech.com/insights/stable-handover-checklist",
+      "title": "Stable Handover Checklist | ivo-tech",
+      "language": "de",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Stable Handover Checklist"
+        },
+        {
+          "level": "h2",
+          "text": "Muss-Inhalte"
+        },
+        {
+          "level": "h2",
+          "text": "Weiterfuehrende Links"
+        }
+      ],
+      "sections": [],
+      "ctas": [
+        {
+          "href": "/contact?source=primary-nav",
+          "label": "Kontakt"
+        },
+        {
+          "href": "/contact?source=hub-insights-detail",
+          "label": "Erstgespraech"
+        },
+        {
+          "href": "/#contact",
+          "label": "Kontakt Direkten naechsten Schritt klaeren"
+        },
+        {
+          "href": "/contact?source=hub-insights-detail",
+          "label": "Erstgespraech starten"
+        }
+      ],
+      "trust_signals": [],
+      "faq_questions": []
+    },
+    {
+      "document_id": "doc_src_ivo_live__en_insights_stable_handover_checklist",
+      "source_id": "src_ivo_live__en_insights_stable_handover_checklist",
+      "url": "https://ivo-tech.com/en/insights/stable-handover-checklist",
+      "title": "Stable handover checklist | ivo-tech",
+      "language": "en",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Stable handover checklist"
+        },
+        {
+          "level": "h2",
+          "text": "Must-have artifacts"
+        },
+        {
+          "level": "h2",
+          "text": "Related links"
+        }
+      ],
+      "sections": [],
+      "ctas": [],
+      "trust_signals": [],
+      "faq_questions": []
+    },
+    {
+      "document_id": "doc_src_ivo_live__playbooks_api_integration_readiness_playbook",
+      "source_id": "src_ivo_live__playbooks_api_integration_readiness_playbook",
+      "url": "https://ivo-tech.com/playbooks/api-integration-readiness-playbook",
+      "title": "API Integration Readiness Playbook | ivo-tech",
+      "language": "de",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "API Integration Readiness Playbook"
+        },
+        {
+          "level": "h2",
+          "text": "Vor dem Release"
+        },
+        {
+          "level": "h2",
+          "text": "Nach dem Release"
+        },
+        {
+          "level": "h2",
+          "text": "Weiterfuehrende Links"
+        }
+      ],
+      "sections": [],
+      "ctas": [
+        {
+          "href": "/contact?source=primary-nav",
+          "label": "Kontakt"
+        },
+        {
+          "href": "/contact?source=hub-playbooks-detail",
+          "label": "Erstgespraech"
+        },
+        {
+          "href": "/#contact",
+          "label": "Kontakt Direkten naechsten Schritt klaeren"
+        },
+        {
+          "href": "/contact?source=hub-playbooks-detail",
+          "label": "Erstgespraech starten"
+        }
+      ],
+      "trust_signals": [],
+      "faq_questions": []
+    },
+    {
+      "document_id": "doc_src_ivo_live__en_playbooks_api_integration_readiness_playbook",
+      "source_id": "src_ivo_live__en_playbooks_api_integration_readiness_playbook",
+      "url": "https://ivo-tech.com/en/playbooks/api-integration-readiness-playbook",
+      "title": "API integration readiness playbook | ivo-tech",
+      "language": "en",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "API integration readiness playbook"
+        },
+        {
+          "level": "h2",
+          "text": "Before release"
+        },
+        {
+          "level": "h2",
+          "text": "After release"
+        },
+        {
+          "level": "h2",
+          "text": "Related links"
+        }
+      ],
+      "sections": [],
+      "ctas": [],
+      "trust_signals": [],
+      "faq_questions": []
+    },
+    {
+      "document_id": "doc_src_ivo_live__playbooks_handover_production_readiness_playbook",
+      "source_id": "src_ivo_live__playbooks_handover_production_readiness_playbook",
+      "url": "https://ivo-tech.com/playbooks/handover-production-readiness-playbook",
+      "title": "Handover Production Readiness Playbook | ivo-tech",
+      "language": "de",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Handover Production Readiness Playbook"
+        },
+        {
+          "level": "h2",
+          "text": "Uebergabe-Standard"
+        },
+        {
+          "level": "h2",
+          "text": "Weiterfuehrende Links"
+        }
+      ],
+      "sections": [],
+      "ctas": [
+        {
+          "href": "/contact?source=primary-nav",
+          "label": "Kontakt"
+        },
+        {
+          "href": "/contact?source=hub-playbooks-detail",
+          "label": "Erstgespraech"
+        },
+        {
+          "href": "/#contact",
+          "label": "Kontakt Direkten naechsten Schritt klaeren"
+        },
+        {
+          "href": "/contact?source=hub-playbooks-detail",
+          "label": "Erstgespraech starten"
+        }
+      ],
+      "trust_signals": [],
+      "faq_questions": []
+    },
+    {
+      "document_id": "doc_src_ivo_live__en_playbooks_handover_production_readiness_playbook",
+      "source_id": "src_ivo_live__en_playbooks_handover_production_readiness_playbook",
+      "url": "https://ivo-tech.com/en/playbooks/handover-production-readiness-playbook",
+      "title": "Handover production readiness playbook | ivo-tech",
+      "language": "en",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Handover production readiness playbook"
+        },
+        {
+          "level": "h2",
+          "text": "Handover standard"
+        },
+        {
+          "level": "h2",
+          "text": "Related links"
+        }
+      ],
+      "sections": [],
+      "ctas": [],
+      "trust_signals": [],
+      "faq_questions": []
+    },
+    {
+      "document_id": "doc_src_ivo_live__playbooks_performance_budget_guardrails",
+      "source_id": "src_ivo_live__playbooks_performance_budget_guardrails",
+      "url": "https://ivo-tech.com/playbooks/performance-budget-guardrails",
+      "title": "Performance Budget Guardrails | ivo-tech",
+      "language": "de",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Performance Budget Guardrails"
+        },
+        {
+          "level": "h2",
+          "text": "Schritt 1: Budgets definieren"
+        },
+        {
+          "level": "h2",
+          "text": "Schritt 2: CI verankern"
+        },
+        {
+          "level": "h2",
+          "text": "Schritt 3: Review-Ritual"
+        },
+        {
+          "level": "h2",
+          "text": "Weiterfuehrende Links"
+        }
+      ],
+      "sections": [],
+      "ctas": [
+        {
+          "href": "/contact?source=primary-nav",
+          "label": "Kontakt"
+        },
+        {
+          "href": "/contact?source=hub-playbooks-detail",
+          "label": "Erstgespraech"
+        },
+        {
+          "href": "/#contact",
+          "label": "Kontakt Direkten naechsten Schritt klaeren"
+        },
+        {
+          "href": "/contact?source=hub-playbooks-detail",
+          "label": "Erstgespraech starten"
+        }
+      ],
+      "trust_signals": [],
+      "faq_questions": []
+    },
+    {
+      "document_id": "doc_src_ivo_live__en_playbooks_performance_budget_guardrails",
+      "source_id": "src_ivo_live__en_playbooks_performance_budget_guardrails",
+      "url": "https://ivo-tech.com/en/playbooks/performance-budget-guardrails",
+      "title": "Performance budget guardrails | ivo-tech",
+      "language": "en",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Performance budget guardrails"
+        },
+        {
+          "level": "h2",
+          "text": "Step 1: Define budgets"
+        },
+        {
+          "level": "h2",
+          "text": "Step 2: Anchor in CI"
+        },
+        {
+          "level": "h2",
+          "text": "Step 3: Review rhythm"
+        },
+        {
+          "level": "h2",
+          "text": "Related links"
+        }
+      ],
+      "sections": [],
+      "ctas": [],
+      "trust_signals": [],
+      "faq_questions": []
+    },
+    {
+      "document_id": "doc_src_ivo_live__case_studies_configurator_live",
+      "source_id": "src_ivo_live__case_studies_configurator_live",
+      "url": "https://ivo-tech.com/case-studies/configurator-live",
+      "title": "Case Study: 3D-Konfigurator als Tech-Referenz im Live-Betrieb | ivo-tech",
+      "language": "de",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Case Study: 3D-Konfigurator als Tech-Referenz im Live-Betrieb"
+        },
+        {
+          "level": "h2",
+          "text": "Ergebnis-Snapshot"
+        },
+        {
+          "level": "h3",
+          "text": "Produktiv"
+        },
+        {
+          "level": "h3",
+          "text": "Reproduzierbar"
+        },
+        {
+          "level": "h3",
+          "text": "End-to-End"
+        },
+        {
+          "level": "h2",
+          "text": "Projektstruktur: Problem, Ansatz, Ergebnis"
+        },
+        {
+          "level": "h3",
+          "text": "Problem"
+        },
+        {
+          "level": "h3",
+          "text": "Ansatz"
+        },
+        {
+          "level": "h3",
+          "text": "Ergebnis"
+        },
+        {
+          "level": "h2",
+          "text": "Projektkontext"
+        },
+        {
+          "level": "h2",
+          "text": "Ausgangslage"
+        },
+        {
+          "level": "h2",
+          "text": "Umsetzungsarchitektur"
+        },
+        {
+          "level": "h2",
+          "text": "Delivery-Scope"
+        },
+        {
+          "level": "h2",
+          "text": "Ergebnis"
+        },
+        {
+          "level": "h2",
+          "text": "Rollenabgrenzung"
+        },
+        {
+          "level": "h2",
+          "text": "Weiterfuehrende Links"
+        }
+      ],
+      "sections": [
+        {
+          "section_id": "section_1",
+          "section_type": "other",
+          "headline": "Ergebnis-Snapshot",
+          "aria_label": "",
+          "text": "Ergebnis-Snapshot Drei Kernsignale zur Wirkung im realen Delivery-Kontext. Live-Status Produktiv Upload -> Analyse -> Preis -> Checkout ist im Kundenbetrieb aktiv. Prozessqualität Reproduzierbar Standardanfragen laufen geführt statt über manuelle Rückfrage-Schleifen. Delivery-Fit End-to-End Viewer, Plugin-Backend, Pricing-Engine und WooCommerce-Handoff als zusammenhängendes System."
+        },
+        {
+          "section_id": "section_2",
+          "section_type": "other",
+          "headline": "Projektstruktur: Problem, Ansatz, Ergebnis",
+          "aria_label": "",
+          "text": "Projektstruktur: Problem, Ansatz, Ergebnis So wird aus technischer Umsetzung ein nachvollziehbarer Business-Impact. 01 Problem Anfragen liefen über manuelle Rückfrage-Schleifen. Preislogik war für Kunden intransparent und langsam. Kein durchgängiger Pfad vom Upload bis zur Bestellung. 02 Ansatz Guided Flow mit Three.js/WebGL für sofortiges Modell-Feedback. Plugin-Backend + Pricing-Engine als reproduzierbare Entscheidungslogik. Nahtloses WooCommerce-Handoff ohne Kontextverlust. 03 Ergebnis Produktiver Upload-zu-Checkout-Prozess im Live-Betrieb. Weniger manuelle Rückfragen bei Standardanfragen. Schnellere Preisorientierung und klarerer Entscheidungsweg. Ähnlichen Flow für Ihr Produkt anfragen Leistungsmodell ansehen"
+        }
+      ],
+      "ctas": [
+        {
+          "href": "/contact?source=primary-nav",
+          "label": "Kontakt"
+        },
+        {
+          "href": "/contact?source=hub-case-studies-detail",
+          "label": "Erstgespraech"
+        },
+        {
+          "href": "/contact?source=hub-case-studies-detail",
+          "label": "Ähnlichen Flow für Ihr Produkt anfragen"
+        },
+        {
+          "href": "/#contact",
+          "label": "Kontakt Direkten naechsten Schritt klaeren"
+        },
+        {
+          "href": "/contact?source=hub-case-studies-detail",
+          "label": "Erstgespraech starten"
+        }
+      ],
+      "trust_signals": [
+        "Case Study: 3D-Konfigurator als Tech-Referenz im Live-Betrieb"
+      ],
+      "faq_questions": []
+    },
+    {
+      "document_id": "doc_src_ivo_live__en_case_studies_configurator_live",
+      "source_id": "src_ivo_live__en_case_studies_configurator_live",
+      "url": "https://ivo-tech.com/en/case-studies/configurator-live",
+      "title": "Case study: 3D configurator as a live technical reference | ivo-tech",
+      "language": "en",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Case study: 3D configurator as a live technical reference"
+        },
+        {
+          "level": "h2",
+          "text": "Outcome snapshot"
+        },
+        {
+          "level": "h3",
+          "text": "Production"
+        },
+        {
+          "level": "h3",
+          "text": "Repeatable"
+        },
+        {
+          "level": "h3",
+          "text": "End-to-end"
+        },
+        {
+          "level": "h2",
+          "text": "Case structure: Problem, approach, outcome"
+        },
+        {
+          "level": "h3",
+          "text": "Problem"
+        },
+        {
+          "level": "h3",
+          "text": "Approach"
+        },
+        {
+          "level": "h3",
+          "text": "Outcome"
+        },
+        {
+          "level": "h2",
+          "text": "Project context"
+        },
+        {
+          "level": "h2",
+          "text": "Initial situation"
+        },
+        {
+          "level": "h2",
+          "text": "Delivery architecture"
+        },
+        {
+          "level": "h2",
+          "text": "Delivery scope"
+        },
+        {
+          "level": "h2",
+          "text": "Outcome"
+        },
+        {
+          "level": "h2",
+          "text": "Role clarity"
+        },
+        {
+          "level": "h2",
+          "text": "Related links"
+        }
+      ],
+      "sections": [
+        {
+          "section_id": "section_1",
+          "section_type": "other",
+          "headline": "Outcome snapshot",
+          "aria_label": "",
+          "text": "Outcome snapshot Three core signals of delivery impact in a real operating context. Live status Production Upload -> analysis -> pricing -> checkout is active in client operations. Process quality Repeatable Standard requests are guided instead of handled via manual clarification loops. Delivery fit End-to-end Viewer, plugin backend, pricing engine, and WooCommerce handoff delivered as one system."
+        },
+        {
+          "section_id": "section_2",
+          "section_type": "other",
+          "headline": "Case structure: Problem, approach, outcome",
+          "aria_label": "",
+          "text": "Case structure: Problem, approach, outcome How technical implementation translates into verifiable business impact. 01 Problem Requests were handled via manual follow-up loops. Pricing logic lacked speed and transparency for buyers. No end-to-end path from model upload to order handoff. 02 Approach Guided Three.js/WebGL flow with immediate model-state feedback. Plugin backend + pricing engine for reproducible decision logic. Seamless WooCommerce handoff without context loss. 03 Outcome Production upload-to-checkout path running live. Fewer manual clarifications for standard requests. Faster pricing orientation and clearer buyer progression. Request a similar flow for your product View service model"
+        }
+      ],
+      "ctas": [],
+      "trust_signals": [],
+      "faq_questions": []
+    },
+    {
+      "document_id": "doc_src_ivo_live__case_studies_portfolio_authority_relaunch",
+      "source_id": "src_ivo_live__case_studies_portfolio_authority_relaunch",
+      "url": "https://ivo-tech.com/case-studies/portfolio-authority-relaunch",
+      "title": "Case Study: Authority-First Portfolio Relaunch | ivo-tech",
+      "language": "de",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Case Study: Authority-First Portfolio Relaunch"
+        },
+        {
+          "level": "h2",
+          "text": "Ergebnis-Snapshot"
+        },
+        {
+          "level": "h3",
+          "text": "Authority-first"
+        },
+        {
+          "level": "h3",
+          "text": "Hub-basiert"
+        },
+        {
+          "level": "h3",
+          "text": "Stabil"
+        },
+        {
+          "level": "h2",
+          "text": "Projektstruktur: Problem, Ansatz, Ergebnis"
+        },
+        {
+          "level": "h3",
+          "text": "Problem"
+        },
+        {
+          "level": "h3",
+          "text": "Ansatz"
+        },
+        {
+          "level": "h3",
+          "text": "Ergebnis"
+        },
+        {
+          "level": "h2",
+          "text": "Zielbild"
+        },
+        {
+          "level": "h2",
+          "text": "Umsetzung"
+        },
+        {
+          "level": "h2",
+          "text": "Wirkung"
+        },
+        {
+          "level": "h2",
+          "text": "Weiterfuehrende Links"
+        }
+      ],
+      "sections": [
+        {
+          "section_id": "section_1",
+          "section_type": "other",
+          "headline": "Ergebnis-Snapshot",
+          "aria_label": "",
+          "text": "Ergebnis-Snapshot Drei Kernsignale zur Wirkung im realen Delivery-Kontext. Strategische Richtung Authority-first Positionierung von Feature-Listing zu nachvollziehbarer Engineering-Kompetenz verschoben. Informationsarchitektur Hub-basiert Case Studies, Insights und Playbooks als zusammenhängendes Vertrauenssystem. Delivery-Qualität Stabil Strukturierte Quality-Gates und reproduzierbare Übergaben im laufenden Betrieb."
+        },
+        {
+          "section_id": "section_2",
+          "section_type": "other",
+          "headline": "Projektstruktur: Problem, Ansatz, Ergebnis",
+          "aria_label": "",
+          "text": "Projektstruktur: Problem, Ansatz, Ergebnis Die Relaunch-Logik hinter Positionierung, Struktur und Conversion-Führung. 01 Problem Portfolio wirkte wie Feature-Sammlung statt als Authority-System. Nutzerpfade für Hiring- und Projektanfragen waren unscharf. Proof-Signale waren vorhanden, aber nicht strukturiert verknüpft. 02 Ansatz Neupositionierung auf nachvollziehbare Engineering-Entscheidungen. Hub-Architektur aus Case Studies, Insights und Playbooks. Klare CTA-Hierarchie und quality-gated Delivery. 03 Ergebnis Stärkeres Vertrauenssignal für Entscheider im B2B-Kontext. Bessere Navigationsklarheit über alle Primärpfade. Stabile Grundlage für laufende Conversion-Optimierung. Authority-Relaunch für Ihre Website anfragen Leistungsmodell ansehen"
+        }
+      ],
+      "ctas": [
+        {
+          "href": "/contact?source=primary-nav",
+          "label": "Kontakt"
+        },
+        {
+          "href": "/contact?source=hub-case-studies-detail",
+          "label": "Erstgespraech"
+        },
+        {
+          "href": "/contact?source=hub-case-studies-detail",
+          "label": "Authority-Relaunch für Ihre Website anfragen"
+        },
+        {
+          "href": "/#contact",
+          "label": "Kontakt Direkten naechsten Schritt klaeren"
+        },
+        {
+          "href": "/contact?source=hub-case-studies-detail",
+          "label": "Erstgespraech starten"
+        }
+      ],
+      "trust_signals": [],
+      "faq_questions": []
+    },
+    {
+      "document_id": "doc_src_ivo_live__en_case_studies_portfolio_authority_relaunch",
+      "source_id": "src_ivo_live__en_case_studies_portfolio_authority_relaunch",
+      "url": "https://ivo-tech.com/en/case-studies/portfolio-authority-relaunch",
+      "title": "Case study: authority-first portfolio relaunch | ivo-tech",
+      "language": "en",
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Case study: authority-first portfolio relaunch"
+        },
+        {
+          "level": "h2",
+          "text": "Outcome snapshot"
+        },
+        {
+          "level": "h3",
+          "text": "Authority-first"
+        },
+        {
+          "level": "h3",
+          "text": "Hub-driven"
+        },
+        {
+          "level": "h3",
+          "text": "Stable"
+        },
+        {
+          "level": "h2",
+          "text": "Case structure: Problem, approach, outcome"
+        },
+        {
+          "level": "h3",
+          "text": "Problem"
+        },
+        {
+          "level": "h3",
+          "text": "Approach"
+        },
+        {
+          "level": "h3",
+          "text": "Outcome"
+        },
+        {
+          "level": "h2",
+          "text": "Target state"
+        },
+        {
+          "level": "h2",
+          "text": "Implementation"
+        },
+        {
+          "level": "h2",
+          "text": "Impact"
+        },
+        {
+          "level": "h2",
+          "text": "Related links"
+        }
+      ],
+      "sections": [
+        {
+          "section_id": "section_1",
+          "section_type": "other",
+          "headline": "Outcome snapshot",
+          "aria_label": "",
+          "text": "Outcome snapshot Three core signals of delivery impact in a real operating context. Strategic direction Authority-first Shifted from feature listing to verifiable engineering positioning. Information architecture Hub-driven Case studies, insights, and playbooks connected into one trust layer. Delivery quality Stable Structured quality gates and handover consistency across the operating baseline."
+        },
+        {
+          "section_id": "section_2",
+          "section_type": "other",
+          "headline": "Case structure: Problem, approach, outcome",
+          "aria_label": "",
+          "text": "Case structure: Problem, approach, outcome The relaunch logic behind positioning, structure, and conversion flow. 01 Problem Portfolio messaging behaved like a feature list, not an authority layer. Hiring and project-intent paths were not clearly separated. Proof assets existed but were not connected in one system. 02 Approach Repositioning around traceable engineering decisions. Hub architecture linking case studies, insights, and playbooks. Clear CTA hierarchy with quality-gated delivery. 03 Outcome Stronger trust signal for B2B decision-makers. Clearer navigation across all primary intent paths. Stable foundation for ongoing conversion optimization. Request an authority relaunch blueprint View service model"
+        }
+      ],
+      "ctas": [],
+      "trust_signals": [],
+      "faq_questions": []
+    }
+  ]
+}

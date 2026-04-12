@@ -1,0 +1,41 @@
+pack_id: cp_generated_hero_redesign_2026_04_10
+goal: Hero redesign direction with evidence-backed options
+mode: synthesis
+sources:
+  - src_ivo_live__leistungen
+  - src_ivo_live__en_services
+  - src_ivo_live__home
+  - src_ivo_live__en_case_studies_portfolio_authority_relaunch
+  - src_ivo_preview__home
+  - src_ivo_preview__en
+  - src_ivo_preview__contact
+  - src_ivo_preview__services
+  - src_ivo_live__insights
+  - src_ivo_live__about
+core_facts:
+  - Leistungen - Technical Delivery für conversion-kritische B2B-Webseiten Klare Informationsarchitektur, robustes Frontend-Engineering und verlässliche Delivery-Gates für Teams, die pr...
+  - Services - Technical delivery for conversion-critical B2B websites Clear information architecture, robust frontend engineering, and reliable delivery gates for teams that need to sh...
+  - Erstgespräch starten (/contact?source=home-hero-primary)
+  - Case structure - Problem, approach, outcome The relaunch logic behind positioning, structure, and conversion flow. 01 Problem Portfolio messaging behaved like a feature list, not an...
+  - Hero-Projekt - 3D-Konfigurator als Tech-Referenz Ein Projektbeispiel mit klarer Ausgangslage, technischer Umsetzung und operativem Ergebnis. Live 3D-Konfigurator fuer Datei-zu-Angeb...
+  - Hero project - 3D configurator as a technical reference A project example with clear context, technical implementation, and operational impact. Live 3D configurator for live file-to...
+open_questions:
+  - Which assumptions should be validated with stakeholder input before final implementation?
+  - Which findings are specific to live vs preview and need convergence?
+next_steps:
+  - Validate assumptions with explicit evidence links.
+  - Freeze priorities and update decision log.
+  - Use this pack as implementation context in the next coding turn.
+evidence_chunks:
+  - ch_c1b78b2b2890
+  - ch_b08a0887af24
+  - ch_416cb0dd511a
+  - ch_f1109bb653ed
+  - ch_3e4c3ad14952
+  - ch_07f22040cb2d
+  - ch_d56836cec54c
+  - ch_5a668f654b7f
+  - ch_0107761ad206
+  - ch_e9525c5bd9b7
+  - ch_0cfa298fd1ec
+  - ch_9a9d8b361e48

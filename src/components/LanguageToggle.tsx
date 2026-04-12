@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
 
+import { toEnglishPath, toGermanPath } from '@/lib/routeLocalization';
+
 export function LanguageToggle() {
   const pathname = usePathname() ?? '/';
   const [hash, setHash] = useState('');
@@ -29,10 +31,8 @@ export function LanguageToggle() {
     const h = hash.startsWith('#') ? hash : hash ? `#${hash}` : '';
     const suffix = `${search}${h}`;
 
-    const barePath = pathname === '/en' ? '/' : pathname.startsWith('/en/') ? pathname.slice(3) || '/' : pathname;
-    const normalizedBarePath = barePath || '/';
-    const dePath = normalizedBarePath;
-    const enPath = normalizedBarePath === '/' ? '/en' : `/en${normalizedBarePath}`;
+    const dePath = toGermanPath(pathname || '/');
+    const enPath = toEnglishPath(pathname || '/');
 
     return {
       isEn: pathname === '/en' || pathname.startsWith('/en/'),

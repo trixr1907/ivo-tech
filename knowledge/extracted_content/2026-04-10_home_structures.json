@@ -1,0 +1,40 @@
+{
+  "extraction_date": "2026-04-10",
+  "documents": [
+    {
+      "document_id": "doc_live_home_2026_04_10",
+      "source_id": "src_ivo_live_home",
+      "url": "https://ivo-tech.com",
+      "language": "de",
+      "title": "ivo-tech | Web Engineering, Delivery-Exzellenz und klare Architektur",
+      "sections": [
+        { "section_id": "live_nav", "section_type": "navigation", "headline": "Primary Nav", "text": "Startseite, About, Projekte, Maker Lab, Case Studies, Playbooks, Kontakt" },
+        { "section_id": "live_hero", "section_type": "hero", "headline": "Technical Delivery ohne Blindflug", "text": "B2B Web Engineering mit Architektur, UX-Fuehrung und produktionsnaher Umsetzung", "ctas": ["Erstgespraech starten", "Case Studies ansehen", "Playbook lesen"] },
+        { "section_id": "live_services", "section_type": "services", "headline": "Delivery Spectrum", "text": "UX/IA, UI-System und Frontend Engineering, Performance und QA" },
+        { "section_id": "live_trust", "section_type": "trust", "headline": "Referenzen und Trust", "text": "Vertrauenselemente, Kundenstimme, Case Snapshots" },
+        { "section_id": "live_process", "section_type": "process", "headline": "Transparenter Prozess", "text": "Discovery, UX/UI-System, Implementierung/QA, Launch/Iteration" },
+        { "section_id": "live_contact", "section_type": "contact", "headline": "Enterprise-Niveau CTA", "text": "Kontaktformular + Scheduler + Reaktionszeithinweis" },
+        { "section_id": "live_footer", "section_type": "footer", "headline": "Footer", "text": "Kontakt, Rechtliches, Kurzbeschreibung" }
+      ]
+    },
+    {
+      "document_id": "doc_preview_home_2026_04_10",
+      "source_id": "src_ivo_vercel_preview_home",
+      "url": "https://ivo-tech-bcz4r4dcb-ivos-projects-77f7d33c.vercel.app/",
+      "language": "de",
+      "title": "ivo-tech | Web Engineering, Delivery-Exzellenz und klare Architektur",
+      "sections": [
+        { "section_id": "preview_nav", "section_type": "navigation", "headline": "Hauptnavigation", "text": "Case Study, Projekte, Ueber mich, Insights, Kontakt" },
+        { "section_id": "preview_hero", "section_type": "hero", "headline": "Ich entwickle digitale Produkte und Websysteme", "text": "Full-stack Webentwicklung, 3D/Frontend, API-Integrationen, AI-Workflows", "ctas": ["Kostenloses Erstgespraech anfragen", "Case Study ansehen"] },
+        { "section_id": "preview_proof", "section_type": "proof_bar", "headline": "Proof Bar", "text": "Live-System, Delivery-Qualitaet, Antwortzeit" },
+        { "section_id": "preview_hero_case", "section_type": "trust", "headline": "Hero-Projekt 3D-Konfigurator", "text": "Live-Betrieb, Engineering Snapshot, Outcome, CTA" },
+        { "section_id": "preview_about", "section_type": "services", "headline": "Ueber mich", "text": "Profil, Schwerpunkt, Arbeitsstil" },
+        { "section_id": "preview_services", "section_type": "services", "headline": "Wie ich entscheide und liefere", "text": "Methodik + Servicekarten Frontend, Backend/API, Betrieb" },
+        { "section_id": "preview_projects", "section_type": "services", "headline": "Kuratierte Projekte", "text": "Projektkarten mit Outcome-Metriken" },
+        { "section_id": "preview_insights", "section_type": "insights", "headline": "Engineering Insights", "text": "Artikelteaser zu AI, API, Architektur" },
+        { "section_id": "preview_contact", "section_type": "contact", "headline": "Kontakt", "text": "Form, Direktkontakt, Trust Signals" },
+        { "section_id": "preview_faq", "section_type": "faq", "headline": "FAQ", "text": "Zusammenarbeit, Deliverables, Team-Integration" }
+      ]
+    }
+  ]
+}

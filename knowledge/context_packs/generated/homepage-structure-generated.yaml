@@ -1,0 +1,39 @@
+pack_id: cp_generated_home_structure_2026_04_10
+goal: Homepage section architecture recommendation
+mode: compare
+sources:
+  - src_ivo_live__en_case_studies_portfolio_authority_relaunch
+  - src_ivo_live__en
+  - src_ivo_live__en_services
+  - src_ivo_live__en_case_studies_configurator_live
+  - src_ivo_live__configurator
+  - src_ivo_live__about
+  - src_ivo_live__en_about
+  - src_ivo_preview__home
+core_facts:
+  - Case structure - Problem, approach, outcome The relaunch logic behind positioning, structure, and conversion flow. 01 Problem Portfolio messaging behaved like a feature list, not an...
+  - Services From positioning to production-ready delivery. You do not get disconnected mockups. You get a coherent frontend system that marketing and product teams can actually operat...
+  - Services - Technical delivery for conversion-critical B2B websites Clear information architecture, robust frontend engineering, and reliable delivery gates for teams that need to sh...
+  - Why us Technically strong, operationally dependable. For B2B websites, credibility is won by clarity and delivery quality, not visual noise. Intentional hierarchy Every section has...
+  - Productized offer formats Three clearly defined entry paths with concrete delivery outcomes. Typical scope - 4-8 weeks Build For teams that need to launch new web journeys or relaun...
+  - Case structure - Problem, approach, outcome How technical implementation translates into verifiable business impact. 01 Problem Requests were handled via manual follow-up loops. Pri...
+open_questions:
+  - Which assumptions should be validated with stakeholder input before final implementation?
+  - Which findings are specific to live vs preview and need convergence?
+next_steps:
+  - Validate assumptions with explicit evidence links.
+  - Freeze priorities and update decision log.
+  - Use this pack as implementation context in the next coding turn.
+evidence_chunks:
+  - ch_f1109bb653ed
+  - ch_a9bd9f22c157
+  - ch_b08a0887af24
+  - ch_6ffe13af7ee7
+  - ch_54956fedc9b7
+  - ch_2eb7c88a1419
+  - ch_933c607db515
+  - ch_8af551bc93be
+  - ch_b0f248c79ddf
+  - ch_ab6ec43014d4
+  - ch_2166db3a7ab8
+  - ch_fd225ba31c1e

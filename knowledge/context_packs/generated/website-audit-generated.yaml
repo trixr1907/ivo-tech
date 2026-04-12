@@ -1,0 +1,41 @@
+pack_id: cp_generated_website_audit_2026_04_10
+goal: Complete website audit with section-level priorities and evidence
+mode: analysis
+sources:
+  - src_ivo_live__en_projects
+  - src_ivo_live__en_case_studies_portfolio_authority_relaunch
+  - src_ivo_live__en
+  - src_ivo_live__en_services
+  - src_ivo_live__home
+  - src_ivo_live__contact
+  - src_ivo_live__case_studies_portfolio_authority_relaunch
+  - src_ivo_live__projects
+  - src_ivo_live__en_privacy
+  - src_ivo_live__en_services_web_engineering_delivery
+core_facts:
+  - Professional track LIVE Authority-first portfolio relaunch From project showcase to structured positioning with clear decision flow. Stronger trust signal for hiring and collaborat...
+  - Case structure - Problem, approach, outcome The relaunch logic behind positioning, structure, and conversion flow. 01 Problem Portfolio messaging behaved like a feature list, not an...
+  - Services From positioning to production-ready delivery. You do not get disconnected mockups. You get a coherent frontend system that marketing and product teams can actually operat...
+  - Services - Technical delivery for conversion-critical B2B websites Clear information architecture, robust frontend engineering, and reliable delivery gates for teams that need to sh...
+  - Oder direkt Termin buchen (https -//cal.com/ivo-tech/intro-call?locale=de&amp;source=home&amp;exp_hero=default&amp;utm_source=ivo-tech.com&amp;utm_medium=website&amp;utm_campaign=sc...
+  - 15-Min Termin buchen (https -//cal.com/ivo-tech/intro-call?locale=de&amp;source=home&amp;exp_hero=default&amp;utm_source=ivo-tech.com&amp;utm_medium=website&amp;utm_campaign=schedul...
+open_questions:
+  - Which assumptions should be validated with stakeholder input before final implementation?
+  - Which findings are specific to live vs preview and need convergence?
+next_steps:
+  - Validate assumptions with explicit evidence links.
+  - Freeze priorities and update decision log.
+  - Use this pack as implementation context in the next coding turn.
+evidence_chunks:
+  - ch_5c01ffa47ec0
+  - ch_f1109bb653ed
+  - ch_a9bd9f22c157
+  - ch_b08a0887af24
+  - ch_e9525c5bd9b7
+  - ch_a8589fb36d1e
+  - ch_48e44cea9e67
+  - ch_610b16c1936f
+  - ch_9eb4a9a3d79b
+  - ch_28618d57c27b
+  - ch_3407a79498b4
+  - ch_77f17a790c8c

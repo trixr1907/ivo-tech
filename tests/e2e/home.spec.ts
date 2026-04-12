@@ -63,43 +63,26 @@ test.describe('homepage redesign critical journeys', () => {
   test('renders required homepage sections on DE route', async ({ page }) => {
     await page.goto('/');
 
-    await expect(page.getByRole('heading', { level: 1 })).toContainText(/Technical Delivery ohne Blindflug/i);
-    await expect(page.getByRole('link', { name: 'Erstgespräch starten' }).first()).toHaveAttribute(
-      'href',
-      '/contact?source=home-hero-primary'
-    );
-    await expect(page.getByRole('link', { name: 'Case Studies ansehen' }).first()).toHaveAttribute('href', '/case-studies?source=home-case');
-    await expect(page.getByRole('link', { name: 'Playbook lesen' }).first()).toHaveAttribute('href', '/playbooks?source=home-playbook');
-    await expect(page.getByLabel('Proof Highlights')).toBeVisible();
-    await expect(page.locator('#services')).toBeVisible();
-    await expect(page.locator('#benefits')).toBeVisible();
-    await expect(page.locator('#trust')).toBeVisible();
-    await expect(page.locator('#process')).toBeVisible();
+    await expect(page.getByRole('heading', { level: 1 })).toContainText(/Builder\. Engineer\. Maker\./i);
+    await expect(page.getByRole('link', { name: /Interview\s*\/\s*Hiring/i }).first()).toHaveAttribute('href', '/hiring');
+    await expect(page.getByRole('link', { name: 'Projektbelege ansehen' }).first()).toHaveAttribute('href', '/projects');
+    await expect(page.getByRole('link', { name: 'CV & Verfügbarkeit' }).first()).toHaveAttribute('href', '/resume');
+    await expect(page.getByText('Proof statt leeren Versprechen')).toBeVisible();
+    await expect(page.getByRole('heading', { level: 2, name: 'Ausgewählte Projekte' })).toBeVisible();
+    await expect(page.getByRole('heading', { level: 2, name: 'Aktuelle Insights' })).toBeVisible();
     await expect(page.locator('#contact')).toBeVisible();
   });
 
-  test('supports hero experiment variants via query param', async ({ page }) => {
-    await page.goto('/?exp_hero=outcome');
-    await expect(page.getByRole('heading', { level: 1 })).toContainText(/messbar liefern/i);
-    await expect(page.getByRole('link', { name: 'Case Studies ansehen' }).first()).toHaveAttribute(
-      'href',
-      '/case-studies?source=home-case&exp_hero=outcome'
-    );
-    await expect(page.getByRole('link', { name: 'Playbook lesen' }).first()).toHaveAttribute(
-      'href',
-      '/playbooks?source=home-playbook&exp_hero=outcome'
-    );
+  test('keeps homepage stable with query params on DE and EN routes', async ({ page }) => {
+    await page.goto('/?exp_hero=outcome#contact');
+    await expect(page.getByRole('heading', { level: 1 })).toContainText(/Builder\. Engineer\. Maker\./i);
+    await expect(page.getByRole('link', { name: /Interview\s*\/\s*Hiring/i }).first()).toHaveAttribute('href', '/hiring');
+    await expect(page.locator('a[data-contact-cta="scheduler"]')).toHaveAttribute('href', /exp_hero=outcome/);
 
-    await page.goto('/en?exp_hero=speed');
-    await expect(page.getByRole('heading', { level: 1 })).toContainText(/weeks, not quarters/i);
-    await expect(page.getByRole('link', { name: 'View case studies' }).first()).toHaveAttribute(
-      'href',
-      '/en/case-studies?source=home-case&exp_hero=speed'
-    );
-    await expect(page.getByRole('link', { name: 'Read playbook' }).first()).toHaveAttribute(
-      'href',
-      '/en/playbooks?source=home-playbook&exp_hero=speed'
-    );
+    await page.goto('/en?exp_hero=speed#contact');
+    await expect(page.getByRole('heading', { level: 1 })).toContainText(/Builder\. Engineer\. Maker\./i);
+    await expect(page.getByRole('link', { name: /Interview\s*\/\s*Hiring/i }).first()).toHaveAttribute('href', '/en/hiring');
+    await expect(page.locator('a[data-contact-cta="scheduler"]')).toHaveAttribute('href', /exp_hero=speed/);
   });
 
   test('renders DE and EN services pages with contact attribution links', async ({ page }) => {
@@ -191,13 +174,14 @@ test.describe('homepage redesign critical journeys', () => {
   });
 
   test('renders trust project signals with status badges', async ({ page }) => {
-    await page.goto('/#trust');
-    await expect(page.getByRole('heading', { level: 3, name: 'Vertrauenselemente' })).toBeVisible();
-    const projectCards = page.locator('#trust a[href^="/case-studies"]');
-    const projectCardCount = await projectCards.count();
-    expect(projectCardCount).toBeGreaterThanOrEqual(3);
-    await expect(page.getByText(/Live|In Entwicklung/).first()).toBeVisible();
-    await expect(page.getByText('Case Snapshot: Configurator Live')).toBeVisible();
+    await page.goto('/');
+    const proofSection = page.locator('#home-proof');
+    await expect(proofSection.getByRole('heading', { level: 3, name: 'Öffentliche Belege' })).toBeVisible();
+    const proofCards = proofSection.locator(
+      'a[href*="deinlieblingsdruck.de"], a[href*="github.com"], a[href*="/case-studies/portfolio-authority-relaunch"]'
+    );
+    await expect(proofCards).toHaveCount(3);
+    await expect(proofSection.getByText('Nur verifizierte Artefakte in der zentralen Vertrauensebene.')).toBeVisible();
   });
 
   test('renders case-study outcome snapshot block for configured entries', async ({ page }) => {
@@ -221,8 +205,8 @@ test.describe('homepage redesign critical journeys', () => {
     await page.getByLabel('Name').fill('Test User');
     await page.getByLabel('Business-E-Mail').fill('test@example.com');
     await page.getByLabel('Kontext').fill('Wir wollen qualifizierte Leads und klarere Positionierung.');
-    await page.getByRole('checkbox', { name: /Mit dem Absenden stimmen Sie der Verarbeitung/i }).check();
-    await page.getByRole('button', { name: 'Kostenlose Erstberatung anfragen' }).click();
+    await page.locator('input[name="gdpr-consent"]').check();
+    await page.getByRole('button', { name: 'Anfrage senden' }).click();
 
     await expect(page).toHaveURL(/\/thanks\?source=home&exp_hero=outcome/);
     await expect(page.getByRole('heading', { level: 1 })).toContainText('Anfrage erfolgreich gesendet');
@@ -277,6 +261,8 @@ test.describe('homepage redesign critical journeys', () => {
       '/projects',
       '/maker-lab',
       '/contact',
+      '/hiring',
+      '/resume',
       '/case-studies',
       '/insights',
       '/playbooks',
@@ -291,6 +277,8 @@ test.describe('homepage redesign critical journeys', () => {
       '/en/projects',
       '/en/maker-lab',
       '/en/contact',
+      '/en/hiring',
+      '/en/resume',
       '/en/case-studies',
       '/en/insights',
       '/en/playbooks',

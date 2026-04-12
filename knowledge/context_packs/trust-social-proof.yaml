@@ -1,0 +1,17 @@
+pack_id: cp_trust_social_proof
+goal: Build a stronger trust architecture across homepage sections.
+mode: analysis
+sources:
+  - src_ivo_live_home
+  - src_ivo_vercel_preview_home
+  - src_repo_copy_content
+core_facts:
+  - Trust signals exist (live system, QA gates, response windows, case references).
+  - Proof can be made more explicit and better distributed.
+open_questions:
+  - Which proof artifacts are strongest for buyer confidence?
+  - Where should trust appear to reduce hesitation fastest?
+next_steps:
+  - Define trust signal taxonomy.
+  - Map trust signals to relevant objections.
+  - Integrate trust placements into new IA.

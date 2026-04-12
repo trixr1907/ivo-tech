@@ -1,4 +1,4 @@
-import { HomePageRedesign } from '@/components/home/HomePageRedesign';
+import { HomePageRelaunch2026 } from '@/components/home/HomePageRelaunch2026';
 
 type FeaturedInsightTeaser = {
   slug: string;
@@ -9,14 +9,11 @@ type FeaturedInsightTeaser = {
 };
 
 type Locale = keyof typeof import('@/content/copy').copy;
-type HomeCopy = (typeof import('@/content/copy').copy)[Locale];
-
 type Props = {
   locale: Locale;
-  copyText: HomeCopy;
   featuredInsights: FeaturedInsightTeaser[];
 };
 
 export function HomePage({ locale, featuredInsights }: Props) {
-  return <HomePageRedesign locale={locale} featuredInsights={featuredInsights} />;
+  return <HomePageRelaunch2026 locale={locale} featuredInsights={featuredInsights} />;
 }

@@ -1,0 +1,40 @@
+{
+  "version": "2026-04-10",
+  "units": [
+    {
+      "unit_id": "unit_value_prop_authority_delivery",
+      "semantic_type": "hero_value_prop",
+      "language": "de",
+      "text": "Technical Delivery ohne Blindflug: Websysteme, die stabil laufen und klar konvertieren.",
+      "source_id": "src_ivo_live_home"
+    },
+    {
+      "unit_id": "unit_value_prop_products_workflow",
+      "semantic_type": "hero_value_prop",
+      "language": "de",
+      "text": "Ich entwickle digitale Produkte und Websysteme, die im Alltag wirklich funktionieren.",
+      "source_id": "src_ivo_vercel_preview_home"
+    },
+    {
+      "unit_id": "unit_trust_live_system",
+      "semantic_type": "trust_signal",
+      "language": "de",
+      "text": "Live-System: End-to-End Upload-Flow im produktiven Betrieb.",
+      "source_id": "src_ivo_vercel_preview_home"
+    },
+    {
+      "unit_id": "unit_cta_primary_consultation",
+      "semantic_type": "cta",
+      "language": "de",
+      "text": "Erstgespraech starten / Kostenlose Erstberatung anfragen",
+      "source_id": "src_ivo_live_home"
+    },
+    {
+      "unit_id": "unit_faq_collaboration_start",
+      "semantic_type": "faq",
+      "language": "de",
+      "text": "Wie startet eine Zusammenarbeit? Kontext zu Ziel, Engpass und Zeitrahmen reichen fuer den naechsten belastbaren Schritt.",
+      "source_id": "src_ivo_live_home"
+    }
+  ]
+}

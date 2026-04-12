@@ -1,6 +1,6 @@
 # Live Roadmap (Single Source of Truth)
 
-Stand: 2026-04-10  
+Stand: 2026-04-10 (Relaunch-Track aktualisiert)  
 Owner: ivo-tech  
 Update-Frequenz: bei jeder Session und nach jedem relevanten Merge
 
@@ -10,6 +10,28 @@ Update-Frequenz: bei jeder Session und nach jedem relevanten Merge
 3. Vor Abschluss/Release: `npm run roadmap:sync` + `npm run masterplan:progress`.
 4. Diese Datei ist die operative Referenz fuer "was jetzt", "was danach", "was blockiert".
 5. Operative Ausfuehrung (Daily Ops/Release/Incident): `docs/ops-control-center.md`.
+
+## Lebender Plan 2026 (Hard Relaunch Track)
+Der zentrale Masterplan liegt in `docs/masterplan-2026-live.md`.  
+Diese Roadmap bleibt die operative Steuerung (Blockstatus, Session-Log, Sync-Snapshot).  
+Aktiver Track fuer den Masterplan 2026:
+
+1. Audience-first Home (`Portfolio/Hiring/Kollaboration`)
+2. Neue Kernseiten (`/hiring`, `/resume` + EN)
+3. I18N Route-Mapping fix (`/leistungen` -> `/en/services`)
+4. Kontaktflow intent-adaptiv (Hiring kurz, Projekt detaillierter)
+5. Trust-Layer bereinigt (nur verifizierbare Proofs prominent)
+
+### Statusboard (Masterplan 2026)
+| Block | Ziel | Status | Nachweis |
+| --- | --- | --- | --- |
+| B1 | Home-Reframe auf Hiring/Portfolio-first | Erledigt | `src/components/home/HomePageRelaunch2026.tsx` |
+| B2 | `Hiring` + `Resume` Seiten DE/EN | Erledigt | `src/app/hiring`, `src/app/resume`, `src/app/en/*` |
+| B3 | Locale-Routing-Bug fix | Erledigt | `src/lib/routeLocalization.ts`, `LanguageToggle.tsx` |
+| B4 | Kontaktformular intent-adaptiv | Erledigt | `ContactLeadForm.tsx` |
+| B5 | Sitemap auf neue Kernseiten erweitert | Erledigt | `src/app/sitemap.xml/route.ts` |
+| B6 | Tests auf Relaunch-Verhalten synchronisiert | Erledigt | `tests/e2e/home.spec.ts` |
+| B7 | Welle 2: About/Case/Trust-Ledger Vertiefung | Offen | naechster Block |
 
 ## Prioritaetsmodus (ab sofort)
 1. `Human-visible first`: Alles was Nutzer direkt sehen (Hero, Sections, Copy, Trust, Seitenkonsistenz, mobile Wirkung) hat Vorrang.
@@ -47,6 +69,8 @@ Update-Frequenz: bei jeder Session und nach jedem relevanten Merge
 ## Session-Log
 | Datum | Block | Ergebnis | Nächster Schritt |
 | --- | --- | --- | --- |
+| 2026-04-10 | Masterplan-Linking | Eigenstaendige Datei `docs/masterplan-2026-live.md` angelegt und in README + Roadmap verlinkt | Welle 2 nach Masterplan fortsetzen (About/Case/Trust-Ledger) |
+| 2026-04-10 | Masterplan 2026 Umsetzung (Welle 1) | Home komplett auf Hiring/Portfolio-first umgestellt, neue Seiten `hiring/resume` (DE/EN) live im Code, i18n-Mapping-Bug behoben, Contact intent-adaptiv geschlankt, Home-E2E 16/16 gruen | Welle 2: About-Reframe, Case-Study-Template-Vertiefung, Trust-Ledger-Komponente |
 | 2026-04-10 | Routing + Funnel + Tracking Contract | Kernimplementierung erfolgt, Typecheck/Analytics/Unit gruen | E2E-Gates und Rest-Harmonisierung |
 | 2026-04-10 | E2E Stabilisierung (`tests/e2e/home.spec.ts`) | 16/16 Tests gruen nach Spec-Harmonisierung auf neue IA/Contact-Contract | Nav/CTA-Harmonisierung (`R3`) |
 | 2026-04-10 | Nav/CTA-Harmonisierung (`R3`) | Home-Header/Mobile auf globale Primärnavigation umgestellt, E2E weiterhin 16/16 gruen | Wechsel auf N1/N2/N3 |
@@ -99,5 +123,3 @@ Generiert: 2026-04-10T18:38:47.641Z
 ### Top offene Punkte
 - [x] Keine offenen Punkte im Checklist-Scope.
 <!-- ROADMAP_SYNC_END -->
-
-

@@ -1,0 +1,59 @@
+{
+  "crawl_date": "2026-04-10-preview",
+  "base_url": "https://ivo-tech-bcz4r4dcb-ivos-projects-77f7d33c.vercel.app",
+  "sitemap_url": "https://ivo-tech-bcz4r4dcb-ivos-projects-77f7d33c.vercel.app/sitemap.xml",
+  "total_discovered": 0,
+  "used_fallback_urls": true,
+  "total_crawled": 7,
+  "pages": [
+    {
+      "source_id": "src_ivo_preview__home",
+      "url": "https://ivo-tech-bcz4r4dcb-ivos-projects-77f7d33c.vercel.app/",
+      "status": 200,
+      "sha256": "0f73abbcbe5bc20e4f0520990b1f98da45471fcd06eb8dcb1ffa3342542fa00a",
+      "path": "knowledge/crawled_pages/2026-04-10-preview/src_ivo_preview__home/index.html"
+    },
+    {
+      "source_id": "src_ivo_preview__en",
+      "url": "https://ivo-tech-bcz4r4dcb-ivos-projects-77f7d33c.vercel.app/en",
+      "status": 200,
+      "sha256": "d2b3141d4e1670f2a4645421a90ea34894b731c5eb46a9df2733d2ece5647967",
+      "path": "knowledge/crawled_pages/2026-04-10-preview/src_ivo_preview__en/index.html"
+    },
+    {
+      "source_id": "src_ivo_preview__contact",
+      "url": "https://ivo-tech-bcz4r4dcb-ivos-projects-77f7d33c.vercel.app/contact",
+      "status": 200,
+      "sha256": "c39b28ad850cd77d8c25d92e38e43eaedf17679ce881a68d5f5f14067cd4c2b1",
+      "path": "knowledge/crawled_pages/2026-04-10-preview/src_ivo_preview__contact/index.html"
+    },
+    {
+      "source_id": "src_ivo_preview__services",
+      "url": "https://ivo-tech-bcz4r4dcb-ivos-projects-77f7d33c.vercel.app/services",
+      "status": 200,
+      "sha256": "5c418d070d5014cc1636065225e85b15c39a8fad0f66ec6f7b290f5f432ec8f1",
+      "path": "knowledge/crawled_pages/2026-04-10-preview/src_ivo_preview__services/index.html"
+    },
+    {
+      "source_id": "src_ivo_preview__case_studies",
+      "url": "https://ivo-tech-bcz4r4dcb-ivos-projects-77f7d33c.vercel.app/case-studies",
+      "status": 200,
+      "sha256": "9e0e09353e006b88206842118bcdf07161bfeb6b542149a88c3c7be995093d14",
+      "path": "knowledge/crawled_pages/2026-04-10-preview/src_ivo_preview__case_studies/index.html"
+    },
+    {
+      "source_id": "src_ivo_preview__insights",
+      "url": "https://ivo-tech-bcz4r4dcb-ivos-projects-77f7d33c.vercel.app/insights",
+      "status": 200,
+      "sha256": "576c3602eedbdc14f7ffe11662bbd8186b3adf30efd37e45dbf479ca7ff05de7",
+      "path": "knowledge/crawled_pages/2026-04-10-preview/src_ivo_preview__insights/index.html"
+    },
+    {
+      "source_id": "src_ivo_preview__playbooks",
+      "url": "https://ivo-tech-bcz4r4dcb-ivos-projects-77f7d33c.vercel.app/playbooks",
+      "status": 200,
+      "sha256": "d1c7b618825dcfa5e4ac07cc7a562d217f7f74c8469fefd2bdf5b36b4f9965b5",
+      "path": "knowledge/crawled_pages/2026-04-10-preview/src_ivo_preview__playbooks/index.html"
+    }
+  ]
+}

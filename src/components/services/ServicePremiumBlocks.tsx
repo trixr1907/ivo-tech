@@ -188,15 +188,15 @@ export function ServicePremiumBlocks({ locale, slug }: ServicePremiumBlocksProps
     <>
       <section className="service-premium-block service-premium-block--comparator" aria-labelledby="service-detail-comparator">
         <div className="section-head">
-          <h2 id="service-detail-comparator" className="text-ink-900">
+          <h2 id="service-detail-comparator" className="font-display text-xl font-semibold text-slate-100">
             {content.comparatorTitle}
           </h2>
-          <p className="text-ink-700">{content.comparatorIntro}</p>
+          <p className="mt-2 text-slate-300">{content.comparatorIntro}</p>
         </div>
-        <div className="service-premium-table overflow-x-auto rounded-2xl border border-slate-200 bg-white/90 p-1">
+        <div className="service-premium-table mt-6 overflow-x-auto rounded-2xl border border-slate-700/90 bg-slate-950/50 p-1 backdrop-blur-sm">
           <table className="w-full border-collapse text-left text-sm">
             <thead>
-              <tr className="border-b border-slate-200 text-xs uppercase tracking-wide text-ink-700">
+              <tr className="border-b border-slate-600 text-xs uppercase tracking-wide text-slate-400">
                 <th className="px-4 py-3">{locale === 'de' ? 'Bereich' : 'Dimension'}</th>
                 <th className="px-4 py-3">{locale === 'de' ? 'Vorher' : 'Before'}</th>
                 <th className="px-4 py-3">{locale === 'de' ? 'Nachher' : 'After'}</th>
@@ -204,10 +204,10 @@ export function ServicePremiumBlocks({ locale, slug }: ServicePremiumBlocksProps
             </thead>
             <tbody>
               {content.comparatorRows.map((row) => (
-                <tr key={row.metric} className="border-b border-slate-100 last:border-b-0">
-                  <td className="px-4 py-3 font-semibold text-ink-900">{row.metric}</td>
-                  <td className="px-4 py-3 text-ink-700">{row.before}</td>
-                  <td className="px-4 py-3 text-ink-900">{row.after}</td>
+                <tr key={row.metric} className="border-b border-slate-700/80 last:border-b-0">
+                  <td className="px-4 py-3 font-semibold text-slate-100">{row.metric}</td>
+                  <td className="px-4 py-3 text-slate-300">{row.before}</td>
+                  <td className="px-4 py-3 text-slate-200">{row.after}</td>
                 </tr>
               ))}
             </tbody>
@@ -215,41 +215,41 @@ export function ServicePremiumBlocks({ locale, slug }: ServicePremiumBlocksProps
         </div>
       </section>
 
-      <section className="service-premium-block service-premium-block--risk" aria-labelledby="service-detail-risk-matrix">
+      <section className="service-premium-block service-premium-block--risk mt-10" aria-labelledby="service-detail-risk-matrix">
         <div className="section-head">
-          <h2 id="service-detail-risk-matrix" className="text-ink-900">
+          <h2 id="service-detail-risk-matrix" className="font-display text-xl font-semibold text-slate-100">
             {content.riskTitle}
           </h2>
-          <p className="text-ink-700">{content.riskIntro}</p>
+          <p className="mt-2 text-slate-300">{content.riskIntro}</p>
         </div>
-        <div className="insights-grid insights-grid-page service-premium-risk-grid">
+        <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {content.riskItems.map((risk) => (
-            <article key={risk.risk} className="insight-card text-ink-700">
-              <h3 className="text-ink-900">{risk.risk}</h3>
-              <p className="text-ink-700">
-                <strong>{locale === 'de' ? 'Impact:' : 'Impact:'}</strong> {risk.impact}
+            <article key={risk.risk} className="rounded-2xl border border-slate-800/80 bg-slate-950/40 p-5 text-slate-300">
+              <h3 className="font-display text-base font-semibold text-slate-100">{risk.risk}</h3>
+              <p className="mt-2 text-sm">
+                <strong className="text-slate-200">{locale === 'de' ? 'Impact:' : 'Impact:'}</strong> {risk.impact}
               </p>
-              <p className="text-ink-700">
-                <strong>{locale === 'de' ? 'Mitigation:' : 'Mitigation:'}</strong> {risk.mitigation}
+              <p className="mt-2 text-sm">
+                <strong className="text-slate-200">{locale === 'de' ? 'Mitigation:' : 'Mitigation:'}</strong> {risk.mitigation}
               </p>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="service-premium-block service-premium-block--architecture" aria-labelledby="service-detail-architecture-snapshot">
+      <section className="service-premium-block service-premium-block--architecture mt-10" aria-labelledby="service-detail-architecture-snapshot">
         <div className="section-head">
-          <h2 id="service-detail-architecture-snapshot" className="text-ink-900">
+          <h2 id="service-detail-architecture-snapshot" className="font-display text-xl font-semibold text-slate-100">
             {content.architectureTitle}
           </h2>
-          <p className="text-ink-700">{content.architectureIntro}</p>
+          <p className="mt-2 text-slate-300">{content.architectureIntro}</p>
         </div>
-        <div className="insights-grid insights-grid-page service-premium-architecture-grid">
+        <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {content.architectureItems.map((item) => (
-            <article key={item.layer} className="insight-card text-ink-700">
-              <span className="insight-meta">{item.layer}</span>
-              <h3 className="text-ink-900">{item.focus}</h3>
-              <p className="text-ink-700">{item.control}</p>
+            <article key={item.layer} className="rounded-2xl border border-slate-800/80 bg-slate-950/40 p-5 text-slate-300">
+              <span className="text-xs font-semibold uppercase tracking-[0.12em] text-sky-400/90">{item.layer}</span>
+              <h3 className="mt-2 font-display text-base font-semibold text-slate-100">{item.focus}</h3>
+              <p className="mt-2 text-sm">{item.control}</p>
             </article>
           ))}
         </div>

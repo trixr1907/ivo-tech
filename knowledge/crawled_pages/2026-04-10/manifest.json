@@ -1,0 +1,358 @@
+{
+  "crawl_date": "2026-04-10",
+  "base_url": "https://ivo-tech.com",
+  "sitemap_url": "https://ivo-tech.com/sitemap.xml",
+  "total_discovered": 50,
+  "total_crawled": 50,
+  "pages": [
+    {
+      "source_id": "src_ivo_live__home",
+      "url": "https://ivo-tech.com/",
+      "status": 200,
+      "sha256": "93c7d685b211409bfcec6730f4a7609ebd8da21ef313e353808f2950cf5c77a3",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__home/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__en",
+      "url": "https://ivo-tech.com/en",
+      "status": 200,
+      "sha256": "740127d407e66550e9f2d172abfb458327e43593607e619eb2daf58b214b8ed6",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__en/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__configurator",
+      "url": "https://ivo-tech.com/configurator",
+      "status": 200,
+      "sha256": "384bfa2dce3f1d2c3ec3eeaf949a10a68ae64832be06319751e5bb4cf3929a5b",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__configurator/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__en_configurator",
+      "url": "https://ivo-tech.com/en/configurator",
+      "status": 200,
+      "sha256": "8e725f039e9f3633a372ffae5c878c6addf992db64da53df563f33378ddcd893",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__en_configurator/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__insights",
+      "url": "https://ivo-tech.com/insights",
+      "status": 200,
+      "sha256": "d909f14464f0338e40b3e43cec4ebf1c407c5236d2249ad90d06334c39b61fb5",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__insights/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__en_insights",
+      "url": "https://ivo-tech.com/en/insights",
+      "status": 200,
+      "sha256": "1c2a3e7d3ba6bafe381edded739ec74f37207c027bdbf4eb150300b677fb8e51",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__en_insights/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__about",
+      "url": "https://ivo-tech.com/about",
+      "status": 200,
+      "sha256": "5b6da50d00936cba1aa26cd9139221e4091e855d4b89ba47e2fdbcea34f3118e",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__about/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__en_about",
+      "url": "https://ivo-tech.com/en/about",
+      "status": 200,
+      "sha256": "ab5bf4daf03ede69abe0fd14bbc1237d22b460098bc60f9cf1b52b238fed731f",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__en_about/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__projects",
+      "url": "https://ivo-tech.com/projects",
+      "status": 200,
+      "sha256": "317d821c3204b4d8858fa4a15e492125ebad0157f4a5448d39357397b5cf902a",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__projects/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__en_projects",
+      "url": "https://ivo-tech.com/en/projects",
+      "status": 200,
+      "sha256": "fe3a4e5bfa89f22167501b93111be82994eb02561fe5f5afcb7e3355da64d711",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__en_projects/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__maker_lab",
+      "url": "https://ivo-tech.com/maker-lab",
+      "status": 200,
+      "sha256": "d59645763c66d6472dbc7d4912b023c73517e530ad2a1c6aee77ec7483755af1",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__maker_lab/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__en_maker_lab",
+      "url": "https://ivo-tech.com/en/maker-lab",
+      "status": 200,
+      "sha256": "afc0c6ab6fadebd6fceebf43b5293e9b5d3c104d3fbe1a2f5cb026251eec9d89",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__en_maker_lab/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__contact",
+      "url": "https://ivo-tech.com/contact",
+      "status": 200,
+      "sha256": "ad53e557e2de60440733d334002dcd0936b3baa09dd9b96004dcca8cd00bce73",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__contact/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__en_contact",
+      "url": "https://ivo-tech.com/en/contact",
+      "status": 200,
+      "sha256": "476872309e298c4759fa48e3e9ca5b587e7894c720fd7d0744bf13d0341a9a92",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__en_contact/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__playbooks",
+      "url": "https://ivo-tech.com/playbooks",
+      "status": 200,
+      "sha256": "671f011558ed4c9c6fc7c0056785f041f8b21f41413a9731480dae9a847cb85a",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__playbooks/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__en_playbooks",
+      "url": "https://ivo-tech.com/en/playbooks",
+      "status": 200,
+      "sha256": "06c854efccc03d5c60068fb9790f9354fb97a458fa08fc63ac28f11ef46764c3",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__en_playbooks/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__case_studies",
+      "url": "https://ivo-tech.com/case-studies",
+      "status": 200,
+      "sha256": "8bf539c6d6bacd910b5c3e02fb5367cbbbb510a66232ee8b38f19b351de9d54b",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__case_studies/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__en_case_studies",
+      "url": "https://ivo-tech.com/en/case-studies",
+      "status": 200,
+      "sha256": "e4d0b7f4e80e940f78e011f2de94ba9ac889d9114d4c4dbbed8a441b0ab737ca",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__en_case_studies/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__leistungen",
+      "url": "https://ivo-tech.com/leistungen",
+      "status": 200,
+      "sha256": "947c1aabde18c47756a8fbc93482923535202bcba30929b7209c8bc9197fe0c8",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__leistungen/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__en_services",
+      "url": "https://ivo-tech.com/en/services",
+      "status": 200,
+      "sha256": "b22fd089a78f4ade6eef441912915a47960f9f0cf910f013c7e1f86d2dd737b1",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__en_services/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__impressum",
+      "url": "https://ivo-tech.com/impressum",
+      "status": 200,
+      "sha256": "db302deec8f8b9fb596ac4c1b6ac53dcfd73436d09e74835462ac3f53e13f8ac",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__impressum/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__en_legal",
+      "url": "https://ivo-tech.com/en/legal",
+      "status": 200,
+      "sha256": "62ad27c44c2b8fac19e4d32d271c1bba04fea10243d3ffd1d8d986e99ff82eb3",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__en_legal/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__datenschutz",
+      "url": "https://ivo-tech.com/datenschutz",
+      "status": 200,
+      "sha256": "3bcdc286e9eae329eeebf9cbb5639ec0cc5b3221b982344a3db14d875d01abe0",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__datenschutz/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__en_privacy",
+      "url": "https://ivo-tech.com/en/privacy",
+      "status": 200,
+      "sha256": "349235f9452a26d538960e6356fa11a83ac1ecf84361a425928a8869a165c76f",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__en_privacy/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__leistungen_web_engineering_delivery",
+      "url": "https://ivo-tech.com/leistungen/web-engineering-delivery",
+      "status": 200,
+      "sha256": "1eac1d9bc3f8ed0dda617cadfb4fb650f6befa72f492f4269607a5f7b9825a3c",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__leistungen_web_engineering_delivery/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__en_services_web_engineering_delivery",
+      "url": "https://ivo-tech.com/en/services/web-engineering-delivery",
+      "status": 200,
+      "sha256": "5b8f39b236285d9fa62c1d83b8a109996102e7f6afe44c28158b2b133826de54",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__en_services_web_engineering_delivery/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__leistungen_ai_automation_workflows",
+      "url": "https://ivo-tech.com/leistungen/ai-automation-workflows",
+      "status": 200,
+      "sha256": "de938033ed92f578dc73733b9de23e62d146a2bda1d4ad5fa7b9e07be96fe8d2",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__leistungen_ai_automation_workflows/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__en_services_ai_automation_workflows",
+      "url": "https://ivo-tech.com/en/services/ai-automation-workflows",
+      "status": 200,
+      "sha256": "a39931f3c103f74493c2c37fe880f59d49e6544d81eb123461107f0155137f7c",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__en_services_ai_automation_workflows/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__leistungen_3d_visualization_systems",
+      "url": "https://ivo-tech.com/leistungen/3d-visualization-systems",
+      "status": 200,
+      "sha256": "1acdd7aa3b5c2c138e4d6e779bb458c950cfd223e0f4ed1e0256ac3d17a78466",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__leistungen_3d_visualization_systems/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__en_services_3d_visualization_systems",
+      "url": "https://ivo-tech.com/en/services/3d-visualization-systems",
+      "status": 200,
+      "sha256": "a1adfe3bdb14a495d32a0289fed3dec40a2851113f018b978b4741fdd0472c99",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__en_services_3d_visualization_systems/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__insights_ai_assisted_pr_review_loop",
+      "url": "https://ivo-tech.com/insights/ai-assisted-pr-review-loop",
+      "status": 200,
+      "sha256": "ffcae556d61aad51c7157bb4f921244e419f2af327e442f6486c5f222834adce",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__insights_ai_assisted_pr_review_loop/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__en_insights_ai_assisted_pr_review_loop",
+      "url": "https://ivo-tech.com/en/insights/ai-assisted-pr-review-loop",
+      "status": 200,
+      "sha256": "816378648cce61cbb13d2cd2b11e0941bba6cc2476a6bf26ab4f60cf992bdfd0",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__en_insights_ai_assisted_pr_review_loop/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__insights_api_integration_failure_modes",
+      "url": "https://ivo-tech.com/insights/api-integration-failure-modes",
+      "status": 200,
+      "sha256": "7b04e206b782f45872ee7069c03bfbdfcb5f94a5abcfc79aa7d9675100bd06a4",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__insights_api_integration_failure_modes/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__en_insights_api_integration_failure_modes",
+      "url": "https://ivo-tech.com/en/insights/api-integration-failure-modes",
+      "status": 200,
+      "sha256": "60370b8b12c5744cdf929a6696f12ffe78c8ed5483eb7acf4e1596d086ec1090",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__en_insights_api_integration_failure_modes/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__insights_architecture_decisions_under_pressure",
+      "url": "https://ivo-tech.com/insights/architecture-decisions-under-pressure",
+      "status": "error",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "source_id": "src_ivo_live__en_insights_architecture_decisions_under_pressure",
+      "url": "https://ivo-tech.com/en/insights/architecture-decisions-under-pressure",
+      "status": 200,
+      "sha256": "02f19ad2f287103419ebec10d643263ae6182e012cb356241deb96f9d20182f8",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__en_insights_architecture_decisions_under_pressure/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__insights_nextjs_performance_budget_playbook",
+      "url": "https://ivo-tech.com/insights/nextjs-performance-budget-playbook",
+      "status": 200,
+      "sha256": "a3206846f005e84811cd6a2ff72f55262ce6a76fc47747ea1b1eaaf0f61f9737",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__insights_nextjs_performance_budget_playbook/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__en_insights_nextjs_performance_budget_playbook",
+      "url": "https://ivo-tech.com/en/insights/nextjs-performance-budget-playbook",
+      "status": 200,
+      "sha256": "4ae71c83c5905bdd6983b3d0fb5367d256a5b3698a4b9037a442afc56ac99915",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__en_insights_nextjs_performance_budget_playbook/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__insights_stable_handover_checklist",
+      "url": "https://ivo-tech.com/insights/stable-handover-checklist",
+      "status": 200,
+      "sha256": "20499a26490f6519f40ea2ef5eea0090090f83ac294c69e0345e3a4b0d55815a",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__insights_stable_handover_checklist/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__en_insights_stable_handover_checklist",
+      "url": "https://ivo-tech.com/en/insights/stable-handover-checklist",
+      "status": 200,
+      "sha256": "edc963d9a412fe15ee871d74e69ceb2a9c6dfb7f05e100cfd98a34a2f741b65e",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__en_insights_stable_handover_checklist/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__playbooks_api_integration_readiness_playbook",
+      "url": "https://ivo-tech.com/playbooks/api-integration-readiness-playbook",
+      "status": 200,
+      "sha256": "dd7a6abee013dd692a53089e80328819054c23de11d9f0b0be71a4f192b26e13",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__playbooks_api_integration_readiness_playbook/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__en_playbooks_api_integration_readiness_playbook",
+      "url": "https://ivo-tech.com/en/playbooks/api-integration-readiness-playbook",
+      "status": 200,
+      "sha256": "f99d7ada794de648e0acf97794eed89da63eb489811e16935b80d4992dc9fc64",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__en_playbooks_api_integration_readiness_playbook/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__playbooks_handover_production_readiness_playbook",
+      "url": "https://ivo-tech.com/playbooks/handover-production-readiness-playbook",
+      "status": 200,
+      "sha256": "efef79b4aefbc53fad950588923a65a92b8233c6f723ca794805e16dfb717044",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__playbooks_handover_production_readiness_playbook/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__en_playbooks_handover_production_readiness_playbook",
+      "url": "https://ivo-tech.com/en/playbooks/handover-production-readiness-playbook",
+      "status": 200,
+      "sha256": "5feacd8b4ff84b91ba914c9589c59701baacb7a54494899bea1203ebbf2b913b",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__en_playbooks_handover_production_readiness_playbook/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__playbooks_performance_budget_guardrails",
+      "url": "https://ivo-tech.com/playbooks/performance-budget-guardrails",
+      "status": 200,
+      "sha256": "5e81f4e6d7c00ae4b58adbf426bd58f4c94727f10d212cf54c5f106f6cd59695",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__playbooks_performance_budget_guardrails/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__en_playbooks_performance_budget_guardrails",
+      "url": "https://ivo-tech.com/en/playbooks/performance-budget-guardrails",
+      "status": 200,
+      "sha256": "08fd651726630d2b8fd95e822e2a1b80e4da1b4c3a64b1b08399b02255e9488d",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__en_playbooks_performance_budget_guardrails/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__case_studies_configurator_live",
+      "url": "https://ivo-tech.com/case-studies/configurator-live",
+      "status": 200,
+      "sha256": "52b085ed4b2845691805cc2b88f29e93af79fd388ccfe61e4aebc308a3abbc91",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__case_studies_configurator_live/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__en_case_studies_configurator_live",
+      "url": "https://ivo-tech.com/en/case-studies/configurator-live",
+      "status": 200,
+      "sha256": "2647a8fdfba3a4794c60fffa2d96eb4e76ee7e25bf303f62263faf9635c7442d",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__en_case_studies_configurator_live/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__case_studies_portfolio_authority_relaunch",
+      "url": "https://ivo-tech.com/case-studies/portfolio-authority-relaunch",
+      "status": 200,
+      "sha256": "15f70d40efc0d971be3a1a92a5c57649c5fa9032f88a39f5ed56fc3551df8494",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__case_studies_portfolio_authority_relaunch/index.html"
+    },
+    {
+      "source_id": "src_ivo_live__en_case_studies_portfolio_authority_relaunch",
+      "url": "https://ivo-tech.com/en/case-studies/portfolio-authority-relaunch",
+      "status": 200,
+      "sha256": "e09087a81adbd9e0c13cc117406090ebd02e98df33277d0d9db2243a0c7c9e00",
+      "path": "knowledge/crawled_pages/2026-04-10/src_ivo_live__en_case_studies_portfolio_authority_relaunch/index.html"
+    }
+  ]
+}

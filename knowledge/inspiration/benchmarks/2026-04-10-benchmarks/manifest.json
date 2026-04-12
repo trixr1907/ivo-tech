@@ -1,0 +1,151 @@
+{
+  "crawl_date": "2026-04-10-benchmarks",
+  "input": "knowledge/research/benchmark_urls.json",
+  "total_targets": 16,
+  "pages": [
+    {
+      "collection_id": "b2b_homepage_references",
+      "url": "https://vercel.com/",
+      "source_id": "src_benchmark__vercel_com",
+      "status": 200,
+      "fetched_at": "2026-04-10T21:34:16.027Z",
+      "sha256": "c0cade229c5f93def2eb39852b7a5db231a4eca63755640fe292099202c62b87",
+      "path": "knowledge/inspiration/benchmarks/2026-04-10-benchmarks/vercel_com/index.html"
+    },
+    {
+      "collection_id": "b2b_homepage_references",
+      "url": "https://linear.app/",
+      "source_id": "src_benchmark__linear_app",
+      "status": 200,
+      "fetched_at": "2026-04-10T21:34:16.430Z",
+      "sha256": "f1c89165eab5aef17071b7df406e64f6e38894669eb722f4c7d618496fa95461",
+      "path": "knowledge/inspiration/benchmarks/2026-04-10-benchmarks/linear_app/index.html"
+    },
+    {
+      "collection_id": "b2b_homepage_references",
+      "url": "https://www.webflow.com/",
+      "source_id": "src_benchmark__www_webflow_com",
+      "status": 200,
+      "fetched_at": "2026-04-10T21:34:17.519Z",
+      "sha256": "b757bf14eca04536940cf34d65fa90b93b4cdf5f02b0514116b0cfa94548b6d2",
+      "path": "knowledge/inspiration/benchmarks/2026-04-10-benchmarks/www_webflow_com/index.html"
+    },
+    {
+      "collection_id": "b2b_homepage_references",
+      "url": "https://www.framer.com/",
+      "source_id": "src_benchmark__www_framer_com",
+      "status": 200,
+      "fetched_at": "2026-04-10T21:34:17.619Z",
+      "sha256": "8512c1333d4bba9ddcd2b894ce71ec58a77e4e098fa3ff4f972fbf43b3b7cb15",
+      "path": "knowledge/inspiration/benchmarks/2026-04-10-benchmarks/www_framer_com/index.html"
+    },
+    {
+      "collection_id": "b2b_homepage_references",
+      "url": "https://supabase.com/",
+      "source_id": "src_benchmark__supabase_com",
+      "status": 200,
+      "fetched_at": "2026-04-10T21:34:17.710Z",
+      "sha256": "51d2967bdcd138e59a42a5896b5da3969a5007743a663c23814db49fe6df5ad3",
+      "path": "knowledge/inspiration/benchmarks/2026-04-10-benchmarks/supabase_com/index.html"
+    },
+    {
+      "collection_id": "b2b_homepage_references",
+      "url": "https://stripe.com/",
+      "source_id": "src_benchmark__stripe_com",
+      "status": 200,
+      "fetched_at": "2026-04-10T21:34:18.201Z",
+      "sha256": "76b323653d7996745f2456beb1c0815772fb105accf49bbfd064604d4b2adab5",
+      "path": "knowledge/inspiration/benchmarks/2026-04-10-benchmarks/stripe_com/index.html"
+    },
+    {
+      "collection_id": "b2b_homepage_references",
+      "url": "https://www.notion.com/",
+      "source_id": "src_benchmark__www_notion_com",
+      "status": 200,
+      "fetched_at": "2026-04-10T21:34:16.765Z",
+      "sha256": "336785826eefb8c5a3c6205e3192719fe29accfeb83fafdd9472f5ba493d665d",
+      "path": "knowledge/inspiration/benchmarks/2026-04-10-benchmarks/www_notion_com/index.html"
+    },
+    {
+      "collection_id": "b2b_homepage_references",
+      "url": "https://www.shopify.com/",
+      "source_id": "src_benchmark__www_shopify_com",
+      "status": 200,
+      "fetched_at": "2026-04-10T21:34:16.900Z",
+      "sha256": "ff12d02667bbabf51c5639ab52843bbfca0d786192bab17737546819fb0e99fc",
+      "path": "knowledge/inspiration/benchmarks/2026-04-10-benchmarks/www_shopify_com/index.html"
+    },
+    {
+      "collection_id": "showcase_and_pattern_sources",
+      "url": "https://www.onepagelove.com/",
+      "source_id": "src_benchmark__www_onepagelove_com",
+      "status": 525,
+      "fetched_at": "2026-04-10T21:34:16.973Z",
+      "sha256": "17f0ef794a20087f48801d8b632130d65fec02c090ecd17eb2aa47dba5789704",
+      "path": "knowledge/inspiration/benchmarks/2026-04-10-benchmarks/www_onepagelove_com/index.html"
+    },
+    {
+      "collection_id": "showcase_and_pattern_sources",
+      "url": "https://www.lapa.ninja/",
+      "source_id": "src_benchmark__www_lapa_ninja",
+      "status": 200,
+      "fetched_at": "2026-04-10T21:34:17.088Z",
+      "sha256": "d1821c237789038142dbe5d40123981de0c81df5d19f466cae76ad451125623e",
+      "path": "knowledge/inspiration/benchmarks/2026-04-10-benchmarks/www_lapa_ninja/index.html"
+    },
+    {
+      "collection_id": "showcase_and_pattern_sources",
+      "url": "https://godly.website/",
+      "source_id": "src_benchmark__godly_website",
+      "status": 200,
+      "fetched_at": "2026-04-10T21:34:17.643Z",
+      "sha256": "b682b4423ec4eb57c6a9367d2a6708da9190b87c131f7fc4ba1b74946f46ba77",
+      "path": "knowledge/inspiration/benchmarks/2026-04-10-benchmarks/godly_website/index.html"
+    },
+    {
+      "collection_id": "ui_component_sources",
+      "url": "https://ui.shadcn.com/",
+      "source_id": "src_benchmark__ui_shadcn_com",
+      "status": 200,
+      "fetched_at": "2026-04-10T21:34:17.747Z",
+      "sha256": "da0f7d355e5caa30029dad21fd738bb72e695918b945b008e4b92dc600590afb",
+      "path": "knowledge/inspiration/benchmarks/2026-04-10-benchmarks/ui_shadcn_com/index.html"
+    },
+    {
+      "collection_id": "ui_component_sources",
+      "url": "https://www.radix-ui.com/",
+      "source_id": "src_benchmark__www_radix_ui_com",
+      "status": 200,
+      "fetched_at": "2026-04-10T21:34:17.810Z",
+      "sha256": "b29573bdbec67726596b82eb77b8b1b83215555a1b91985e1694765061624db2",
+      "path": "knowledge/inspiration/benchmarks/2026-04-10-benchmarks/www_radix_ui_com/index.html"
+    },
+    {
+      "collection_id": "ui_component_sources",
+      "url": "https://www.hyperui.dev/",
+      "source_id": "src_benchmark__www_hyperui_dev",
+      "status": 200,
+      "fetched_at": "2026-04-10T21:34:17.912Z",
+      "sha256": "25ca2b6c427e23e2f0fb17022ecc91463a35ae4ec7cd1363ad378b9a17f63274",
+      "path": "knowledge/inspiration/benchmarks/2026-04-10-benchmarks/www_hyperui_dev/index.html"
+    },
+    {
+      "collection_id": "ui_component_sources",
+      "url": "https://tailwindui.com/components",
+      "source_id": "src_benchmark__tailwindui_com_components",
+      "status": 200,
+      "fetched_at": "2026-04-10T21:34:18.309Z",
+      "sha256": "766e9c9b5ada102a8c26dbc85620cbadf28577ba1dfd2db99764c764a6ec29f3",
+      "path": "knowledge/inspiration/benchmarks/2026-04-10-benchmarks/tailwindui_com_components/index.html"
+    },
+    {
+      "collection_id": "ui_component_sources",
+      "url": "https://www.aceternity.com/components",
+      "source_id": "src_benchmark__www_aceternity_com_components",
+      "status": 200,
+      "fetched_at": "2026-04-10T21:34:18.429Z",
+      "sha256": "13e9437a8093c7328916b1d77f5438a2ec90adc1e1a902ede32c1fde337e5391",
+      "path": "knowledge/inspiration/benchmarks/2026-04-10-benchmarks/www_aceternity_com_components/index.html"
+    }
+  ]
+}

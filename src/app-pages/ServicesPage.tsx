@@ -1,10 +1,10 @@
 import Link from 'next/link';
 
-import { LanguageToggle } from '@/components/LanguageToggle';
-import { SiteHeader } from '@/components/layout/SiteHeader';
+import { RelaunchMarketingShell } from '@/components/layout/RelaunchMarketingShell';
 import { ServicesPageTracker } from '@/components/services/ServicesPageTracker';
-import { SectionFrame } from '@/components/ui/SectionFrame';
+import { Button } from '@/components/shadcn/button';
 import type { Locale } from '@/content/copy';
+import { RELAUNCH_CARD, RELAUNCH_SECTION } from '@/lib/relaunchMarketingStyles';
 import { getContactPath, getPrimaryNavLinks } from '@/lib/navigation';
 
 type ServicesPageProps = {
@@ -218,61 +218,53 @@ export function ServicesPage({ locale }: ServicesPageProps) {
   const caseStudiesPath = locale === 'de' ? '/case-studies?source=services-case' : '/en/case-studies?source=services-case';
   const playbooksPath = locale === 'de' ? '/playbooks?source=services-playbook' : '/en/playbooks?source=services-playbook';
   const navLinks = getPrimaryNavLinks(locale);
+  const homeHref = locale === 'de' ? '/' : '/en';
 
   return (
-    <div className="theme-ref103632 services-page" data-theme="dark">
+    <RelaunchMarketingShell
+      locale={locale}
+      shellClassName="services-page"
+      homeHref={homeHref}
+      navLinks={navLinks}
+      desktopCtaHref={contactPath}
+      desktopCtaLabel={t.ctaPrimary}
+      mobileNavCtaLabel={t.ctaPrimary}
+      desktopContactTrackingSource="services-header-contact"
+      mobileNavPrimaryTrackingSource="services-mobile-nav-primary"
+    >
       <ServicesPageTracker locale={locale} />
-      <SiteHeader
-        ariaLabel={locale === 'de' ? 'Hauptnavigation' : 'Primary navigation'}
-        className="home-v2-header"
-        logoPreset="ref103632"
-        logoVisualPreset="premium"
-        logoEdgeGlow="medium"
-        nav={
-          <>
-            {navLinks.map((link) => (
-              <Link key={link.href} href={link.href}>
-                {link.label}
-              </Link>
-            ))}
-          </>
-        }
-        rightSlot={
-          <>
-            <LanguageToggle />
-            <Link className="cta ui-btn ui-btn--metal btn-md motion-edge-sweep" href={contactPath} data-service-cta="header-primary">
-              {t.ctaPrimary}
-            </Link>
-          </>
-        }
-      />
-
-      <main id="main-content" className="home-v2-main services-main">
-        <SectionFrame id="services-main" className="section services-overview-section" aria-labelledby="services-title" tone="panel">
-          <div className="section-head">
-            <h1 id="services-title" className="insights-title text-ink-900">
+      <main id="main-content" className="mx-auto w-full max-w-[1200px] flex-1 px-4 pb-10 pt-8 sm:px-6 md:pb-12 md:pt-10">
+        <section id="services-main" className={`${RELAUNCH_SECTION} services-overview-section`} aria-labelledby="services-title">
+          <div className="space-y-4">
+            <h1 id="services-title" className="font-display text-3xl font-semibold tracking-tight text-slate-100 md:text-4xl">
               {t.title}
             </h1>
-            <p className="text-ink-700">{t.description}</p>
-            <div className="mt-4 flex flex-wrap gap-3">
-              <Link className="cta ui-btn ui-btn--metal btn-md motion-edge-sweep" href={contactPath} data-service-cta="hero-primary">
-                {t.ctaPrimary}
-              </Link>
-              <Link className="cta ui-btn ui-btn--ghost btn-md motion-edge-sweep" href={caseStudiesPath} data-service-cta="hero-secondary-case">
-                {t.ctaSecondary}
-              </Link>
-              <Link className="cta ui-btn ui-btn--ghost btn-md motion-edge-sweep" href={playbooksPath} data-service-cta="hero-tertiary-playbook">
-                {t.ctaTertiary}
-              </Link>
+            <p className="max-w-3xl text-base leading-relaxed text-slate-300 md:text-lg">{t.description}</p>
+            <div className="flex flex-wrap gap-3 pt-2">
+              <Button asChild className="bg-sky-500 text-slate-950 hover:bg-sky-400">
+                <Link href={contactPath} data-service-cta="hero-primary">
+                  {t.ctaPrimary}
+                </Link>
+              </Button>
+              <Button asChild variant="outline" className="border-slate-600 bg-transparent text-slate-100 hover:bg-slate-800/60">
+                <Link href={caseStudiesPath} data-service-cta="hero-secondary-case">
+                  {t.ctaSecondary}
+                </Link>
+              </Button>
+              <Button asChild variant="outline" className="border-slate-600 bg-transparent text-slate-100 hover:bg-slate-800/60">
+                <Link href={playbooksPath} data-service-cta="hero-tertiary-playbook">
+                  {t.ctaTertiary}
+                </Link>
+              </Button>
             </div>
           </div>
 
-          <div className="insights-grid insights-grid-page services-pillars-grid">
+          <div className="mt-10 grid gap-4 md:grid-cols-3">
             {t.sections.map((section) => (
-              <article key={section.title} className="insight-card text-ink-700">
-                <h2 className="text-ink-900">{section.title}</h2>
-                <p className="text-ink-700">{section.intro}</p>
-                <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-ink-700">
+              <article key={section.title} className={RELAUNCH_CARD}>
+                <h2 className="font-display text-lg font-semibold text-slate-100">{section.title}</h2>
+                <p className="mt-2 text-sm leading-relaxed text-slate-300">{section.intro}</p>
+                <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-400">
                   {section.bullets.map((bullet) => (
                     <li key={bullet}>{bullet}</li>
                   ))}
@@ -280,74 +272,75 @@ export function ServicesPage({ locale }: ServicesPageProps) {
               </article>
             ))}
           </div>
-        </SectionFrame>
+        </section>
 
-        <SectionFrame className="section services-process-section" aria-labelledby="services-process" tone="metal">
-          <div className="section-head">
-            <h2 id="services-process" className="text-ink-900">
-              {t.processTitle}
-            </h2>
-          </div>
-          <ol className="list-decimal space-y-2 pl-5 text-sm text-ink-700">
+        <section className={`${RELAUNCH_SECTION} mt-8 services-process-section`} aria-labelledby="services-process">
+          <h2 id="services-process" className="font-display text-xl font-semibold text-slate-100">
+            {t.processTitle}
+          </h2>
+          <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm text-slate-300">
             {t.processSteps.map((step) => (
               <li key={step}>{step}</li>
             ))}
           </ol>
-        </SectionFrame>
+        </section>
 
-        <SectionFrame className="section services-packages-section" aria-labelledby="services-packages" tone="panel" sectionTheme="secondary">
-          <div className="section-head">
-            <h2 id="services-packages" className="text-ink-900">
+        <section className={`${RELAUNCH_SECTION} mt-8 services-packages-section`} aria-labelledby="services-packages">
+          <div className="space-y-2">
+            <h2 id="services-packages" className="font-display text-xl font-semibold text-slate-100">
               {t.packagesTitle}
             </h2>
-            <p className="text-ink-700">{t.packagesDescription}</p>
+            <p className="text-sm text-slate-300 md:text-base">{t.packagesDescription}</p>
           </div>
-          <div className="insights-grid insights-grid-page services-packages-grid">
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
             {t.packages.map((pkg) => (
-              <article key={pkg.name} className="insight-card text-ink-700">
-                <span className="insight-meta">{pkg.timeline}</span>
-                <h3 className="text-ink-900">{pkg.name}</h3>
-                <p className="text-ink-700">{pkg.fit}</p>
-                <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-ink-700">
+              <article key={pkg.name} className={RELAUNCH_CARD}>
+                <span className="text-xs font-semibold uppercase tracking-[0.12em] text-sky-400/90">{pkg.timeline}</span>
+                <h3 className="mt-2 font-display text-lg font-semibold text-slate-100">{pkg.name}</h3>
+                <p className="mt-2 text-sm text-slate-300">{pkg.fit}</p>
+                <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-400">
                   {pkg.outcomes.map((outcome) => (
                     <li key={outcome}>{outcome}</li>
                   ))}
                 </ul>
-                <Link
-                  className="cta ui-btn ui-btn--proof btn-md motion-edge-sweep mt-4"
-                  href={getContactPath(locale, pkg.ctaSource)}
-                  data-service-cta={`package-${pkg.name.toLowerCase()}`}
-                >
-                  {pkg.ctaLabel}
-                </Link>
-                <Link
-                  className="cta ui-btn ui-btn--ghost btn-md motion-edge-sweep mt-2"
-                  href={locale === 'de' ? `/leistungen/${pkg.detailSlug}?source=services-detail` : `/en/services/${pkg.detailSlug}?source=services-detail`}
-                  data-service-cta={`package-detail-${pkg.name.toLowerCase()}`}
-                >
-                  {pkg.detailLabel}
-                </Link>
+                <Button asChild className="mt-4 w-full bg-sky-500 text-slate-950 hover:bg-sky-400 sm:w-auto">
+                  <Link href={getContactPath(locale, pkg.ctaSource)} data-service-cta={`package-${pkg.name.toLowerCase()}`}>
+                    {pkg.ctaLabel}
+                  </Link>
+                </Button>
+                <Button asChild variant="ghost" className="mt-2 w-full text-slate-200 hover:bg-slate-800/50 sm:w-auto">
+                  <Link
+                    href={
+                      locale === 'de'
+                        ? `/leistungen/${pkg.detailSlug}?source=services-detail`
+                        : `/en/services/${pkg.detailSlug}?source=services-detail`
+                    }
+                    data-service-cta={`package-detail-${pkg.name.toLowerCase()}`}
+                  >
+                    {pkg.detailLabel}
+                  </Link>
+                </Button>
               </article>
             ))}
           </div>
-        </SectionFrame>
+        </section>
 
-        <SectionFrame className="section services-scope-section" aria-labelledby="services-scope" tone="panel">
-          <div className="section-head">
-            <h2 id="services-scope" className="text-ink-900">
-              {t.scopeTitle}
-            </h2>
-          </div>
-          <ul className="list-disc space-y-2 pl-5 text-sm text-ink-700">
+        <section className={`${RELAUNCH_SECTION} mt-8 services-scope-section`} aria-labelledby="services-scope">
+          <h2 id="services-scope" className="font-display text-xl font-semibold text-slate-100">
+            {t.scopeTitle}
+          </h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-slate-300">
             {t.scopeItems.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>
-          <Link className="cta ui-btn ui-btn--proof btn-md motion-edge-sweep" href={contactPath} data-service-cta="scope-primary">
-            {t.ctaPrimary}
-          </Link>
-        </SectionFrame>
+          <Button asChild className="mt-6 bg-sky-500 text-slate-950 hover:bg-sky-400">
+            <Link href={contactPath} data-service-cta="scope-primary">
+              {t.ctaPrimary}
+            </Link>
+          </Button>
+        </section>
       </main>
-    </div>
+    </RelaunchMarketingShell>
   );
 }

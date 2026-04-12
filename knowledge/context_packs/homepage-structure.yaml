@@ -1,0 +1,17 @@
+pack_id: cp_homepage_structure
+goal: Define optimal homepage section order and narrative flow for decision-makers.
+mode: compare
+sources:
+  - src_ivo_live_home
+  - src_ivo_vercel_preview_home
+  - coll_b2b_homepage_benchmarks
+core_facts:
+  - Current structure includes hero, proof, services, projects, insights, contact, FAQ.
+  - CTA surfaces are distributed across header, hero, services, contact and sticky elements.
+open_questions:
+  - Which section sequence best supports first-time B2B visitors?
+  - Which sections should be compressed or merged?
+next_steps:
+  - Build 2 alternative IA flows.
+  - Map CTA intent per section.
+  - Choose final structure with rationale.

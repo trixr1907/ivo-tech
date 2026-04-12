@@ -1,12 +1,9 @@
 import Image from 'next/image';
-import Link from 'next/link';
 
-import { LanguageToggle } from '@/components/LanguageToggle';
-import { SiteHeader } from '@/components/layout/SiteHeader';
-import { Button } from '@/components/ui/Button';
-import { SectionFrame } from '@/components/ui/SectionFrame';
+import { RelaunchMarketingShell } from '@/components/layout/RelaunchMarketingShell';
 import type { Locale } from '@/content/copy';
 import { localizePath } from '@/lib/localeRouting';
+import { RELAUNCH_SECTION } from '@/lib/relaunchMarketingStyles';
 
 type Props = {
   locale: Locale;
@@ -43,6 +40,7 @@ const MOTION_SYSTEM = [
 
 export function BrandShowcasePage({ locale }: Props) {
   const isDe = locale === 'de';
+  const homeHref = localizePath('/', locale);
 
   const copy = isDe
     ? {
@@ -88,50 +86,49 @@ export function BrandShowcasePage({ locale }: Props) {
         ]
       };
 
+  const brandNav = [
+    { href: '#system', label: copy.system },
+    { href: '#motion', label: copy.motion },
+    { href: '#downloads', label: copy.downloads },
+    { href: '#quality', label: copy.quality },
+    { href: homeHref, label: copy.home },
+    { href: localizePath('/#contact', locale), label: copy.contact }
+  ];
+
   return (
-    <div className="theme-ref103632" data-theme="dark">
-      {/* Contract reference: <BrandLockup variant="header" motionTier="tier2" /> */}
-      <SiteHeader
-        ariaLabel={isDe ? 'Hauptnavigation' : 'Primary'}
-        className="home-v2-header"
-        logoPreset="ref103632"
-        logoTier="tier2"
-        logoVisualPreset="premium"
-        logoEdgeGlow="medium"
-        nav={
-          <>
-            <a href="#system">{copy.system}</a>
-            <a href="#motion">{copy.motion}</a>
-            <a href="#downloads">{copy.downloads}</a>
-            <a href="#quality">{copy.quality}</a>
-            <Link href={localizePath('/', locale)}>{copy.home}</Link>
-            <Link href={localizePath('/#contact', locale)}>{copy.contact}</Link>
-          </>
-        }
-        rightSlot={
-          <>
-            <LanguageToggle />
-            <Button href="#downloads" className="cta" variant="metal">
-              {copy.cta}
-            </Button>
-          </>
-        }
-      />
-
-      <main id="main-content" className="brand-showcase-main home-v2-main">
-        <SectionFrame className="hero brand-showcase-hero" aria-labelledby="brand-showcase-title" tone="metal" sectionTheme="primary">
+    <RelaunchMarketingShell
+      locale={locale}
+      shellClassName="brand-showcase-page"
+      homeHref={homeHref}
+      navLinks={brandNav}
+      desktopCtaHref="#downloads"
+      desktopCtaLabel={copy.cta}
+      mobileNavCtaLabel={copy.cta}
+      mobileNavCtaHref="#downloads"
+      desktopContactTrackingSource="brand-header-downloads"
+      mobileNavPrimaryTrackingSource="brand-mobile-nav-downloads"
+    >
+      <main
+        id="main-content"
+        className="brand-showcase-main mx-auto flex w-full max-w-[1200px] flex-1 flex-col px-4 pb-12 pt-6 sm:px-6 md:pt-8"
+      >
+        <section className={`${RELAUNCH_SECTION} brand-showcase-hero mb-8`} aria-labelledby="brand-showcase-title">
           <div className="hero-copy">
-            <p className="eyebrow">ivo-tech brand system</p>
-            <h1 id="brand-showcase-title">{copy.title}</h1>
-            <p className="lead">{copy.lead}</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sky-400/90">ivo-tech brand system</p>
+            <h1 id="brand-showcase-title" className="mt-2 font-display text-3xl font-semibold text-slate-50 md:text-4xl">
+              {copy.title}
+            </h1>
+            <p className="lead mt-4 text-base text-slate-300 md:text-lg">{copy.lead}</p>
           </div>
-        </SectionFrame>
+        </section>
 
-        <SectionFrame id="system" className="section brand-showcase-section" aria-labelledby="brand-system-title" tone="panel">
+        <section id="system" className={`${RELAUNCH_SECTION} brand-showcase-section mb-8`} aria-labelledby="brand-system-title">
           <div className="section-head">
-            <h2 id="brand-system-title">{copy.system}</h2>
+            <h2 id="brand-system-title" className="font-display text-xl font-semibold text-slate-100">
+              {copy.system}
+            </h2>
           </div>
-          <div className="brand-review-grid">
+          <div className="brand-review-grid mt-6">
             <article className="brand-review-card">
               <h3>Lockup Horizontal</h3>
               <div className="brand-preview-surface brand-preview-surface--dark">
@@ -181,24 +178,85 @@ export function BrandShowcasePage({ locale }: Props) {
               </div>
             </article>
           </div>
-          <article className="brand-review-card" data-theme="secondary">
+          <article className="brand-review-card mt-6" data-theme="secondary">
             <h3>{copy.summaryTitle}</h3>
             <p>{copy.summaryText}</p>
           </article>
-        </SectionFrame>
-
-        <SectionFrame id="motion" className="section brand-showcase-section" aria-labelledby="brand-motion-title" tone="metal" sectionTheme="primary">
-          <div className="section-head">
-            <h2 id="brand-motion-title">{copy.motion}</h2>
+          <div className="mt-8 border-t border-slate-800/80 pt-8">
+            <h3 className="font-display text-lg font-semibold text-slate-100">
+              {isDe ? 'Export-Paket (Handoff)' : 'Export pack (handoff)'}
+            </h3>
+            <p className="mt-2 text-sm text-slate-400">
+              {isDe
+                ? 'Zusätzliche Vektor-Exports aus dem Design-Handoff — unter public/assets/logo/handoff/ versioniert.'
+                : 'Additional vector exports from the design handoff — versioned under public/assets/logo/handoff/.'}
+            </p>
+            <div className="brand-review-grid mt-6">
+              <article className="brand-review-card">
+                <h3>{isDe ? 'Lockup (Handoff)' : 'Lockup (handoff)'}</h3>
+                <div className="brand-preview-surface brand-preview-surface--dark">
+                  <Image
+                    src="/assets/logo/handoff/ivo-tech_lockup_horizontal.svg"
+                    alt=""
+                    width={800}
+                    height={310}
+                    className="brand-preview-wordmark"
+                  />
+                </div>
+              </article>
+              <article className="brand-review-card">
+                <h3>{isDe ? 'Wordmark' : 'Wordmark'}</h3>
+                <div className="brand-preview-surface brand-preview-surface--dark">
+                  <Image
+                    src="/assets/logo/handoff/ivo-tech_wordmark.svg"
+                    alt=""
+                    width={640}
+                    height={200}
+                    className="brand-preview-wordmark"
+                  />
+                </div>
+              </article>
+              <article className="brand-review-card">
+                <h3>{isDe ? 'Mark' : 'Mark'}</h3>
+                <div className="brand-preview-surface brand-preview-surface--dark">
+                  <Image
+                    src="/assets/logo/handoff/ivo-tech_mark.svg"
+                    alt=""
+                    width={256}
+                    height={256}
+                    className="brand-preview-submark"
+                  />
+                </div>
+              </article>
+            </div>
           </div>
-          <article className="brand-review-card">
+        </section>
+
+        <section id="motion" className={`${RELAUNCH_SECTION} brand-showcase-section mb-8`} aria-labelledby="brand-motion-title">
+          <div className="section-head">
+            <h2 id="brand-motion-title" className="font-display text-xl font-semibold text-slate-100">
+              {copy.motion}
+            </h2>
+          </div>
+          <article className="brand-review-card mt-6">
             <video className="brand-preview-video" controls preload="metadata" poster="/assets/video/logo-sting-poster.avif">
               <source src="/assets/video/logo-sting.webm" type="video/webm" />
               <source src="/assets/video/logo-sting.mp4" type="video/mp4" />
               <track src="/assets/video/logo-sting-captions.vtt" kind="captions" srcLang={isDe ? 'de' : 'en'} label={isDe ? 'Deutsch' : 'English'} default />
             </video>
           </article>
-          <article className="brand-review-card">
+          <article className="brand-review-card mt-6">
+            <h3>{isDe ? 'Ambient-Energie (WebM-Loop)' : 'Ambient energy (WebM loop)'}</h3>
+            <p className="mb-3 text-sm text-slate-400">
+              {isDe
+                ? 'Leichter Hintergrundloop — identisch mit dem optionalen Hero-Snapshot-Ambient auf der Startseite (ohne Autoplay hier: manuell starten).'
+                : 'Light background loop — same asset as optional hero snapshot ambient on the homepage (no autoplay here: use controls).'}
+            </p>
+            <video className="brand-preview-video max-h-[220px]" controls muted loop playsInline preload="metadata">
+              <source src="/assets/motion/energy-trail-loop.webm" type="video/webm" />
+            </video>
+          </article>
+          <article className="brand-review-card mt-6">
             <h3>Motion System</h3>
             <ul className="brand-quality-list">
               {MOTION_SYSTEM.map((item) => (
@@ -206,13 +264,15 @@ export function BrandShowcasePage({ locale }: Props) {
               ))}
             </ul>
           </article>
-        </SectionFrame>
+        </section>
 
-        <SectionFrame id="downloads" className="section brand-showcase-section" aria-labelledby="brand-download-title" tone="panel" sectionTheme="secondary">
+        <section id="downloads" className={`${RELAUNCH_SECTION} brand-showcase-section mb-8`} aria-labelledby="brand-download-title">
           <div className="section-head">
-            <h2 id="brand-download-title">{copy.downloads}</h2>
+            <h2 id="brand-download-title" className="font-display text-xl font-semibold text-slate-100">
+              {copy.downloads}
+            </h2>
           </div>
-          <div className="brand-download-grid">
+          <div className="brand-download-grid mt-6">
             {ASSET_LINKS.map((asset) => (
               <a key={asset.href} className="brand-download-link" href={asset.href} target="_blank" rel="noopener noreferrer">
                 <span>{asset.label}</span>
@@ -220,21 +280,23 @@ export function BrandShowcasePage({ locale }: Props) {
               </a>
             ))}
           </div>
-        </SectionFrame>
+        </section>
 
-        <SectionFrame id="quality" className="section brand-showcase-section" aria-labelledby="brand-quality-title" tone="panel">
+        <section id="quality" className={`${RELAUNCH_SECTION} brand-showcase-section`} aria-labelledby="brand-quality-title">
           <div className="section-head">
-            <h2 id="brand-quality-title">{copy.qualityTitle}</h2>
+            <h2 id="brand-quality-title" className="font-display text-xl font-semibold text-slate-100">
+              {copy.qualityTitle}
+            </h2>
           </div>
-          <article className="brand-review-card">
+          <article className="brand-review-card mt-6">
             <ul className="brand-quality-list">
               {copy.qualityPoints.map((point) => (
                 <li key={point}>{point}</li>
               ))}
             </ul>
           </article>
-        </SectionFrame>
+        </section>
       </main>
-    </div>
+    </RelaunchMarketingShell>
   );
 }

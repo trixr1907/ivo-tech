@@ -7,6 +7,11 @@ process.env.FORCE_COLOR = '0';
 const externalBaseUrl = process.env.E2E_BASE_URL?.trim();
 const baseURL = externalBaseUrl || 'http://127.0.0.1:3000';
 
+/** In CI, run site-audit first (fail fast on HTTP/axe/links) before the heavier functional suite. */
+const e2eFailFastAudit = process.env.CI === 'true' && !externalBaseUrl;
+
+const chromiumDesktop = { ...devices['Desktop Chrome'] };
+
 export default defineConfig({
   testDir: './tests/e2e',
   fullyParallel: false,
@@ -33,10 +38,24 @@ export default defineConfig({
         timeout: 240_000,
         reuseExistingServer: !process.env.CI
       },
-  projects: [
-    {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] }
-    }
-  ]
+  projects: e2eFailFastAudit
+    ? [
+        {
+          name: 'site-audit',
+          testMatch: /site-audit\.spec\.ts$/,
+          use: chromiumDesktop
+        },
+        {
+          name: 'chromium',
+          testIgnore: /site-audit\.spec\.ts$/,
+          dependencies: ['site-audit'],
+          use: chromiumDesktop
+        }
+      ]
+    : [
+        {
+          name: 'chromium',
+          use: chromiumDesktop
+        }
+      ]
 });

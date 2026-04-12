@@ -3,15 +3,15 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 
 import { HUB_CONFIG, getHubBasePath } from '@/app-pages/hubShared';
 import { CaseStudyBlueprintSection } from '@/components/case-studies/CaseStudyBlueprintSection';
-import { LanguageToggle } from '@/components/LanguageToggle';
 import { HubReadTracker } from '@/components/HubReadTracker';
 import { HubPageTracker } from '@/components/hub/HubPageTracker';
-import { SiteHeader } from '@/components/layout/SiteHeader';
-import { SectionFrame } from '@/components/ui/SectionFrame';
+import { RelaunchMarketingShell } from '@/components/layout/RelaunchMarketingShell';
+import { Button } from '@/components/shadcn/button';
 import { CASE_STUDY_KPIS } from '@/content/caseStudies';
 import type { Locale } from '@/content/copy';
 import type { HubEntry, HubKind } from '@/content/hub';
 import { localizePath } from '@/lib/localeRouting';
+import { RELAUNCH_CARD, RELAUNCH_SECTION } from '@/lib/relaunchMarketingStyles';
 import { getContactPath, getPrimaryNavLinks } from '@/lib/navigation';
 import { SITE_URL } from '@/lib/site';
 
@@ -75,6 +75,8 @@ export function HubDetailPage({ locale, kind, entry }: Props) {
   const caseKpis = kind === 'case-studies' ? CASE_STUDY_KPIS[locale][entry.slug] ?? [] : [];
   const navLinks = getPrimaryNavLinks(locale);
   const contactPath = getContactPath(locale, `hub-${kind}-detail`);
+  const homeHref = localizePath('/', locale);
+  const headerCta = locale === 'de' ? 'Erstgespraech' : 'Intro call';
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -126,129 +128,114 @@ export function HubDetailPage({ locale, kind, entry }: Props) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <HubReadTracker locale={locale} kind={kind} slug={entry.slug} />
-      <HubPageTracker locale={locale} kind={kind} pageType="detail" slug={entry.slug} />
-      <div className="theme-ref103632 hub-detail-page" data-theme="dark">
+      <RelaunchMarketingShell
+        locale={locale}
+        shellClassName="hub-detail-page"
+        homeHref={homeHref}
+        navLinks={navLinks}
+        desktopCtaHref={contactPath}
+        desktopCtaLabel={headerCta}
+        mobileNavCtaLabel={headerCta}
+        desktopContactTrackingSource={`hub-${kind}-detail-header`}
+        mobileNavPrimaryTrackingSource={`hub-${kind}-detail-mobile-nav`}
+        desktopHeaderDataHubCta="header-primary"
+      >
+        <HubReadTracker locale={locale} kind={kind} slug={entry.slug} />
+        <HubPageTracker locale={locale} kind={kind} pageType="detail" slug={entry.slug} />
+        <main id="main-content" className="mx-auto w-full max-w-[1200px] flex-1 px-4 pb-10 pt-8 sm:px-6 md:pb-12 md:pt-10">
+          <article className="insight-article hub-detail-article space-y-8" aria-labelledby="hub-detail-title">
+            <header className={`${RELAUNCH_SECTION} insight-hero hub-detail-hero`}>
+              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sky-400/90">
+                {entry.category} | {entry.readMinutes} min
+              </p>
+              <h1 id="hub-detail-title" className="mt-2 font-display text-3xl font-semibold tracking-tight text-slate-100 md:text-4xl">
+                {entry.title}
+              </h1>
+              <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-300 md:text-lg">{entry.description}</p>
+            </header>
 
-      <SiteHeader
-        ariaLabel={locale === 'de' ? 'Hauptnavigation' : 'Primary'}
-        className="home-v2-header"
-        logoPreset="ref103632"
-        logoVisualPreset="premium"
-        logoEdgeGlow="medium"
-        nav={
-          <>
-            {navLinks.map((link) => (
-              <Link key={link.href} href={link.href}>
-                {link.label}
-              </Link>
-            ))}
-          </>
-        }
-        rightSlot={
-          <>
-            <LanguageToggle />
-            <Link className="cta ui-btn ui-btn--metal btn-md motion-edge-sweep" href={contactPath} data-hub-cta="header-primary">
-              {locale === 'de' ? 'Erstgespraech' : 'Intro call'}
-            </Link>
-          </>
-        }
-      />
+            {caseKpis.length > 0 ? (
+              <section className={`${RELAUNCH_SECTION} hub-detail-kpi-section`} aria-labelledby="case-study-kpi-title">
+                <div className="space-y-2">
+                  <h2 id="case-study-kpi-title" className="font-display text-xl font-semibold text-slate-100">
+                    {locale === 'de' ? 'Ergebnis-Snapshot' : 'Outcome snapshot'}
+                  </h2>
+                  <p className="text-sm text-slate-300 md:text-base">
+                    {locale === 'de'
+                      ? 'Drei Kernsignale zur Wirkung im realen Delivery-Kontext.'
+                      : 'Three core signals of delivery impact in a real operating context.'}
+                  </p>
+                </div>
+                <div className="mt-8 grid gap-4 md:grid-cols-3">
+                  {caseKpis.map((kpi) => (
+                    <article key={kpi.label} className={RELAUNCH_CARD}>
+                      <span className="text-xs font-semibold uppercase tracking-[0.12em] text-sky-400/90">{kpi.label}</span>
+                      <h3 className="mt-2 font-display text-lg font-semibold text-slate-100">{kpi.value}</h3>
+                      <p className="mt-2 text-sm text-slate-300">{kpi.note}</p>
+                    </article>
+                  ))}
+                </div>
+              </section>
+            ) : null}
 
-      <main id="main-content" className="home-v2-main hub-detail-main">
-        <article className="insight-article hub-detail-article" aria-labelledby="hub-detail-title">
-          <SectionFrame
-            as="header"
-            className="insight-hero hub-detail-hero"
-            aria-labelledby="hub-detail-title"
-            tone="metal"
-            sectionTheme="primary"
-          >
-            <p className="eyebrow">
-              {entry.category} | {entry.readMinutes} min
-            </p>
-            <h1 id="hub-detail-title" className="text-ink-900">
-              {entry.title}
-            </h1>
-            <p className="lead text-ink-700">{entry.description}</p>
-          </SectionFrame>
+            {kind === 'case-studies' ? (
+              <CaseStudyBlueprintSection locale={locale} slug={entry.slug} contactPath={contactPath} />
+            ) : null}
 
-          {caseKpis.length > 0 ? (
-            <SectionFrame
-              className="section hub-detail-kpi-section"
-              aria-labelledby="case-study-kpi-title"
-              tone="panel"
-              sectionTheme="secondary"
+            <section className={RELAUNCH_SECTION}>
+              <div className="insight-body max-w-none">
+                <MDXRemote source={entry.body} />
+              </div>
+            </section>
+
+            <aside
+              className={`${RELAUNCH_SECTION} hub-detail-related`}
+              aria-label={locale === 'de' ? 'Weiterfuehrende Links' : 'Related links'}
             >
-              <div className="section-head">
-                <h2 id="case-study-kpi-title" className="text-ink-900">
-                  {locale === 'de' ? 'Ergebnis-Snapshot' : 'Outcome snapshot'}
-                </h2>
-                <p className="text-ink-700">
-                  {locale === 'de'
-                    ? 'Drei Kernsignale zur Wirkung im realen Delivery-Kontext.'
-                    : 'Three core signals of delivery impact in a real operating context.'}
-                </p>
-              </div>
-              <div className="insights-grid insights-grid-page hub-detail-kpi-grid">
-                {caseKpis.map((kpi) => (
-                  <article key={kpi.label} className="insight-card text-ink-700">
-                    <span className="insight-meta">{kpi.label}</span>
-                    <h3 className="text-ink-900">{kpi.value}</h3>
-                    <p className="text-ink-700">{kpi.note}</p>
-                  </article>
-                ))}
-              </div>
-            </SectionFrame>
-          ) : null}
-
-          {kind === 'case-studies' ? <CaseStudyBlueprintSection locale={locale} slug={entry.slug} contactPath={contactPath} /> : null}
-
-          <div className="insight-body">
-            <MDXRemote source={entry.body} />
-          </div>
-
-          <aside className="insight-related hub-detail-related" aria-label={locale === 'de' ? 'Weiterfuehrende Links' : 'Related links'}>
-            <h2>{locale === 'de' ? 'Weiterfuehrende Links' : 'Related links'}</h2>
-            <ul>
-              {entry.internalLinks.map((href) => {
-                const isExternal = href.startsWith('http://') || href.startsWith('https://');
-                const localized = isExternal ? href : localizePath(href, locale);
-                const linkCopy = getRelatedLinkCopy(locale, href, isExternal);
-                return (
-                  <li key={href}>
-                    {isExternal ? (
-                      <a
-                        href={localized}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        data-hub-cta="related-link-external"
-                        className="block rounded-xl border border-slate-200 bg-white/95 px-3 py-3 transition hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-[0_10px_18px_rgba(31,104,196,0.12)]"
-                      >
-                        <span className="block text-sm font-semibold text-ink-900">{linkCopy.title}</span>
-                        <span className="mt-1 block text-xs text-ink-600">{linkCopy.detail}</span>
-                      </a>
-                    ) : (
-                      <Link
-                        href={localized}
-                        data-hub-cta="related-link-internal"
-                        className="block rounded-xl border border-slate-200 bg-white/95 px-3 py-3 transition hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-[0_10px_18px_rgba(31,104,196,0.12)]"
-                      >
-                        <span className="block text-sm font-semibold text-ink-900">{linkCopy.title}</span>
-                        <span className="mt-1 block text-xs text-ink-600">{linkCopy.detail}</span>
-                      </Link>
-                    )}
-                  </li>
-                );
-              })}
-            </ul>
-            <Link className="primary" href={contactPath} data-hub-cta="related-primary">
-              {locale === 'de' ? 'Erstgespraech starten' : 'Request free intro call'}
-            </Link>
-          </aside>
-        </article>
-      </main>
-      </div>
+              <h2 className="font-display text-xl font-semibold text-slate-100">
+                {locale === 'de' ? 'Weiterfuehrende Links' : 'Related links'}
+              </h2>
+              <ul className="mt-4 space-y-3">
+                {entry.internalLinks.map((href) => {
+                  const isExternal = href.startsWith('http://') || href.startsWith('https://');
+                  const localized = isExternal ? href : localizePath(href, locale);
+                  const linkCopy = getRelatedLinkCopy(locale, href, isExternal);
+                  return (
+                    <li key={href}>
+                      {isExternal ? (
+                        <a
+                          href={localized}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          data-hub-cta="related-link-external"
+                          className="block rounded-xl border border-slate-700/90 bg-slate-950/50 px-3 py-3 transition hover:-translate-y-0.5 hover:border-sky-500/40 hover:shadow-[0_10px_24px_rgba(3,8,18,0.45)]"
+                        >
+                          <span className="block text-sm font-semibold text-slate-100">{linkCopy.title}</span>
+                          <span className="mt-1 block text-xs text-slate-400">{linkCopy.detail}</span>
+                        </a>
+                      ) : (
+                        <Link
+                          href={localized}
+                          data-hub-cta="related-link-internal"
+                          className="block rounded-xl border border-slate-700/90 bg-slate-950/50 px-3 py-3 transition hover:-translate-y-0.5 hover:border-sky-500/40 hover:shadow-[0_10px_24px_rgba(3,8,18,0.45)]"
+                        >
+                          <span className="block text-sm font-semibold text-slate-100">{linkCopy.title}</span>
+                          <span className="mt-1 block text-xs text-slate-400">{linkCopy.detail}</span>
+                        </Link>
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
+              <Button asChild className="mt-6 bg-sky-500 text-slate-950 hover:bg-sky-400">
+                <Link href={contactPath} data-hub-cta="related-primary">
+                  {locale === 'de' ? 'Erstgespraech starten' : 'Request free intro call'}
+                </Link>
+              </Button>
+            </aside>
+          </article>
+        </main>
+      </RelaunchMarketingShell>
     </>
   );
 }

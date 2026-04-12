@@ -21,12 +21,29 @@ type HomeMobileNavProps = {
   links: LinkItem[];
   ctaLabel: string;
   heroVariant: 'default' | 'outcome' | 'speed';
+  /** Primär-CTA-Ziel; Standard: Kontaktseite mit Attribution. */
+  primaryCtaHref?: string;
+  /** Für Analytics (`cta_primary_click` / `hero_cta_click`). */
+  primaryCtaIntent?: 'hiring' | 'client' | 'collab';
+  /** `source` in Analytics-Events für den primären Mobile-CTA (Standard: Home). */
+  primaryTrackingSource?: string;
   activeSection?: string;
   onLinkClick?: (href: string) => void;
 };
 
-export function HomeMobileNav({ locale, links, ctaLabel, heroVariant, activeSection, onLinkClick }: HomeMobileNavProps) {
-  const contactHref = `${getContactPath(locale, 'home_mobile_nav_primary')}&exp_hero=${encodeURIComponent(heroVariant)}`;
+export function HomeMobileNav({
+  locale,
+  links,
+  ctaLabel,
+  heroVariant,
+  primaryCtaHref,
+  primaryCtaIntent = 'client',
+  primaryTrackingSource = 'home_mobile_nav_primary',
+  activeSection,
+  onLinkClick
+}: HomeMobileNavProps) {
+  const defaultContactHref = `${getContactPath(locale, 'home_mobile_nav_primary')}&exp_hero=${encodeURIComponent(heroVariant)}`;
+  const primaryHref = primaryCtaHref ?? defaultContactHref;
 
   return (
     <Dialog.Root>
@@ -81,11 +98,23 @@ export function HomeMobileNav({ locale, links, ctaLabel, heroVariant, activeSect
             <Dialog.Close asChild>
               <Button asChild variant="default" className="w-full">
                 <a
-                  href={contactHref}
+                  href={primaryHref}
                   onClick={() => {
                     const path = `${window.location.pathname}${window.location.search}`;
-                    trackEvent('hero_cta_click', { source: 'home_mobile_nav_primary', locale, path, intent: 'client', variant: heroVariant });
-                    trackEvent('cta_primary_click', { source: 'home_mobile_nav_primary', locale, path, intent: 'client', variant: heroVariant });
+                    trackEvent('hero_cta_click', {
+                      source: primaryTrackingSource,
+                      locale,
+                      path,
+                      intent: primaryCtaIntent,
+                      variant: heroVariant
+                    });
+                    trackEvent('cta_primary_click', {
+                      source: primaryTrackingSource,
+                      locale,
+                      path,
+                      intent: primaryCtaIntent,
+                      variant: heroVariant
+                    });
                   }}
                 >
                   {ctaLabel}

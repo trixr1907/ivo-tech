@@ -21,8 +21,10 @@ npm run typecheck
 npm run test:unit
 npm run test:e2e
 npm run build
+npm run verify:site
 npm run security:scan
 npm run verify:homepage:full
+npm run verify:release:local
 npm run verify:live
 npm run roadmap:sync
 npm run masterplan:progress
@@ -43,6 +45,8 @@ npm run ops:readiness:strict
 npm run github:ops:readiness
 npm run github:ops:readiness:strict
 ```
+
+`verify:site` führt nacheinander **Production-Build**, **Unit-Tests**, den Playwright-**Site-Audit** (`tests/e2e/site-audit.spec.ts`) und **`analytics:verify:map:strict`** aus — schlanker als `verify:homepage:full` (ohne Lint/Typecheck/volle E2E-Suite). **`verify:release:local`** bündelt **`build`**, **`budget:bundle`** und **`verify:homepage:full`** (lokale Parität zu CI inklusive Bundle-Budget und voller E2E). Manuelle UX-Prüfpunkte: `docs/website-human-audit-checklist.md`.
 
 ## Brand system workflow
 Regenerate the full `ivo-tech` logo system (detailed/core/micro marks, wordmark, lockups, motion aliases):
@@ -102,6 +106,7 @@ Variables:
 
 Runbooks:
 - `docs/ops-control-center.md` (zentraler Einstieg fuer Daily Ops, Release, Incident)
+- `docs/masterplan-2026-live.md` (zentrale Relaunch-Strategie und laufender Masterplan)
 - `docs/deploy.md`
 - `docs/release.md`
 - `docs/changelog.md`

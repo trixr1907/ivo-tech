@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RetrievalChunk",
+  "type": "object",
+  "required": [
+    "chunk_id",
+    "document_id",
+    "source_id",
+    "text",
+    "semantic_type",
+    "confidence",
+    "tags",
+    "version"
+  ],
+  "properties": {
+    "chunk_id": { "type": "string" },
+    "document_id": { "type": "string" },
+    "source_id": { "type": "string" },
+    "version": { "type": "string" },
+    "language": { "type": "string", "enum": ["de", "en", "mixed"] },
+    "semantic_type": {
+      "type": "string",
+      "enum": [
+        "hero_value_prop",
+        "pain_point",
+        "service_offer",
+        "cta",
+        "trust_signal",
+        "testimonial",
+        "faq",
+        "process_step",
+        "component_pattern",
+        "design_direction",
+        "benchmark_note",
+        "decision_rationale",
+        "other"
+      ]
+    },
+    "text": { "type": "string" },
+    "source_excerpt": { "type": "string" },
+    "source_path": { "type": "string" },
+    "source_anchor": { "type": "string" },
+    "token_estimate": { "type": "integer", "minimum": 1 },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+    "evidence_strength": {
+      "type": "string",
+      "enum": ["strong", "medium", "weak"]
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "entities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "value"],
+        "properties": {
+          "type": { "type": "string" },
+          "value": { "type": "string" }
+        }
+      }
+    }
+  }
+}

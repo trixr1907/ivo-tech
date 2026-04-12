@@ -4,14 +4,13 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 
-import { LanguageToggle } from '@/components/LanguageToggle';
-import { SiteHeader } from '@/components/layout/SiteHeader';
-import { Button } from '@/components/ui/Button';
-import { SectionFrame } from '@/components/ui/SectionFrame';
+import { RelaunchMarketingShell } from '@/components/layout/RelaunchMarketingShell';
+import { Button } from '@/components/shadcn/button';
 import type { Locale } from '@/content/copy';
 import { getProjectById } from '@/content/projects';
 import { trackEvent } from '@/lib/analytics';
 import { localizePath } from '@/lib/localeRouting';
+import { RELAUNCH_SECTION } from '@/lib/relaunchMarketingStyles';
 
 const LIVE_LINK = 'https://deinlieblingsdruck.de/3d-konfigurator/#preisrechner';
 
@@ -28,6 +27,7 @@ export function ConfiguratorPageClient({ locale }: Props) {
   const pathname = usePathname() || localizePath('/configurator', locale);
   const heroProject = getProjectById('configurator_3d');
   const contactHref = localizePath('/#contact', locale);
+  const homeHref = localizePath('/', locale);
   const attribution = heroProject?.attribution_note?.[locale];
 
   useEffect(() => {
@@ -124,64 +124,51 @@ export function ConfiguratorPageClient({ locale }: Props) {
 
   const kpis = heroProject?.case_study?.kpis ?? [];
 
-  return (
-    <div data-theme="dark" className="theme-ref103632">
-      <SiteHeader
-        ariaLabel={locale === 'de' ? 'Hauptnavigation' : 'Primary'}
-        className="home-v2-header"
-        logoPreset="ref103632"
-        logoVisualPreset="premium"
-        logoEdgeGlow="medium"
-        nav={
-          <>
-            <Link href={localizePath('/', locale)}>{locale === 'de' ? 'Startseite' : 'Home'}</Link>
-            <a href={LIVE_LINK} target="_blank" rel="noopener noreferrer">
-              {locale === 'de' ? 'Live Demo' : 'Live demo'}
-            </a>
-            <Link
-              href={contactHref}
-              onClick={() =>
-                trackEvent('cta_contact_click', {
-                  source: 'configurator_nav',
-                  location: 'configurator_nav',
-                  intent: 'hybrid',
-                  locale,
-                  path: pathname
-                })
-              }
-            >
-              {locale === 'de' ? 'Kontakt' : 'Contact'}
-            </Link>
-          </>
-        }
-        rightSlot={
-          <>
-            <LanguageToggle />
-            <Link className="cta ui-btn ui-btn--metal btn-md motion-edge-sweep" href={localizePath('/', locale)}>
-              {locale === 'de' ? 'Zurueck' : 'Back'}
-            </Link>
-          </>
-        }
-      />
+  const navLinks = [
+    { href: homeHref, label: locale === 'de' ? 'Startseite' : 'Home' },
+    { href: LIVE_LINK, label: locale === 'de' ? 'Live Demo' : 'Live demo' },
+    { href: contactHref, label: locale === 'de' ? 'Kontakt' : 'Contact' }
+  ];
 
-      <main id="main-content" className="home-v2-main">
-        <section className="hero home-v2-hero" aria-labelledby="cfg-title" data-theme="primary">
-          <div className="hero-copy">
-            <p className="eyebrow">{locale === 'de' ? 'Premium Case Study' : 'Premium case study'}</p>
-            <h1 id="cfg-title">{locale === 'de' ? '3D-Konfigurator als Tech-Referenz' : '3D configurator as a tech reference'}</h1>
-            <p className="lead">
-              {heroProject?.one_liner[locale] ??
-                (locale === 'de'
-                  ? 'Produktionsfaehige Datei-zu-Angebot-Architektur mit WebGL-Viewer, Preislogik und Checkout-Handoff.'
-                  : 'Production-ready file-to-quote architecture with a WebGL viewer, pricing logic, and checkout handoff.')}
-            </p>
-            {attribution ? <p className="hero-sublead">{attribution}</p> : null}
-            <div className="hero-actions">
-              <Button className="primary" href={LIVE_LINK} target="_blank" rel="noopener noreferrer" variant="primary">
+  return (
+    <RelaunchMarketingShell
+      locale={locale}
+      shellClassName="configurator-page"
+      homeHref={homeHref}
+      navLinks={navLinks}
+      desktopCtaHref={homeHref}
+      desktopCtaLabel={locale === 'de' ? 'Zurück' : 'Back'}
+      mobileNavCtaLabel={locale === 'de' ? 'Zurück' : 'Back'}
+      mobileNavCtaHref={homeHref}
+      desktopContactTrackingSource="configurator-header-back"
+      mobileNavPrimaryTrackingSource="configurator-mobile-back"
+    >
+      <main
+        id="main-content"
+        className="mx-auto flex w-full max-w-[1200px] flex-1 flex-col gap-[var(--space-9)] px-4 pb-12 pt-14 sm:px-6 max-[900px]:gap-[var(--space-7)]"
+      >
+        <section className={`${RELAUNCH_SECTION} mb-8`} aria-labelledby="cfg-title">
+          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sky-400/90">
+            {locale === 'de' ? 'Premium Case Study' : 'Premium case study'}
+          </p>
+          <h1 id="cfg-title" className="mt-2 font-display text-3xl font-semibold text-slate-50 md:text-4xl">
+            {locale === 'de' ? '3D-Konfigurator als Tech-Referenz' : '3D configurator as a tech reference'}
+          </h1>
+          <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-300 md:text-lg">
+            {heroProject?.one_liner[locale] ??
+              (locale === 'de'
+                ? 'Produktionsfaehige Datei-zu-Angebot-Architektur mit WebGL-Viewer, Preislogik und Checkout-Handoff.'
+                : 'Production-ready file-to-quote architecture with a WebGL viewer, pricing logic, and checkout handoff.')}
+          </p>
+          {attribution ? <p className="mt-3 text-sm text-slate-400">{attribution}</p> : null}
+          <div className="mt-8 flex flex-col flex-wrap gap-3 sm:flex-row">
+            <Button asChild className="bg-sky-500 text-slate-950 hover:bg-sky-400">
+              <a href={LIVE_LINK} target="_blank" rel="noopener noreferrer">
                 {locale === 'de' ? 'Live beim Kunden oeffnen' : 'Open live client flow'}
-              </Button>
+              </a>
+            </Button>
+            <Button asChild variant="outline" className="border-slate-600 bg-transparent text-slate-100 hover:bg-slate-800/60">
               <Link
-                className="ghost"
                 href={contactHref}
                 onClick={() =>
                   trackEvent('cta_contact_click', {
@@ -195,11 +182,11 @@ export function ConfiguratorPageClient({ locale }: Props) {
               >
                 {locale === 'de' ? 'Erstgespraech anfragen' : 'Request free intro call'}
               </Link>
-            </div>
+            </Button>
           </div>
         </section>
 
-        <SectionFrame className="section" aria-label="Case study details" tone="metal">
+        <section className={RELAUNCH_SECTION} aria-label={locale === 'de' ? 'Case Study Details' : 'Case study details'}>
           {kpis.length > 0 ? (
             <div className="kpi-grid" aria-label={locale === 'de' ? 'KPI Snapshot' : 'KPI snapshot'}>
               {kpis.map((kpi) => (
@@ -212,11 +199,11 @@ export function ConfiguratorPageClient({ locale }: Props) {
             </div>
           ) : null}
 
-          <div className="case-study-grid">
+          <div className="case-study-grid mt-8">
             {blocks.map((block) => (
               <div key={block.title}>
-                <h4>{block.title}</h4>
-                <ul>
+                <h4 className="font-display text-base font-semibold text-slate-100">{block.title}</h4>
+                <ul className="mt-2 text-sm text-slate-300">
                   {block.points.map((point) => (
                     <li key={point}>{point}</li>
                   ))}
@@ -224,8 +211,8 @@ export function ConfiguratorPageClient({ locale }: Props) {
               </div>
             ))}
           </div>
-        </SectionFrame>
+        </section>
       </main>
-    </div>
+    </RelaunchMarketingShell>
   );
 }

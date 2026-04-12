@@ -72,7 +72,7 @@ export default [
   },
 
   {
-    files: ['**/*.test.{ts,tsx}', '**/*.spec.{ts,tsx}'],
+    files: ['**/*.test.{ts,tsx}'],
     languageOptions: {
       globals: {
         ...globals.vitest

@@ -1,0 +1,45 @@
+version: 1
+updated_at: 2026-04-10
+collections:
+  - collection_id: coll_b2b_homepage_benchmarks
+    objective: Identify high-converting B2B homepage patterns with strong trust and CTA architecture.
+    candidate_sources:
+      - https://www.awwwards.com/
+      - https://www.land-book.com/
+      - https://www.lapa.ninja/
+      - https://www.onepagelove.com/
+      - https://godly.website/
+    include_criteria:
+      - clear hero value proposition
+      - layered CTA strategy
+      - visible trust proof
+      - readable information hierarchy
+      - mobile quality
+    exclude_criteria:
+      - style-only pages without conversion logic
+      - unclear offers
+
+  - collection_id: coll_ui_component_patterns
+    objective: Track reusable UI components and section patterns for implementation speed.
+    candidate_sources:
+      - https://ui.shadcn.com/
+      - https://www.radix-ui.com/
+      - https://www.aceternity.com/components
+      - https://www.hyperui.dev/
+      - https://www.tailwindui.com/
+    include_criteria:
+      - production-ready semantics
+      - responsive behavior
+      - accessibility baseline
+      - composability in React/Next.js
+
+  - collection_id: coll_direct_competitors
+    objective: Positioning and differentiation analysis against direct alternatives.
+    candidate_sources:
+      - https://www.webflow.com/
+      - https://www.framer.com/
+      - https://vercel.com/
+      - https://linear.app/
+      - https://www.shopify.com/
+      - https://stripe.com/
+    notes: Approved set documented in research/direct_competitor_set_approved_2026-04-10.yaml.

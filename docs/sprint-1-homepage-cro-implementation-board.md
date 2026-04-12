@@ -17,7 +17,7 @@ Date: 2026-04-09
 - No experimental animation work beyond micro-level CTA/feedback interactions.
 
 ## 3. Current baseline (confirmed)
-- Homepage uses `HomePageRedesign` in [`src/app/page.tsx`](/home/ivo/Allgemein/ivo-tech/src/app/page.tsx).
+- Homepage uses `HomePageRelaunch2026` via [`src/app-pages/HomePage.tsx`](/home/ivo/Allgemein/ivo-tech/src/app-pages/HomePage.tsx) and [`src/app/page.tsx`](/home/ivo/Allgemein/ivo-tech/src/app/page.tsx).
 - Lead form exists as [`ContactLeadForm.tsx`](/home/ivo/Allgemein/ivo-tech/src/components/home/ContactLeadForm.tsx) and posts to `POST /api/contact`.
 - Contact API handler is in [`src/server/contact/handler.ts`](/home/ivo/Allgemein/ivo-tech/src/server/contact/handler.ts).
 - Analytics helper exists in [`src/lib/analytics.ts`](/home/ivo/Allgemein/ivo-tech/src/lib/analytics.ts).
@@ -37,7 +37,7 @@ Date: 2026-04-09
 ## 5. File-level implementation map
 
 ### 5.1 Homepage copy + conversion hierarchy
-- Edit [`src/components/home/HomePageRedesign.tsx`](/home/ivo/Allgemein/ivo-tech/src/components/home/HomePageRedesign.tsx)
+- Edit [`src/components/home/HomePageRelaunch2026.tsx`](/home/ivo/Allgemein/ivo-tech/src/components/home/HomePageRelaunch2026.tsx)
   - Replace current hero title/description with outcome-focused variant.
   - Enforce CTA hierarchy:
     - primary: contact intent
@@ -65,7 +65,7 @@ Date: 2026-04-09
   - [`src/app/impressum/page.tsx`](/home/ivo/Allgemein/ivo-tech/src/app/impressum/page.tsx)
   - [`src/app/datenschutz/page.tsx`](/home/ivo/Allgemein/ivo-tech/src/app/datenschutz/page.tsx)
   - [`src/app/en/legal/page.tsx`](/home/ivo/Allgemein/ivo-tech/src/app/en/legal/page.tsx) (or EN-specific split if needed)
-- Update footer links in [`HomePageRedesign.tsx`](/home/ivo/Allgemein/ivo-tech/src/components/home/HomePageRedesign.tsx).
+- Update footer links in [`HomeRelaunchFooter.tsx`](/home/ivo/Allgemein/ivo-tech/src/components/home/HomeRelaunchFooter.tsx) / [`HomePageRelaunch2026.tsx`](/home/ivo/Allgemein/ivo-tech/src/components/home/HomePageRelaunch2026.tsx) as appropriate.
 
 ### 5.5 Tracking integrity
 - Edit [`src/lib/analytics.ts`](/home/ivo/Allgemein/ivo-tech/src/lib/analytics.ts)
@@ -79,7 +79,7 @@ Date: 2026-04-09
   - thank-you page view
 
 ## 6. Execution order (next implementation session)
-1. Update hero/services/trust copy and CTA hierarchy in `HomePageRedesign`.
+1. Update hero/services/trust copy and CTA hierarchy in `HomePageRelaunch2026`.
 2. Implement thank-you routes.
 3. Wire form success redirect/transition.
 4. Add legal routes and footer links.

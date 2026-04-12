@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 330 260" role="img" aria-label="ivo-tech mark">
+      <defs>
+  <linearGradient id="metalA" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#F5F8FF"/>
+    <stop offset="48%" stop-color="#99A7BD"/>
+    <stop offset="100%" stop-color="#263448"/>
+  </linearGradient>
+  <linearGradient id="metalB" x1="0%" y1="100%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#111A28"/>
+    <stop offset="52%" stop-color="#B6C4D8"/>
+    <stop offset="100%" stop-color="#F1F5FD"/>
+  </linearGradient>
+  <linearGradient id="cyanEdge" x1="0%" y1="100%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#2A74FF"/>
+    <stop offset="60%" stop-color="#35C7FF"/>
+    <stop offset="100%" stop-color="#9EEBFF"/>
+  </linearGradient>
+</defs>
+      <g>
+  <path d="M24 58L138 58L90 206Z" fill="url(#metalA)"/>
+  <path d="M33 66L127 66L90 178Z" fill="#111A28" opacity="0.66"/>
+  <path d="M142 58L305 58L114 238Z" fill="url(#metalB)"/>
+  <path d="M163 76L279 76L125 213Z" fill="#0E1624" opacity="0.42"/>
+  <path d="M173 132L286 78L145 213Z" fill="url(#cyanEdge)"/>
+  <path d="M24 58L138 58L90 206Z M142 58L305 58L114 238Z" fill="none" stroke="#D8E2F0" stroke-opacity="0.35" stroke-width="2"/>
+</g>
+    </svg>

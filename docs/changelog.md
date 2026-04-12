@@ -1,5 +1,28 @@
 # Changelog
 
+## 2026-04-12 (Plan: Audit, Legacy, Brand-Assets)
+
+### Added
+- `public/assets/motion/energy-trail-loop.webm` und `public/assets/logo/handoff/*.svg` (aus lokalem Design-Handoff).
+- Playwright **`tests/e2e/site-audit.spec.ts`**: HTTP-Matrix inkl. Brand, Thanks, Hub-Detail, absichtlicher 404, Axe-Stichprobe, interne Links von `/`, Homepage-`pageerror`-Check.
+- npm scripts **`test:e2e:audit`**, **`verify:site`** (Build + Unit + Site-Audit + Analytics-Map strict).
+- Docs: **`docs/research-external-refs.md`**, **`docs/website-human-audit-checklist.md`**.
+
+### Changed
+- **Home** (`HomePageRelaunch2026`): dezenter **Ambient-WebM** hinter dem Hero-Snapshot-Panel (respektiert `prefers-reduced-motion`).
+- **Brand**: Sektion „Export-Paket (Handoff)“ + **Energy-Loop**-Video mit Controls; **`RELAUNCH_CARD_HOVER`** etwas ausdrucksstärker (Schatten).
+- **`FRONTEND_UNIFICATION_STATUS.md`** auf aktuellen Stand.
+
+### Changed (Folge: Runtime-Entfernung)
+- **`HomeScrollProgress`**: feuert wieder **`homepage_scroll_depth`** bei **50 % / 90 %** Scroll (vorher nur in entfernter `HomePageRuntime`).
+
+### Removed
+- **`src/components/home/HomePageRedesign.tsx`** (ungenutzt in Live-Routen).
+- **`src/app-pages/HomePageRuntime.tsx`** (nirgends importiert; Modal/Tracking laeuft ueber `HomePageRelaunch2026` + dedizierte Client-Links; Scroll-Milestones nach `HomeScrollProgress` verlagert).
+- Alle **`.home-redesign-shell`**-Regeln und **`.home-redesign-shell main`**-Layouts aus **`src/styles/pages.css`** (früher: globales `main` nur unter Redesign-Shell; Relaunch blieb ohne diesen Block).
+
+_Hinweis:_ Ältere Einträge zu **`theme-ref103632`**, Brand-Hero in `home-relaunch-shell.css` und Brand-`<main>` **`flex flex-col`** gelten weiter; sie wurden an einem früheren Commit am selben Tag ergänzt.
+
 ## 2026-04-10
 
 ### Added
@@ -50,7 +73,7 @@
 - Thank-you analytics tracker component at `src/components/thank-you/ThankYouTracker.tsx`.
 
 ### Changed
-- Homepage CTA copy/intent framing updated in `src/components/home/HomePageRedesign.tsx`.
+- Homepage CTA copy/intent framing updated in `src/components/home/HomePageRelaunch2026.tsx` (historisch: zuvor `HomePageRedesign`).
 - Hero and mobile-nav CTA clicks now tracked for funnel analytics.
 - Contact lead form now redirects to locale-specific thank-you page on successful submission.
 - Contact lead attribution source is now propagated from URL params into analytics payloads and thank-you routing.

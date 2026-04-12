@@ -1,13 +1,12 @@
 import Link from 'next/link';
 
-import { LanguageToggle } from '@/components/LanguageToggle';
 import { HubPageTracker } from '@/components/hub/HubPageTracker';
-import { SiteHeader } from '@/components/layout/SiteHeader';
-import { SectionFrame } from '@/components/ui/SectionFrame';
+import { RelaunchMarketingShell } from '@/components/layout/RelaunchMarketingShell';
 import type { Locale } from '@/content/copy';
 import type { HubEntry, HubKind } from '@/content/hub';
 import { HUB_CONFIG, getHubBasePath, getLocalizedHubDetailPath } from '@/app-pages/hubShared';
 import { localizePath } from '@/lib/localeRouting';
+import { RELAUNCH_CARD_HOVER, RELAUNCH_SECTION } from '@/lib/relaunchMarketingStyles';
 import { getContactPath, getPrimaryNavLinks } from '@/lib/navigation';
 import { SITE_URL } from '@/lib/site';
 
@@ -23,6 +22,8 @@ export function HubIndexPage({ locale, kind, entries }: Props) {
   const canonical = `${SITE_URL}${localizePath(basePath, locale)}`;
   const navLinks = getPrimaryNavLinks(locale);
   const contactPath = getContactPath(locale, `hub-${kind}`);
+  const homeHref = localizePath('/', locale);
+  const headerCta = locale === 'de' ? 'Erstgespraech' : 'Intro call';
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -68,60 +69,49 @@ export function HubIndexPage({ locale, kind, entries }: Props) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <HubPageTracker locale={locale} kind={kind} pageType="index" />
-      <div className="theme-ref103632 hub-index-page" data-theme="dark">
+      <RelaunchMarketingShell
+        locale={locale}
+        shellClassName="hub-index-page"
+        homeHref={homeHref}
+        navLinks={navLinks}
+        desktopCtaHref={contactPath}
+        desktopCtaLabel={headerCta}
+        mobileNavCtaLabel={headerCta}
+        desktopContactTrackingSource={`hub-${kind}-header`}
+        mobileNavPrimaryTrackingSource={`hub-${kind}-mobile-nav`}
+        desktopHeaderDataHubCta="header-primary"
+      >
+        <HubPageTracker locale={locale} kind={kind} pageType="index" />
+        <main id="main-content" className="mx-auto w-full max-w-[1200px] flex-1 px-4 pb-10 pt-8 sm:px-6 md:pb-12 md:pt-10">
+          <section className={`${RELAUNCH_SECTION} hub-index-hero-section`} aria-labelledby="hub-title">
+            <div className="space-y-3">
+              <h1 id="hub-title" className="font-display text-3xl font-semibold tracking-tight text-slate-100 md:text-4xl">
+                {config.indexTitle[locale]}
+              </h1>
+              <p className="max-w-3xl text-base leading-relaxed text-slate-300 md:text-lg">{config.indexDescription[locale]}</p>
+            </div>
 
-      <SiteHeader
-        ariaLabel={locale === 'de' ? 'Hauptnavigation' : 'Primary'}
-        className="home-v2-header"
-        logoPreset="ref103632"
-        logoVisualPreset="premium"
-        logoEdgeGlow="medium"
-        nav={
-          <>
-            {navLinks.map((link) => (
-              <Link key={link.href} href={link.href}>
-                {link.label}
-              </Link>
-            ))}
-          </>
-        }
-        rightSlot={
-          <>
-            <LanguageToggle />
-            <Link className="cta ui-btn ui-btn--metal btn-md motion-edge-sweep" href={contactPath} data-hub-cta="header-primary">
-              {locale === 'de' ? 'Erstgespraech' : 'Intro call'}
-            </Link>
-          </>
-        }
-      />
-
-      <main id="main-content" className="home-v2-main hub-index-main">
-        <SectionFrame className="section hub-index-hero-section" aria-labelledby="hub-title" tone="panel">
-          <div className="section-head">
-            <h1 id="hub-title" className="insights-title text-ink-900">
-              {config.indexTitle[locale]}
-            </h1>
-            <p className="text-ink-700">{config.indexDescription[locale]}</p>
-          </div>
-
-          <div id="hub-list" className="insights-grid insights-grid-page hub-index-grid">
-            {entries.map((entry) => (
-              <article key={entry.slug} className="insight-card text-ink-700">
-                <span className="insight-meta">
-                  {entry.category} | {entry.readMinutes} min
-                </span>
-                <h2 className="text-ink-900">{entry.title}</h2>
-                <p className="text-ink-700">{entry.summary}</p>
-                <Link href={getLocalizedHubDetailPath(kind, locale, entry.slug)} className="insight-link" data-hub-cta="list-item-open">
-                  {config.readLabel[locale]}
-                </Link>
-              </article>
-            ))}
-          </div>
-        </SectionFrame>
-      </main>
-      </div>
+            <div id="hub-list" className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+              {entries.map((entry) => (
+                <article key={entry.slug} className={`${RELAUNCH_CARD_HOVER} flex flex-col`}>
+                  <span className="text-xs font-semibold uppercase tracking-[0.12em] text-sky-400/90">
+                    {entry.category} | {entry.readMinutes} min
+                  </span>
+                  <h2 className="mt-2 font-display text-lg font-semibold text-slate-100">{entry.title}</h2>
+                  <p className="mt-2 flex-1 text-sm text-slate-300">{entry.summary}</p>
+                  <Link
+                    href={getLocalizedHubDetailPath(kind, locale, entry.slug)}
+                    className="mt-4 text-sm font-medium text-sky-400 transition hover:text-sky-300"
+                    data-hub-cta="list-item-open"
+                  >
+                    {config.readLabel[locale]}
+                  </Link>
+                </article>
+              ))}
+            </div>
+          </section>
+        </main>
+      </RelaunchMarketingShell>
     </>
   );
 }

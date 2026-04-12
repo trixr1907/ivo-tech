@@ -33,3 +33,5 @@ public/vendor/
 .env*.local
 contact-preview.jsonl
 contact-production.jsonl
+homepage-preview.png
+subpage-leistungen-preview.png

@@ -1,0 +1,18 @@
+pack_id: cp_hero_redesign
+goal: Redesign hero for stronger differentiation, clarity, and conversion intent.
+mode: synthesis
+sources:
+  - src_ivo_live_home
+  - src_ivo_vercel_preview_home
+  - src_inspiration_benchmarks
+core_facts:
+  - Existing hero uses authority-first engineering framing.
+  - Primary CTA is consultation-oriented.
+  - Hero currently carries multiple supporting links and proof cues.
+open_questions:
+  - Should hero optimize for hiring, client acquisition, or both?
+  - What single measurable outcome should hero prioritize?
+next_steps:
+  - Compare 3 hero framing options.
+  - Select one message hierarchy.
+  - Define hero section component spec.

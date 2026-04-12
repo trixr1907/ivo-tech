@@ -1,0 +1,70 @@
+version: 1
+updated_at: 2026-04-10
+packs:
+  - pack_id: cp_website_audit
+    status: ready
+    generated_variant: knowledge/context_packs/generated/website-audit-generated.yaml
+    evidence_files:
+      - knowledge/audits/initial-audit-2026-04-10.md
+      - knowledge/chunks/2026-04-10_combined_plus_benchmarks_semantic_chunks_auto.jsonl
+      - knowledge/extracted_content/2026-04-10_auto_extracted_live.json
+
+  - pack_id: cp_hero_redesign
+    status: ready
+    generated_variant: knowledge/context_packs/generated/hero-redesign-generated.yaml
+    evidence_files:
+      - knowledge/research/benchmark_scorecard_2026-04-10.md
+      - knowledge/research/benchmark_signals_2026-04-10.json
+      - knowledge/chunks/2026-04-10_combined_plus_benchmarks_semantic_chunks_auto.jsonl
+
+  - pack_id: cp_homepage_structure
+    status: ready
+    generated_variant: knowledge/context_packs/generated/homepage-structure-generated.yaml
+    evidence_files:
+      - knowledge/extracted_content/2026-04-10_auto_extracted_live.json
+      - knowledge/extracted_content/2026-04-10_auto_extracted_preview.json
+      - knowledge/chunks/2026-04-10_combined_plus_benchmarks_semantic_chunks_auto.jsonl
+
+  - pack_id: cp_copy_optimization
+    status: ready
+    evidence_files:
+      - knowledge/chunks/2026-04-10_combined_plus_benchmarks_semantic_chunks_auto.jsonl
+      - knowledge/research/benchmark_signals_2026-04-10.json
+
+  - pack_id: cp_trust_social_proof
+    status: ready
+    evidence_files:
+      - knowledge/audits/initial-audit-2026-04-10.md
+      - knowledge/chunks/2026-04-10_combined_plus_benchmarks_semantic_chunks_auto.jsonl
+
+  - pack_id: cp_premium_visual_direction
+    status: ready
+    evidence_files:
+      - knowledge/research/benchmark_scorecard_2026-04-10.md
+      - knowledge/research/benchmark_signals_2026-04-10.json
+
+  - pack_id: cp_component_ui_system
+    status: ready
+    evidence_files:
+      - knowledge/research/benchmark_signals_2026-04-10.json
+      - src/components
+
+  - pack_id: cp_responsive_frontend_implementation
+    status: ready
+    evidence_files:
+      - knowledge/context_packs/generated/homepage-structure-generated.yaml
+      - knowledge/context_packs/generated/hero-redesign-generated.yaml
+
+  - pack_id: cp_competitor_differentiation
+    status: ready
+    evidence_files:
+      - knowledge/research/benchmark_scorecard_2026-04-10.md
+      - knowledge/research/direct_competitor_set_approved_2026-04-10.yaml
+      - knowledge/research/competitor_claim_matrix_2026-04-10.md
+      - knowledge/research/benchmark_signals_2026-04-10.json
+
+  - pack_id: cp_inspiration_comparison
+    status: ready
+    evidence_files:
+      - knowledge/research/benchmark_scorecard_2026-04-10.md
+      - knowledge/research/benchmark_signals_2026-04-10.json

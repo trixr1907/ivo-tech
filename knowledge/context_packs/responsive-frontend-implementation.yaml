@@ -1,0 +1,18 @@
+pack_id: cp_responsive_frontend_implementation
+goal: Translate approved homepage strategy into responsive frontend implementation tasks.
+mode: synthesis
+sources:
+  - src_repo_ui_implementation
+  - src_design_tokens
+  - cp_homepage_structure
+  - cp_component_ui_system
+core_facts:
+  - Existing stack supports componentized section rendering and route-level composition.
+  - Mobile-specific CTA behavior already exists and can be refined.
+open_questions:
+  - Which breakpoints need custom section behavior?
+  - Which performance budgets are mandatory on mobile?
+next_steps:
+  - Produce implementation backlog by section.
+  - Define acceptance criteria per viewport.
+  - Add instrumentation for CTA and section performance.

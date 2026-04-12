@@ -1,0 +1,7169 @@
+{
+  "version": 1,
+  "generated_at": "2026-04-10T21:36:01.651Z",
+  "inputs": [
+    "knowledge/extracted_content/2026-04-10_auto_extracted_live.json",
+    "knowledge/extracted_content/2026-04-10_auto_extracted_preview.json",
+    "knowledge/research/benchmark_signals_2026-04-10.json"
+  ],
+  "nodes": [
+    {
+      "id": "brand_ivo_tech",
+      "type": "Brand",
+      "label": "ivo-tech",
+      "source_ids": [
+        "src_ivo_live_home",
+        "src_ivo_vercel_preview_home"
+      ]
+    },
+    {
+      "id": "service_web_engineering",
+      "type": "Service",
+      "label": "Web Engineering and Delivery",
+      "source_ids": [
+        "src_ivo_live_home",
+        "src_ivo_vercel_preview_home"
+      ]
+    },
+    {
+      "id": "page_8fb9917b8392",
+      "type": "Page",
+      "label": "ivo-tech | Web Engineering, Delivery-Exzellenz und klare Architektur",
+      "source_ids": [
+        "src_ivo_live__home"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/"
+    },
+    {
+      "id": "section_8a11108ec9ea",
+      "type": "Section",
+      "label": "Technical Delivery ohne Blindflug: Websysteme, die stabil laufen und klar konvertieren.",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__home"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_4137580df554",
+      "type": "Section",
+      "label": "section_2",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__home"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_ede392761d07",
+      "type": "Section",
+      "label": "section_3",
+      "section_type": "proof_bar",
+      "source_ids": [
+        "src_ivo_live__home"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "trust_b39c1b69b1b4",
+      "type": "TrustElement",
+      "label": "Trust block",
+      "source_ids": [
+        "src_ivo_live__home"
+      ]
+    },
+    {
+      "id": "section_5ef2b3c50880",
+      "type": "Section",
+      "label": "Von Positionierung bis Produktionsbetrieb in einem sauberen Delivery-Flow.",
+      "section_type": "services",
+      "source_ids": [
+        "src_ivo_live__home"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "service_821dea75f1b9",
+      "type": "Service",
+      "label": "Von Positionierung bis Produktionsbetrieb in einem sauberen Delivery-Flow.",
+      "source_ids": [
+        "src_ivo_live__home"
+      ]
+    },
+    {
+      "id": "section_92dd562757cc",
+      "type": "Section",
+      "label": "Technisch stark, inhaltlich klar, operativ zuverlässig.",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__home"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_f2c42707fc31",
+      "type": "Section",
+      "label": "Entscheider:innen vertrauen auf nachvollziehbare Delivery.",
+      "section_type": "trust",
+      "source_ids": [
+        "src_ivo_live__home"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "trust_32cb7c5e58c4",
+      "type": "TrustElement",
+      "label": "Entscheider:innen vertrauen auf nachvollziehbare Delivery.",
+      "source_ids": [
+        "src_ivo_live__home"
+      ]
+    },
+    {
+      "id": "section_a0953c875e2f",
+      "type": "Section",
+      "label": "Aktuelle Engineering-Pattern fuer Teams mit hohem Delivery-Druck.",
+      "section_type": "insights",
+      "source_ids": [
+        "src_ivo_live__home"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_70ec3a2a0766",
+      "type": "Section",
+      "label": "Ein transparenter Prozess mit klaren Entscheidungspunkten.",
+      "section_type": "process",
+      "source_ids": [
+        "src_ivo_live__home"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_148bacabcaa7",
+      "type": "Section",
+      "label": "Lass uns deine Homepage auf Enterprise-Niveau bringen.",
+      "section_type": "contact",
+      "source_ids": [
+        "src_ivo_live__home"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "cta_c7f588235eb4",
+      "type": "CTA",
+      "label": "Kontakt",
+      "href": "/contact?source=primary-nav",
+      "source_ids": [
+        "src_ivo_live__home",
+        "src_ivo_live__configurator",
+        "src_ivo_live__insights",
+        "src_ivo_live__about",
+        "src_ivo_live__projects",
+        "src_ivo_live__maker_lab",
+        "src_ivo_live__contact",
+        "src_ivo_live__playbooks",
+        "src_ivo_live__case_studies",
+        "src_ivo_live__leistungen",
+        "src_ivo_live__leistungen_web_engineering_delivery",
+        "src_ivo_live__leistungen_ai_automation_workflows",
+        "src_ivo_live__leistungen_3d_visualization_systems",
+        "src_ivo_live__insights_ai_assisted_pr_review_loop",
+        "src_ivo_live__insights_api_integration_failure_modes",
+        "src_ivo_live__insights_nextjs_performance_budget_playbook",
+        "src_ivo_live__insights_stable_handover_checklist",
+        "src_ivo_live__playbooks_api_integration_readiness_playbook",
+        "src_ivo_live__playbooks_handover_production_readiness_playbook",
+        "src_ivo_live__playbooks_performance_budget_guardrails",
+        "src_ivo_live__case_studies_configurator_live",
+        "src_ivo_live__case_studies_portfolio_authority_relaunch",
+        "src_ivo_preview__home",
+        "src_ivo_preview__contact",
+        "src_ivo_preview__services",
+        "src_ivo_preview__case_studies",
+        "src_ivo_preview__insights",
+        "src_ivo_preview__playbooks"
+      ]
+    },
+    {
+      "id": "cta_77ec37707fe0",
+      "type": "CTA",
+      "label": "Erstgespräch starten",
+      "href": "/contact?source=home-hero-primary",
+      "source_ids": [
+        "src_ivo_live__home"
+      ]
+    },
+    {
+      "id": "cta_e00d253a51d9",
+      "type": "CTA",
+      "label": "3D-Konfigurator fuer Datei-zu-Angebot-Workflows im Live-Betrieb Live",
+      "href": "/case-studies/configurator-live",
+      "source_ids": [
+        "src_ivo_live__home"
+      ]
+    },
+    {
+      "id": "cta_09a89c322569",
+      "type": "CTA",
+      "label": "3D-Konfigurator fuer Datei-zu-Angebot-Workflows im Live-Betrieb Live THREE.JS / WEBGL | WORDPRESS PLUGIN | PRICING ENGINE | WOOCOMMERCE",
+      "href": "/case-studies/configurator-live",
+      "source_ids": [
+        "src_ivo_live__home"
+      ]
+    },
+    {
+      "id": "cta_de0a1fdfd356",
+      "type": "CTA",
+      "label": "Case Study: Authority Relaunch mit KPI-Snapshots Dokumentierte Informationsarchitektur, CTA-Funnel und Performance-Guardrails.",
+      "href": "/case-studies/portfolio-authority-relaunch",
+      "source_ids": [
+        "src_ivo_live__home"
+      ]
+    },
+    {
+      "id": "cta_9dcbc0ab8312",
+      "type": "CTA",
+      "label": "Oder direkt Termin buchen",
+      "href": "https://cal.com/ivo-tech/intro-call?locale=de&amp;source=home&amp;exp_hero=default&amp;utm_source=ivo-tech.com&amp;utm_medium=website&amp;utm_campaign=scheduler-contact-form&amp;utm_content=hero-default",
+      "source_ids": [
+        "src_ivo_live__home"
+      ]
+    },
+    {
+      "id": "faq_785e237bc2bb",
+      "type": "FAQ",
+      "label": "Wie startet eine Zusammenarbeit?",
+      "source_ids": [
+        "src_ivo_live__home",
+        "src_ivo_preview__home",
+        "src_ivo_preview__contact",
+        "src_ivo_preview__services"
+      ]
+    },
+    {
+      "id": "faq_16aeeca5c203",
+      "type": "FAQ",
+      "label": "Welche Deliverables lieferst du typischerweise?",
+      "source_ids": [
+        "src_ivo_live__home",
+        "src_ivo_preview__home",
+        "src_ivo_preview__contact",
+        "src_ivo_preview__services"
+      ]
+    },
+    {
+      "id": "faq_c85b4ecf686b",
+      "type": "FAQ",
+      "label": "Arbeitest du mit bestehenden Teams und Codebases?",
+      "source_ids": [
+        "src_ivo_live__home",
+        "src_ivo_preview__home",
+        "src_ivo_preview__contact",
+        "src_ivo_preview__services"
+      ]
+    },
+    {
+      "id": "page_8fcf8271f38d",
+      "type": "Page",
+      "label": "ivo-tech | Web Engineering, Delivery Excellence and Clear Architecture",
+      "source_ids": [
+        "src_ivo_live__en"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/en"
+    },
+    {
+      "id": "section_d1c06a91085f",
+      "type": "Section",
+      "label": "Technical delivery without guesswork: web systems that stay stable and convert clearly.",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_0b3f4f505daf",
+      "type": "Section",
+      "label": "section_2",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_a39dd03bf0e4",
+      "type": "Section",
+      "label": "section_3",
+      "section_type": "proof_bar",
+      "source_ids": [
+        "src_ivo_live__en"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "trust_73113d462a3a",
+      "type": "TrustElement",
+      "label": "Trust block",
+      "source_ids": [
+        "src_ivo_live__en"
+      ]
+    },
+    {
+      "id": "section_1efc0e7be8a0",
+      "type": "Section",
+      "label": "From positioning to production-ready delivery.",
+      "section_type": "services",
+      "source_ids": [
+        "src_ivo_live__en"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "service_b61fdfe2c5b4",
+      "type": "Service",
+      "label": "From positioning to production-ready delivery.",
+      "source_ids": [
+        "src_ivo_live__en"
+      ]
+    },
+    {
+      "id": "section_4881d3fd8889",
+      "type": "Section",
+      "label": "Technically strong, operationally dependable.",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_9e03c8194070",
+      "type": "Section",
+      "label": "Teams trust delivery they can verify.",
+      "section_type": "trust",
+      "source_ids": [
+        "src_ivo_live__en"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "trust_91815feb7bb3",
+      "type": "TrustElement",
+      "label": "Teams trust delivery they can verify.",
+      "source_ids": [
+        "src_ivo_live__en"
+      ]
+    },
+    {
+      "id": "section_56b420fa0606",
+      "type": "Section",
+      "label": "Current engineering patterns for teams under delivery pressure.",
+      "section_type": "insights",
+      "source_ids": [
+        "src_ivo_live__en"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_d9ec5ab15a0e",
+      "type": "Section",
+      "label": "Transparent collaboration with clear checkpoints.",
+      "section_type": "process",
+      "source_ids": [
+        "src_ivo_live__en"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_3fa0b5d3b73a",
+      "type": "Section",
+      "label": "Upgrade your homepage to enterprise-grade quality.",
+      "section_type": "contact",
+      "source_ids": [
+        "src_ivo_live__en"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "cta_fb7bfaa4a8fc",
+      "type": "CTA",
+      "label": "Case study: Authority relaunch with KPI snapshots Documented information architecture, CTA funnel, and performance guardrails.",
+      "href": "/en/case-studies/portfolio-authority-relaunch",
+      "source_ids": [
+        "src_ivo_live__en"
+      ]
+    },
+    {
+      "id": "faq_afe853307e6c",
+      "type": "FAQ",
+      "label": "How does collaboration typically start?",
+      "source_ids": [
+        "src_ivo_live__en",
+        "src_ivo_preview__en"
+      ]
+    },
+    {
+      "id": "faq_41706a07c46d",
+      "type": "FAQ",
+      "label": "Which deliverables do you usually provide?",
+      "source_ids": [
+        "src_ivo_live__en",
+        "src_ivo_preview__en"
+      ]
+    },
+    {
+      "id": "faq_e056a2be2ec0",
+      "type": "FAQ",
+      "label": "Do you work with existing teams and codebases?",
+      "source_ids": [
+        "src_ivo_live__en",
+        "src_ivo_preview__en"
+      ]
+    },
+    {
+      "id": "page_3c7b11b9de20",
+      "type": "Page",
+      "label": "3D-Konfigurator Case Study | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__configurator"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/configurator"
+    },
+    {
+      "id": "section_a9b14339bfd4",
+      "type": "Section",
+      "label": "3D-Konfigurator als Tech-Referenz",
+      "section_type": "trust",
+      "source_ids": [
+        "src_ivo_live__configurator"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "trust_d0d34d376ad2",
+      "type": "TrustElement",
+      "label": "3D-Konfigurator als Tech-Referenz",
+      "source_ids": [
+        "src_ivo_live__configurator"
+      ]
+    },
+    {
+      "id": "section_8399cfcbe530",
+      "type": "Section",
+      "label": "section_2",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__configurator"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "cta_c6d69db425b3",
+      "type": "CTA",
+      "label": "Live Demo",
+      "href": "https://deinlieblingsdruck.de/3d-konfigurator/#preisrechner",
+      "source_ids": [
+        "src_ivo_live__configurator",
+        "src_ivo_live__en_configurator"
+      ]
+    },
+    {
+      "id": "cta_dd2e4f447dee",
+      "type": "CTA",
+      "label": "Erstgespraech anfragen",
+      "href": "/#contact",
+      "source_ids": [
+        "src_ivo_live__configurator"
+      ]
+    },
+    {
+      "id": "page_fa3fb814314f",
+      "type": "Page",
+      "label": "3D Configurator Case Study | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__en_configurator"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/en/configurator"
+    },
+    {
+      "id": "section_19324df55d60",
+      "type": "Section",
+      "label": "3D configurator as a tech reference",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_configurator"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_cfd4dc2280c5",
+      "type": "Section",
+      "label": "section_2",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_configurator"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "page_09514e0f6eae",
+      "type": "Page",
+      "label": "Engineering-Insights | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__insights"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/insights"
+    },
+    {
+      "id": "section_cb397e9c6db7",
+      "type": "Section",
+      "label": "Engineering-Insights",
+      "section_type": "insights",
+      "source_ids": [
+        "src_ivo_live__insights"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "cta_b3f5b932beb4",
+      "type": "CTA",
+      "label": "Erstgespraech",
+      "href": "/contact?source=hub-insights",
+      "source_ids": [
+        "src_ivo_live__insights",
+        "src_ivo_live__about",
+        "src_ivo_live__projects",
+        "src_ivo_live__maker_lab",
+        "src_ivo_live__contact",
+        "src_ivo_live__playbooks",
+        "src_ivo_live__case_studies",
+        "src_ivo_live__insights_ai_assisted_pr_review_loop",
+        "src_ivo_live__insights_api_integration_failure_modes",
+        "src_ivo_live__insights_nextjs_performance_budget_playbook",
+        "src_ivo_live__insights_stable_handover_checklist",
+        "src_ivo_live__playbooks_api_integration_readiness_playbook",
+        "src_ivo_live__playbooks_handover_production_readiness_playbook",
+        "src_ivo_live__playbooks_performance_budget_guardrails",
+        "src_ivo_live__case_studies_configurator_live",
+        "src_ivo_live__case_studies_portfolio_authority_relaunch",
+        "src_ivo_preview__home",
+        "src_ivo_preview__contact",
+        "src_ivo_preview__services",
+        "src_ivo_preview__case_studies",
+        "src_ivo_preview__insights",
+        "src_ivo_preview__playbooks"
+      ]
+    },
+    {
+      "id": "page_897973f0b818",
+      "type": "Page",
+      "label": "Engineering insights | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__en_insights"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/en/insights"
+    },
+    {
+      "id": "section_0a901e745850",
+      "type": "Section",
+      "label": "Engineering insights",
+      "section_type": "insights",
+      "source_ids": [
+        "src_ivo_live__en_insights"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "page_eaef702ffed0",
+      "type": "Page",
+      "label": "Ueber mich | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__about"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/about"
+    },
+    {
+      "id": "section_1970eeefa7da",
+      "type": "Section",
+      "label": "Ich baue digitale Systeme, die technisch sauber laufen und als Portfolio wirklich wirken.",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__about"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_9619a117daad",
+      "type": "Section",
+      "label": "Arbeitsprinzipien",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__about"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_23a2499eb424",
+      "type": "Section",
+      "label": "Journey",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__about"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_205570b70575",
+      "type": "Section",
+      "label": "Trust Layers",
+      "section_type": "trust",
+      "source_ids": [
+        "src_ivo_live__about"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "trust_689974787f6b",
+      "type": "TrustElement",
+      "label": "Trust Layers",
+      "source_ids": [
+        "src_ivo_live__about"
+      ]
+    },
+    {
+      "id": "section_33c422bdc1b0",
+      "type": "Section",
+      "label": "Ausgewaehlte Referenzen",
+      "section_type": "trust",
+      "source_ids": [
+        "src_ivo_live__about"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "trust_22d903458879",
+      "type": "TrustElement",
+      "label": "Ausgewaehlte Referenzen",
+      "source_ids": [
+        "src_ivo_live__about"
+      ]
+    },
+    {
+      "id": "cta_cf1bc108482c",
+      "type": "CTA",
+      "label": "Case Study lesen",
+      "href": "/case-studies/configurator-live",
+      "source_ids": [
+        "src_ivo_live__about",
+        "src_ivo_live__projects",
+        "src_ivo_live__maker_lab",
+        "src_ivo_live__case_studies",
+        "src_ivo_preview__case_studies"
+      ]
+    },
+    {
+      "id": "cta_aa4036e87e09",
+      "type": "CTA",
+      "label": "Kontakt aufnehmen",
+      "href": "/contact?source=header-nav",
+      "source_ids": [
+        "src_ivo_live__about",
+        "src_ivo_live__projects",
+        "src_ivo_live__maker_lab",
+        "src_ivo_live__contact"
+      ]
+    },
+    {
+      "id": "page_cf02e72511ed",
+      "type": "Page",
+      "label": "About | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__en_about"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/en/about"
+    },
+    {
+      "id": "section_b31b3d27822d",
+      "type": "Section",
+      "label": "I build digital systems that run cleanly and communicate technical authority.",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_about"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_efcab6a842ce",
+      "type": "Section",
+      "label": "Working principles",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_about"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_4fb0424e9187",
+      "type": "Section",
+      "label": "Journey",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_about"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_ab72564d05fe",
+      "type": "Section",
+      "label": "Trust layers",
+      "section_type": "trust",
+      "source_ids": [
+        "src_ivo_live__en_about"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "trust_8cf637157ef9",
+      "type": "TrustElement",
+      "label": "Trust layers",
+      "source_ids": [
+        "src_ivo_live__en_about"
+      ]
+    },
+    {
+      "id": "section_ca9575353640",
+      "type": "Section",
+      "label": "Selected references",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_about"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "cta_6fc1f72a563a",
+      "type": "CTA",
+      "label": "Traceable case study blueprints Problem, architecture, trade-offs, and outcomes documented transparently per project.",
+      "href": "/en/case-studies",
+      "source_ids": [
+        "src_ivo_live__en_about"
+      ]
+    },
+    {
+      "id": "cta_5302e1f567c6",
+      "type": "CTA",
+      "label": "Read case study",
+      "href": "/en/case-studies/configurator-live",
+      "source_ids": [
+        "src_ivo_live__en_about",
+        "src_ivo_live__en_projects",
+        "src_ivo_live__en_maker_lab",
+        "src_ivo_live__en_case_studies"
+      ]
+    },
+    {
+      "id": "page_7464018577c6",
+      "type": "Page",
+      "label": "Projekte | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__projects"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/projects"
+    },
+    {
+      "id": "section_1495c9962629",
+      "type": "Section",
+      "label": "Projekte: technische Tiefe fuer Hiring, Produktteams und Collaboration.",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__projects"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_fffa53706d63",
+      "type": "Section",
+      "label": "Professional Track",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__projects"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_8cf47fc1e68d",
+      "type": "Section",
+      "label": "Maker Track",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__projects"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "page_e05ebbac105c",
+      "type": "Page",
+      "label": "Projects | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__en_projects"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/en/projects"
+    },
+    {
+      "id": "section_604da8581cc4",
+      "type": "Section",
+      "label": "Projects: technical depth for hiring, product teams, and collaboration.",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_projects"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_64f648cb524b",
+      "type": "Section",
+      "label": "Professional track",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_projects"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_1e08e2a4f1d6",
+      "type": "Section",
+      "label": "Maker track",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_projects"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "page_9f48cee922ef",
+      "type": "Page",
+      "label": "Maker Lab | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__maker_lab"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/maker-lab"
+    },
+    {
+      "id": "section_b9c1a5261fb8",
+      "type": "Section",
+      "label": "Maker Lab: 3D-Printing-Workflows mit klarem Transfer in reale Produktprozesse.",
+      "section_type": "process",
+      "source_ids": [
+        "src_ivo_live__maker_lab"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_6fe5da7e5be5",
+      "type": "Section",
+      "label": "Lab Fokus",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__maker_lab"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_f5266421d606",
+      "type": "Section",
+      "label": "Naechste Builds",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__maker_lab"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_b202e80d6e5e",
+      "type": "Section",
+      "label": "Maker Projekte",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__maker_lab"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "cta_1fd15e636e49",
+      "type": "CTA",
+      "label": "Maker-Projekt anfragen",
+      "href": "/contact?source=maker-lab-primary",
+      "source_ids": [
+        "src_ivo_live__maker_lab"
+      ]
+    },
+    {
+      "id": "page_5781ad33f63f",
+      "type": "Page",
+      "label": "Maker Lab | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__en_maker_lab"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/en/maker-lab"
+    },
+    {
+      "id": "section_cf77f9cc56ba",
+      "type": "Section",
+      "label": "Maker Lab: 3D printing, prototyping, and technical experiments.",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_maker_lab"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_07ed22ec72f6",
+      "type": "Section",
+      "label": "Lab focus",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_maker_lab"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_83185fa2f1e2",
+      "type": "Section",
+      "label": "Roadmap",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_maker_lab"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_c87ee14eb572",
+      "type": "Section",
+      "label": "Maker projects",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_maker_lab"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "page_3680fdbe9e08",
+      "type": "Page",
+      "label": "Kontakt | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__contact"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/contact"
+    },
+    {
+      "id": "section_23f5f6a36e3b",
+      "type": "Section",
+      "label": "Kontakt: Hiring, Projekt-Kollaboration oder Maker-Exchange.",
+      "section_type": "contact",
+      "source_ids": [
+        "src_ivo_live__contact"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_6c0e37e01832",
+      "type": "Section",
+      "label": "Direkter Kontaktpfad",
+      "section_type": "contact",
+      "source_ids": [
+        "src_ivo_live__contact"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "cta_fe62502dee71",
+      "type": "CTA",
+      "label": "15-Min Termin buchen",
+      "href": "https://cal.com/ivo-tech/intro-call?locale=de&amp;source=home&amp;exp_hero=default&amp;utm_source=ivo-tech.com&amp;utm_medium=website&amp;utm_campaign=scheduler-contact-form&amp;utm_content=hero-default",
+      "source_ids": [
+        "src_ivo_live__contact"
+      ]
+    },
+    {
+      "id": "page_2fd6add99930",
+      "type": "Page",
+      "label": "Contact | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__en_contact"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/en/contact"
+    },
+    {
+      "id": "section_c95ce76f8708",
+      "type": "Section",
+      "label": "Contact: hiring, project collaboration, or maker exchange.",
+      "section_type": "contact",
+      "source_ids": [
+        "src_ivo_live__en_contact"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_d901f996e644",
+      "type": "Section",
+      "label": "Direct contact path",
+      "section_type": "contact",
+      "source_ids": [
+        "src_ivo_live__en_contact"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "page_866a139915fe",
+      "type": "Page",
+      "label": "Engineering Playbooks | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__playbooks"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/playbooks"
+    },
+    {
+      "id": "section_1934af3684bc",
+      "type": "Section",
+      "label": "Engineering Playbooks",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__playbooks"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "page_4d029b5bafa9",
+      "type": "Page",
+      "label": "Engineering playbooks | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__en_playbooks"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/en/playbooks"
+    },
+    {
+      "id": "section_0b33d7090fae",
+      "type": "Section",
+      "label": "Engineering playbooks",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_playbooks"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "page_946b5027fa72",
+      "type": "Page",
+      "label": "Fallstudien | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__case_studies"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/case-studies"
+    },
+    {
+      "id": "section_da386cdf4ba9",
+      "type": "Section",
+      "label": "Fallstudien",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__case_studies"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "page_0966e84aa6df",
+      "type": "Page",
+      "label": "Case studies | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__en_case_studies"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/en/case-studies"
+    },
+    {
+      "id": "section_1a0edb11b364",
+      "type": "Section",
+      "label": "Case studies",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_case_studies"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "page_b2af331b3307",
+      "type": "Page",
+      "label": "Leistungen | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__leistungen"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/leistungen"
+    },
+    {
+      "id": "section_4d9446713551",
+      "type": "Section",
+      "label": "Leistungen: Technical Delivery für conversion-kritische B2B-Webseiten",
+      "section_type": "services",
+      "source_ids": [
+        "src_ivo_live__leistungen"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "service_81a719556f6c",
+      "type": "Service",
+      "label": "Leistungen: Technical Delivery für conversion-kritische B2B-Webseiten",
+      "source_ids": [
+        "src_ivo_live__leistungen"
+      ]
+    },
+    {
+      "id": "section_473a47942756",
+      "type": "Section",
+      "label": "Zusammenarbeitsmodell",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__leistungen"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_80bf8d18adf8",
+      "type": "Section",
+      "label": "Produktisierte Angebotsformate",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__leistungen"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_5aa8da899589",
+      "type": "Section",
+      "label": "Typischer Scope",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__leistungen"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "cta_2588ddc9c80b",
+      "type": "CTA",
+      "label": "Scope-Call anfragen",
+      "href": "/contact?source=services-scope-call",
+      "source_ids": [
+        "src_ivo_live__leistungen"
+      ]
+    },
+    {
+      "id": "page_d587096fbccb",
+      "type": "Page",
+      "label": "Services | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__en_services"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/en/services"
+    },
+    {
+      "id": "section_a3490106e59c",
+      "type": "Section",
+      "label": "Services: Technical delivery for conversion-critical B2B websites",
+      "section_type": "services",
+      "source_ids": [
+        "src_ivo_live__en_services"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "service_bfea7505a40a",
+      "type": "Service",
+      "label": "Services: Technical delivery for conversion-critical B2B websites",
+      "source_ids": [
+        "src_ivo_live__en_services"
+      ]
+    },
+    {
+      "id": "section_5793ab776c56",
+      "type": "Section",
+      "label": "Collaboration model",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_services"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_09c890e41a67",
+      "type": "Section",
+      "label": "Productized offer formats",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_services"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_abc68fc1408e",
+      "type": "Section",
+      "label": "Typical scope",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_services"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "page_b2aacca93ab3",
+      "type": "Page",
+      "label": "Impressum | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__impressum"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/impressum"
+    },
+    {
+      "id": "section_2a5731820888",
+      "type": "Section",
+      "label": "Impressum",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__impressum"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_0d912f26ce0a",
+      "type": "Section",
+      "label": "Kontakt",
+      "section_type": "contact",
+      "source_ids": [
+        "src_ivo_live__impressum"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_94e41e34913d",
+      "type": "Section",
+      "label": "Umsatzsteuer-ID",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__impressum"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_3c520791740d",
+      "type": "Section",
+      "label": "Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__impressum"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "page_c011434b14f1",
+      "type": "Page",
+      "label": "Legal notice | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__en_legal"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/en/legal"
+    },
+    {
+      "id": "section_6d0fdf155724",
+      "type": "Section",
+      "label": "Legal notice",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_legal"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_8bff566f7de6",
+      "type": "Section",
+      "label": "Contact",
+      "section_type": "contact",
+      "source_ids": [
+        "src_ivo_live__en_legal"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_76a130e95cee",
+      "type": "Section",
+      "label": "VAT ID",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_legal"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "page_74f4f521bc3d",
+      "type": "Page",
+      "label": "Datenschutz | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__datenschutz"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/datenschutz"
+    },
+    {
+      "id": "section_d7322e439c6b",
+      "type": "Section",
+      "label": "Datenschutzerklärung",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__datenschutz"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_31ae5a8de53d",
+      "type": "Section",
+      "label": "2. Zweck der Datenverarbeitung",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__datenschutz"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_b2be71536a13",
+      "type": "Section",
+      "label": "3. Kontaktformular",
+      "section_type": "contact",
+      "source_ids": [
+        "src_ivo_live__datenschutz"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_6c4fc1f93bc7",
+      "type": "Section",
+      "label": "4. Hosting und technische Protokolle",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__datenschutz"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_91a56358d470",
+      "type": "Section",
+      "label": "5. Rechte der betroffenen Personen",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__datenschutz"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_7a1a1686321b",
+      "type": "Section",
+      "label": "6. Speicherdauer",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__datenschutz"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "page_facbd43a6bb9",
+      "type": "Page",
+      "label": "Privacy policy | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__en_privacy"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/en/privacy"
+    },
+    {
+      "id": "section_1ca420b7765b",
+      "type": "Section",
+      "label": "Privacy policy",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_privacy"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_48f07664d12c",
+      "type": "Section",
+      "label": "2. Processing purposes",
+      "section_type": "process",
+      "source_ids": [
+        "src_ivo_live__en_privacy"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_5c15da8f9f37",
+      "type": "Section",
+      "label": "3. Contact form",
+      "section_type": "contact",
+      "source_ids": [
+        "src_ivo_live__en_privacy"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_c50bfbf60d7d",
+      "type": "Section",
+      "label": "4. Data subject rights",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_privacy"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "page_4101c0b361fb",
+      "type": "Page",
+      "label": "Web Engineering Delivery | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__leistungen_web_engineering_delivery"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/leistungen/web-engineering-delivery"
+    },
+    {
+      "id": "section_f125f8c789c9",
+      "type": "Section",
+      "label": "Web Engineering Delivery",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__leistungen_web_engineering_delivery"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_da045bbb74c4",
+      "type": "Section",
+      "label": "Ergebnisfokus",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__leistungen_web_engineering_delivery"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_d321c7ac74fd",
+      "type": "Section",
+      "label": "Typische Deliverables",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__leistungen_web_engineering_delivery"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_7c25b8c99d1c",
+      "type": "Section",
+      "label": "Outcome-Komparator",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__leistungen_web_engineering_delivery"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_e7436954d543",
+      "type": "Section",
+      "label": "Risk Matrix",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__leistungen_web_engineering_delivery"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_c8f86b8dd3d0",
+      "type": "Section",
+      "label": "Architecture Snapshot",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__leistungen_web_engineering_delivery"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_4d814a06b301",
+      "type": "Section",
+      "label": "Passende Vertiefungen",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__leistungen_web_engineering_delivery"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_0bf2a0dae3a4",
+      "type": "Section",
+      "label": "FAQ",
+      "section_type": "faq",
+      "source_ids": [
+        "src_ivo_live__leistungen_web_engineering_delivery"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "cta_59deddbcd048",
+      "type": "CTA",
+      "label": "Scope-Call fuer Delivery anfragen",
+      "href": "/contact?source=service-detail-web-engineering-delivery-scope",
+      "source_ids": [
+        "src_ivo_live__leistungen_web_engineering_delivery"
+      ]
+    },
+    {
+      "id": "faq_859071f9c122",
+      "type": "FAQ",
+      "label": "Wie schnell ist ein erstes Delivery-Paket umsetzbar?",
+      "source_ids": [
+        "src_ivo_live__leistungen_web_engineering_delivery"
+      ]
+    },
+    {
+      "id": "faq_7785c4f59ee1",
+      "type": "FAQ",
+      "label": "Funktioniert das auch mit bestehendem Design?",
+      "source_ids": [
+        "src_ivo_live__leistungen_web_engineering_delivery"
+      ]
+    },
+    {
+      "id": "faq_44bce9f08184",
+      "type": "FAQ",
+      "label": "Wie wird Qualitaet abgesichert?",
+      "source_ids": [
+        "src_ivo_live__leistungen_web_engineering_delivery"
+      ]
+    },
+    {
+      "id": "page_cee74e92b895",
+      "type": "Page",
+      "label": "Web Engineering Delivery | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__en_services_web_engineering_delivery"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/en/services/web-engineering-delivery"
+    },
+    {
+      "id": "section_0ec95ce25186",
+      "type": "Section",
+      "label": "Web Engineering Delivery",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_services_web_engineering_delivery"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_40d5b7ce9a34",
+      "type": "Section",
+      "label": "Outcome focus",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_services_web_engineering_delivery"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_c892e2e551fa",
+      "type": "Section",
+      "label": "Typical deliverables",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_services_web_engineering_delivery"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_22d9c5df5d10",
+      "type": "Section",
+      "label": "Outcome Comparator",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_services_web_engineering_delivery"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_86cd382866f5",
+      "type": "Section",
+      "label": "Risk Matrix",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_services_web_engineering_delivery"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_136fb25cb1ef",
+      "type": "Section",
+      "label": "Architecture Snapshot",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_services_web_engineering_delivery"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_2f5cde26df79",
+      "type": "Section",
+      "label": "Related deep dives",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_services_web_engineering_delivery"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_d3d5451caa9d",
+      "type": "Section",
+      "label": "FAQ",
+      "section_type": "faq",
+      "source_ids": [
+        "src_ivo_live__en_services_web_engineering_delivery"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "cta_f310f7fb09d4",
+      "type": "CTA",
+      "label": "Case study Case: Portfolio authority relaunch Review real implementation details and outcome signals.",
+      "href": "/en/case-studies/portfolio-authority-relaunch?source=service-detail-web-engineering-delivery-case",
+      "source_ids": [
+        "src_ivo_live__en_services_web_engineering_delivery"
+      ]
+    },
+    {
+      "id": "faq_2694b0fc2b39",
+      "type": "FAQ",
+      "label": "How quickly can the first delivery package ship?",
+      "source_ids": [
+        "src_ivo_live__en_services_web_engineering_delivery"
+      ]
+    },
+    {
+      "id": "faq_6144d223c6e2",
+      "type": "FAQ",
+      "label": "Can this work with our current design assets?",
+      "source_ids": [
+        "src_ivo_live__en_services_web_engineering_delivery"
+      ]
+    },
+    {
+      "id": "faq_09edd456d4d9",
+      "type": "FAQ",
+      "label": "How is quality controlled?",
+      "source_ids": [
+        "src_ivo_live__en_services_web_engineering_delivery"
+      ]
+    },
+    {
+      "id": "page_3fde2ae22a43",
+      "type": "Page",
+      "label": "AI Automation Workflows | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__leistungen_ai_automation_workflows"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/leistungen/ai-automation-workflows"
+    },
+    {
+      "id": "section_09d48e69c7e7",
+      "type": "Section",
+      "label": "AI Automation Workflows",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__leistungen_ai_automation_workflows"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_db0bde9a7cee",
+      "type": "Section",
+      "label": "Ergebnisfokus",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__leistungen_ai_automation_workflows"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_10816b845128",
+      "type": "Section",
+      "label": "Typische Deliverables",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__leistungen_ai_automation_workflows"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_a8fae72a3fce",
+      "type": "Section",
+      "label": "Outcome-Komparator",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__leistungen_ai_automation_workflows"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_c6388ec595a6",
+      "type": "Section",
+      "label": "Risk Matrix",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__leistungen_ai_automation_workflows"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_c23ffb9e5607",
+      "type": "Section",
+      "label": "Architecture Snapshot",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__leistungen_ai_automation_workflows"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_6613b57840f4",
+      "type": "Section",
+      "label": "Passende Vertiefungen",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__leistungen_ai_automation_workflows"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_85c3910073a6",
+      "type": "Section",
+      "label": "FAQ",
+      "section_type": "faq",
+      "source_ids": [
+        "src_ivo_live__leistungen_ai_automation_workflows"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "cta_4a35673ec3f7",
+      "type": "CTA",
+      "label": "Scope-Call fuer Automation anfragen",
+      "href": "/contact?source=service-detail-ai-automation-workflows-scope",
+      "source_ids": [
+        "src_ivo_live__leistungen_ai_automation_workflows"
+      ]
+    },
+    {
+      "id": "faq_d242719423bb",
+      "type": "FAQ",
+      "label": "Ersetzt das bestehende Tools komplett?",
+      "source_ids": [
+        "src_ivo_live__leistungen_ai_automation_workflows"
+      ]
+    },
+    {
+      "id": "faq_a9c3e69c891f",
+      "type": "FAQ",
+      "label": "Wie wird Sicherheit im Workflow behandelt?",
+      "source_ids": [
+        "src_ivo_live__leistungen_ai_automation_workflows"
+      ]
+    },
+    {
+      "id": "faq_da26125af7ff",
+      "type": "FAQ",
+      "label": "Wann sind erste Effekte sichtbar?",
+      "source_ids": [
+        "src_ivo_live__leistungen_ai_automation_workflows"
+      ]
+    },
+    {
+      "id": "page_b33f3fd3f4f0",
+      "type": "Page",
+      "label": "AI Automation Workflows | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__en_services_ai_automation_workflows"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/en/services/ai-automation-workflows"
+    },
+    {
+      "id": "section_ddc597d5916c",
+      "type": "Section",
+      "label": "AI Automation Workflows",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_services_ai_automation_workflows"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_523c26072a46",
+      "type": "Section",
+      "label": "Outcome focus",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_services_ai_automation_workflows"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_36d40403bd93",
+      "type": "Section",
+      "label": "Typical deliverables",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_services_ai_automation_workflows"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_56ef3d0f9c2e",
+      "type": "Section",
+      "label": "Outcome Comparator",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_services_ai_automation_workflows"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_0ce63d3aa780",
+      "type": "Section",
+      "label": "Risk Matrix",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_services_ai_automation_workflows"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_844e6750ce09",
+      "type": "Section",
+      "label": "Architecture Snapshot",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_services_ai_automation_workflows"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_7c4329ed7f99",
+      "type": "Section",
+      "label": "Related deep dives",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_services_ai_automation_workflows"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_be629339db6d",
+      "type": "Section",
+      "label": "FAQ",
+      "section_type": "faq",
+      "source_ids": [
+        "src_ivo_live__en_services_ai_automation_workflows"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "cta_809d7407a143",
+      "type": "CTA",
+      "label": "Case study Case: Configurator live Review real implementation details and outcome signals.",
+      "href": "/en/case-studies/configurator-live?source=service-detail-ai-automation-workflows-case",
+      "source_ids": [
+        "src_ivo_live__en_services_ai_automation_workflows",
+        "src_ivo_live__en_services_3d_visualization_systems"
+      ]
+    },
+    {
+      "id": "faq_fc774ef4c2c7",
+      "type": "FAQ",
+      "label": "Does this replace our current tools?",
+      "source_ids": [
+        "src_ivo_live__en_services_ai_automation_workflows"
+      ]
+    },
+    {
+      "id": "faq_6bb6dec4f3df",
+      "type": "FAQ",
+      "label": "How is workflow safety handled?",
+      "source_ids": [
+        "src_ivo_live__en_services_ai_automation_workflows"
+      ]
+    },
+    {
+      "id": "faq_e4be702cbbb2",
+      "type": "FAQ",
+      "label": "When do we see first effects?",
+      "source_ids": [
+        "src_ivo_live__en_services_ai_automation_workflows"
+      ]
+    },
+    {
+      "id": "page_1008f1f87d09",
+      "type": "Page",
+      "label": "3D Visualization Systems | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__leistungen_3d_visualization_systems"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/leistungen/3d-visualization-systems"
+    },
+    {
+      "id": "section_091edb4917d7",
+      "type": "Section",
+      "label": "3D Visualization Systems",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__leistungen_3d_visualization_systems"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_eb977c303c52",
+      "type": "Section",
+      "label": "Ergebnisfokus",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__leistungen_3d_visualization_systems"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_4e4c32116e2f",
+      "type": "Section",
+      "label": "Typische Deliverables",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__leistungen_3d_visualization_systems"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_eea819699471",
+      "type": "Section",
+      "label": "Outcome-Komparator",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__leistungen_3d_visualization_systems"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_029611b275b9",
+      "type": "Section",
+      "label": "Risk Matrix",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__leistungen_3d_visualization_systems"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_6859d94e5599",
+      "type": "Section",
+      "label": "Architecture Snapshot",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__leistungen_3d_visualization_systems"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_e4c25c303022",
+      "type": "Section",
+      "label": "Passende Vertiefungen",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__leistungen_3d_visualization_systems"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_6c53291d97b6",
+      "type": "Section",
+      "label": "FAQ",
+      "section_type": "faq",
+      "source_ids": [
+        "src_ivo_live__leistungen_3d_visualization_systems"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "cta_21a599e213e7",
+      "type": "CTA",
+      "label": "Scope-Call fuer 3D-System anfragen",
+      "href": "/contact?source=service-detail-3d-visualization-systems-scope",
+      "source_ids": [
+        "src_ivo_live__leistungen_3d_visualization_systems"
+      ]
+    },
+    {
+      "id": "faq_9aa9d07d95ff",
+      "type": "FAQ",
+      "label": "Ist 3D nur fuer Showcases sinnvoll?",
+      "source_ids": [
+        "src_ivo_live__leistungen_3d_visualization_systems"
+      ]
+    },
+    {
+      "id": "faq_681805a5346c",
+      "type": "FAQ",
+      "label": "Wie wird Performance stabil gehalten?",
+      "source_ids": [
+        "src_ivo_live__leistungen_3d_visualization_systems"
+      ]
+    },
+    {
+      "id": "faq_1b0cfd3ed69d",
+      "type": "FAQ",
+      "label": "Kann das mit bestehendem Shop/Backend verbunden werden?",
+      "source_ids": [
+        "src_ivo_live__leistungen_3d_visualization_systems"
+      ]
+    },
+    {
+      "id": "page_76bb0900c40e",
+      "type": "Page",
+      "label": "3D Visualization Systems | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__en_services_3d_visualization_systems"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/en/services/3d-visualization-systems"
+    },
+    {
+      "id": "section_fce02ae76c45",
+      "type": "Section",
+      "label": "3D Visualization Systems",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_services_3d_visualization_systems"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_0bc4f88709ab",
+      "type": "Section",
+      "label": "Outcome focus",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_services_3d_visualization_systems"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_6be8e2399949",
+      "type": "Section",
+      "label": "Typical deliverables",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_services_3d_visualization_systems"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_61ca6d3ae91b",
+      "type": "Section",
+      "label": "Outcome Comparator",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_services_3d_visualization_systems"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_316063ebf643",
+      "type": "Section",
+      "label": "Risk Matrix",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_services_3d_visualization_systems"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_c16e7490ae5f",
+      "type": "Section",
+      "label": "Architecture Snapshot",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_services_3d_visualization_systems"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_6abdd297fe1f",
+      "type": "Section",
+      "label": "Related deep dives",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_services_3d_visualization_systems"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_ede0c2df4d04",
+      "type": "Section",
+      "label": "FAQ",
+      "section_type": "faq",
+      "source_ids": [
+        "src_ivo_live__en_services_3d_visualization_systems"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "faq_e21bccf3e035",
+      "type": "FAQ",
+      "label": "Is 3D only useful for visual showcase?",
+      "source_ids": [
+        "src_ivo_live__en_services_3d_visualization_systems"
+      ]
+    },
+    {
+      "id": "faq_2a9e1ddb2e51",
+      "type": "FAQ",
+      "label": "How do you keep performance stable?",
+      "source_ids": [
+        "src_ivo_live__en_services_3d_visualization_systems"
+      ]
+    },
+    {
+      "id": "faq_62f9749b9a17",
+      "type": "FAQ",
+      "label": "Can this integrate with existing shop/backends?",
+      "source_ids": [
+        "src_ivo_live__en_services_3d_visualization_systems"
+      ]
+    },
+    {
+      "id": "page_ea45911ef4d0",
+      "type": "Page",
+      "label": "AI-Assisted PR Review Loop | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__insights_ai_assisted_pr_review_loop"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/insights/ai-assisted-pr-review-loop"
+    },
+    {
+      "id": "cta_df373fea8f5c",
+      "type": "CTA",
+      "label": "Kontakt Direkten naechsten Schritt klaeren",
+      "href": "/#contact",
+      "source_ids": [
+        "src_ivo_live__insights_ai_assisted_pr_review_loop",
+        "src_ivo_live__insights_api_integration_failure_modes",
+        "src_ivo_live__insights_nextjs_performance_budget_playbook",
+        "src_ivo_live__insights_stable_handover_checklist",
+        "src_ivo_live__playbooks_api_integration_readiness_playbook",
+        "src_ivo_live__playbooks_handover_production_readiness_playbook",
+        "src_ivo_live__playbooks_performance_budget_guardrails",
+        "src_ivo_live__case_studies_configurator_live",
+        "src_ivo_live__case_studies_portfolio_authority_relaunch"
+      ]
+    },
+    {
+      "id": "cta_8582caedcc61",
+      "type": "CTA",
+      "label": "Erstgespraech starten",
+      "href": "/contact?source=hub-insights-detail",
+      "source_ids": [
+        "src_ivo_live__insights_ai_assisted_pr_review_loop",
+        "src_ivo_live__insights_api_integration_failure_modes",
+        "src_ivo_live__insights_nextjs_performance_budget_playbook",
+        "src_ivo_live__insights_stable_handover_checklist",
+        "src_ivo_live__playbooks_api_integration_readiness_playbook",
+        "src_ivo_live__playbooks_handover_production_readiness_playbook",
+        "src_ivo_live__playbooks_performance_budget_guardrails",
+        "src_ivo_live__case_studies_configurator_live",
+        "src_ivo_live__case_studies_portfolio_authority_relaunch"
+      ]
+    },
+    {
+      "id": "page_a7ee06fb876b",
+      "type": "Page",
+      "label": "AI-Assisted PR Review Loop | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__en_insights_ai_assisted_pr_review_loop"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/en/insights/ai-assisted-pr-review-loop"
+    },
+    {
+      "id": "page_2deb837d3eb7",
+      "type": "Page",
+      "label": "API-Integrationen: Die haeufigsten Failure-Modes | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__insights_api_integration_failure_modes"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/insights/api-integration-failure-modes"
+    },
+    {
+      "id": "page_d90ba6173f2a",
+      "type": "Page",
+      "label": "API integrations: the most common failure modes | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__en_insights_api_integration_failure_modes"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/en/insights/api-integration-failure-modes"
+    },
+    {
+      "id": "page_b4f2d8919fd9",
+      "type": "Page",
+      "label": "Architecture decisions under time pressure | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__en_insights_architecture_decisions_under_pressure"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/en/insights/architecture-decisions-under-pressure"
+    },
+    {
+      "id": "page_4b050890784f",
+      "type": "Page",
+      "label": "Next.js Performance Budget Playbook | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__insights_nextjs_performance_budget_playbook"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/insights/nextjs-performance-budget-playbook"
+    },
+    {
+      "id": "page_17b84bf3d3d5",
+      "type": "Page",
+      "label": "Next.js performance budget playbook | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__en_insights_nextjs_performance_budget_playbook"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/en/insights/nextjs-performance-budget-playbook"
+    },
+    {
+      "id": "page_670f9e6f83c5",
+      "type": "Page",
+      "label": "Stable Handover Checklist | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__insights_stable_handover_checklist"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/insights/stable-handover-checklist"
+    },
+    {
+      "id": "page_ca2d741bb136",
+      "type": "Page",
+      "label": "Stable handover checklist | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__en_insights_stable_handover_checklist"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/en/insights/stable-handover-checklist"
+    },
+    {
+      "id": "page_f642dd7c7cfd",
+      "type": "Page",
+      "label": "API Integration Readiness Playbook | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__playbooks_api_integration_readiness_playbook"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/playbooks/api-integration-readiness-playbook"
+    },
+    {
+      "id": "page_77b621179437",
+      "type": "Page",
+      "label": "API integration readiness playbook | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__en_playbooks_api_integration_readiness_playbook"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/en/playbooks/api-integration-readiness-playbook"
+    },
+    {
+      "id": "page_bb3bc6627a9c",
+      "type": "Page",
+      "label": "Handover Production Readiness Playbook | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__playbooks_handover_production_readiness_playbook"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/playbooks/handover-production-readiness-playbook"
+    },
+    {
+      "id": "page_fb957b8d6d62",
+      "type": "Page",
+      "label": "Handover production readiness playbook | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__en_playbooks_handover_production_readiness_playbook"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/en/playbooks/handover-production-readiness-playbook"
+    },
+    {
+      "id": "page_5733b65c0786",
+      "type": "Page",
+      "label": "Performance Budget Guardrails | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__playbooks_performance_budget_guardrails"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/playbooks/performance-budget-guardrails"
+    },
+    {
+      "id": "page_cff3f2855fe8",
+      "type": "Page",
+      "label": "Performance budget guardrails | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__en_playbooks_performance_budget_guardrails"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/en/playbooks/performance-budget-guardrails"
+    },
+    {
+      "id": "page_51552b8ed134",
+      "type": "Page",
+      "label": "Case Study: 3D-Konfigurator als Tech-Referenz im Live-Betrieb | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__case_studies_configurator_live"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/case-studies/configurator-live"
+    },
+    {
+      "id": "section_f18dbf725360",
+      "type": "Section",
+      "label": "Ergebnis-Snapshot",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__case_studies_configurator_live"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_a45ee76d9d17",
+      "type": "Section",
+      "label": "Projektstruktur: Problem, Ansatz, Ergebnis",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__case_studies_configurator_live"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "cta_a5d3377ee5f0",
+      "type": "CTA",
+      "label": "Ähnlichen Flow für Ihr Produkt anfragen",
+      "href": "/contact?source=hub-case-studies-detail",
+      "source_ids": [
+        "src_ivo_live__case_studies_configurator_live"
+      ]
+    },
+    {
+      "id": "page_e291e14d1118",
+      "type": "Page",
+      "label": "Case study: 3D configurator as a live technical reference | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__en_case_studies_configurator_live"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/en/case-studies/configurator-live"
+    },
+    {
+      "id": "section_901ed05fdbaf",
+      "type": "Section",
+      "label": "Outcome snapshot",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_case_studies_configurator_live"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_e43760a54225",
+      "type": "Section",
+      "label": "Case structure: Problem, approach, outcome",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_case_studies_configurator_live"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "page_1563bbd5902a",
+      "type": "Page",
+      "label": "Case Study: Authority-First Portfolio Relaunch | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__case_studies_portfolio_authority_relaunch"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/case-studies/portfolio-authority-relaunch"
+    },
+    {
+      "id": "section_8ffd7286bc20",
+      "type": "Section",
+      "label": "Ergebnis-Snapshot",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__case_studies_portfolio_authority_relaunch"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_8d556de85f51",
+      "type": "Section",
+      "label": "Projektstruktur: Problem, Ansatz, Ergebnis",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__case_studies_portfolio_authority_relaunch"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "cta_65906bdb8172",
+      "type": "CTA",
+      "label": "Authority-Relaunch für Ihre Website anfragen",
+      "href": "/contact?source=hub-case-studies-detail",
+      "source_ids": [
+        "src_ivo_live__case_studies_portfolio_authority_relaunch"
+      ]
+    },
+    {
+      "id": "page_a9b7a8a6a038",
+      "type": "Page",
+      "label": "Case study: authority-first portfolio relaunch | ivo-tech",
+      "source_ids": [
+        "src_ivo_live__en_case_studies_portfolio_authority_relaunch"
+      ],
+      "env": "live",
+      "url": "https://ivo-tech.com/en/case-studies/portfolio-authority-relaunch"
+    },
+    {
+      "id": "section_a6752d6bc58b",
+      "type": "Section",
+      "label": "Outcome snapshot",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_case_studies_portfolio_authority_relaunch"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "section_860a99885dbf",
+      "type": "Section",
+      "label": "Case structure: Problem, approach, outcome",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_live__en_case_studies_portfolio_authority_relaunch"
+      ],
+      "env": "live"
+    },
+    {
+      "id": "page_6cc5c5e6fe97",
+      "type": "Page",
+      "label": "ivo-tech | Web Engineering, Delivery-Exzellenz und klare Architektur",
+      "source_ids": [
+        "src_ivo_preview__home"
+      ],
+      "env": "preview",
+      "url": "https://ivo-tech-bcz4r4dcb-ivos-projects-77f7d33c.vercel.app/"
+    },
+    {
+      "id": "section_c491ec313a0d",
+      "type": "Section",
+      "label": "Ich entwickle digitale Produkte und Websysteme, die im Alltag wirklich funktionieren.",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_preview__home"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "section_ec67574f1857",
+      "type": "Section",
+      "label": "proof-bar",
+      "section_type": "proof_bar",
+      "source_ids": [
+        "src_ivo_preview__home"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "trust_cba71e448aa1",
+      "type": "TrustElement",
+      "label": "Trust block",
+      "source_ids": [
+        "src_ivo_preview__home"
+      ]
+    },
+    {
+      "id": "section_64efec39e853",
+      "type": "Section",
+      "label": "Hero-Projekt: 3D-Konfigurator als Tech-Referenz",
+      "section_type": "hero",
+      "source_ids": [
+        "src_ivo_preview__home"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "section_3a79bc98a112",
+      "type": "Section",
+      "label": "Ueber mich",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_preview__home"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "section_87b0f5c69a83",
+      "type": "Section",
+      "label": "Wie ich entscheide und liefere",
+      "section_type": "services",
+      "source_ids": [
+        "src_ivo_preview__home"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "service_5e55c30ec669",
+      "type": "Service",
+      "label": "Wie ich entscheide und liefere",
+      "source_ids": [
+        "src_ivo_preview__home",
+        "src_ivo_preview__contact",
+        "src_ivo_preview__services"
+      ]
+    },
+    {
+      "id": "section_6749c2b853c1",
+      "type": "Section",
+      "label": "Kuratierte Projekte",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_preview__home"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "section_95af11fd1350",
+      "type": "Section",
+      "label": "Engineering Insights",
+      "section_type": "insights",
+      "source_ids": [
+        "src_ivo_preview__home"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "section_7209c8018de6",
+      "type": "Section",
+      "label": "Kontakt",
+      "section_type": "contact",
+      "source_ids": [
+        "src_ivo_preview__home"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "section_1e6b30fdd03f",
+      "type": "Section",
+      "label": "FAQ",
+      "section_type": "faq",
+      "source_ids": [
+        "src_ivo_preview__home"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "section_4766ab6ca79e",
+      "type": "Section",
+      "label": "Welche Deliverables lieferst du typischerweise? +",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_preview__home"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "section_d7422446d986",
+      "type": "Section",
+      "label": "Arbeitest du mit bestehenden Teams und Codebases? +",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_preview__home"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "cta_198ab1f2aa63",
+      "type": "CTA",
+      "label": "Case Study",
+      "href": "#hero-case",
+      "source_ids": [
+        "src_ivo_preview__home",
+        "src_ivo_preview__en",
+        "src_ivo_preview__contact",
+        "src_ivo_preview__services"
+      ]
+    },
+    {
+      "id": "cta_7dbf004b2a13",
+      "type": "CTA",
+      "label": "Kostenloses Erstgespraech anfragen",
+      "href": "#contact",
+      "source_ids": [
+        "src_ivo_preview__home",
+        "src_ivo_preview__contact",
+        "src_ivo_preview__services"
+      ]
+    },
+    {
+      "id": "cta_4840b3514c9e",
+      "type": "CTA",
+      "label": "Case Study ansehen",
+      "href": "/configurator",
+      "source_ids": [
+        "src_ivo_preview__home",
+        "src_ivo_preview__contact",
+        "src_ivo_preview__services"
+      ]
+    },
+    {
+      "id": "page_8230b9a745c9",
+      "type": "Page",
+      "label": "ivo-tech | Web Engineering, Delivery Excellence and Clear Architecture",
+      "source_ids": [
+        "src_ivo_preview__en"
+      ],
+      "env": "preview",
+      "url": "https://ivo-tech-bcz4r4dcb-ivos-projects-77f7d33c.vercel.app/en"
+    },
+    {
+      "id": "section_1626bb3d264c",
+      "type": "Section",
+      "label": "I build digital products and web systems that genuinely work in day-to-day use.",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_preview__en"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "section_098303ebb287",
+      "type": "Section",
+      "label": "proof-bar",
+      "section_type": "proof_bar",
+      "source_ids": [
+        "src_ivo_preview__en"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "trust_55887507349c",
+      "type": "TrustElement",
+      "label": "Trust block",
+      "source_ids": [
+        "src_ivo_preview__en"
+      ]
+    },
+    {
+      "id": "section_ac22041a8459",
+      "type": "Section",
+      "label": "Hero project: 3D configurator as a technical reference",
+      "section_type": "hero",
+      "source_ids": [
+        "src_ivo_preview__en"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "section_539cda66f8c0",
+      "type": "Section",
+      "label": "About me",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_preview__en"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "section_f5f82ddc8336",
+      "type": "Section",
+      "label": "How I decide and deliver",
+      "section_type": "services",
+      "source_ids": [
+        "src_ivo_preview__en"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "service_f934d6572974",
+      "type": "Service",
+      "label": "How I decide and deliver",
+      "source_ids": [
+        "src_ivo_preview__en"
+      ]
+    },
+    {
+      "id": "section_7f103fdb64d4",
+      "type": "Section",
+      "label": "Curated projects",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_preview__en"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "section_e28ffe6a9550",
+      "type": "Section",
+      "label": "Engineering insights",
+      "section_type": "insights",
+      "source_ids": [
+        "src_ivo_preview__en"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "section_a0f6746b64d6",
+      "type": "Section",
+      "label": "Contact",
+      "section_type": "contact",
+      "source_ids": [
+        "src_ivo_preview__en"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "section_79903a163acd",
+      "type": "Section",
+      "label": "FAQ",
+      "section_type": "faq",
+      "source_ids": [
+        "src_ivo_preview__en"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "section_6a66e8ce3401",
+      "type": "Section",
+      "label": "Which deliverables do you usually provide? +",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_preview__en"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "section_38f05aec4e2d",
+      "type": "Section",
+      "label": "Do you work with existing teams and codebases? +",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_preview__en"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "cta_50b4e0d404f9",
+      "type": "CTA",
+      "label": "View case study",
+      "href": "/en/configurator",
+      "source_ids": [
+        "src_ivo_preview__en"
+      ]
+    },
+    {
+      "id": "page_5657ab55f225",
+      "type": "Page",
+      "label": "ivo-tech | Web Engineering, Delivery-Exzellenz und klare Architektur",
+      "source_ids": [
+        "src_ivo_preview__contact"
+      ],
+      "env": "preview",
+      "url": "https://ivo-tech-bcz4r4dcb-ivos-projects-77f7d33c.vercel.app/contact"
+    },
+    {
+      "id": "section_304c28bd79dc",
+      "type": "Section",
+      "label": "Ich entwickle digitale Produkte und Websysteme, die im Alltag wirklich funktionieren.",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_preview__contact"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "section_d9ec0a90da9c",
+      "type": "Section",
+      "label": "proof-bar",
+      "section_type": "proof_bar",
+      "source_ids": [
+        "src_ivo_preview__contact"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "trust_3d7ccf4e464c",
+      "type": "TrustElement",
+      "label": "Trust block",
+      "source_ids": [
+        "src_ivo_preview__contact"
+      ]
+    },
+    {
+      "id": "section_f6b785bc761e",
+      "type": "Section",
+      "label": "Hero-Projekt: 3D-Konfigurator als Tech-Referenz",
+      "section_type": "hero",
+      "source_ids": [
+        "src_ivo_preview__contact"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "section_da414dd9c915",
+      "type": "Section",
+      "label": "Ueber mich",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_preview__contact"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "section_0224569bffe6",
+      "type": "Section",
+      "label": "Wie ich entscheide und liefere",
+      "section_type": "services",
+      "source_ids": [
+        "src_ivo_preview__contact"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "section_6f64c933225a",
+      "type": "Section",
+      "label": "Kuratierte Projekte",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_preview__contact"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "section_798098352087",
+      "type": "Section",
+      "label": "Engineering Insights",
+      "section_type": "insights",
+      "source_ids": [
+        "src_ivo_preview__contact"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "section_2d5f923ebd73",
+      "type": "Section",
+      "label": "Kontakt",
+      "section_type": "contact",
+      "source_ids": [
+        "src_ivo_preview__contact"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "section_8c510aedb4df",
+      "type": "Section",
+      "label": "FAQ",
+      "section_type": "faq",
+      "source_ids": [
+        "src_ivo_preview__contact"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "section_8a3dc12f76fa",
+      "type": "Section",
+      "label": "Welche Deliverables lieferst du typischerweise? +",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_preview__contact"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "section_d45dbb9c6e2d",
+      "type": "Section",
+      "label": "Arbeitest du mit bestehenden Teams und Codebases? +",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_preview__contact"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "page_a16711bce2e8",
+      "type": "Page",
+      "label": "ivo-tech | Web Engineering, Delivery-Exzellenz und klare Architektur",
+      "source_ids": [
+        "src_ivo_preview__services"
+      ],
+      "env": "preview",
+      "url": "https://ivo-tech-bcz4r4dcb-ivos-projects-77f7d33c.vercel.app/services"
+    },
+    {
+      "id": "section_5e25f8541f6a",
+      "type": "Section",
+      "label": "Ich entwickle digitale Produkte und Websysteme, die im Alltag wirklich funktionieren.",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_preview__services"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "section_d1c64efd58de",
+      "type": "Section",
+      "label": "proof-bar",
+      "section_type": "proof_bar",
+      "source_ids": [
+        "src_ivo_preview__services"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "trust_750ef9715065",
+      "type": "TrustElement",
+      "label": "Trust block",
+      "source_ids": [
+        "src_ivo_preview__services"
+      ]
+    },
+    {
+      "id": "section_350b2f8b8e3a",
+      "type": "Section",
+      "label": "Hero-Projekt: 3D-Konfigurator als Tech-Referenz",
+      "section_type": "hero",
+      "source_ids": [
+        "src_ivo_preview__services"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "section_d4bcb3c47d41",
+      "type": "Section",
+      "label": "Ueber mich",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_preview__services"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "section_e6c715bab5e7",
+      "type": "Section",
+      "label": "Wie ich entscheide und liefere",
+      "section_type": "services",
+      "source_ids": [
+        "src_ivo_preview__services"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "section_432f345ddf01",
+      "type": "Section",
+      "label": "Kuratierte Projekte",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_preview__services"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "section_9597795c2566",
+      "type": "Section",
+      "label": "Engineering Insights",
+      "section_type": "insights",
+      "source_ids": [
+        "src_ivo_preview__services"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "section_552267515dbc",
+      "type": "Section",
+      "label": "Kontakt",
+      "section_type": "contact",
+      "source_ids": [
+        "src_ivo_preview__services"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "section_553416fc1bb7",
+      "type": "Section",
+      "label": "FAQ",
+      "section_type": "faq",
+      "source_ids": [
+        "src_ivo_preview__services"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "section_f8fadf5be83d",
+      "type": "Section",
+      "label": "Welche Deliverables lieferst du typischerweise? +",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_preview__services"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "section_0e9dd7693236",
+      "type": "Section",
+      "label": "Arbeitest du mit bestehenden Teams und Codebases? +",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_preview__services"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "page_2f6e95885920",
+      "type": "Page",
+      "label": "Case Studies | ivo-tech",
+      "source_ids": [
+        "src_ivo_preview__case_studies"
+      ],
+      "env": "preview",
+      "url": "https://ivo-tech-bcz4r4dcb-ivos-projects-77f7d33c.vercel.app/case-studies"
+    },
+    {
+      "id": "section_5441287b4c12",
+      "type": "Section",
+      "label": "Case Studies",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_preview__case_studies"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "page_539b1fc351c0",
+      "type": "Page",
+      "label": "Engineering Insights | ivo-tech",
+      "source_ids": [
+        "src_ivo_preview__insights"
+      ],
+      "env": "preview",
+      "url": "https://ivo-tech-bcz4r4dcb-ivos-projects-77f7d33c.vercel.app/insights"
+    },
+    {
+      "id": "section_acaf6d7c6e77",
+      "type": "Section",
+      "label": "Engineering Insights",
+      "section_type": "insights",
+      "source_ids": [
+        "src_ivo_preview__insights"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "page_b3d8b2e4edbe",
+      "type": "Page",
+      "label": "Engineering Playbooks | ivo-tech",
+      "source_ids": [
+        "src_ivo_preview__playbooks"
+      ],
+      "env": "preview",
+      "url": "https://ivo-tech-bcz4r4dcb-ivos-projects-77f7d33c.vercel.app/playbooks"
+    },
+    {
+      "id": "section_22668f45bfa8",
+      "type": "Section",
+      "label": "Engineering Playbooks",
+      "section_type": "other",
+      "source_ids": [
+        "src_ivo_preview__playbooks"
+      ],
+      "env": "preview"
+    },
+    {
+      "id": "ref_ca9b477c3c25",
+      "type": "Reference",
+      "label": "Vercel: Build and deploy the best web experiences with the AI Cloud",
+      "source_ids": [
+        "src_benchmark__vercel_com"
+      ],
+      "collection_id": "b2b_homepage_references",
+      "score": 10,
+      "url": "https://vercel.com/"
+    },
+    {
+      "id": "ref_c2efa1061639",
+      "type": "Reference",
+      "label": "Linear – The system for product development",
+      "source_ids": [
+        "src_benchmark__linear_app"
+      ],
+      "collection_id": "b2b_homepage_references",
+      "score": 10,
+      "url": "https://linear.app/"
+    },
+    {
+      "id": "ref_74c5a6c13189",
+      "type": "Reference",
+      "label": "Webflow: Create a custom website | Visual website builder",
+      "source_ids": [
+        "src_benchmark__www_webflow_com"
+      ],
+      "collection_id": "b2b_homepage_references",
+      "score": 10,
+      "url": "https://www.webflow.com/"
+    },
+    {
+      "id": "ref_5888c26f846e",
+      "type": "Reference",
+      "label": "Framer: Create a professional website, free. No code website builder loved by designers.",
+      "source_ids": [
+        "src_benchmark__www_framer_com"
+      ],
+      "collection_id": "b2b_homepage_references",
+      "score": 10,
+      "url": "https://www.framer.com/"
+    },
+    {
+      "id": "ref_59d535a4428f",
+      "type": "Reference",
+      "label": "Shopify: The All-in-One Commerce Platform for Businesses - Shopify",
+      "source_ids": [
+        "src_benchmark__www_shopify_com"
+      ],
+      "collection_id": "b2b_homepage_references",
+      "score": 10,
+      "url": "https://www.shopify.com/"
+    },
+    {
+      "id": "ref_d88af2e66da3",
+      "type": "Reference",
+      "label": "OpenAI logo",
+      "source_ids": [
+        "src_benchmark__supabase_com"
+      ],
+      "collection_id": "b2b_homepage_references",
+      "score": 9,
+      "url": "https://supabase.com/"
+    },
+    {
+      "id": "ref_06a23127d968",
+      "type": "Reference",
+      "label": "Online-Bezahldienst und Zahlungsdienstleister | Stripe",
+      "source_ids": [
+        "src_benchmark__stripe_com"
+      ],
+      "collection_id": "b2b_homepage_references",
+      "score": 9,
+      "url": "https://stripe.com/"
+    },
+    {
+      "id": "ref_4bad20c5aae4",
+      "type": "Reference",
+      "label": "The AI workspace that works for you. | Notion",
+      "source_ids": [
+        "src_benchmark__www_notion_com"
+      ],
+      "collection_id": "b2b_homepage_references",
+      "score": 9,
+      "url": "https://www.notion.com/"
+    },
+    {
+      "id": "ref_eb5fe9ac06f8",
+      "type": "Reference",
+      "label": "https://tailwindui.com/components",
+      "source_ids": [
+        "src_benchmark__tailwindui_com_components"
+      ],
+      "collection_id": "ui_component_sources",
+      "score": 8,
+      "url": "https://tailwindui.com/components"
+    },
+    {
+      "id": "ref_0730ca7c3644",
+      "type": "Reference",
+      "label": "https://www.aceternity.com/components",
+      "source_ids": [
+        "src_benchmark__www_aceternity_com_components"
+      ],
+      "collection_id": "ui_component_sources",
+      "score": 7,
+      "url": "https://www.aceternity.com/components"
+    },
+    {
+      "id": "ref_6a382db6fb36",
+      "type": "Reference",
+      "label": "Landing Page Design Examples: 7,300+ Best Landing Pages | Lapa Ninja",
+      "source_ids": [
+        "src_benchmark__www_lapa_ninja"
+      ],
+      "collection_id": "showcase_and_pattern_sources",
+      "score": 6,
+      "url": "https://www.lapa.ninja/"
+    },
+    {
+      "id": "ref_142f35c742ff",
+      "type": "Reference",
+      "label": "Free Tailwind CSS v4 Components | HyperUI",
+      "source_ids": [
+        "src_benchmark__www_hyperui_dev"
+      ],
+      "collection_id": "ui_component_sources",
+      "score": 4,
+      "url": "https://www.hyperui.dev/"
+    },
+    {
+      "id": "ref_8215b7e096e7",
+      "type": "Reference",
+      "label": "Godly - Astronomically good web design inspiration",
+      "source_ids": [
+        "src_benchmark__godly_website"
+      ],
+      "collection_id": "showcase_and_pattern_sources",
+      "score": 3,
+      "url": "https://godly.website/"
+    },
+    {
+      "id": "ref_be496d8be7bc",
+      "type": "Reference",
+      "label": "The Foundation for your Design System - shadcn/ui",
+      "source_ids": [
+        "src_benchmark__ui_shadcn_com"
+      ],
+      "collection_id": "ui_component_sources",
+      "score": 3,
+      "url": "https://ui.shadcn.com/"
+    },
+    {
+      "id": "ref_554d558a785d",
+      "type": "Reference",
+      "label": "Radix UI",
+      "source_ids": [
+        "src_benchmark__www_radix_ui_com"
+      ],
+      "collection_id": "ui_component_sources",
+      "score": 3,
+      "url": "https://www.radix-ui.com/"
+    }
+  ],
+  "edges": [
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_8fb9917b8392",
+      "source_ids": [
+        "src_ivo_live__home"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_8a11108ec9ea",
+      "relation": "BELONGS_TO",
+      "to": "page_8fb9917b8392",
+      "source_ids": [
+        "src_ivo_live__home"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_4137580df554",
+      "relation": "BELONGS_TO",
+      "to": "page_8fb9917b8392",
+      "source_ids": [
+        "src_ivo_live__home"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_ede392761d07",
+      "relation": "BELONGS_TO",
+      "to": "page_8fb9917b8392",
+      "source_ids": [
+        "src_ivo_live__home"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "trust_b39c1b69b1b4",
+      "relation": "STRENGTHENS_TRUST_FOR",
+      "to": "service_web_engineering",
+      "source_ids": [
+        "src_ivo_live__home"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "from": "trust_b39c1b69b1b4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "section_ede392761d07",
+      "source_ids": [
+        "src_ivo_live__home"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_5ef2b3c50880",
+      "relation": "BELONGS_TO",
+      "to": "page_8fb9917b8392",
+      "source_ids": [
+        "src_ivo_live__home"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "service_821dea75f1b9",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "section_5ef2b3c50880",
+      "source_ids": [
+        "src_ivo_live__home"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "from": "section_92dd562757cc",
+      "relation": "BELONGS_TO",
+      "to": "page_8fb9917b8392",
+      "source_ids": [
+        "src_ivo_live__home"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_f2c42707fc31",
+      "relation": "BELONGS_TO",
+      "to": "page_8fb9917b8392",
+      "source_ids": [
+        "src_ivo_live__home"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "trust_32cb7c5e58c4",
+      "relation": "STRENGTHENS_TRUST_FOR",
+      "to": "service_web_engineering",
+      "source_ids": [
+        "src_ivo_live__home"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "from": "trust_32cb7c5e58c4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "section_f2c42707fc31",
+      "source_ids": [
+        "src_ivo_live__home"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_a0953c875e2f",
+      "relation": "BELONGS_TO",
+      "to": "page_8fb9917b8392",
+      "source_ids": [
+        "src_ivo_live__home"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_70ec3a2a0766",
+      "relation": "BELONGS_TO",
+      "to": "page_8fb9917b8392",
+      "source_ids": [
+        "src_ivo_live__home"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_148bacabcaa7",
+      "relation": "BELONGS_TO",
+      "to": "page_8fb9917b8392",
+      "source_ids": [
+        "src_ivo_live__home"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "cta_c7f588235eb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_8fb9917b8392",
+      "source_ids": [
+        "src_ivo_live__home"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_77ec37707fe0",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_8fb9917b8392",
+      "source_ids": [
+        "src_ivo_live__home"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_e00d253a51d9",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_8fb9917b8392",
+      "source_ids": [
+        "src_ivo_live__home"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_09a89c322569",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_8fb9917b8392",
+      "source_ids": [
+        "src_ivo_live__home"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_de0a1fdfd356",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_8fb9917b8392",
+      "source_ids": [
+        "src_ivo_live__home"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_9dcbc0ab8312",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_8fb9917b8392",
+      "source_ids": [
+        "src_ivo_live__home"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "faq_785e237bc2bb",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_8fb9917b8392",
+      "source_ids": [
+        "src_ivo_live__home"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "from": "faq_16aeeca5c203",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_8fb9917b8392",
+      "source_ids": [
+        "src_ivo_live__home"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "from": "faq_c85b4ecf686b",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_8fb9917b8392",
+      "source_ids": [
+        "src_ivo_live__home"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_8fcf8271f38d",
+      "source_ids": [
+        "src_ivo_live__en"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_d1c06a91085f",
+      "relation": "BELONGS_TO",
+      "to": "page_8fcf8271f38d",
+      "source_ids": [
+        "src_ivo_live__en"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_0b3f4f505daf",
+      "relation": "BELONGS_TO",
+      "to": "page_8fcf8271f38d",
+      "source_ids": [
+        "src_ivo_live__en"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_a39dd03bf0e4",
+      "relation": "BELONGS_TO",
+      "to": "page_8fcf8271f38d",
+      "source_ids": [
+        "src_ivo_live__en"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "trust_73113d462a3a",
+      "relation": "STRENGTHENS_TRUST_FOR",
+      "to": "service_web_engineering",
+      "source_ids": [
+        "src_ivo_live__en"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "from": "trust_73113d462a3a",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "section_a39dd03bf0e4",
+      "source_ids": [
+        "src_ivo_live__en"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_1efc0e7be8a0",
+      "relation": "BELONGS_TO",
+      "to": "page_8fcf8271f38d",
+      "source_ids": [
+        "src_ivo_live__en"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "service_b61fdfe2c5b4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "section_1efc0e7be8a0",
+      "source_ids": [
+        "src_ivo_live__en"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "from": "section_4881d3fd8889",
+      "relation": "BELONGS_TO",
+      "to": "page_8fcf8271f38d",
+      "source_ids": [
+        "src_ivo_live__en"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_9e03c8194070",
+      "relation": "BELONGS_TO",
+      "to": "page_8fcf8271f38d",
+      "source_ids": [
+        "src_ivo_live__en"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "trust_91815feb7bb3",
+      "relation": "STRENGTHENS_TRUST_FOR",
+      "to": "service_web_engineering",
+      "source_ids": [
+        "src_ivo_live__en"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "from": "trust_91815feb7bb3",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "section_9e03c8194070",
+      "source_ids": [
+        "src_ivo_live__en"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_56b420fa0606",
+      "relation": "BELONGS_TO",
+      "to": "page_8fcf8271f38d",
+      "source_ids": [
+        "src_ivo_live__en"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_d9ec5ab15a0e",
+      "relation": "BELONGS_TO",
+      "to": "page_8fcf8271f38d",
+      "source_ids": [
+        "src_ivo_live__en"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_3fa0b5d3b73a",
+      "relation": "BELONGS_TO",
+      "to": "page_8fcf8271f38d",
+      "source_ids": [
+        "src_ivo_live__en"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "cta_fb7bfaa4a8fc",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_8fcf8271f38d",
+      "source_ids": [
+        "src_ivo_live__en"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "faq_afe853307e6c",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_8fcf8271f38d",
+      "source_ids": [
+        "src_ivo_live__en"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "from": "faq_41706a07c46d",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_8fcf8271f38d",
+      "source_ids": [
+        "src_ivo_live__en"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "from": "faq_e056a2be2ec0",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_8fcf8271f38d",
+      "source_ids": [
+        "src_ivo_live__en"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_3c7b11b9de20",
+      "source_ids": [
+        "src_ivo_live__configurator"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_a9b14339bfd4",
+      "relation": "BELONGS_TO",
+      "to": "page_3c7b11b9de20",
+      "source_ids": [
+        "src_ivo_live__configurator"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "trust_d0d34d376ad2",
+      "relation": "STRENGTHENS_TRUST_FOR",
+      "to": "service_web_engineering",
+      "source_ids": [
+        "src_ivo_live__configurator"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "from": "trust_d0d34d376ad2",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "section_a9b14339bfd4",
+      "source_ids": [
+        "src_ivo_live__configurator"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_8399cfcbe530",
+      "relation": "BELONGS_TO",
+      "to": "page_3c7b11b9de20",
+      "source_ids": [
+        "src_ivo_live__configurator"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "cta_c6d69db425b3",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_3c7b11b9de20",
+      "source_ids": [
+        "src_ivo_live__configurator"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_c7f588235eb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_3c7b11b9de20",
+      "source_ids": [
+        "src_ivo_live__configurator"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_dd2e4f447dee",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_3c7b11b9de20",
+      "source_ids": [
+        "src_ivo_live__configurator"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_fa3fb814314f",
+      "source_ids": [
+        "src_ivo_live__en_configurator"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_19324df55d60",
+      "relation": "BELONGS_TO",
+      "to": "page_fa3fb814314f",
+      "source_ids": [
+        "src_ivo_live__en_configurator"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_cfd4dc2280c5",
+      "relation": "BELONGS_TO",
+      "to": "page_fa3fb814314f",
+      "source_ids": [
+        "src_ivo_live__en_configurator"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "cta_c6d69db425b3",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_fa3fb814314f",
+      "source_ids": [
+        "src_ivo_live__en_configurator"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_09514e0f6eae",
+      "source_ids": [
+        "src_ivo_live__insights"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_cb397e9c6db7",
+      "relation": "BELONGS_TO",
+      "to": "page_09514e0f6eae",
+      "source_ids": [
+        "src_ivo_live__insights"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "cta_c7f588235eb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_09514e0f6eae",
+      "source_ids": [
+        "src_ivo_live__insights"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_b3f5b932beb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_09514e0f6eae",
+      "source_ids": [
+        "src_ivo_live__insights"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_897973f0b818",
+      "source_ids": [
+        "src_ivo_live__en_insights"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_0a901e745850",
+      "relation": "BELONGS_TO",
+      "to": "page_897973f0b818",
+      "source_ids": [
+        "src_ivo_live__en_insights"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_eaef702ffed0",
+      "source_ids": [
+        "src_ivo_live__about"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_1970eeefa7da",
+      "relation": "BELONGS_TO",
+      "to": "page_eaef702ffed0",
+      "source_ids": [
+        "src_ivo_live__about"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_9619a117daad",
+      "relation": "BELONGS_TO",
+      "to": "page_eaef702ffed0",
+      "source_ids": [
+        "src_ivo_live__about"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_23a2499eb424",
+      "relation": "BELONGS_TO",
+      "to": "page_eaef702ffed0",
+      "source_ids": [
+        "src_ivo_live__about"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_205570b70575",
+      "relation": "BELONGS_TO",
+      "to": "page_eaef702ffed0",
+      "source_ids": [
+        "src_ivo_live__about"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "trust_689974787f6b",
+      "relation": "STRENGTHENS_TRUST_FOR",
+      "to": "service_web_engineering",
+      "source_ids": [
+        "src_ivo_live__about"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "from": "trust_689974787f6b",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "section_205570b70575",
+      "source_ids": [
+        "src_ivo_live__about"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_33c422bdc1b0",
+      "relation": "BELONGS_TO",
+      "to": "page_eaef702ffed0",
+      "source_ids": [
+        "src_ivo_live__about"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "trust_22d903458879",
+      "relation": "STRENGTHENS_TRUST_FOR",
+      "to": "service_web_engineering",
+      "source_ids": [
+        "src_ivo_live__about"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "from": "trust_22d903458879",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "section_33c422bdc1b0",
+      "source_ids": [
+        "src_ivo_live__about"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "cta_c7f588235eb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_eaef702ffed0",
+      "source_ids": [
+        "src_ivo_live__about"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_b3f5b932beb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_eaef702ffed0",
+      "source_ids": [
+        "src_ivo_live__about"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_cf1bc108482c",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_eaef702ffed0",
+      "source_ids": [
+        "src_ivo_live__about"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_aa4036e87e09",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_eaef702ffed0",
+      "source_ids": [
+        "src_ivo_live__about"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_cf02e72511ed",
+      "source_ids": [
+        "src_ivo_live__en_about"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_b31b3d27822d",
+      "relation": "BELONGS_TO",
+      "to": "page_cf02e72511ed",
+      "source_ids": [
+        "src_ivo_live__en_about"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_efcab6a842ce",
+      "relation": "BELONGS_TO",
+      "to": "page_cf02e72511ed",
+      "source_ids": [
+        "src_ivo_live__en_about"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_4fb0424e9187",
+      "relation": "BELONGS_TO",
+      "to": "page_cf02e72511ed",
+      "source_ids": [
+        "src_ivo_live__en_about"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_ab72564d05fe",
+      "relation": "BELONGS_TO",
+      "to": "page_cf02e72511ed",
+      "source_ids": [
+        "src_ivo_live__en_about"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "trust_8cf637157ef9",
+      "relation": "STRENGTHENS_TRUST_FOR",
+      "to": "service_web_engineering",
+      "source_ids": [
+        "src_ivo_live__en_about"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "from": "trust_8cf637157ef9",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "section_ab72564d05fe",
+      "source_ids": [
+        "src_ivo_live__en_about"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_ca9575353640",
+      "relation": "BELONGS_TO",
+      "to": "page_cf02e72511ed",
+      "source_ids": [
+        "src_ivo_live__en_about"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "cta_6fc1f72a563a",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_cf02e72511ed",
+      "source_ids": [
+        "src_ivo_live__en_about"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_5302e1f567c6",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_cf02e72511ed",
+      "source_ids": [
+        "src_ivo_live__en_about"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_7464018577c6",
+      "source_ids": [
+        "src_ivo_live__projects"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_1495c9962629",
+      "relation": "BELONGS_TO",
+      "to": "page_7464018577c6",
+      "source_ids": [
+        "src_ivo_live__projects"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_fffa53706d63",
+      "relation": "BELONGS_TO",
+      "to": "page_7464018577c6",
+      "source_ids": [
+        "src_ivo_live__projects"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_8cf47fc1e68d",
+      "relation": "BELONGS_TO",
+      "to": "page_7464018577c6",
+      "source_ids": [
+        "src_ivo_live__projects"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "cta_c7f588235eb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_7464018577c6",
+      "source_ids": [
+        "src_ivo_live__projects"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_b3f5b932beb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_7464018577c6",
+      "source_ids": [
+        "src_ivo_live__projects"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_cf1bc108482c",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_7464018577c6",
+      "source_ids": [
+        "src_ivo_live__projects"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_aa4036e87e09",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_7464018577c6",
+      "source_ids": [
+        "src_ivo_live__projects"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_e05ebbac105c",
+      "source_ids": [
+        "src_ivo_live__en_projects"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_604da8581cc4",
+      "relation": "BELONGS_TO",
+      "to": "page_e05ebbac105c",
+      "source_ids": [
+        "src_ivo_live__en_projects"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_64f648cb524b",
+      "relation": "BELONGS_TO",
+      "to": "page_e05ebbac105c",
+      "source_ids": [
+        "src_ivo_live__en_projects"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_1e08e2a4f1d6",
+      "relation": "BELONGS_TO",
+      "to": "page_e05ebbac105c",
+      "source_ids": [
+        "src_ivo_live__en_projects"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "cta_5302e1f567c6",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_e05ebbac105c",
+      "source_ids": [
+        "src_ivo_live__en_projects"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_9f48cee922ef",
+      "source_ids": [
+        "src_ivo_live__maker_lab"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_b9c1a5261fb8",
+      "relation": "BELONGS_TO",
+      "to": "page_9f48cee922ef",
+      "source_ids": [
+        "src_ivo_live__maker_lab"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_6fe5da7e5be5",
+      "relation": "BELONGS_TO",
+      "to": "page_9f48cee922ef",
+      "source_ids": [
+        "src_ivo_live__maker_lab"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_f5266421d606",
+      "relation": "BELONGS_TO",
+      "to": "page_9f48cee922ef",
+      "source_ids": [
+        "src_ivo_live__maker_lab"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_b202e80d6e5e",
+      "relation": "BELONGS_TO",
+      "to": "page_9f48cee922ef",
+      "source_ids": [
+        "src_ivo_live__maker_lab"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "cta_c7f588235eb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_9f48cee922ef",
+      "source_ids": [
+        "src_ivo_live__maker_lab"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_b3f5b932beb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_9f48cee922ef",
+      "source_ids": [
+        "src_ivo_live__maker_lab"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_1fd15e636e49",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_9f48cee922ef",
+      "source_ids": [
+        "src_ivo_live__maker_lab"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_cf1bc108482c",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_9f48cee922ef",
+      "source_ids": [
+        "src_ivo_live__maker_lab"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_aa4036e87e09",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_9f48cee922ef",
+      "source_ids": [
+        "src_ivo_live__maker_lab"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_5781ad33f63f",
+      "source_ids": [
+        "src_ivo_live__en_maker_lab"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_cf77f9cc56ba",
+      "relation": "BELONGS_TO",
+      "to": "page_5781ad33f63f",
+      "source_ids": [
+        "src_ivo_live__en_maker_lab"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_07ed22ec72f6",
+      "relation": "BELONGS_TO",
+      "to": "page_5781ad33f63f",
+      "source_ids": [
+        "src_ivo_live__en_maker_lab"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_83185fa2f1e2",
+      "relation": "BELONGS_TO",
+      "to": "page_5781ad33f63f",
+      "source_ids": [
+        "src_ivo_live__en_maker_lab"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_c87ee14eb572",
+      "relation": "BELONGS_TO",
+      "to": "page_5781ad33f63f",
+      "source_ids": [
+        "src_ivo_live__en_maker_lab"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "cta_5302e1f567c6",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_5781ad33f63f",
+      "source_ids": [
+        "src_ivo_live__en_maker_lab"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_3680fdbe9e08",
+      "source_ids": [
+        "src_ivo_live__contact"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_23f5f6a36e3b",
+      "relation": "BELONGS_TO",
+      "to": "page_3680fdbe9e08",
+      "source_ids": [
+        "src_ivo_live__contact"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_6c0e37e01832",
+      "relation": "BELONGS_TO",
+      "to": "page_3680fdbe9e08",
+      "source_ids": [
+        "src_ivo_live__contact"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "cta_c7f588235eb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_3680fdbe9e08",
+      "source_ids": [
+        "src_ivo_live__contact"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_b3f5b932beb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_3680fdbe9e08",
+      "source_ids": [
+        "src_ivo_live__contact"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_fe62502dee71",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_3680fdbe9e08",
+      "source_ids": [
+        "src_ivo_live__contact"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_aa4036e87e09",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_3680fdbe9e08",
+      "source_ids": [
+        "src_ivo_live__contact"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_2fd6add99930",
+      "source_ids": [
+        "src_ivo_live__en_contact"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_c95ce76f8708",
+      "relation": "BELONGS_TO",
+      "to": "page_2fd6add99930",
+      "source_ids": [
+        "src_ivo_live__en_contact"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_d901f996e644",
+      "relation": "BELONGS_TO",
+      "to": "page_2fd6add99930",
+      "source_ids": [
+        "src_ivo_live__en_contact"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_866a139915fe",
+      "source_ids": [
+        "src_ivo_live__playbooks"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_1934af3684bc",
+      "relation": "BELONGS_TO",
+      "to": "page_866a139915fe",
+      "source_ids": [
+        "src_ivo_live__playbooks"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "cta_c7f588235eb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_866a139915fe",
+      "source_ids": [
+        "src_ivo_live__playbooks"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_b3f5b932beb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_866a139915fe",
+      "source_ids": [
+        "src_ivo_live__playbooks"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_4d029b5bafa9",
+      "source_ids": [
+        "src_ivo_live__en_playbooks"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_0b33d7090fae",
+      "relation": "BELONGS_TO",
+      "to": "page_4d029b5bafa9",
+      "source_ids": [
+        "src_ivo_live__en_playbooks"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_946b5027fa72",
+      "source_ids": [
+        "src_ivo_live__case_studies"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_da386cdf4ba9",
+      "relation": "BELONGS_TO",
+      "to": "page_946b5027fa72",
+      "source_ids": [
+        "src_ivo_live__case_studies"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "cta_c7f588235eb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_946b5027fa72",
+      "source_ids": [
+        "src_ivo_live__case_studies"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_b3f5b932beb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_946b5027fa72",
+      "source_ids": [
+        "src_ivo_live__case_studies"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_cf1bc108482c",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_946b5027fa72",
+      "source_ids": [
+        "src_ivo_live__case_studies"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_0966e84aa6df",
+      "source_ids": [
+        "src_ivo_live__en_case_studies"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_1a0edb11b364",
+      "relation": "BELONGS_TO",
+      "to": "page_0966e84aa6df",
+      "source_ids": [
+        "src_ivo_live__en_case_studies"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "cta_5302e1f567c6",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_0966e84aa6df",
+      "source_ids": [
+        "src_ivo_live__en_case_studies"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_b2af331b3307",
+      "source_ids": [
+        "src_ivo_live__leistungen"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_4d9446713551",
+      "relation": "BELONGS_TO",
+      "to": "page_b2af331b3307",
+      "source_ids": [
+        "src_ivo_live__leistungen"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "service_81a719556f6c",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "section_4d9446713551",
+      "source_ids": [
+        "src_ivo_live__leistungen"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "from": "section_473a47942756",
+      "relation": "BELONGS_TO",
+      "to": "page_b2af331b3307",
+      "source_ids": [
+        "src_ivo_live__leistungen"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_80bf8d18adf8",
+      "relation": "BELONGS_TO",
+      "to": "page_b2af331b3307",
+      "source_ids": [
+        "src_ivo_live__leistungen"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_5aa8da899589",
+      "relation": "BELONGS_TO",
+      "to": "page_b2af331b3307",
+      "source_ids": [
+        "src_ivo_live__leistungen"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "cta_c7f588235eb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_b2af331b3307",
+      "source_ids": [
+        "src_ivo_live__leistungen"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_2588ddc9c80b",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_b2af331b3307",
+      "source_ids": [
+        "src_ivo_live__leistungen"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_d587096fbccb",
+      "source_ids": [
+        "src_ivo_live__en_services"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_a3490106e59c",
+      "relation": "BELONGS_TO",
+      "to": "page_d587096fbccb",
+      "source_ids": [
+        "src_ivo_live__en_services"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "service_bfea7505a40a",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "section_a3490106e59c",
+      "source_ids": [
+        "src_ivo_live__en_services"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "from": "section_5793ab776c56",
+      "relation": "BELONGS_TO",
+      "to": "page_d587096fbccb",
+      "source_ids": [
+        "src_ivo_live__en_services"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_09c890e41a67",
+      "relation": "BELONGS_TO",
+      "to": "page_d587096fbccb",
+      "source_ids": [
+        "src_ivo_live__en_services"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_abc68fc1408e",
+      "relation": "BELONGS_TO",
+      "to": "page_d587096fbccb",
+      "source_ids": [
+        "src_ivo_live__en_services"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_b2aacca93ab3",
+      "source_ids": [
+        "src_ivo_live__impressum"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_2a5731820888",
+      "relation": "BELONGS_TO",
+      "to": "page_b2aacca93ab3",
+      "source_ids": [
+        "src_ivo_live__impressum"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_0d912f26ce0a",
+      "relation": "BELONGS_TO",
+      "to": "page_b2aacca93ab3",
+      "source_ids": [
+        "src_ivo_live__impressum"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_94e41e34913d",
+      "relation": "BELONGS_TO",
+      "to": "page_b2aacca93ab3",
+      "source_ids": [
+        "src_ivo_live__impressum"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_3c520791740d",
+      "relation": "BELONGS_TO",
+      "to": "page_b2aacca93ab3",
+      "source_ids": [
+        "src_ivo_live__impressum"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_c011434b14f1",
+      "source_ids": [
+        "src_ivo_live__en_legal"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_6d0fdf155724",
+      "relation": "BELONGS_TO",
+      "to": "page_c011434b14f1",
+      "source_ids": [
+        "src_ivo_live__en_legal"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_8bff566f7de6",
+      "relation": "BELONGS_TO",
+      "to": "page_c011434b14f1",
+      "source_ids": [
+        "src_ivo_live__en_legal"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_76a130e95cee",
+      "relation": "BELONGS_TO",
+      "to": "page_c011434b14f1",
+      "source_ids": [
+        "src_ivo_live__en_legal"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_74f4f521bc3d",
+      "source_ids": [
+        "src_ivo_live__datenschutz"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_d7322e439c6b",
+      "relation": "BELONGS_TO",
+      "to": "page_74f4f521bc3d",
+      "source_ids": [
+        "src_ivo_live__datenschutz"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_31ae5a8de53d",
+      "relation": "BELONGS_TO",
+      "to": "page_74f4f521bc3d",
+      "source_ids": [
+        "src_ivo_live__datenschutz"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_b2be71536a13",
+      "relation": "BELONGS_TO",
+      "to": "page_74f4f521bc3d",
+      "source_ids": [
+        "src_ivo_live__datenschutz"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_6c4fc1f93bc7",
+      "relation": "BELONGS_TO",
+      "to": "page_74f4f521bc3d",
+      "source_ids": [
+        "src_ivo_live__datenschutz"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_91a56358d470",
+      "relation": "BELONGS_TO",
+      "to": "page_74f4f521bc3d",
+      "source_ids": [
+        "src_ivo_live__datenschutz"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_7a1a1686321b",
+      "relation": "BELONGS_TO",
+      "to": "page_74f4f521bc3d",
+      "source_ids": [
+        "src_ivo_live__datenschutz"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_facbd43a6bb9",
+      "source_ids": [
+        "src_ivo_live__en_privacy"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_1ca420b7765b",
+      "relation": "BELONGS_TO",
+      "to": "page_facbd43a6bb9",
+      "source_ids": [
+        "src_ivo_live__en_privacy"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_48f07664d12c",
+      "relation": "BELONGS_TO",
+      "to": "page_facbd43a6bb9",
+      "source_ids": [
+        "src_ivo_live__en_privacy"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_5c15da8f9f37",
+      "relation": "BELONGS_TO",
+      "to": "page_facbd43a6bb9",
+      "source_ids": [
+        "src_ivo_live__en_privacy"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_c50bfbf60d7d",
+      "relation": "BELONGS_TO",
+      "to": "page_facbd43a6bb9",
+      "source_ids": [
+        "src_ivo_live__en_privacy"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_4101c0b361fb",
+      "source_ids": [
+        "src_ivo_live__leistungen_web_engineering_delivery"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_f125f8c789c9",
+      "relation": "BELONGS_TO",
+      "to": "page_4101c0b361fb",
+      "source_ids": [
+        "src_ivo_live__leistungen_web_engineering_delivery"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_da045bbb74c4",
+      "relation": "BELONGS_TO",
+      "to": "page_4101c0b361fb",
+      "source_ids": [
+        "src_ivo_live__leistungen_web_engineering_delivery"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_d321c7ac74fd",
+      "relation": "BELONGS_TO",
+      "to": "page_4101c0b361fb",
+      "source_ids": [
+        "src_ivo_live__leistungen_web_engineering_delivery"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_7c25b8c99d1c",
+      "relation": "BELONGS_TO",
+      "to": "page_4101c0b361fb",
+      "source_ids": [
+        "src_ivo_live__leistungen_web_engineering_delivery"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_e7436954d543",
+      "relation": "BELONGS_TO",
+      "to": "page_4101c0b361fb",
+      "source_ids": [
+        "src_ivo_live__leistungen_web_engineering_delivery"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_c8f86b8dd3d0",
+      "relation": "BELONGS_TO",
+      "to": "page_4101c0b361fb",
+      "source_ids": [
+        "src_ivo_live__leistungen_web_engineering_delivery"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_4d814a06b301",
+      "relation": "BELONGS_TO",
+      "to": "page_4101c0b361fb",
+      "source_ids": [
+        "src_ivo_live__leistungen_web_engineering_delivery"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_0bf2a0dae3a4",
+      "relation": "BELONGS_TO",
+      "to": "page_4101c0b361fb",
+      "source_ids": [
+        "src_ivo_live__leistungen_web_engineering_delivery"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "cta_c7f588235eb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_4101c0b361fb",
+      "source_ids": [
+        "src_ivo_live__leistungen_web_engineering_delivery"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_59deddbcd048",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_4101c0b361fb",
+      "source_ids": [
+        "src_ivo_live__leistungen_web_engineering_delivery"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "faq_859071f9c122",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_4101c0b361fb",
+      "source_ids": [
+        "src_ivo_live__leistungen_web_engineering_delivery"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "from": "faq_7785c4f59ee1",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_4101c0b361fb",
+      "source_ids": [
+        "src_ivo_live__leistungen_web_engineering_delivery"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "from": "faq_44bce9f08184",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_4101c0b361fb",
+      "source_ids": [
+        "src_ivo_live__leistungen_web_engineering_delivery"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_cee74e92b895",
+      "source_ids": [
+        "src_ivo_live__en_services_web_engineering_delivery"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_0ec95ce25186",
+      "relation": "BELONGS_TO",
+      "to": "page_cee74e92b895",
+      "source_ids": [
+        "src_ivo_live__en_services_web_engineering_delivery"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_40d5b7ce9a34",
+      "relation": "BELONGS_TO",
+      "to": "page_cee74e92b895",
+      "source_ids": [
+        "src_ivo_live__en_services_web_engineering_delivery"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_c892e2e551fa",
+      "relation": "BELONGS_TO",
+      "to": "page_cee74e92b895",
+      "source_ids": [
+        "src_ivo_live__en_services_web_engineering_delivery"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_22d9c5df5d10",
+      "relation": "BELONGS_TO",
+      "to": "page_cee74e92b895",
+      "source_ids": [
+        "src_ivo_live__en_services_web_engineering_delivery"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_86cd382866f5",
+      "relation": "BELONGS_TO",
+      "to": "page_cee74e92b895",
+      "source_ids": [
+        "src_ivo_live__en_services_web_engineering_delivery"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_136fb25cb1ef",
+      "relation": "BELONGS_TO",
+      "to": "page_cee74e92b895",
+      "source_ids": [
+        "src_ivo_live__en_services_web_engineering_delivery"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_2f5cde26df79",
+      "relation": "BELONGS_TO",
+      "to": "page_cee74e92b895",
+      "source_ids": [
+        "src_ivo_live__en_services_web_engineering_delivery"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_d3d5451caa9d",
+      "relation": "BELONGS_TO",
+      "to": "page_cee74e92b895",
+      "source_ids": [
+        "src_ivo_live__en_services_web_engineering_delivery"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "cta_f310f7fb09d4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_cee74e92b895",
+      "source_ids": [
+        "src_ivo_live__en_services_web_engineering_delivery"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "faq_2694b0fc2b39",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_cee74e92b895",
+      "source_ids": [
+        "src_ivo_live__en_services_web_engineering_delivery"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "from": "faq_6144d223c6e2",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_cee74e92b895",
+      "source_ids": [
+        "src_ivo_live__en_services_web_engineering_delivery"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "from": "faq_09edd456d4d9",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_cee74e92b895",
+      "source_ids": [
+        "src_ivo_live__en_services_web_engineering_delivery"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_3fde2ae22a43",
+      "source_ids": [
+        "src_ivo_live__leistungen_ai_automation_workflows"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_09d48e69c7e7",
+      "relation": "BELONGS_TO",
+      "to": "page_3fde2ae22a43",
+      "source_ids": [
+        "src_ivo_live__leistungen_ai_automation_workflows"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_db0bde9a7cee",
+      "relation": "BELONGS_TO",
+      "to": "page_3fde2ae22a43",
+      "source_ids": [
+        "src_ivo_live__leistungen_ai_automation_workflows"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_10816b845128",
+      "relation": "BELONGS_TO",
+      "to": "page_3fde2ae22a43",
+      "source_ids": [
+        "src_ivo_live__leistungen_ai_automation_workflows"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_a8fae72a3fce",
+      "relation": "BELONGS_TO",
+      "to": "page_3fde2ae22a43",
+      "source_ids": [
+        "src_ivo_live__leistungen_ai_automation_workflows"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_c6388ec595a6",
+      "relation": "BELONGS_TO",
+      "to": "page_3fde2ae22a43",
+      "source_ids": [
+        "src_ivo_live__leistungen_ai_automation_workflows"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_c23ffb9e5607",
+      "relation": "BELONGS_TO",
+      "to": "page_3fde2ae22a43",
+      "source_ids": [
+        "src_ivo_live__leistungen_ai_automation_workflows"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_6613b57840f4",
+      "relation": "BELONGS_TO",
+      "to": "page_3fde2ae22a43",
+      "source_ids": [
+        "src_ivo_live__leistungen_ai_automation_workflows"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_85c3910073a6",
+      "relation": "BELONGS_TO",
+      "to": "page_3fde2ae22a43",
+      "source_ids": [
+        "src_ivo_live__leistungen_ai_automation_workflows"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "cta_c7f588235eb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_3fde2ae22a43",
+      "source_ids": [
+        "src_ivo_live__leistungen_ai_automation_workflows"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_4a35673ec3f7",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_3fde2ae22a43",
+      "source_ids": [
+        "src_ivo_live__leistungen_ai_automation_workflows"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "faq_d242719423bb",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_3fde2ae22a43",
+      "source_ids": [
+        "src_ivo_live__leistungen_ai_automation_workflows"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "from": "faq_a9c3e69c891f",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_3fde2ae22a43",
+      "source_ids": [
+        "src_ivo_live__leistungen_ai_automation_workflows"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "from": "faq_da26125af7ff",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_3fde2ae22a43",
+      "source_ids": [
+        "src_ivo_live__leistungen_ai_automation_workflows"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_b33f3fd3f4f0",
+      "source_ids": [
+        "src_ivo_live__en_services_ai_automation_workflows"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_ddc597d5916c",
+      "relation": "BELONGS_TO",
+      "to": "page_b33f3fd3f4f0",
+      "source_ids": [
+        "src_ivo_live__en_services_ai_automation_workflows"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_523c26072a46",
+      "relation": "BELONGS_TO",
+      "to": "page_b33f3fd3f4f0",
+      "source_ids": [
+        "src_ivo_live__en_services_ai_automation_workflows"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_36d40403bd93",
+      "relation": "BELONGS_TO",
+      "to": "page_b33f3fd3f4f0",
+      "source_ids": [
+        "src_ivo_live__en_services_ai_automation_workflows"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_56ef3d0f9c2e",
+      "relation": "BELONGS_TO",
+      "to": "page_b33f3fd3f4f0",
+      "source_ids": [
+        "src_ivo_live__en_services_ai_automation_workflows"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_0ce63d3aa780",
+      "relation": "BELONGS_TO",
+      "to": "page_b33f3fd3f4f0",
+      "source_ids": [
+        "src_ivo_live__en_services_ai_automation_workflows"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_844e6750ce09",
+      "relation": "BELONGS_TO",
+      "to": "page_b33f3fd3f4f0",
+      "source_ids": [
+        "src_ivo_live__en_services_ai_automation_workflows"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_7c4329ed7f99",
+      "relation": "BELONGS_TO",
+      "to": "page_b33f3fd3f4f0",
+      "source_ids": [
+        "src_ivo_live__en_services_ai_automation_workflows"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_be629339db6d",
+      "relation": "BELONGS_TO",
+      "to": "page_b33f3fd3f4f0",
+      "source_ids": [
+        "src_ivo_live__en_services_ai_automation_workflows"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "cta_809d7407a143",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_b33f3fd3f4f0",
+      "source_ids": [
+        "src_ivo_live__en_services_ai_automation_workflows"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "faq_fc774ef4c2c7",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_b33f3fd3f4f0",
+      "source_ids": [
+        "src_ivo_live__en_services_ai_automation_workflows"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "from": "faq_6bb6dec4f3df",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_b33f3fd3f4f0",
+      "source_ids": [
+        "src_ivo_live__en_services_ai_automation_workflows"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "from": "faq_e4be702cbbb2",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_b33f3fd3f4f0",
+      "source_ids": [
+        "src_ivo_live__en_services_ai_automation_workflows"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_1008f1f87d09",
+      "source_ids": [
+        "src_ivo_live__leistungen_3d_visualization_systems"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_091edb4917d7",
+      "relation": "BELONGS_TO",
+      "to": "page_1008f1f87d09",
+      "source_ids": [
+        "src_ivo_live__leistungen_3d_visualization_systems"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_eb977c303c52",
+      "relation": "BELONGS_TO",
+      "to": "page_1008f1f87d09",
+      "source_ids": [
+        "src_ivo_live__leistungen_3d_visualization_systems"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_4e4c32116e2f",
+      "relation": "BELONGS_TO",
+      "to": "page_1008f1f87d09",
+      "source_ids": [
+        "src_ivo_live__leistungen_3d_visualization_systems"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_eea819699471",
+      "relation": "BELONGS_TO",
+      "to": "page_1008f1f87d09",
+      "source_ids": [
+        "src_ivo_live__leistungen_3d_visualization_systems"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_029611b275b9",
+      "relation": "BELONGS_TO",
+      "to": "page_1008f1f87d09",
+      "source_ids": [
+        "src_ivo_live__leistungen_3d_visualization_systems"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_6859d94e5599",
+      "relation": "BELONGS_TO",
+      "to": "page_1008f1f87d09",
+      "source_ids": [
+        "src_ivo_live__leistungen_3d_visualization_systems"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_e4c25c303022",
+      "relation": "BELONGS_TO",
+      "to": "page_1008f1f87d09",
+      "source_ids": [
+        "src_ivo_live__leistungen_3d_visualization_systems"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_6c53291d97b6",
+      "relation": "BELONGS_TO",
+      "to": "page_1008f1f87d09",
+      "source_ids": [
+        "src_ivo_live__leistungen_3d_visualization_systems"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "cta_c7f588235eb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_1008f1f87d09",
+      "source_ids": [
+        "src_ivo_live__leistungen_3d_visualization_systems"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_21a599e213e7",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_1008f1f87d09",
+      "source_ids": [
+        "src_ivo_live__leistungen_3d_visualization_systems"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "faq_9aa9d07d95ff",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_1008f1f87d09",
+      "source_ids": [
+        "src_ivo_live__leistungen_3d_visualization_systems"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "from": "faq_681805a5346c",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_1008f1f87d09",
+      "source_ids": [
+        "src_ivo_live__leistungen_3d_visualization_systems"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "from": "faq_1b0cfd3ed69d",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_1008f1f87d09",
+      "source_ids": [
+        "src_ivo_live__leistungen_3d_visualization_systems"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_76bb0900c40e",
+      "source_ids": [
+        "src_ivo_live__en_services_3d_visualization_systems"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_fce02ae76c45",
+      "relation": "BELONGS_TO",
+      "to": "page_76bb0900c40e",
+      "source_ids": [
+        "src_ivo_live__en_services_3d_visualization_systems"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_0bc4f88709ab",
+      "relation": "BELONGS_TO",
+      "to": "page_76bb0900c40e",
+      "source_ids": [
+        "src_ivo_live__en_services_3d_visualization_systems"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_6be8e2399949",
+      "relation": "BELONGS_TO",
+      "to": "page_76bb0900c40e",
+      "source_ids": [
+        "src_ivo_live__en_services_3d_visualization_systems"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_61ca6d3ae91b",
+      "relation": "BELONGS_TO",
+      "to": "page_76bb0900c40e",
+      "source_ids": [
+        "src_ivo_live__en_services_3d_visualization_systems"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_316063ebf643",
+      "relation": "BELONGS_TO",
+      "to": "page_76bb0900c40e",
+      "source_ids": [
+        "src_ivo_live__en_services_3d_visualization_systems"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_c16e7490ae5f",
+      "relation": "BELONGS_TO",
+      "to": "page_76bb0900c40e",
+      "source_ids": [
+        "src_ivo_live__en_services_3d_visualization_systems"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_6abdd297fe1f",
+      "relation": "BELONGS_TO",
+      "to": "page_76bb0900c40e",
+      "source_ids": [
+        "src_ivo_live__en_services_3d_visualization_systems"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_ede0c2df4d04",
+      "relation": "BELONGS_TO",
+      "to": "page_76bb0900c40e",
+      "source_ids": [
+        "src_ivo_live__en_services_3d_visualization_systems"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "cta_809d7407a143",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_76bb0900c40e",
+      "source_ids": [
+        "src_ivo_live__en_services_3d_visualization_systems"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "faq_e21bccf3e035",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_76bb0900c40e",
+      "source_ids": [
+        "src_ivo_live__en_services_3d_visualization_systems"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "from": "faq_2a9e1ddb2e51",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_76bb0900c40e",
+      "source_ids": [
+        "src_ivo_live__en_services_3d_visualization_systems"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "from": "faq_62f9749b9a17",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_76bb0900c40e",
+      "source_ids": [
+        "src_ivo_live__en_services_3d_visualization_systems"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_ea45911ef4d0",
+      "source_ids": [
+        "src_ivo_live__insights_ai_assisted_pr_review_loop"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "cta_c7f588235eb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_ea45911ef4d0",
+      "source_ids": [
+        "src_ivo_live__insights_ai_assisted_pr_review_loop"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_b3f5b932beb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_ea45911ef4d0",
+      "source_ids": [
+        "src_ivo_live__insights_ai_assisted_pr_review_loop"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_df373fea8f5c",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_ea45911ef4d0",
+      "source_ids": [
+        "src_ivo_live__insights_ai_assisted_pr_review_loop"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_8582caedcc61",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_ea45911ef4d0",
+      "source_ids": [
+        "src_ivo_live__insights_ai_assisted_pr_review_loop"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_a7ee06fb876b",
+      "source_ids": [
+        "src_ivo_live__en_insights_ai_assisted_pr_review_loop"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_2deb837d3eb7",
+      "source_ids": [
+        "src_ivo_live__insights_api_integration_failure_modes"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "cta_c7f588235eb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_2deb837d3eb7",
+      "source_ids": [
+        "src_ivo_live__insights_api_integration_failure_modes"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_b3f5b932beb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_2deb837d3eb7",
+      "source_ids": [
+        "src_ivo_live__insights_api_integration_failure_modes"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_df373fea8f5c",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_2deb837d3eb7",
+      "source_ids": [
+        "src_ivo_live__insights_api_integration_failure_modes"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_8582caedcc61",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_2deb837d3eb7",
+      "source_ids": [
+        "src_ivo_live__insights_api_integration_failure_modes"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_d90ba6173f2a",
+      "source_ids": [
+        "src_ivo_live__en_insights_api_integration_failure_modes"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_b4f2d8919fd9",
+      "source_ids": [
+        "src_ivo_live__en_insights_architecture_decisions_under_pressure"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_4b050890784f",
+      "source_ids": [
+        "src_ivo_live__insights_nextjs_performance_budget_playbook"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "cta_c7f588235eb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_4b050890784f",
+      "source_ids": [
+        "src_ivo_live__insights_nextjs_performance_budget_playbook"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_b3f5b932beb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_4b050890784f",
+      "source_ids": [
+        "src_ivo_live__insights_nextjs_performance_budget_playbook"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_df373fea8f5c",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_4b050890784f",
+      "source_ids": [
+        "src_ivo_live__insights_nextjs_performance_budget_playbook"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_8582caedcc61",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_4b050890784f",
+      "source_ids": [
+        "src_ivo_live__insights_nextjs_performance_budget_playbook"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_17b84bf3d3d5",
+      "source_ids": [
+        "src_ivo_live__en_insights_nextjs_performance_budget_playbook"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_670f9e6f83c5",
+      "source_ids": [
+        "src_ivo_live__insights_stable_handover_checklist"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "cta_c7f588235eb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_670f9e6f83c5",
+      "source_ids": [
+        "src_ivo_live__insights_stable_handover_checklist"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_b3f5b932beb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_670f9e6f83c5",
+      "source_ids": [
+        "src_ivo_live__insights_stable_handover_checklist"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_df373fea8f5c",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_670f9e6f83c5",
+      "source_ids": [
+        "src_ivo_live__insights_stable_handover_checklist"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_8582caedcc61",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_670f9e6f83c5",
+      "source_ids": [
+        "src_ivo_live__insights_stable_handover_checklist"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_ca2d741bb136",
+      "source_ids": [
+        "src_ivo_live__en_insights_stable_handover_checklist"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_f642dd7c7cfd",
+      "source_ids": [
+        "src_ivo_live__playbooks_api_integration_readiness_playbook"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "cta_c7f588235eb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_f642dd7c7cfd",
+      "source_ids": [
+        "src_ivo_live__playbooks_api_integration_readiness_playbook"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_b3f5b932beb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_f642dd7c7cfd",
+      "source_ids": [
+        "src_ivo_live__playbooks_api_integration_readiness_playbook"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_df373fea8f5c",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_f642dd7c7cfd",
+      "source_ids": [
+        "src_ivo_live__playbooks_api_integration_readiness_playbook"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_8582caedcc61",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_f642dd7c7cfd",
+      "source_ids": [
+        "src_ivo_live__playbooks_api_integration_readiness_playbook"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_77b621179437",
+      "source_ids": [
+        "src_ivo_live__en_playbooks_api_integration_readiness_playbook"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_bb3bc6627a9c",
+      "source_ids": [
+        "src_ivo_live__playbooks_handover_production_readiness_playbook"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "cta_c7f588235eb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_bb3bc6627a9c",
+      "source_ids": [
+        "src_ivo_live__playbooks_handover_production_readiness_playbook"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_b3f5b932beb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_bb3bc6627a9c",
+      "source_ids": [
+        "src_ivo_live__playbooks_handover_production_readiness_playbook"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_df373fea8f5c",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_bb3bc6627a9c",
+      "source_ids": [
+        "src_ivo_live__playbooks_handover_production_readiness_playbook"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_8582caedcc61",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_bb3bc6627a9c",
+      "source_ids": [
+        "src_ivo_live__playbooks_handover_production_readiness_playbook"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_fb957b8d6d62",
+      "source_ids": [
+        "src_ivo_live__en_playbooks_handover_production_readiness_playbook"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_5733b65c0786",
+      "source_ids": [
+        "src_ivo_live__playbooks_performance_budget_guardrails"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "cta_c7f588235eb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_5733b65c0786",
+      "source_ids": [
+        "src_ivo_live__playbooks_performance_budget_guardrails"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_b3f5b932beb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_5733b65c0786",
+      "source_ids": [
+        "src_ivo_live__playbooks_performance_budget_guardrails"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_df373fea8f5c",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_5733b65c0786",
+      "source_ids": [
+        "src_ivo_live__playbooks_performance_budget_guardrails"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_8582caedcc61",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_5733b65c0786",
+      "source_ids": [
+        "src_ivo_live__playbooks_performance_budget_guardrails"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_cff3f2855fe8",
+      "source_ids": [
+        "src_ivo_live__en_playbooks_performance_budget_guardrails"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_51552b8ed134",
+      "source_ids": [
+        "src_ivo_live__case_studies_configurator_live"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_f18dbf725360",
+      "relation": "BELONGS_TO",
+      "to": "page_51552b8ed134",
+      "source_ids": [
+        "src_ivo_live__case_studies_configurator_live"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_a45ee76d9d17",
+      "relation": "BELONGS_TO",
+      "to": "page_51552b8ed134",
+      "source_ids": [
+        "src_ivo_live__case_studies_configurator_live"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "cta_c7f588235eb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_51552b8ed134",
+      "source_ids": [
+        "src_ivo_live__case_studies_configurator_live"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_b3f5b932beb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_51552b8ed134",
+      "source_ids": [
+        "src_ivo_live__case_studies_configurator_live"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_a5d3377ee5f0",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_51552b8ed134",
+      "source_ids": [
+        "src_ivo_live__case_studies_configurator_live"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_df373fea8f5c",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_51552b8ed134",
+      "source_ids": [
+        "src_ivo_live__case_studies_configurator_live"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_8582caedcc61",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_51552b8ed134",
+      "source_ids": [
+        "src_ivo_live__case_studies_configurator_live"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_e291e14d1118",
+      "source_ids": [
+        "src_ivo_live__en_case_studies_configurator_live"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_901ed05fdbaf",
+      "relation": "BELONGS_TO",
+      "to": "page_e291e14d1118",
+      "source_ids": [
+        "src_ivo_live__en_case_studies_configurator_live"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_e43760a54225",
+      "relation": "BELONGS_TO",
+      "to": "page_e291e14d1118",
+      "source_ids": [
+        "src_ivo_live__en_case_studies_configurator_live"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_1563bbd5902a",
+      "source_ids": [
+        "src_ivo_live__case_studies_portfolio_authority_relaunch"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_8ffd7286bc20",
+      "relation": "BELONGS_TO",
+      "to": "page_1563bbd5902a",
+      "source_ids": [
+        "src_ivo_live__case_studies_portfolio_authority_relaunch"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_8d556de85f51",
+      "relation": "BELONGS_TO",
+      "to": "page_1563bbd5902a",
+      "source_ids": [
+        "src_ivo_live__case_studies_portfolio_authority_relaunch"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "cta_c7f588235eb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_1563bbd5902a",
+      "source_ids": [
+        "src_ivo_live__case_studies_portfolio_authority_relaunch"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_b3f5b932beb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_1563bbd5902a",
+      "source_ids": [
+        "src_ivo_live__case_studies_portfolio_authority_relaunch"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_65906bdb8172",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_1563bbd5902a",
+      "source_ids": [
+        "src_ivo_live__case_studies_portfolio_authority_relaunch"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_df373fea8f5c",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_1563bbd5902a",
+      "source_ids": [
+        "src_ivo_live__case_studies_portfolio_authority_relaunch"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_8582caedcc61",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_1563bbd5902a",
+      "source_ids": [
+        "src_ivo_live__case_studies_portfolio_authority_relaunch"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_a9b7a8a6a038",
+      "source_ids": [
+        "src_ivo_live__en_case_studies_portfolio_authority_relaunch"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_a6752d6bc58b",
+      "relation": "BELONGS_TO",
+      "to": "page_a9b7a8a6a038",
+      "source_ids": [
+        "src_ivo_live__en_case_studies_portfolio_authority_relaunch"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_860a99885dbf",
+      "relation": "BELONGS_TO",
+      "to": "page_a9b7a8a6a038",
+      "source_ids": [
+        "src_ivo_live__en_case_studies_portfolio_authority_relaunch"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_6cc5c5e6fe97",
+      "source_ids": [
+        "src_ivo_preview__home"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_c491ec313a0d",
+      "relation": "BELONGS_TO",
+      "to": "page_6cc5c5e6fe97",
+      "source_ids": [
+        "src_ivo_preview__home"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_ec67574f1857",
+      "relation": "BELONGS_TO",
+      "to": "page_6cc5c5e6fe97",
+      "source_ids": [
+        "src_ivo_preview__home"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "trust_cba71e448aa1",
+      "relation": "STRENGTHENS_TRUST_FOR",
+      "to": "service_web_engineering",
+      "source_ids": [
+        "src_ivo_preview__home"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "from": "trust_cba71e448aa1",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "section_ec67574f1857",
+      "source_ids": [
+        "src_ivo_preview__home"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_64efec39e853",
+      "relation": "BELONGS_TO",
+      "to": "page_6cc5c5e6fe97",
+      "source_ids": [
+        "src_ivo_preview__home"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_3a79bc98a112",
+      "relation": "BELONGS_TO",
+      "to": "page_6cc5c5e6fe97",
+      "source_ids": [
+        "src_ivo_preview__home"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_87b0f5c69a83",
+      "relation": "BELONGS_TO",
+      "to": "page_6cc5c5e6fe97",
+      "source_ids": [
+        "src_ivo_preview__home"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "service_5e55c30ec669",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "section_87b0f5c69a83",
+      "source_ids": [
+        "src_ivo_preview__home"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "from": "section_6749c2b853c1",
+      "relation": "BELONGS_TO",
+      "to": "page_6cc5c5e6fe97",
+      "source_ids": [
+        "src_ivo_preview__home"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_95af11fd1350",
+      "relation": "BELONGS_TO",
+      "to": "page_6cc5c5e6fe97",
+      "source_ids": [
+        "src_ivo_preview__home"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_7209c8018de6",
+      "relation": "BELONGS_TO",
+      "to": "page_6cc5c5e6fe97",
+      "source_ids": [
+        "src_ivo_preview__home"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_1e6b30fdd03f",
+      "relation": "BELONGS_TO",
+      "to": "page_6cc5c5e6fe97",
+      "source_ids": [
+        "src_ivo_preview__home"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_4766ab6ca79e",
+      "relation": "BELONGS_TO",
+      "to": "page_6cc5c5e6fe97",
+      "source_ids": [
+        "src_ivo_preview__home"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_d7422446d986",
+      "relation": "BELONGS_TO",
+      "to": "page_6cc5c5e6fe97",
+      "source_ids": [
+        "src_ivo_preview__home"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "cta_198ab1f2aa63",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_6cc5c5e6fe97",
+      "source_ids": [
+        "src_ivo_preview__home"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_c7f588235eb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_6cc5c5e6fe97",
+      "source_ids": [
+        "src_ivo_preview__home"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_b3f5b932beb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_6cc5c5e6fe97",
+      "source_ids": [
+        "src_ivo_preview__home"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_7dbf004b2a13",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_6cc5c5e6fe97",
+      "source_ids": [
+        "src_ivo_preview__home"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_4840b3514c9e",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_6cc5c5e6fe97",
+      "source_ids": [
+        "src_ivo_preview__home"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "faq_785e237bc2bb",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_6cc5c5e6fe97",
+      "source_ids": [
+        "src_ivo_preview__home"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "from": "faq_16aeeca5c203",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_6cc5c5e6fe97",
+      "source_ids": [
+        "src_ivo_preview__home"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "from": "faq_c85b4ecf686b",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_6cc5c5e6fe97",
+      "source_ids": [
+        "src_ivo_preview__home"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_8230b9a745c9",
+      "source_ids": [
+        "src_ivo_preview__en"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_1626bb3d264c",
+      "relation": "BELONGS_TO",
+      "to": "page_8230b9a745c9",
+      "source_ids": [
+        "src_ivo_preview__en"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_098303ebb287",
+      "relation": "BELONGS_TO",
+      "to": "page_8230b9a745c9",
+      "source_ids": [
+        "src_ivo_preview__en"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "trust_55887507349c",
+      "relation": "STRENGTHENS_TRUST_FOR",
+      "to": "service_web_engineering",
+      "source_ids": [
+        "src_ivo_preview__en"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "from": "trust_55887507349c",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "section_098303ebb287",
+      "source_ids": [
+        "src_ivo_preview__en"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_ac22041a8459",
+      "relation": "BELONGS_TO",
+      "to": "page_8230b9a745c9",
+      "source_ids": [
+        "src_ivo_preview__en"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_539cda66f8c0",
+      "relation": "BELONGS_TO",
+      "to": "page_8230b9a745c9",
+      "source_ids": [
+        "src_ivo_preview__en"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_f5f82ddc8336",
+      "relation": "BELONGS_TO",
+      "to": "page_8230b9a745c9",
+      "source_ids": [
+        "src_ivo_preview__en"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "service_f934d6572974",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "section_f5f82ddc8336",
+      "source_ids": [
+        "src_ivo_preview__en"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "from": "section_7f103fdb64d4",
+      "relation": "BELONGS_TO",
+      "to": "page_8230b9a745c9",
+      "source_ids": [
+        "src_ivo_preview__en"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_e28ffe6a9550",
+      "relation": "BELONGS_TO",
+      "to": "page_8230b9a745c9",
+      "source_ids": [
+        "src_ivo_preview__en"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_a0f6746b64d6",
+      "relation": "BELONGS_TO",
+      "to": "page_8230b9a745c9",
+      "source_ids": [
+        "src_ivo_preview__en"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_79903a163acd",
+      "relation": "BELONGS_TO",
+      "to": "page_8230b9a745c9",
+      "source_ids": [
+        "src_ivo_preview__en"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_6a66e8ce3401",
+      "relation": "BELONGS_TO",
+      "to": "page_8230b9a745c9",
+      "source_ids": [
+        "src_ivo_preview__en"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_38f05aec4e2d",
+      "relation": "BELONGS_TO",
+      "to": "page_8230b9a745c9",
+      "source_ids": [
+        "src_ivo_preview__en"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "cta_198ab1f2aa63",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_8230b9a745c9",
+      "source_ids": [
+        "src_ivo_preview__en"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_50b4e0d404f9",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_8230b9a745c9",
+      "source_ids": [
+        "src_ivo_preview__en"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "faq_afe853307e6c",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_8230b9a745c9",
+      "source_ids": [
+        "src_ivo_preview__en"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "from": "faq_41706a07c46d",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_8230b9a745c9",
+      "source_ids": [
+        "src_ivo_preview__en"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "from": "faq_e056a2be2ec0",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_8230b9a745c9",
+      "source_ids": [
+        "src_ivo_preview__en"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_5657ab55f225",
+      "source_ids": [
+        "src_ivo_preview__contact"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_304c28bd79dc",
+      "relation": "BELONGS_TO",
+      "to": "page_5657ab55f225",
+      "source_ids": [
+        "src_ivo_preview__contact"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_d9ec0a90da9c",
+      "relation": "BELONGS_TO",
+      "to": "page_5657ab55f225",
+      "source_ids": [
+        "src_ivo_preview__contact"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "trust_3d7ccf4e464c",
+      "relation": "STRENGTHENS_TRUST_FOR",
+      "to": "service_web_engineering",
+      "source_ids": [
+        "src_ivo_preview__contact"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "from": "trust_3d7ccf4e464c",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "section_d9ec0a90da9c",
+      "source_ids": [
+        "src_ivo_preview__contact"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_f6b785bc761e",
+      "relation": "BELONGS_TO",
+      "to": "page_5657ab55f225",
+      "source_ids": [
+        "src_ivo_preview__contact"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_da414dd9c915",
+      "relation": "BELONGS_TO",
+      "to": "page_5657ab55f225",
+      "source_ids": [
+        "src_ivo_preview__contact"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_0224569bffe6",
+      "relation": "BELONGS_TO",
+      "to": "page_5657ab55f225",
+      "source_ids": [
+        "src_ivo_preview__contact"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "service_5e55c30ec669",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "section_0224569bffe6",
+      "source_ids": [
+        "src_ivo_preview__contact"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "from": "section_6f64c933225a",
+      "relation": "BELONGS_TO",
+      "to": "page_5657ab55f225",
+      "source_ids": [
+        "src_ivo_preview__contact"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_798098352087",
+      "relation": "BELONGS_TO",
+      "to": "page_5657ab55f225",
+      "source_ids": [
+        "src_ivo_preview__contact"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_2d5f923ebd73",
+      "relation": "BELONGS_TO",
+      "to": "page_5657ab55f225",
+      "source_ids": [
+        "src_ivo_preview__contact"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_8c510aedb4df",
+      "relation": "BELONGS_TO",
+      "to": "page_5657ab55f225",
+      "source_ids": [
+        "src_ivo_preview__contact"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_8a3dc12f76fa",
+      "relation": "BELONGS_TO",
+      "to": "page_5657ab55f225",
+      "source_ids": [
+        "src_ivo_preview__contact"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_d45dbb9c6e2d",
+      "relation": "BELONGS_TO",
+      "to": "page_5657ab55f225",
+      "source_ids": [
+        "src_ivo_preview__contact"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "cta_198ab1f2aa63",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_5657ab55f225",
+      "source_ids": [
+        "src_ivo_preview__contact"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_c7f588235eb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_5657ab55f225",
+      "source_ids": [
+        "src_ivo_preview__contact"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_b3f5b932beb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_5657ab55f225",
+      "source_ids": [
+        "src_ivo_preview__contact"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_7dbf004b2a13",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_5657ab55f225",
+      "source_ids": [
+        "src_ivo_preview__contact"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_4840b3514c9e",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_5657ab55f225",
+      "source_ids": [
+        "src_ivo_preview__contact"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "faq_785e237bc2bb",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_5657ab55f225",
+      "source_ids": [
+        "src_ivo_preview__contact"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "from": "faq_16aeeca5c203",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_5657ab55f225",
+      "source_ids": [
+        "src_ivo_preview__contact"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "from": "faq_c85b4ecf686b",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_5657ab55f225",
+      "source_ids": [
+        "src_ivo_preview__contact"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_a16711bce2e8",
+      "source_ids": [
+        "src_ivo_preview__services"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_5e25f8541f6a",
+      "relation": "BELONGS_TO",
+      "to": "page_a16711bce2e8",
+      "source_ids": [
+        "src_ivo_preview__services"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_d1c64efd58de",
+      "relation": "BELONGS_TO",
+      "to": "page_a16711bce2e8",
+      "source_ids": [
+        "src_ivo_preview__services"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "trust_750ef9715065",
+      "relation": "STRENGTHENS_TRUST_FOR",
+      "to": "service_web_engineering",
+      "source_ids": [
+        "src_ivo_preview__services"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "from": "trust_750ef9715065",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "section_d1c64efd58de",
+      "source_ids": [
+        "src_ivo_preview__services"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_350b2f8b8e3a",
+      "relation": "BELONGS_TO",
+      "to": "page_a16711bce2e8",
+      "source_ids": [
+        "src_ivo_preview__services"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_d4bcb3c47d41",
+      "relation": "BELONGS_TO",
+      "to": "page_a16711bce2e8",
+      "source_ids": [
+        "src_ivo_preview__services"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_e6c715bab5e7",
+      "relation": "BELONGS_TO",
+      "to": "page_a16711bce2e8",
+      "source_ids": [
+        "src_ivo_preview__services"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "service_5e55c30ec669",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "section_e6c715bab5e7",
+      "source_ids": [
+        "src_ivo_preview__services"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "from": "section_432f345ddf01",
+      "relation": "BELONGS_TO",
+      "to": "page_a16711bce2e8",
+      "source_ids": [
+        "src_ivo_preview__services"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_9597795c2566",
+      "relation": "BELONGS_TO",
+      "to": "page_a16711bce2e8",
+      "source_ids": [
+        "src_ivo_preview__services"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_552267515dbc",
+      "relation": "BELONGS_TO",
+      "to": "page_a16711bce2e8",
+      "source_ids": [
+        "src_ivo_preview__services"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_553416fc1bb7",
+      "relation": "BELONGS_TO",
+      "to": "page_a16711bce2e8",
+      "source_ids": [
+        "src_ivo_preview__services"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_f8fadf5be83d",
+      "relation": "BELONGS_TO",
+      "to": "page_a16711bce2e8",
+      "source_ids": [
+        "src_ivo_preview__services"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "section_0e9dd7693236",
+      "relation": "BELONGS_TO",
+      "to": "page_a16711bce2e8",
+      "source_ids": [
+        "src_ivo_preview__services"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "cta_198ab1f2aa63",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_a16711bce2e8",
+      "source_ids": [
+        "src_ivo_preview__services"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_c7f588235eb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_a16711bce2e8",
+      "source_ids": [
+        "src_ivo_preview__services"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_b3f5b932beb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_a16711bce2e8",
+      "source_ids": [
+        "src_ivo_preview__services"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_7dbf004b2a13",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_a16711bce2e8",
+      "source_ids": [
+        "src_ivo_preview__services"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_4840b3514c9e",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_a16711bce2e8",
+      "source_ids": [
+        "src_ivo_preview__services"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "faq_785e237bc2bb",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_a16711bce2e8",
+      "source_ids": [
+        "src_ivo_preview__services"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "from": "faq_16aeeca5c203",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_a16711bce2e8",
+      "source_ids": [
+        "src_ivo_preview__services"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "from": "faq_c85b4ecf686b",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_a16711bce2e8",
+      "source_ids": [
+        "src_ivo_preview__services"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_2f6e95885920",
+      "source_ids": [
+        "src_ivo_preview__case_studies"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_5441287b4c12",
+      "relation": "BELONGS_TO",
+      "to": "page_2f6e95885920",
+      "source_ids": [
+        "src_ivo_preview__case_studies"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "cta_c7f588235eb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_2f6e95885920",
+      "source_ids": [
+        "src_ivo_preview__case_studies"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_b3f5b932beb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_2f6e95885920",
+      "source_ids": [
+        "src_ivo_preview__case_studies"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_cf1bc108482c",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_2f6e95885920",
+      "source_ids": [
+        "src_ivo_preview__case_studies"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_539b1fc351c0",
+      "source_ids": [
+        "src_ivo_preview__insights"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_acaf6d7c6e77",
+      "relation": "BELONGS_TO",
+      "to": "page_539b1fc351c0",
+      "source_ids": [
+        "src_ivo_preview__insights"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "cta_c7f588235eb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_539b1fc351c0",
+      "source_ids": [
+        "src_ivo_preview__insights"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_b3f5b932beb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_539b1fc351c0",
+      "source_ids": [
+        "src_ivo_preview__insights"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "brand_ivo_tech",
+      "relation": "BELONGS_TO",
+      "to": "page_b3d8b2e4edbe",
+      "source_ids": [
+        "src_ivo_preview__playbooks"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "from": "section_22668f45bfa8",
+      "relation": "BELONGS_TO",
+      "to": "page_b3d8b2e4edbe",
+      "source_ids": [
+        "src_ivo_preview__playbooks"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "from": "cta_c7f588235eb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_b3d8b2e4edbe",
+      "source_ids": [
+        "src_ivo_preview__playbooks"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "cta_b3f5b932beb4",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "page_b3d8b2e4edbe",
+      "source_ids": [
+        "src_ivo_preview__playbooks"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "from": "ref_ca9b477c3c25",
+      "relation": "INSPIRES",
+      "to": "service_web_engineering",
+      "source_ids": [
+        "src_benchmark__vercel_com"
+      ],
+      "confidence": 0.75
+    },
+    {
+      "from": "ref_c2efa1061639",
+      "relation": "INSPIRES",
+      "to": "service_web_engineering",
+      "source_ids": [
+        "src_benchmark__linear_app"
+      ],
+      "confidence": 0.75
+    },
+    {
+      "from": "ref_74c5a6c13189",
+      "relation": "INSPIRES",
+      "to": "service_web_engineering",
+      "source_ids": [
+        "src_benchmark__www_webflow_com"
+      ],
+      "confidence": 0.75
+    },
+    {
+      "from": "ref_5888c26f846e",
+      "relation": "INSPIRES",
+      "to": "service_web_engineering",
+      "source_ids": [
+        "src_benchmark__www_framer_com"
+      ],
+      "confidence": 0.75
+    },
+    {
+      "from": "ref_59d535a4428f",
+      "relation": "INSPIRES",
+      "to": "service_web_engineering",
+      "source_ids": [
+        "src_benchmark__www_shopify_com"
+      ],
+      "confidence": 0.75
+    },
+    {
+      "from": "ref_d88af2e66da3",
+      "relation": "INSPIRES",
+      "to": "service_web_engineering",
+      "source_ids": [
+        "src_benchmark__supabase_com"
+      ],
+      "confidence": 0.75
+    },
+    {
+      "from": "ref_06a23127d968",
+      "relation": "INSPIRES",
+      "to": "service_web_engineering",
+      "source_ids": [
+        "src_benchmark__stripe_com"
+      ],
+      "confidence": 0.75
+    },
+    {
+      "from": "ref_4bad20c5aae4",
+      "relation": "INSPIRES",
+      "to": "service_web_engineering",
+      "source_ids": [
+        "src_benchmark__www_notion_com"
+      ],
+      "confidence": 0.75
+    },
+    {
+      "from": "ref_eb5fe9ac06f8",
+      "relation": "INSPIRES",
+      "to": "service_web_engineering",
+      "source_ids": [
+        "src_benchmark__tailwindui_com_components"
+      ],
+      "confidence": 0.75
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+pack_id: cp_premium_visual_direction
+goal: Establish a premium visual direction that supports authority and readability.
+mode: compare
+sources:
+  - src_ivo_live_home
+  - src_ivo_vercel_preview_home
+  - coll_b2b_homepage_benchmarks
+  - coll_ui_component_patterns
+core_facts:
+  - Current visual language is expressive and gradient-heavy.
+  - Brand direction should remain high-end but reduce overload risk.
+open_questions:
+  - Which visual style best aligns with target clients?
+  - How much motion and ornament is optimal before trust drops?
+next_steps:
+  - Create 2 visual direction boards.
+  - Define token-level style constraints.
+  - Pick one direction and log ADR.

@@ -1,0 +1,33 @@
+version: 1
+approved_at: 2026-04-10
+source: user_confirmation_in_chat
+rationale: >
+  Pragmatic direct-vs-adjacent set for homepage differentiation work.
+  "Direct" means closest alternatives for website/platform build decisions;
+  "adjacent" means strong benchmark leaders for positioning and conversion language.
+competitors:
+  - source_id: src_benchmark__www_webflow_com
+    name: Webflow
+    type: direct
+    url: https://www.webflow.com/
+  - source_id: src_benchmark__www_framer_com
+    name: Framer
+    type: direct
+    url: https://www.framer.com/
+  - source_id: src_benchmark__vercel_com
+    name: Vercel
+    type: adjacent
+    url: https://vercel.com/
+  - source_id: src_benchmark__linear_app
+    name: Linear
+    type: adjacent
+    url: https://linear.app/
+  - source_id: src_benchmark__www_shopify_com
+    name: Shopify
+    type: adjacent
+    url: https://www.shopify.com/
+  - source_id: src_benchmark__stripe_com
+    name: Stripe
+    type: adjacent
+    url: https://stripe.com/
+

@@ -1,0 +1,18 @@
+pack_id: cp_website_audit
+goal: End-to-end audit of current homepage quality, positioning, structure, CTA logic, trust and UX.
+mode: analysis
+sources:
+  - src_ivo_live_home
+  - src_ivo_vercel_preview_home
+  - src_repo_ui_implementation
+core_facts:
+  - Current pages already expose strong engineering authority signals and multiple CTA placements.
+  - Trust elements exist, but consistency and depth should be scored section by section.
+  - Two live variants can be compared for structural and messaging differences.
+open_questions:
+  - Which sections are most correlated with qualified lead intent?
+  - Where does visual complexity reduce readability?
+next_steps:
+  - Generate section-level findings with severity ranking.
+  - Produce issue map with evidence IDs.
+  - Define redesign priorities P0/P1/P2.

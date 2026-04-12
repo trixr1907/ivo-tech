@@ -2,7 +2,7 @@
 
 import Script from 'next/script';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState, type FormEvent } from 'react';
+import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { ArrowRight } from 'lucide-react';
 
 import { Button } from '@/components/shadcn/button';
@@ -36,11 +36,20 @@ type ContactLeadFormProps = {
   heroVariantDefault?: string;
   labels: ContactLeadFormLabels;
   compact?: boolean;
+  /** Dunkles Glaspanel für Relaunch-Shell (Startseite). */
+  surface?: 'default' | 'relaunchDark';
 };
 
 type SubmitState = 'idle' | 'submitting' | 'success' | 'error';
 
-export function ContactLeadForm({ locale, heroVariantDefault = 'default', labels, compact = false }: ContactLeadFormProps) {
+export function ContactLeadForm({
+  locale,
+  heroVariantDefault = 'default',
+  labels,
+  compact = false,
+  surface = 'default'
+}: ContactLeadFormProps) {
+  const isDarkShell = surface === 'relaunchDark';
   const router = useRouter();
   const [intent, setIntent] = useState<'client' | 'hiring'>('client');
   const [name, setName] = useState('');
@@ -61,6 +70,11 @@ export function ContactLeadForm({ locale, heroVariantDefault = 'default', labels
     getSchedulerHref({ locale, source: 'home', placement: 'contact-form', heroVariant: 'default' })
   );
   const [didTrackFormStart, setDidTrackFormStart] = useState(false);
+  const [gdprConsentInvalid, setGdprConsentInvalid] = useState(false);
+  const [turnstileFieldInvalid, setTurnstileFieldInvalid] = useState(false);
+  const gdprCheckboxRef = useRef<HTMLInputElement>(null);
+  const turnstileAnchorRef = useRef<HTMLDivElement>(null);
+  const isHiringIntent = intent === 'hiring';
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -72,6 +86,12 @@ export function ContactLeadForm({ locale, heroVariantDefault = 'default', labels
     setHeroVariant(variant);
     setSchedulerHref(getSchedulerHref({ locale, source, placement: 'contact-form', heroVariant: variant }));
   }, [heroVariantDefault, locale]);
+
+  useEffect(() => {
+    if (intent === 'hiring' && company) {
+      setCompany('');
+    }
+  }, [company, intent]);
 
   function handleFormStart() {
     if (didTrackFormStart) return;
@@ -104,8 +124,11 @@ export function ContactLeadForm({ locale, heroVariantDefault = 'default', labels
         : 'Please consent to processing your request so we can respond.';
 
     if (!gdprConsent) {
+      setGdprConsentInvalid(true);
+      setTurnstileFieldInvalid(false);
       setStatus('error');
       setFeedback(consentErrorText);
+      requestAnimationFrame(() => gdprCheckboxRef.current?.focus());
       trackEvent('contact_form_error', {
         source: `${attributionSource}_cta`,
         locale,
@@ -119,8 +142,17 @@ export function ContactLeadForm({ locale, heroVariantDefault = 'default', labels
     }
 
     if (hasTurnstile && !turnstileToken) {
+      setTurnstileFieldInvalid(true);
+      setGdprConsentInvalid(false);
       setStatus('error');
       setFeedback(labels.verificationRequired);
+      requestAnimationFrame(() => {
+        const host = turnstileAnchorRef.current;
+        if (!host) return;
+        host.focus();
+        const iframe = host.querySelector<HTMLIFrameElement>('iframe');
+        iframe?.focus();
+      });
       trackEvent('contact_form_error', {
         source: `${attributionSource}_cta`,
         locale,
@@ -135,6 +167,8 @@ export function ContactLeadForm({ locale, heroVariantDefault = 'default', labels
 
     setStatus('submitting');
     setFeedback('');
+    setGdprConsentInvalid(false);
+    setTurnstileFieldInvalid(false);
 
     trackEvent('contact_form_submit', {
       source: `${attributionSource}_cta`,
@@ -217,6 +251,8 @@ export function ContactLeadForm({ locale, heroVariantDefault = 'default', labels
             ? labels.verificationRequired
             : labels.error;
 
+      setGdprConsentInvalid(false);
+      setTurnstileFieldInvalid(false);
       setStatus('error');
       setFeedback(nextFeedback);
       trackEvent('contact_form_error', {
@@ -253,32 +289,53 @@ export function ContactLeadForm({ locale, heroVariantDefault = 'default', labels
     });
   }
 
+  const showErrorAnnouncement = status === 'error' && Boolean(feedback);
+  const gdprDescribedBy = gdprConsentInvalid && feedback ? feedbackId : undefined;
+
   return (
     <>
-      {hasTurnstile ? <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" strategy="afterInteractive" /> : null}
+      {hasTurnstile ? (
+        <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" strategy="lazyOnload" />
+      ) : null}
+      {/*
+        noValidate: GDPR/Turnstile werden vor dem Request geprüft; sichtbare Fehlermeldung + Fokus statt natives Submit-Blocking.
+        Pflichtfelder laufen weiter über form.reportValidity() im Submit-Handler.
+      */}
       <form
         className={cn(
-          'relative grid gap-4 rounded-2xl border border-brand-200/70 bg-[linear-gradient(160deg,rgba(255,255,255,0.95),rgba(233,245,255,0.9))] p-4 shadow-[0_20px_38px_rgba(27,100,196,0.12)] md:grid-cols-2 md:p-5',
+          'relative grid gap-4 rounded-2xl p-4 md:grid-cols-2 md:p-5',
+          isDarkShell
+            ? 'border border-slate-600/90 bg-slate-950/62 shadow-[0_24px_56px_rgba(0,0,0,0.45)] ring-1 ring-slate-600/45 backdrop-blur-md'
+            : 'border border-brand-200/70 bg-[linear-gradient(160deg,rgba(255,255,255,0.95),rgba(233,245,255,0.9))] shadow-[0_20px_38px_rgba(27,100,196,0.12)]',
           compact ? 'mt-2' : 'mt-8'
         )}
         onSubmit={handleSubmit}
         onFocusCapture={handleFormStart}
         noValidate
       >
-        <label className="space-y-2 text-sm font-medium text-ink-700">
+        <label
+          className={cn('space-y-2 text-sm font-medium', isDarkShell ? 'text-slate-100' : 'text-ink-700')}
+        >
           <span>{locale === 'de' ? 'Intent' : 'Intent'}</span>
           <select
             name="intent"
             value={intent}
             onChange={(event) => setIntent(event.target.value as 'client' | 'hiring')}
-            className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm text-ink-900 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+            className={cn(
+              'flex h-10 w-full rounded-md border px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
+              isDarkShell
+                ? 'border-slate-500/85 bg-slate-900/90 text-slate-50 ring-offset-slate-950 focus-visible:ring-sky-500/60 focus-visible:ring-offset-slate-950'
+                : 'border-input bg-background text-ink-900 ring-offset-background focus-visible:ring-ring'
+            )}
             aria-describedby={feedback ? feedbackId : undefined}
           >
             <option value="client">{locale === 'de' ? 'Projekt / Zusammenarbeit' : 'Project / collaboration'}</option>
             <option value="hiring">{locale === 'de' ? 'Hiring / Rolle' : 'Hiring / role'}</option>
           </select>
         </label>
-        <label className="space-y-2 text-sm font-medium text-ink-700">
+        <label
+          className={cn('space-y-2 text-sm font-medium', isDarkShell ? 'text-slate-100' : 'text-ink-700')}
+        >
           <span>{labels.formName}</span>
           <Input
             name="name"
@@ -289,9 +346,16 @@ export function ContactLeadForm({ locale, heroVariantDefault = 'default', labels
             value={name}
             onChange={(event) => setName(event.target.value)}
             aria-describedby={feedback ? feedbackId : undefined}
+            className={
+              isDarkShell
+                ? 'border-slate-500/85 bg-slate-900/88 text-slate-50 shadow-none placeholder:text-slate-400 focus-visible:border-sky-400 focus-visible:ring-sky-500/50 focus-visible:shadow-[0_0_0_3px_rgba(14,165,233,0.22)]'
+                : undefined
+            }
           />
         </label>
-        <label className="space-y-2 text-sm font-medium text-ink-700">
+        <label
+          className={cn('space-y-2 text-sm font-medium', isDarkShell ? 'text-slate-100' : 'text-ink-700')}
+        >
           <span>{labels.formEmail}</span>
           <Input
             type="email"
@@ -302,31 +366,65 @@ export function ContactLeadForm({ locale, heroVariantDefault = 'default', labels
             value={email}
             onChange={(event) => setEmail(event.target.value)}
             aria-describedby={feedback ? feedbackId : undefined}
+            className={
+              isDarkShell
+                ? 'border-slate-500/85 bg-slate-900/88 text-slate-50 shadow-none placeholder:text-slate-400 focus-visible:border-sky-400 focus-visible:ring-sky-500/50 focus-visible:shadow-[0_0_0_3px_rgba(14,165,233,0.22)]'
+                : undefined
+            }
           />
         </label>
-        <label className="space-y-2 text-sm font-medium text-ink-700">
-          <span>{labels.formCompany}</span>
-          <Input
-            name="company"
-            autoComplete="organization"
-            maxLength={120}
-            value={company}
-            onChange={(event) => setCompany(event.target.value)}
-            aria-describedby={feedback ? feedbackId : undefined}
-          />
-        </label>
-        <label className="space-y-2 text-sm font-medium text-ink-700">
-          <span>{locale === 'de' ? 'Portfolio/Hobby Referenz (optional)' : 'Portfolio/hobby reference (optional)'}</span>
+        {!isHiringIntent ? (
+          <label
+            className={cn('space-y-2 text-sm font-medium', isDarkShell ? 'text-slate-100' : 'text-ink-700')}
+          >
+            <span>{labels.formCompany}</span>
+            <Input
+              name="company"
+              autoComplete="organization"
+              maxLength={120}
+              value={company}
+              onChange={(event) => setCompany(event.target.value)}
+              aria-describedby={feedback ? feedbackId : undefined}
+              className={
+                isDarkShell
+                  ? 'border-slate-500/85 bg-slate-900/88 text-slate-50 shadow-none placeholder:text-slate-400 focus-visible:border-sky-400 focus-visible:ring-sky-500/50 focus-visible:shadow-[0_0_0_3px_rgba(14,165,233,0.22)]'
+                  : undefined
+              }
+            />
+          </label>
+        ) : null}
+        <label
+          className={cn('space-y-2 text-sm font-medium', isDarkShell ? 'text-slate-100' : 'text-ink-700')}
+        >
+          <span>
+            {isHiringIntent
+              ? locale === 'de'
+                ? 'LinkedIn/CV Link (optional)'
+                : 'LinkedIn/CV link (optional)'
+              : locale === 'de'
+                ? 'Portfolio/Hobby Referenz (optional)'
+                : 'Portfolio/hobby reference (optional)'}
+          </span>
           <Input
             name="portfolio-reference"
             maxLength={280}
             value={portfolioReference}
             onChange={(event) => setPortfolioReference(event.target.value)}
             aria-describedby={feedback ? feedbackId : undefined}
+            className={
+              isDarkShell
+                ? 'border-slate-500/85 bg-slate-900/88 text-slate-50 shadow-none placeholder:text-slate-400 focus-visible:border-sky-400 focus-visible:ring-sky-500/50 focus-visible:shadow-[0_0_0_3px_rgba(14,165,233,0.22)]'
+                : undefined
+            }
           />
         </label>
-        <label className="space-y-2 text-sm font-medium text-ink-700 md:col-span-2">
-          <span>{locale === 'de' ? 'Kontext' : 'Context'}</span>
+        <label
+          className={cn(
+            'space-y-2 text-sm font-medium md:col-span-2',
+            isDarkShell ? 'text-slate-100' : 'text-ink-700'
+          )}
+        >
+          <span>{isHiringIntent ? (locale === 'de' ? 'Rolle, Team und Kontext' : 'Role, team, and context') : locale === 'de' ? 'Kontext' : 'Context'}</span>
           <Textarea
             name="message"
             required
@@ -335,6 +433,11 @@ export function ContactLeadForm({ locale, heroVariantDefault = 'default', labels
             value={message}
             onChange={(event) => setMessage(event.target.value)}
             aria-describedby={feedback ? feedbackId : undefined}
+            className={
+              isDarkShell
+                ? 'border-slate-500/85 bg-slate-900/88 text-slate-50 shadow-none placeholder:text-slate-400 focus-visible:border-sky-400 focus-visible:ring-sky-500/50 focus-visible:shadow-[0_0_0_3px_rgba(14,165,233,0.22)]'
+                : undefined
+            }
           />
         </label>
         <div className="hidden">
@@ -345,18 +448,44 @@ export function ContactLeadForm({ locale, heroVariantDefault = 'default', labels
         </div>
         {hasTurnstile ? (
           <div className="md:col-span-2">
-            <div className="cf-turnstile" data-sitekey={turnstileSiteKey} data-theme="light" data-size="flexible" />
+            <div
+              ref={turnstileAnchorRef}
+              tabIndex={-1}
+              className={cn(
+                'min-h-[72px] rounded-md outline-none focus-visible:ring-2 focus-visible:ring-sky-500/60 focus-visible:ring-offset-2',
+                isDarkShell ? 'focus-visible:ring-offset-slate-950' : 'focus-visible:ring-offset-background'
+              )}
+              aria-invalid={turnstileFieldInvalid}
+              aria-describedby={turnstileFieldInvalid && feedback ? feedbackId : undefined}
+            >
+              <div
+                className="cf-turnstile"
+                data-sitekey={turnstileSiteKey}
+                data-theme={isDarkShell ? 'dark' : 'light'}
+                data-size="flexible"
+              />
+            </div>
           </div>
         ) : null}
         <div className="md:col-span-2">
-          <label className="mb-3 inline-flex items-start gap-2 text-xs text-ink-600">
+          <label className={cn('mb-3 inline-flex items-start gap-2 text-xs', isDarkShell ? 'text-slate-300' : 'text-ink-600')}>
             <input
+              ref={gdprCheckboxRef}
+              id="lead-gdpr-consent"
               type="checkbox"
               name="gdpr-consent"
               checked={gdprConsent}
-              onChange={(event) => setGdprConsent(event.target.checked)}
+              onChange={(event) => {
+                setGdprConsent(event.target.checked);
+                if (event.target.checked) setGdprConsentInvalid(false);
+              }}
               required
-              className="mt-0.5 h-4 w-4 rounded border-slate-300"
+              aria-invalid={gdprConsentInvalid}
+              aria-describedby={gdprDescribedBy}
+              className={cn(
+                'mt-0.5 h-4 w-4 rounded',
+                isDarkShell ? 'border-slate-500 bg-slate-900 accent-sky-500' : 'border-slate-300'
+              )}
             />
             <span>{labels.privacy}</span>
           </label>
@@ -364,7 +493,10 @@ export function ContactLeadForm({ locale, heroVariantDefault = 'default', labels
             type="submit"
             size="lg"
             disabled={isSubmitting}
-            className="group motion-cta-lift bg-[linear-gradient(135deg,#113782_0%,#1f5dd3_58%,#2e80ff_100%)] shadow-[0_14px_30px_rgba(30,94,211,0.28)] hover:bg-[linear-gradient(135deg,#0d2c69_0%,#1a4eb9_58%,#296ee3_100%)]"
+            className={cn(
+              'group motion-cta-lift bg-[linear-gradient(135deg,#113782_0%,#1f5dd3_58%,#2e80ff_100%)] shadow-[0_14px_30px_rgba(30,94,211,0.28)] hover:bg-[linear-gradient(135deg,#0d2c69_0%,#1a4eb9_58%,#296ee3_100%)]',
+              isDarkShell && 'focus-visible:ring-offset-slate-950'
+            )}
           >
             <span>{isSubmitting ? labels.submitting : labels.formButton}</span>
             <ArrowRight className="motion-arrow-nudge ml-2 h-4 w-4 transition-transform duration-200" aria-hidden="true" />
@@ -374,16 +506,26 @@ export function ContactLeadForm({ locale, heroVariantDefault = 'default', labels
               href={schedulerHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="group motion-cta-lift inline-flex items-center justify-center rounded-full border border-cyan-300 bg-[linear-gradient(180deg,#ffffff_0%,#e8f8ff_100%)] px-4 py-2 text-sm font-semibold text-cyan-900 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:border-cyan-400 hover:shadow-[0_10px_20px_rgba(20,146,196,0.2)]"
+              className={cn(
+                'group motion-cta-lift inline-flex items-center justify-center rounded-full border px-4 py-2 text-sm font-semibold shadow-sm transition duration-200 hover:-translate-y-0.5',
+                isDarkShell
+                  ? 'border-sky-500/45 bg-slate-900/70 text-sky-200 hover:border-sky-400/70 hover:bg-slate-800/85 hover:shadow-[0_10px_24px_rgba(14,165,233,0.18)]'
+                  : 'border-cyan-300 bg-[linear-gradient(180deg,#ffffff_0%,#e8f8ff_100%)] text-cyan-900 hover:border-cyan-400 hover:shadow-[0_10px_20px_rgba(20,146,196,0.2)]'
+              )}
               onClick={handleSchedulerClick}
               data-contact-cta="scheduler"
             >
               {labels.schedulerCta}
               <ArrowRight className="motion-arrow-nudge ml-1.5 h-3.5 w-3.5 transition-transform duration-200" aria-hidden="true" />
             </a>
-            <span className="text-xs text-ink-500">{labels.schedulerHint}</span>
+            <span className={cn('text-xs', isDarkShell ? 'text-slate-400' : 'text-ink-500')}>{labels.schedulerHint}</span>
           </div>
-          <p id={feedbackId} className="mt-3 text-sm text-ink-600" role="status" aria-live="polite">
+          <p
+            id={feedbackId}
+            className={cn('mt-3 text-sm', isDarkShell ? 'text-slate-200' : 'text-ink-600')}
+            role={showErrorAnnouncement ? 'alert' : 'status'}
+            aria-live={showErrorAnnouncement ? 'assertive' : 'polite'}
+          >
             {feedback}
           </p>
         </div>

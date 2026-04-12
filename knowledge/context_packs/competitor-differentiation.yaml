@@ -1,0 +1,20 @@
+pack_id: cp_competitor_differentiation
+goal: Clarify differentiation against direct competitors and alternatives.
+mode: compare
+sources:
+  - coll_direct_competitors
+  - src_ivo_live_home
+  - src_ivo_vercel_preview_home
+  - knowledge/research/direct_competitor_set_approved_2026-04-10.yaml
+  - knowledge/research/competitor_claim_matrix_2026-04-10.md
+core_facts:
+  - Current positioning emphasizes delivery reliability and technical depth.
+  - Differentiation must be explicit in headline, proof, and CTA language.
+  - Direct alternatives in current set: Webflow and Framer.
+  - Adjacent benchmark leaders: Vercel, Linear, Shopify, Stripe.
+open_questions:
+  - Which single "most defensible" claim should lead the homepage hero?
+next_steps:
+  - Build competitor claim matrix.
+  - Mark parity vs unique strengths.
+  - Produce differentiation-first copy options.

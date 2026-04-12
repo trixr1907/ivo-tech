@@ -1,102 +1,64 @@
 import Link from 'next/link';
 import type { ReactNode } from 'react';
 
-import { LanguageToggle } from '@/components/LanguageToggle';
 import { ContactLeadForm } from '@/components/home/ContactLeadForm';
-import { SiteFooter } from '@/components/layout/SiteFooter';
-import { SiteHeader } from '@/components/layout/SiteHeader';
-import { SectionFrame } from '@/components/ui/SectionFrame';
+import { PortfolioCaseTrackLink } from '@/components/portfolio/PortfolioCaseTrackLink';
+import { RelaunchMarketingShell } from '@/components/layout/RelaunchMarketingShell';
+import { Button } from '@/components/shadcn/button';
 import type { Locale } from '@/content/copy';
 import { getFeaturedProjects, getJourneyTimeline, getProjectsByTrack, getSocialProof } from '@/content/portfolioModels';
 import { localizePath } from '@/lib/localeRouting';
+import { RELAUNCH_CARD, RELAUNCH_CARD_HOVER, RELAUNCH_SECTION } from '@/lib/relaunchMarketingStyles';
 import { getContactPath, getPrimaryNavLinks } from '@/lib/navigation';
-import { CONTACT_EMAIL, GITHUB_URL } from '@/lib/site';
-
-const pageShell = 'mx-auto w-full max-w-[1320px] px-4 sm:px-6 lg:px-8';
+import { CONTACT_EMAIL } from '@/lib/site';
 
 type PageScaffoldProps = {
   locale: Locale;
   title: string;
   description: string;
   children: ReactNode;
+  shellClassName?: string;
+  desktopContactTrackingSource?: string;
 };
 
-function PageScaffold({ locale, title, description, children }: PageScaffoldProps) {
+function PageScaffold({
+  locale,
+  title,
+  description,
+  children,
+  shellClassName,
+  desktopContactTrackingSource = 'portfolio-scaffold-header'
+}: PageScaffoldProps) {
   const navLinks = getPrimaryNavLinks(locale);
   const contactPath = getContactPath(locale, 'header-nav');
+  const homeHref = localizePath('/', locale);
+  const cta = locale === 'de' ? 'Erstgespraech' : 'Intro call';
 
   return (
-    <div className="theme-ref103632" data-theme="dark">
-      <SiteHeader
-        ariaLabel={locale === 'de' ? 'Hauptnavigation' : 'Primary navigation'}
-        className="home-v2-header"
-        logoPreset="ref103632"
-        logoVisualPreset="premium"
-        logoEdgeGlow="medium"
-        nav={
-          <>
-            {navLinks.map((link) => (
-              <Link key={link.href} href={link.href}>
-                {link.label}
-              </Link>
-            ))}
-          </>
-        }
-        rightSlot={
-          <>
-            <LanguageToggle />
-            <Link className="cta ui-btn ui-btn--metal btn-md motion-edge-sweep" href={contactPath}>
-              {locale === 'de' ? 'Erstgespraech' : 'Intro call'}
-            </Link>
-          </>
-        }
-      />
-
-      <main id="main-content" className="home-v2-main pb-16">
-        <SectionFrame
-          className="hero"
-          tone="metal"
-          sectionTheme="primary"
-          aria-labelledby="portfolio-page-title"
-        >
-          <div className={pageShell}>
-            <div className="max-w-4xl space-y-4 py-8 md:py-10">
-              <p className="eyebrow">{locale === 'de' ? 'Builder / Engineer / Maker' : 'Builder / Engineer / Maker'}</p>
-              <h1 id="portfolio-page-title" className="insights-title text-ink-900">
-                {title}
-              </h1>
-              <p className="text-lg text-ink-700">{description}</p>
-            </div>
-          </div>
-        </SectionFrame>
-
-        {children}
+    <RelaunchMarketingShell
+      locale={locale}
+      homeHref={homeHref}
+      navLinks={navLinks}
+      desktopCtaHref={contactPath}
+      desktopCtaLabel={cta}
+      mobileNavCtaLabel={cta}
+      desktopContactTrackingSource={desktopContactTrackingSource}
+      mobileNavPrimaryTrackingSource={`${desktopContactTrackingSource}-mobile`}
+      shellClassName={shellClassName}
+    >
+      <main id="main-content" className="mx-auto w-full max-w-[1200px] flex-1 px-4 pb-10 pt-8 sm:px-6 md:pb-12 md:pt-10">
+        <section className={RELAUNCH_SECTION} aria-labelledby="portfolio-page-title">
+          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sky-400/90">
+            {locale === 'de' ? 'Builder / Engineer / Maker' : 'Builder / Engineer / Maker'}
+          </p>
+          <h1 id="portfolio-page-title" className="mt-2 font-display text-3xl font-semibold tracking-tight text-slate-100 md:text-4xl">
+            {title}
+          </h1>
+          <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-300 md:text-lg">{description}</p>
+        </section>
+        <div className="mt-8 space-y-8">{children}</div>
       </main>
-
-      <SiteFooter
-        leftText={
-          locale === 'de'
-            ? 'Creator-Engineer-Portfolio mit produktionsnaher Delivery.'
-            : 'Creator-engineer portfolio with production-grade delivery.'
-        }
-        navLabel={locale === 'de' ? 'Footer-Navigation' : 'Footer navigation'}
-        navLinks={[
-          ...navLinks,
-          { href: locale === 'de' ? '/impressum' : '/en/legal', label: locale === 'de' ? 'Impressum' : 'Legal' },
-          { href: locale === 'de' ? '/datenschutz' : '/en/privacy', label: locale === 'de' ? 'Datenschutz' : 'Privacy' }
-        ]}
-        contactLinks={[
-          { href: `mailto:${CONTACT_EMAIL}`, label: CONTACT_EMAIL },
-          { href: GITHUB_URL, label: 'GitHub', external: true }
-        ]}
-        rightText={locale === 'de' ? 'Mannheim | Remote-first' : 'Mannheim | Remote-first'}
-        cta={
-          <Link className="cta ui-btn ui-btn--signal btn-md motion-edge-sweep" href={contactPath}>
-            {locale === 'de' ? 'Kontakt aufnehmen' : 'Contact now'}
-          </Link>
-        }
-      />
-    </div>
+    </RelaunchMarketingShell>
   );
 }
 
@@ -137,75 +99,79 @@ export function AboutBrandPage({ locale }: { locale: Locale }) {
         };
 
   return (
-    <PageScaffold locale={locale} title={copy.title} description={copy.description}>
-      <div className={pageShell}>
-        <SectionFrame className="section" tone="panel" sectionTheme="secondary" aria-labelledby="principles-title">
-          <h2 id="principles-title" className="text-2xl font-semibold text-ink-900">
-            {copy.principlesTitle}
-          </h2>
-          <div className="mt-6 grid gap-4 md:grid-cols-3">
-            {copy.principles.map((item) => (
-              <article key={item} className="insight-card text-ink-700">
-                <p>{item}</p>
-              </article>
-            ))}
-          </div>
-        </SectionFrame>
+    <PageScaffold locale={locale} title={copy.title} description={copy.description} shellClassName="about-brand-page">
+      <section className={RELAUNCH_SECTION} aria-labelledby="principles-title">
+        <h2 id="principles-title" className="font-display text-xl font-semibold text-slate-100">
+          {copy.principlesTitle}
+        </h2>
+        <div className="mt-6 grid gap-4 md:grid-cols-3">
+          {copy.principles.map((item) => (
+            <article key={item} className={RELAUNCH_CARD}>
+              <p className="text-sm text-slate-300">{item}</p>
+            </article>
+          ))}
+        </div>
+      </section>
 
-        <SectionFrame className="section" tone="panel" aria-labelledby="timeline-title">
-          <h2 id="timeline-title" className="text-2xl font-semibold text-ink-900">
-            {copy.timelineTitle}
-          </h2>
-          <div className="mt-6 grid gap-4 md:grid-cols-2">
-            {timeline.map((item) => (
-              <article key={item.id} className="insight-card text-ink-700">
-                <p className="insight-meta">{item.year}</p>
-                <h3 className="text-ink-900">{item.localizedTitle}</h3>
-                <p>{item.localizedDetail}</p>
-              </article>
-            ))}
-          </div>
-        </SectionFrame>
+      <section className={RELAUNCH_SECTION} aria-labelledby="timeline-title">
+        <h2 id="timeline-title" className="font-display text-xl font-semibold text-slate-100">
+          {copy.timelineTitle}
+        </h2>
+        <div className="mt-6 grid gap-4 md:grid-cols-2">
+          {timeline.map((item) => (
+            <article key={item.id} className={RELAUNCH_CARD}>
+              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sky-400/90">{item.year}</p>
+              <h3 className="mt-2 font-display text-base font-semibold text-slate-100">{item.localizedTitle}</h3>
+              <p className="mt-2 text-sm text-slate-300">{item.localizedDetail}</p>
+            </article>
+          ))}
+        </div>
+      </section>
 
-        <SectionFrame className="section" tone="panel" sectionTheme="secondary" aria-labelledby="proof-title">
-          <h2 id="proof-title" className="text-2xl font-semibold text-ink-900">
-            {copy.proofTitle}
-          </h2>
-          <div className="mt-6 grid gap-4 md:grid-cols-3">
-            {socialProof.map((proof) => (
-              <a
-                key={proof.id}
-                className="insight-card text-ink-700"
-                href={proof.localizedHref}
-                target={proof.external ? '_blank' : undefined}
-                rel={proof.external ? 'noopener noreferrer' : undefined}
+      <section className={RELAUNCH_SECTION} aria-labelledby="proof-title">
+        <h2 id="proof-title" className="font-display text-xl font-semibold text-slate-100">
+          {copy.proofTitle}
+        </h2>
+        <div className="mt-6 grid gap-4 md:grid-cols-3">
+          {socialProof.map((proof) => (
+            <a
+              key={proof.id}
+              className={`${RELAUNCH_CARD_HOVER} block no-underline`}
+              href={proof.localizedHref}
+              target={proof.external ? '_blank' : undefined}
+              rel={proof.external ? 'noopener noreferrer' : undefined}
+            >
+              <h3 className="font-display text-base font-semibold text-slate-100">{proof.localizedTitle}</h3>
+              <p className="mt-2 text-sm text-slate-300">{proof.localizedEvidence}</p>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section className={RELAUNCH_SECTION} aria-labelledby="featured-title">
+        <h2 id="featured-title" className="font-display text-xl font-semibold text-slate-100">
+          {copy.featuredTitle}
+        </h2>
+        <div className="mt-6 grid gap-4 md:grid-cols-2">
+          {featured.map((project) => (
+            <article key={project.id} className={RELAUNCH_CARD}>
+              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sky-400/90">{project.status.toUpperCase()}</p>
+              <h3 className="mt-2 font-display text-base font-semibold text-slate-100">{project.localizedTitle}</h3>
+              <p className="mt-2 text-sm text-slate-300">{project.localizedSummary}</p>
+              <p className="mt-3 text-sm text-slate-400">{project.localizedOutcome}</p>
+              <PortfolioCaseTrackLink
+                href={project.localizedHref}
+                className="mt-4 inline-flex text-sm font-medium text-sky-400 hover:text-sky-300"
+                projectId={project.id}
+                source="portfolio_brand_featured"
+                locale={locale}
               >
-                <h3 className="text-ink-900">{proof.localizedTitle}</h3>
-                <p>{proof.localizedEvidence}</p>
-              </a>
-            ))}
-          </div>
-        </SectionFrame>
-
-        <SectionFrame className="section" tone="metal" sectionTheme="primary" aria-labelledby="featured-title">
-          <h2 id="featured-title" className="text-2xl font-semibold text-ink-900">
-            {copy.featuredTitle}
-          </h2>
-          <div className="mt-6 grid gap-4 md:grid-cols-2">
-            {featured.map((project) => (
-              <article key={project.id} className="insight-card text-ink-700">
-                <p className="insight-meta">{project.status.toUpperCase()}</p>
-                <h3 className="text-ink-900">{project.localizedTitle}</h3>
-                <p>{project.localizedSummary}</p>
-                <p className="mt-3 text-sm text-ink-600">{project.localizedOutcome}</p>
-                <Link href={project.localizedHref} className="insight-link mt-4 inline-flex" data-track-event="case_open">
-                  {project.localizedCta}
-                </Link>
-              </article>
-            ))}
-          </div>
-        </SectionFrame>
-      </div>
+                {project.localizedCta}
+              </PortfolioCaseTrackLink>
+            </article>
+          ))}
+        </div>
+      </section>
     </PageScaffold>
   );
 }
@@ -234,45 +200,40 @@ export function ProjectsBrandPage({ locale }: { locale: Locale }) {
         };
 
   const renderProjectCard = (project: ReturnType<typeof getProjectsByTrack>[number]) => (
-    <article key={project.id} className="insight-card text-ink-700">
-      <p className="insight-meta">{project.status.toUpperCase()}</p>
-      <h3 className="text-ink-900">{project.localizedTitle}</h3>
-      <p>{project.localizedSummary}</p>
-      <p className="mt-3 text-sm text-ink-600">{project.localizedOutcome}</p>
-      <p className="mt-3 text-xs font-medium uppercase tracking-[0.08em] text-ink-500">{copy.stackLabel}</p>
-      <ul className="mt-2 flex flex-wrap gap-2 text-xs text-ink-700">
+    <article key={project.id} className={RELAUNCH_CARD}>
+      <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sky-400/90">{project.status.toUpperCase()}</p>
+      <h3 className="mt-2 font-display text-base font-semibold text-slate-100">{project.localizedTitle}</h3>
+      <p className="mt-2 text-sm text-slate-300">{project.localizedSummary}</p>
+      <p className="mt-3 text-sm text-slate-400">{project.localizedOutcome}</p>
+      <p className="mt-3 text-xs font-medium uppercase tracking-[0.08em] text-slate-500">{copy.stackLabel}</p>
+      <ul className="mt-2 flex flex-wrap gap-2 text-xs text-slate-300">
         {project.stack.map((stack) => (
-          <li key={stack} className="rounded-full border border-slate-300 px-2 py-1">
+          <li key={stack} className="rounded-full border border-slate-600 px-2 py-1">
             {stack}
           </li>
         ))}
       </ul>
-      <Link
-        href={project.localizedHref}
-        className="insight-link mt-4 inline-flex"
-      >
+      <Link href={project.localizedHref} className="mt-4 inline-flex text-sm font-medium text-sky-400 hover:text-sky-300">
         {project.localizedCta}
       </Link>
     </article>
   );
 
   return (
-    <PageScaffold locale={locale} title={copy.title} description={copy.description}>
-      <div className={pageShell}>
-        <SectionFrame className="section" tone="panel" sectionTheme="secondary" aria-labelledby="professional-title">
-          <h2 id="professional-title" className="text-2xl font-semibold text-ink-900">
-            {copy.professionalTitle}
-          </h2>
-          <div className="mt-6 grid gap-4 md:grid-cols-2">{professional.map(renderProjectCard)}</div>
-        </SectionFrame>
+    <PageScaffold locale={locale} title={copy.title} description={copy.description} shellClassName="projects-brand-page">
+      <section className={RELAUNCH_SECTION} aria-labelledby="professional-title">
+        <h2 id="professional-title" className="font-display text-xl font-semibold text-slate-100">
+          {copy.professionalTitle}
+        </h2>
+        <div className="mt-6 grid gap-4 md:grid-cols-2">{professional.map(renderProjectCard)}</div>
+      </section>
 
-        <SectionFrame className="section" tone="panel" aria-labelledby="maker-title">
-          <h2 id="maker-title" className="text-2xl font-semibold text-ink-900">
-            {copy.makerTitle}
-          </h2>
-          <div className="mt-6 grid gap-4 md:grid-cols-2">{maker.map(renderProjectCard)}</div>
-        </SectionFrame>
-      </div>
+      <section className={RELAUNCH_SECTION} aria-labelledby="maker-title">
+        <h2 id="maker-title" className="font-display text-xl font-semibold text-slate-100">
+          {copy.makerTitle}
+        </h2>
+        <div className="mt-6 grid gap-4 md:grid-cols-2">{maker.map(renderProjectCard)}</div>
+      </section>
     </PageScaffold>
   );
 }
@@ -325,71 +286,60 @@ export function MakerLabPage({ locale }: { locale: Locale }) {
   const playbookPath = localizePath('/playbooks', locale);
 
   return (
-    <PageScaffold locale={locale} title={copy.title} description={copy.description}>
-      <div className={pageShell}>
-        <SectionFrame className="section" tone="panel" sectionTheme="secondary" aria-labelledby="maker-focus-title">
-          <h2 id="maker-focus-title" className="text-2xl font-semibold text-ink-900">
-            {copy.focusTitle}
-          </h2>
-          <ul className="mt-6 grid gap-3 text-ink-700 md:grid-cols-3">
-            {copy.focusItems.map((item) => (
-              <li key={item} className="insight-card">
-                {item}
-              </li>
-            ))}
-          </ul>
-          <div className="mt-6 flex flex-wrap gap-3">
-            <Link
-              className="cta ui-btn ui-btn--metal btn-md motion-edge-sweep"
-              href={contactPath}
-            >
-              {copy.ctaPrimary}
-            </Link>
-            <Link
-              className="cta ui-btn ui-btn--ghost btn-md motion-edge-sweep"
-              href={`${playbookPath}?source=maker-lab-playbook`}
-            >
-              {copy.ctaSecondary}
-            </Link>
-          </div>
-        </SectionFrame>
+    <PageScaffold locale={locale} title={copy.title} description={copy.description} shellClassName="maker-lab-page">
+      <section className={RELAUNCH_SECTION} aria-labelledby="maker-focus-title">
+        <h2 id="maker-focus-title" className="font-display text-xl font-semibold text-slate-100">
+          {copy.focusTitle}
+        </h2>
+        <ul className="mt-6 grid gap-3 md:grid-cols-3">
+          {copy.focusItems.map((item) => (
+            <li key={item} className={RELAUNCH_CARD}>
+              <span className="text-sm text-slate-300">{item}</span>
+            </li>
+          ))}
+        </ul>
+        <div className="mt-6 flex flex-wrap gap-3">
+          <Button asChild className="bg-sky-500 text-slate-950 hover:bg-sky-400">
+            <Link href={contactPath}>{copy.ctaPrimary}</Link>
+          </Button>
+          <Button asChild variant="outline" className="border-slate-600 bg-transparent text-slate-100 hover:bg-slate-800/60">
+            <Link href={`${playbookPath}?source=maker-lab-playbook`}>{copy.ctaSecondary}</Link>
+          </Button>
+        </div>
+      </section>
 
-        <SectionFrame className="section" tone="metal" sectionTheme="primary" aria-labelledby="maker-roadmap-title">
-          <h2 id="maker-roadmap-title" className="text-2xl font-semibold text-ink-900">
-            {copy.roadmapTitle}
-          </h2>
-          <ol className="mt-6 grid gap-3 text-ink-700 md:grid-cols-3">
-            {copy.roadmapItems.map((item, index) => (
-              <li key={item} className="insight-card">
-                <p className="insight-meta">{index + 1}</p>
-                <p>{item}</p>
-              </li>
-            ))}
-          </ol>
-        </SectionFrame>
+      <section className={RELAUNCH_SECTION} aria-labelledby="maker-roadmap-title">
+        <h2 id="maker-roadmap-title" className="font-display text-xl font-semibold text-slate-100">
+          {copy.roadmapTitle}
+        </h2>
+        <ol className="mt-6 grid gap-3 md:grid-cols-3">
+          {copy.roadmapItems.map((item, index) => (
+            <li key={item} className={RELAUNCH_CARD}>
+              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sky-400/90">{index + 1}</p>
+              <p className="mt-2 text-sm text-slate-300">{item}</p>
+            </li>
+          ))}
+        </ol>
+      </section>
 
-        <SectionFrame className="section" tone="panel" aria-labelledby="maker-projects-title">
-          <h2 id="maker-projects-title" className="text-2xl font-semibold text-ink-900">
-            {locale === 'de' ? 'Maker Projekte' : 'Maker projects'}
-          </h2>
-          <div className="mt-6 grid gap-4 md:grid-cols-2">
-            {maker.map((project) => (
-              <article key={project.id} className="insight-card text-ink-700">
-                <p className="insight-meta">{project.status.toUpperCase()}</p>
-                <h3 className="text-ink-900">{project.localizedTitle}</h3>
-                <p>{project.localizedSummary}</p>
-                <p className="mt-3 text-sm text-ink-600">{project.localizedOutcome}</p>
-                <Link
-                  href={project.localizedHref}
-                  className="insight-link mt-4 inline-flex"
-                >
-                  {project.localizedCta}
-                </Link>
-              </article>
-            ))}
-          </div>
-        </SectionFrame>
-      </div>
+      <section className={RELAUNCH_SECTION} aria-labelledby="maker-projects-title">
+        <h2 id="maker-projects-title" className="font-display text-xl font-semibold text-slate-100">
+          {locale === 'de' ? 'Maker Projekte' : 'Maker projects'}
+        </h2>
+        <div className="mt-6 grid gap-4 md:grid-cols-2">
+          {maker.map((project) => (
+            <article key={project.id} className={RELAUNCH_CARD}>
+              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sky-400/90">{project.status.toUpperCase()}</p>
+              <h3 className="mt-2 font-display text-base font-semibold text-slate-100">{project.localizedTitle}</h3>
+              <p className="mt-2 text-sm text-slate-300">{project.localizedSummary}</p>
+              <p className="mt-3 text-sm text-slate-400">{project.localizedOutcome}</p>
+              <Link href={project.localizedHref} className="mt-4 inline-flex text-sm font-medium text-sky-400 hover:text-sky-300">
+                {project.localizedCta}
+              </Link>
+            </article>
+          ))}
+        </div>
+      </section>
     </PageScaffold>
   );
 }
@@ -451,30 +401,37 @@ export function ContactBrandPage({ locale }: { locale: Locale }) {
         };
 
   return (
-    <PageScaffold locale={locale} title={labels.title} description={labels.description}>
-      <div className={pageShell}>
-        <SectionFrame className="section" tone="panel" sectionTheme="secondary" aria-labelledby="contact-panel-title">
-          <div className="grid gap-6 lg:grid-cols-[1.1fr_1fr]">
-            <div className="insight-card text-ink-700">
-              <h2 id="contact-panel-title" className="text-2xl font-semibold text-ink-900">
-                {labels.panelTitle}
-              </h2>
-              <ul className="mt-4 space-y-2 text-sm text-ink-700">
-                {labels.panelItems.map((item) => (
-                  <li key={item} className="flex items-start gap-2">
-                    <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-600" aria-hidden="true" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-6 text-sm text-ink-600">
-                {locale === 'de' ? 'Oder direkt per Mail:' : 'Or email directly:'} <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
-              </p>
-            </div>
-            <ContactLeadForm locale={locale} labels={labels.form} compact />
+    <PageScaffold
+      locale={locale}
+      title={labels.title}
+      description={labels.description}
+      shellClassName="contact-brand-page"
+      desktopContactTrackingSource="contact-page-header"
+    >
+      <section className={RELAUNCH_SECTION} aria-labelledby="contact-panel-title">
+        <div className="grid gap-6 lg:grid-cols-[1.1fr_1fr]">
+          <div className={RELAUNCH_CARD}>
+            <h2 id="contact-panel-title" className="font-display text-xl font-semibold text-slate-100">
+              {labels.panelTitle}
+            </h2>
+            <ul className="mt-4 space-y-2 text-sm text-slate-300">
+              {labels.panelItems.map((item) => (
+                <li key={item} className="flex items-start gap-2">
+                  <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500" aria-hidden="true" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-6 text-sm text-slate-400">
+              {locale === 'de' ? 'Oder direkt per Mail:' : 'Or email directly:'}{' '}
+              <a className="text-sky-400 hover:text-sky-300" href={`mailto:${CONTACT_EMAIL}`}>
+                {CONTACT_EMAIL}
+              </a>
+            </p>
           </div>
-        </SectionFrame>
-      </div>
+          <ContactLeadForm locale={locale} labels={labels.form} compact surface="relaunchDark" />
+        </div>
+      </section>
     </PageScaffold>
   );
 }

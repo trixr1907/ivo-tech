@@ -3,7 +3,9 @@
 KPI-Mapping und Zielwerte: `docs/analytics-kpi-board.md`
 Validierung: `npm run analytics:verify:map`
 Strict-Validierung: `npm run analytics:verify:map:strict`
-Scope der Prüfung: dokumentierte Events (`analytics-event-map.md`) vs. reale Emitter (`trackEvent(...)`) vs. Type-Contract (`AnalyticsEventName`).
+Scope der Prüfung: dokumentierte Events (`analytics-event-map.md`) vs. reale Emitter (`trackEvent(...)`) vs. Type-Contract (`AnalyticsEventName`). Zusätzlich gelten Alias-Ziele aus `eventAliasMap` in `src/lib/analytics.ts` als abgedeckt (z. B. `cta_playbook_tertiary_click` → `playbook_open`, `section_cta_click`). **Literal** `data-track-event="…"` in `src/**` zählt als Emitter-Hinweis (kein Ersatz für dynamische `trackEvent(variable)`-Aufrufe).
+
+Hinweis **`hero_variant_view`:** Payload-Feld `source` bezeichnet die **Varianten-Auflösung** (`query` \| `storage` \| `assigned` \| `default`), nicht die Marketing-`source` anderer Events.
 
 ## Contact flow
 
@@ -13,10 +15,10 @@ Scope der Prüfung: dokumentierte Events (`analytics-event-map.md`) vs. reale Em
 | `contact_submit` | Contact submit attempt (new masterplan contract) | `source`, `locale`, `sourcePath`, `attributionSource`, `heroVariant`, `intent` |
 | `scheduler_click` | Scheduler CTA click (new masterplan contract) | `source`, `locale`, `sourcePath`, `attributionSource`, `heroVariant`, `href`, `placement` |
 | `thankyou_view` | Thank-you page view (new masterplan contract) | `locale`, `source`, `heroVariant`, `path` |
-| `hero_variant_view` | Hero rendered with experiment variant | `locale`, `variant`, `source` |
+| `hero_variant_view` | Hero rendered with experiment variant (Exposure; erneut bei Wechsel von `locale`, `pathname` oder Query `exp_hero`) | `locale`, `variant`, `source` (= Auflösung: `query` / `storage` / `assigned` / `default`), `path` |
 | `cta_primary_click` | Hero primary CTA click | `source`, `locale`, `intent`, `variant` |
-| `cta_case_primary_click` | Hero secondary case CTA click | `source`, `locale`, `intent`, `variant` |
-| `cta_playbook_tertiary_click` | Hero tertiary playbook CTA click | `source`, `locale`, `intent`, `variant` |
+| `cta_case_primary_click` | Hero secondary CTA (Relaunch: Hiring-Pfad; Legacy: Case-Fokus) | `source`, `locale`, `intent`, `variant` |
+| `cta_playbook_tertiary_click` | Hero tertiary CTA (Relaunch: Projekte-Hub; Legacy: Playbook) | `source`, `locale`, `intent`, `variant` |
 | `contact_form_start` | First interaction with contact form fields | `source`, `locale`, `sourcePath`, `attributionSource`, `heroVariant`, `intent` |
 | `contact_form_submit` | Contact form submit attempt | `source`, `locale`, `sourcePath`, `attributionSource`, `heroVariant`, `intent` |
 | `contact_form_submit_success` | Contact form successful response | `source`, `locale`, `sourcePath`, `attributionSource`, `heroVariant`, `intent` |

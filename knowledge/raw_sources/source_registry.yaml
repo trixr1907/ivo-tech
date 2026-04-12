@@ -1,0 +1,108 @@
+version: 1
+updated_at: 2026-04-10
+sources:
+  - source_id: src_ivo_live_home
+    type: website_page
+    owner: first_party
+    url: https://ivo-tech.com
+    language: de
+    status: active
+    priority: critical
+    crawl: true
+    parse: true
+    normalize: true
+    chunk: true
+    versioned: true
+    notes: Primary production homepage.
+
+  - source_id: src_ivo_vercel_preview_home
+    type: website_page
+    owner: first_party
+    url: https://ivo-tech-bcz4r4dcb-ivos-projects-77f7d33c.vercel.app/
+    language: de
+    status: active
+    priority: critical
+    crawl: true
+    parse: true
+    normalize: true
+    chunk: true
+    versioned: true
+    notes: Preview baseline for variant comparison.
+
+  - source_id: src_repo_copy_content
+    type: repository_content
+    owner: first_party
+    path: content/
+    language: [de, en]
+    status: active
+    priority: high
+    crawl: false
+    parse: true
+    normalize: true
+    chunk: true
+    versioned: true
+    notes: Existing playbooks and insights for tone and authority extraction.
+
+  - source_id: src_repo_ui_implementation
+    type: repository_content
+    owner: first_party
+    path: src/
+    status: active
+    priority: high
+    crawl: false
+    parse: true
+    normalize: true
+    chunk: true
+    versioned: true
+    notes: Ground truth for implemented IA, sections, and components.
+
+  - source_id: src_design_tokens
+    type: repository_content
+    owner: first_party
+    path: design-tokens.json
+    status: active
+    priority: medium
+    crawl: false
+    parse: true
+    normalize: true
+    chunk: false
+    versioned: true
+    notes: Token and visual consistency reference.
+
+  - source_id: src_inspiration_benchmarks
+    type: external_research_set
+    owner: third_party
+    status: planned
+    priority: high
+    crawl: true
+    parse: true
+    normalize: true
+    chunk: true
+    versioned: true
+    notes: Curated inspiration and competitor benchmarks.
+
+  - source_id: src_ivo_live_sitemap_run_2026_04_10
+    type: crawl_manifest
+    owner: first_party
+    path: knowledge/crawled_pages/2026-04-10/manifest.json
+    status: active
+    priority: critical
+    crawl: true
+    parse: true
+    normalize: true
+    chunk: true
+    versioned: true
+    notes: Full live crawl snapshot for retrieval baseline.
+
+  - source_id: src_ivo_preview_seed_run_2026_04_10
+    type: crawl_manifest
+    owner: first_party
+    path: knowledge/crawled_pages/2026-04-10-preview/manifest.json
+    status: active
+    priority: high
+    crawl: true
+    parse: true
+    normalize: true
+    chunk: true
+    versioned: true
+    notes: Preview crawl using fallback seed paths (sitemap unavailable).

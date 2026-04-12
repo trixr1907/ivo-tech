@@ -1,0 +1,141 @@
+{
+  "version": "2026-04-10",
+  "source": "knowledge/research/benchmark_signals_2026-04-10.json",
+  "units": [
+    {
+      "unit_id": "unit_96a3af5cff60",
+      "source_id": "src_benchmark__vercel_com",
+      "semantic_type": "design_direction",
+      "language": "mixed",
+      "text": "Build and deploy on the AI Cloud.",
+      "collection": "b2b_homepage_references",
+      "version": "2026-04-10"
+    },
+    {
+      "unit_id": "unit_da267a9267b2",
+      "source_id": "src_benchmark__linear_app",
+      "semantic_type": "design_direction",
+      "language": "mixed",
+      "text": "The product development system for teams and agents The product development system for teams and agents The product development system for teams and agents",
+      "collection": "b2b_homepage_references",
+      "version": "2026-04-10"
+    },
+    {
+      "unit_id": "unit_a4a229cff62f",
+      "source_id": "src_benchmark__www_webflow_com",
+      "semantic_type": "design_direction",
+      "language": "mixed",
+      "text": "Make your website a growth engine",
+      "collection": "b2b_homepage_references",
+      "version": "2026-04-10"
+    },
+    {
+      "unit_id": "unit_e029e717e66c",
+      "source_id": "src_benchmark__www_framer_com",
+      "semantic_type": "design_direction",
+      "language": "mixed",
+      "text": "Build better sites, faster",
+      "collection": "b2b_homepage_references",
+      "version": "2026-04-10"
+    },
+    {
+      "unit_id": "unit_e3d9e2ff454c",
+      "source_id": "src_benchmark__www_shopify_com",
+      "semantic_type": "design_direction",
+      "language": "mixed",
+      "text": "Be the next big thing",
+      "collection": "b2b_homepage_references",
+      "version": "2026-04-10"
+    },
+    {
+      "unit_id": "unit_0d95923fe873",
+      "source_id": "src_benchmark__supabase_com",
+      "semantic_type": "design_direction",
+      "language": "mixed",
+      "text": "Build in a weekend Scale to millions",
+      "collection": "b2b_homepage_references",
+      "version": "2026-04-10"
+    },
+    {
+      "unit_id": "unit_9f2ac342826c",
+      "source_id": "src_benchmark__stripe_com",
+      "semantic_type": "design_direction",
+      "language": "mixed",
+      "text": "Die Finanzinfrastruktur für mehr Umsatz. Akzeptieren Sie Zahlungen, bieten Sie Finanzdienstleistungen an und führen Sie individuelle Umsatzmodelle ein – vom ersten Bezahlvorgang bis zur milliardsten Transaktion.",
+      "collection": "b2b_homepage_references",
+      "version": "2026-04-10"
+    },
+    {
+      "unit_id": "unit_25508fe4b901",
+      "source_id": "src_benchmark__www_notion_com",
+      "semantic_type": "design_direction",
+      "language": "mixed",
+      "text": "Meet the night shift.",
+      "collection": "b2b_homepage_references",
+      "version": "2026-04-10"
+    },
+    {
+      "unit_id": "unit_564fb159e23f",
+      "source_id": "src_benchmark__tailwindui_com_components",
+      "semantic_type": "design_direction",
+      "language": "mixed",
+      "text": "Beautiful UI components, crafted with Tailwind CSS.",
+      "collection": "ui_component_sources",
+      "version": "2026-04-10"
+    },
+    {
+      "unit_id": "unit_1f6482aaa96a",
+      "source_id": "src_benchmark__www_aceternity_com_components",
+      "semantic_type": "design_direction",
+      "language": "mixed",
+      "text": "Awesome Tailwind CSS and Framer Motion components for your React project",
+      "collection": "ui_component_sources",
+      "version": "2026-04-10"
+    },
+    {
+      "unit_id": "unit_21bce77b7a50",
+      "source_id": "src_benchmark__www_lapa_ninja",
+      "semantic_type": "design_direction",
+      "language": "mixed",
+      "text": "The Best Landing Page Design Inspiration, Learn Design and More",
+      "collection": "showcase_and_pattern_sources",
+      "version": "2026-04-10"
+    },
+    {
+      "unit_id": "unit_0a73bc70fddd",
+      "source_id": "src_benchmark__www_hyperui_dev",
+      "semantic_type": "design_direction",
+      "language": "mixed",
+      "text": "HyperUI",
+      "collection": "ui_component_sources",
+      "version": "2026-04-10"
+    },
+    {
+      "unit_id": "unit_367dcbe18ee4",
+      "source_id": "src_benchmark__godly_website",
+      "semantic_type": "design_direction",
+      "language": "mixed",
+      "text": "Astronomically good web design inspiration",
+      "collection": "showcase_and_pattern_sources",
+      "version": "2026-04-10"
+    },
+    {
+      "unit_id": "unit_a3e36eb7b05e",
+      "source_id": "src_benchmark__ui_shadcn_com",
+      "semantic_type": "design_direction",
+      "language": "mixed",
+      "text": "The Foundation for your Design System",
+      "collection": "ui_component_sources",
+      "version": "2026-04-10"
+    },
+    {
+      "unit_id": "unit_6839310d61e5",
+      "source_id": "src_benchmark__www_radix_ui_com",
+      "semantic_type": "design_direction",
+      "language": "mixed",
+      "text": "Start building your app now",
+      "collection": "ui_component_sources",
+      "version": "2026-04-10"
+    }
+  ]
+}
