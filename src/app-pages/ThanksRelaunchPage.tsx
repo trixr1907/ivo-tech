@@ -66,32 +66,45 @@ export function ThanksRelaunchPage({ locale, source, heroVariant, primaryCta, sc
       <ThankYouTracker locale={locale} source={source} heroVariant={heroVariant} />
       <main id="main-content" className="mx-auto w-full max-w-[960px] flex-1 px-4 pb-12 pt-10 sm:px-6 md:pt-12">
         <section className={RELAUNCH_SECTION}>
-          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sky-400/90">{copy.eyebrow}</p>
-          <h1 className="mt-3 font-display text-3xl font-semibold leading-tight text-slate-100 sm:text-4xl">{copy.title}</h1>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-300">
+          <p className="home-eyebrow">{copy.eyebrow}</p>
+          <h1
+            className="mt-1 font-display font-bold tracking-tight text-white"
+            style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', lineHeight: 1.15 }}
+          >
+            {copy.title}
+          </h1>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-400">
             {copy.introBefore}{' '}
-            <a className="font-medium text-sky-400 hover:text-sky-300" href="mailto:contact@ivo-tech.com" data-thanks-cta="email">
+            <a className="font-medium text-sky-300 transition hover:text-sky-200" href="mailto:contact@ivo-tech.com" data-thanks-cta="email">
               contact@ivo-tech.com
             </a>
             {copy.introAfter}
           </p>
-          <ol className="mt-6 space-y-2 rounded-2xl border border-slate-700/80 bg-slate-950/40 p-4 text-sm text-slate-300">
-            {copy.steps.map((line) => (
-              <li key={line}>{line}</li>
+          <ol className="mt-6 space-y-3 relaunch-card">
+            {copy.steps.map((line, idx) => (
+              <li key={line} className="flex items-start gap-3 text-sm text-slate-300">
+                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-sky-500/30 bg-sky-500/8 font-mono text-[0.65rem] font-bold text-sky-300" aria-hidden="true">
+                  {idx + 1}
+                </span>
+                {line.replace(/^\d+\.\s*/, '')}
+              </li>
             ))}
           </ol>
           <div className="mt-8 flex flex-col flex-wrap gap-3 sm:flex-row">
-            <Button asChild className="bg-sky-500 text-slate-950 hover:bg-sky-400">
+            <Button
+              asChild
+              className="bg-gradient-to-r from-sky-500 to-blue-500 text-white shadow-[0_0_24px_rgba(14,165,233,0.28)] hover:from-sky-400 hover:to-blue-400"
+            >
               <Link href={primaryCta.href} data-thanks-cta="primary">
                 {primaryCta.label}
               </Link>
             </Button>
-            <Button asChild variant="outline" className="border-slate-600 bg-transparent text-slate-100 hover:bg-slate-800/60">
+            <Button asChild variant="outline" className="border-slate-700 bg-transparent text-slate-200 hover:border-slate-500 hover:bg-slate-800/60">
               <Link href={homeHref} data-thanks-cta="secondary">
                 {copy.homeLabel}
               </Link>
             </Button>
-            <Button asChild variant="outline" className="border-slate-600 bg-transparent text-slate-100 hover:bg-slate-800/60">
+            <Button asChild variant="outline" className="border-slate-700 bg-transparent text-slate-200 hover:border-sky-500/40 hover:text-sky-300">
               <a href={schedulerHref} target="_blank" rel="noopener noreferrer" data-thanks-cta="scheduler">
                 {copy.schedulerLabel}
               </a>

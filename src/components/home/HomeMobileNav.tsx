@@ -58,18 +58,28 @@ export function HomeMobileNav({
         </Button>
       </Dialog.Trigger>
       <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 z-40 bg-slate-950/40 backdrop-blur-sm" />
-        <Dialog.Content className="fixed inset-y-0 right-0 z-50 flex w-[84vw] max-w-sm flex-col gap-6 border-l border-slate-200 bg-white p-6 shadow-2xl focus:outline-none">
+        <Dialog.Overlay className="fixed inset-0 z-40 bg-slate-950/60 backdrop-blur-md" />
+        <Dialog.Content
+          className="fixed inset-y-0 right-0 z-50 flex w-[84vw] max-w-sm flex-col gap-0 p-0 shadow-2xl focus:outline-none"
+          style={{
+            background:
+              'linear-gradient(to bottom right, rgba(9,17,34,0.98), rgba(6,11,22,0.97)) padding-box, linear-gradient(135deg, rgba(56,189,248,0.2) 0%, rgba(56,189,248,0.04) 50%, rgba(99,102,241,0.1) 100%) border-box',
+            border: '1px solid transparent',
+            borderLeft: '1px solid transparent'
+          }}
+        >
           <Dialog.Title className="sr-only">{locale === 'de' ? 'Mobile Navigation' : 'Mobile navigation'}</Dialog.Title>
           <Dialog.Description className="sr-only">
             {locale === 'de' ? 'Springe direkt zu den Hauptbereichen der Seite.' : 'Jump directly to the main sections of the page.'}
           </Dialog.Description>
-          <div className="flex items-center justify-between">
-            <p className="font-display text-base font-semibold text-ink-900">ivo-tech</p>
+
+          {/* Header */}
+          <div className="flex items-center justify-between border-b border-slate-800/70 px-6 py-4">
+            <p className="font-display text-base font-bold tracking-tight text-slate-100">ivo-tech</p>
             <Dialog.Close asChild>
               <button
                 type="button"
-                className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 text-ink-700 transition hover:bg-slate-100"
+                className="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-slate-700/80 text-slate-400 transition hover:border-slate-500 hover:bg-slate-800/60 hover:text-slate-100"
                 aria-label={locale === 'de' ? 'Navigation schließen' : 'Close navigation'}
               >
                 <X className="h-4 w-4" aria-hidden="true" />
@@ -77,13 +87,16 @@ export function HomeMobileNav({
             </Dialog.Close>
           </div>
 
-          <nav aria-label={locale === 'de' ? 'Mobile Navigation' : 'Mobile navigation'} className="flex flex-col gap-2">
+          {/* Nav links */}
+          <nav aria-label={locale === 'de' ? 'Mobile Navigation' : 'Mobile navigation'} className="flex flex-col gap-0.5 px-4 py-4">
             {links.map((link) => (
               <Dialog.Close key={link.href} asChild>
                 <a
                   className={cn(
-                    'rounded-lg px-3 py-2 text-base font-medium text-ink-800 transition hover:bg-slate-100',
-                    activeSection === link.href.replace('#', '') ? 'bg-brand-50 text-brand-800 ring-1 ring-brand-200' : ''
+                    'rounded-lg px-3 py-2.5 text-sm font-medium text-slate-300 transition hover:bg-slate-800/60 hover:text-slate-100',
+                    activeSection === link.href.replace('#', '')
+                      ? 'bg-sky-500/10 text-sky-300 ring-1 ring-sky-500/25'
+                      : ''
                   )}
                   href={link.href}
                   onClick={() => onLinkClick?.(link.href)}
@@ -94,9 +107,13 @@ export function HomeMobileNav({
             ))}
           </nav>
 
-          <div className="mt-auto space-y-3">
+          {/* CTA area */}
+          <div className="mt-auto space-y-2.5 border-t border-slate-800/70 px-4 py-5">
             <Dialog.Close asChild>
-              <Button asChild variant="default" className="w-full">
+              <Button
+                asChild
+                className="w-full bg-gradient-to-r from-sky-500 to-blue-500 text-white hover:from-sky-400 hover:to-blue-400"
+              >
                 <a
                   href={primaryHref}
                   onClick={() => {
@@ -122,8 +139,14 @@ export function HomeMobileNav({
               </Button>
             </Dialog.Close>
             <Dialog.Close asChild>
-              <Button asChild variant="ghost" className="w-full">
-                <Link href={locale === 'de' ? '/en' : '/'}>{locale === 'de' ? 'Switch to English' : 'Auf Deutsch wechseln'}</Link>
+              <Button
+                asChild
+                variant="ghost"
+                className="w-full text-slate-400 hover:bg-slate-800/60 hover:text-slate-200"
+              >
+                <Link href={locale === 'de' ? '/en' : '/'}>
+                  {locale === 'de' ? 'Switch to English' : 'Auf Deutsch wechseln'}
+                </Link>
               </Button>
             </Dialog.Close>
           </div>

@@ -20,6 +20,7 @@ export type HomeRelaunchFormLabels = {
 
 export type HomeRelaunchCopy = {
   badge: string;
+  availabilityPill: string;
   title: string;
   description: string;
   primaryCta: string;
@@ -40,6 +41,8 @@ export type HomeRelaunchCopy = {
   proofPoints: string[];
   featuredProjectsTitle: string;
   featuredProjectsDescription: string;
+  midPageCtaText: string;
+  midPageCtaLink: string;
   insightsTitle: string;
   insightsDescription: string;
   insightsCta: string;
@@ -52,7 +55,8 @@ export type HomeRelaunchCopy = {
 
 const homeRelaunchByLocale: Record<Locale, HomeRelaunchCopy> = {
   de: {
-    badge: 'Senior Web Engineer · Remote-first · Verfügbar',
+    badge: 'Senior Web Engineer · Remote-first',
+    availabilityPill: 'Verfügbar · Q2 2026',
     title: 'Technical Delivery ohne Blindflug — Websysteme, die stabil laufen und klar konvertieren.',
     description:
       'Du brauchst kein Versprechen, sondern einen Engineer, der liefert: klare Architektur, QA-Gates vor jedem Release, dokumentierte Übergabe. Ich baue conversion-kritische B2B-Websysteme — von Scope über Build bis zu messbarem Ergebnis.',
@@ -83,6 +87,8 @@ const homeRelaunchByLocale: Record<Locale, HomeRelaunchCopy> = {
     ],
     featuredProjectsTitle: 'Ausgewählte Projekte',
     featuredProjectsDescription: 'Reale Builds aus Professional- und Maker-Track — mit technischem Kontext und Betriebsstatus.',
+    midPageCtaText: 'Aktuell verfügbar für neue Projekte und Hiring-Gespräche. Antwort werktags innerhalb von 24h.',
+    midPageCtaLink: 'Direkt einsteigen',
     insightsTitle: 'Engineering Insights',
     insightsDescription: 'Praxisnahe Deep Dives zu Architektur-, Performance- und Delivery-Entscheidungen.',
     insightsCta: 'Alle Insights',
@@ -108,7 +114,8 @@ const homeRelaunchByLocale: Record<Locale, HomeRelaunchCopy> = {
     }
   },
   en: {
-    badge: 'Senior Web Engineer · Remote-first · Available',
+    badge: 'Senior Web Engineer · Remote-first',
+    availabilityPill: 'Available · Q2 2026',
     title: 'Technical delivery without guesswork — web systems that run reliably and convert clearly.',
     description:
       'You need delivery, not promises: clean architecture, QA gates before every release, documented team handover. I build conversion-critical B2B web systems — from scope through build to measurable outcome.',
@@ -139,6 +146,8 @@ const homeRelaunchByLocale: Record<Locale, HomeRelaunchCopy> = {
     ],
     featuredProjectsTitle: 'Featured projects',
     featuredProjectsDescription: 'Real builds from professional and maker tracks — with technical context and production status.',
+    midPageCtaText: 'Currently available for new projects and hiring conversations. Response within 24h on business days.',
+    midPageCtaLink: 'Get in touch',
     insightsTitle: 'Engineering insights',
     insightsDescription: 'Practical deep dives on architecture, performance, and delivery decisions.',
     insightsCta: 'All insights',

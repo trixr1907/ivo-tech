@@ -84,27 +84,31 @@ export function HubIndexPage({ locale, kind, entries }: Props) {
         <HubPageTracker locale={locale} kind={kind} pageType="index" />
         <main id="main-content" className="mx-auto w-full max-w-[1200px] flex-1 px-4 pb-10 pt-8 sm:px-6 md:pb-12 md:pt-10">
           <section className={`${RELAUNCH_SECTION} hub-index-hero-section`} aria-labelledby="hub-title">
-            <div className="space-y-3">
-              <h1 id="hub-title" className="font-display text-3xl font-semibold tracking-tight text-slate-100 md:text-4xl">
-                {config.indexTitle[locale]}
-              </h1>
-              <p className="max-w-3xl text-base leading-relaxed text-slate-300 md:text-lg">{config.indexDescription[locale]}</p>
-            </div>
+            <p className="home-eyebrow">{config.label[locale]}</p>
+            <h1
+              id="hub-title"
+              className="mt-1 font-display font-bold tracking-tight text-white"
+              style={{ fontSize: 'clamp(1.75rem, 4vw, 2.75rem)', lineHeight: 1.15 }}
+            >
+              {config.indexTitle[locale]}
+            </h1>
+            <p className="mt-3 max-w-2xl text-base leading-relaxed text-slate-400">{config.indexDescription[locale]}</p>
 
             <div id="hub-list" className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
               {entries.map((entry) => (
                 <article key={entry.slug} className={`${RELAUNCH_CARD_HOVER} flex flex-col`}>
-                  <span className="text-xs font-semibold uppercase tracking-[0.12em] text-sky-400/90">
-                    {entry.category} | {entry.readMinutes} min
+                  <span className="home-eyebrow" style={{ fontSize: '0.62rem' }}>
+                    {entry.category} · {entry.readMinutes} min
                   </span>
-                  <h2 className="mt-2 font-display text-lg font-semibold text-slate-100">{entry.title}</h2>
-                  <p className="mt-2 flex-1 text-sm text-slate-300">{entry.summary}</p>
+                  <h2 className="mt-2 font-display text-base font-semibold leading-snug text-slate-100">{entry.title}</h2>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-500">{entry.summary}</p>
                   <Link
                     href={getLocalizedHubDetailPath(kind, locale, entry.slug)}
-                    className="mt-4 text-sm font-medium text-sky-400 transition hover:text-sky-300"
+                    className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-sky-300 transition hover:text-sky-200"
                     data-hub-cta="list-item-open"
                   >
                     {config.readLabel[locale]}
+                    <span aria-hidden="true">→</span>
                   </Link>
                 </article>
               ))}

@@ -47,11 +47,7 @@ export function ServiceDetailPage({ locale, slug, content }: ServiceDetailPagePr
   const canonical = `${SITE_URL}${path}`;
   const contactPath = getContactPath(locale, `service-detail-${slug}-scope`);
   const caseLink = content.links.find((link) => link.kind === 'case');
-  const playbookLink = content.links.find((link) => link.kind === 'playbook');
   const secondaryHref = caseLink ? `${localizePath(caseLink.href, locale)}?source=service-detail-${slug}-case` : localizePath('/case-studies', locale);
-  const tertiaryHref = playbookLink
-    ? `${localizePath(playbookLink.href, locale)}?source=service-detail-${slug}-playbook`
-    : localizePath('/playbooks', locale);
   const linkKindLabel: Record<'case' | 'insight' | 'playbook', string> =
     locale === 'de'
       ? { case: 'Fallstudie', insight: 'Insight', playbook: 'Playbook' }
@@ -144,38 +140,41 @@ export function ServiceDetailPage({ locale, slug, content }: ServiceDetailPagePr
         <ServiceDetailTracker locale={locale} slug={slug} />
         <main id="main-content" className="mx-auto w-full max-w-[1200px] flex-1 px-4 pb-10 pt-8 sm:px-6 md:pb-12 md:pt-10">
           <section className={`${RELAUNCH_SECTION} service-detail-hero-section`} aria-labelledby="service-detail-title">
-            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sky-400/90">{content.eyebrow}</p>
-            <h1 id="service-detail-title" className="mt-2 font-display text-3xl font-semibold tracking-tight text-slate-100 md:text-4xl">
+            <p className="home-eyebrow">{content.eyebrow}</p>
+            <h1
+              id="service-detail-title"
+              className="mt-1 font-display font-bold tracking-tight text-white"
+              style={{ fontSize: 'clamp(1.75rem, 4vw, 2.75rem)', lineHeight: 1.15 }}
+            >
               {content.title}
             </h1>
-            <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-300 md:text-lg">{content.description}</p>
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-400 md:text-lg">{content.description}</p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Button asChild className="bg-sky-500 text-slate-950 hover:bg-sky-400">
+              <Button
+                asChild
+                className="bg-gradient-to-r from-sky-500 to-blue-500 text-white shadow-[0_0_24px_rgba(14,165,233,0.28)] hover:from-sky-400 hover:to-blue-400"
+              >
                 <Link href={contactPath} data-service-detail-cta="hero-primary">
                   {content.ctaPrimary}
                 </Link>
               </Button>
-              <Button asChild variant="outline" className="border-slate-600 bg-transparent text-slate-100 hover:bg-slate-800/60">
+              <Button asChild variant="outline" className="border-slate-700 bg-transparent text-slate-200 hover:border-slate-500 hover:bg-slate-800/60">
                 <Link href={secondaryHref} data-service-detail-cta="hero-secondary-case">
                   {content.ctaSecondary}
-                </Link>
-              </Button>
-              <Button asChild variant="outline" className="border-slate-600 bg-transparent text-slate-100 hover:bg-slate-800/60">
-                <Link href={tertiaryHref} data-service-detail-cta="hero-tertiary-playbook">
-                  {content.ctaTertiary}
                 </Link>
               </Button>
             </div>
           </section>
 
           <section className={`${RELAUNCH_SECTION} mt-8 service-detail-outcomes-section`} aria-labelledby="service-detail-outcomes">
-            <h2 id="service-detail-outcomes" className="font-display text-xl font-semibold text-slate-100">
+            <h2 id="service-detail-outcomes" className="home-section-h2" style={{ fontSize: "1.5rem" }}>
               {content.outcomesTitle}
             </h2>
             <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
               {content.outcomes.map((outcome) => (
-                <article key={outcome} className="rounded-2xl border border-slate-800/80 bg-slate-950/40 p-5 text-sm text-slate-300 md:p-6">
-                  <p>{outcome}</p>
+                <article key={outcome} className="relaunch-card flex items-start gap-3">
+                  <span className="mt-0.5 shrink-0 text-sky-400/70 text-sm" aria-hidden="true">→</span>
+                  <p className="text-sm leading-relaxed text-slate-300">{outcome}</p>
                 </article>
               ))}
             </div>
@@ -187,17 +186,17 @@ export function ServiceDetailPage({ locale, slug, content }: ServiceDetailPagePr
                 <h2 id="service-detail-deliverables" className="font-display text-lg font-semibold text-slate-100">
                   {content.deliverablesTitle}
                 </h2>
-                <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-300">
+                <ul className="mt-3 space-y-2.5">
                   {content.deliverables.map((item) => (
-                    <li key={item}>{item}</li>
+                    <li key={item} className="flex items-start gap-2 text-sm text-slate-300"><span className="mt-0.5 shrink-0 text-sky-400/70 text-xs" aria-hidden="true">→</span>{item}</li>
                   ))}
                 </ul>
               </article>
               <article>
                 <h2 className="font-display text-lg font-semibold text-slate-100">{content.fitTitle}</h2>
-                <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-300">
+                <ul className="mt-3 space-y-2.5">
                   {content.fit.map((item) => (
-                    <li key={item}>{item}</li>
+                    <li key={item} className="flex items-start gap-2 text-sm text-slate-300"><span className="mt-0.5 shrink-0 text-sky-400/70 text-xs" aria-hidden="true">→</span>{item}</li>
                   ))}
                 </ul>
               </article>
@@ -212,7 +211,7 @@ export function ServiceDetailPage({ locale, slug, content }: ServiceDetailPagePr
           </section>
 
           <section className={`${RELAUNCH_SECTION} mt-8 service-detail-links-section`} aria-labelledby="service-detail-links">
-            <h2 id="service-detail-links" className="font-display text-xl font-semibold text-slate-100">
+            <h2 id="service-detail-links" className="home-section-h2" style={{ fontSize: "1.5rem" }}>
               {content.linksTitle}
             </h2>
             <p className="mt-2 text-sm text-slate-300 md:text-base">
@@ -230,7 +229,7 @@ export function ServiceDetailPage({ locale, slug, content }: ServiceDetailPagePr
                     className={RELAUNCH_CARD_HOVER}
                     data-service-detail-cta={`related-${link.kind}`}
                   >
-                    <span className="text-xs font-semibold uppercase tracking-[0.12em] text-sky-400/90">
+                    <span className="home-eyebrow">
                       {linkKindLabel[link.kind]}
                     </span>
                     <h3 className="mt-2 font-display text-base font-semibold text-slate-100">{link.label}</h3>
@@ -242,17 +241,14 @@ export function ServiceDetailPage({ locale, slug, content }: ServiceDetailPagePr
           </section>
 
           <section className={`${RELAUNCH_SECTION} mt-8 service-detail-faq-section`} aria-labelledby="service-detail-faq">
-            <h2 id="service-detail-faq" className="font-display text-xl font-semibold text-slate-100">
+            <h2 id="service-detail-faq" className="home-section-h2" style={{ fontSize: "1.5rem" }}>
               {content.faqTitle}
             </h2>
-            <div className="mt-6 space-y-3">
+            <div className="home-relaunch-faq mt-6">
               {content.faq.map((item) => (
-                <details
-                  key={item.question}
-                  className="rounded-xl border border-slate-700/90 bg-slate-950/50 p-4 backdrop-blur-sm"
-                >
-                  <summary className="cursor-pointer font-semibold text-slate-100">{item.question}</summary>
-                  <p className="mt-2 text-sm text-slate-300">{item.answer}</p>
+                <details key={item.question} name="service-faq">
+                  <summary>{item.question}</summary>
+                  <p>{item.answer}</p>
                 </details>
               ))}
             </div>

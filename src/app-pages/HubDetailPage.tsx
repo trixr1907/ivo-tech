@@ -145,19 +145,23 @@ export function HubDetailPage({ locale, kind, entry }: Props) {
         <main id="main-content" className="mx-auto w-full max-w-[1200px] flex-1 px-4 pb-10 pt-8 sm:px-6 md:pb-12 md:pt-10">
           <article className="insight-article hub-detail-article space-y-8" aria-labelledby="hub-detail-title">
             <header className={`${RELAUNCH_SECTION} insight-hero hub-detail-hero`}>
-              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sky-400/90">
-                {entry.category} | {entry.readMinutes} min
+              <p className="home-eyebrow">
+                {entry.category} · {entry.readMinutes} min
               </p>
-              <h1 id="hub-detail-title" className="mt-2 font-display text-3xl font-semibold tracking-tight text-slate-100 md:text-4xl">
+              <h1
+                id="hub-detail-title"
+                className="mt-1 font-display font-bold tracking-tight text-white"
+                style={{ fontSize: 'clamp(1.75rem, 4vw, 2.75rem)', lineHeight: 1.18 }}
+              >
                 {entry.title}
               </h1>
-              <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-300 md:text-lg">{entry.description}</p>
+              <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-400">{entry.description}</p>
             </header>
 
             {caseKpis.length > 0 ? (
               <section className={`${RELAUNCH_SECTION} hub-detail-kpi-section`} aria-labelledby="case-study-kpi-title">
                 <div className="space-y-2">
-                  <h2 id="case-study-kpi-title" className="font-display text-xl font-semibold text-slate-100">
+                  <h2 id="case-study-kpi-title" className="home-section-h2" style={{ fontSize: "1.5rem" }}>
                     {locale === 'de' ? 'Ergebnis-Snapshot' : 'Outcome snapshot'}
                   </h2>
                   <p className="text-sm text-slate-300 md:text-base">
@@ -169,7 +173,7 @@ export function HubDetailPage({ locale, kind, entry }: Props) {
                 <div className="mt-8 grid gap-4 md:grid-cols-3">
                   {caseKpis.map((kpi) => (
                     <article key={kpi.label} className={RELAUNCH_CARD}>
-                      <span className="text-xs font-semibold uppercase tracking-[0.12em] text-sky-400/90">{kpi.label}</span>
+                      <span className="home-eyebrow">{kpi.label}</span>
                       <h3 className="mt-2 font-display text-lg font-semibold text-slate-100">{kpi.value}</h3>
                       <p className="mt-2 text-sm text-slate-300">{kpi.note}</p>
                     </article>
@@ -192,7 +196,7 @@ export function HubDetailPage({ locale, kind, entry }: Props) {
               className={`${RELAUNCH_SECTION} hub-detail-related`}
               aria-label={locale === 'de' ? 'Weiterfuehrende Links' : 'Related links'}
             >
-              <h2 className="font-display text-xl font-semibold text-slate-100">
+              <h2 className="home-section-h2" style={{ fontSize: "1.5rem" }}>
                 {locale === 'de' ? 'Weiterfuehrende Links' : 'Related links'}
               </h2>
               <ul className="mt-4 space-y-3">

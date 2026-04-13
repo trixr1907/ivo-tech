@@ -22,7 +22,7 @@ export function HomeMobileCtaDock({ locale, projectsHref }: HomeMobileCtaDockPro
       <div className="grid grid-cols-[1fr_auto] gap-2">
         <a
           href="#contact"
-          className="rounded-xl bg-sky-500 py-2.5 text-center text-sm font-semibold text-slate-950 shadow-sm transition hover:bg-sky-400"
+          className="rounded-xl bg-gradient-to-r from-sky-500 to-blue-500 py-2.5 text-center text-sm font-semibold text-white shadow-sm transition hover:from-sky-400 hover:to-blue-400"
         >
           {locale === 'de' ? 'Kontakt' : 'Contact'}
         </a>

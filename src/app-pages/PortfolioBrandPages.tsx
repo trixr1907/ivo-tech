@@ -47,16 +47,20 @@ function PageScaffold({
       shellClassName={shellClassName}
     >
       <main id="main-content" className="mx-auto w-full max-w-[1200px] flex-1 px-4 pb-10 pt-8 sm:px-6 md:pb-12 md:pt-10">
-        <section className={RELAUNCH_SECTION} aria-labelledby="portfolio-page-title">
-          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sky-400/90">
+        <section className={`${RELAUNCH_SECTION} mb-8`} aria-labelledby="portfolio-page-title">
+          <p className="home-eyebrow">
             {locale === 'de' ? 'Builder / Engineer / Maker' : 'Builder / Engineer / Maker'}
           </p>
-          <h1 id="portfolio-page-title" className="mt-2 font-display text-3xl font-semibold tracking-tight text-slate-100 md:text-4xl">
+          <h1
+            id="portfolio-page-title"
+            className="mt-1 font-display font-bold tracking-tight text-white"
+            style={{ fontSize: 'clamp(1.75rem, 4vw, 2.75rem)', lineHeight: 1.15 }}
+          >
             {title}
           </h1>
-          <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-300 md:text-lg">{description}</p>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-400 md:text-lg">{description}</p>
         </section>
-        <div className="mt-8 space-y-8">{children}</div>
+        <div className="space-y-6">{children}</div>
       </main>
     </RelaunchMarketingShell>
   );
@@ -101,7 +105,7 @@ export function AboutBrandPage({ locale }: { locale: Locale }) {
   return (
     <PageScaffold locale={locale} title={copy.title} description={copy.description} shellClassName="about-brand-page">
       <section className={RELAUNCH_SECTION} aria-labelledby="principles-title">
-        <h2 id="principles-title" className="font-display text-xl font-semibold text-slate-100">
+        <h2 id="principles-title" className="home-section-h2" style={{ fontSize: "1.5rem" }}>
           {copy.principlesTitle}
         </h2>
         <div className="mt-6 grid gap-4 md:grid-cols-3">
@@ -114,13 +118,13 @@ export function AboutBrandPage({ locale }: { locale: Locale }) {
       </section>
 
       <section className={RELAUNCH_SECTION} aria-labelledby="timeline-title">
-        <h2 id="timeline-title" className="font-display text-xl font-semibold text-slate-100">
+        <h2 id="timeline-title" className="home-section-h2" style={{ fontSize: "1.5rem" }}>
           {copy.timelineTitle}
         </h2>
         <div className="mt-6 grid gap-4 md:grid-cols-2">
           {timeline.map((item) => (
             <article key={item.id} className={RELAUNCH_CARD}>
-              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sky-400/90">{item.year}</p>
+              <p className="home-eyebrow">{item.year}</p>
               <h3 className="mt-2 font-display text-base font-semibold text-slate-100">{item.localizedTitle}</h3>
               <p className="mt-2 text-sm text-slate-300">{item.localizedDetail}</p>
             </article>
@@ -129,7 +133,7 @@ export function AboutBrandPage({ locale }: { locale: Locale }) {
       </section>
 
       <section className={RELAUNCH_SECTION} aria-labelledby="proof-title">
-        <h2 id="proof-title" className="font-display text-xl font-semibold text-slate-100">
+        <h2 id="proof-title" className="home-section-h2" style={{ fontSize: "1.5rem" }}>
           {copy.proofTitle}
         </h2>
         <div className="mt-6 grid gap-4 md:grid-cols-3">
@@ -149,13 +153,13 @@ export function AboutBrandPage({ locale }: { locale: Locale }) {
       </section>
 
       <section className={RELAUNCH_SECTION} aria-labelledby="featured-title">
-        <h2 id="featured-title" className="font-display text-xl font-semibold text-slate-100">
+        <h2 id="featured-title" className="home-section-h2" style={{ fontSize: "1.5rem" }}>
           {copy.featuredTitle}
         </h2>
         <div className="mt-6 grid gap-4 md:grid-cols-2">
           {featured.map((project) => (
             <article key={project.id} className={RELAUNCH_CARD}>
-              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sky-400/90">{project.status.toUpperCase()}</p>
+              <p className="home-eyebrow">{project.status.toUpperCase()}</p>
               <h3 className="mt-2 font-display text-base font-semibold text-slate-100">{project.localizedTitle}</h3>
               <p className="mt-2 text-sm text-slate-300">{project.localizedSummary}</p>
               <p className="mt-3 text-sm text-slate-400">{project.localizedOutcome}</p>
@@ -201,7 +205,7 @@ export function ProjectsBrandPage({ locale }: { locale: Locale }) {
 
   const renderProjectCard = (project: ReturnType<typeof getProjectsByTrack>[number]) => (
     <article key={project.id} className={RELAUNCH_CARD}>
-      <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sky-400/90">{project.status.toUpperCase()}</p>
+      <p className="home-eyebrow">{project.status.toUpperCase()}</p>
       <h3 className="mt-2 font-display text-base font-semibold text-slate-100">{project.localizedTitle}</h3>
       <p className="mt-2 text-sm text-slate-300">{project.localizedSummary}</p>
       <p className="mt-3 text-sm text-slate-400">{project.localizedOutcome}</p>
@@ -222,14 +226,14 @@ export function ProjectsBrandPage({ locale }: { locale: Locale }) {
   return (
     <PageScaffold locale={locale} title={copy.title} description={copy.description} shellClassName="projects-brand-page">
       <section className={RELAUNCH_SECTION} aria-labelledby="professional-title">
-        <h2 id="professional-title" className="font-display text-xl font-semibold text-slate-100">
+        <h2 id="professional-title" className="home-section-h2" style={{ fontSize: "1.5rem" }}>
           {copy.professionalTitle}
         </h2>
         <div className="mt-6 grid gap-4 md:grid-cols-2">{professional.map(renderProjectCard)}</div>
       </section>
 
       <section className={RELAUNCH_SECTION} aria-labelledby="maker-title">
-        <h2 id="maker-title" className="font-display text-xl font-semibold text-slate-100">
+        <h2 id="maker-title" className="home-section-h2" style={{ fontSize: "1.5rem" }}>
           {copy.makerTitle}
         </h2>
         <div className="mt-6 grid gap-4 md:grid-cols-2">{maker.map(renderProjectCard)}</div>
@@ -288,7 +292,7 @@ export function MakerLabPage({ locale }: { locale: Locale }) {
   return (
     <PageScaffold locale={locale} title={copy.title} description={copy.description} shellClassName="maker-lab-page">
       <section className={RELAUNCH_SECTION} aria-labelledby="maker-focus-title">
-        <h2 id="maker-focus-title" className="font-display text-xl font-semibold text-slate-100">
+        <h2 id="maker-focus-title" className="home-section-h2" style={{ fontSize: "1.5rem" }}>
           {copy.focusTitle}
         </h2>
         <ul className="mt-6 grid gap-3 md:grid-cols-3">
@@ -309,13 +313,13 @@ export function MakerLabPage({ locale }: { locale: Locale }) {
       </section>
 
       <section className={RELAUNCH_SECTION} aria-labelledby="maker-roadmap-title">
-        <h2 id="maker-roadmap-title" className="font-display text-xl font-semibold text-slate-100">
+        <h2 id="maker-roadmap-title" className="home-section-h2" style={{ fontSize: "1.5rem" }}>
           {copy.roadmapTitle}
         </h2>
         <ol className="mt-6 grid gap-3 md:grid-cols-3">
           {copy.roadmapItems.map((item, index) => (
             <li key={item} className={RELAUNCH_CARD}>
-              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sky-400/90">{index + 1}</p>
+              <p className="home-eyebrow">{index + 1}</p>
               <p className="mt-2 text-sm text-slate-300">{item}</p>
             </li>
           ))}
@@ -323,13 +327,13 @@ export function MakerLabPage({ locale }: { locale: Locale }) {
       </section>
 
       <section className={RELAUNCH_SECTION} aria-labelledby="maker-projects-title">
-        <h2 id="maker-projects-title" className="font-display text-xl font-semibold text-slate-100">
+        <h2 id="maker-projects-title" className="home-section-h2" style={{ fontSize: "1.5rem" }}>
           {locale === 'de' ? 'Maker Projekte' : 'Maker projects'}
         </h2>
         <div className="mt-6 grid gap-4 md:grid-cols-2">
           {maker.map((project) => (
             <article key={project.id} className={RELAUNCH_CARD}>
-              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sky-400/90">{project.status.toUpperCase()}</p>
+              <p className="home-eyebrow">{project.status.toUpperCase()}</p>
               <h3 className="mt-2 font-display text-base font-semibold text-slate-100">{project.localizedTitle}</h3>
               <p className="mt-2 text-sm text-slate-300">{project.localizedSummary}</p>
               <p className="mt-3 text-sm text-slate-400">{project.localizedOutcome}</p>
@@ -411,13 +415,13 @@ export function ContactBrandPage({ locale }: { locale: Locale }) {
       <section className={RELAUNCH_SECTION} aria-labelledby="contact-panel-title">
         <div className="grid gap-6 lg:grid-cols-[1.1fr_1fr]">
           <div className={RELAUNCH_CARD}>
-            <h2 id="contact-panel-title" className="font-display text-xl font-semibold text-slate-100">
+            <h2 id="contact-panel-title" className="home-section-h2" style={{ fontSize: "1.5rem" }}>
               {labels.panelTitle}
             </h2>
             <ul className="mt-4 space-y-2 text-sm text-slate-300">
               {labels.panelItems.map((item) => (
                 <li key={item} className="flex items-start gap-2">
-                  <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500" aria-hidden="true" />
+                  <span className="shrink-0 text-sky-400 text-xs" aria-hidden="true">→</span>
                   <span>{item}</span>
                 </li>
               ))}

@@ -44,13 +44,18 @@ function PageScaffold({
       shellClassName={shellClassName}
     >
       <main id="main-content" className="mx-auto w-full max-w-[1200px] flex-1 px-4 pb-10 pt-8 sm:px-6 md:pb-12 md:pt-10">
-        <section className={RELAUNCH_SECTION} aria-labelledby="hiring-resume-title">
-          <h1 id="hiring-resume-title" className="font-display text-3xl font-semibold tracking-tight text-slate-100 md:text-4xl">
+        <section className={`${RELAUNCH_SECTION} mb-8`} aria-labelledby="hiring-resume-title">
+          <p className="home-eyebrow">{locale === 'de' ? 'Senior Web Engineer' : 'Senior Web Engineer'}</p>
+          <h1
+            id="hiring-resume-title"
+            className="mt-1 font-display text-[1.75rem] font-bold tracking-tight text-white md:text-[2.5rem]"
+            style={{ lineHeight: 1.15 }}
+          >
             {title}
           </h1>
-          <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-300 md:text-lg">{description}</p>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-400 md:text-lg">{description}</p>
         </section>
-        <div className="mt-8 space-y-8">{children}</div>
+        <div className="space-y-6">{children}</div>
       </main>
     </RelaunchMarketingShell>
   );
@@ -118,7 +123,7 @@ export function HiringPage({ locale }: { locale: Locale }) {
             <ul className="mt-4 space-y-2 text-sm text-slate-300">
               {copy.fitItems.map((item) => (
                 <li key={item} className="flex items-start gap-2">
-                  <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-400" aria-hidden="true" />
+                  <span className="shrink-0 text-sky-400 text-xs" aria-hidden="true">→</span>
                   <span>{item}</span>
                 </li>
               ))}
@@ -129,7 +134,7 @@ export function HiringPage({ locale }: { locale: Locale }) {
             <ul className="mt-4 space-y-2 text-sm text-slate-300">
               {copy.workItems.map((item) => (
                 <li key={item} className="flex items-start gap-2">
-                  <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400" aria-hidden="true" />
+                  <span className="shrink-0 text-emerald-400 text-xs" aria-hidden="true">→</span>
                   <span>{item}</span>
                 </li>
               ))}
@@ -138,10 +143,13 @@ export function HiringPage({ locale }: { locale: Locale }) {
         </div>
 
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-          <Button asChild className="bg-sky-500 text-slate-950 hover:bg-sky-400">
+          <Button
+            asChild
+            className="bg-gradient-to-r from-sky-500 to-blue-500 text-white shadow-[0_0_24px_rgba(14,165,233,0.28)] hover:from-sky-400 hover:to-blue-400"
+          >
             <Link href={contactPath}>{copy.ctaPrimary}</Link>
           </Button>
-          <Button asChild variant="outline" className="border-slate-600 bg-transparent text-slate-100 hover:bg-slate-800/60">
+          <Button asChild variant="outline" className="border-slate-700 bg-transparent text-slate-200 hover:border-slate-500 hover:bg-slate-800/60">
             <Link href={resumePath}>{copy.ctaSecondary}</Link>
           </Button>
         </div>
@@ -222,7 +230,7 @@ export function ResumePage({ locale }: { locale: Locale }) {
               <ul className="mt-4 space-y-2 text-sm text-slate-300">
                 {section.items.map((item) => (
                   <li key={item} className="flex items-start gap-2">
-                    <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-400" aria-hidden="true" />
+                    <span className="shrink-0 text-sky-400 text-xs" aria-hidden="true">→</span>
                     <span>{item}</span>
                   </li>
                 ))}

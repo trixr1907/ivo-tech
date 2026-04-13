@@ -55,22 +55,22 @@ export function RelaunchStickyHeader({
   const mobileHref = mobileNavCtaHref ?? desktopCtaHref;
 
   return (
-    <header className="home-v2-header sticky top-0 z-30 border-b border-slate-800/70 bg-slate-950/65 backdrop-blur-md">
-      <div className="mx-auto flex h-16 w-full max-w-[1200px] items-center justify-between gap-4 px-4 sm:px-6">
-        <Link href={homeHref} className="flex items-center gap-2.5 font-display text-lg font-semibold text-slate-100">
+    <header className="home-v2-header sticky top-0 z-30 bg-slate-950/70 backdrop-blur-md" style={{ borderBottom: '1px solid transparent', backgroundImage: 'linear-gradient(rgba(9,17,34,0.7), rgba(9,17,34,0.7)) padding-box, linear-gradient(90deg, transparent 0%, rgba(56,189,248,0.18) 35%, rgba(99,102,241,0.14) 65%, transparent 100%) border-box' }}>
+      <div className="mx-auto flex h-14 w-full max-w-[1200px] items-center justify-between gap-4 px-4 sm:px-6">
+        <Link href={homeHref} className="flex items-center gap-2 font-display text-base font-bold tracking-tight text-slate-100 transition-opacity hover:opacity-80">
           <img
             src="/assets/logo/ivo-logo__mark-core__premium__dark__v1.1.0.svg"
             alt=""
-            width={36}
-            height={36}
-            className="h-9 w-9 shrink-0"
+            width={28}
+            height={28}
+            className="h-7 w-7 shrink-0"
           />
           <span>ivo-tech</span>
         </Link>
 
-        <nav aria-label={t.navLabel} className="hidden items-center gap-5 text-sm text-slate-300 lg:flex">
+        <nav aria-label={t.navLabel} className="hidden items-center gap-4 text-sm font-medium text-slate-400 lg:flex">
           {navLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="transition hover:text-white">
+            <Link key={link.href} href={link.href} className="transition-colors hover:text-slate-100">
               {link.label}
             </Link>
           ))}
@@ -86,10 +86,14 @@ export function RelaunchStickyHeader({
             primaryCtaIntent={mobileNavCtaIntent}
             primaryTrackingSource={mobileNavPrimaryTrackingSource}
           />
-          <Button asChild variant="ghost" size="sm" className="hidden md:inline-flex">
+          <Button asChild variant="ghost" size="sm" className="hidden text-slate-500 hover:text-slate-200 md:inline-flex">
             <Link href={locale === 'de' ? '/en' : '/'}>{locale === 'de' ? 'EN' : 'DE'}</Link>
           </Button>
-          <Button asChild size="sm" className="hidden bg-sky-500 text-slate-950 hover:bg-sky-400 md:inline-flex">
+          <Button
+            asChild
+            size="sm"
+            className="hidden bg-gradient-to-r from-sky-500 to-blue-500 text-white hover:from-sky-400 hover:to-blue-400 md:inline-flex"
+          >
             <a
               href={desktopCtaHref}
               {...(desktopHeaderDataHubCta ? { 'data-hub-cta': desktopHeaderDataHubCta } : {})}

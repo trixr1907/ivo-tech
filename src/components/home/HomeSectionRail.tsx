@@ -9,6 +9,7 @@ import { trackEvent } from '@/lib/analytics';
 /** Section `id`s in scroll order — keep in sync with `railItems` hrefs. */
 export const HOME_SECTION_IDS = [
   'home-hero',
+  'home-services',
   'home-proof',
   'home-projects',
   'home-insights',
@@ -34,6 +35,12 @@ function railItems(locale: Locale): readonly RailItem[] {
   const de = locale === 'de';
   return [
     { href: '#home-hero', id: 'home-hero', label: 'Start' },
+    {
+      href: '#home-services',
+      id: 'home-services',
+      label: de ? 'Leistungen' : 'Services',
+      labelCompact: de ? 'Leis.' : 'Svc.'
+    },
     { href: '#home-proof', id: 'home-proof', label: 'Proof' },
     {
       href: '#home-projects',
