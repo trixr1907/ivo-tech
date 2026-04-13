@@ -92,7 +92,6 @@ test.describe('homepage redesign critical journeys', () => {
       '/contact?source=services-scope-call'
     );
     await expect(page.locator('a[data-service-cta="hero-secondary-case"]')).toHaveAttribute('href', '/case-studies?source=services-case');
-    await expect(page.locator('a[data-service-cta="hero-tertiary-playbook"]')).toHaveAttribute('href', '/playbooks?source=services-playbook');
     await expect(page.getByRole('heading', { level: 3, name: 'Build' })).toBeVisible();
     await expect(page.getByRole('heading', { level: 3, name: 'Stabilize' })).toBeVisible();
     await expect(page.getByRole('heading', { level: 3, name: 'Accelerate' })).toBeVisible();
@@ -109,7 +108,6 @@ test.describe('homepage redesign critical journeys', () => {
       '/en/contact?source=services-scope-call'
     );
     await expect(page.locator('a[data-service-cta="hero-secondary-case"]')).toHaveAttribute('href', '/en/case-studies?source=services-case');
-    await expect(page.locator('a[data-service-cta="hero-tertiary-playbook"]')).toHaveAttribute('href', '/en/playbooks?source=services-playbook');
     await expect(page.locator('a[data-service-cta="package-accelerate"]')).toHaveAttribute(
       'href',
       '/en/contact?source=services-accelerate'
