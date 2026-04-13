@@ -118,7 +118,7 @@ export function RelaunchStickyHeader({
               asChild
               variant="outline"
               size="sm"
-              className="hidden min-h-12 border-slate-600 bg-transparent px-4 text-slate-100 hover:bg-slate-800/60 hover:border-slate-500"
+              className="hidden min-h-12 border-slate-600 bg-transparent px-4 text-slate-100 hover:bg-slate-800/60 hover:border-slate-500 md:inline-flex"
             >
               <a
                 href={desktopSecondaryHref}

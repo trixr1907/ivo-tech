@@ -200,12 +200,15 @@ test.describe('homepage redesign critical journeys', () => {
 
     await page.goto('/?exp_hero=outcome#contact');
 
-    await page.getByLabel('Intent').selectOption('client');
-    await page.getByLabel('Name').fill('Test User');
-    await page.getByLabel('Business-E-Mail').fill('test@example.com');
-    await page.getByLabel('Kontext').fill('Wir wollen qualifizierte Leads und klarere Positionierung.');
-    await page.locator('input[name="gdpr-consent"]').check();
-    await page.getByRole('button', { name: 'Anfrage senden' }).click();
+    const contactLeadForm = page.locator('#contact form').filter({
+      has: page.getByRole('button', { name: 'Anfrage senden' })
+    });
+    await contactLeadForm.getByLabel('Intent').selectOption('client');
+    await contactLeadForm.getByRole('textbox', { name: 'Name', exact: true }).fill('Test User');
+    await contactLeadForm.getByLabel('Business-E-Mail').fill('test@example.com');
+    await contactLeadForm.getByLabel('Kontext').fill('Wir wollen qualifizierte Leads und klarere Positionierung.');
+    await contactLeadForm.locator('input[name="gdpr-consent"]').check();
+    await contactLeadForm.getByRole('button', { name: 'Anfrage senden' }).click();
 
     await expect(page).toHaveURL(/\/thanks\?source=home&exp_hero=outcome/);
     await expect(page.getByRole('heading', { level: 1 })).toContainText('Anfrage erfolgreich gesendet');

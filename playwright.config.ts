@@ -32,7 +32,12 @@ export default defineConfig({
         command: 'npm run build && npm run start -- --hostname 127.0.0.1 --port 3000',
         env: {
           ...process.env,
-          FORCE_COLOR: '0'
+          FORCE_COLOR: '0',
+          // next build runs as production; src/env.ts requires these for production builds.
+          NEXT_PUBLIC_SITE_URL:
+            process.env.NEXT_PUBLIC_SITE_URL?.trim() || 'https://ivo-tech.com',
+          NEXT_PUBLIC_APP_ENV:
+            process.env.NEXT_PUBLIC_APP_ENV?.trim() || 'production'
         },
         url: baseURL,
         timeout: 240_000,
