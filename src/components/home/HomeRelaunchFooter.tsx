@@ -1,8 +1,10 @@
+'use client';
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 import type { Locale } from '@/content/copy';
-import { localizePath } from '@/lib/localeRouting';
-import { getPrimaryNavLinks } from '@/lib/navigation';
+import { getContactPath, getPrimaryNavLinks } from '@/lib/navigation';
 import { CONTACT_EMAIL, GITHUB_URL } from '@/lib/site';
 
 type HomeRelaunchFooterProps = {
@@ -10,11 +12,13 @@ type HomeRelaunchFooterProps = {
 };
 
 export function HomeRelaunchFooter({ locale }: HomeRelaunchFooterProps) {
+  const pathname = usePathname();
   const homeHref = locale === 'de' ? '/' : '/en';
   const navLinks = getPrimaryNavLinks(locale);
-  const caseStudiesHref = localizePath('/case-studies', locale);
   const impressumHref = locale === 'de' ? '/impressum' : '/en/legal';
   const datenschutzHref = locale === 'de' ? '/datenschutz' : '/en/privacy';
+  const hasContactSection = pathname === '/' || pathname === '/en';
+  const contactHref = hasContactSection ? '#contact' : getContactPath(locale, 'footer-contact');
   const tagline =
     locale === 'de'
       ? 'Web Engineering mit klarer Delivery — Mannheim, Remote-first.'
@@ -39,7 +43,7 @@ export function HomeRelaunchFooter({ locale }: HomeRelaunchFooterProps) {
         aria-hidden="true"
       />
 
-      <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6">
+      <div className="home-shell-container mx-auto w-full px-4 sm:px-6">
         <div className="grid gap-10 md:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)_minmax(0,0.85fr)] md:gap-10">
           <div>
             <Link
@@ -79,7 +83,7 @@ export function HomeRelaunchFooter({ locale }: HomeRelaunchFooterProps) {
               {locale === 'de' ? 'Seiten' : 'Pages'}
             </p>
             <div className="flex flex-col gap-2 text-sm text-slate-500">
-              {navLinks.slice(0, 6).map((link) => (
+              {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
@@ -88,16 +92,13 @@ export function HomeRelaunchFooter({ locale }: HomeRelaunchFooterProps) {
                   {link.label}
                 </Link>
               ))}
-              <Link href={caseStudiesHref} className="w-fit transition hover:text-slate-200">
-                {locale === 'de' ? 'Case Studies' : 'Case studies'}
-              </Link>
             </div>
           </nav>
 
           <div>
             <p className="text-[0.65rem] font-bold uppercase tracking-[0.14em] text-slate-600">{contactHeading}</p>
             <div className="mt-3 flex flex-col gap-2 text-sm">
-              <Link href="#contact" className="w-fit text-sky-400 transition hover:text-sky-300">
+              <Link href={contactHref} className="w-fit text-sky-400 transition hover:text-sky-300">
                 {locale === 'de' ? 'Kontaktformular' : 'Contact form'}
               </Link>
               <Link href={impressumHref} className="w-fit text-slate-500 transition hover:text-slate-200">

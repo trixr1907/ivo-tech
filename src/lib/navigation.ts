@@ -18,6 +18,10 @@ export function getResumePath(locale: Locale) {
   return locale === 'de' ? '/resume' : '/en/resume';
 }
 
+export function getPlaybooksPath(locale: Locale) {
+  return locale === 'de' ? '/playbooks' : '/en/playbooks';
+}
+
 export function getContactPath(locale: Locale, source = 'nav') {
   const base = locale === 'de' ? '/contact' : '/en/contact';
   return `${base}?source=${encodeURIComponent(source)}`;
@@ -36,6 +40,18 @@ export function getPrimaryNavLinks(locale: Locale): PrimaryNavLink[] {
     {
       href: localizePath('/projects', locale),
       label: locale === 'de' ? 'Projekte' : 'Projects'
+    },
+    {
+      href: getServicesPath(locale),
+      label: locale === 'de' ? 'Leistungen' : 'Services'
+    },
+    {
+      href: getPlaybooksPath(locale),
+      label: locale === 'de' ? 'Playbooks' : 'Playbooks'
+    },
+    {
+      href: getResumePath(locale),
+      label: locale === 'de' ? 'Resume' : 'Resume'
     },
     {
       href: localizePath('/maker-lab', locale),

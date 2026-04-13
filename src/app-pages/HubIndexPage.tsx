@@ -23,7 +23,13 @@ export function HubIndexPage({ locale, kind, entries }: Props) {
   const navLinks = getPrimaryNavLinks(locale);
   const contactPath = getContactPath(locale, `hub-${kind}`);
   const homeHref = localizePath('/', locale);
-  const headerCta = locale === 'de' ? 'Erstgespraech' : 'Intro call';
+  const headerCta = locale === 'de' ? 'Erstgespräch' : 'Intro call';
+  const crossHubLinks = (['case-studies', 'insights', 'playbooks'] as HubKind[])
+    .filter((candidate) => candidate !== kind)
+    .map((candidate) => ({
+      href: localizePath(`/${candidate}`, locale),
+      label: HUB_CONFIG[candidate].label[locale]
+    }));
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -112,6 +118,23 @@ export function HubIndexPage({ locale, kind, entries }: Props) {
                   </Link>
                 </article>
               ))}
+            </div>
+
+            <div className="mt-8 rounded-2xl border border-slate-800/60 bg-slate-900/40 p-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+                {locale === 'de' ? 'Weitere Hub-Bereiche' : 'Related hubs'}
+              </p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {crossHubLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="inline-flex items-center rounded-full border border-slate-700/70 px-3 py-1.5 text-xs font-medium text-slate-300 transition hover:border-sky-400/40 hover:text-sky-200"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
             </div>
           </section>
         </main>
