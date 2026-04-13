@@ -23,7 +23,7 @@ export const HUB_CONFIG: Record<HubKind, HubConfig> = {
     label: { de: 'Playbooks', en: 'Playbooks' },
     indexTitle: { de: 'Engineering Playbooks', en: 'Engineering playbooks' },
     indexDescription: {
-      de: 'Wiederverwendbare Umsetzungs- und Betriebsmuster fuer stabile Delivery.',
+      de: 'Wiederverwendbare Umsetzungs- und Betriebsmuster für stabile Delivery.',
       en: 'Reusable implementation and operations patterns for stable delivery.'
     },
     readLabel: { de: 'Playbook lesen', en: 'Read playbook' }

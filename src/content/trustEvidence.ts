@@ -17,7 +17,7 @@ const TRUST_EVIDENCE: TrustEvidence[] = [
       en: 'Live reference: 3D configurator in client production'
     },
     description: {
-      de: 'Produktive Datei-zu-Preis-Strecke mit Checkout-Handoff als oeffentlicher Proof.',
+      de: 'Produktive Datei-zu-Preis-Strecke mit Checkout-Handoff als öffentlicher Proof.',
       en: 'Production file-to-price flow with checkout handoff as public proof.'
     },
     href: 'https://deinlieblingsdruck.de/3d-konfigurator/#preisrechner',
@@ -31,7 +31,7 @@ const TRUST_EVIDENCE: TrustEvidence[] = [
       en: 'Public proof: GitHub build history and release artifacts'
     },
     description: {
-      de: 'Transparente Commits, Changelog-Entwicklung und technische Umsetzung oeffentlich nachvollziehbar.',
+      de: 'Transparente Commits, Changelog-Entwicklung und technische Umsetzung öffentlich nachvollziehbar.',
       en: 'Transparent commits, changelog evolution, and implementation details are publicly traceable.'
     },
     href: 'https://github.com/trixr1907',

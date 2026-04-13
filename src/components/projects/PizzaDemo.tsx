@@ -16,7 +16,7 @@ export function PizzaDemo({ locale }: Props) {
             LIVE TEMPLATE DEMO
           </span>
           <a className="pizza-open-new" href="/pizza/" target="_blank" rel="noopener noreferrer">
-            {locale === 'de' ? 'Vollbild oeffnen' : 'Open fullscreen'} ↗
+            {locale === 'de' ? 'Vollbild öffnen' : 'Open fullscreen'} ↗
           </a>
         </div>
         <iframe

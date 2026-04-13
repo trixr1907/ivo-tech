@@ -39,17 +39,17 @@ const premiumBlocksByLocale: Record<Locale, Record<ServiceDetailSlug, PremiumBlo
       comparatorRows: [
         { metric: 'Angebotsklarheit', before: 'Uneinheitlich je Seite', after: 'Konsistente Decision Story' },
         { metric: 'Release-Takt', before: 'Ad-hoc und risikoreich', after: 'Planbarer Sprint-Rhythmus' },
-        { metric: 'Technische Stabilitaet', before: 'Regressionen nach Releases', after: 'QA-Gates pro Auslieferung' }
+        { metric: 'Technische Stabilität', before: 'Regressionen nach Releases', after: 'QA-Gates pro Auslieferung' }
       ],
       riskTitle: 'Risk Matrix',
-      riskIntro: 'Haeufige Delivery-Risiken inkl. Gegenmaßnahmen im Projektsetup.',
+      riskIntro: 'Häufige Delivery-Risiken inkl. Gegenmaßnahmen im Projektsetup.',
       riskItems: [
         { risk: 'Scope Drift', impact: 'Timeline kippt, Stakeholder verlieren Vertrauen', mitigation: 'Phase-Deliverables + Change-Lane mit Priorisierung' },
         { risk: 'Design-Implementation Gap', impact: 'Visuelle Inkonsistenz und Nacharbeiten', mitigation: 'Token-basierte Components + Review-Ritual je Sprint' },
-        { risk: 'QA Debt', impact: 'Späte Fehler in kritischen Conversion-Pfaden', mitigation: 'Release-Gates fuer CTA-Flow, A11y und Performance' }
+        { risk: 'QA Debt', impact: 'Späte Fehler in kritischen Conversion-Pfaden', mitigation: 'Release-Gates für CTA-Flow, A11y und Performance' }
       ],
       architectureTitle: 'Architecture Snapshot',
-      architectureIntro: 'Referenzbild fuer die operative Lieferarchitektur im laufenden Betrieb.',
+      architectureIntro: 'Referenzbild für die operative Lieferarchitektur im laufenden Betrieb.',
       architectureItems: [
         { layer: 'Experience Layer', focus: 'Hero, Services, Case-Narrative', control: 'Komponenten + Content Hierarchie' },
         { layer: 'System Layer', focus: 'Routing, Tracking, Templates', control: 'Shared primitives + Event Taxonomie' },
@@ -58,21 +58,21 @@ const premiumBlocksByLocale: Record<Locale, Record<ServiceDetailSlug, PremiumBlo
     },
     'ai-automation-workflows': {
       comparatorTitle: 'Outcome-Komparator',
-      comparatorIntro: 'Vergleich zwischen manuellen Prozessketten und AI-unterstuetzter Delivery.',
+      comparatorIntro: 'Vergleich zwischen manuellen Prozessketten und AI-unterstützter Delivery.',
       comparatorRows: [
         { metric: 'Review-Zeit', before: 'Mehrere manuelle Schleifen', after: 'Assistierte Vorqualifikation' },
-        { metric: 'Handover-Aufwand', before: 'Fragmentierte Uebergaben', after: 'Standardisierte Workflow-Stufen' },
+        { metric: 'Handover-Aufwand', before: 'Fragmentierte Übergaben', after: 'Standardisierte Workflow-Stufen' },
         { metric: 'Transparenz', before: 'Status nur ad-hoc sichtbar', after: 'Messbare Pipeline je Stage' }
       ],
       riskTitle: 'Risk Matrix',
-      riskIntro: 'Kritische Risiken bei AI-Workflow-Einfuehrung und die passende Governance.',
+      riskIntro: 'Kritische Risiken bei AI-Workflow-Einführung und die passende Governance.',
       riskItems: [
         { risk: 'Automations-Overreach', impact: 'Falsche Entscheidungen ohne menschlichen Review', mitigation: 'Human-in-the-loop an Freigabepunkten' },
         { risk: 'Tool Fragmentierung', impact: 'Neue Silos statt Beschleunigung', mitigation: 'Flow-Mapping vor Tool-Integration' },
         { risk: 'Undokumentierte Regeln', impact: 'Skalierung bricht bei Teamwechsel', mitigation: 'Versionierte Workflow-Playbooks + Ownership' }
       ],
       architectureTitle: 'Architecture Snapshot',
-      architectureIntro: 'Sichere AI-Workflow-Architektur fuer operative Teams.',
+      architectureIntro: 'Sichere AI-Workflow-Architektur für operative Teams.',
       architectureItems: [
         { layer: 'Assist Layer', focus: 'Prompt Chains, Summaries, Routing', control: 'Template Library + Guardrails' },
         { layer: 'Execution Layer', focus: 'APIs, Sync Jobs, Event Hooks', control: 'Schema Contracts + Retry Logic' },
@@ -83,19 +83,19 @@ const premiumBlocksByLocale: Record<Locale, Record<ServiceDetailSlug, PremiumBlo
       comparatorTitle: 'Outcome-Komparator',
       comparatorIntro: 'Vergleich zwischen statischer Darstellung und integriertem 3D-Flow.',
       comparatorRows: [
-        { metric: 'Produktverstaendnis', before: 'Viele Rueckfragen im Vertrieb', after: 'Selbsterklaerende Visualisierung' },
-        { metric: 'Konfigurationsrate', before: 'Abbrueche bei Komplexitaet', after: 'Gefuehrte Variantenauswahl' },
+        { metric: 'Produktverständnis', before: 'Viele Rückfragen im Vertrieb', after: 'Selbsterklärende Visualisierung' },
+        { metric: 'Konfigurationsrate', before: 'Abbrüche bei Komplexität', after: 'Geführte Variantenauswahl' },
         { metric: 'Commercial Handover', before: 'Bruch zwischen Viewer und Angebot', after: 'Direkter Pfad zu Preis/Checkout' }
       ],
       riskTitle: 'Risk Matrix',
-      riskIntro: 'Haeufige Risiken bei 3D-Projekten mit kommerziellem Anspruch.',
+      riskIntro: 'Häufige Risiken bei 3D-Projekten mit kommerziellem Anspruch.',
       riskItems: [
         { risk: 'Render Overload', impact: 'Langsame First Interaction', mitigation: 'Asset Budget + Lazy Loading + LOD-Strategie' },
-        { risk: 'UX-Komplexitaet', impact: 'Nutzer verlieren Orientierung', mitigation: 'Step-by-step Configuration Pattern' },
-        { risk: 'Backend Entkopplung', impact: 'Konfiguration ohne kaufnahe Konsequenz', mitigation: 'API-Contracts fuer Preis- und Angebotslogik' }
+        { risk: 'UX-Komplexität', impact: 'Nutzer verlieren Orientierung', mitigation: 'Step-by-step Configuration Pattern' },
+        { risk: 'Backend Entkopplung', impact: 'Konfiguration ohne kaufnahe Konsequenz', mitigation: 'API-Contracts für Preis- und Angebotslogik' }
       ],
       architectureTitle: 'Architecture Snapshot',
-      architectureIntro: 'Referenzstruktur fuer stabile 3D Delivery im Produktkontext.',
+      architectureIntro: 'Referenzstruktur für stabile 3D Delivery im Produktkontext.',
       architectureItems: [
         { layer: 'Visual Layer', focus: 'Viewer, Materials, Interaction', control: 'Render Budgets + UX States' },
         { layer: 'Config Layer', focus: 'Variant Rules, Option Logic', control: 'Deterministic Rules + Validation' },

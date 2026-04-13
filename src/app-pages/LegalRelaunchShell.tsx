@@ -16,7 +16,7 @@ export function LegalRelaunchShell({ locale, shellClassName, children }: LegalRe
   const navLinks = getPrimaryNavLinks(locale);
   const homeHref = localizePath('/', locale);
   const contactPath = getContactPath(locale, 'legal-header');
-  const cta = locale === 'de' ? 'Erstgespraech' : 'Intro call';
+  const cta = locale === 'de' ? 'Erstgespräch' : 'Intro call';
 
   return (
     <RelaunchMarketingShell

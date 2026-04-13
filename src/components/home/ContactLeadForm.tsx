@@ -120,7 +120,7 @@ export function ContactLeadForm({
       : '';
     const consentErrorText =
       locale === 'de'
-        ? 'Bitte stimme der Verarbeitung deiner Anfrage zu, damit wir antworten koennen.'
+        ? 'Bitte stimme der Verarbeitung deiner Anfrage zu, damit wir antworten können.'
         : 'Please consent to processing your request so we can respond.';
 
     if (!gdprConsent) {

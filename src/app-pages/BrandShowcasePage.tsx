@@ -45,23 +45,23 @@ export function BrandShowcasePage({ locale }: Props) {
   const copy = isDe
     ? {
         title: 'Brand Showcase',
-        lead: 'Praezise-Neon Logo-System mit Mark Detailed/Core/Micro, Theme-Varianten und produktionsnahen Motion-Interfaces.',
+        lead: 'Präzise-Neon Logo-System mit Mark Detailed/Core/Micro, Theme-Varianten und produktionsnahen Motion-Interfaces.',
         system: 'Logo-System',
         motion: 'Motion',
         downloads: 'Downloads',
-        quality: 'Qualitaet',
+        quality: 'Qualität',
         home: 'Startseite',
         contact: 'Kontakt',
         cta: 'Asset Paket',
         summaryTitle: 'System-Zusammenfassung',
         summaryText:
-          'Das System basiert auf klaren Rollen: Detailed fuer Hero, Core fuer Header/Cards, Micro fuer Favicon und enge UI-Flaechen.',
+          'Das System basiert auf klaren Rollen: Detailed für Hero, Core für Header/Cards, Micro für Favicon und enge UI-Flächen.',
         qualityTitle: 'Abnahmepunkte',
         qualityPoints: [
           'Lesbarkeit bei 16, 24, 32, 48, 64, 96, 128 Pixeln',
-          'Dark/Light Kontrast fuer Mark und Wordmark',
+          'Dark/Light Kontrast für Mark und Wordmark',
           'Deterministische Dateinamen + Manifest + Hashes',
-          'Motion-Fallback ohne Lottie-Runtime-Abhaengigkeit'
+          'Motion-Fallback ohne Lottie-Runtime-Abhängigkeit'
         ]
       }
     : {

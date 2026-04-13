@@ -41,11 +41,11 @@ export const PROJECT_MODELS: ProjectModel[] = [
       en: '3D configurator in live operations'
     },
     summary: {
-      de: 'Datei Upload, Geometrie Analyse und Preislogik in einem durchgaengigen Browser-Flow.',
+      de: 'Datei Upload, Geometrie Analyse und Preislogik in einem durchgängigen Browser-Flow.',
       en: 'File upload, geometry analysis, and pricing logic in one continuous browser flow.'
     },
     outcome: {
-      de: 'Upload bis Checkout laeuft produktiv und reduziert manuelle Rueckfrage-Schleifen.',
+      de: 'Upload bis Checkout läuft produktiv und reduziert manuelle Rückfrage-Schleifen.',
       en: 'Upload-to-checkout runs in production and reduces manual clarification loops.'
     },
     stack: ['Three.js', 'WordPress Plugin', 'WooCommerce', 'Docker'],
@@ -68,11 +68,11 @@ export const PROJECT_MODELS: ProjectModel[] = [
       en: 'Authority-first portfolio relaunch'
     },
     summary: {
-      de: 'Von reiner Projektsammlung zu strukturierter Positionierung mit klarer Entscheidungsfuehrung.',
+      de: 'Von reiner Projektsammlung zu strukturierter Positionierung mit klarer Entscheidungsführung.',
       en: 'From project showcase to structured positioning with clear decision flow.'
     },
     outcome: {
-      de: 'Strukturierteres Trust-Signal fuer Hiring- und Collaboration-Entscheider.',
+      de: 'Strukturierteres Trust-Signal für Hiring- und Collaboration-Entscheider.',
       en: 'Stronger trust signal for hiring and collaboration decision-makers.'
     },
     stack: ['Next.js', 'TypeScript', 'Design Tokens', 'Analytics'],
@@ -95,7 +95,7 @@ export const PROJECT_MODELS: ProjectModel[] = [
       en: 'Voicebot consent orchestrator'
     },
     summary: {
-      de: 'Mehrstufige Sprach- und Prozessfuehrung fuer nachvollziehbare Einwilligungsablaufe.',
+      de: 'Mehrstufige Sprach- und Prozessführung für nachvollziehbare Einwilligungsabläufe.',
       en: 'Multi-step voice and process flow for auditable consent journeys.'
     },
     outcome: {
@@ -108,7 +108,7 @@ export const PROJECT_MODELS: ProjectModel[] = [
       en: '/en/case-studies'
     },
     cta: {
-      de: 'Projektuebersicht',
+      de: 'Projektübersicht',
       en: 'Project overview'
     }
   },
@@ -121,7 +121,7 @@ export const PROJECT_MODELS: ProjectModel[] = [
       en: 'Sports analytics edge tool'
     },
     summary: {
-      de: 'Projektionen, Optimierung und Simulation fuer datengetriebene Lineup-Entscheidungen.',
+      de: 'Projektionen, Optimierung und Simulation für datengetriebene Lineup-Entscheidungen.',
       en: 'Projection, optimization, and simulation for data-driven lineup decisions.'
     },
     outcome: {
@@ -179,7 +179,7 @@ export const SOCIAL_PROOF_MODELS: SocialProofModel[] = [
       en: 'Delivery with QA and performance guardrails'
     },
     evidence: {
-      de: 'Playbooks und technische Standards fuer stabile Releases.',
+      de: 'Playbooks und technische Standards für stabile Releases.',
       en: 'Playbooks and technical standards for stable releases.'
     },
     href: {

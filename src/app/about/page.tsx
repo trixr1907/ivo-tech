@@ -5,7 +5,7 @@ import { AboutBrandPage } from '@/app-pages/PortfolioBrandPages';
 import { GITHUB_URL, SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'Ueber mich | ivo-tech',
+  title: 'Über mich | ivo-tech',
   description: 'Builder-Engineer-Profil mit produktionsnaher Delivery, Portfolio-Tiefe und Maker-Mindset.',
   robots: { index: true, follow: true },
   alternates: {
@@ -30,7 +30,7 @@ export default async function AboutPage() {
         '@type': 'WebPage',
         '@id': `${canonical}#webpage`,
         url: canonical,
-        name: 'Ueber mich | ivo-tech',
+        name: 'Über mich | ivo-tech',
         description: 'Builder-Engineer-Profil mit produktionsnaher Delivery, Portfolio-Tiefe und Maker-Mindset.',
         inLanguage: 'de'
       },
@@ -46,7 +46,7 @@ export default async function AboutPage() {
         '@id': `${canonical}#breadcrumbs`,
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Startseite', item: `${SITE_URL}/` },
-          { '@type': 'ListItem', position: 2, name: 'Ueber mich', item: canonical }
+          { '@type': 'ListItem', position: 2, name: 'Über mich', item: canonical }
         ]
       }
     ]

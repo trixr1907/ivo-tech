@@ -18,7 +18,7 @@ export const stackProofs: StackProof[] = [
       en: 'Live reference (3D configurator)'
     },
     one_liner: {
-      de: 'Produktionsnahe End-to-End Umsetzung von Upload ueber Preislogik bis Checkout.',
+      de: 'Produktionsnahe End-to-End Umsetzung von Upload über Preislogik bis Checkout.',
       en: 'Production-oriented end-to-end implementation from upload to pricing and checkout.'
     },
     href: '/configurator',
@@ -43,7 +43,7 @@ export const internalSignals: InternalSignal[] = [
     signal_type: 'internal_only',
     source_path: 'C:/Users/Ivo/Documents/technik',
     reason: {
-      de: 'Infrastruktur- und host-spezifische Betriebsdoku mit hohem Detailgrad; oeffentlich als Projekt zu noisy.',
+      de: 'Infrastruktur- und host-spezifische Betriebsdoku mit hohem Detailgrad; öffentlich als Projekt zu noisy.',
       en: 'Infrastructure and host-specific operations documentation with high detail; too noisy as a public project.'
     },
     interview_note: {

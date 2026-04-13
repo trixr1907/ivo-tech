@@ -9,7 +9,7 @@ type Props = {
 export function AndroidDemo({ locale }: Props) {
   const items =
     locale === 'de'
-      ? ['WebView-Journeys fuer Aktivierung', 'Local-first State (Prototype)', 'Klare UI fuer schnelle Flows']
+      ? ['WebView-Journeys für Aktivierung', 'Local-first State (Prototype)', 'Klare UI für schnelle Flows']
       : ['WebView journeys for activation', 'Local-first state (prototype)', 'Clear UI for fast flows'];
 
   return (

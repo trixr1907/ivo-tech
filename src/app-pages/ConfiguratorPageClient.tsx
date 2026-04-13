@@ -45,31 +45,31 @@ export function ConfiguratorPageClient({ locale }: Props) {
           {
             title: 'Ausgangslage',
             points: [
-              'Angebotsrunden fuer 3D-Druck liefen manuell und erzeugten wiederkehrende Rueckfrage-Schleifen.',
-              'Ziel war ein klarer Datei-zu-Preis-Prozess mit direktem Uebergang in den Kaufpfad.'
+              'Angebotsrunden für 3D-Druck liefen manuell und erzeugten wiederkehrende Rückfrage-Schleifen.',
+              'Ziel war ein klarer Datei-zu-Preis-Prozess mit direktem Übergang in den Kaufpfad.'
             ]
           },
           {
             title: 'Delivery Scope',
             points: [
               'Frontend: Three.js/WebGL Viewer mit STL-/3MF-Upload, Modellkontrolle und Echtzeit-Feedback.',
-              'Backend: WordPress Plugin mit AJAX-Endpunkten fuer Analyse- und Pricing-Kontext.',
-              'Commerce: WooCommerce-Handoff fuer Cart/Order ohne Medienbruch.'
+              'Backend: WordPress Plugin mit AJAX-Endpunkten für Analyse- und Pricing-Kontext.',
+              'Commerce: WooCommerce-Handoff für Cart/Order ohne Medienbruch.'
             ]
           },
           {
             title: 'Architektur',
             points: [
-              'Regelbasierte Preis-Engine (Material, Qualitaet, Farbe, Menge, Mindestpreis) fuer reproduzierbare Ausgaben.',
+              'Regelbasierte Preis-Engine (Material, Qualität, Farbe, Menge, Mindestpreis) für reproduzierbare Ausgaben.',
               'Clientseitige Interaktionslogik und serverseitiger Kontext bleiben sauber getrennt.',
-              'Die technische Strecke ist als durchgaengiger Systemflow implementiert, nicht als isolierter Viewer.'
+              'Die technische Strecke ist als durchgängiger Systemflow implementiert, nicht als isolierter Viewer.'
             ]
           },
           {
             title: 'Betrieb',
             points: [
-              'Der End-to-End Flow laeuft im Live-Kundenbetrieb stabil von Upload bis Checkout.',
-              'Standardanfragen werden gefuehrt statt ueber manuelle Rueckfrage-Prozesse abgewickelt.'
+              'Der End-to-End Flow läuft im Live-Kundenbetrieb stabil von Upload bis Checkout.',
+              'Standardanfragen werden geführt statt über manuelle Rückfrage-Prozesse abgewickelt.'
             ]
           },
           {
@@ -77,7 +77,7 @@ export function ConfiguratorPageClient({ locale }: Props) {
             points: [
               'Technische Umsetzung: ivo-tech.',
               'Betrieb und Vermarktung erfolgen beim Kundenprojekt.',
-              'Live-Link dient als qualitativer Proof fuer die implementierte Strecke.'
+              'Live-Link dient als qualitativer Proof für die implementierte Strecke.'
             ]
           }
         ]
@@ -164,7 +164,7 @@ export function ConfiguratorPageClient({ locale }: Props) {
           <div className="mt-8 flex flex-col flex-wrap gap-3 sm:flex-row">
             <Button asChild className="bg-sky-500 text-slate-950 hover:bg-sky-400">
               <a href={LIVE_LINK} target="_blank" rel="noopener noreferrer">
-                {locale === 'de' ? 'Live beim Kunden oeffnen' : 'Open live client flow'}
+                {locale === 'de' ? 'Live beim Kunden öffnen' : 'Open live client flow'}
               </a>
             </Button>
             <Button asChild variant="outline" className="border-slate-600 bg-transparent text-slate-100 hover:bg-slate-800/60">
@@ -180,7 +180,7 @@ export function ConfiguratorPageClient({ locale }: Props) {
                   })
                 }
               >
-                {locale === 'de' ? 'Erstgespraech anfragen' : 'Request free intro call'}
+                {locale === 'de' ? 'Erstgespräch anfragen' : 'Request free intro call'}
               </Link>
             </Button>
           </div>

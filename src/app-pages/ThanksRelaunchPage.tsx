@@ -20,7 +20,7 @@ export function ThanksRelaunchPage({ locale, source, heroVariant, primaryCta, sc
   const navLinks = getPrimaryNavLinks(locale);
   const homeHref = localizePath('/', locale);
   const contactPath = getContactPath(locale, 'thanks-header');
-  const headerCta = locale === 'de' ? 'Erstgespraech' : 'Intro call';
+  const headerCta = locale === 'de' ? 'Erstgespräch' : 'Intro call';
 
   const copy =
     locale === 'de'

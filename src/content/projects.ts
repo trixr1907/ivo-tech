@@ -91,19 +91,19 @@ export const projects: Project[] = [
     status: 'live',
     thumbSrc: '/assets/thumb_viewer_neon.png',
     title: {
-      de: '3D-Konfigurator fuer Datei-zu-Angebot-Workflows im Live-Betrieb',
+      de: '3D-Konfigurator für Datei-zu-Angebot-Workflows im Live-Betrieb',
       en: '3D configurator for live file-to-quote workflows'
     },
     one_liner: {
-      de: 'Ich habe einen produktionsfaehigen 3D-Konfigurator fuer Datei-zu-Angebot-Workflows entwickelt: Upload, Geometrie-Analyse, Preislogik und WooCommerce-Handoff in einem durchgaengigen Web-Flow.',
+      de: 'Ich habe einen produktionsfähigen 3D-Konfigurator für Datei-zu-Angebot-Workflows entwickelt: Upload, Geometrie-Analyse, Preislogik und WooCommerce-Handoff in einem durchgängigen Web-Flow.',
       en: 'I built a production-ready 3D configurator for file-to-quote workflows: upload, geometry analysis, pricing logic, and WooCommerce handoff in one continuous web flow.'
     },
     business_outcome: {
-      de: 'Das System reduziert manuelle Rueckfrage-Schleifen bei Standardanfragen und schafft einen klaren Pfad von Modellpruefung zu Kaufentscheidung.',
+      de: 'Das System reduziert manuelle Rückfrage-Schleifen bei Standardanfragen und schafft einen klaren Pfad von Modellprüfung zu Kaufentscheidung.',
       en: 'The system reduces manual back-and-forth for standard requests and creates a clear path from model review to purchase decision.'
     },
     proof_statement: {
-      de: 'Der Live-Flow von Upload bis Checkout laeuft stabil im realen Shopbetrieb.',
+      de: 'Der Live-Flow von Upload bis Checkout läuft stabil im realen Shopbetrieb.',
       en: 'The live flow from upload to checkout runs stably in production shop operations.'
     },
     seo_title: {
@@ -123,9 +123,9 @@ export const projects: Project[] = [
         }
       },
       {
-        label: { de: 'Prozessqualitaet', en: 'Process quality' },
+        label: { de: 'Prozessqualität', en: 'Process quality' },
         value: {
-          de: 'Self-service ersetzt standardisierte Rueckfrage-Schleifen und macht Anfragen reproduzierbar.',
+          de: 'Self-service ersetzt standardisierte Rückfrage-Schleifen und macht Anfragen reproduzierbar.',
           en: 'Self-service replaces standard back-and-forth loops and keeps requests reproducible.'
         }
       }
@@ -153,9 +153,9 @@ export const projects: Project[] = [
     engineering_highlights: {
       de: [
         'WebGL-/Three.js-Viewer mit STL/3MF Upload und interaktiver Modellinspektion.',
-        'WordPress Plugin-Architektur mit AJAX-Endpunkten fuer Analyse- und Preis-Kontext.',
-        'Preis-Engine mit Material-, Qualitaets- und Mengenlogik fuer reproduzierbare Angebotsstrecken.',
-        'WooCommerce-Handoff fuer den medienbruchfreien Uebergang in den Checkout.'
+        'WordPress Plugin-Architektur mit AJAX-Endpunkten für Analyse- und Preis-Kontext.',
+        'Preis-Engine mit Material-, Qualitäts- und Mengenlogik für reproduzierbare Angebotsstrecken.',
+        'WooCommerce-Handoff für den medienbruchfreien Übergang in den Checkout.'
       ],
       en: [
         'WebGL/Three.js viewer with STL/3MF upload and interactive model inspection.',
@@ -167,16 +167,16 @@ export const projects: Project[] = [
     modal: {
       title: { de: '3D-KONFIGURATOR (LIVE)', en: '3D CONFIGURATOR (LIVE)' },
       desc: {
-        de: 'Tech-first Delivery fuer ein Kundenprojekt: browserbasierte 3D-Analyse, Plugin-Backbone fuer Preislogik und stabiler Checkout-Handoff.',
+        de: 'Tech-first Delivery für ein Kundenprojekt: browserbasierte 3D-Analyse, Plugin-Backbone für Preislogik und stabiler Checkout-Handoff.',
         en: 'Tech-first delivery for a client project: browser-based 3D analysis, plugin backbone for pricing logic, and stable checkout handoff.'
       },
       specs: {
         de: [
           { label: 'Problem', value: 'Manuelle Angebotsrunden waren langsam und schwer skalierbar.' },
-          { label: 'Loesung', value: 'Datei-zu-Preis als gefuehrter Self-service Flow im Browser.' },
+          { label: 'Lösung', value: 'Datei-zu-Preis als geführter Self-service Flow im Browser.' },
           { label: '3D Frontend', value: 'Three.js/WebGL Viewer, Orbit Controls, STL/3MF Verarbeitung.' },
-          { label: 'Plugin-Backend', value: 'WordPress Plugin mit AJAX-Endpunkten fuer Analyse und Pricing-Kontext.' },
-          { label: 'Pricing Engine', value: 'Material-, Qualitaets-, Mengen- und Mindestpreislogik fuer reproduzierbare Ergebnisse.' },
+          { label: 'Plugin-Backend', value: 'WordPress Plugin mit AJAX-Endpunkten für Analyse und Pricing-Kontext.' },
+          { label: 'Pricing Engine', value: 'Material-, Qualitäts-, Mengen- und Mindestpreislogik für reproduzierbare Ergebnisse.' },
           { label: 'Commerce', value: 'WooCommerce Cart/Order-Handoff ohne Medienbruch.' }
         ],
         en: [
@@ -215,7 +215,7 @@ export const projects: Project[] = [
         {
           label: { de: 'Live Flow', en: 'Live flow' },
           value: {
-            de: 'Upload -> Analyse -> Preis -> Checkout laeuft produktiv im Kundenprojekt.',
+            de: 'Upload -> Analyse -> Preis -> Checkout läuft produktiv im Kundenprojekt.',
             en: 'Upload -> analysis -> pricing -> checkout runs in production client operations.'
           },
           note: {
@@ -237,7 +237,7 @@ export const projects: Project[] = [
         {
           label: { de: 'Operational Fit', en: 'Operational fit' },
           value: {
-            de: 'Standardanfragen laufen gefuehrt statt ueber manuelle Rueckfrage-Schleifen.',
+            de: 'Standardanfragen laufen geführt statt über manuelle Rückfrage-Schleifen.',
             en: 'Standard requests run in a guided flow instead of manual back-and-forth loops.'
           },
           note: {
@@ -248,7 +248,7 @@ export const projects: Project[] = [
       ],
       problem: {
         de: [
-          'Angebote fuer 3D-Druck liefen manuell und verursachten wiederkehrende Rueckfrage-Schleifen.',
+          'Angebote für 3D-Druck liefen manuell und verursachten wiederkehrende Rückfrage-Schleifen.',
           'Kunden brauchten eine schnelle, nachvollziehbare Preisorientierung direkt nach dem Upload.'
         ],
         en: [
@@ -259,7 +259,7 @@ export const projects: Project[] = [
       solution: {
         de: [
           'Webbasierter Konfigurator mit Modell-Upload, Geometrieanalyse und regelbasierter Preislogik.',
-          'Direkte Uebergabe der Konfiguration in den WooCommerce-Kaufprozess.'
+          'Direkte Übergabe der Konfiguration in den WooCommerce-Kaufprozess.'
         ],
         en: [
           'Web configurator with model upload, geometry analysis, and rule-based pricing logic.',
@@ -269,9 +269,9 @@ export const projects: Project[] = [
       technology: {
         de: [
           'Frontend: Three.js/WebGL Viewer mit STL-/3MF-Verarbeitung und interaktiver Modellsteuerung.',
-          'Backend: WordPress Plugin mit AJAX-Endpunkten fuer Analyse, Preis-Context und Repricing.',
-          'Pricing: Material-, Qualitaets-, Farb- und Mengenlogik fuer reproduzierbare Angebotsausgabe.',
-          'Commerce: WooCommerce Cart/Order-Handoff mit sauberer Konfigurationsuebergabe.'
+          'Backend: WordPress Plugin mit AJAX-Endpunkten für Analyse, Preis-Context und Repricing.',
+          'Pricing: Material-, Qualitäts-, Farb- und Mengenlogik für reproduzierbare Angebotsausgabe.',
+          'Commerce: WooCommerce Cart/Order-Handoff mit sauberer Konfigurationsübergabe.'
         ],
         en: [
           'Frontend: Three.js/WebGL viewer with STL/3MF processing and interactive model controls.',
@@ -282,8 +282,8 @@ export const projects: Project[] = [
       },
       impact: {
         de: [
-          'Durchgaengiger Live-Flow vom Upload bis zum Checkout ohne Medienbruch.',
-          'Weniger manuelle Rueckfragen bei Standardanfragen und klarere Entscheidungswege fuer Kunden.',
+          'Durchgängiger Live-Flow vom Upload bis zum Checkout ohne Medienbruch.',
+          'Weniger manuelle Rückfragen bei Standardanfragen und klarere Entscheidungswege für Kunden.',
           'Rollenklarheit: Technische Umsetzung durch ivo-tech, Betrieb beim Kunden.'
         ],
         en: [
@@ -295,8 +295,8 @@ export const projects: Project[] = [
       media_assets: {
         de: [
           'Screen 1: Modell-Upload + 3D-Inspektion im Viewer',
-          'Screen 2: Material/Qualitaet/Farbe + Preisreaktion',
-          'Screen 3: Konfigurationsuebergabe in Cart/Checkout',
+          'Screen 2: Material/Qualität/Farbe + Preisreaktion',
+          'Screen 3: Konfigurationsübergabe in Cart/Checkout',
           'Optional: 30-45s Walkthrough mit Engineering-Kommentar'
         ],
         en: [
@@ -318,11 +318,11 @@ export const projects: Project[] = [
       en: 'Voicebot consent orchestrator'
     },
     one_liner: {
-      de: 'Mehrstufige Sprach- und Prozessorchestrierung fuer DE/EU-Einwilligungsflows.',
+      de: 'Mehrstufige Sprach- und Prozessorchestrierung für DE/EU-Einwilligungsflows.',
       en: 'Multi-step voice and process orchestration for DE/EU consent workflows.'
     },
     business_outcome: {
-      de: 'Nachvollziehbare Consent-Ablaufkette mit sauberer Agent-Unterstuetzung.',
+      de: 'Nachvollziehbare Consent-Ablaufkette mit sauberer Agent-Unterstützung.',
       en: 'Auditable consent flow chain with clear agent support.'
     },
     proof_statement: {
@@ -334,7 +334,7 @@ export const projects: Project[] = [
       en: 'Voicebot Consent Orchestrator | ivo-tech'
     },
     seo_description: {
-      de: 'Private-Beta Referenz fuer Einwilligungs-Orchestrierung mit API-, Voice- und Audit-Fokus.',
+      de: 'Private-Beta Referenz für Einwilligungs-Orchestrierung mit API-, Voice- und Audit-Fokus.',
       en: 'Private-beta reference for consent orchestration with API, voice, and audit focus.'
     },
     outcome_metrics: [
@@ -358,12 +358,12 @@ export const projects: Project[] = [
     modal: {
       title: { de: 'VOICEBOT ORCHESTRATOR', en: 'VOICEBOT ORCHESTRATOR' },
       desc: {
-        de: 'Private-Beta-Plattform fuer Einwilligungsdialoge: Orchestrator-API, Agent-Companion und versionierte Speech-Pipeline.',
+        de: 'Private-Beta-Plattform für Einwilligungsdialoge: Orchestrator-API, Agent-Companion und versionierte Speech-Pipeline.',
         en: 'Private-beta platform for consent dialogs: orchestrator API, agent companion, and versioned audio pipeline.'
       },
       specs: {
         de: [
-          { label: 'Scope', value: 'AGB/Consent Orchestrierung fuer Legacy-Callcenter-Kontext.' },
+          { label: 'Scope', value: 'AGB/Consent Orchestrierung für Legacy-Callcenter-Kontext.' },
           { label: 'API', value: 'FastAPI, Datenmodelle, Auditierbarkeit pro Flow-Schritt.' },
           { label: 'Voice', value: 'Speech-to-Text/Text-to-Speech + Twilio Call-Pipeline.' },
           { label: 'Ops', value: 'Tests: Unit/Integration/E2E + Non-Functional.' }
@@ -397,7 +397,7 @@ export const projects: Project[] = [
       en: 'Better decisions through transparent scores, uncertainty, and scenarios.'
     },
     proof_statement: {
-      de: 'Das MVP kombiniert Projektionen, Scoring und Optimierung in einem durchgaengigen Entscheidungsfluss.',
+      de: 'Das MVP kombiniert Projektionen, Scoring und Optimierung in einem durchgängigen Entscheidungsfluss.',
       en: 'The MVP combines projections, scoring, and optimization in one decision workflow.'
     },
     seo_title: {
@@ -419,7 +419,7 @@ export const projects: Project[] = [
       {
         label: { de: 'Entscheidungsnutzen', en: 'Decision value' },
         value: {
-          de: 'Szenarien zeigen Risiko/Upside transparent fuer die Auswahlentscheidung.',
+          de: 'Szenarien zeigen Risiko/Upside transparent für die Auswahlentscheidung.',
           en: 'Scenarios expose risk/upside transparently for lineup decisions.'
         }
       }
@@ -429,7 +429,7 @@ export const projects: Project[] = [
     modal: {
       title: { de: 'SORARE EDGE (IN ENTWICKLUNG)', en: 'SORARE EDGE (IN DEVELOPMENT)' },
       desc: {
-        de: 'MVP fuer datengetriebene Lineup-Entscheidungen: Baseline-Projektionen, Value-Scoring und Optimierung.',
+        de: 'MVP für datengetriebene Lineup-Entscheidungen: Baseline-Projektionen, Value-Scoring und Optimierung.',
         en: 'MVP for data-driven lineup decisions: baseline projections, value scoring, and optimization.'
       },
       specs: {
@@ -437,7 +437,7 @@ export const projects: Project[] = [
           { label: 'Data', value: 'Historische/aktuelle Inputs zu Performance und Matchups.' },
           { label: 'Modeling', value: 'Baseline + Unsicherheit + Value Score.' },
           { label: 'Optimization', value: 'Lineup-Optimierung via OR-Tools.' },
-          { label: 'Simulation', value: 'Monte-Carlo fuer Risiko-/Upside-Sicht.' }
+          { label: 'Simulation', value: 'Monte-Carlo für Risiko-/Upside-Sicht.' }
         ],
         en: [
           { label: 'Data', value: 'Historical/current inputs for player performance and matchups.' },
@@ -464,7 +464,7 @@ export const projects: Project[] = [
       en: 'Experimental messaging orchestration with roles, tiers, and admin UI.'
     },
     business_outcome: {
-      de: 'Lab fuer Subscription-Logik, Berechtigungen und Operator-Workflows.',
+      de: 'Lab für Subscription-Logik, Berechtigungen und Operator-Workflows.',
       en: 'Lab for subscription logic, permissions, and operator workflows.'
     },
     proof_statement: {
@@ -476,7 +476,7 @@ export const projects: Project[] = [
       en: 'Botsystem Lab | ivo-tech'
     },
     seo_description: {
-      de: 'Experimentelles Messaging-Lab fuer Rollen, Tiering und Admin-Prozesse.',
+      de: 'Experimentelles Messaging-Lab für Rollen, Tiering und Admin-Prozesse.',
       en: 'Experimental messaging lab for roles, tiering, and admin workflows.'
     },
     indexable: false,
@@ -494,12 +494,12 @@ export const projects: Project[] = [
     modal: {
       title: { de: 'BOTSYSTEM LAB', en: 'BOTSYSTEM LAB' },
       desc: {
-        de: 'Nicht als Kernangebot positioniert: bewusst als Experimentierflaeche fuer Messaging-Automation und Admin-Prozesse.',
+        de: 'Nicht als Kernangebot positioniert: bewusst als Experimentierfläche für Messaging-Automation und Admin-Prozesse.',
         en: 'Not positioned as core offering: intentionally framed as a lab for messaging automation and admin workflows.'
       },
       specs: {
         de: [
-          { label: 'Status', value: 'Lab / nicht als primaeres Portfolio-Angebot.' },
+          { label: 'Status', value: 'Lab / nicht als primäres Portfolio-Angebot.' },
           { label: 'Fokus', value: 'Tiering, User-Lifecycle, Operator-Workflows.' },
           { label: 'Architektur', value: 'Bot-Core + Web Admin + PostgreSQL.' }
         ],
@@ -523,15 +523,15 @@ export const projects: Project[] = [
     thumbSrc: '/assets/thumb_labs.svg',
     title: { de: 'IoT / Edge Automation Lab', en: 'IoT / edge automation lab' },
     one_liner: {
-      de: 'ESP32- und Home-Assistant-Experimente fuer Edge-Automation und lokale Integrationen.',
+      de: 'ESP32- und Home-Assistant-Experimente für Edge-Automation und lokale Integrationen.',
       en: 'ESP32 and Home Assistant experiments for edge automation and local integrations.'
     },
     business_outcome: {
-      de: 'Rapid-Prototyping fuer sensorbasierte Flows und lokale Service-Orchestrierung.',
+      de: 'Rapid-Prototyping für sensorbasierte Flows und lokale Service-Orchestrierung.',
       en: 'Rapid prototyping for sensor-driven flows and local service orchestration.'
     },
     proof_statement: {
-      de: 'Das Lab prueft Edge-Integrationen iterativ und dokumentiert betriebliche Runbooks.',
+      de: 'Das Lab prüft Edge-Integrationen iterativ und dokumentiert betriebliche Runbooks.',
       en: 'The lab validates edge integrations iteratively and documents operational runbooks.'
     },
     seo_title: {
@@ -539,7 +539,7 @@ export const projects: Project[] = [
       en: 'IoT Edge Automation Lab | ivo-tech'
     },
     seo_description: {
-      de: 'ESP32- und Home-Assistant-Lab fuer Edge-Automation und lokale Integrationen.',
+      de: 'ESP32- und Home-Assistant-Lab für Edge-Automation und lokale Integrationen.',
       en: 'ESP32 and Home Assistant lab for edge automation and local integrations.'
     },
     indexable: false,
@@ -547,7 +547,7 @@ export const projects: Project[] = [
       {
         label: { de: 'Lab-Fokus', en: 'Lab focus' },
         value: {
-          de: 'Schnelle Edge-Prototypen fuer Sensorik und lokale Integrationen.',
+          de: 'Schnelle Edge-Prototypen für Sensorik und lokale Integrationen.',
           en: 'Rapid edge prototypes for sensing and local integrations.'
         }
       }
@@ -564,7 +564,7 @@ export const projects: Project[] = [
         de: [
           { label: 'Scope', value: 'ESP32 Sensorik + Home Assistant Automationen.' },
           { label: 'Methode', value: 'Schnelles Testen, kurze Iterationsschleifen, dokumentierte Runbooks.' },
-          { label: 'Rolle', value: 'Sekundaersignal fuer Systems/Embedded-Prototyping.' }
+          { label: 'Rolle', value: 'Sekundärsignal für Systems/Embedded-Prototyping.' }
         ],
         en: [
           { label: 'Scope', value: 'ESP32 sensing + Home Assistant automations.' },

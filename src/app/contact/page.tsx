@@ -31,7 +31,7 @@ export default async function ContactRoutePage() {
         '@id': `${canonical}#webpage`,
         url: canonical,
         name: 'Kontakt | ivo-tech',
-        description: 'Direkter Kontaktpfad fuer Hiring, Projektkollaboration und Maker-Exchange.',
+        description: 'Direkter Kontaktpfad für Hiring, Projektkollaboration und Maker-Exchange.',
         inLanguage: 'de'
       },
       {

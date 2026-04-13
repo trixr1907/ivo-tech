@@ -57,7 +57,7 @@ export function ServiceDetailPage({ locale, slug, content }: ServiceDetailPagePr
       ? {
           case: 'Reale Umsetzung und Ergebnisdaten ansehen.',
           insight: 'Technischen Hintergrund und Entscheidungslogik vertiefen.',
-          playbook: 'Wiederverwendbare Umsetzungsmuster direkt uebernehmen.'
+          playbook: 'Wiederverwendbare Umsetzungsmuster direkt übernehmen.'
         }
       : {
           case: 'Review real implementation details and outcome signals.',
@@ -216,7 +216,7 @@ export function ServiceDetailPage({ locale, slug, content }: ServiceDetailPagePr
             </h2>
             <p className="mt-2 text-sm text-slate-300 md:text-base">
               {locale === 'de'
-                ? 'Jede Service-Seite verlinkt gezielt auf Case, Insight und Playbook fuer klare Vertiefungspfade.'
+                ? 'Jede Service-Seite verlinkt gezielt auf Case, Insight und Playbook für klare Vertiefungspfade.'
                 : 'Each service page links intentionally to one case, insight, and playbook for clear deep-dive paths.'}
             </p>
             <div className="mt-8 grid gap-4 md:grid-cols-3">

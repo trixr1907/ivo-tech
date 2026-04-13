@@ -9,7 +9,7 @@ export const copy = {
       heroCase: 'Case Study',
       featured: 'Projekte',
       contact: 'Kontakt',
-      cta: 'Erstgespraech'
+      cta: 'Erstgespräch'
     },
     primaryCta: {
       label: 'Case Study ansehen',
@@ -19,30 +19,30 @@ export const copy = {
     },
     sectionCtas: {
       hero: {
-        primary: { label: 'Kostenloses Erstgespraech anfragen', href: '#contact', trackingSource: 'hero_primary_contact', intent: 'contact' },
+        primary: { label: 'Kostenloses Erstgespräch anfragen', href: '#contact', trackingSource: 'hero_primary_contact', intent: 'contact' },
         secondary: { label: 'Case Study ansehen', href: '/configurator', trackingSource: 'hero_secondary_case', intent: 'case_study' }
       },
       services: {
-        primary: { label: 'Kostenloses Erstgespraech anfragen', href: '#contact', trackingSource: 'services_primary_contact', intent: 'contact' }
+        primary: { label: 'Kostenloses Erstgespräch anfragen', href: '#contact', trackingSource: 'services_primary_contact', intent: 'contact' }
       },
       insights: {
         primary: { label: 'Alle Insights', href: '/insights', trackingSource: 'insights_primary_index', intent: 'authority' }
       },
       footer: {
-        primary: { label: 'Erstgespraech', href: '#contact', trackingSource: 'footer_primary_contact', intent: 'contact' }
+        primary: { label: 'Erstgespräch', href: '#contact', trackingSource: 'footer_primary_contact', intent: 'contact' }
       },
       sticky: {
-        primary: { label: 'Erstgespraech', href: '#contact', trackingSource: 'sticky_primary_contact', intent: 'contact' }
+        primary: { label: 'Erstgespräch', href: '#contact', trackingSource: 'sticky_primary_contact', intent: 'contact' }
       }
     },
     home: {
       hero: {
         eyebrow: 'Web Engineering | Mannheim | Remote-first',
         title: 'Ich entwickle digitale Produkte und Websysteme, die im Alltag wirklich funktionieren.',
-        lead: 'Ich arbeite an Full-Stack-Webentwicklung, 3D- und Frontend-Erlebnissen, API-Integrationen und AI-gestuetzten Automatisierungs-Workflows.',
+        lead: 'Ich arbeite an Full-Stack-Webentwicklung, 3D- und Frontend-Erlebnissen, API-Integrationen und AI-gestützten Automatisierungs-Workflows.',
         sublead:
-          'Die Seite ist mein technisches Portfolio fuer Teams, Arbeitgeber und Partner, die nachvollziehbare Engineering-Kompetenz, Produktdenken und saubere Umsetzung suchen.',
-        highlights: ['Produktionsnahe Websysteme', '3D & Visualisierung', 'AI & Automatisierung', 'Offen fuer Hiring']
+          'Die Seite ist mein technisches Portfolio für Teams, Arbeitgeber und Partner, die nachvollziehbare Engineering-Kompetenz, Produktdenken und saubere Umsetzung suchen.',
+        highlights: ['Produktionsnahe Websysteme', '3D & Visualisierung', 'AI & Automatisierung', 'Offen für Hiring']
       },
       proof: [
         {
@@ -70,36 +70,36 @@ export const copy = {
       },
       method: {
         title: 'Wie ich entscheide und liefere',
-        desc: 'Ein klarer Delivery-Rahmen, damit Teams Entscheidungen und Fortschritt jederzeit nachvollziehen koennen.',
+        desc: 'Ein klarer Delivery-Rahmen, damit Teams Entscheidungen und Fortschritt jederzeit nachvollziehen können.',
         steps: [
           {
-            title: '1) Problem praezisieren',
+            title: '1) Problem präzisieren',
             desc: 'Zielbild, Scope und Risiko vor dem Build klarziehen, um teure Richtungswechsel zu vermeiden.'
           },
           {
-            title: '2) Loesung mit Guardrails bauen',
-            desc: 'Komponenten, Datenfluesse und Betrieb so umsetzen, dass Wartung und Skalierung realistisch bleiben.'
+            title: '2) Lösung mit Guardrails bauen',
+            desc: 'Komponenten, Datenflüsse und Betrieb so umsetzen, dass Wartung und Skalierung realistisch bleiben.'
           },
           {
-            title: '3) Wirkung messen und uebergeben',
-            desc: 'Performance, UX und Betriebsmetriken sichtbar machen und sauber ins Team uebergeben.'
+            title: '3) Wirkung messen und übergeben',
+            desc: 'Performance, UX und Betriebsmetriken sichtbar machen und sauber ins Team übergeben.'
           }
         ]
       },
       about: {
-        title: 'Ueber mich',
-        desc: 'Kein generisches Freelancer-Profil, sondern die Art von technischer Arbeit, fuer die ich am liebsten Verantwortung uebernehme.',
+        title: 'Über mich',
+        desc: 'Kein generisches Freelancer-Profil, sondern die Art von technischer Arbeit, für die ich am liebsten Verantwortung übernehme.',
         paragraphs: [
-          'Ich bin Ivo, Web- und Produktentwickler mit Fokus auf technische Systeme, die nicht nur gut aussehen, sondern unter realen Bedingungen zuverlaessig funktionieren. Mich interessieren Projekte dort, wo Produktdenken, Architektur und Umsetzung zusammenkommen.',
-          'Besonders gern arbeite ich an datengetriebenen Webprodukten, 3D- und Visualisierungsoberflaechen, Integrationen, Automatisierungen und AI-gestuetzten Workflows mit klarem Prozessbezug.',
-          'Mein Ziel ist nicht, moeglichst viel Technologie zu zeigen, sondern tragfaehige Loesungen zu bauen, die verstaendlich, wartbar und produktiv einsetzbar sind.'
+          'Ich bin Ivo, Web- und Produktentwickler mit Fokus auf technische Systeme, die nicht nur gut aussehen, sondern unter realen Bedingungen zuverlässig funktionieren. Mich interessieren Projekte dort, wo Produktdenken, Architektur und Umsetzung zusammenkommen.',
+          'Besonders gern arbeite ich an datengetriebenen Webprodukten, 3D- und Visualisierungsoberflächen, Integrationen, Automatisierungen und AI-gestützten Workflows mit klarem Prozessbezug.',
+          'Mein Ziel ist nicht, möglichst viel Technologie zu zeigen, sondern tragfähige Lösungen zu bauen, die verständlich, wartbar und produktiv einsetzbar sind.'
         ],
         focusTitle: 'Woran ich gern arbeite',
         bullets: [
-          'Produktorientierte Webanwendungen mit klarer Nutzerfuehrung und technischer Tiefe',
+          'Produktorientierte Webanwendungen mit klarer Nutzerführung und technischer Tiefe',
           'Frontend-Systeme, bei denen Performance, Interaktion und Architektur gemeinsam wichtig sind',
           'API-Integrationen, Automatisierungen und AI-nahe Workflows mit realem Prozessbezug',
-          'Projekte, in denen technische Entscheidungen nachvollziehbar und sauber dokumentiert sein muessen'
+          'Projekte, in denen technische Entscheidungen nachvollziehbar und sauber dokumentiert sein müssen'
         ],
         stats: [
           { label: 'Kernprofil', value: 'Product Engineer mit Full-Stack- und Frontend-Schwerpunkt' },
@@ -116,17 +116,17 @@ export const copy = {
         {
           icon: 'backend',
           title: 'Backend & API Integrationen',
-          desc: 'FastAPI-Services, Datenfluesse und Integrationen fuer stabile End-to-End-Prozesse.'
+          desc: 'FastAPI-Services, Datenflüsse und Integrationen für stabile End-to-End-Prozesse.'
         },
         {
           icon: 'ops',
           title: 'Betrieb & Guardrails',
-          desc: 'Deployment, QA-Gates und Monitoring-Basis fuer reproduzierbare Delivery.'
+          desc: 'Deployment, QA-Gates und Monitoring-Basis für reproduzierbare Delivery.'
         }
       ],
       projects: {
         title: 'Kuratierte Projekte',
-        desc: 'Ausgewaehlte Referenzen mit klarem Tech-Fokus und nachvollziehbarer Wirkung.'
+        desc: 'Ausgewählte Referenzen mit klarem Tech-Fokus und nachvollziehbarer Wirkung.'
       },
       insights: {
         title: 'Engineering Insights',
@@ -135,27 +135,27 @@ export const copy = {
       },
       contact: {
         title: 'Kontakt',
-        desc: '2-3 Saetze zu Ziel, aktuellem Engpass und Zeitrahmen reichen fuer einen konkreten Start.',
-        card: 'Typisches Antwortfenster: Rueckmeldung werktags innerhalb von 24 Stunden.',
+        desc: '2-3 Sätze zu Ziel, aktuellem Engpass und Zeitrahmen reichen für einen konkreten Start.',
+        card: 'Typisches Antwortfenster: Rückmeldung werktags innerhalb von 24 Stunden.',
         emailCta: 'Direkt per E-Mail',
         advanced: {
           toggle: 'Optionale Projektdetails',
-          hint: 'Nur ausfuellen, wenn es fuer den Erstkontakt hilfreich ist.'
+          hint: 'Nur ausfüllen, wenn es für den Erstkontakt hilfreich ist.'
         }
       },
       faq: {
         title: 'FAQ',
-        desc: 'Die wichtigsten Fragen vor einem Erstgespraech.'
+        desc: 'Die wichtigsten Fragen vor einem Erstgespräch.'
       }
     },
     hero: {
       eyebrow: 'Web Engineering | Mannheim | Remote-first',
       title: 'Ich entwickle digitale Produkte und Websysteme, die im Alltag wirklich funktionieren.',
-      lead: 'Ich arbeite an Full-Stack-Webentwicklung, 3D- und Frontend-Erlebnissen, API-Integrationen und AI-gestuetzten Automatisierungs-Workflows.',
+      lead: 'Ich arbeite an Full-Stack-Webentwicklung, 3D- und Frontend-Erlebnissen, API-Integrationen und AI-gestützten Automatisierungs-Workflows.',
       sublead:
-        'Die Seite ist mein technisches Portfolio fuer Teams, Arbeitgeber und Partner, die nachvollziehbare Engineering-Kompetenz, Produktdenken und saubere Umsetzung suchen.',
-      highlights: ['Produktionsnahe Websysteme', '3D & Visualisierung', 'AI & Automatisierung', 'Offen fuer Hiring'],
-      secondary: 'Kostenloses Erstgespraech anfragen',
+        'Die Seite ist mein technisches Portfolio für Teams, Arbeitgeber und Partner, die nachvollziehbare Engineering-Kompetenz, Produktdenken und saubere Umsetzung suchen.',
+      highlights: ['Produktionsnahe Websysteme', '3D & Visualisierung', 'AI & Automatisierung', 'Offen für Hiring'],
+      secondary: 'Kostenloses Erstgespräch anfragen',
       linksLabel: 'Direktlinks',
       github: 'GitHub',
       cv: 'CV (PDF)',
@@ -175,7 +175,7 @@ export const copy = {
         },
         {
           title: '3) Wirkung belegen',
-          desc: 'Performance, UX und Betriebskennzahlen sichtbar machen und sauber ins Team uebergeben.'
+          desc: 'Performance, UX und Betriebskennzahlen sichtbar machen und sauber ins Team übergeben.'
         }
       ]
     },
@@ -194,12 +194,12 @@ export const copy = {
       },
       featured: {
         title: 'Kuratierte Projekte',
-        desc: 'Ausgewaehlte Referenzen mit technischer Tiefe und klarer Wirkung.'
+        desc: 'Ausgewählte Referenzen mit technischer Tiefe und klarer Wirkung.'
       },
       contact: {
         title: 'Kontakt',
-        desc: '2-3 Saetze zu Ziel, Engpass und Zeitrahmen reichen fuer einen konkreten Start.',
-        card: 'Typisches Antwortfenster: Rueckmeldung werktags innerhalb von 24 Stunden.'
+        desc: '2-3 Sätze zu Ziel, Engpass und Zeitrahmen reichen für einen konkreten Start.',
+        card: 'Typisches Antwortfenster: Rückmeldung werktags innerhalb von 24 Stunden.'
       }
     },
     contact_form: {
@@ -209,7 +209,7 @@ export const copy = {
         client: 'Projektanfrage'
       },
       advancedToggleLabel: 'Optionale Projektdetails',
-      advancedHint: 'Ergaenze Details nur wenn sie fuer den Start relevant sind.',
+      advancedHint: 'Ergänze Details nur wenn sie für den Start relevant sind.',
       intentDetailLabel: 'Anliegen-Detail',
       intentDetailOptions: {
         hiring: 'Hiring / Teamaufbau',
@@ -232,14 +232,14 @@ export const copy = {
       nameLabel: 'Name',
       emailLabel: 'E-Mail',
       companyLabel: 'Firma / Team (optional)',
-      messageLabel: 'Kontext in 2-5 Saetzen',
+      messageLabel: 'Kontext in 2-5 Sätzen',
       submit: 'Anfrage senden',
       submitting: 'Wird gesendet...',
       success: 'Danke. Die Anfrage ist eingegangen und wird zeitnah beantwortet.',
       reset: 'Neue Anfrage',
       error: 'Senden fehlgeschlagen. Bitte erneut versuchen oder direkt per Mail kontaktieren.',
       rateLimited: 'Zu viele Anfragen in kurzer Zeit. Bitte warte kurz und versuche es erneut.',
-      verificationRequired: 'Bitte bestaetige kurz die Sicherheitspruefung und versuche es erneut.',
+      verificationRequired: 'Bitte bestätige kurz die Sicherheitsprüfung und versuche es erneut.',
       privacy: 'Mit dem Absenden stimmst du der Verarbeitung deiner Anfrage zum Kontaktzweck zu.',
       gdprConsentLabel: 'Ich stimme der Verarbeitung meiner Angaben zur Bearbeitung meiner Anfrage zu (DSGVO).',
       honeypotLabel: 'Website'
@@ -249,20 +249,20 @@ export const copy = {
       items: [
         'Live-System mit End-to-End-Flow im Betrieb',
         'Klare Delivery-Gates vor jedem Release',
-        'Dokumentierte Uebergaben fuer stabile Team-Weiterarbeit'
+        'Dokumentierte Übergaben für stabile Team-Weiterarbeit'
       ]
     },
     faq: {
       title: 'FAQ',
-      desc: 'Die wichtigsten Fragen vor einem Erstgespraech.',
+      desc: 'Die wichtigsten Fragen vor einem Erstgespräch.',
       items: [
         {
           q: 'Wie startet eine Zusammenarbeit?',
-          a: 'Du gibst kurz Kontext zu Ziel, Engpass und Zeitrahmen. Danach klaeren wir den naechsten belastbaren Schritt ohne Sales-Druck.'
+          a: 'Du gibst kurz Kontext zu Ziel, Engpass und Zeitrahmen. Danach klären wir den nächsten belastbaren Schritt ohne Sales-Druck.'
         },
         {
           q: 'Welche Deliverables lieferst du typischerweise?',
-          a: 'Je nach Scope: Architektur-Entscheidungen, robuste Implementierung, QA-Gates und eine dokumentierte Uebergabe fuer das Team.'
+          a: 'Je nach Scope: Architektur-Entscheidungen, robuste Implementierung, QA-Gates und eine dokumentierte Übergabe für das Team.'
         },
         {
           q: 'Arbeitest du mit bestehenden Teams und Codebases?',

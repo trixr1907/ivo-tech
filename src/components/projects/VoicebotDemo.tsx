@@ -19,7 +19,7 @@ export function VoicebotDemo({ locale }: Props) {
         <h3>{locale === 'de' ? 'Voicebot Einwilligungs-Orchestrator' : 'Voicebot consent orchestrator'}</h3>
         <p>
           {locale === 'de'
-            ? 'Mehrstufige Orchestrierung fuer DE/EU-Consent-Flows mit Agent-Companion und Test-Pipeline.'
+            ? 'Mehrstufige Orchestrierung für DE/EU-Consent-Flows mit Agent-Companion und Test-Pipeline.'
             : 'Multi-step orchestration for DE/EU consent flows with an agent companion and test pipeline.'}
         </p>
       </div>

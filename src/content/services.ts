@@ -40,7 +40,7 @@ const SERVICE_DETAILS: ServiceDetailDefinition[] = [
       en: 'Web Engineering Delivery | ivo-tech'
     },
     seoDescription: {
-      de: 'Architektur, Frontend-System und QA-Gates fuer conversion-kritische B2B-Websites.',
+      de: 'Architektur, Frontend-System und QA-Gates für conversion-kritische B2B-Websites.',
       en: 'Architecture, frontend system, and QA gates for conversion-critical B2B websites.'
     },
     content: {
@@ -49,7 +49,7 @@ const SERVICE_DETAILS: ServiceDetailDefinition[] = [
         eyebrow: 'Service Detail',
         title: 'Web Engineering Delivery',
         description:
-          'Fuer Teams, die Website-Delivery nicht als Designprojekt, sondern als produktionskritisches System betreiben. Fokus: klare IA, robuste Komponenten, verlässlicher Release-Prozess.',
+          'Für Teams, die Website-Delivery nicht als Designprojekt, sondern als produktionskritisches System betreiben. Fokus: klare IA, robuste Komponenten, verlässlicher Release-Prozess.',
         outcomesTitle: 'Ergebnisfokus',
         outcomes: [
           'Klarere Angebotskommunikation entlang realer Entscheidungswege',
@@ -58,7 +58,7 @@ const SERVICE_DETAILS: ServiceDetailDefinition[] = [
         ],
         deliverablesTitle: 'Typische Deliverables',
         deliverables: [
-          'Informationsarchitektur fuer Home, Services und Cases',
+          'Informationsarchitektur für Home, Services und Cases',
           'Komponentenbibliothek mit wiederverwendbaren Mustern',
           'Release-Checkliste mit technischen und inhaltlichen Quality Gates'
         ],
@@ -66,7 +66,7 @@ const SERVICE_DETAILS: ServiceDetailDefinition[] = [
         fit: [
           'Relaunch oder Segment-Neuaufbau mit hohem Stakeholder-Druck',
           'Bestehende Seite wirkt uneinheitlich und konvertiert inkonsistent',
-          'Team braucht belastbare Basis fuer laufende Erweiterung'
+          'Team braucht belastbare Basis für laufende Erweiterung'
         ],
         faqTitle: 'FAQ',
         faq: [
@@ -76,11 +76,11 @@ const SERVICE_DETAILS: ServiceDetailDefinition[] = [
           },
           {
             question: 'Funktioniert das auch mit bestehendem Design?',
-            answer: 'Ja. Bestehende Assets koennen in ein sauberes Komponenten- und Strukturmodell ueberfuehrt werden.'
+            answer: 'Ja. Bestehende Assets können in ein sauberes Komponenten- und Strukturmodell überführt werden.'
           },
           {
-            question: 'Wie wird Qualitaet abgesichert?',
-            answer: 'Durch feste QA-Gates fuer Struktur, Accessibility, Performance und Conversion-Pfade vor jedem Release.'
+            question: 'Wie wird Qualität abgesichert?',
+            answer: 'Durch feste QA-Gates für Struktur, Accessibility, Performance und Conversion-Pfade vor jedem Release.'
           }
         ],
         linksTitle: 'Passende Vertiefungen',
@@ -101,7 +101,7 @@ const SERVICE_DETAILS: ServiceDetailDefinition[] = [
             kind: 'playbook'
           }
         ],
-        ctaPrimary: 'Scope-Call fuer Delivery anfragen',
+        ctaPrimary: 'Scope-Call für Delivery anfragen',
         ctaSecondary: 'Case ansehen',
         ctaTertiary: 'Playbook lesen'
       },
@@ -175,7 +175,7 @@ const SERVICE_DETAILS: ServiceDetailDefinition[] = [
       en: 'AI Automation Workflows | ivo-tech'
     },
     seoDescription: {
-      de: 'AI-gestuetzte Workflow-Automation fuer schnellere Delivery und weniger manuelle Reibung.',
+      de: 'AI-gestützte Workflow-Automation für schnellere Delivery und weniger manuelle Reibung.',
       en: 'AI-assisted workflow automation for faster delivery and lower manual overhead.'
     },
     content: {
@@ -184,18 +184,18 @@ const SERVICE_DETAILS: ServiceDetailDefinition[] = [
         eyebrow: 'Service Detail',
         title: 'AI Automation Workflows',
         description:
-          'Fuer Teams, die repetitive Delivery-Schritte reduzieren und Entscheidungsprozesse beschleunigen wollen. Fokus auf sichere Integrationspfade und reproduzierbare Prozesse.',
+          'Für Teams, die repetitive Delivery-Schritte reduzieren und Entscheidungsprozesse beschleunigen wollen. Fokus auf sichere Integrationspfade und reproduzierbare Prozesse.',
         outcomesTitle: 'Ergebnisfokus',
         outcomes: [
           'Schnellere Iterationszyklen in Review- und Handover-Schritten',
           'Weniger manuelle Übergaben bei Standardabläufen',
-          'Mehr Transparenz ueber Workflow-Zustand und Prioritaeten'
+          'Mehr Transparenz über Workflow-Zustand und Prioritäten'
         ],
         deliverablesTitle: 'Typische Deliverables',
         deliverables: [
           'Workflow-Mapping inkl. Engpass- und Risikoanalyse',
-          'AI-Assist-Ketten fuer Review, Routing und Dokumentation',
-          'Monitoring-Konzept fuer Outcome- und Qualitätsmetriken'
+          'AI-Assist-Ketten für Review, Routing und Dokumentation',
+          'Monitoring-Konzept für Outcome- und Qualitätsmetriken'
         ],
         fitTitle: 'Wann dieses Format passt',
         fit: [
@@ -207,7 +207,7 @@ const SERVICE_DETAILS: ServiceDetailDefinition[] = [
         faq: [
           {
             question: 'Ersetzt das bestehende Tools komplett?',
-            answer: 'Nein. Ziel ist Integration in bestehende Prozesse mit klaren Uebergaben statt kompletter Tool-Neubau.'
+            answer: 'Nein. Ziel ist Integration in bestehende Prozesse mit klaren Übergaben statt kompletter Tool-Neubau.'
           },
           {
             question: 'Wie wird Sicherheit im Workflow behandelt?',
@@ -236,7 +236,7 @@ const SERVICE_DETAILS: ServiceDetailDefinition[] = [
             kind: 'playbook'
           }
         ],
-        ctaPrimary: 'Scope-Call fuer Automation anfragen',
+        ctaPrimary: 'Scope-Call für Automation anfragen',
         ctaSecondary: 'Case ansehen',
         ctaTertiary: 'Playbook lesen'
       },
@@ -310,7 +310,7 @@ const SERVICE_DETAILS: ServiceDetailDefinition[] = [
       en: '3D Visualization Systems | ivo-tech'
     },
     seoDescription: {
-      de: 'Interaktive 3D- und Visualisierungsstrecken fuer komplexe Produkte und konfigurative Angebotsprozesse.',
+      de: 'Interaktive 3D- und Visualisierungsstrecken für komplexe Produkte und konfigurative Angebotsprozesse.',
       en: 'Interactive 3D and visualization flows for complex products and configurative offer journeys.'
     },
     content: {
@@ -319,30 +319,30 @@ const SERVICE_DETAILS: ServiceDetailDefinition[] = [
         eyebrow: 'Service Detail',
         title: '3D Visualization Systems',
         description:
-          'Fuer produktnahe Teams, die komplexe Angebote visuell erfassbar machen muessen. Fokus auf Viewer-Performance, klare Interaktion und saubere Integration in Business-Workflows.',
+          'Für produktnahe Teams, die komplexe Angebote visuell erfassbar machen müssen. Fokus auf Viewer-Performance, klare Interaktion und saubere Integration in Business-Workflows.',
         outcomesTitle: 'Ergebnisfokus',
         outcomes: [
           'Bessere Produktverständlichkeit in frühen Entscheidungsphasen',
-          'Kuerzere Rückfrage-Schleifen durch visuelle Konfiguration',
+          'Kürzere Rückfrage-Schleifen durch visuelle Konfiguration',
           'Robuste Strecke von Visualisierung zu Preis/Checkout'
         ],
         deliverablesTitle: 'Typische Deliverables',
         deliverables: [
           '3D-Viewer-Konzept mit Performance- und UX-Guidelines',
-          'Interaktionsmodell fuer Konfiguration und Variantenlogik',
+          'Interaktionsmodell für Konfiguration und Variantenlogik',
           'Technische Integration in Pricing- oder Commerce-Flow'
         ],
         fitTitle: 'Wann dieses Format passt',
         fit: [
           'Produkte sind ohne Visualisierung schwer vermittelbar',
-          'Angebotsprozess hat hohe technische Erklaerlast',
-          'Konfiguration soll in einen kaufnahen Flow uebergehen'
+          'Angebotsprozess hat hohe technische Erklärungslast',
+          'Konfiguration soll in einen kaufnahen Flow übergehen'
         ],
         faqTitle: 'FAQ',
         faq: [
           {
-            question: 'Ist 3D nur fuer Showcases sinnvoll?',
-            answer: 'Nein. Der groesste Hebel entsteht, wenn 3D direkt mit Konfiguration, Preislogik und Angebotsprozess verbunden wird.'
+            question: 'Ist 3D nur für Showcases sinnvoll?',
+            answer: 'Nein. Der größte Hebel entsteht, wenn 3D direkt mit Konfiguration, Preislogik und Angebotsprozess verbunden wird.'
           },
           {
             question: 'Wie wird Performance stabil gehalten?',
@@ -350,7 +350,7 @@ const SERVICE_DETAILS: ServiceDetailDefinition[] = [
           },
           {
             question: 'Kann das mit bestehendem Shop/Backend verbunden werden?',
-            answer: 'Ja. Typischerweise ueber API- und Plugin-Schichten mit nachvollziehbarer Handover-Logik.'
+            answer: 'Ja. Typischerweise über API- und Plugin-Schichten mit nachvollziehbarer Handover-Logik.'
           }
         ],
         linksTitle: 'Passende Vertiefungen',
@@ -371,7 +371,7 @@ const SERVICE_DETAILS: ServiceDetailDefinition[] = [
             kind: 'playbook'
           }
         ],
-        ctaPrimary: 'Scope-Call fuer 3D-System anfragen',
+        ctaPrimary: 'Scope-Call für 3D-System anfragen',
         ctaSecondary: 'Case ansehen',
         ctaTertiary: 'Playbook lesen'
       },

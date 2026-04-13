@@ -56,7 +56,7 @@ export function RelaunchStickyHeader({
 
   return (
     <header className="home-v2-header sticky top-0 z-30 bg-slate-950/70 backdrop-blur-md" style={{ borderBottom: '1px solid transparent', backgroundImage: 'linear-gradient(rgba(9,17,34,0.7), rgba(9,17,34,0.7)) padding-box, linear-gradient(90deg, transparent 0%, rgba(56,189,248,0.18) 35%, rgba(99,102,241,0.14) 65%, transparent 100%) border-box' }}>
-      <div className="mx-auto flex h-14 w-full max-w-[1200px] items-center justify-between gap-4 px-4 sm:px-6">
+      <div className="home-shell-container mx-auto flex h-14 w-full items-center justify-between gap-4 px-4 sm:px-6">
         <Link href={homeHref} className="flex items-center gap-2 font-display text-base font-bold tracking-tight text-slate-100 transition-opacity hover:opacity-80">
           <img
             src="/assets/logo/ivo-logo__mark-core__premium__dark__v1.1.0.svg"

@@ -27,12 +27,12 @@ function getRelatedLinkCopy(locale: Locale, href: string, isExternal: boolean) {
       const url = new URL(href);
       return {
         title: locale === 'de' ? `Externer Nachweis: ${url.hostname}` : `External proof: ${url.hostname}`,
-        detail: locale === 'de' ? 'Oeffnet in neuem Tab' : 'Opens in new tab'
+        detail: locale === 'de' ? 'Öffnet in neuem Tab' : 'Opens in new tab'
       };
     } catch {
       return {
         title: locale === 'de' ? 'Externer Nachweis' : 'External proof',
-        detail: locale === 'de' ? 'Oeffnet in neuem Tab' : 'Opens in new tab'
+        detail: locale === 'de' ? 'Öffnet in neuem Tab' : 'Opens in new tab'
       };
     }
   }
@@ -52,19 +52,19 @@ function getRelatedLinkCopy(locale: Locale, href: string, isExternal: boolean) {
   if (href.includes('/insights')) {
     return {
       title: locale === 'de' ? 'Insights' : 'Insights',
-      detail: locale === 'de' ? 'Technische Hintergruende und Entscheidungen' : 'Technical rationale and decisions'
+      detail: locale === 'de' ? 'Technische Hintergründe und Entscheidungen' : 'Technical rationale and decisions'
     };
   }
   if (href.includes('/contact') || href.includes('#contact')) {
     return {
       title: locale === 'de' ? 'Kontakt' : 'Contact',
-      detail: locale === 'de' ? 'Direkten naechsten Schritt klaeren' : 'Clarify the direct next step'
+      detail: locale === 'de' ? 'Direkten nächsten Schritt klären' : 'Clarify the direct next step'
     };
   }
 
   return {
-    title: locale === 'de' ? 'Weiterfuehrender Link' : 'Related link',
-    detail: locale === 'de' ? 'Inhalt mit weiterem Kontext oeffnen' : 'Open supporting context'
+    title: locale === 'de' ? 'Weiterführender Link' : 'Related link',
+    detail: locale === 'de' ? 'Inhalt mit weiterem Kontext öffnen' : 'Open supporting context'
   };
 }
 
@@ -76,7 +76,7 @@ export function HubDetailPage({ locale, kind, entry }: Props) {
   const navLinks = getPrimaryNavLinks(locale);
   const contactPath = getContactPath(locale, `hub-${kind}-detail`);
   const homeHref = localizePath('/', locale);
-  const headerCta = locale === 'de' ? 'Erstgespraech' : 'Intro call';
+  const headerCta = locale === 'de' ? 'Erstgespräch' : 'Intro call';
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -194,10 +194,10 @@ export function HubDetailPage({ locale, kind, entry }: Props) {
 
             <aside
               className={`${RELAUNCH_SECTION} hub-detail-related`}
-              aria-label={locale === 'de' ? 'Weiterfuehrende Links' : 'Related links'}
+              aria-label={locale === 'de' ? 'Weiterführende Links' : 'Related links'}
             >
               <h2 className="home-section-h2" style={{ fontSize: "1.5rem" }}>
-                {locale === 'de' ? 'Weiterfuehrende Links' : 'Related links'}
+                {locale === 'de' ? 'Weiterführende Links' : 'Related links'}
               </h2>
               <ul className="mt-4 space-y-3">
                 {entry.internalLinks.map((href) => {
@@ -233,7 +233,7 @@ export function HubDetailPage({ locale, kind, entry }: Props) {
               </ul>
               <Button asChild className="mt-6 bg-sky-500 text-slate-950 hover:bg-sky-400">
                 <Link href={contactPath} data-hub-cta="related-primary">
-                  {locale === 'de' ? 'Erstgespraech starten' : 'Request free intro call'}
+                  {locale === 'de' ? 'Erstgespräch starten' : 'Request free intro call'}
                 </Link>
               </Button>
             </aside>

@@ -13,7 +13,7 @@ import { HomeRelaunchFooter } from '@/components/home/HomeRelaunchFooter';
 import { HomeRelaunchHeroSnapshot } from '@/components/home/HomeRelaunchHeroSnapshot';
 import { HomeMobileCtaDock } from '@/components/home/HomeMobileCtaDock';
 import { HomeScrollProgress } from '@/components/home/HomeScrollProgress';
-import { HomeSectionRail } from '@/components/home/HomeSectionRail';
+import { HomeClientLogosMarquee } from '@/components/home/HomeClientLogosMarquee';
 import { HomeTechStackBar } from '@/components/home/HomeTechStackBar';
 import { AnimatedCounter } from '@/components/home/AnimatedCounter';
 import { ProjectModal } from '@/components/ProjectModal';
@@ -272,7 +272,6 @@ export function HomePageRelaunch2026({ locale, featuredInsights }: HomePageRelau
           <div className="home-relaunch-blob home-relaunch-blob-b" />
         </div>
         <HomeScrollProgress locale={locale} />
-        <HomeSectionRail locale={locale} heroVariant={heroVariant} />
 
         <div className="relative z-10 min-h-screen text-slate-100">
           <RelaunchStickyHeader
@@ -288,7 +287,7 @@ export function HomePageRelaunch2026({ locale, featuredInsights }: HomePageRelau
             desktopContactTrackingSource="home-header-contact"
           />
 
-          <main id="main-content" className="mx-auto w-full max-w-[1200px] px-4 pb-10 pt-10 sm:px-6 md:pb-12 md:pt-14">
+          <main id="main-content" className="home-shell-container mx-auto w-full px-4 pb-10 pt-10 sm:px-6 md:pb-12 md:pt-14">
             <section
               id="home-hero"
               className="home-hero-card relative"
@@ -640,6 +639,8 @@ export function HomePageRelaunch2026({ locale, featuredInsights }: HomePageRelau
                 </Card>
               </div>
             </RelaunchMotionSection>
+
+            <HomeClientLogosMarquee locale={locale} />
 
             <RelaunchMotionSection id="home-projects" className="mt-14 scroll-mt-28" aria-labelledby="home-projects-heading">
               <p className="home-eyebrow">{t.sectionProjectsEyebrow}</p>

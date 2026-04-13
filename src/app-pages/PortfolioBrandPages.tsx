@@ -32,7 +32,7 @@ function PageScaffold({
   const navLinks = getPrimaryNavLinks(locale);
   const contactPath = getContactPath(locale, 'header-nav');
   const homeHref = localizePath('/', locale);
-  const cta = locale === 'de' ? 'Erstgespraech' : 'Intro call';
+  const cta = locale === 'de' ? 'Erstgespräch' : 'Intro call';
 
   return (
     <RelaunchMarketingShell
@@ -79,13 +79,13 @@ export function AboutBrandPage({ locale }: { locale: Locale }) {
             'Mein Fokus liegt auf der Schnittstelle aus Produktlogik, Frontend-Engineering und Maker-Mindset. Ich arbeite dort, wo technische Entscheidungen sichtbar Auswirkungen auf Vertrauen, Geschwindigkeit und Wartbarkeit haben.',
           principlesTitle: 'Arbeitsprinzipien',
           principles: [
-            'Klarheit vor Komplexitaet: Jede technische Entscheidung muss fuer Stakeholder nachvollziehbar sein.',
+            'Klarheit vor Komplexität: Jede technische Entscheidung muss für Stakeholder nachvollziehbar sein.',
             'Delivery mit Guardrails: QA, Performance und Handover werden von Anfang an mitgedacht.',
-            'Builder-Mentalitaet: Ideen werden schnell prototypisiert, aber stabil produktionsfaehig gemacht.'
+            'Builder-Mentalität: Ideen werden schnell prototypisiert, aber stabil produktionsfähig gemacht.'
           ],
           timelineTitle: 'Journey',
           proofTitle: 'Trust Layers',
-          featuredTitle: 'Ausgewaehlte Referenzen'
+          featuredTitle: 'Ausgewählte Referenzen'
         }
       : {
           title: 'I build digital systems that run cleanly and communicate technical authority.',
@@ -187,7 +187,7 @@ export function ProjectsBrandPage({ locale }: { locale: Locale }) {
   const copy =
     locale === 'de'
       ? {
-          title: 'Projekte: technische Tiefe fuer Hiring, Produktteams und Collaboration.',
+          title: 'Projekte: technische Tiefe für Hiring, Produktteams und Collaboration.',
           description:
             'Ein Mix aus produktiven Kundenprojekten und Maker-Experimenten. Jeder Eintrag zeigt Ziel, Architektur und Ergebnis statt nur Visuals.',
           professionalTitle: 'Professional Track',
@@ -250,14 +250,14 @@ export function MakerLabPage({ locale }: { locale: Locale }) {
       ? {
           title: 'Maker Lab: 3D-Printing-Workflows mit klarem Transfer in reale Produktprozesse.',
           description:
-            'Hier entsteht der Creator-Track: Build-in-public Artefakte, 3D Workflows und explorative Tools, die in produktionsnahe Systeme ueberfuehrt werden.',
+            'Hier entsteht der Creator-Track: Build-in-public Artefakte, 3D Workflows und explorative Tools, die in produktionsnahe Systeme überführt werden.',
           focusTitle: 'Lab Fokus',
           focusItems: [
-            '3D Datei-zu-Preis Systeme fuer reale Angebotsprozesse',
+            '3D Datei-zu-Preis Systeme für reale Angebotsprozesse',
             'Visuelle Interaktionsmuster mit WebGL und performantem Rendering',
             'Prototype-to-production Handovers mit klaren technischen Guardrails'
           ],
-          roadmapTitle: 'Naechste Builds',
+          roadmapTitle: 'Nächste Builds',
           roadmapItems: [
             'Q2: Materialbibliothek mit erweiterten Toleranz- und Kostenchecks',
             'Q3: Automatisierte Angebotskonfiguration mit AI-Assists',
@@ -354,7 +354,7 @@ export function ContactBrandPage({ locale }: { locale: Locale }) {
       ? {
           title: 'Kontakt: Hiring, Projekt-Kollaboration oder Maker-Exchange.',
           description:
-            '2-3 Saetze zu Ziel, Engpass und Zeitrahmen reichen. Du bekommst einen klaren naechsten Schritt statt generischer Rueckfragen.',
+            '2-3 Sätze zu Ziel, Engpass und Zeitrahmen reichen. Du bekommst einen klaren nächsten Schritt statt generischer Rückfragen.',
           panelTitle: 'Direkter Kontaktpfad',
           panelItems: [
             'Antwort in der Regel innerhalb eines Werktags',
@@ -366,12 +366,12 @@ export function ContactBrandPage({ locale }: { locale: Locale }) {
             formEmail: 'Business-E-Mail',
             formCompany: 'Firma (optional)',
             formMessage: 'Worum geht es konkret?',
-            formButton: 'Erstgespraech anfragen',
+            formButton: 'Erstgespräch anfragen',
             submitting: 'Wird gesendet...',
             success: 'Danke. Deine Anfrage wurde erfasst.',
             error: 'Senden fehlgeschlagen. Bitte erneut versuchen.',
-            rateLimited: 'Zu viele Anfragen in kurzer Zeit. Bitte spaeter erneut versuchen.',
-            verificationRequired: 'Bitte Sicherheitspruefung bestaetigen und erneut senden.',
+            rateLimited: 'Zu viele Anfragen in kurzer Zeit. Bitte später erneut versuchen.',
+            verificationRequired: 'Bitte Sicherheitsprüfung bestätigen und erneut senden.',
             privacy: 'Mit dem Absenden stimmst du der Verarbeitung deiner Anfrage zur Kontaktaufnahme zu.',
             schedulerCta: '15-Min Termin buchen',
             schedulerHint: '15 Minuten Intro-Call'

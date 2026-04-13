@@ -114,7 +114,7 @@ export function Dld3dDemo({ locale }: Props) {
               dimensions_label: 'Abmessungen (B x T x H)',
               volume_label: 'Volumen:',
               material_label: 'Material',
-              quality_label: 'Qualitaet',
+              quality_label: 'Qualität',
               color_label: 'Farbe',
               color_section_neutral: 'Neutral',
               color_section_color: 'Bunt',

@@ -19,7 +19,7 @@ export function SorareDemo({ locale }: Props) {
         <h3>{locale === 'de' ? 'Sorare NBA Edge Tool' : 'Sorare NBA edge tool'}</h3>
         <p>
           {locale === 'de'
-            ? 'Datenprodukt fuer transparentere Entscheidungen: Projektionen, Optimierung und Szenario-Simulation.'
+            ? 'Datenprodukt für transparentere Entscheidungen: Projektionen, Optimierung und Szenario-Simulation.'
             : 'Data product for more transparent decisions: projections, optimization, and scenario simulation.'}
         </p>
       </div>
