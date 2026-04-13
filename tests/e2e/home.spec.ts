@@ -72,6 +72,42 @@ test.describe('homepage redesign critical journeys', () => {
     await expect(page.locator('#contact')).toBeVisible();
   });
 
+  test('keeps homepage layout stable without horizontal overflow across breakpoints', async ({ page }) => {
+    const breakpoints = [
+      { width: 390, height: 844 },
+      { width: 768, height: 1024 },
+      { width: 1280, height: 900 },
+      { width: 1536, height: 960 }
+    ] as const;
+
+    for (const viewport of breakpoints) {
+      await page.setViewportSize(viewport);
+      await page.goto('/');
+      await page.waitForLoadState('networkidle');
+      const hasOverflow = await page.evaluate(() => {
+        const root = document.documentElement;
+        return root.scrollWidth - root.clientWidth > 1;
+      });
+      expect(hasOverflow, `overflow on ${viewport.width}x${viewport.height}`).toBeFalsy();
+    }
+  });
+
+  test('renders section visuals with localized alt text on DE and EN routes', async ({ page }) => {
+    for (const route of ['/', '/en'] as const) {
+      await page.goto(route);
+      await page.waitForLoadState('networkidle');
+      const visualCards = page.locator('.home-section-visual-card');
+      await expect(visualCards).toHaveCount(7);
+      const visualImages = page.locator('.home-section-visual-card img');
+      const imageCount = await visualImages.count();
+      expect(imageCount).toBe(7);
+      for (let index = 0; index < imageCount; index += 1) {
+        const img = visualImages.nth(index);
+        await expect(img).toHaveAttribute('alt', /.+/);
+      }
+    }
+  });
+
   test('keeps homepage stable with query params on DE and EN routes', async ({ page }) => {
     await page.goto('/?exp_hero=outcome#contact');
     await expect(page.getByRole('heading', { level: 1 })).toContainText(/B2B-System läuft/i);

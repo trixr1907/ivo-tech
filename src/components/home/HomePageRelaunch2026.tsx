@@ -12,6 +12,7 @@ import { ContactLeadForm } from '@/components/home/ContactLeadForm';
 import { HomeLeadMagnet } from '@/components/home/HomeLeadMagnet';
 import { HomeRelaunchFooter } from '@/components/home/HomeRelaunchFooter';
 import { HomeRelaunchHeroSnapshot } from '@/components/home/HomeRelaunchHeroSnapshot';
+import { HomeSectionVisualCard } from '@/components/home/HomeSectionVisualCard';
 import { HomeMobileCtaDock } from '@/components/home/HomeMobileCtaDock';
 import { HomeScrollProgress } from '@/components/home/HomeScrollProgress';
 import { HomeClientLogosMarquee } from '@/components/home/HomeClientLogosMarquee';
@@ -22,6 +23,7 @@ import { RelaunchStickyHeader } from '@/components/layout/RelaunchStickyHeader';
 import { Button } from '@/components/shadcn/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/shadcn/card';
 import { copy, type Locale } from '@/content/copy';
+import { getHomeVisualAsset } from '@/content/homeVisuals';
 import { getHomeRelaunchCopy } from '@/content/homeRelaunchCopy';
 import { getHomeJourneyCopy, getHomeProcessCopy, getHomeTestimonials } from '@/content/homeRelaunchSections';
 import { getProjectById, getProjectsByTier, getProjectStatusLabel, type Project, type ProjectId } from '@/content/projects';
@@ -101,6 +103,13 @@ export function HomePageRelaunch2026({ locale, featuredInsights }: HomePageRelau
     (p): p is Project => p != null
   );
   const heroProject = getProjectsByTier('hero')[0] ?? null;
+  const heroVisual = getHomeVisualAsset('hero');
+  const servicesVisual = getHomeVisualAsset('services');
+  const proofVisual = getHomeVisualAsset('proof');
+  const projectsVisual = getHomeVisualAsset('projects');
+  const insightsVisual = getHomeVisualAsset('insights');
+  const deliveryVisual = getHomeVisualAsset('delivery');
+  const contactVisual = getHomeVisualAsset('contact');
   const trustEvidence = getPublishedTrustEvidence(locale).slice(0, 3);
   const [heroVariant, setHeroVariant] = useState<HeroVariantId>('default');
   const heroAmbientMotion = useFramerReducedMotion();
@@ -267,6 +276,11 @@ export function HomePageRelaunch2026({ locale, featuredInsights }: HomePageRelau
     trackEvent('cta_playbook_tertiary_click', { source, locale, intent, path, variant: heroVariant });
   };
 
+  const trackVisualCta = (source: string, intent: 'hiring' | 'client' | 'collab' = 'client') => {
+    const path = typeof window === 'undefined' ? '/' : `${window.location.pathname}${window.location.search}`;
+    trackEvent('section_cta_click', { source, locale, intent, path, variant: heroVariant });
+  };
+
   return (
     <LazyMotion features={domAnimation}>
       <div className="home-relaunch-shell relative min-h-screen">
@@ -385,6 +399,25 @@ export function HomePageRelaunch2026({ locale, featuredInsights }: HomePageRelau
                         {pill}
                       </span>
                     ))}
+                  </m.div>
+
+                  <m.div
+                    className="mt-6"
+                    variants={{
+                      hidden: { opacity: 0, y: 10 },
+                      visible: { opacity: 1, y: 0, transition: { duration: 0.44, ease: [0.22, 1, 0.36, 1] } }
+                    }}
+                  >
+                    <HomeSectionVisualCard
+                      asset={heroVisual}
+                      locale={locale}
+                      title={locale === 'de' ? 'System Surface' : 'System surface'}
+                      className="home-hero-inline-visual"
+                      linkHref={caseStudiesHref}
+                      linkLabel={locale === 'de' ? 'Live-Cases öffnen' : 'Open live cases'}
+                      onLinkClick={() => trackVisualCta('home-hero-visual', 'client')}
+                      priority
+                    />
                   </m.div>
 
                   {/* Location */}
@@ -566,6 +599,24 @@ export function HomePageRelaunch2026({ locale, featuredInsights }: HomePageRelau
                   ? 'Leistungen und Nachweis gehören zusammen: was ich anbiete — und wie du es prüfen kannst.'
                   : 'Services and proof belong together: what I offer — and how you can verify it.'}
               </p>
+              <div className="home-section-visual-grid home-section-visual-grid--offer">
+                <HomeSectionVisualCard
+                  asset={servicesVisual}
+                  locale={locale}
+                  title={locale === 'de' ? 'Delivery Architektur' : 'Delivery architecture'}
+                  linkHref={leistungenHref}
+                  linkLabel={locale === 'de' ? 'Leistungen ansehen' : 'View services'}
+                  onLinkClick={() => trackVisualCta('home-offer-visual-services', 'client')}
+                />
+                <HomeSectionVisualCard
+                  asset={proofVisual}
+                  locale={locale}
+                  title={locale === 'de' ? 'Verifizierte Signalspur' : 'Verified signal trail'}
+                  linkHref={caseStudiesHref}
+                  linkLabel={locale === 'de' ? 'Proof ansehen' : 'View proof'}
+                  onLinkClick={() => trackVisualCta('home-offer-visual-proof', 'client')}
+                />
+              </div>
 
               <div id="home-services" className="mt-14 scroll-mt-28" aria-labelledby="home-services-heading">
               <p className="home-eyebrow">{locale === 'de' ? 'Leistungen' : 'Services'}</p>
@@ -708,6 +759,24 @@ export function HomePageRelaunch2026({ locale, featuredInsights }: HomePageRelau
                   ? 'Live-Cases und Insights — belastbarer Kontext statt Marketing-Claims.'
                   : 'Live cases and insights — durable context instead of marketing claims.'}
               </p>
+              <div className="home-section-visual-grid home-section-visual-grid--work">
+                <HomeSectionVisualCard
+                  asset={projectsVisual}
+                  locale={locale}
+                  title={locale === 'de' ? 'Projekt-Ebenen' : 'Project layers'}
+                  linkHref={projectsHref}
+                  linkLabel={locale === 'de' ? 'Projekte öffnen' : 'Open projects'}
+                  onLinkClick={() => trackVisualCta('home-work-visual-projects', 'client')}
+                />
+                <HomeSectionVisualCard
+                  asset={insightsVisual}
+                  locale={locale}
+                  title={locale === 'de' ? 'Insight Datenfluss' : 'Insight data flow'}
+                  linkHref={insightsHref}
+                  linkLabel={locale === 'de' ? 'Insights öffnen' : 'Open insights'}
+                  onLinkClick={() => trackVisualCta('home-work-visual-insights', 'client')}
+                />
+              </div>
 
               <div id="home-projects" className="mt-14 scroll-mt-28" aria-labelledby="home-projects-heading">
               <p className="home-eyebrow">{t.sectionProjectsEyebrow}</p>
@@ -723,8 +792,7 @@ export function HomePageRelaunch2026({ locale, featuredInsights }: HomePageRelau
                 </Link>
               </div>
               <m.div
-                className="home-projects-bento gap-4 md:grid md:grid-cols-3 lg:flex lg:flex-none"
-                style={{ display: 'grid' }}
+                className="home-projects-bento"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.1 }}
@@ -887,6 +955,17 @@ export function HomePageRelaunch2026({ locale, featuredInsights }: HomePageRelau
                   ? 'Zeitleiste, Kundenstimmen und ein transparenter Projektablauf — damit du weißt, was wann passiert.'
                   : 'Timeline, customer voices, and a transparent delivery flow — so you know what happens when.'}
               </p>
+              <div className="home-section-visual-grid home-section-visual-grid--delivery">
+                <HomeSectionVisualCard
+                  asset={deliveryVisual}
+                  locale={locale}
+                  title={locale === 'de' ? 'Delivery Orbit' : 'Delivery orbit'}
+                  className="home-section-visual-card--wide"
+                  linkHref={caseStudiesHref}
+                  linkLabel={locale === 'de' ? 'Delivery Cases' : 'Delivery cases'}
+                  onLinkClick={() => trackVisualCta('home-delivery-visual', 'client')}
+                />
+              </div>
 
               <div id="home-journey" className="mt-14 scroll-mt-28" aria-labelledby="home-journey-heading">
               <p className="home-eyebrow">{journeyCopy.eyebrow}</p>
@@ -994,16 +1073,29 @@ export function HomePageRelaunch2026({ locale, featuredInsights }: HomePageRelau
                   {t.locationText}
                 </p>
               </div>
-              <HomeLeadMagnet
-                locale={locale}
-                title={t.leadMagnetTitle}
-                description={t.leadMagnetDescription}
-                submitLabel={t.leadMagnetSubmit}
-                hint={t.leadMagnetDownloadHint}
-                downloadPath="/assets/downloads/web-engineering-checklist-b2b.txt"
-                heroVariantDefault={heroVariant}
-              />
-              <ContactLeadForm locale={locale} labels={t.form} surface="relaunchDark" />
+              <div className="home-contact-layout">
+                <div className="space-y-6">
+                  <HomeLeadMagnet
+                    locale={locale}
+                    title={t.leadMagnetTitle}
+                    description={t.leadMagnetDescription}
+                    submitLabel={t.leadMagnetSubmit}
+                    hint={t.leadMagnetDownloadHint}
+                    downloadPath="/assets/downloads/web-engineering-checklist-b2b.txt"
+                    heroVariantDefault={heroVariant}
+                  />
+                  <ContactLeadForm locale={locale} labels={t.form} surface="relaunchDark" />
+                </div>
+                <HomeSectionVisualCard
+                  asset={contactVisual}
+                  locale={locale}
+                  title={locale === 'de' ? 'Collaboration Bridge' : 'Collaboration bridge'}
+                  className="home-contact-visual"
+                  linkHref={schedulerHref}
+                  linkLabel={locale === 'de' ? 'Scope-Call öffnen' : 'Open scope call'}
+                  onLinkClick={() => trackVisualCta('home-contact-visual', 'client')}
+                />
+              </div>
             </RelaunchMotionSection>
           </main>
 
