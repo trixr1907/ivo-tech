@@ -57,6 +57,9 @@ const AXE_SAMPLE_ROUTES = [
   '/en/privacy'
 ] as const;
 
+const REQUIRED_DE_NAV_PATHS = ['/leistungen', '/playbooks', '/resume'] as const;
+const REQUIRED_EN_NAV_PATHS = ['/en/services', '/en/playbooks', '/en/resume'] as const;
+
 test.describe('site-wide audit', () => {
   test('all audit routes return expected HTTP status', async ({ request }) => {
     for (const route of AUDIT_ROUTES) {
@@ -107,5 +110,41 @@ test.describe('site-wide audit', () => {
         expect(res.ok(), `from ${start} link ${pathOnly}`).toBeTruthy();
       }
     }
+  });
+
+  test('primary navigation includes expanded key pages (DE/EN)', async ({ page }) => {
+    await page.goto('/');
+    await page.waitForLoadState('domcontentloaded');
+    const deHrefs = await page.$$eval('header nav a[href^="/"]', (anchors) =>
+      [...new Set(anchors.map((a) => a.getAttribute('href')).filter(Boolean))]
+    );
+    for (const required of REQUIRED_DE_NAV_PATHS) {
+      expect(deHrefs).toContain(required);
+    }
+
+    await page.goto('/en');
+    await page.waitForLoadState('domcontentloaded');
+    const enHrefs = await page.$$eval('header nav a[href^="/"]', (anchors) =>
+      [...new Set(anchors.map((a) => a.getAttribute('href')).filter(Boolean))]
+    );
+    for (const required of REQUIRED_EN_NAV_PATHS) {
+      expect(enHrefs).toContain(required);
+    }
+  });
+
+  test('hub pages avoid broken #contact footer anchors', async ({ page }) => {
+    await page.goto('/playbooks');
+    await page.waitForLoadState('domcontentloaded');
+    const footerContact = page.locator('footer a', { hasText: /Kontaktformular|Contact form/i }).first();
+    await expect(footerContact).toHaveAttribute('href', /\/contact\?source=footer-contact/);
+  });
+
+  test('sitemap endpoint is reachable and contains key routes', async ({ request }) => {
+    const response = await request.get('/sitemap.xml');
+    expect(response.ok()).toBeTruthy();
+    const xml = await response.text();
+    expect(xml).toContain('/playbooks');
+    expect(xml).toContain('/resume');
+    expect(xml).toContain('/leistungen');
   });
 });
