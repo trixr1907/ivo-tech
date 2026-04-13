@@ -1,9 +1,9 @@
 export const copy = {
   de: {
     meta: {
-      title: 'ivo-tech | Technical Delivery ohne Blindflug — Senior Web Engineer',
+      title: 'ivo-tech | Senior Web Engineer — B2B-Websysteme, die unter Druck halten',
       description:
-        'Senior Web Engineer für conversion-kritische B2B-Websysteme: klare Architektur, QA-Gates vor jedem Release und dokumentierte Übergabe. 3 Live-Cases, Engineering Insights und direkter Kontaktpfad.'
+        'Senior Web Engineer (Remote, Mannheim): Websysteme, die funktionieren, wenn es drauf ankommt — Architektur, QA-Gates, dokumentierte Übergabe. Live-Cases, Insights, Beratungsgespräch per Cal.com.'
     },
     nav: {
       heroCase: 'Case Study',
@@ -267,6 +267,22 @@ export const copy = {
         {
           q: 'Arbeitest du mit bestehenden Teams und Codebases?',
           a: 'Ja. Fokus ist schneller Ramp-up, klare Kommunikation und nachvollziehbare Ergebnisse ohne Reibungsverluste.'
+        },
+        {
+          q: 'Remote oder vor Ort — wie arbeitest du als Freelance Web Engineer?',
+          a: 'Überwiegend remote (EU-zeitzone). Workshops oder Abstimmungen vor Ort sind nach Absprache möglich — typischer Fokus: Teams zwischen Frankfurt, Rhein-Neckar und EU-weit.'
+        },
+        {
+          q: 'Wie sieht ein typisches B2B-Website- oder Architektur-Projekt aus?',
+          a: 'Discovery, belastbares UX/UI-System, Implementierung mit QA-Gates, Launch und dokumentierte Übergabe — ohne Scope-Drift durch klare Meilensteine.'
+        },
+        {
+          q: 'DSGVO und Security: was ist Standard?',
+          a: 'Formular-Einwilligung für Anfragen, datensparsame Logs, sichere Header und OWASP-orientierte Praxis. Kein Tracking ohne Einwilligung.'
+        },
+        {
+          q: 'Wie buche ich ein Beratungsgespräch?',
+          a: 'Über den Cal.com-Link („Beratungsgespräch buchen“) oder kurz über das Kontaktformular — Antwort werktags innerhalb von 24 Stunden.'
         }
       ]
     },
@@ -274,9 +290,9 @@ export const copy = {
   },
   en: {
     meta: {
-      title: 'ivo-tech | Technical Delivery Without Guesswork — Senior Web Engineer',
+      title: 'ivo-tech | Senior Web Engineer — B2B web systems that hold up under pressure',
       description:
-        'Senior web engineer for conversion-critical B2B web systems: clean architecture, QA gates before every release, and documented team handover. 3 live cases, engineering insights, and direct contact.'
+        'Senior web engineer (remote, Mannheim): web systems that work when it matters — architecture, QA gates, documented handover. Live cases, insights, consultation via Cal.com.'
     },
     nav: {
       heroCase: 'Case study',
@@ -540,6 +556,22 @@ export const copy = {
         {
           q: 'Do you work with existing teams and codebases?',
           a: 'Yes. The focus is fast ramp-up, clear communication, and traceable outcomes without unnecessary disruption.'
+        },
+        {
+          q: 'Remote or on-site — how do you work as a freelance web engineer?',
+          a: 'Mostly remote (EU time zone). On-site workshops are possible by arrangement — common focus: teams across Germany and the EU.'
+        },
+        {
+          q: 'What does a typical B2B website or architecture engagement look like?',
+          a: 'Discovery, a solid UX/UI system, implementation with QA gates, launch, and documented handover — with clear milestones to avoid scope drift.'
+        },
+        {
+          q: 'GDPR and security — what is baseline?',
+          a: 'Consent for contact requests, minimal logging, strong headers, and OWASP-oriented delivery. No tracking without consent.'
+        },
+        {
+          q: 'How do I book a consultation call?',
+          a: 'Use the Cal.com link (“Book a call”) or the contact form — responses on business days within 24 hours.'
         }
       ]
     },

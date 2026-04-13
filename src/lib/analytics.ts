@@ -50,6 +50,10 @@ export type AnalyticsEventName =
   | 'homepage_scroll_depth'
   | 'hero_video_play'
   | 'web_vital_recorded'
+  | 'case_card_booking_click'
+  | 'lead_magnet_direct_download'
+  | 'lead_magnet_submit'
+  | 'lead_magnet_success'
   | (string & {});
 
 const eventAliasMap: Record<string, string[]> = {

@@ -9,6 +9,7 @@ import { startTransition, useEffect, useMemo, useState } from 'react';
 
 import { HomeBackgroundFXClient } from '@/app-pages/HomeBackgroundFXClient';
 import { ContactLeadForm } from '@/components/home/ContactLeadForm';
+import { HomeLeadMagnet } from '@/components/home/HomeLeadMagnet';
 import { HomeRelaunchFooter } from '@/components/home/HomeRelaunchFooter';
 import { HomeRelaunchHeroSnapshot } from '@/components/home/HomeRelaunchHeroSnapshot';
 import { HomeMobileCtaDock } from '@/components/home/HomeMobileCtaDock';
@@ -29,6 +30,7 @@ import { trackEvent } from '@/lib/analytics';
 import { resolveHeroVariant, type HeroVariantId } from '@/lib/heroExperiment';
 import { localizePath } from '@/lib/localeRouting';
 import { getContactPath, getHiringPath, getPrimaryNavLinks, getResumePath, getServicesPath } from '@/lib/navigation';
+import { getSchedulerHref } from '@/lib/scheduler';
 
 type FeaturedInsightTeaser = {
   slug: string;
@@ -128,6 +130,11 @@ export function HomePageRelaunch2026({ locale, featuredInsights }: HomePageRelau
     // eslint-disable-next-line react-hooks/exhaustive-deps -- `search` absichtlich ausgelassen: sonst doppeltes Exposure bei ?project= ohne exp_hero-Wechsel (path nutzt aktuelles search aus Closure)
   }, [locale, pathname, expHeroParam]);
 
+  const schedulerHref = useMemo(
+    () => getSchedulerHref({ locale, source: 'home-header', placement: 'contact-form', heroVariant }),
+    [locale, heroVariant]
+  );
+
   const projectHref = (project: Project) => {
     if (project.id === 'configurator_3d') return localizePath('/case-studies/configurator-live', locale);
     if (project.id === 'voicebot' || project.id === 'sorare') return localizePath('/projects', locale);
@@ -144,8 +151,8 @@ export function HomePageRelaunch2026({ locale, featuredInsights }: HomePageRelau
       title: locale === 'de' ? 'Web Engineering Delivery' : 'Web Engineering Delivery',
       desc:
         locale === 'de'
-          ? 'Architektur, Komponenten-Systeme und QA-Gates für conversion-kritische B2B-Websites — reproduzierbar, übergabefähig.'
-          : 'Architecture, component systems, and QA gates for conversion-critical B2B websites — repeatable and handover-ready.',
+          ? 'Architektur, Komponenten-Systeme und QA-Gates für B2B-Websites, die unter Last stabil bleiben — reproduzierbar, übergabefähig.'
+          : 'Architecture, component systems, and QA gates for B2B websites that stay stable under load — repeatable and handover-ready.',
       outcomes:
         locale === 'de'
           ? ['Token-basiertes Komponentenmodell', 'QA-Gates vor jedem Release', 'Dokumentierte Team-Übergabe']
@@ -278,16 +285,26 @@ export function HomePageRelaunch2026({ locale, featuredInsights }: HomePageRelau
             locale={locale}
             navLinks={navLinks}
             homeHref={homeHref}
-            desktopCtaHref={contactHref}
-            desktopCtaLabel={locale === 'de' ? 'Kontakt' : 'Contact'}
-            mobileNavCtaLabel={t.primaryCta}
-            mobileNavCtaHref="#contact"
+            desktopCtaHref={schedulerHref}
+            desktopCtaLabel={t.headerBookingLabel}
+            desktopSecondaryHref="#contact"
+            desktopSecondaryLabel={t.headerContactShortLabel}
+            mobileNavCtaLabel={t.headerBookingLabel}
+            mobileNavCtaHref={schedulerHref}
+            mobileNavSecondaryHref="#contact"
+            mobileNavSecondaryLabel={t.headerContactShortLabel}
             mobileNavCtaIntent="client"
             heroVariant={heroVariant}
-            desktopContactTrackingSource="home-header-contact"
+            desktopContactTrackingSource="home-header-booking"
+            desktopSecondaryTrackingSource="home-header-contact-form"
+            mobileNavPrimaryTrackingSource="home_mobile_nav_booking"
+            mobileNavSecondaryTrackingSource="home_mobile_nav_contact"
           />
 
-          <main id="main-content" className="home-shell-container mx-auto w-full px-4 pb-10 pt-10 sm:px-6 md:pb-12 md:pt-14">
+          <main
+            id="main-content"
+            className="home-shell-container mx-auto w-full px-4 pb-24 pt-10 sm:px-6 md:pb-12 md:pt-14"
+          >
             <section
               id="home-hero"
               className="home-hero-card relative"
@@ -393,9 +410,14 @@ export function HomePageRelaunch2026({ locale, featuredInsights }: HomePageRelau
                     <Button
                       asChild
                       size="lg"
-                      className="border-0 bg-gradient-to-r from-sky-500 to-blue-500 text-white shadow-[0_0_28px_rgba(14,165,233,0.32)] transition-all duration-300 hover:from-sky-400 hover:to-blue-400 hover:shadow-[0_0_36px_rgba(14,165,233,0.42)]"
+                      className="min-h-12 border-0 bg-gradient-to-r from-sky-500 to-blue-500 px-6 text-white shadow-[0_0_28px_rgba(14,165,233,0.32)] transition-all duration-300 hover:from-sky-400 hover:to-blue-400 hover:shadow-[0_0_36px_rgba(14,165,233,0.42)]"
                     >
-                      <a href="#contact" onClick={() => trackHeroPrimary('home-hero-contact', 'client')}>
+                      <a
+                        href={schedulerHref}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => trackHeroPrimary('home-hero-booking', 'client')}
+                      >
                         {t.primaryCta}
                         <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
                       </a>
@@ -404,9 +426,9 @@ export function HomePageRelaunch2026({ locale, featuredInsights }: HomePageRelau
                       asChild
                       size="lg"
                       variant="outline"
-                      className="border-slate-600 bg-transparent text-slate-100 hover:bg-slate-800/60 hover:border-slate-500"
+                      className="min-h-12 border-slate-600 bg-transparent px-6 text-slate-100 hover:bg-slate-800/60 hover:border-slate-500"
                     >
-                      <a href={hiringHref} onClick={() => trackHeroCaseSecondary('home-hero-hiring', 'hiring')}>
+                      <a href="#contact" onClick={() => trackHeroPrimary('home-hero-contact-form', 'client')}>
                         {t.secondaryCta}
                       </a>
                     </Button>
@@ -423,15 +445,23 @@ export function HomePageRelaunch2026({ locale, featuredInsights }: HomePageRelau
                     <a
                       href={resumeHref}
                       onClick={() => trackHeroSecondary('home-hero-resume', 'hiring')}
-                      className="font-medium text-slate-400 underline-offset-4 transition hover:text-sky-300 hover:underline"
+                      className="inline-flex min-h-12 items-center font-medium text-slate-400 underline-offset-4 transition hover:text-sky-300 hover:underline"
                     >
                       {locale === 'de' ? 'CV & Verfügbarkeit ansehen' : 'View resume & availability'}
                     </a>
                     {' · '}
                     <a
+                      href={hiringHref}
+                      onClick={() => trackHeroCaseSecondary('home-hero-hiring', 'hiring')}
+                      className="inline-flex min-h-12 items-center font-medium text-slate-400 underline-offset-4 transition hover:text-sky-300 hover:underline"
+                    >
+                      {locale === 'de' ? 'Interview / Hiring' : 'Interview / Hiring'}
+                    </a>
+                    {' · '}
+                    <a
                       href={projectsHref}
                       onClick={() => trackHeroPlaybookTertiary('home-hero-projects', 'client')}
-                      className="font-medium text-slate-400 underline-offset-4 transition hover:text-sky-300 hover:underline"
+                      className="inline-flex min-h-12 items-center font-medium text-slate-400 underline-offset-4 transition hover:text-sky-300 hover:underline"
                     >
                       {t.tertiaryCta}
                     </a>
@@ -474,6 +504,11 @@ export function HomePageRelaunch2026({ locale, featuredInsights }: HomePageRelau
                       locale={locale}
                       heroMedia={heroProject?.media}
                       thumbSrc={heroProject?.thumbSrc}
+                      posterAlt={
+                        heroProject
+                          ? `${heroProject.title[locale]} — ${locale === 'de' ? 'Live-Case-Vorschau' : 'Live case preview'}`
+                          : undefined
+                      }
                     />
                     {heroProject?.media?.caption?.[locale] ? (
                       <p className="mt-2 text-[0.68rem] leading-snug text-slate-600">{heroProject.media.caption[locale]}</p>
@@ -522,18 +557,27 @@ export function HomePageRelaunch2026({ locale, featuredInsights }: HomePageRelau
 
             <HomeTechStackBar locale={locale} />
 
-            {/* ── Services Section ─────────────────────────────────── */}
-            <RelaunchMotionSection id="home-services" className="mt-14 scroll-mt-28" aria-labelledby="home-services-heading">
+            <RelaunchMotionSection id="home-offer" className="mt-20 scroll-mt-28 md:mt-24" aria-labelledby="home-offer-heading">
+              <h2 id="home-offer-heading" className="home-section-h2-primary">
+                {t.sectionGroupOffer}
+              </h2>
+              <p className="mt-3 max-w-2xl text-base text-slate-400">
+                {locale === 'de'
+                  ? 'Leistungen und Nachweis gehören zusammen: was ich anbiete — und wie du es prüfen kannst.'
+                  : 'Services and proof belong together: what I offer — and how you can verify it.'}
+              </p>
+
+              <div id="home-services" className="mt-14 scroll-mt-28" aria-labelledby="home-services-heading">
               <p className="home-eyebrow">{locale === 'de' ? 'Leistungen' : 'Services'}</p>
               <div className="flex items-end justify-between gap-4">
-                <h2 id="home-services-heading" className="home-section-h2">
+                <h3 id="home-services-heading" className="home-section-h3">
                   {locale === 'de' ? 'Was ich baue' : 'What I build'}
-                </h2>
-                <Link href={leistungenHref} className="shrink-0 text-sm font-semibold text-sky-300 hover:text-sky-200">
+                </h3>
+                <Link href={leistungenHref} className="min-h-12 shrink-0 inline-flex items-center text-sm font-semibold text-sky-300 hover:text-sky-200">
                   {locale === 'de' ? 'Alle Leistungen' : 'All services'}
                 </Link>
               </div>
-              <p className="mt-2 max-w-2xl text-base text-slate-500">
+              <p className="mt-2 max-w-2xl text-base text-slate-400">
                 {locale === 'de'
                   ? 'Drei Schwerpunkte mit verifiziertem Output — klare Spezialisierung statt Fullservice-Versprechen.'
                   : 'Three focus areas with verifiable output — clear specialization, not a full-service promise.'}
@@ -587,13 +631,13 @@ export function HomePageRelaunch2026({ locale, featuredInsights }: HomePageRelau
                   </m.li>
                 ))}
               </m.ul>
-            </RelaunchMotionSection>
+              </div>
 
-            <RelaunchMotionSection id="home-proof" className="mt-14 scroll-mt-28" aria-labelledby="home-proof-heading">
+              <div id="home-proof" className="mt-16 scroll-mt-28 md:mt-20" aria-labelledby="home-proof-heading">
               <p className="home-eyebrow">{t.sectionProofEyebrow}</p>
-              <h2 id="home-proof-heading" className="home-section-h2">
+              <h3 id="home-proof-heading" className="home-section-h3">
                 {t.proofTitle}
-              </h2>
+              </h3>
               <p className="mt-2 max-w-2xl text-base text-slate-400">{t.proofDescription}</p>
               <div className="mt-8 grid gap-5 lg:grid-cols-[1.2fr_0.8fr]">
                 <Card className="border-slate-800/80 bg-slate-900/50 text-slate-100 transition-all duration-300 hover:border-sky-500/20 hover:bg-slate-900/70">
@@ -616,7 +660,7 @@ export function HomePageRelaunch2026({ locale, featuredInsights }: HomePageRelau
                     <CardTitle className="text-base font-semibold text-slate-100">
                       {locale === 'de' ? 'Öffentliche Belege' : 'Public proofs'}
                     </CardTitle>
-                    <CardDescription className="text-sm text-slate-500">
+                    <CardDescription className="text-sm text-slate-400">
                       {locale === 'de'
                         ? 'Nur verifizierte Artefakte in der zentralen Vertrauensebene.'
                         : 'Only verified artifacts in the primary trust layer.'}
@@ -632,26 +676,49 @@ export function HomePageRelaunch2026({ locale, featuredInsights }: HomePageRelau
                         className="group block rounded-lg border border-slate-700/80 bg-slate-950/50 px-3 py-2.5 text-sm text-slate-200 transition-all duration-200 hover:border-sky-400/50 hover:bg-slate-900/80"
                       >
                         <p className="font-medium leading-snug group-hover:text-white">{item.title}</p>
-                        <p className="mt-0.5 text-xs text-slate-500">{item.description}</p>
+                        <p className="mt-0.5 text-xs text-slate-400">{item.description}</p>
                       </a>
                     ))}
                   </CardContent>
                 </Card>
               </div>
+              </div>
+
+              <div className="mt-12 rounded-2xl border border-slate-700/80 bg-slate-950/40 p-5 md:p-6">
+                <p className="text-xs font-bold uppercase tracking-[0.14em] text-emerald-300/95">{t.trustComplianceTitle}</p>
+                <ul className="mt-3 space-y-2 text-sm text-slate-300">
+                  {t.trustComplianceLines.map((line) => (
+                    <li key={line} className="flex gap-2">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400/80" aria-hidden="true" />
+                      <span>{line}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </RelaunchMotionSection>
 
             <HomeClientLogosMarquee locale={locale} />
 
-            <RelaunchMotionSection id="home-projects" className="mt-14 scroll-mt-28" aria-labelledby="home-projects-heading">
+            <RelaunchMotionSection id="home-work" className="mt-20 scroll-mt-28 md:mt-24" aria-labelledby="home-work-heading">
+              <h2 id="home-work-heading" className="home-section-h2-primary">
+                {t.sectionGroupWork}
+              </h2>
+              <p className="mt-3 max-w-2xl text-base text-slate-400">
+                {locale === 'de'
+                  ? 'Live-Cases und Insights — belastbarer Kontext statt Marketing-Claims.'
+                  : 'Live cases and insights — durable context instead of marketing claims.'}
+              </p>
+
+              <div id="home-projects" className="mt-14 scroll-mt-28" aria-labelledby="home-projects-heading">
               <p className="home-eyebrow">{t.sectionProjectsEyebrow}</p>
               <div className="mb-6 flex items-end justify-between gap-4">
                 <div>
-                  <h2 id="home-projects-heading" className="home-section-h2">
+                  <h3 id="home-projects-heading" className="home-section-h3">
                     {t.featuredProjectsTitle}
-                  </h2>
+                  </h3>
                   <p className="mt-2 text-base text-slate-400">{t.featuredProjectsDescription}</p>
                 </div>
-                <Link href={projectsHref} className="shrink-0 text-sm font-semibold text-sky-300 hover:text-sky-200">
+                <Link href={projectsHref} className="min-h-12 shrink-0 inline-flex items-center text-sm font-semibold text-sky-300 hover:text-sky-200">
                   {locale === 'de' ? 'Alle Projekte' : 'All projects'}
                 </Link>
               </div>
@@ -686,18 +753,32 @@ export function HomePageRelaunch2026({ locale, featuredInsights }: HomePageRelau
                           {getProjectStatusLabel(project.status, locale)}
                         </p>
                         {idx === 0 && (
-                          <p className="mb-3 text-xs text-slate-500">
+                          <p className="mb-3 text-xs text-slate-400">
                             {locale === 'de' ? '→ Highlight-Projekt' : '→ Featured project'}
                           </p>
                         )}
+                        {project.headline_metric ? (
+                          <p className="mb-3 rounded-lg border border-fuchsia-500/20 bg-fuchsia-500/5 px-3 py-2 text-xs font-medium leading-snug text-fuchsia-100/95">
+                            {project.headline_metric[locale]}
+                          </p>
+                        ) : null}
                         <a
                           href={projectHref(project)}
-                          className="inline-flex items-center gap-2 text-sm font-semibold text-sky-300 transition hover:text-sky-200"
+                          className="mb-4 inline-flex min-h-12 items-center gap-2 text-sm font-semibold text-sky-300 transition hover:text-sky-200"
                           onClick={(e) => onProjectLinkClick(e, project, 'home_relaunch_project_card')}
                           aria-haspopup="dialog"
                         >
                           {locale === 'de' ? 'Details' : 'Details'}
                           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+                        </a>
+                        <a
+                          href={schedulerHref}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex min-h-12 w-full items-center justify-center rounded-lg border border-sky-500/35 bg-sky-500/10 px-3 py-2.5 text-center text-xs font-semibold text-sky-100 transition hover:border-sky-400/50 hover:bg-sky-500/15"
+                          onClick={() => trackEvent('case_card_booking_click', { projectId: project.id, locale, path: asPath, variant: heroVariant })}
+                        >
+                          {t.caseFollowUpCta}
                         </a>
                       </CardContent>
                     </Card>
@@ -714,27 +795,27 @@ export function HomePageRelaunch2026({ locale, featuredInsights }: HomePageRelau
                 <p className="home-midpage-cta-text">{t.midPageCtaText}</p>
                 <a
                   href="#contact"
-                  className="home-midpage-cta-link"
+                  className="home-midpage-cta-link min-h-12 inline-flex items-center"
                   onClick={() => trackHeroPrimary('home-midpage-cta', 'client')}
                 >
                   {t.midPageCtaLink}
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </a>
               </div>
-            </RelaunchMotionSection>
+              </div>
 
-            <RelaunchMotionSection id="home-insights" className="mt-14 scroll-mt-28" aria-labelledby="home-insights-heading">
+              <div id="home-insights" className="mt-16 scroll-mt-28 md:mt-20" aria-labelledby="home-insights-heading">
               <p className="home-eyebrow">{t.sectionInsightsEyebrow}</p>
               <div className="mb-6 flex items-end justify-between gap-4">
                 <div>
-                  <h2 id="home-insights-heading" className="home-section-h2">
+                  <h3 id="home-insights-heading" className="home-section-h3">
                     {t.insightsTitle}
-                  </h2>
+                  </h3>
                   <p className="mt-2 text-base text-slate-400">{t.insightsDescription}</p>
                 </div>
                 <Link
                   href={insightsHref}
-                  className="text-sm font-semibold text-sky-300 hover:text-sky-200"
+                  className="min-h-12 inline-flex items-center text-sm font-semibold text-sky-300 hover:text-sky-200"
                   onClick={() =>
                     trackEvent('insights_hub_click', {
                       source: 'home_insights_header',
@@ -766,7 +847,7 @@ export function HomePageRelaunch2026({ locale, featuredInsights }: HomePageRelau
                     className="group h-full border-slate-800/80 bg-slate-900/50 text-slate-100 transition-all duration-300 hover:-translate-y-0.5 hover:border-sky-500/25 hover:bg-slate-900/70 hover:shadow-[0_16px_40px_rgba(3,8,18,0.4)]"
                   >
                     <CardHeader className="pb-3">
-                      <CardDescription className="text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-slate-500">
+                      <CardDescription className="text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
                         {insight.category} · {insight.readMinutes} {locale === 'de' ? 'Min' : 'min'}
                       </CardDescription>
                       <CardTitle className="text-base font-semibold leading-snug">{insight.title}</CardTitle>
@@ -794,13 +875,24 @@ export function HomePageRelaunch2026({ locale, featuredInsights }: HomePageRelau
                   </m.div>
                 ))}
               </m.div>
+              </div>
             </RelaunchMotionSection>
 
-            <RelaunchMotionSection id="home-journey" className="mt-14 scroll-mt-28" aria-labelledby="home-journey-heading">
-              <p className="home-eyebrow">{journeyCopy.eyebrow}</p>
-              <h2 id="home-journey-heading" className="home-section-h2">
-                {journeyCopy.title}
+            <RelaunchMotionSection id="home-delivery" className="mt-20 scroll-mt-28 md:mt-24" aria-labelledby="home-delivery-heading">
+              <h2 id="home-delivery-heading" className="home-section-h2-primary">
+                {t.sectionGroupDelivery}
               </h2>
+              <p className="mt-3 max-w-3xl text-base text-slate-400">
+                {locale === 'de'
+                  ? 'Zeitleiste, Kundenstimmen und ein transparenter Projektablauf — damit du weißt, was wann passiert.'
+                  : 'Timeline, customer voices, and a transparent delivery flow — so you know what happens when.'}
+              </p>
+
+              <div id="home-journey" className="mt-14 scroll-mt-28" aria-labelledby="home-journey-heading">
+              <p className="home-eyebrow">{journeyCopy.eyebrow}</p>
+              <h3 id="home-journey-heading" className="home-section-h3">
+                {journeyCopy.title}
+              </h3>
               <p className="mt-2 max-w-3xl text-base text-slate-400">{journeyCopy.description}</p>
               <div className="mt-8 grid gap-12 lg:grid-cols-2">
                 <ol className="home-relaunch-timeline" aria-label={locale === 'de' ? 'Zeitleiste' : 'Timeline'}>
@@ -819,14 +911,19 @@ export function HomePageRelaunch2026({ locale, featuredInsights }: HomePageRelau
                     {locale === 'de' ? 'Stimmen aus Case Studies' : 'Voices from case studies'}
                   </p>
                   <div>
-                    {testimonialList.map((tm) => (
-                      <figure key={tm.caseSlug} className="home-testimonial-block">
+                    {testimonialList.map((tm, tIdx) => (
+                      <figure key={`${tm.caseSlug}-${tIdx}`} className="home-testimonial-block">
                         <span className="home-testimonial-quote-mark" aria-hidden="true">&ldquo;</span>
                         <blockquote className="home-testimonial-text">{tm.quote}</blockquote>
-                        <figcaption className="home-testimonial-attr">{tm.attribution}</figcaption>
+                        <figcaption className="home-testimonial-attr">
+                          <span className="font-semibold text-slate-200">{tm.name}</span>
+                          <span className="block text-slate-400">
+                            {tm.role} · {tm.company}
+                          </span>
+                        </figcaption>
                         <Link
                           href={localizePath(`/case-studies/${tm.caseSlug}`, locale)}
-                          className="inline-flex items-center gap-1.5 text-sm font-semibold text-sky-300 transition hover:text-sky-200"
+                          className="mt-2 inline-flex min-h-12 items-center gap-1.5 text-sm font-semibold text-sky-300 transition hover:text-sky-200"
                         >
                           {locale === 'de' ? 'Case Study lesen' : 'Read case study'}
                           <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
@@ -836,13 +933,13 @@ export function HomePageRelaunch2026({ locale, featuredInsights }: HomePageRelau
                   </div>
                 </div>
               </div>
-            </RelaunchMotionSection>
+              </div>
 
-            <RelaunchMotionSection id="home-process" className="mt-14 scroll-mt-28" aria-labelledby="home-process-heading">
+              <div id="home-process" className="mt-16 scroll-mt-28 md:mt-20" aria-labelledby="home-process-heading">
               <p className="home-eyebrow">{processCopy.eyebrow}</p>
-              <h2 id="home-process-heading" className="home-section-h2">
+              <h3 id="home-process-heading" className="home-section-h3">
                 {processCopy.title}
-              </h2>
+              </h3>
               <p className="mt-2 max-w-3xl text-base text-slate-400">{processCopy.description}</p>
               <ol className="home-process-grid" aria-label={locale === 'de' ? 'Projektphasen' : 'Project phases'}>
                 {processCopy.steps.map((step, index) => (
@@ -855,9 +952,17 @@ export function HomePageRelaunch2026({ locale, featuredInsights }: HomePageRelau
                   </li>
                 ))}
               </ol>
+              </div>
             </RelaunchMotionSection>
 
-            <RelaunchMotionSection id="faq" className="mt-14 scroll-mt-28" aria-labelledby="faq-heading">
+            <RelaunchMotionSection id="home-local-seo" className="mt-20 scroll-mt-28 md:mt-24" aria-labelledby="home-local-seo-heading">
+              <h2 id="home-local-seo-heading" className="home-section-h2">
+                {t.seoLocalTitle}
+              </h2>
+              <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-400">{t.seoLocalBody}</p>
+            </RelaunchMotionSection>
+
+            <RelaunchMotionSection id="faq" className="mt-20 scroll-mt-28 md:mt-24" aria-labelledby="faq-heading">
               <p className="home-eyebrow">FAQ</p>
               <h2 id="faq-heading" className="home-section-h2">
                 {faq.title}
@@ -866,7 +971,7 @@ export function HomePageRelaunch2026({ locale, featuredInsights }: HomePageRelau
               <div className="home-relaunch-faq mt-6">
                 {faq.items.map((item) => (
                   <details key={item.q} name="home-faq">
-                    <summary>{item.q}</summary>
+                    <summary className="min-h-12 py-2">{item.q}</summary>
                     <p>{item.a}</p>
                   </details>
                 ))}
@@ -875,7 +980,7 @@ export function HomePageRelaunch2026({ locale, featuredInsights }: HomePageRelau
 
             <RelaunchMotionSection
               id="contact"
-              className="home-contact-card mt-14 scroll-mt-28"
+              className="home-contact-card mt-20 scroll-mt-28 md:mt-24"
               aria-labelledby="home-contact-heading"
             >
               <p className="home-eyebrow">{t.sectionContactEyebrow}</p>
@@ -889,13 +994,27 @@ export function HomePageRelaunch2026({ locale, featuredInsights }: HomePageRelau
                   {t.locationText}
                 </p>
               </div>
+              <HomeLeadMagnet
+                locale={locale}
+                title={t.leadMagnetTitle}
+                description={t.leadMagnetDescription}
+                submitLabel={t.leadMagnetSubmit}
+                hint={t.leadMagnetDownloadHint}
+                downloadPath="/assets/downloads/web-engineering-checklist-b2b.txt"
+                heroVariantDefault={heroVariant}
+              />
               <ContactLeadForm locale={locale} labels={t.form} surface="relaunchDark" />
             </RelaunchMotionSection>
           </main>
 
           <HomeRelaunchFooter locale={locale} />
 
-          <HomeMobileCtaDock locale={locale} projectsHref={projectsHref} />
+          <HomeMobileCtaDock
+            locale={locale}
+            bookingHref={schedulerHref}
+            secondaryHref={projectsHref}
+            secondaryLabel={locale === 'de' ? 'Projekte' : 'Projects'}
+          />
 
           <ProjectModal project={activeProject} locale={locale} onClose={closeModal} />
         </div>

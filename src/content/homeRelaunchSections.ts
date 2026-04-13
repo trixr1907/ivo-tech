@@ -2,7 +2,14 @@ import type { Locale } from '@/content/copy';
 
 type TimelineEntry = { year: string; title: string; detail: string };
 type ProcessStep = { title: string; description: string };
-type Testimonial = { quote: string; attribution: string; caseSlug: string };
+
+export type HomeTestimonial = {
+  quote: string;
+  name: string;
+  role: string;
+  company: string;
+  caseSlug: string;
+};
 
 const journey: Record<Locale, { eyebrow: string; title: string; description: string; timeline: TimelineEntry[] }> = {
   de: {
@@ -114,33 +121,57 @@ const process: Record<Locale, { eyebrow: string; title: string; description: str
   }
 };
 
-const testimonials: Record<Locale, Testimonial[]> = {
+const testimonials: Record<Locale, HomeTestimonial[]> = {
   de: [
     {
       quote:
         'Der neue Konfigurator hat unser Angebot von manuellen Rückfragen auf einen geführten Upload-zu-Preis-Prozess gebracht. Das Team kann schneller und konsistenter reagieren.',
-      attribution: 'Anonymisiert · Operations Lead · E-Commerce Manufacturing Partner',
+      name: 'Anonymisiert',
+      role: 'Operations Lead',
+      company: 'E-Commerce Manufacturing Partner',
       caseSlug: 'configurator-live'
     },
     {
       quote:
         'Der Relaunch hat uns nicht nur ein neues Design gegeben, sondern eine klare Entscheidungsstruktur für Hiring und Projektanfragen. Das macht Gespräche deutlich effizienter.',
-      attribution: 'Anonymisiert · Commercial Director · B2B Services Company',
+      name: 'Anonymisiert',
+      role: 'Commercial Director',
+      company: 'B2B Services Company',
       caseSlug: 'portfolio-authority-relaunch'
+    },
+    {
+      quote:
+        'Was uns überzeugt hat: reproduzierbare QA-Gates und dokumentierte Übergaben — wir sehen den Stand jederzeit, ohne Micro-Management.',
+      name: 'Anonymisiert',
+      role: 'Head of Engineering',
+      company: 'B2B SaaS (NDA)',
+      caseSlug: 'configurator-live'
     }
   ],
   en: [
     {
       quote:
         'The new configurator moved us from manual back-and-forth to a guided upload-to-price flow. The team can respond faster and more consistently.',
-      attribution: 'Anonymized · Operations lead · E-commerce manufacturing partner',
+      name: 'Anonymized',
+      role: 'Operations lead',
+      company: 'E-commerce manufacturing partner',
       caseSlug: 'configurator-live'
     },
     {
       quote:
         'The relaunch gave us more than a new design — a clearer decision architecture for hiring and project inquiries. Conversations got noticeably more efficient.',
-      attribution: 'Anonymized · Commercial director · B2B services company',
+      name: 'Anonymized',
+      role: 'Commercial director',
+      company: 'B2B services company',
       caseSlug: 'portfolio-authority-relaunch'
+    },
+    {
+      quote:
+        'What convinced us: repeatable QA gates and documented handovers — we always see status without micromanagement.',
+      name: 'Anonymized',
+      role: 'Head of engineering',
+      company: 'B2B SaaS (NDA)',
+      caseSlug: 'configurator-live'
     }
   ]
 };
@@ -153,6 +184,6 @@ export function getHomeProcessCopy(locale: Locale) {
   return process[locale];
 }
 
-export function getHomeTestimonials(locale: Locale) {
+export function getHomeTestimonials(locale: Locale): HomeTestimonial[] {
   return testimonials[locale];
 }

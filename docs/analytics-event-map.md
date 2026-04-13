@@ -54,6 +54,10 @@ Hinweis **`hero_variant_view`:** Payload-Feld `source` bezeichnet die **Variante
 | `trust_project_click` | Trust/preview project interaction on homepage | `source`, `locale`, `projectId`, `path`, `variant` |
 | `hero_video_play` | Hero teaser load/play interaction | `source`, `locale`, `path` |
 | `homepage_scroll_depth` | Homepage scroll depth milestones (50/90) | `depth`, `locale`, `path`, `source` |
+| `case_card_booking_click` | Case card „für dein System umsetzen“ → Scheduler | `projectId`, `locale`, `path`, `variant` |
+| `lead_magnet_direct_download` | Checkliste direkt als Datei laden | `locale`, `path`, `attributionSource`, `heroVariant` |
+| `lead_magnet_submit` | Lead-Magnet-Formular abgeschickt | `locale`, `source`, `attributionSource`, `heroVariant`, `sourcePath` |
+| `lead_magnet_success` | Lead-Magnet erfolgreich gesendet | `locale`, `attributionSource`, `heroVariant`, `sourcePath` |
 
 ## Platform + legacy
 

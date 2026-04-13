@@ -59,6 +59,10 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
 
   return (
     <html lang={htmlLang} className={`${fontHeading.variable} ${fontSans.variable} ${fontMono.variable}`}>
+      <head>
+        <link rel="preconnect" href="https://cal.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://github.com" />
+      </head>
       <body className="font-sans antialiased" data-theme="dark">
         <a className="skip-link" href="#main-content">
           {skipLabel}

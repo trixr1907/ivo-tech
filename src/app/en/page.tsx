@@ -92,7 +92,7 @@ export default async function HomePageEn() {
       {
         '@type': 'Service',
         '@id': `${SITE_URL}#service`,
-        name: 'Technical delivery for conversion-critical B2B websites',
+        name: 'Technical delivery for B2B web systems under load',
         serviceType: 'Web engineering, UX guidance, and delivery support',
         provider: { '@id': `${SITE_URL}#person` },
         areaServed: 'Remote',

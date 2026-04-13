@@ -23,10 +23,14 @@ type HomeMobileNavProps = {
   heroVariant: 'default' | 'outcome' | 'speed';
   /** Primär-CTA-Ziel; Standard: Kontaktseite mit Attribution. */
   primaryCtaHref?: string;
+  /** Zweiter CTA (z. B. Kontakt), optional. */
+  secondaryCtaHref?: string;
+  secondaryCtaLabel?: string;
   /** Für Analytics (`cta_primary_click` / `hero_cta_click`). */
   primaryCtaIntent?: 'hiring' | 'client' | 'collab';
   /** `source` in Analytics-Events für den primären Mobile-CTA (Standard: Home). */
   primaryTrackingSource?: string;
+  secondaryTrackingSource?: string;
   activeSection?: string;
   onLinkClick?: (href: string) => void;
 };
@@ -37,13 +41,45 @@ export function HomeMobileNav({
   ctaLabel,
   heroVariant,
   primaryCtaHref,
+  secondaryCtaHref,
+  secondaryCtaLabel,
   primaryCtaIntent = 'client',
   primaryTrackingSource = 'home_mobile_nav_primary',
+  secondaryTrackingSource = 'home_mobile_nav_secondary',
   activeSection,
   onLinkClick
 }: HomeMobileNavProps) {
   const defaultContactHref = `${getContactPath(locale, 'home_mobile_nav_primary')}&exp_hero=${encodeURIComponent(heroVariant)}`;
   const primaryHref = primaryCtaHref ?? defaultContactHref;
+
+  function trackPrimary() {
+    const path = `${window.location.pathname}${window.location.search}`;
+    trackEvent('hero_cta_click', {
+      source: primaryTrackingSource,
+      locale,
+      path,
+      intent: primaryCtaIntent,
+      variant: heroVariant
+    });
+    trackEvent('cta_primary_click', {
+      source: primaryTrackingSource,
+      locale,
+      path,
+      intent: primaryCtaIntent,
+      variant: heroVariant
+    });
+  }
+
+  function trackSecondary() {
+    const path = `${window.location.pathname}${window.location.search}`;
+    trackEvent('section_cta_click', {
+      source: secondaryTrackingSource,
+      locale,
+      path,
+      intent: primaryCtaIntent,
+      variant: heroVariant
+    });
+  }
 
   return (
     <Dialog.Root>
@@ -51,10 +87,10 @@ export function HomeMobileNav({
         <Button
           variant="outline"
           size="sm"
-          className="md:hidden"
+          className="md:hidden min-h-12 min-w-12 shrink-0 border-slate-600 p-0"
           aria-label={locale === 'de' ? 'Navigation öffnen' : 'Open navigation'}
         >
-          <Menu className="h-4 w-4" aria-hidden="true" />
+          <Menu className="h-5 w-5" aria-hidden="true" />
         </Button>
       </Dialog.Trigger>
       <Dialog.Portal>
@@ -79,10 +115,10 @@ export function HomeMobileNav({
             <Dialog.Close asChild>
               <button
                 type="button"
-                className="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-slate-700/80 text-slate-400 transition hover:border-slate-500 hover:bg-slate-800/60 hover:text-slate-100"
+                className="inline-flex min-h-12 min-w-12 items-center justify-center rounded-lg border border-slate-700/80 text-slate-400 transition hover:border-slate-500 hover:bg-slate-800/60 hover:text-slate-100"
                 aria-label={locale === 'de' ? 'Navigation schließen' : 'Close navigation'}
               >
-                <X className="h-4 w-4" aria-hidden="true" />
+                <X className="h-5 w-5" aria-hidden="true" />
               </button>
             </Dialog.Close>
           </div>
@@ -93,7 +129,7 @@ export function HomeMobileNav({
               <Dialog.Close key={link.href} asChild>
                 <a
                   className={cn(
-                    'rounded-lg px-3 py-2.5 text-sm font-medium text-slate-300 transition hover:bg-slate-800/60 hover:text-slate-100',
+                    'flex min-h-12 items-center rounded-lg px-3 py-3 text-sm font-medium text-slate-300 transition hover:bg-slate-800/60 hover:text-slate-100',
                     activeSection === link.href.replace('#', '')
                       ? 'bg-sky-500/10 text-sky-300 ring-1 ring-sky-500/25'
                       : ''
@@ -112,37 +148,32 @@ export function HomeMobileNav({
             <Dialog.Close asChild>
               <Button
                 asChild
-                className="w-full bg-gradient-to-r from-sky-500 to-blue-500 text-white hover:from-sky-400 hover:to-blue-400"
+                className="h-auto min-h-12 w-full bg-gradient-to-r from-sky-500 to-blue-500 py-3 text-white hover:from-sky-400 hover:to-blue-400"
               >
                 <a
                   href={primaryHref}
-                  onClick={() => {
-                    const path = `${window.location.pathname}${window.location.search}`;
-                    trackEvent('hero_cta_click', {
-                      source: primaryTrackingSource,
-                      locale,
-                      path,
-                      intent: primaryCtaIntent,
-                      variant: heroVariant
-                    });
-                    trackEvent('cta_primary_click', {
-                      source: primaryTrackingSource,
-                      locale,
-                      path,
-                      intent: primaryCtaIntent,
-                      variant: heroVariant
-                    });
-                  }}
+                  target={primaryHref.startsWith('http') ? '_blank' : undefined}
+                  rel={primaryHref.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  onClick={trackPrimary}
                 >
                   {ctaLabel}
                 </a>
               </Button>
             </Dialog.Close>
+            {secondaryCtaHref && secondaryCtaLabel ? (
+              <Dialog.Close asChild>
+                <Button asChild variant="outline" className="h-auto min-h-12 w-full border-slate-600 py-3 text-slate-100 hover:bg-slate-800/60">
+                  <a href={secondaryCtaHref} onClick={trackSecondary}>
+                    {secondaryCtaLabel}
+                  </a>
+                </Button>
+              </Dialog.Close>
+            ) : null}
             <Dialog.Close asChild>
               <Button
                 asChild
                 variant="ghost"
-                className="w-full text-slate-400 hover:bg-slate-800/60 hover:text-slate-200"
+                className="h-auto min-h-12 w-full text-slate-400 hover:bg-slate-800/60 hover:text-slate-200"
               >
                 <Link href={locale === 'de' ? '/en' : '/'}>
                   {locale === 'de' ? 'Switch to English' : 'Auf Deutsch wechseln'}

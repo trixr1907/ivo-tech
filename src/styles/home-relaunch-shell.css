@@ -1144,6 +1144,39 @@
   color: #f8fafc;
 }
 
+/* Primäre Sektions-H2 (Gruppen) — klar über Unterüberschriften */
+.home-section-h2-primary {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: #f8fafc;
+  text-shadow: 0 0 48px rgba(56, 189, 248, 0.08);
+}
+
+@media (min-width: 1024px) {
+  .home-section-h2-primary {
+    font-size: 2.5rem;
+  }
+}
+
+/* Unterebene unter gruppierten H2 (ehemals flache H2) */
+.home-section-h3 {
+  font-family: var(--font-heading);
+  font-size: 1.375rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #e2e8f0;
+}
+
+@media (min-width: 1024px) {
+  .home-section-h3 {
+    font-size: 1.625rem;
+  }
+}
+
 @media (min-width: 1024px) {
   .home-section-h2 {
     font-size: 2.375rem;

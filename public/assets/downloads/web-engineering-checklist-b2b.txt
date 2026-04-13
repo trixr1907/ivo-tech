@@ -1,0 +1,30 @@
+Web Engineering Checkliste für B2B-Launches — ivo-tech
+=====================================================
+
+Nutze diese Liste vor Go-live. Ergänze projektspezifische Punkte.
+
+Performance & Core Web Vitals
+- LCP-Ziel: messen (Field + Lab), Hero-Medien optimieren (AVIF/WebP, preload/priority nur wo sinnvoll).
+- CLS: feste Platzhalter für Bilder/Ads/Embeds; keine Layout-Shifts bei Fonts (font-display, Subsets).
+- INP/TBT: lange Main-Thread-Tasks splitten, Third-Party-Skripte minimieren oder consentieren.
+
+Qualität & Deploy
+- CI: Lint, Typecheck, Unit-Tests, Build; vor Produktion E2E-Smoke auf kritischen Pfaden.
+- Feature-Flags / Canary nur mit Rollback-Plan.
+- Changelog oder Release-Notes für Stakeholder.
+
+Tracking & Consent
+- Kein Analytics ohne Einwilligung; CMP/Consent-Mode wo nötig dokumentieren.
+- Server-seitige Events nur datensparsam; PII nie in Logs.
+
+Rechtliches & Vertrauen
+- Impressum, Datenschutz, ggf. Cookie-Hinweis; Formular mit klarer Zweckbindung.
+- Auftragsverarbeitung (AVV) mit Subprozessoren nachvollziehbar halten.
+
+Übergabe ans Team
+- README: Setup, Env-Vars, Deploy, Troubleshooting.
+- Architektur-Entscheidungen (ADRs) für kritische Schnittstellen.
+
+—
+
+ivo-tech.com · Stand 2026

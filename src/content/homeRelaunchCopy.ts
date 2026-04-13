@@ -50,6 +50,21 @@ export type HomeRelaunchCopy = {
   contactDescription: string;
   locationText: string;
   navLabel: string;
+  /** Gruppen-Überschriften (H2) für konsolidierte Sektionen */
+  sectionGroupOffer: string;
+  sectionGroupWork: string;
+  sectionGroupDelivery: string;
+  caseFollowUpCta: string;
+  leadMagnetTitle: string;
+  leadMagnetDescription: string;
+  leadMagnetSubmit: string;
+  leadMagnetDownloadHint: string;
+  trustComplianceTitle: string;
+  trustComplianceLines: string[];
+  seoLocalTitle: string;
+  seoLocalBody: string;
+  headerBookingLabel: string;
+  headerContactShortLabel: string;
   form: HomeRelaunchFormLabels;
 };
 
@@ -57,11 +72,11 @@ const homeRelaunchByLocale: Record<Locale, HomeRelaunchCopy> = {
   de: {
     badge: 'Senior Web Engineer · Remote-first',
     availabilityPill: 'Verfügbar · Q2 2026',
-    title: 'Technical Delivery ohne Blindflug — Websysteme, die stabil laufen und klar konvertieren.',
+    title: 'Dein B2B-System läuft — aber hält es auch unter echtem Druck stand?',
     description:
-      'Du brauchst kein Versprechen, sondern einen Engineer, der liefert: klare Architektur, QA-Gates vor jedem Release, dokumentierte Übergabe. Ich baue conversion-kritische B2B-Websysteme — von Scope über Build bis zu messbarem Ergebnis.',
-    primaryCta: 'Scope-Call starten',
-    secondaryCta: 'Interview / Hiring',
+      'Du brauchst kein Tech-Theater, sondern klare Lieferung: Architektur, die wartbar bleibt, QA-Gates vor jedem Release, Übergaben, die dein Team wirklich nutzen kann. Ich baue Websysteme, die funktionieren, wenn es wirklich drauf ankommt — von Scope bis messbarem Ergebnis.',
+    primaryCta: 'Jetzt Beratungsgespräch buchen',
+    secondaryCta: 'Kontaktformular',
     tertiaryCta: 'Live-Case ansehen',
     trustInline: 'Verfügbar · Remote-first · Mannheim',
     heroPills: ['Live-Cases mit nachvollziehbarem Proof', 'QA-Gates vor jedem Release', 'Antwort < 24h werktags'],
@@ -97,6 +112,26 @@ const homeRelaunchByLocale: Record<Locale, HomeRelaunchCopy> = {
       '2–3 Sätze zu Ziel, Engpass und Zeitrahmen reichen für einen konkreten Start. Für Hiring: kurzer Kontext zur Rolle. Für Projekte: Stack und Scope.',
     locationText: 'Mannheim · Remote-first',
     navLabel: 'Hauptnavigation',
+    sectionGroupOffer: 'Angebot & Nachweis',
+    sectionGroupWork: 'Portfolio & Insights',
+    sectionGroupDelivery: 'Ablauf, Stimmen & Qualität',
+    caseFollowUpCta: 'Soll ich das auch für dein B2B-System umsetzen?',
+    leadMagnetTitle: 'Web Engineering Checkliste für B2B-Launches',
+    leadMagnetDescription:
+      'Kurz-Checkliste als Datei mit den wichtigsten Gates vor Go-live (Performance, Tracking, Rechtliches, Übergabe). Kostenlos per E-Mail — ein Klick, kein Newsletter-Zwang.',
+    leadMagnetSubmit: 'Checkliste anfordern',
+    leadMagnetDownloadHint: 'Nach Bestätigung der E-Mail erhältst du den Download-Link.',
+    trustComplianceTitle: 'Sicherheit & Compliance',
+    trustComplianceLines: [
+      'DSGVO-konforme Verarbeitung von Anfragen (Einwilligung im Formular)',
+      'Kein Tracking ohne Einwilligung; technische Logs nur wo nötig',
+      'OWASP-orientierte Web-App-Praxis, reproduzierbare QA-Gates vor Deploys'
+    ],
+    seoLocalTitle: 'Remote · Rhein-Neckar · Frankfurt-Europe',
+    seoLocalBody:
+      'Als Freelance Web Engineer mit Basis Mannheim/Remote unterstütze ich Teams deutschlandweit und in Europa — u. a. für anspruchsvolle B2B-Websysteme, Architektur und Launch-Readiness. Suchbegriffe wie „Freelance Web Engineer Frankfurt“ oder „B2B Website Architekt“ treffen inhaltlich genau den Fokus: belastbare Umsetzung statt Folien.',
+    headerBookingLabel: 'Beratungsgespräch buchen',
+    headerContactShortLabel: 'Kontakt',
     form: {
       formName: 'Name',
       formEmail: 'Business-E-Mail',
@@ -116,11 +151,11 @@ const homeRelaunchByLocale: Record<Locale, HomeRelaunchCopy> = {
   en: {
     badge: 'Senior Web Engineer · Remote-first',
     availabilityPill: 'Available · Q2 2026',
-    title: 'Technical delivery without guesswork — web systems that run reliably and convert clearly.',
+    title: 'Your B2B system runs — but will it hold up under real pressure?',
     description:
-      'You need delivery, not promises: clean architecture, QA gates before every release, documented team handover. I build conversion-critical B2B web systems — from scope through build to measurable outcome.',
-    primaryCta: 'Start a scope call',
-    secondaryCta: 'Interview / Hiring',
+      'You need delivery, not theater: architecture that stays maintainable, QA gates before every release, handovers your team can actually use. I build web systems that work when it matters — from scope through measurable outcomes.',
+    primaryCta: 'Book a consultation call',
+    secondaryCta: 'Contact form',
     tertiaryCta: 'View live case',
     trustInline: 'Available · Remote-first · Mannheim',
     heroPills: ['Live cases with verifiable proof', 'QA gates before every release', 'Response < 24h on business days'],
@@ -156,6 +191,26 @@ const homeRelaunchByLocale: Record<Locale, HomeRelaunchCopy> = {
       '2–3 sentences about goal, bottleneck, and timeline are enough to get started. For hiring: short role context. For projects: stack and scope.',
     locationText: 'Mannheim · Remote-first',
     navLabel: 'Primary navigation',
+    sectionGroupOffer: 'Offer & proof',
+    sectionGroupWork: 'Portfolio & insights',
+    sectionGroupDelivery: 'Process, voices & quality',
+    caseFollowUpCta: 'Want me to implement this for your B2B system too?',
+    leadMagnetTitle: 'Web engineering checklist for B2B launches',
+    leadMagnetDescription:
+      'A short checklist file with the key gates before go-live (performance, tracking, legal basics, handover). Free by email — one click, no newsletter lock-in.',
+    leadMagnetSubmit: 'Request checklist',
+    leadMagnetDownloadHint: 'After you confirm your email, you will receive the download link.',
+    trustComplianceTitle: 'Security & compliance',
+    trustComplianceLines: [
+      'GDPR-aligned request handling (consent captured in the form)',
+      'No tracking without consent; technical logs only where needed',
+      'OWASP-oriented delivery practice with repeatable QA gates before deploys'
+    ],
+    seoLocalTitle: 'Remote · Germany · EU-friendly',
+    seoLocalBody:
+      'As a freelance web engineer based in Mannheim (remote-first), I support teams across Germany and Europe on demanding B2B web systems, architecture, and launch readiness. If you searched for something like “freelance web engineer Frankfurt” or “B2B website architect”, the focus is the same: durable delivery, not slides.',
+    headerBookingLabel: 'Book a call',
+    headerContactShortLabel: 'Contact',
     form: {
       formName: 'Name',
       formEmail: 'Business email',

@@ -63,23 +63,23 @@ test.describe('homepage redesign critical journeys', () => {
   test('renders required homepage sections on DE route', async ({ page }) => {
     await page.goto('/');
 
-    await expect(page.getByRole('heading', { level: 1 })).toContainText(/Technical Delivery ohne Blindflug/i);
+    await expect(page.getByRole('heading', { level: 1 })).toContainText(/B2B-System läuft/i);
     await expect(page.getByRole('link', { name: /Interview\s*\/\s*Hiring/i }).first()).toHaveAttribute('href', '/hiring');
     await expect(page.getByRole('link', { name: 'CV & Verfügbarkeit' }).first()).toHaveAttribute('href', '/resume');
     await expect(page.getByText('Beweis')).toBeVisible();
-    await expect(page.getByRole('heading', { level: 2, name: 'Ausgewählte Projekte' })).toBeVisible();
-    await expect(page.getByRole('heading', { level: 2, name: 'Engineering Insights' })).toBeVisible();
+    await expect(page.getByRole('heading', { level: 3, name: 'Ausgewählte Projekte' })).toBeVisible();
+    await expect(page.getByRole('heading', { level: 3, name: 'Engineering Insights' })).toBeVisible();
     await expect(page.locator('#contact')).toBeVisible();
   });
 
   test('keeps homepage stable with query params on DE and EN routes', async ({ page }) => {
     await page.goto('/?exp_hero=outcome#contact');
-    await expect(page.getByRole('heading', { level: 1 })).toContainText(/Technical Delivery/i);
+    await expect(page.getByRole('heading', { level: 1 })).toContainText(/B2B-System läuft/i);
     await expect(page.getByRole('link', { name: /Interview\s*\/\s*Hiring/i }).first()).toHaveAttribute('href', '/hiring');
     await expect(page.locator('a[data-contact-cta="scheduler"]')).toHaveAttribute('href', /exp_hero=outcome/);
 
     await page.goto('/en?exp_hero=speed#contact');
-    await expect(page.getByRole('heading', { level: 1 })).toContainText(/Technical delivery/i);
+    await expect(page.getByRole('heading', { level: 1 })).toContainText(/B2B system runs/i);
     await expect(page.getByRole('link', { name: /Interview\s*\/\s*Hiring/i }).first()).toHaveAttribute('href', '/en/hiring');
     await expect(page.locator('a[data-contact-cta="scheduler"]')).toHaveAttribute('href', /exp_hero=speed/);
   });
@@ -151,10 +151,12 @@ test.describe('homepage redesign critical journeys', () => {
     await expect(page.locator('a[data-hub-cta="list-item-open"]').first()).toBeVisible();
 
     await page.goto('/case-studies/configurator-live');
-    await expect(page.locator('a[data-hub-cta="header-primary"]').first()).toHaveAttribute(
-      'href',
-      '/contact?source=hub-case-studies-detail'
-    );
+    const hubHeaderBooking = page.locator('a[data-hub-cta="header-primary"]').first();
+    await expect(hubHeaderBooking).toBeVisible();
+    await expect(hubHeaderBooking).toHaveAttribute('href', /cal\.com/);
+    await expect(
+      page.locator('header a[href*="contact?source=hub-case-studies-detail"]').first()
+    ).toBeVisible();
     await expect(page.locator('a[data-hub-cta="case-structure-primary"]')).toBeVisible();
     await expect(page.locator('a[data-hub-cta="case-structure-secondary"]')).toBeVisible();
   });

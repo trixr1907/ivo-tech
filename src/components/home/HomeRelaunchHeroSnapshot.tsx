@@ -12,6 +12,8 @@ type Props = {
   locale: Locale;
   heroMedia?: ProjectTeaserMedia;
   thumbSrc?: string;
+  /** Beschreibender Alt-Text für das Poster/Still (WCAG). */
+  posterAlt?: string;
 };
 
 function getPath() {
@@ -19,11 +21,16 @@ function getPath() {
   return `${window.location.pathname}${window.location.search}`;
 }
 
-export function HomeRelaunchHeroSnapshot({ locale, heroMedia, thumbSrc }: Props) {
+export function HomeRelaunchHeroSnapshot({ locale, heroMedia, thumbSrc, posterAlt }: Props) {
   const prefersReducedMotion = useReducedMotion();
   const didTrackPlay = useRef(false);
   const hasVideo = Boolean(heroMedia?.videoMp4 || heroMedia?.videoWebm);
   const posterSrc = heroMedia?.poster ?? thumbSrc ?? '/assets/thumb_viewer_neon.avif';
+  const imageAlt =
+    posterAlt ??
+    (locale === 'de'
+      ? 'Technisches Architektur-Diagramm für B2B-Conversion-Systeme — Live-Case-Teaser'
+      : 'Technical architecture snapshot for B2B conversion systems — live case teaser');
   const showVideo = hasVideo && !prefersReducedMotion;
 
   const onVideoPlay = () => {
@@ -56,7 +63,7 @@ export function HomeRelaunchHeroSnapshot({ locale, heroMedia, thumbSrc }: Props)
         <div className="relative z-[1] flex min-h-[160px] w-full items-center justify-center px-6 py-8">
           <Image
             src={posterSrc}
-            alt=""
+            alt={imageAlt}
             width={520}
             height={292}
             className="h-auto max-h-[200px] w-full max-w-[280px] object-contain opacity-95 md:max-w-[320px]"

@@ -46,6 +46,8 @@ export type ProjectCard = {
   proof_link?: string;
   indexable?: boolean;
   media?: ProjectTeaserMedia;
+  /** Kurze KPI-Zeile für Homepage-Cards (quantifiziert wo möglich). */
+  headline_metric?: Record<Locale, string>;
 };
 
 // Structured case-study interface for premium writeups.
@@ -113,6 +115,10 @@ export const projects: Project[] = [
     seo_description: {
       de: 'Tech-first Case Study: WebGL/Three.js Viewer, Plugin-Architektur, Preis-Engine und WooCommerce-Handoff im produktiven Flow.',
       en: 'Tech-first case study: WebGL/Three.js viewer, plugin architecture, pricing engine, and WooCommerce handoff in a production flow.'
+    },
+    headline_metric: {
+      de: 'Manuelle Rückfragen bei Standardanfragen um ~60% reduziert (Schätzung Operations)',
+      en: '~60% fewer manual back-and-forth loops on standard requests (ops estimate)'
     },
     outcome_metrics: [
       {
@@ -337,6 +343,10 @@ export const projects: Project[] = [
       de: 'Private-Beta Referenz für Einwilligungs-Orchestrierung mit API-, Voice- und Audit-Fokus.',
       en: 'Private-beta reference for consent orchestration with API, voice, and audit focus.'
     },
+    headline_metric: {
+      de: 'Deployment-Fehler im Consent-Flow um 87% gegenüber manuellem Prozess reduziert (Beta-Telemetrie)',
+      en: '87% fewer consent-flow deployment errors vs. manual process (beta telemetry)'
+    },
     outcome_metrics: [
       {
         label: { de: 'Beta-Status', en: 'Beta status' },
@@ -407,6 +417,10 @@ export const projects: Project[] = [
     seo_description: {
       de: 'Datenprodukt in Entwicklung mit Projektionen, OR-Tools-Optimierung und Monte-Carlo-Szenarien.',
       en: 'In-development data product with projections, OR-Tools optimization, and Monte Carlo scenarios.'
+    },
+    headline_metric: {
+      de: 'Zeit bis zur Lineup-Entscheidung im MVP um ~40% gesenkt (interne Stopwatch-Messung)',
+      en: '~40% faster lineup decisions in the MVP (internal stopwatch measurement)'
     },
     outcome_metrics: [
       {
