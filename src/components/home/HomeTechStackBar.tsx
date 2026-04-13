@@ -1,7 +1,7 @@
 import type { Locale } from '@/content/copy';
 
 const TECH_ITEMS = [
-  'Next.js 16',
+  'Next.js 16 (App Router)',
   'React 19',
   'TypeScript',
   'Tailwind v4',

@@ -19,14 +19,16 @@ export function AnimatedCounter({ value, duration = 1400 }: AnimatedCounterProps
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-10% 0px -10% 0px' });
   const prefersReduced = useReducedMotion();
-  const [display, setDisplay] = useState(() => {
-    // Start from 0-form of the value
-    const match = value.match(/\d+/);
-    return match ? value.replace(match[0], '0') : value;
-  });
+  const [display, setDisplay] = useState(value);
 
   useEffect(() => {
     if (!isInView) return;
+
+    // Decorated KPI values like "< 24h" or "95+" should stay stable.
+    if (!/^\d+$/.test(value.trim())) {
+      startTransition(() => setDisplay(value));
+      return;
+    }
 
     const match = value.match(/\d+/);
     if (!match) {

@@ -80,6 +80,18 @@ export function HiringPage({ locale }: { locale: Locale }) {
             'Entscheidungen mit Trade-off Dokumentation',
             'Technische Qualität messbar machen (QA, Performance, Handover)'
           ],
+          evidenceTitle: 'Nachweisbare Ergebnisse',
+          evidenceItems: [
+            '3 Live-Systeme im produktionsnahen Betrieb (inkl. Datei-zu-Checkout-Flow)',
+            '5 CI/CD-Gates vor Releases: Lint, Typecheck, Unit, E2E, Security',
+            '95+ Lighthouse-Zielwerte als Delivery-Constraint statt Nice-to-have'
+          ],
+          collaborationTitle: 'Was Teams in den ersten 30 Tagen erwarten können',
+          collaborationItems: [
+            'Woche 1: Scope-Klärung, Risiko-Mapping, Definition of Ready',
+            'Woche 2-3: Umsetzung mit klaren Tech-Entscheidungen und QA-Guardrails',
+            'Woche 4: Stabilisierung, Team-Handover und dokumentierte Trade-offs'
+          ],
           ctaPrimary: 'Interview anfragen',
           ctaSecondary: 'CV ansehen'
         }
@@ -98,6 +110,18 @@ export function HiringPage({ locale }: { locale: Locale }) {
             'Clear sprint scope instead of diffuse feature backlogs',
             'Decision making with trade-off documentation',
             'Measured technical quality (QA, performance, handover)'
+          ],
+          evidenceTitle: 'Verifiable outcomes',
+          evidenceItems: [
+            '3 live systems in production-like operation (including file-to-checkout flow)',
+            '5 CI/CD gates before release: lint, typecheck, unit, E2E, security',
+            '95+ Lighthouse targets treated as a delivery constraint'
+          ],
+          collaborationTitle: 'What teams can expect in the first 30 days',
+          collaborationItems: [
+            'Week 1: scope framing, risk mapping, definition of ready',
+            'Week 2-3: implementation with explicit technical decisions and QA guardrails',
+            'Week 4: stabilization, team handover, and documented trade-offs'
           ],
           ctaPrimary: 'Request interview',
           ctaSecondary: 'View resume'
@@ -142,6 +166,31 @@ export function HiringPage({ locale }: { locale: Locale }) {
           </article>
         </div>
 
+        <div className="mt-4 grid gap-4 md:grid-cols-2">
+          <article className={RELAUNCH_CARD}>
+            <h2 className="font-display text-xl font-semibold text-slate-100">{copy.evidenceTitle}</h2>
+            <ul className="mt-4 space-y-2 text-sm text-slate-300">
+              {copy.evidenceItems.map((item) => (
+                <li key={item} className="flex items-start gap-2">
+                  <span className="shrink-0 text-cyan-400 text-xs" aria-hidden="true">●</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+          <article className={RELAUNCH_CARD}>
+            <h2 className="font-display text-xl font-semibold text-slate-100">{copy.collaborationTitle}</h2>
+            <ul className="mt-4 space-y-2 text-sm text-slate-300">
+              {copy.collaborationItems.map((item) => (
+                <li key={item} className="flex items-start gap-2">
+                  <span className="shrink-0 text-violet-400 text-xs" aria-hidden="true">●</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        </div>
+
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <Button
             asChild
@@ -175,12 +224,28 @@ export function ResumePage({ locale }: { locale: Locale }) {
               ]
             },
             {
+              title: 'Erfahrungsschwerpunkte',
+              items: [
+                'Technische Lead-Rolle in Relaunch- und Migrationsphasen',
+                'Aufbau von Hub-Architekturen (Case Studies, Insights, Playbooks)',
+                'Verbindung von UX, Engineering und Delivery-Governance'
+              ]
+            },
+            {
               title: 'Schwerpunkte',
               items: ['Next.js / TypeScript', 'UX-nahe Informationsarchitektur', 'Performance-, QA- und Handover-Standards']
             },
             {
               title: 'Arbeitsmodell',
               items: ['Remote-first, optional vor Ort im Raum Mannheim', 'Verfügbarkeit nach Absprache', 'Deutsch und Englisch im Arbeitskontext']
+            },
+            {
+              title: 'Relevante Outcomes',
+              items: [
+                'Produktionsreife Datei-zu-Checkout-Strecke für 3D-Konfiguration',
+                'CI/CD-Qualitätsgates in Delivery-Prozesse integriert',
+                'Dokumentierte Team-Übergaben mit klaren Verantwortlichkeiten'
+              ]
             }
           ],
           pdfCta: 'CV als PDF laden',
@@ -200,12 +265,28 @@ export function ResumePage({ locale }: { locale: Locale }) {
               ]
             },
             {
+              title: 'Experience focus',
+              items: [
+                'Technical lead role in relaunch and migration phases',
+                'Hub architecture build-outs (case studies, insights, playbooks)',
+                'Alignment of UX, engineering, and delivery governance'
+              ]
+            },
+            {
               title: 'Focus areas',
               items: ['Next.js / TypeScript', 'UX-oriented information architecture', 'Performance, QA, and handover standards']
             },
             {
               title: 'Working model',
               items: ['Remote-first, optional onsite in Mannheim area', 'Availability by agreement', 'German and English for team collaboration']
+            },
+            {
+              title: 'Relevant outcomes',
+              items: [
+                'Production-grade file-to-checkout flow for 3D configuration',
+                'CI/CD quality gates integrated into delivery lifecycle',
+                'Documented team handovers with explicit ownership boundaries'
+              ]
             }
           ],
           pdfCta: 'Download CV (PDF)',
@@ -223,7 +304,7 @@ export function ResumePage({ locale }: { locale: Locale }) {
       desktopContactTrackingSource="resume-page-header"
     >
       <section className={RELAUNCH_SECTION}>
-        <div className="grid gap-4 md:grid-cols-3">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {copy.sections.map((section) => (
             <article key={section.title} className={RELAUNCH_CARD}>
               <h2 className="font-display text-lg font-semibold text-slate-100">{section.title}</h2>

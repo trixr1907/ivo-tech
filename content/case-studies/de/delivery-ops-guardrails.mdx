@@ -1,0 +1,44 @@
+---
+slug: delivery-ops-guardrails
+locale: de
+title: "Case Study: Delivery- und Ops-Guardrails für verlässliche Releases"
+description: Wie ein fragmentierter Release-Prozess in einen reproduzierbaren Delivery-Flow mit klaren Qualitätsgates überführt wurde.
+summary: Von ad-hoc Deployments zu einem strukturierten Qualitäts- und Release-System mit messbaren Leitplanken.
+category: Case Study
+readMinutes: 7
+publishedAt: '2026-04-13'
+updatedAt: '2026-04-13'
+schemaType: Article
+internalLinks:
+  - /insights/nextjs-performance-budget-playbook
+  - /playbooks/performance-budget-guardrails
+  - /#contact
+draft: false
+---
+
+## Projektkontext
+
+Das Projektziel war keine neue Feature-Welle, sondern technische Lieferfähigkeit: weniger Release-Risiko, weniger Produktionsüberraschungen und klarere Verantwortlichkeiten zwischen Product, Engineering und Operations.
+
+## Ausgangslage
+
+- Deployments wurden manuell angestoßen und nur teilweise gegen Qualitätskriterien geprüft.
+- Lighthouse- und Accessibility-Werte waren bekannt, aber nicht als verbindliche Release-Bedingung verankert.
+- Es gab keinen stabilen Post-Deploy-Check auf Domain-Ebene.
+
+## Umsetzungsansatz
+
+- Einführung eines klaren Quality-Gate-Sets in der CI (Lint, Typecheck, Unit, E2E, Security).
+- Aufbau eines Live-Guardrails-Workflows für Domain- und Budget-Checks nach Main-Deployments.
+- Vereinheitlichung von Release-Rollen: wer freigibt, wer beobachtet, wer eskaliert.
+
+## Ergebnis
+
+- Releases sind reproduzierbar statt personenabhängig.
+- Regressionen werden früher sichtbar, bevor sie Nutzer oder Conversion betreffen.
+- Das Team arbeitet mit einem einheitlichen Verständnis von „release-ready“.
+
+## Rollenabgrenzung
+
+Technische Konzeption und Umsetzung der Guardrails: **IVO TECH**.
+Operative Freigabe und Priorisierung: Team/Stakeholder auf Kundenseite.
