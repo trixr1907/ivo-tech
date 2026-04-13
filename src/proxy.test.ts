@@ -30,14 +30,22 @@ describe('proxy', () => {
     expect(response.headers.get('location')).toBeNull();
   });
 
-  it('adds locale and nonce-based report-only csp on normal requests', () => {
+  it('adds locale and nonce-based enforce/report-only csp on normal requests', () => {
     const request = new NextRequest('https://ivo-tech.com/');
     const response = proxy(request);
 
+    const enforce = response.headers.get('content-security-policy') ?? '';
     const reportOnly = response.headers.get('content-security-policy-report-only') ?? '';
 
     expect(response.status).toBe(200);
     expect(response.headers.get('content-language')).toBe('de');
+    expect(enforce).toContain("script-src 'self' 'nonce-");
+    expect(enforce).toContain("'strict-dynamic'");
+    expect(enforce).toContain("script-src-attr 'none'");
+    expect(/script-src[^;]*'unsafe-inline'/.test(enforce)).toBe(false);
+    expect(enforce).not.toContain('report-uri ');
+    expect(enforce).not.toContain('fonts.googleapis.com');
+    expect(enforce).not.toContain('www.google.com');
     expect(reportOnly).toContain("script-src 'self' 'nonce-");
     expect(reportOnly).toContain("script-src-attr 'none'");
     expect(reportOnly).toContain('report-uri /api/security/csp-report');
@@ -48,8 +56,11 @@ describe('proxy', () => {
   it('keeps pizza third-party allowlist scoped to pizza paths in report-only csp', () => {
     const request = new NextRequest('https://ivo-tech.com/pizza/index.html');
     const response = proxy(request);
+    const enforce = response.headers.get('content-security-policy') ?? '';
     const reportOnly = response.headers.get('content-security-policy-report-only') ?? '';
 
+    expect(enforce).toContain('fonts.googleapis.com');
+    expect(enforce).toContain('www.google.com');
     expect(reportOnly).toContain('fonts.googleapis.com');
     expect(reportOnly).toContain('www.google.com');
   });

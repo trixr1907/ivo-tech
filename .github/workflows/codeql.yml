@@ -11,9 +11,8 @@ on:
 jobs:
   analyze:
     name: Analyze
-    # This repo currently has Code Scanning disabled. Keep CodeQL opt-in so PRs
-    # stay green; flip ENABLE_CODEQL=true (repo variable) once enabled.
-    if: ${{ vars.ENABLE_CODEQL == 'true' }}
+    # Default-on. Set repository variable DISABLE_CODEQL=true only as temporary emergency switch.
+    if: ${{ vars.DISABLE_CODEQL != 'true' }}
     runs-on: ubuntu-latest
     permissions:
       actions: read

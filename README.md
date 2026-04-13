@@ -3,7 +3,7 @@
 Next.js 16 portfolio homepage with bilingual routes (`de`/`en`), project modals, and static showcase subpaths.
 
 ## Requirements
-- Node.js `>=20.9.0`
+- Node.js `24.x`
 - npm
 
 ## Local development
@@ -82,6 +82,8 @@ Variables:
   - `ANALYTICS_SINK_POSTHOG_HOST`
   - `ANALYTICS_SINK_PLAUSIBLE_DOMAIN`
   - `ANALYTICS_SINK_PLAUSIBLE_HOST`
+  - `ANALYTICS_RATE_LIMIT_PER_IP` (optional, default `120`)
+  - `ANALYTICS_RATE_LIMIT_WINDOW_SECONDS` (optional, default `60`)
   - `PLAUSIBLE_STATS_API_KEY` (optional, required for live Plausible stats queries used by `analytics:plausible:ops*` and `hero:log:sync:plausible`)
 - `NEXT_PUBLIC_SCHEDULER_URL` (optional, scheduler link override for contact/thank-you CTAs; defaults to `https://cal.com/ivo-tech/intro-call`)
 - `NEXT_PUBLIC_HERO_EXPERIMENT_ENABLED` (optional, `true/false` toggle for persistent hero variant assignment)
@@ -92,6 +94,7 @@ Variables:
 - `CONTACT_FROM_EMAIL` (optional, sender address for Resend; defaults to `contact@ivo-tech.com`)
 - `CONTACT_TO_EMAILS` (optional, comma-separated recipient list; defaults to `contact@ivo-tech.com,ivo@ivo-tech.com`)
 - `CONTACT_WEBHOOK_URL` (optional fallback sink for `POST /api/contact` submissions)
+  - In production, at least one of `RESEND_API_KEY` or `CONTACT_WEBHOOK_URL` must be configured.
 - `CONTACT_RATE_LIMIT_PER_IP` (optional)
 - `CONTACT_RATE_LIMIT_WINDOW_MINUTES` (optional)
 - `NEXT_PUBLIC_TURNSTILE_SITE_KEY` (optional, enables Turnstile on contact form)

@@ -23,7 +23,12 @@ type AnalyticsOkResponse = {
   provider: AnalyticsSinkProvider;
 };
 
-type AnalyticsErrorCode = 'method_not_allowed' | 'invalid_payload' | 'sink_not_configured' | 'sink_request_failed';
+type AnalyticsErrorCode =
+  | 'method_not_allowed'
+  | 'invalid_payload'
+  | 'rate_limited'
+  | 'sink_not_configured'
+  | 'sink_request_failed';
 
 type AnalyticsErrorResponse = {
   ok: false;
@@ -32,8 +37,33 @@ type AnalyticsErrorResponse = {
 
 type AnalyticsResponse = AnalyticsOkResponse | AnalyticsErrorResponse;
 
+type AnalyticsRateBucket = {
+  count: number;
+  resetAt: number;
+};
+
+const globalAnalyticsRateStore = globalThis as typeof globalThis & { __ivoAnalyticsRateStore?: Map<string, AnalyticsRateBucket> };
+const analyticsRateStore = globalAnalyticsRateStore.__ivoAnalyticsRateStore ?? new Map<string, AnalyticsRateBucket>();
+globalAnalyticsRateStore.__ivoAnalyticsRateStore = analyticsRateStore;
+
+const defaultAnalyticsRateLimit = 120;
+const defaultAnalyticsRateWindowMs = 60 * 1000;
+
 function jsonResponse(status: number, body: AnalyticsResponse) {
   return Response.json(body, { status });
+}
+
+function getAnalyticsRateLimitConfig() {
+  const parsedLimit = Number(process.env.ANALYTICS_RATE_LIMIT_PER_IP ?? '');
+  const parsedWindowSeconds = Number(process.env.ANALYTICS_RATE_LIMIT_WINDOW_SECONDS ?? '');
+
+  const limit = Number.isFinite(parsedLimit) && parsedLimit > 0 ? Math.floor(parsedLimit) : defaultAnalyticsRateLimit;
+  const windowMs =
+    Number.isFinite(parsedWindowSeconds) && parsedWindowSeconds > 0
+      ? Math.floor(parsedWindowSeconds * 1000)
+      : defaultAnalyticsRateWindowMs;
+
+  return { limit, windowMs };
 }
 
 function parseSinkProvider(): AnalyticsSinkProvider {
@@ -62,6 +92,27 @@ function extractClientIp(request: Request) {
   if (!forwardedFor) return '';
   const first = forwardedFor.split(',')[0]?.trim();
   return first ?? '';
+}
+
+function isRateLimited(clientIp: string) {
+  if (!clientIp) return false;
+
+  const now = Date.now();
+  const { limit, windowMs } = getAnalyticsRateLimitConfig();
+  const bucket = analyticsRateStore.get(clientIp);
+
+  if (!bucket || now > bucket.resetAt) {
+    analyticsRateStore.set(clientIp, { count: 1, resetAt: now + windowMs });
+    return false;
+  }
+
+  if (bucket.count >= limit) {
+    return true;
+  }
+
+  bucket.count += 1;
+  analyticsRateStore.set(clientIp, bucket);
+  return false;
 }
 
 async function postToPostHog(payload: AnalyticsRequest, request: Request) {
@@ -138,6 +189,10 @@ async function postToPlausible(payload: AnalyticsRequest, request: Request) {
 export async function handleAnalyticsRequest(request: Request) {
   if (request.method !== 'POST') {
     return jsonResponse(405, { ok: false, errorCode: 'method_not_allowed' });
+  }
+
+  if (isRateLimited(extractClientIp(request))) {
+    return jsonResponse(429, { ok: false, errorCode: 'rate_limited' });
   }
 
   let rawBody: unknown;

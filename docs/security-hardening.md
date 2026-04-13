@@ -2,14 +2,15 @@
 
 ## CSP hardening path
 Current state:
-- Enforce-CSP is static in `next.config.mjs`.
-- Report-Only-CSP is generated per request in `src/proxy.ts` with a nonce-based `script-src` and `report-uri /api/security/csp-report`.
+- Enforce-CSP is generated per request in `src/proxy.ts` with nonce-based `script-src` and `'strict-dynamic'`.
+- Report-Only-CSP is generated per request in `src/proxy.ts` with the same nonce model plus `report-uri /api/security/csp-report`.
 - `/pizza` and `/en/pizza` keep scoped third-party sources (Google Fonts + Maps frame) in both enforce/report-only policies.
+- Enforce-CSP `script-src` excludes `'unsafe-inline'` in production.
 
 Recommended rollout:
 1. Keep nonce-based report-only active while collecting violations for at least 14 days.
-2. Remove/nonce remaining inline scripts (JSON-LD + framework/runtime outliers) until no high-confidence `script-src` violations remain.
-3. Move nonce-based `script-src` from report-only into enforce and remove `unsafe-inline` for scripts.
+2. Track remaining high-confidence `script-src` violations and ensure they carry valid nonces (framework/runtime outliers first).
+3. Keep the nonce-based enforce policy stable and tighten route-level exceptions only where necessary.
 4. Keep scoped third-party allowances route-local (`/pizza` only), never globalize them.
 
 Observed telemetry (2026-04-09):
@@ -18,10 +19,8 @@ Observed telemetry (2026-04-09):
 - Samples point to Next.js streaming/runtime inline payloads (`self.__next_f.push(...)`) plus baseline inline blocks.
 
 Practical implication:
-- Switching enforce policy to nonce-only `script-src` right now would likely break hydration on static pages.
-- Keep enforce policy with `unsafe-inline` until runtime inline scripts are either:
-  - nonce-compatible via dynamic rendering strategy, or
-  - covered by a deterministic hash strategy.
+- Enforce policy now allows only nonce-authorized scripts (plus scoped third-party sources).
+- Report-only telemetry remains the early-warning channel for nonce regressions and extension/dev noise.
 
 Noise reduction (2026-04-09):
 - CSP ingestion now classifies low-signal noise buckets:

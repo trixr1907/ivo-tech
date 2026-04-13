@@ -12,6 +12,7 @@ type ContactResponse =
     };
 
 const scopedEnvKeys = [
+  'NODE_ENV',
   'CONTACT_WEBHOOK_URL',
   'CONTACT_FROM_EMAIL',
   'CONTACT_TO_EMAILS',
@@ -180,6 +181,18 @@ describe('/api/contact', () => {
     const result = await parseResponse(await handleContactRequest(createRequest()));
 
     expect(result.statusCode).toBe(502);
+    expect(result.payload).toEqual({ ok: false, errorCode: 'delivery_failed' });
+  });
+
+  it('fails closed in production when no delivery target is configured', async () => {
+    process.env.NODE_ENV = 'production';
+    delete process.env.CONTACT_WEBHOOK_URL;
+    delete process.env.RESEND_API_KEY;
+    vi.spyOn(console, 'error').mockImplementation(() => undefined);
+
+    const result = await parseResponse(await handleContactRequest(createRequest()));
+
+    expect(result.statusCode).toBe(503);
     expect(result.payload).toEqual({ ok: false, errorCode: 'delivery_failed' });
   });
 

@@ -208,6 +208,12 @@ function getContactFromAddress() {
   return process.env.CONTACT_FROM_EMAIL?.trim() ?? defaultContactRecipients[0];
 }
 
+function hasConfiguredDeliveryTarget() {
+  const webhookUrl = process.env.CONTACT_WEBHOOK_URL?.trim();
+  const resendApiKey = process.env.RESEND_API_KEY?.trim();
+  return Boolean(webhookUrl || resendApiKey);
+}
+
 async function verifyTurnstileToken(token: string, clientIp: string) {
   const secret = process.env.TURNSTILE_SECRET_KEY?.trim();
   if (!secret) return true;
@@ -391,6 +397,11 @@ export async function handleContactRequest(request: Request) {
     return createJsonResponse(200, { ok: true, requestId });
   }
 
+  if (process.env.NODE_ENV === 'production' && !hasConfiguredDeliveryTarget()) {
+    console.error('[contact-api] delivery failed: CONTACT_WEBHOOK_URL or RESEND_API_KEY must be configured in production');
+    return createJsonResponse(503, { ok: false, errorCode: 'delivery_failed' });
+  }
+
   const isTurnstileValid = await verifyTurnstileToken(parsedRequest.turnstileToken, clientIp);
   if (!isTurnstileValid) {
     return createJsonResponse(403, { ok: false, errorCode: 'verification_failed' });
@@ -403,7 +414,7 @@ export async function handleContactRequest(request: Request) {
     return createJsonResponse(502, { ok: false, errorCode: 'delivery_failed' });
   }
 
-  if (!process.env.CONTACT_WEBHOOK_URL && !process.env.RESEND_API_KEY) {
+  if (process.env.NODE_ENV !== 'production' && !hasConfiguredDeliveryTarget()) {
     const safeRequest = buildSafeRequest(parsedRequest);
 
     console.info('[contact-api] submission', {

@@ -32,56 +32,6 @@ const allowedDevOrigins = Array.from(
   )
 );
 
-function buildCsp({ allowPizzaThirdParty = false } = {}) {
-  const isDev = process.env.NODE_ENV !== 'production';
-  const styleSources = ["'self'", 'https://challenges.cloudflare.com'];
-  const styleElemSources = ["'self'", 'https://challenges.cloudflare.com'];
-  const frameSources = ["'self'", 'https://challenges.cloudflare.com'];
-  const connectSources = ["'self'", 'https:'];
-  const scriptSources = ["'self'", "'unsafe-inline'", 'https://challenges.cloudflare.com'];
-
-  if (allowPizzaThirdParty) {
-    // /pizza embeds Google Fonts and Google Maps iframe.
-    styleSources.push('https://fonts.googleapis.com');
-    styleElemSources.push('https://fonts.googleapis.com');
-    frameSources.push('https://www.google.com');
-  }
-
-  if (isDev) {
-    // Keep local development diagnostics visible while preserving strict production defaults.
-    styleElemSources.push("'unsafe-inline'");
-    connectSources.push('ws:', 'http:');
-    scriptSources.push('https://va.vercel-scripts.com');
-  }
-
-  const scriptSrc = `script-src ${scriptSources.join(' ')}`;
-
-  const styleSrc = `style-src ${styleSources.join(' ')}`;
-
-  const directives = [
-    "default-src 'self'",
-    scriptSrc,
-    "script-src-attr 'none'",
-    styleSrc,
-    `style-src-elem ${styleElemSources.join(' ')}`,
-    "style-src-attr 'unsafe-inline'",
-    "img-src 'self' data: blob: https:",
-    "font-src 'self' data: https:",
-    `connect-src ${connectSources.join(' ')}`,
-    "media-src 'self' data: https:",
-    `frame-src ${frameSources.join(' ')}`,
-    "frame-ancestors 'self'",
-    "base-uri 'self'",
-    "form-action 'self' mailto:",
-    "object-src 'none'"
-  ];
-
-  return directives.join('; ');
-}
-
-const cspEnforce = buildCsp();
-const cspPizzaEnforce = buildCsp({ allowPizzaThirdParty: true });
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -133,23 +83,16 @@ const nextConfig = {
           {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=()'
-          },
-          { key: 'Content-Security-Policy', value: cspEnforce }
+          }
         ]
       },
       {
         source: '/pizza/:path*',
-        headers: [
-          { key: 'X-Robots-Tag', value: 'noindex, follow' },
-          { key: 'Content-Security-Policy', value: cspPizzaEnforce }
-        ]
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, follow' }]
       },
       {
         source: '/en/pizza/:path*',
-        headers: [
-          { key: 'X-Robots-Tag', value: 'noindex, follow' },
-          { key: 'Content-Security-Policy', value: cspPizzaEnforce }
-        ]
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, follow' }]
       },
       {
         source: '/_next/static/:path*',

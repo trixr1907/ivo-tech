@@ -33,7 +33,15 @@ function isPizzaPath(pathname: string) {
   return pathname === '/pizza' || pathname.startsWith('/pizza/') || pathname === '/en/pizza' || pathname.startsWith('/en/pizza/');
 }
 
-function buildReportOnlyCsp({ nonce, allowPizzaThirdParty }: { nonce: string; allowPizzaThirdParty: boolean }) {
+function buildNonceCsp({
+  nonce,
+  allowPizzaThirdParty,
+  reportOnly
+}: {
+  nonce: string;
+  allowPizzaThirdParty: boolean;
+  reportOnly: boolean;
+}) {
   const styleSources = ["'self'", 'https://challenges.cloudflare.com'];
   const styleElemSources = ["'self'", 'https://challenges.cloudflare.com'];
   const frameSources = ["'self'", 'https://challenges.cloudflare.com'];
@@ -46,9 +54,9 @@ function buildReportOnlyCsp({ nonce, allowPizzaThirdParty }: { nonce: string; al
 
   const directives = [
     "default-src 'self'",
-    `script-src 'self' 'nonce-${nonce}' https://challenges.cloudflare.com 'strict-dynamic' 'report-sample'`,
+    `script-src 'self' 'nonce-${nonce}' https://challenges.cloudflare.com 'strict-dynamic'${reportOnly ? " 'report-sample'" : ''}`,
     "script-src-attr 'none'",
-    `style-src ${styleSources.join(' ')} 'report-sample'`,
+    `style-src ${styleSources.join(' ')}${reportOnly ? " 'report-sample'" : ''}`,
     `style-src-elem ${styleElemSources.join(' ')}`,
     "style-src-attr 'unsafe-inline'",
     "img-src 'self' data: blob: https:",
@@ -59,9 +67,11 @@ function buildReportOnlyCsp({ nonce, allowPizzaThirdParty }: { nonce: string; al
     "frame-ancestors 'self'",
     "base-uri 'self'",
     "form-action 'self' mailto:",
-    "object-src 'none'",
-    `report-uri ${cspReportUri}`
+    "object-src 'none'"
   ];
+  if (reportOnly) {
+    directives.push(`report-uri ${cspReportUri}`);
+  }
 
   return directives.join('; ');
 }
@@ -96,7 +106,22 @@ export function proxy(request: NextRequest) {
   });
 
   response.headers.set('Content-Language', locale);
-  response.headers.set('Content-Security-Policy-Report-Only', buildReportOnlyCsp({ nonce, allowPizzaThirdParty }));
+  response.headers.set(
+    'Content-Security-Policy',
+    buildNonceCsp({
+      nonce,
+      allowPizzaThirdParty,
+      reportOnly: false
+    })
+  );
+  response.headers.set(
+    'Content-Security-Policy-Report-Only',
+    buildNonceCsp({
+      nonce,
+      allowPizzaThirdParty,
+      reportOnly: true
+    })
+  );
 
   return response;
 }

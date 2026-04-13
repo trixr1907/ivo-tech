@@ -19,10 +19,10 @@ function readBudget(name, fallback) {
 
 // Defaults: Summe aller Ausgabe-Chunks unter `.next/static` (App Router + Turbopack), nicht „einzelner First-Load“.
 // Anhebung 2026-04: vorherige Werte trafen Full-Site-Output nicht; CI soll Regressionen vs. Baseline erkennen.
-// Baseline Apr-2026 (Enterprise Consolidation): 2.69MB + 5% headroom = 2.82MB
+// Baseline Apr-2026 (Next 16.2 + relaunch shell): 2.84MB with ~2% headroom => 2.90MB
 const budgets = {
-  js: readBudget('BUDGET_JS_BYTES', 2_820_000),
-  css: readBudget('BUDGET_CSS_BYTES', 190_000),
+  js: readBudget('BUDGET_JS_BYTES', 2_900_000),
+  css: readBudget('BUDGET_CSS_BYTES', 200_000),
   font: readBudget('BUDGET_FONT_BYTES', 360_000),
   total: readBudget('BUDGET_TOTAL_BYTES', 3_400_000)
 };
