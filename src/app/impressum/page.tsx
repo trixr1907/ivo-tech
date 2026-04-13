@@ -23,11 +23,13 @@ export default function ImpressumPage() {
         <section>
           <h2 className="text-lg font-semibold text-slate-100">Angaben gemäß § 5 TMG</h2>
           <p className="mt-2">
-            Ivo Tech
+            ivo-tech
             <br />
-            Ivo
+            Yves Schenker
             <br />
-            Mannheim
+            Lange Rötterstr. 56
+            <br />
+            68167 Mannheim
             <br />
             Deutschland
           </p>
@@ -45,15 +47,17 @@ export default function ImpressumPage() {
 
         <section>
           <h2 className="text-lg font-semibold text-slate-100">Umsatzsteuer-ID</h2>
-          <p className="mt-2">Umsatzsteuer-ID gemaess §27a UStG: wird bei Vorliegen an dieser Stelle veroeffentlicht.</p>
+          <p className="mt-2">Es liegt derzeit keine Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG vor.</p>
         </section>
 
         <section>
           <h2 className="text-lg font-semibold text-slate-100">Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
           <p className="mt-2">
-            Ivo
+            Yves Schenker
             <br />
-            Mannheim, Deutschland
+            Lange Rötterstr. 56
+            <br />
+            68167 Mannheim, Deutschland
           </p>
         </section>
       </div>

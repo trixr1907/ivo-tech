@@ -23,11 +23,13 @@ export default function PrivacyPageEn() {
         <section>
           <h2 className="text-lg font-semibold text-slate-100">1. Data controller</h2>
           <p className="mt-2">
-            Ivo Tech
+            ivo-tech
             <br />
-            Ivo
+            Yves Schenker
             <br />
-            Mannheim, Germany
+            Lange Rötterstr. 56
+            <br />
+            68167 Mannheim, Germany
             <br />
             Email:{' '}
             <a className="text-sky-400 hover:text-sky-300" href="mailto:contact@ivo-tech.com">

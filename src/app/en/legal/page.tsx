@@ -23,11 +23,13 @@ export default function LegalPageEn() {
         <section>
           <h2 className="text-lg font-semibold text-slate-100">Provider information</h2>
           <p className="mt-2">
-            Ivo Tech
+            ivo-tech
             <br />
-            Ivo
+            Yves Schenker
             <br />
-            Mannheim
+            Lange Rötterstr. 56
+            <br />
+            68167 Mannheim
             <br />
             Germany
           </p>
@@ -45,7 +47,18 @@ export default function LegalPageEn() {
 
         <section>
           <h2 className="text-lg font-semibold text-slate-100">VAT ID</h2>
-          <p className="mt-2">VAT ID pursuant to Section 27a German VAT Act: published here when available.</p>
+          <p className="mt-2">No VAT ID pursuant to Section 27a German VAT Act is currently available.</p>
+        </section>
+
+        <section>
+          <h2 className="text-lg font-semibold text-slate-100">Responsible for content (Section 18 para. 2 MStV)</h2>
+          <p className="mt-2">
+            Yves Schenker
+            <br />
+            Lange Rötterstr. 56
+            <br />
+            68167 Mannheim, Germany
+          </p>
         </section>
       </div>
     </LegalRelaunchShell>
