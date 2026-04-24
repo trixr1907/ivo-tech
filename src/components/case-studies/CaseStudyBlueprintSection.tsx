@@ -1,10 +1,10 @@
 import Link from 'next/link';
 
 import { Button } from '@/components/shadcn/button';
-import type { Locale } from '@/content/copy';
 import { CASE_STUDY_BLUEPRINTS } from '@/content/caseStudies';
-import { RELAUNCH_CARD, RELAUNCH_SECTION } from '@/lib/relaunchMarketingStyles';
+import type { Locale } from '@/content/copy';
 import { getServicesPath } from '@/lib/navigation';
+import { RELAUNCH_CARD, RELAUNCH_SECTION } from '@/lib/relaunchMarketingStyles';
 
 type Props = {
   locale: Locale;
@@ -63,7 +63,7 @@ export function CaseStudyBlueprintSection({ locale, slug, contactPath }: Props) 
             {blueprint.primaryCta}
           </Link>
         </Button>
-        <Button asChild variant="outline" className="border-slate-600 bg-transparent text-slate-100 hover:bg-slate-800/60">
+        <Button asChild variant="onDark">
           <Link href={getServicesPath(locale)} data-hub-cta="case-structure-secondary">
             {blueprint.secondaryCta}
           </Link>

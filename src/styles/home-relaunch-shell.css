@@ -6,7 +6,10 @@
 }
 
 .home-shell-container {
+  width: 100%;
   max-width: clamp(320px, 94vw, 1360px);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Brand showcase: Hero-Surface (früher `.theme-ref103632 .brand-showcase-hero` in pages.css) */
@@ -1355,6 +1358,88 @@
   .home-section-h2 {
     font-size: 2.375rem;
   }
+}
+
+/* ============================================================
+   Page hero (H1) — einheitlich auf Marketing-Unterseiten
+   ============================================================ */
+
+.relaunch-page-hero-h1 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #f8fafc;
+  line-height: 1.12;
+  font-size: clamp(1.75rem, 3.75vw, 2.85rem);
+  text-wrap: balance;
+}
+
+.relaunch-page-hero-lead {
+  max-width: 42rem;
+  color: rgb(148 163 184);
+  font-size: 1rem;
+  line-height: 1.625;
+}
+
+@media (min-width: 768px) {
+  .relaunch-page-hero-lead {
+    font-size: 1.125rem;
+    line-height: 1.6;
+  }
+}
+
+.relaunch-page-hero--stack {
+  margin-bottom: 1.5rem;
+}
+
+.relaunch-page-hero--minimal {
+  margin-bottom: 0;
+}
+
+/* Sektions-H2 auf Marketing-Unterseiten (ersetzt `home-section-h2` + inline fontSize) */
+.relaunch-section-h2 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #f8fafc;
+  line-height: 1.22;
+  font-size: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .relaunch-section-h2 {
+    font-size: 1.625rem;
+  }
+}
+
+/* Prominente Sektions-H2 (z. B. Leistungen: Ablauf, Angebote) */
+.relaunch-section-h2-lg {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #f8fafc;
+  line-height: 1.15;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+}
+
+/* Rechtstexte: Seitentitel (H1) — Display wie Relaunch, etwas kompakter als Marketing-Hero */
+.relaunch-legal-doc-h1 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: #f1f5f9;
+  line-height: 1.15;
+  font-size: clamp(1.75rem, 3.2vw, 2.35rem);
+  text-wrap: balance;
+}
+
+/* Rechtstexte: Abschnittsüberschriften im Fließtext (H2) */
+.relaunch-legal-doc-h2 {
+  font-size: 1.125rem;
+  line-height: 1.4;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #f1f5f9;
 }
 
 /* ============================================================

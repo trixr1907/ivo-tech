@@ -2,14 +2,16 @@ import Link from 'next/link';
 import type { ReactNode } from 'react';
 
 import { ContactLeadForm } from '@/components/home/ContactLeadForm';
-import { PortfolioCaseTrackLink } from '@/components/portfolio/PortfolioCaseTrackLink';
 import { RelaunchMarketingShell } from '@/components/layout/RelaunchMarketingShell';
+import { RelaunchPageHero } from '@/components/layout/RelaunchPageHero';
+import { RelaunchPageMain } from '@/components/layout/RelaunchPageMain';
+import { PortfolioCaseTrackLink } from '@/components/portfolio/PortfolioCaseTrackLink';
 import { Button } from '@/components/shadcn/button';
 import type { Locale } from '@/content/copy';
 import { getFeaturedProjects, getJourneyTimeline, getProjectsByTrack, getSocialProof } from '@/content/portfolioModels';
 import { localizePath } from '@/lib/localeRouting';
-import { RELAUNCH_CARD, RELAUNCH_CARD_HOVER, RELAUNCH_SECTION } from '@/lib/relaunchMarketingStyles';
 import { getContactPath, getPrimaryNavLinks } from '@/lib/navigation';
+import { RELAUNCH_CARD, RELAUNCH_CARD_HOVER, RELAUNCH_SECTION, RELAUNCH_SECTION_H2 } from '@/lib/relaunchMarketingStyles';
 import { CONTACT_EMAIL } from '@/lib/site';
 
 type PageScaffoldProps = {
@@ -46,22 +48,18 @@ function PageScaffold({
       mobileNavPrimaryTrackingSource={`${desktopContactTrackingSource}-mobile`}
       shellClassName={shellClassName}
     >
-      <main id="main-content" className="mx-auto w-full max-w-[1200px] flex-1 px-4 pb-10 pt-8 sm:px-6 md:pb-12 md:pt-10">
+      <RelaunchPageMain>
         <section className={`${RELAUNCH_SECTION} mb-8`} aria-labelledby="portfolio-page-title">
-          <p className="home-eyebrow">
-            {locale === 'de' ? 'Builder / Engineer / Maker' : 'Builder / Engineer / Maker'}
-          </p>
-          <h1
-            id="portfolio-page-title"
-            className="mt-1 font-display font-bold tracking-tight text-white"
-            style={{ fontSize: 'clamp(1.75rem, 4vw, 2.75rem)', lineHeight: 1.15 }}
-          >
-            {title}
-          </h1>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-400 md:text-lg">{description}</p>
+          <RelaunchPageHero
+            className="!mb-0"
+            eyebrow={locale === 'de' ? 'Builder / Engineer / Maker' : 'Builder / Engineer / Maker'}
+            title={title}
+            titleId="portfolio-page-title"
+            description={description}
+          />
         </section>
         <div className="space-y-6">{children}</div>
-      </main>
+      </RelaunchPageMain>
     </RelaunchMarketingShell>
   );
 }
@@ -105,7 +103,7 @@ export function AboutBrandPage({ locale }: { locale: Locale }) {
   return (
     <PageScaffold locale={locale} title={copy.title} description={copy.description} shellClassName="about-brand-page">
       <section className={RELAUNCH_SECTION} aria-labelledby="principles-title">
-        <h2 id="principles-title" className="home-section-h2" style={{ fontSize: "1.5rem" }}>
+        <h2 id="principles-title" className={RELAUNCH_SECTION_H2}>
           {copy.principlesTitle}
         </h2>
         <div className="mt-6 grid gap-4 md:grid-cols-3">
@@ -118,7 +116,7 @@ export function AboutBrandPage({ locale }: { locale: Locale }) {
       </section>
 
       <section className={RELAUNCH_SECTION} aria-labelledby="timeline-title">
-        <h2 id="timeline-title" className="home-section-h2" style={{ fontSize: "1.5rem" }}>
+        <h2 id="timeline-title" className={RELAUNCH_SECTION_H2}>
           {copy.timelineTitle}
         </h2>
         <div className="mt-6 grid gap-4 md:grid-cols-2">
@@ -133,7 +131,7 @@ export function AboutBrandPage({ locale }: { locale: Locale }) {
       </section>
 
       <section className={RELAUNCH_SECTION} aria-labelledby="proof-title">
-        <h2 id="proof-title" className="home-section-h2" style={{ fontSize: "1.5rem" }}>
+        <h2 id="proof-title" className={RELAUNCH_SECTION_H2}>
           {copy.proofTitle}
         </h2>
         <div className="mt-6 grid gap-4 md:grid-cols-3">
@@ -153,7 +151,7 @@ export function AboutBrandPage({ locale }: { locale: Locale }) {
       </section>
 
       <section className={RELAUNCH_SECTION} aria-labelledby="featured-title">
-        <h2 id="featured-title" className="home-section-h2" style={{ fontSize: "1.5rem" }}>
+        <h2 id="featured-title" className={RELAUNCH_SECTION_H2}>
           {copy.featuredTitle}
         </h2>
         <div className="mt-6 grid gap-4 md:grid-cols-2">
@@ -226,14 +224,14 @@ export function ProjectsBrandPage({ locale }: { locale: Locale }) {
   return (
     <PageScaffold locale={locale} title={copy.title} description={copy.description} shellClassName="projects-brand-page">
       <section className={RELAUNCH_SECTION} aria-labelledby="professional-title">
-        <h2 id="professional-title" className="home-section-h2" style={{ fontSize: "1.5rem" }}>
+        <h2 id="professional-title" className={RELAUNCH_SECTION_H2}>
           {copy.professionalTitle}
         </h2>
         <div className="mt-6 grid gap-4 md:grid-cols-2">{professional.map(renderProjectCard)}</div>
       </section>
 
       <section className={RELAUNCH_SECTION} aria-labelledby="maker-title">
-        <h2 id="maker-title" className="home-section-h2" style={{ fontSize: "1.5rem" }}>
+        <h2 id="maker-title" className={RELAUNCH_SECTION_H2}>
           {copy.makerTitle}
         </h2>
         <div className="mt-6 grid gap-4 md:grid-cols-2">{maker.map(renderProjectCard)}</div>
@@ -292,7 +290,7 @@ export function MakerLabPage({ locale }: { locale: Locale }) {
   return (
     <PageScaffold locale={locale} title={copy.title} description={copy.description} shellClassName="maker-lab-page">
       <section className={RELAUNCH_SECTION} aria-labelledby="maker-focus-title">
-        <h2 id="maker-focus-title" className="home-section-h2" style={{ fontSize: "1.5rem" }}>
+        <h2 id="maker-focus-title" className={RELAUNCH_SECTION_H2}>
           {copy.focusTitle}
         </h2>
         <ul className="mt-6 grid gap-3 md:grid-cols-3">
@@ -306,14 +304,14 @@ export function MakerLabPage({ locale }: { locale: Locale }) {
           <Button asChild className="bg-sky-500 text-slate-950 hover:bg-sky-400">
             <Link href={contactPath}>{copy.ctaPrimary}</Link>
           </Button>
-          <Button asChild variant="outline" className="border-slate-600 bg-transparent text-slate-100 hover:bg-slate-800/60">
+          <Button asChild variant="onDark">
             <Link href={`${playbookPath}?source=maker-lab-playbook`}>{copy.ctaSecondary}</Link>
           </Button>
         </div>
       </section>
 
       <section className={RELAUNCH_SECTION} aria-labelledby="maker-roadmap-title">
-        <h2 id="maker-roadmap-title" className="home-section-h2" style={{ fontSize: "1.5rem" }}>
+        <h2 id="maker-roadmap-title" className={RELAUNCH_SECTION_H2}>
           {copy.roadmapTitle}
         </h2>
         <ol className="mt-6 grid gap-3 md:grid-cols-3">
@@ -327,7 +325,7 @@ export function MakerLabPage({ locale }: { locale: Locale }) {
       </section>
 
       <section className={RELAUNCH_SECTION} aria-labelledby="maker-projects-title">
-        <h2 id="maker-projects-title" className="home-section-h2" style={{ fontSize: "1.5rem" }}>
+        <h2 id="maker-projects-title" className={RELAUNCH_SECTION_H2}>
           {locale === 'de' ? 'Maker Projekte' : 'Maker projects'}
         </h2>
         <div className="mt-6 grid gap-4 md:grid-cols-2">
@@ -415,7 +413,7 @@ export function ContactBrandPage({ locale }: { locale: Locale }) {
       <section className={RELAUNCH_SECTION} aria-labelledby="contact-panel-title">
         <div className="grid gap-6 lg:grid-cols-[1.1fr_1fr]">
           <div className={RELAUNCH_CARD}>
-            <h2 id="contact-panel-title" className="home-section-h2" style={{ fontSize: "1.5rem" }}>
+            <h2 id="contact-panel-title" className={RELAUNCH_SECTION_H2}>
               {labels.panelTitle}
             </h2>
             <ul className="mt-4 space-y-2 text-sm text-slate-300">

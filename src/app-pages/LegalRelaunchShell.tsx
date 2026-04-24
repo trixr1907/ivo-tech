@@ -1,10 +1,11 @@
 import type { ReactNode } from 'react';
 
 import { RelaunchMarketingShell } from '@/components/layout/RelaunchMarketingShell';
+import { RelaunchPageMain } from '@/components/layout/RelaunchPageMain';
 import type { Locale } from '@/content/copy';
 import { localizePath } from '@/lib/localeRouting';
-import { RELAUNCH_SECTION } from '@/lib/relaunchMarketingStyles';
 import { getContactPath, getPrimaryNavLinks } from '@/lib/navigation';
+import { RELAUNCH_SECTION } from '@/lib/relaunchMarketingStyles';
 
 type LegalRelaunchShellProps = {
   locale: Locale;
@@ -30,9 +31,9 @@ export function LegalRelaunchShell({ locale, shellClassName, children }: LegalRe
       desktopContactTrackingSource={`${shellClassName}-header`}
       mobileNavPrimaryTrackingSource={`${shellClassName}-mobile-nav`}
     >
-      <main id="main-content" className="mx-auto w-full max-w-4xl flex-1 px-4 pb-12 pt-10 sm:px-6 md:pt-12">
+      <RelaunchPageMain variant="legal">
         <div className={RELAUNCH_SECTION}>{children}</div>
-      </main>
+      </RelaunchPageMain>
     </RelaunchMarketingShell>
   );
 }

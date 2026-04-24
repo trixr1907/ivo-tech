@@ -1,14 +1,16 @@
 import Link from 'next/link';
 
 import { RelaunchMarketingShell } from '@/components/layout/RelaunchMarketingShell';
-import { ServicePremiumBlocks } from '@/components/services/ServicePremiumBlocks';
+import { RelaunchPageHero } from '@/components/layout/RelaunchPageHero';
+import { RelaunchPageMain } from '@/components/layout/RelaunchPageMain';
 import { ServiceDetailTracker } from '@/components/services/ServiceDetailTracker';
+import { ServicePremiumBlocks } from '@/components/services/ServicePremiumBlocks';
 import { Button } from '@/components/shadcn/button';
 import type { Locale } from '@/content/copy';
 import type { ServiceDetailSlug } from '@/content/services';
 import { localizePath } from '@/lib/localeRouting';
-import { RELAUNCH_CARD_HOVER, RELAUNCH_SECTION } from '@/lib/relaunchMarketingStyles';
 import { getContactPath, getPrimaryNavLinks } from '@/lib/navigation';
+import { RELAUNCH_CARD_HOVER, RELAUNCH_SECTION, RELAUNCH_SECTION_H2 } from '@/lib/relaunchMarketingStyles';
 import { SITE_URL } from '@/lib/site';
 
 type LocalizedServiceContent = {
@@ -138,36 +140,35 @@ export function ServiceDetailPage({ locale, slug, content }: ServiceDetailPagePr
         mobileNavPrimaryTrackingSource={`service-detail-mobile-nav-${slug}`}
       >
         <ServiceDetailTracker locale={locale} slug={slug} />
-        <main id="main-content" className="mx-auto w-full max-w-[1200px] flex-1 px-4 pb-10 pt-8 sm:px-6 md:pb-12 md:pt-10">
+        <RelaunchPageMain>
           <section className={`${RELAUNCH_SECTION} service-detail-hero-section`} aria-labelledby="service-detail-title">
-            <p className="home-eyebrow">{content.eyebrow}</p>
-            <h1
-              id="service-detail-title"
-              className="mt-1 font-display font-bold tracking-tight text-white"
-              style={{ fontSize: 'clamp(1.75rem, 4vw, 2.75rem)', lineHeight: 1.15 }}
+            <RelaunchPageHero
+              className="!mb-0"
+              eyebrow={content.eyebrow}
+              title={content.title}
+              titleId="service-detail-title"
+              description={content.description}
             >
-              {content.title}
-            </h1>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-400 md:text-lg">{content.description}</p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Button
-                asChild
-                className="bg-gradient-to-r from-sky-500 to-blue-500 text-white shadow-[0_0_24px_rgba(14,165,233,0.28)] hover:from-sky-400 hover:to-blue-400"
-              >
-                <Link href={contactPath} data-service-detail-cta="hero-primary">
-                  {content.ctaPrimary}
-                </Link>
-              </Button>
-              <Button asChild variant="outline" className="border-slate-700 bg-transparent text-slate-200 hover:border-slate-500 hover:bg-slate-800/60">
-                <Link href={secondaryHref} data-service-detail-cta="hero-secondary-case">
-                  {content.ctaSecondary}
-                </Link>
-              </Button>
-            </div>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Button
+                  asChild
+                  className="bg-gradient-to-r from-sky-500 to-blue-500 text-white shadow-[0_0_24px_rgba(14,165,233,0.28)] hover:from-sky-400 hover:to-blue-400"
+                >
+                  <Link href={contactPath} data-service-detail-cta="hero-primary">
+                    {content.ctaPrimary}
+                  </Link>
+                </Button>
+                <Button asChild variant="onDark">
+                  <Link href={secondaryHref} data-service-detail-cta="hero-secondary-case">
+                    {content.ctaSecondary}
+                  </Link>
+                </Button>
+              </div>
+            </RelaunchPageHero>
           </section>
 
           <section className={`${RELAUNCH_SECTION} mt-8 service-detail-outcomes-section`} aria-labelledby="service-detail-outcomes">
-            <h2 id="service-detail-outcomes" className="home-section-h2" style={{ fontSize: "1.5rem" }}>
+            <h2 id="service-detail-outcomes" className={RELAUNCH_SECTION_H2}>
               {content.outcomesTitle}
             </h2>
             <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -211,7 +212,7 @@ export function ServiceDetailPage({ locale, slug, content }: ServiceDetailPagePr
           </section>
 
           <section className={`${RELAUNCH_SECTION} mt-8 service-detail-links-section`} aria-labelledby="service-detail-links">
-            <h2 id="service-detail-links" className="home-section-h2" style={{ fontSize: "1.5rem" }}>
+            <h2 id="service-detail-links" className={RELAUNCH_SECTION_H2}>
               {content.linksTitle}
             </h2>
             <p className="mt-2 text-sm text-slate-300 md:text-base">
@@ -241,7 +242,7 @@ export function ServiceDetailPage({ locale, slug, content }: ServiceDetailPagePr
           </section>
 
           <section className={`${RELAUNCH_SECTION} mt-8 service-detail-faq-section`} aria-labelledby="service-detail-faq">
-            <h2 id="service-detail-faq" className="home-section-h2" style={{ fontSize: "1.5rem" }}>
+            <h2 id="service-detail-faq" className={RELAUNCH_SECTION_H2}>
               {content.faqTitle}
             </h2>
             <div className="home-relaunch-faq mt-6">
@@ -253,7 +254,7 @@ export function ServiceDetailPage({ locale, slug, content }: ServiceDetailPagePr
               ))}
             </div>
           </section>
-        </main>
+        </RelaunchPageMain>
       </RelaunchMarketingShell>
     </>
   );

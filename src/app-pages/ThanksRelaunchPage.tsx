@@ -1,12 +1,14 @@
 import Link from 'next/link';
 
 import { RelaunchMarketingShell } from '@/components/layout/RelaunchMarketingShell';
-import { ThankYouTracker } from '@/components/thank-you/ThankYouTracker';
+import { RelaunchPageHero } from '@/components/layout/RelaunchPageHero';
+import { RelaunchPageMain } from '@/components/layout/RelaunchPageMain';
 import { Button } from '@/components/shadcn/button';
+import { ThankYouTracker } from '@/components/thank-you/ThankYouTracker';
 import type { Locale } from '@/content/copy';
 import { localizePath } from '@/lib/localeRouting';
-import { RELAUNCH_SECTION } from '@/lib/relaunchMarketingStyles';
 import { getContactPath, getPrimaryNavLinks } from '@/lib/navigation';
+import { RELAUNCH_SECTION } from '@/lib/relaunchMarketingStyles';
 
 type ThanksRelaunchPageProps = {
   locale: Locale;
@@ -64,15 +66,15 @@ export function ThanksRelaunchPage({ locale, source, heroVariant, primaryCta, sc
       mobileNavPrimaryTrackingSource="thanks-mobile-nav"
     >
       <ThankYouTracker locale={locale} source={source} heroVariant={heroVariant} />
-      <main id="main-content" className="mx-auto w-full max-w-[960px] flex-1 px-4 pb-12 pt-10 sm:px-6 md:pt-12">
-        <section className={RELAUNCH_SECTION}>
-          <p className="home-eyebrow">{copy.eyebrow}</p>
-          <h1
-            className="mt-1 font-display font-bold tracking-tight text-white"
-            style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', lineHeight: 1.15 }}
-          >
-            {copy.title}
-          </h1>
+      <RelaunchPageMain variant="reading">
+        <section className={RELAUNCH_SECTION} aria-labelledby="thanks-title">
+          <RelaunchPageHero
+            className="!mb-0"
+            eyebrow={copy.eyebrow}
+            title={copy.title}
+            titleId="thanks-title"
+            titleClassName="!max-w-[22ch] !text-[clamp(2rem,5vw,3rem)] !leading-[1.15]"
+          />
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-400">
             {copy.introBefore}{' '}
             <a className="font-medium text-sky-300 transition hover:text-sky-200" href="mailto:contact@ivo-tech.com" data-thanks-cta="email">
@@ -91,27 +93,24 @@ export function ThanksRelaunchPage({ locale, source, heroVariant, primaryCta, sc
             ))}
           </ol>
           <div className="mt-8 flex flex-col flex-wrap gap-3 sm:flex-row">
-            <Button
-              asChild
-              className="bg-gradient-to-r from-sky-500 to-blue-500 text-white shadow-[0_0_24px_rgba(14,165,233,0.28)] hover:from-sky-400 hover:to-blue-400"
-            >
+            <Button asChild variant="hero" size="lg">
               <Link href={primaryCta.href} data-thanks-cta="primary">
                 {primaryCta.label}
               </Link>
             </Button>
-            <Button asChild variant="outline" className="border-slate-700 bg-transparent text-slate-200 hover:border-slate-500 hover:bg-slate-800/60">
+            <Button asChild variant="onDark" size="lg">
               <Link href={homeHref} data-thanks-cta="secondary">
                 {copy.homeLabel}
               </Link>
             </Button>
-            <Button asChild variant="outline" className="border-slate-700 bg-transparent text-slate-200 hover:border-sky-500/40 hover:text-sky-300">
+            <Button asChild variant="onDark" size="lg" className="hover:border-sky-500/40 hover:text-sky-300">
               <a href={schedulerHref} target="_blank" rel="noopener noreferrer" data-thanks-cta="scheduler">
                 {copy.schedulerLabel}
               </a>
             </Button>
           </div>
         </section>
-      </main>
+      </RelaunchPageMain>
     </RelaunchMarketingShell>
   );
 }

@@ -7,25 +7,23 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import type { MouseEvent, ReactNode } from 'react';
 import { startTransition, useEffect, useMemo, useState } from 'react';
 
-import { HomeBackgroundFXClient } from '@/app-pages/HomeBackgroundFXClient';
-import { ContactLeadForm } from '@/components/home/ContactLeadForm';
-import { HomeLeadMagnet } from '@/components/home/HomeLeadMagnet';
-import { HomeRelaunchFooter } from '@/components/home/HomeRelaunchFooter';
-import { HomeRelaunchHeroSnapshot } from '@/components/home/HomeRelaunchHeroSnapshot';
-import { HomeSectionVisualCard } from '@/components/home/HomeSectionVisualCard';
-import { HomeMobileCtaDock } from '@/components/home/HomeMobileCtaDock';
-import { HomeScrollProgress } from '@/components/home/HomeScrollProgress';
-import { HomeClientLogosMarquee } from '@/components/home/HomeClientLogosMarquee';
-import { HomeTechStackBar } from '@/components/home/HomeTechStackBar';
 import { AnimatedCounter } from '@/components/home/AnimatedCounter';
+import { ContactLeadForm } from '@/components/home/ContactLeadForm';
+import { HomeClientLogosMarquee } from '@/components/home/HomeClientLogosMarquee';
+import { HomeLeadMagnet } from '@/components/home/HomeLeadMagnet';
+import { HomeRelaunchHeroSnapshot } from '@/components/home/HomeRelaunchHeroSnapshot';
+import { HomeScrollProgress } from '@/components/home/HomeScrollProgress';
+import { HomeSectionVisualCard } from '@/components/home/HomeSectionVisualCard';
+import { HomeTechStackBar } from '@/components/home/HomeTechStackBar';
+import { RelaunchMarketingShell } from '@/components/layout/RelaunchMarketingShell';
+import { RelaunchPageMain } from '@/components/layout/RelaunchPageMain';
 import { ProjectModal } from '@/components/ProjectModal';
-import { RelaunchStickyHeader } from '@/components/layout/RelaunchStickyHeader';
 import { Button } from '@/components/shadcn/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/shadcn/card';
 import { copy, type Locale } from '@/content/copy';
-import { getHomeVisualAsset } from '@/content/homeVisuals';
 import { getHomeRelaunchCopy } from '@/content/homeRelaunchCopy';
 import { getHomeJourneyCopy, getHomeProcessCopy, getHomeTestimonials } from '@/content/homeRelaunchSections';
+import { getHomeVisualAsset } from '@/content/homeVisuals';
 import { getProjectById, getProjectsByTier, getProjectStatusLabel, type Project, type ProjectId } from '@/content/projects';
 import { getPublishedTrustEvidence } from '@/content/trustEvidence';
 import { trackEvent } from '@/lib/analytics';
@@ -283,42 +281,29 @@ export function HomePageRelaunch2026({ locale, featuredInsights }: HomePageRelau
 
   return (
     <LazyMotion features={domAnimation}>
-      <div className="home-relaunch-shell relative min-h-screen">
-        <div className="home-relaunch-bg" aria-hidden="true">
-          <div className="home-relaunch-fx-slot">
-            <HomeBackgroundFXClient />
-          </div>
-          <div className="home-relaunch-noise" />
-          <div className="home-relaunch-blob home-relaunch-blob-a" />
-          <div className="home-relaunch-blob home-relaunch-blob-b" />
-        </div>
-        <HomeScrollProgress locale={locale} />
-
-        <div className="relative z-10 min-h-screen text-slate-100">
-          <RelaunchStickyHeader
-            locale={locale}
-            navLinks={navLinks}
-            homeHref={homeHref}
-            desktopCtaHref={schedulerHref}
-            desktopCtaLabel={t.headerBookingLabel}
-            desktopSecondaryHref="#contact"
-            desktopSecondaryLabel={t.headerContactShortLabel}
-            mobileNavCtaLabel={t.headerBookingLabel}
-            mobileNavCtaHref={schedulerHref}
-            mobileNavSecondaryHref="#contact"
-            mobileNavSecondaryLabel={t.headerContactShortLabel}
-            mobileNavCtaIntent="client"
-            heroVariant={heroVariant}
-            desktopContactTrackingSource="home-header-booking"
-            desktopSecondaryTrackingSource="home-header-contact-form"
-            mobileNavPrimaryTrackingSource="home_mobile_nav_booking"
-            mobileNavSecondaryTrackingSource="home_mobile_nav_contact"
-          />
-
-          <main
-            id="main-content"
-            className="home-shell-container mx-auto w-full px-4 pb-24 pt-10 sm:px-6 md:pb-12 md:pt-14"
-          >
+      <RelaunchMarketingShell
+        locale={locale}
+        homeHref={homeHref}
+        navLinks={navLinks}
+        desktopCtaHref="#contact"
+        desktopCtaLabel={t.headerContactShortLabel}
+        mobileNavCtaLabel={t.headerBookingLabel}
+        mobileNavCtaIntent="client"
+        heroVariant={heroVariant}
+        desktopContactTrackingSource="home-header"
+        schedulerAttributionSource="home-header"
+        preHeaderSlot={<HomeScrollProgress locale={locale} />}
+        mobileDockSecondaryHref={projectsHref}
+        mobileDockSecondaryLabel={locale === 'de' ? 'Projekte' : 'Projects'}
+        stickyHeaderTracking={{
+          desktopContactTrackingSource: 'home-header-booking',
+          desktopSecondaryTrackingSource: 'home-header-contact-form',
+          mobileNavPrimaryTrackingSource: 'home_mobile_nav_booking',
+          mobileNavSecondaryTrackingSource: 'home_mobile_nav_contact'
+        }}
+        shellClassName="home-relaunch-page"
+      >
+        <RelaunchPageMain variant="home">
             <section
               id="home-hero"
               className="home-hero-card relative"
@@ -440,11 +425,7 @@ export function HomePageRelaunch2026({ locale, featuredInsights }: HomePageRelau
                       visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } }
                     }}
                   >
-                    <Button
-                      asChild
-                      size="lg"
-                      className="min-h-12 border-0 bg-gradient-to-r from-sky-500 to-blue-500 px-6 text-white shadow-[0_0_28px_rgba(14,165,233,0.32)] transition-all duration-300 hover:from-sky-400 hover:to-blue-400 hover:shadow-[0_0_36px_rgba(14,165,233,0.42)]"
-                    >
+                    <Button asChild variant="hero" size="lg">
                       <a
                         href={schedulerHref}
                         target="_blank"
@@ -455,12 +436,7 @@ export function HomePageRelaunch2026({ locale, featuredInsights }: HomePageRelau
                         <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
                       </a>
                     </Button>
-                    <Button
-                      asChild
-                      size="lg"
-                      variant="outline"
-                      className="min-h-12 border-slate-600 bg-transparent px-6 text-slate-100 hover:bg-slate-800/60 hover:border-slate-500"
-                    >
+                    <Button asChild variant="onDark" size="lg">
                       <a href="#contact" onClick={() => trackHeroPrimary('home-hero-contact-form', 'client')}>
                         {t.secondaryCta}
                       </a>
@@ -1097,20 +1073,10 @@ export function HomePageRelaunch2026({ locale, featuredInsights }: HomePageRelau
                 />
               </div>
             </RelaunchMotionSection>
-          </main>
+        </RelaunchPageMain>
 
-          <HomeRelaunchFooter locale={locale} />
-
-          <HomeMobileCtaDock
-            locale={locale}
-            bookingHref={schedulerHref}
-            secondaryHref={projectsHref}
-            secondaryLabel={locale === 'de' ? 'Projekte' : 'Projects'}
-          />
-
-          <ProjectModal project={activeProject} locale={locale} onClose={closeModal} />
-        </div>
-      </div>
+        <ProjectModal project={activeProject} locale={locale} onClose={closeModal} />
+      </RelaunchMarketingShell>
     </LazyMotion>
   );
 }

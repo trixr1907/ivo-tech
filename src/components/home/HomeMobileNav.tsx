@@ -1,8 +1,8 @@
 'use client';
 
 import * as Dialog from '@radix-ui/react-dialog';
-import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
+import Link from 'next/link';
 
 import { Button } from '@/components/shadcn/button';
 import { trackEvent } from '@/lib/analytics';
@@ -162,7 +162,7 @@ export function HomeMobileNav({
             </Dialog.Close>
             {secondaryCtaHref && secondaryCtaLabel ? (
               <Dialog.Close asChild>
-                <Button asChild variant="outline" className="h-auto min-h-12 w-full border-slate-600 py-3 text-slate-100 hover:bg-slate-800/60">
+                <Button asChild variant="onDark" className="h-auto min-h-12 w-full py-3">
                   <a href={secondaryCtaHref} onClick={trackSecondary}>
                     {secondaryCtaLabel}
                   </a>

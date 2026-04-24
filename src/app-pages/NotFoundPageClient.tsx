@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 import { RelaunchMarketingShell } from '@/components/layout/RelaunchMarketingShell';
+import { RelaunchPageMain } from '@/components/layout/RelaunchPageMain';
 import { Button } from '@/components/shadcn/button';
 import { copy, type Locale } from '@/content/copy';
 import { CONTACT_EMAIL } from '@/lib/sitePublic';
@@ -42,10 +43,7 @@ export function NotFoundPageClient({ locale }: Props) {
       desktopContactTrackingSource="not-found-header-home"
       mobileNavPrimaryTrackingSource="not-found-mobile-home"
     >
-      <main
-        id="main-content"
-        className="mx-auto flex w-full max-w-[680px] flex-1 flex-col items-center justify-center px-4 pb-20 pt-16 sm:px-6"
-      >
+      <RelaunchPageMain variant="notFound">
         <section
           className="home-hero-card relative w-full text-center"
           aria-labelledby="nf-title"
@@ -81,19 +79,12 @@ export function NotFoundPageClient({ locale }: Props) {
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
-              <Button
-                asChild
-                className="bg-gradient-to-r from-sky-500 to-blue-500 text-white shadow-[0_0_24px_rgba(14,165,233,0.28)] hover:from-sky-400 hover:to-blue-400"
-              >
+              <Button asChild variant="hero" size="lg">
                 <Link href={homeHref}>
                   {effectiveLocale === 'de' ? 'Zur Startseite' : 'Back to home'}
                 </Link>
               </Button>
-              <Button
-                asChild
-                variant="outline"
-                className="border-slate-700 bg-transparent text-slate-200 hover:border-slate-500 hover:bg-slate-800/60"
-              >
+              <Button asChild variant="onDark" size="lg">
                 <a href={`mailto:${CONTACT_EMAIL}`}>
                   {effectiveLocale === 'de' ? 'Kontakt' : 'Contact'}
                 </a>
@@ -101,7 +92,7 @@ export function NotFoundPageClient({ locale }: Props) {
             </div>
           </div>
         </section>
-      </main>
+      </RelaunchPageMain>
     </RelaunchMarketingShell>
   );
 }

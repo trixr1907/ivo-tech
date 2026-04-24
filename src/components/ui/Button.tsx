@@ -1,5 +1,5 @@
-import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react';
 import type { ButtonSize, ButtonVariant, GlowLevel } from '@/types/design-system';
+import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react';
 
 type SharedProps = {
   children: ReactNode;
@@ -34,6 +34,10 @@ function getSizeClass(size: ButtonSize) {
   return 'btn-md';
 }
 
+/**
+ * @deprecated Für neue UI shadcn-`Button` (`@/components/shadcn/button`) nutzen — gleiche Tokens/Varianten (`hero`, `onDark`, …).
+ * Diese Implementierung bleibt für bestehende `.ui-btn`-Styles und Tests.
+ */
 export function Button(props: ButtonProps) {
   const {
     children,

@@ -1,6 +1,8 @@
 import Image from 'next/image';
 
 import { RelaunchMarketingShell } from '@/components/layout/RelaunchMarketingShell';
+import { RelaunchPageHero } from '@/components/layout/RelaunchPageHero';
+import { RelaunchPageMain } from '@/components/layout/RelaunchPageMain';
 import type { Locale } from '@/content/copy';
 import { localizePath } from '@/lib/localeRouting';
 import { RELAUNCH_SECTION } from '@/lib/relaunchMarketingStyles';
@@ -108,17 +110,17 @@ export function BrandShowcasePage({ locale }: Props) {
       desktopContactTrackingSource="brand-header-downloads"
       mobileNavPrimaryTrackingSource="brand-mobile-nav-downloads"
     >
-      <main
-        id="main-content"
-        className="brand-showcase-main mx-auto flex w-full max-w-[1200px] flex-1 flex-col px-4 pb-12 pt-6 sm:px-6 md:pt-8"
-      >
+      <RelaunchPageMain variant="brand">
         <section className={`${RELAUNCH_SECTION} brand-showcase-hero mb-8`} aria-labelledby="brand-showcase-title">
           <div className="hero-copy">
-            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sky-400/90">ivo-tech brand system</p>
-            <h1 id="brand-showcase-title" className="mt-2 font-display text-3xl font-semibold text-slate-50 md:text-4xl">
-              {copy.title}
-            </h1>
-            <p className="lead mt-4 text-base text-slate-300 md:text-lg">{copy.lead}</p>
+            <RelaunchPageHero
+              surface="minimal"
+              eyebrowMode="inline"
+              eyebrow="ivo-tech brand system"
+              title={copy.title}
+              titleId="brand-showcase-title"
+              description={copy.lead}
+            />
           </div>
         </section>
 
@@ -296,7 +298,7 @@ export function BrandShowcasePage({ locale }: Props) {
             </ul>
           </article>
         </section>
-      </main>
+      </RelaunchPageMain>
     </RelaunchMarketingShell>
   );
 }

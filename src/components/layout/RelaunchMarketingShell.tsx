@@ -41,6 +41,26 @@ type RelaunchMarketingShellProps = {
   headerPrimary?: 'scheduler' | 'contact';
   /** Sticky Mobile-Dock unten (Booking + Kontakt/…). */
   showMobileDock?: boolean;
+  /** Inhalt oberhalb des Sticky-Headers (z.B. Scroll-Progress auf der Startseite). */
+  preHeaderSlot?: ReactNode;
+  /**
+   * `source` für Cal.com-Links. Standard: `desktopContactTrackingSource` ohne Suffix `-header` am Ende.
+   * Setzen, falls die Attribution exakt bleiben soll (z.B. `home-header`).
+   */
+  schedulerAttributionSource?: string;
+  /** Mobile-Dock: zweite Aktion (Default: `desktopCtaHref` + Kurzlabel Kontakt). */
+  mobileDockSecondaryHref?: string;
+  mobileDockSecondaryLabel?: string;
+  /**
+   * Feste Analytics-Quellen für den Header (ohne automatische `-booking`/`-contact`-Ergänzung).
+   * Z.B. Startseite mit historischen Event-Namen.
+   */
+  stickyHeaderTracking?: {
+    desktopContactTrackingSource: string;
+    desktopSecondaryTrackingSource?: string;
+    mobileNavPrimaryTrackingSource?: string;
+    mobileNavSecondaryTrackingSource?: string;
+  };
 };
 
 export function RelaunchMarketingShell({
@@ -60,13 +80,19 @@ export function RelaunchMarketingShell({
   shellClassName,
   desktopHeaderDataHubCta,
   headerPrimary = 'scheduler',
-  showMobileDock = true
+  showMobileDock = true,
+  preHeaderSlot,
+  schedulerAttributionSource,
+  mobileDockSecondaryHref,
+  mobileDockSecondaryLabel,
+  stickyHeaderTracking
 }: RelaunchMarketingShellProps) {
   const t = getHomeRelaunchCopy(locale);
-  const schedulerSource = useMemo(
-    () => desktopContactTrackingSource.replace(/-header$/, '') || 'marketing-shell',
-    [desktopContactTrackingSource]
-  );
+  const schedulerSource = useMemo(() => {
+    const trimmed = schedulerAttributionSource?.trim();
+    if (trimmed) return trimmed;
+    return desktopContactTrackingSource.replace(/-header$/, '') || 'marketing-shell';
+  }, [schedulerAttributionSource, desktopContactTrackingSource]);
 
   const schedulerHref = useMemo(
     () =>
@@ -91,6 +117,30 @@ export function RelaunchMarketingShell({
   const mobileSecondaryHref = useScheduler ? desktopCtaHref : undefined;
   const mobileSecondaryLabel = useScheduler ? t.headerContactShortLabel : undefined;
 
+  const dockSecondaryHref = mobileDockSecondaryHref ?? desktopCtaHref;
+  const dockSecondaryLabel = mobileDockSecondaryLabel ?? t.headerContactShortLabel;
+
+  const headerDesktopContactTs = stickyHeaderTracking
+    ? stickyHeaderTracking.desktopContactTrackingSource
+    : useScheduler
+      ? `${desktopContactTrackingSource}-booking`
+      : desktopContactTrackingSource;
+  const headerDesktopSecondaryTs = stickyHeaderTracking?.desktopSecondaryTrackingSource
+    ? stickyHeaderTracking.desktopSecondaryTrackingSource
+    : useScheduler
+      ? `${desktopContactTrackingSource}-contact`
+      : undefined;
+  const headerMobilePrimaryTs = stickyHeaderTracking?.mobileNavPrimaryTrackingSource
+    ? stickyHeaderTracking.mobileNavPrimaryTrackingSource
+    : useScheduler
+      ? `${mobileNavPrimaryTrackingSource ?? desktopContactTrackingSource}-booking`
+      : mobileNavPrimaryTrackingSource;
+  const headerMobileSecondaryTs = stickyHeaderTracking?.mobileNavSecondaryTrackingSource
+    ? stickyHeaderTracking.mobileNavSecondaryTrackingSource
+    : useScheduler
+      ? `${mobileNavPrimaryTrackingSource ?? desktopContactTrackingSource}-contact`
+      : undefined;
+
   return (
     <div className={['home-relaunch-shell relative min-h-screen', shellClassName].filter(Boolean).join(' ')}>
       <div className="home-relaunch-bg" aria-hidden="true">
@@ -108,6 +158,7 @@ export function RelaunchMarketingShell({
           showMobileDock && useScheduler && 'pb-[5.75rem] md:pb-0'
         )}
       >
+        {preHeaderSlot}
         <RelaunchStickyHeader
           locale={locale}
           navLinks={navLinks}
@@ -122,10 +173,10 @@ export function RelaunchMarketingShell({
           mobileNavSecondaryLabel={mobileSecondaryLabel}
           mobileNavCtaIntent={mobileNavCtaIntent}
           heroVariant={heroVariant}
-          desktopContactTrackingSource={useScheduler ? `${desktopContactTrackingSource}-booking` : desktopContactTrackingSource}
-          desktopSecondaryTrackingSource={useScheduler ? `${desktopContactTrackingSource}-contact` : undefined}
-          mobileNavPrimaryTrackingSource={useScheduler ? `${mobileNavPrimaryTrackingSource ?? desktopContactTrackingSource}-booking` : mobileNavPrimaryTrackingSource}
-          mobileNavSecondaryTrackingSource={useScheduler ? `${mobileNavPrimaryTrackingSource ?? desktopContactTrackingSource}-contact` : undefined}
+          desktopContactTrackingSource={headerDesktopContactTs}
+          desktopSecondaryTrackingSource={headerDesktopSecondaryTs}
+          mobileNavPrimaryTrackingSource={headerMobilePrimaryTs}
+          mobileNavSecondaryTrackingSource={headerMobileSecondaryTs}
           desktopHeaderDataHubCta={desktopHeaderDataHubCta}
         />
         {children}
@@ -134,8 +185,8 @@ export function RelaunchMarketingShell({
           <HomeMobileCtaDock
             locale={locale}
             bookingHref={schedulerHref}
-            secondaryHref={desktopCtaHref}
-            secondaryLabel={t.headerContactShortLabel}
+            secondaryHref={dockSecondaryHref}
+            secondaryLabel={dockSecondaryLabel}
           />
         ) : null}
       </div>

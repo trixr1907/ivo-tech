@@ -1,11 +1,14 @@
-import type React from 'react';
 import Link from 'next/link';
+import type React from 'react';
 
 import { RelaunchMarketingShell } from '@/components/layout/RelaunchMarketingShell';
+import { RelaunchPageHero } from '@/components/layout/RelaunchPageHero';
+import { RelaunchPageMain } from '@/components/layout/RelaunchPageMain';
 import { ServicesPageTracker } from '@/components/services/ServicesPageTracker';
 import { Button } from '@/components/shadcn/button';
 import type { Locale } from '@/content/copy';
 import { getContactPath, getPrimaryNavLinks } from '@/lib/navigation';
+import { RELAUNCH_SECTION_H2_LG } from '@/lib/relaunchMarketingStyles';
 
 type ServicesPageProps = {
   locale: Locale;
@@ -234,38 +237,32 @@ export function ServicesPage({ locale }: ServicesPageProps) {
       mobileNavPrimaryTrackingSource="services-mobile-nav-primary"
     >
       <ServicesPageTracker locale={locale} />
-      <main id="main-content" className="mx-auto w-full max-w-[1200px] flex-1 px-4 pb-10 pt-8 sm:px-6 md:pb-12 md:pt-10">
+      <RelaunchPageMain>
 
-        {/* ── Hero ───────────────────────────────────────────────────── */}
-        <section id="services-main" aria-labelledby="services-title" className="home-hero-card relative mb-10">
-          <div className="home-hero-dot-grid" aria-hidden="true" />
-          <div className="relative z-[1]">
-            <p className="home-eyebrow">{locale === 'de' ? 'Leistungen' : 'Services'}</p>
-            <h1
-              id="services-title"
-              className="home-section-h2 mt-1 max-w-[36ch] text-balance text-white"
-              style={{ fontSize: 'clamp(1.75rem, 3.5vw, 2.75rem)' }}
+        <RelaunchPageHero
+          surface="card"
+          sectionId="services-main"
+          eyebrow={locale === 'de' ? 'Leistungen' : 'Services'}
+          title={t.title}
+          titleId="services-title"
+          description={t.description}
+        >
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Button
+              asChild
+              className="bg-gradient-to-r from-sky-500 to-blue-500 text-white shadow-[0_0_24px_rgba(14,165,233,0.28)] hover:from-sky-400 hover:to-blue-400"
             >
-              {t.title}
-            </h1>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-400 md:text-lg">{t.description}</p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Button
-                asChild
-                className="bg-gradient-to-r from-sky-500 to-blue-500 text-white shadow-[0_0_24px_rgba(14,165,233,0.28)] hover:from-sky-400 hover:to-blue-400"
-              >
-                <Link href={contactPath} data-service-cta="hero-primary">
-                  {t.ctaPrimary}
-                </Link>
-              </Button>
-              <Button asChild variant="outline" className="border-slate-700 bg-transparent text-slate-200 hover:border-slate-500 hover:bg-slate-800/60">
-                <Link href={caseStudiesPath} data-service-cta="hero-secondary-case">
-                  {t.ctaSecondary}
-                </Link>
-              </Button>
-            </div>
+              <Link href={contactPath} data-service-cta="hero-primary">
+                {t.ctaPrimary}
+              </Link>
+            </Button>
+            <Button asChild variant="onDark">
+              <Link href={caseStudiesPath} data-service-cta="hero-secondary-case">
+                {t.ctaSecondary}
+              </Link>
+            </Button>
           </div>
-        </section>
+        </RelaunchPageHero>
 
         {/* ── Sections grid ───────────────────────────────────────────── */}
         <section className="mb-10" aria-labelledby="services-overview">
@@ -296,7 +293,7 @@ export function ServicesPage({ locale }: ServicesPageProps) {
         {/* ── Process ─────────────────────────────────────────────────── */}
         <section className="mb-10" aria-labelledby="services-process">
           <p className="home-eyebrow">{locale === 'de' ? 'Ablauf' : 'Process'}</p>
-          <h2 id="services-process" className="home-section-h2 mb-6" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.2rem)' }}>
+          <h2 id="services-process" className={`${RELAUNCH_SECTION_H2_LG} mb-6`}>
             {t.processTitle}
           </h2>
           <ol className="home-process-grid" aria-label={locale === 'de' ? 'Projektphasen' : 'Project phases'}>
@@ -314,7 +311,7 @@ export function ServicesPage({ locale }: ServicesPageProps) {
         {/* ── Packages ────────────────────────────────────────────────── */}
         <section className="mb-10" aria-labelledby="services-packages">
           <p className="home-eyebrow">{locale === 'de' ? 'Angebote' : 'Formats'}</p>
-          <h2 id="services-packages" className="home-section-h2 mb-2" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.2rem)' }}>
+          <h2 id="services-packages" className={`${RELAUNCH_SECTION_H2_LG} mb-2`}>
             {t.packagesTitle}
           </h2>
           <p className="mb-6 max-w-2xl text-base text-slate-500">{t.packagesDescription}</p>
@@ -376,7 +373,7 @@ export function ServicesPage({ locale }: ServicesPageProps) {
         {/* ── Scope + final CTA ───────────────────────────────────────── */}
         <section className="home-contact-card" aria-labelledby="services-scope">
           <p className="home-eyebrow">{locale === 'de' ? 'Rahmen' : 'Scope'}</p>
-          <h2 id="services-scope" className="home-section-h2 mb-4" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.2rem)' }}>
+          <h2 id="services-scope" className={`${RELAUNCH_SECTION_H2_LG} mb-4`}>
             {t.scopeTitle}
           </h2>
           <ul className="mb-6 space-y-2">
@@ -396,7 +393,7 @@ export function ServicesPage({ locale }: ServicesPageProps) {
             </Link>
           </Button>
         </section>
-      </main>
+      </RelaunchPageMain>
     </RelaunchMarketingShell>
   );
 }

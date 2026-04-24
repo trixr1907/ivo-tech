@@ -5,6 +5,8 @@ import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 
 import { RelaunchMarketingShell } from '@/components/layout/RelaunchMarketingShell';
+import { RelaunchPageHero } from '@/components/layout/RelaunchPageHero';
+import { RelaunchPageMain } from '@/components/layout/RelaunchPageMain';
 import { Button } from '@/components/shadcn/button';
 import type { Locale } from '@/content/copy';
 import { getProjectById } from '@/content/projects';
@@ -143,47 +145,47 @@ export function ConfiguratorPageClient({ locale }: Props) {
       desktopContactTrackingSource="configurator-header-back"
       mobileNavPrimaryTrackingSource="configurator-mobile-back"
     >
-      <main
-        id="main-content"
-        className="mx-auto flex w-full max-w-[1200px] flex-1 flex-col gap-[var(--space-9)] px-4 pb-12 pt-14 sm:px-6 max-[900px]:gap-[var(--space-7)]"
-      >
+      <RelaunchPageMain variant="configurator">
         <section className={`${RELAUNCH_SECTION} mb-8`} aria-labelledby="cfg-title">
-          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sky-400/90">
-            {locale === 'de' ? 'Premium Case Study' : 'Premium case study'}
-          </p>
-          <h1 id="cfg-title" className="mt-2 font-display text-3xl font-semibold text-slate-50 md:text-4xl">
-            {locale === 'de' ? '3D-Konfigurator als Tech-Referenz' : '3D configurator as a tech reference'}
-          </h1>
-          <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-300 md:text-lg">
-            {heroProject?.one_liner[locale] ??
+          <RelaunchPageHero
+            className="!mb-0"
+            surface="stack"
+            eyebrowMode="inline"
+            eyebrow={locale === 'de' ? 'Premium Case Study' : 'Premium case study'}
+            title={locale === 'de' ? '3D-Konfigurator als Tech-Referenz' : '3D configurator as a tech reference'}
+            titleId="cfg-title"
+            description={
+              heroProject?.one_liner[locale] ??
               (locale === 'de'
                 ? 'Produktionsfaehige Datei-zu-Angebot-Architektur mit WebGL-Viewer, Preislogik und Checkout-Handoff.'
-                : 'Production-ready file-to-quote architecture with a WebGL viewer, pricing logic, and checkout handoff.')}
-          </p>
-          {attribution ? <p className="mt-3 text-sm text-slate-400">{attribution}</p> : null}
-          <div className="mt-8 flex flex-col flex-wrap gap-3 sm:flex-row">
-            <Button asChild className="bg-sky-500 text-slate-950 hover:bg-sky-400">
-              <a href={LIVE_LINK} target="_blank" rel="noopener noreferrer">
-                {locale === 'de' ? 'Live beim Kunden öffnen' : 'Open live client flow'}
-              </a>
-            </Button>
-            <Button asChild variant="outline" className="border-slate-600 bg-transparent text-slate-100 hover:bg-slate-800/60">
-              <Link
-                href={contactHref}
-                onClick={() =>
-                  trackEvent('cta_contact_click', {
-                    source: 'configurator_hero',
-                    location: 'configurator_hero',
-                    intent: 'hybrid',
-                    locale,
-                    path: pathname
-                  })
-                }
-              >
-                {locale === 'de' ? 'Erstgespräch anfragen' : 'Request free intro call'}
-              </Link>
-            </Button>
-          </div>
+                : 'Production-ready file-to-quote architecture with a WebGL viewer, pricing logic, and checkout handoff.')
+            }
+          >
+            {attribution ? <p className="mt-3 text-sm text-slate-400">{attribution}</p> : null}
+            <div className="mt-8 flex flex-col flex-wrap gap-3 sm:flex-row">
+              <Button asChild className="bg-sky-500 text-slate-950 hover:bg-sky-400">
+                <a href={LIVE_LINK} target="_blank" rel="noopener noreferrer">
+                  {locale === 'de' ? 'Live beim Kunden öffnen' : 'Open live client flow'}
+                </a>
+              </Button>
+              <Button asChild variant="onDark">
+                <Link
+                  href={contactHref}
+                  onClick={() =>
+                    trackEvent('cta_contact_click', {
+                      source: 'configurator_hero',
+                      location: 'configurator_hero',
+                      intent: 'hybrid',
+                      locale,
+                      path: pathname
+                    })
+                  }
+                >
+                  {locale === 'de' ? 'Erstgespräch anfragen' : 'Request free intro call'}
+                </Link>
+              </Button>
+            </div>
+          </RelaunchPageHero>
         </section>
 
         <section className={RELAUNCH_SECTION} aria-label={locale === 'de' ? 'Case Study Details' : 'Case study details'}>
@@ -212,7 +214,7 @@ export function ConfiguratorPageClient({ locale }: Props) {
             ))}
           </div>
         </section>
-      </main>
+      </RelaunchPageMain>
     </RelaunchMarketingShell>
   );
 }

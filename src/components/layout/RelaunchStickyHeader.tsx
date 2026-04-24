@@ -1,11 +1,11 @@
 'use client';
 
-import Link from 'next/link';
 import { HomeMobileNav } from '@/components/home/HomeMobileNav';
 import { Button } from '@/components/shadcn/button';
 import type { Locale } from '@/content/copy';
 import { getHomeRelaunchCopy } from '@/content/homeRelaunchCopy';
 import { trackEvent } from '@/lib/analytics';
+import Link from 'next/link';
 
 export type RelaunchNavLink = { href: string; label: string };
 
@@ -114,12 +114,7 @@ export function RelaunchStickyHeader({
             </Link>
           </Button>
           {desktopSecondaryHref && desktopSecondaryLabel ? (
-            <Button
-              asChild
-              variant="outline"
-              size="sm"
-              className="hidden min-h-12 border-slate-600 bg-transparent px-4 text-slate-100 hover:bg-slate-800/60 hover:border-slate-500 md:inline-flex"
-            >
+            <Button asChild variant="onDark" size="sm" className="hidden min-h-12 px-4 md:inline-flex">
               <a
                 href={desktopSecondaryHref}
                 onClick={() => trackDesktopContact(desktopSecondaryTrackingSource, locale, mobileNavCtaIntent, heroVariant)}
@@ -128,11 +123,7 @@ export function RelaunchStickyHeader({
               </a>
             </Button>
           ) : null}
-          <Button
-            asChild
-            size="sm"
-            className="hidden min-h-12 bg-gradient-to-r from-sky-500 to-blue-500 px-4 text-white hover:from-sky-400 hover:to-blue-400 md:inline-flex"
-          >
+          <Button asChild variant="hero" size="sm" className="hidden min-h-12 px-4 md:inline-flex">
             <a
               href={desktopCtaHref}
               target={desktopCtaHref.startsWith('http') ? '_blank' : undefined}

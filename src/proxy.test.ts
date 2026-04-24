@@ -1,5 +1,7 @@
-import { describe, expect, it } from 'vitest';
+// @vitest-environment node
+// happy-dom: Request/NextRequest liefert kein explizites `host`-Header-Override — Proxy-Logik braucht Node-Headers.
 import { NextRequest } from 'next/server';
+import { describe, expect, it } from 'vitest';
 
 import { proxy } from '@/proxy';
 

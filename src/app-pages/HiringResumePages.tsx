@@ -2,11 +2,13 @@ import Link from 'next/link';
 import type { ReactNode } from 'react';
 
 import { RelaunchMarketingShell } from '@/components/layout/RelaunchMarketingShell';
+import { RelaunchPageHero } from '@/components/layout/RelaunchPageHero';
+import { RelaunchPageMain } from '@/components/layout/RelaunchPageMain';
 import { Button } from '@/components/shadcn/button';
 import type { Locale } from '@/content/copy';
 import { localizePath } from '@/lib/localeRouting';
-import { RELAUNCH_CARD, RELAUNCH_SECTION } from '@/lib/relaunchMarketingStyles';
 import { getContactPath, getPrimaryNavLinks, getResumePath } from '@/lib/navigation';
+import { RELAUNCH_CARD, RELAUNCH_SECTION } from '@/lib/relaunchMarketingStyles';
 import { CV_PATH } from '@/lib/sitePublic';
 
 type PageScaffoldProps = {
@@ -43,20 +45,18 @@ function PageScaffold({
       mobileNavPrimaryTrackingSource={`${desktopContactTrackingSource}-mobile`}
       shellClassName={shellClassName}
     >
-      <main id="main-content" className="mx-auto w-full max-w-[1200px] flex-1 px-4 pb-10 pt-8 sm:px-6 md:pb-12 md:pt-10">
+      <RelaunchPageMain>
         <section className={`${RELAUNCH_SECTION} mb-8`} aria-labelledby="hiring-resume-title">
-          <p className="home-eyebrow">{locale === 'de' ? 'Senior Web Engineer' : 'Senior Web Engineer'}</p>
-          <h1
-            id="hiring-resume-title"
-            className="mt-1 font-display text-[1.75rem] font-bold tracking-tight text-white md:text-[2.5rem]"
-            style={{ lineHeight: 1.15 }}
-          >
-            {title}
-          </h1>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-400 md:text-lg">{description}</p>
+          <RelaunchPageHero
+            className="!mb-0"
+            eyebrow={locale === 'de' ? 'Senior Web Engineer' : 'Senior Web Engineer'}
+            title={title}
+            titleId="hiring-resume-title"
+            description={description}
+          />
         </section>
         <div className="space-y-6">{children}</div>
-      </main>
+      </RelaunchPageMain>
     </RelaunchMarketingShell>
   );
 }
@@ -198,7 +198,7 @@ export function HiringPage({ locale }: { locale: Locale }) {
           >
             <Link href={contactPath}>{copy.ctaPrimary}</Link>
           </Button>
-          <Button asChild variant="outline" className="border-slate-700 bg-transparent text-slate-200 hover:border-slate-500 hover:bg-slate-800/60">
+          <Button asChild variant="onDark">
             <Link href={resumePath}>{copy.ctaSecondary}</Link>
           </Button>
         </div>
@@ -326,7 +326,7 @@ export function ResumePage({ locale }: { locale: Locale }) {
               {copy.pdfCta}
             </a>
           </Button>
-          <Button asChild variant="outline" className="border-slate-600 bg-transparent text-slate-100 hover:bg-slate-800/60">
+          <Button asChild variant="onDark">
             <Link href={contactPath}>{copy.contactCta}</Link>
           </Button>
         </div>

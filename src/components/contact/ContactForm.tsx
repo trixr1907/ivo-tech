@@ -1,10 +1,10 @@
-import { useId, useRef, useState, type FormEvent } from 'react';
 import Script from 'next/script';
+import { useId, useRef, useState, type FormEvent } from 'react';
 
+import { Button } from '@/components/shadcn/button';
 import { Accordion } from '@/components/ui/Accordion';
-import { Button } from '@/components/ui/Button';
-import { InlineFeedback } from '@/components/ui/InlineFeedback';
 import { Input, RadioGroup, Select, Textarea } from '@/components/ui/FieldControls';
+import { InlineFeedback } from '@/components/ui/InlineFeedback';
 import { Toast } from '@/components/ui/Toast';
 import type { Locale } from '@/content/copy';
 import { trackEvent } from '@/lib/analytics';
@@ -457,11 +457,11 @@ export function ContactForm({ locale, text, trackingSource = 'contact_form' }: P
         ) : null}
 
         <div className="contact-submit-row">
-          <Button className="primary" type="submit" disabled={isSubmitting} variant="primary">
+          <Button type="submit" disabled={isSubmitting} variant="default" size="lg">
             {isSubmitting ? text.submitting : text.submit}
           </Button>
           {status === 'success' ? (
-            <Button className="ghost" type="button" onClick={resetForm} variant="ghost">
+            <Button type="button" variant="ghost" size="lg" onClick={resetForm} className="text-slate-300 hover:bg-slate-800/60 hover:text-white">
               {text.reset}
             </Button>
           ) : null}

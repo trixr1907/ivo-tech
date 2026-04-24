@@ -1,18 +1,20 @@
-import Link from 'next/link';
 import { MDXRemote } from 'next-mdx-remote/rsc';
+import Link from 'next/link';
 
 import { HUB_CONFIG, getHubBasePath } from '@/app-pages/hubShared';
 import { CaseStudyBlueprintSection } from '@/components/case-studies/CaseStudyBlueprintSection';
-import { HubReadTracker } from '@/components/HubReadTracker';
 import { HubPageTracker } from '@/components/hub/HubPageTracker';
+import { HubReadTracker } from '@/components/HubReadTracker';
 import { RelaunchMarketingShell } from '@/components/layout/RelaunchMarketingShell';
+import { RelaunchPageHero } from '@/components/layout/RelaunchPageHero';
+import { RelaunchPageMain } from '@/components/layout/RelaunchPageMain';
 import { Button } from '@/components/shadcn/button';
 import { CASE_STUDY_KPIS } from '@/content/caseStudies';
 import type { Locale } from '@/content/copy';
 import type { HubEntry, HubKind } from '@/content/hub';
 import { localizePath } from '@/lib/localeRouting';
-import { RELAUNCH_CARD, RELAUNCH_SECTION } from '@/lib/relaunchMarketingStyles';
 import { getContactPath, getPrimaryNavLinks } from '@/lib/navigation';
+import { RELAUNCH_CARD, RELAUNCH_SECTION, RELAUNCH_SECTION_H2 } from '@/lib/relaunchMarketingStyles';
 import { SITE_URL } from '@/lib/site';
 
 type Props = {
@@ -142,26 +144,26 @@ export function HubDetailPage({ locale, kind, entry }: Props) {
       >
         <HubReadTracker locale={locale} kind={kind} slug={entry.slug} />
         <HubPageTracker locale={locale} kind={kind} pageType="detail" slug={entry.slug} />
-        <main id="main-content" className="mx-auto w-full max-w-[1200px] flex-1 px-4 pb-10 pt-8 sm:px-6 md:pb-12 md:pt-10">
+        <RelaunchPageMain>
           <article className="insight-article hub-detail-article space-y-8" aria-labelledby="hub-detail-title">
             <header className={`${RELAUNCH_SECTION} insight-hero hub-detail-hero`}>
-              <p className="home-eyebrow">
-                {entry.category} · {entry.readMinutes} min
-              </p>
-              <h1
-                id="hub-detail-title"
-                className="mt-1 font-display font-bold tracking-tight text-white"
-                style={{ fontSize: 'clamp(1.75rem, 4vw, 2.75rem)', lineHeight: 1.18 }}
-              >
-                {entry.title}
-              </h1>
-              <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-400">{entry.description}</p>
+              <RelaunchPageHero
+                className="!mb-0"
+                eyebrow={
+                  <>
+                    {entry.category} · {entry.readMinutes} min
+                  </>
+                }
+                title={entry.title}
+                titleId="hub-detail-title"
+                description={entry.description}
+              />
             </header>
 
             {caseKpis.length > 0 ? (
               <section className={`${RELAUNCH_SECTION} hub-detail-kpi-section`} aria-labelledby="case-study-kpi-title">
                 <div className="space-y-2">
-                  <h2 id="case-study-kpi-title" className="home-section-h2" style={{ fontSize: "1.5rem" }}>
+                  <h2 id="case-study-kpi-title" className={RELAUNCH_SECTION_H2}>
                     {locale === 'de' ? 'Ergebnis-Snapshot' : 'Outcome snapshot'}
                   </h2>
                   <p className="text-sm text-slate-300 md:text-base">
@@ -196,7 +198,7 @@ export function HubDetailPage({ locale, kind, entry }: Props) {
               className={`${RELAUNCH_SECTION} hub-detail-related`}
               aria-label={locale === 'de' ? 'Weiterführende Links' : 'Related links'}
             >
-              <h2 className="home-section-h2" style={{ fontSize: "1.5rem" }}>
+              <h2 className={RELAUNCH_SECTION_H2}>
                 {locale === 'de' ? 'Weiterführende Links' : 'Related links'}
               </h2>
               <ul className="mt-4 space-y-3">
@@ -238,7 +240,7 @@ export function HubDetailPage({ locale, kind, entry }: Props) {
               </Button>
             </aside>
           </article>
-        </main>
+        </RelaunchPageMain>
       </RelaunchMarketingShell>
     </>
   );
