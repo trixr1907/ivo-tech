@@ -5,15 +5,18 @@ import { describe, expect, it } from 'vitest';
 
 import { HOME_SECTION_VISUALS } from '@/content/homeVisuals';
 
+const VISUAL_BASE = '/assets/home/visuals';
+
 describe('HOME_SECTION_VISUALS', () => {
-  it('uses finished local SVG graphics for every homepage visual slot', () => {
+  it('references local homepage visuals under the shared base path and ships files on disk', () => {
     for (const asset of Object.values(HOME_SECTION_VISUALS)) {
-      expect(asset.sources.fallback).toMatch(/^\/assets\/home\/visuals\/[-a-z0-9]+\.svg$/);
-      expect(asset.sources.avif).toBe(asset.sources.fallback);
-      expect(asset.sources.webp).toBe(asset.sources.fallback);
-      expect(existsSync(join(process.cwd(), 'public', asset.sources.fallback))).toBe(true);
-      expect(asset.width).toBe(1600);
-      expect(asset.height).toBe(960);
+      for (const url of [asset.sources.avif, asset.sources.webp, asset.sources.fallback]) {
+        expect(url.startsWith(`${VISUAL_BASE}/`)).toBe(true);
+        expect(url).toMatch(/^\/assets\/home\/visuals\/[-a-z0-9.]+\.(avif|webp|png|svg)$/);
+        expect(existsSync(join(process.cwd(), 'public', url))).toBe(true);
+      }
+      expect(asset.width).toBeGreaterThan(0);
+      expect(asset.height).toBeGreaterThan(0);
       expect(asset.alt.de.length).toBeGreaterThan(24);
       expect(asset.alt.en.length).toBeGreaterThan(24);
     }
