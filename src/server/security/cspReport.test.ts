@@ -1,5 +1,5 @@
-import { describe, expect, it } from 'vitest';
 import { classifyCspNoise, normalizeCspReport } from '@/server/security/cspReport';
+import { describe, expect, it } from 'vitest';
 
 describe('normalizeCspReport', () => {
   it('normalizes legacy csp-report payloads', () => {
@@ -135,10 +135,10 @@ describe('classifyCspNoise', () => {
     const report = normalizeCspReport({
       'csp-report': {
         disposition: 'report',
-        'document-uri': 'http://127.0.0.1:3000/leistungen',
+        'document-uri': 'http://localhost:3000/leistungen',
         'effective-directive': 'script-src-elem',
         'violated-directive': 'script-src-elem',
-        'blocked-uri': 'http://127.0.0.1:3000/_next/static/chunk.js',
+        'blocked-uri': 'http://localhost:3000/_next/static/chunk.js',
         'original-policy': "default-src 'self'",
         'source-file': '',
         'line-number': 1,

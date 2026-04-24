@@ -33,6 +33,7 @@
     "next-env.d.ts",
     "src/**/*.ts",
     "src/**/*.tsx",
+    "local-dev-origin.ts",
     "playwright.config.ts",
     "tests/e2e/**/*.ts",
     ".next/types/**/*.ts",

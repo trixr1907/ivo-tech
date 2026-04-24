@@ -43,9 +43,13 @@ export function HomeLeadMagnet({
   useEffect(() => {
     if (typeof window === 'undefined') return;
     const params = new URLSearchParams(window.location.search);
-    setAttributionSource(normalizeAttributionSource(params.get('source'), 'home'));
+    const source = normalizeAttributionSource(params.get('source'), 'home');
     const v = normalizeAttributionSource(params.get('exp_hero'), '');
-    setHeroVariant(v || normalizeAttributionSource(heroVariantDefault, 'default'));
+    const variant = v || normalizeAttributionSource(heroVariantDefault, 'default');
+    queueMicrotask(() => {
+      setAttributionSource(source);
+      setHeroVariant(variant);
+    });
   }, [heroVariantDefault]);
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {

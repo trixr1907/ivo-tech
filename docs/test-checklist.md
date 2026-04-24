@@ -29,7 +29,7 @@ Stand: 2026-02-28
 - [ ] Automatisierter Lauf in dieser Umgebung blockiert.
 - Blocker: `Unable to connect to Chrome` (Lighthouse CLI), trotz lokal startbarem Headless-Chrome.
 - Reproduzierbar mit:
-  - `npx -y lighthouse http://127.0.0.1:3000/ --quiet --output=json --output-path=output/lighthouse/home-de-mobile.json`
+  - `npx -y lighthouse http://localhost:3000/ --quiet --output=json --output-path=output/lighthouse/home-de-mobile.json`
 
 ## 7) Gesamtstatus der Pipeline
 - [x] `npm run lint`

@@ -16,6 +16,10 @@ Next.js 16 (App Router), React 19, TypeScript, Tailwind v4, Vitest, Playwright. 
 
 Node: `>=20.19.0` (siehe `package.json` engines).
 
+## Lokale Site-URL
+
+Kanonische Basis-URL: `local-dev-origin.ts` → `http://localhost:3000` (Playwright ohne `E2E_BASE_URL`, Doku-Beispiele). Unter **WSL + Windows (Cursor Simple Browser)** `http://localhost:3000/` nutzen; `http://127.0.0.1:3000/` kann dort am eingebetteten Browser scheitern. `next.config.mjs` (`allowedDevOrigins`) und CSP-Klassifikation akzeptieren weiterhin beides.
+
 ## Konventionen
 
 - Fokussierte Diffs; keine Refactors „nebenbei“.
@@ -71,7 +75,7 @@ Beide arbeiten im **gleichen Repo** auf Branch **`collab/hermes-cursor`**. Vor j
 | Schritt | Wer / wo | Was |
 |--------|-----------|-----|
 | 1 | Du | `git checkout collab/hermes-cursor` (in Cursor und im Terminal für Hermes). |
-| 2 | Optional | `npm run dev` — Seite lokal prüfen (`/` und `/en`). |
+| 2 | Optional | `npm run dev` — Seite unter `http://localhost:3000/` prüfen (`/` und `/en`). |
 | 3 | **Hermes** | Im Repo-Root `hermes` starten. Aufgaben formulieren wie: *„Passe den Text in `homeRelaunchCopy` für Locale `de` an“*, *„Neue Sektion in `homeRelaunchSections` vorschlagen und in `HomePageRelaunch2026` einbinden“*, *„Kontakt-/CTA-Texte prüfen“*. Hermes nutzt MCP `ivo_tech_fs` für Dateien nur in diesem Projekt. |
 | 4 | **Cursor** | Gleichen Branch öffnen; Hermes-Diffs reviewen; gezielt TSX/CSS/Tests anpassen; `npm run lint`, `npm run typecheck`, bei Bedarf `npm run test:unit`. |
 | 5 | Beide | Kleine, fokussierte Commits mit klaren Messages; pushen, damit die andere Seite `git pull` machen kann. |

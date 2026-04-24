@@ -41,8 +41,8 @@ Stand: 2026-04-12 (Hauptplan **abgeschlossen**; danach Qualitäts- und CI-Nachzi
 
 ## Lokale Previews
 
-- Homepage: `npx playwright screenshot http://127.0.0.1:3000/ homepage-preview.png --viewport-size=1440,900 --wait-for-timeout=2000`
-- Brand: `npx playwright screenshot http://127.0.0.1:3000/brand brand-preview.png --viewport-size=1440,900 --wait-for-timeout=2000`
+- Homepage: `npx playwright screenshot http://localhost:3000/ homepage-preview.png --viewport-size=1440,900 --wait-for-timeout=2000`
+- Brand: `npx playwright screenshot http://localhost:3000/brand brand-preview.png --viewport-size=1440,900 --wait-for-timeout=2000`
 
 ## Optional später
 

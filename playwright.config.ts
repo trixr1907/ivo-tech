@@ -1,11 +1,14 @@
 import { defineConfig, devices } from '@playwright/test';
 
+import { LOCAL_DEV_SITE_ORIGIN } from './local-dev-origin';
+
 // Keep Playwright logs deterministic and avoid Node warnings when both env flags are set.
 delete process.env.NO_COLOR;
 process.env.FORCE_COLOR = '0';
 
 const externalBaseUrl = process.env.E2E_BASE_URL?.trim();
-const baseURL = externalBaseUrl || 'http://127.0.0.1:3000';
+const baseURL = externalBaseUrl || LOCAL_DEV_SITE_ORIGIN;
+const localDevUrl = new URL(LOCAL_DEV_SITE_ORIGIN);
 
 /** In CI, run site-audit first (fail fast on HTTP/axe/links) before the heavier functional suite. */
 const e2eFailFastAudit = process.env.CI === 'true' && !externalBaseUrl;
@@ -29,7 +32,7 @@ export default defineConfig({
   webServer: externalBaseUrl
     ? undefined
     : {
-        command: 'npm run build && npm run start -- --hostname 127.0.0.1 --port 3000',
+        command: `npm run build && npm run start -- --hostname ${localDevUrl.hostname} --port ${localDevUrl.port || '3000'}`,
         env: {
           ...process.env,
           FORCE_COLOR: '0',

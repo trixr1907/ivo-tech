@@ -82,16 +82,12 @@ export function ContactLeadForm({
     const source = normalizeAttributionSource(params.get('source'), 'home');
     const queryVariant = normalizeAttributionSource(params.get('exp_hero'), '');
     const variant = queryVariant || normalizeAttributionSource(heroVariantDefault, 'default');
-    setAttributionSource(source);
-    setHeroVariant(variant);
-    setSchedulerHref(getSchedulerHref({ locale, source, placement: 'contact-form', heroVariant: variant }));
+    queueMicrotask(() => {
+      setAttributionSource(source);
+      setHeroVariant(variant);
+      setSchedulerHref(getSchedulerHref({ locale, source, placement: 'contact-form', heroVariant: variant }));
+    });
   }, [heroVariantDefault, locale]);
-
-  useEffect(() => {
-    if (intent === 'hiring' && company) {
-      setCompany('');
-    }
-  }, [company, intent]);
 
   function handleFormStart() {
     if (didTrackFormStart) return;
@@ -320,7 +316,11 @@ export function ContactLeadForm({
           <select
             name="intent"
             value={intent}
-            onChange={(event) => setIntent(event.target.value as 'client' | 'hiring')}
+            onChange={(event) => {
+              const next = event.target.value as 'client' | 'hiring';
+              setIntent(next);
+              if (next === 'hiring') setCompany('');
+            }}
             className={cn(
               'flex h-10 w-full rounded-md border px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
               isDarkShell
