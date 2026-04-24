@@ -1,0 +1,21 @@
+pack_id: cp_live_baseline_2026_04_10
+goal: Provide a compact factual baseline for redesign planning using fresh live+preview crawl data.
+mode: analysis
+sources:
+  - src_ivo_live_sitemap_run_2026_04_10
+  - src_ivo_preview_seed_run_2026_04_10
+  - knowledge/chunks/2026-04-10_combined_semantic_chunks_auto.jsonl
+core_facts:
+  - Live crawl discovered 50 URLs via sitemap and extracted 49 documents.
+  - Preview domain did not expose sitemap URLs; fallback seed crawl captured 7 key pages.
+  - Semantic corpus currently contains 345 deduped chunks across live and preview.
+  - CTA-heavy distribution is present and should be rebalanced during redesign planning.
+  - Trust signals are available but concentrated in specific sections and can be redistributed.
+open_questions:
+  - Which CTA hierarchy should be primary for target business outcome (hiring vs lead-gen)?
+  - Which sections create cognitive overload and should be compressed?
+  - Which trust artifacts should move closer to first conversion touchpoints?
+next_steps:
+  - Run structured website audit against cp_website_audit and link findings to chunk IDs.
+  - Build hero and homepage-structure proposal using compare mode with benchmark sources.
+  - Approve first ADRs for positioning, CTA strategy, and section architecture before coding.

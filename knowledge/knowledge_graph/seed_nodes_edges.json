@@ -1,0 +1,57 @@
+{
+  "nodes": [
+    {
+      "id": "brand_ivo_tech",
+      "type": "Brand",
+      "label": "ivo-tech",
+      "source_ids": ["src_ivo_live_home", "src_ivo_vercel_preview_home"]
+    },
+    {
+      "id": "service_web_engineering",
+      "type": "Service",
+      "label": "Web Engineering and Delivery",
+      "source_ids": ["src_ivo_live_home", "src_ivo_vercel_preview_home"]
+    },
+    {
+      "id": "cta_erstgespraech",
+      "type": "CTA",
+      "label": "Erstgespraech starten",
+      "source_ids": ["src_ivo_live_home", "src_ivo_vercel_preview_home"]
+    },
+    {
+      "id": "trust_live_system",
+      "type": "TrustElement",
+      "label": "Live-System mit End-to-End-Flow",
+      "source_ids": ["src_ivo_vercel_preview_home"]
+    },
+    {
+      "id": "section_hero",
+      "type": "Section",
+      "label": "Hero",
+      "source_ids": ["src_ivo_live_home", "src_ivo_vercel_preview_home"]
+    }
+  ],
+  "edges": [
+    {
+      "from": "service_web_engineering",
+      "relation": "BELONGS_TO",
+      "to": "brand_ivo_tech",
+      "source_ids": ["src_ivo_live_home"],
+      "confidence": 0.95
+    },
+    {
+      "from": "cta_erstgespraech",
+      "relation": "SHOULD_APPEAR_IN",
+      "to": "section_hero",
+      "source_ids": ["src_ivo_live_home", "src_ivo_vercel_preview_home"],
+      "confidence": 0.98
+    },
+    {
+      "from": "trust_live_system",
+      "relation": "STRENGTHENS_TRUST_FOR",
+      "to": "service_web_engineering",
+      "source_ids": ["src_ivo_vercel_preview_home"],
+      "confidence": 0.93
+    }
+  ]
+}

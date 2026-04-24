@@ -1,0 +1,168 @@
+:root {
+  color-scheme: dark light;
+  /* --font-heading, --font-sans, --font-mono: gesetzt via next/font auf <html>; Fallbacks für Edge-Fälle */
+  --font-heading: 'Space Grotesk', 'Avenir Next', 'Segoe UI', sans-serif;
+  --font-sans: 'Inter', 'Avenir Next', 'Segoe UI', sans-serif;
+  --font-body: var(--font-sans);
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Core neutrals */
+  --metal-990: #02040a;
+  --metal-960: #060b13;
+  --metal-930: #0c1420;
+  --metal-900: #101927;
+  --metal-880: #141f30;
+  --metal-860: #1b2537;
+  --metal-820: #2b364b;
+
+  /* Energy accents */
+  --energy-500: #2b84ff;
+  --energy-400: #49a6ff;
+  --energy-300: #7bc8ff;
+  --energy-200: #b1e4ff;
+  --iris-500: #6a8dff;
+  --iris-400: #87a2ff;
+
+  /* Legacy palette aliases */
+  --bg-900: #04060d;
+  --bg-800: #0b1020;
+  --bg-700: #121a2e;
+  --brand-600: #1c5e8f;
+  --brand-500: #3594e0;
+  --brand-400: #59bcf4;
+  --text-100: #ebf1ff;
+  --text-300: #9aa8cb;
+  --line-soft: rgba(89, 188, 244, 0.18);
+  --line-strong: rgba(89, 188, 244, 0.38);
+
+  /* Surface system */
+  --color-bg-base: var(--metal-960);
+  --color-bg-elev-1: var(--metal-930);
+  --color-bg-elev-2: var(--metal-900);
+  --color-bg-elev-3: var(--metal-880);
+  --color-bg-elev-4: var(--metal-860);
+
+  --color-panel: color-mix(in srgb, var(--metal-930) 90%, transparent);
+  --color-text-strong: #eef4ff;
+  --color-text-muted: #9ca9c2;
+  --color-text-subtle: #7f8ca3;
+
+  --color-accent-cyan: var(--energy-400);
+  --color-accent-iris: var(--iris-500);
+  --color-accent-magenta: var(--color-accent-iris);
+  --color-accent-proof: #95d3ff;
+  --color-accent-proof-strong: #d6ecff;
+  --color-border-soft: rgba(145, 171, 211, 0.2);
+  --color-border-strong: rgba(147, 196, 255, 0.45);
+  --color-focus: #56afff;
+  --color-success: #58d49c;
+  --color-success-surface: rgba(88, 212, 156, 0.16);
+  --color-warning: #f6c46d;
+  --color-warning-surface: rgba(246, 196, 109, 0.16);
+  --color-error: #ff8b97;
+  --color-error-surface: rgba(255, 139, 151, 0.14);
+
+  --bg-metal-gradient:
+    radial-gradient(circle at 18% 15%, rgba(120, 167, 232, 0.24), transparent 36%),
+    radial-gradient(circle at 85% 80%, rgba(38, 100, 179, 0.17), transparent 40%),
+    linear-gradient(145deg, #121b29 0%, #182335 42%, #101928 100%);
+
+  --bg-panel-gradient:
+    linear-gradient(165deg, rgba(30, 42, 63, 0.98), rgba(13, 20, 32, 0.94));
+
+  --noise-overlay: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='%23ffffff' fill-opacity='.028'%3E%3Ccircle cx='8' cy='8' r='1'/%3E%3Ccircle cx='42' cy='27' r='1'/%3E%3Ccircle cx='77' cy='15' r='1'/%3E%3Ccircle cx='101' cy='32' r='1'/%3E%3Ccircle cx='16' cy='59' r='1'/%3E%3Ccircle cx='52' cy='49' r='1'/%3E%3Ccircle cx='84' cy='61' r='1'/%3E%3Ccircle cx='24' cy='97' r='1'/%3E%3Ccircle cx='66' cy='88' r='1'/%3E%3Ccircle cx='112' cy='96' r='1'/%3E%3C/g%3E%3C/svg%3E");
+
+  --edge-light-soft: inset 0 1px 0 rgba(209, 227, 255, 0.2);
+  --edge-light-strong: inset 0 1px 0 rgba(218, 234, 255, 0.28), inset 0 -1px 0 rgba(0, 0, 0, 0.26);
+
+  --shadow-e0: 0 2px 6px rgba(0, 0, 0, 0.24);
+  --shadow-e1: 0 10px 24px rgba(0, 0, 0, 0.32);
+  --shadow-e2: 0 18px 40px rgba(0, 0, 0, 0.4);
+  --shadow-e3: 0 28px 58px rgba(0, 0, 0, 0.5);
+  --shadow-e4: 0 36px 84px rgba(0, 0, 0, 0.58);
+
+  --shadow-sm: var(--shadow-e1);
+  --shadow-md: var(--shadow-e2);
+  --shadow-lg: var(--shadow-e4);
+
+  --glow-xs: 0 0 8px rgba(89, 188, 244, 0.2);
+  --glow-sm: 0 0 16px rgba(89, 188, 244, 0.24);
+  --glow-md: 0 0 28px rgba(89, 188, 244, 0.3);
+  --glow-lg: 0 0 42px rgba(89, 188, 244, 0.36);
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-pill: 999px;
+
+  --space-0: 4px;
+  --space-1: 8px;
+  --space-2: 12px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 40px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 80px;
+  --space-10: 96px;
+  --space-11: 128px;
+
+  --duration-micro: 180ms;
+  --duration-base: 220ms;
+  --duration-expressive: 420ms;
+  --duration-reveal: 460ms;
+  --duration-section-reveal: 420ms;
+  --duration-hero: 900ms;
+  --duration-depth: 1000ms;
+  --duration-trail: 1800ms;
+  --easing-standard: cubic-bezier(0.22, 1, 0.36, 1);
+  --easing-tech: cubic-bezier(0.4, 0, 0.2, 1);
+  --easing-expressive: cubic-bezier(0.18, 0.84, 0.27, 1);
+
+  --grid-max-desktop: 1200px;
+  --grid-max-laptop: 960px;
+  --grid-max-tablet: 720px;
+  --grid-gap-desktop: 24px;
+  --grid-gap-laptop: 20px;
+  --grid-gap-tablet: 16px;
+  --grid-gap-mobile: 12px;
+  --grid-margin-desktop: 32px;
+  --grid-margin-laptop: 24px;
+  --grid-margin-tablet: 20px;
+  --grid-margin-mobile: 16px;
+  --section-rhythm-compact: var(--space-6);
+  --section-rhythm-default: var(--space-8);
+  --section-rhythm-spacious: var(--space-10);
+
+  --brand-lockup-mark-header: 30px;
+  --brand-lockup-wordmark-header-w: 176px;
+  --brand-lockup-wordmark-header-h: 36px;
+  --brand-lockup-glow: var(--glow-xs);
+  --expressive-hero-glow: 0 0 36px rgba(108, 189, 255, 0.24);
+  --expressive-panel-edge: 0 0 0 1px rgba(154, 211, 255, 0.22);
+  --expressive-proof-halo: 0 0 24px rgba(133, 205, 255, 0.28);
+  --focus-ring-inner: 0 0 0 2px var(--color-bg-base);
+  --focus-ring-primary: 0 0 0 4px var(--color-focus);
+  --focus-ring-glow: 0 0 0 6px color-mix(in srgb, var(--color-focus) 30%, transparent);
+  --z-base: 1;
+  --z-header: 40;
+  --z-overlay: 80;
+  --z-modal: 90;
+  --z-toast: 110;
+  --z-skip-link: 120;
+
+  /* Legacy aliases */
+  --bg: var(--color-bg-base);
+  --panel: var(--color-panel);
+  --text: var(--color-text-strong);
+  --muted: var(--color-text-muted);
+  --cyan: var(--color-accent-cyan);
+  --magenta: var(--color-accent-magenta);
+  --glow: var(--glow-sm);
+  --duration-fast: var(--duration-micro);
+  --duration-slow: 360ms;
+  --neon-cyan: var(--cyan);
+  --neon-magenta: var(--magenta);
+}

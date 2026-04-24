@@ -1,0 +1,591 @@
+{
+  "date": "2026-04-10",
+  "manifest": "knowledge/inspiration/benchmarks/2026-04-10-benchmarks/manifest.json",
+  "total": 16,
+  "results": [
+    {
+      "source_id": "src_benchmark__vercel_com",
+      "url": "https://vercel.com/",
+      "collection_id": "b2b_homepage_references",
+      "status": 200,
+      "title": "Vercel: Build and deploy the best web experiences with the AI Cloud",
+      "h1": "Build and deploy on the AI Cloud.",
+      "ctas": [
+        {
+          "href": "/changelog",
+          "label": "Changelog See what shipped"
+        },
+        {
+          "href": "/templates",
+          "label": "Templates Jumpstart app development"
+        },
+        {
+          "href": "/partners/solution-partners",
+          "label": "Partner Finder Get help from solution partners"
+        },
+        {
+          "href": "/pricing",
+          "label": "Pricing"
+        },
+        {
+          "href": "/contact/sales",
+          "label": "Contact"
+        },
+        {
+          "href": "/new",
+          "label": "Deploy Start Deploying"
+        },
+        {
+          "href": "/contact/sales/demo",
+          "label": "Get a Demo"
+        },
+        {
+          "href": "/new",
+          "label": "Deploy Start Deploying"
+        },
+        {
+          "href": "/contact/sales/demo",
+          "label": "Get a Demo"
+        },
+        {
+          "href": "/enterprise",
+          "label": "Learn about Enterprise"
+        },
+        {
+          "href": "/fluid",
+          "label": "Learn more"
+        },
+        {
+          "href": "/contact/sales",
+          "label": "Talk to an Expert Talk to an Expert"
+        }
+      ],
+      "score": 10
+    },
+    {
+      "source_id": "src_benchmark__linear_app",
+      "url": "https://linear.app/",
+      "collection_id": "b2b_homepage_references",
+      "status": 200,
+      "title": "Linear – The system for product development",
+      "h1": "The product development system for teams and agents The product development system for teams and agents The product development system for teams and agents",
+      "ctas": [
+        {
+          "href": "/pricing",
+          "label": "Pricing"
+        },
+        {
+          "href": "/contact",
+          "label": "Contact"
+        },
+        {
+          "href": "/changelog",
+          "label": "See all releases →"
+        },
+        {
+          "href": "/signup",
+          "label": "Get started"
+        },
+        {
+          "href": "/contact/sales",
+          "label": "Contact sales"
+        },
+        {
+          "href": "/pricing",
+          "label": "Pricing"
+        },
+        {
+          "href": "/startups",
+          "label": "Startups"
+        },
+        {
+          "href": "/contact",
+          "label": "Contact us"
+        }
+      ],
+      "score": 10
+    },
+    {
+      "source_id": "src_benchmark__www_webflow_com",
+      "url": "https://www.webflow.com/",
+      "collection_id": "b2b_homepage_references",
+      "status": 200,
+      "title": "Webflow: Create a custom website | Visual website builder",
+      "h1": "Make your website a growth engine",
+      "ctas": [
+        {
+          "href": "https://webflow.com/platform",
+          "label": "Learn more about Platform"
+        },
+        {
+          "href": "https://webflow.com/feature/ai",
+          "label": "Learn more about Ai"
+        },
+        {
+          "href": "https://webflow.com/enterprise",
+          "label": "Learn more about Enterprise"
+        },
+        {
+          "href": "https://webflow.com/solutions/aeo",
+          "label": "Learn more about AEO"
+        },
+        {
+          "href": "https://webflow.com/resources",
+          "label": "Webinars & ebooks"
+        },
+        {
+          "href": "https://webflow.com/pricing",
+          "label": "Pricing"
+        },
+        {
+          "href": "https://webflow.com/signup",
+          "label": "Get started"
+        },
+        {
+          "href": "https://webflow.com/enterprise/contact-sales",
+          "label": "Contact Sales"
+        },
+        {
+          "href": "https://webflow.com/dashboard",
+          "label": "Start for free"
+        },
+        {
+          "href": "https://webflow.com/signup",
+          "label": "Get started"
+        },
+        {
+          "href": "/enterprise/contact-sales",
+          "label": "Talk to sales"
+        },
+        {
+          "href": "/enterprise/contact-sales",
+          "label": "Talk to Sales"
+        }
+      ],
+      "score": 10
+    },
+    {
+      "source_id": "src_benchmark__www_framer_com",
+      "url": "https://www.framer.com/",
+      "collection_id": "b2b_homepage_references",
+      "status": 200,
+      "title": "Framer: Create a professional website, free. No code website builder loved by designers.",
+      "h1": "Build better sites, faster",
+      "ctas": [
+        {
+          "href": "./pricing",
+          "label": "Pricing"
+        },
+        {
+          "href": "./developers/",
+          "label": "Overview"
+        },
+        {
+          "href": "./developers/plugins-quick-start",
+          "label": "Quick Start"
+        },
+        {
+          "href": "./developers/server-api-quick-start",
+          "label": "Quick Start"
+        },
+        {
+          "href": "./developers/",
+          "label": "Overview"
+        },
+        {
+          "href": "./developers/plugins-quick-start",
+          "label": "Quick Start"
+        },
+        {
+          "href": "./developers/server-api-quick-start",
+          "label": "Quick Start"
+        },
+        {
+          "href": "https://framer.com/r/signup",
+          "label": "Start for free"
+        },
+        {
+          "href": "https://framer.com/r/signup",
+          "label": "Start for free"
+        },
+        {
+          "href": "./ai/",
+          "label": "Start with AI"
+        },
+        {
+          "href": "./ai/",
+          "label": "Start with AI"
+        },
+        {
+          "href": "./ai/",
+          "label": "Learn more"
+        }
+      ],
+      "score": 10
+    },
+    {
+      "source_id": "src_benchmark__www_shopify_com",
+      "url": "https://www.shopify.com/",
+      "collection_id": "b2b_homepage_references",
+      "status": 200,
+      "title": "Shopify: The All-in-One Commerce Platform for Businesses - Shopify",
+      "h1": "Be the next big thing",
+      "ctas": [
+        {
+          "href": "/start",
+          "label": "Get started fast You could be selling by tomorrow."
+        },
+        {
+          "href": "/sell",
+          "label": "Switch to Shopify Get more customers. Make more sales."
+        },
+        {
+          "href": "/pricing",
+          "label": "Pricing"
+        },
+        {
+          "href": "https://admin.shopify.com/signup?locale=en&amp;language=en&amp;signup_page=https%3A%2F%2Fwww.shopify.com%2F&amp;signup_types%5B%5D=paid_trial_experience",
+          "label": "Start for free"
+        },
+        {
+          "href": "https://admin.shopify.com/signup?locale=en&amp;language=en&amp;signup_page=https%3A%2F%2Fwww.shopify.com%2F&amp;signup_types%5B%5D=paid_trial_experience",
+          "label": "Start for free"
+        },
+        {
+          "href": "https://admin.shopify.com/signup?locale=en&amp;language=en&amp;signup_page=https%3A%2F%2Fwww.shopify.com%2F&amp;signup_types%5B%5D=paid_trial_experience",
+          "label": "Start for free"
+        },
+        {
+          "href": "/online",
+          "label": "Get a stunning store"
+        }
+      ],
+      "score": 10
+    },
+    {
+      "source_id": "src_benchmark__supabase_com",
+      "url": "https://supabase.com/",
+      "collection_id": "b2b_homepage_references",
+      "status": 200,
+      "title": "OpenAI logo",
+      "h1": "Build in a weekend Scale to millions",
+      "ctas": [
+        {
+          "href": "/pricing",
+          "label": "Pricing"
+        },
+        {
+          "href": "https://supabase.com/dashboard/sign-up",
+          "label": "Start your project"
+        },
+        {
+          "href": "/state-of-startups",
+          "label": "State of Startups 2026: Take the survey."
+        },
+        {
+          "href": "https://supabase.com/dashboard",
+          "label": "Start your project"
+        },
+        {
+          "href": "/contact/sales",
+          "label": "Request a demo"
+        },
+        {
+          "href": "/customers",
+          "label": "View all stories"
+        },
+        {
+          "href": "/events",
+          "label": "View events"
+        },
+        {
+          "href": "/docs/guides/examples",
+          "label": "View all examples"
+        },
+        {
+          "href": "/docs/guides/database/tables?queryGroups=database-method&amp;database-method=sql&amp;queryGroups=language&amp;language=js#materialized-views",
+          "label": "Materialized Views"
+        },
+        {
+          "href": "https://supabase.com/dashboard",
+          "label": "Start your project"
+        },
+        {
+          "href": "/contact/sales",
+          "label": "Request a demo"
+        },
+        {
+          "href": "/pricing",
+          "label": "Pricing"
+        }
+      ],
+      "score": 9
+    },
+    {
+      "source_id": "src_benchmark__stripe_com",
+      "url": "https://stripe.com/",
+      "collection_id": "b2b_homepage_references",
+      "status": 200,
+      "title": "Online-Bezahldienst und Zahlungsdienstleister | Stripe",
+      "h1": "Die Finanzinfrastruktur für mehr Umsatz. Akzeptieren Sie Zahlungen, bieten Sie Finanzdienstleistungen an und führen Sie individuelle Umsatzmodelle ein – vom ersten Bezahlvorgang bis zur milliardsten Transaktion.",
+      "ctas": [
+        {
+          "href": "https://dashboard.stripe.com/register",
+          "label": "Jetzt starten"
+        },
+        {
+          "href": "https://dashboard.stripe.com/register",
+          "label": "Jetzt starten"
+        },
+        {
+          "href": "/de/startups",
+          "label": "Stripe für Start-ups"
+        },
+        {
+          "href": "https://docs.stripe.com/development",
+          "label": "Jetzt starten"
+        },
+        {
+          "href": "https://dashboard.stripe.com/register",
+          "label": "Jetzt starten"
+        },
+        {
+          "href": "/de/startups",
+          "label": "Start-ups"
+        }
+      ],
+      "score": 9
+    },
+    {
+      "source_id": "src_benchmark__www_notion_com",
+      "url": "https://www.notion.com/",
+      "collection_id": "b2b_homepage_references",
+      "status": 200,
+      "title": "The AI workspace that works for you. | Notion",
+      "h1": "Meet the night shift.",
+      "ctas": [
+        {
+          "href": "/releases",
+          "label": "See what’s new →"
+        },
+        {
+          "href": "/startups",
+          "label": "Startups"
+        },
+        {
+          "href": "/pricing",
+          "label": "Pricing"
+        },
+        {
+          "href": "/contact-sales",
+          "label": "Request a demo"
+        },
+        {
+          "href": "/signup",
+          "label": "Get Notion free"
+        },
+        {
+          "href": "/signup",
+          "label": "Get Notion free"
+        },
+        {
+          "href": "/contact-sales",
+          "label": "Request a demo"
+        },
+        {
+          "href": "/pricing",
+          "label": "See pricing plans →"
+        },
+        {
+          "href": "/pricing",
+          "label": "Pricing"
+        }
+      ],
+      "score": 9
+    },
+    {
+      "source_id": "src_benchmark__tailwindui_com_components",
+      "url": "https://tailwindui.com/components",
+      "collection_id": "ui_component_sources",
+      "status": 200,
+      "title": "",
+      "h1": "Beautiful UI components, crafted with Tailwind CSS.",
+      "ctas": [
+        {
+          "href": "/plus#pricing",
+          "label": "Get full access"
+        },
+        {
+          "href": "/plus/ui-blocks/preview",
+          "label": "Live preview"
+        },
+        {
+          "href": "#pricing",
+          "label": "Pricing"
+        },
+        {
+          "href": "https://tailwindcss.com/plus/ui-blocks/marketing/sections/pricing",
+          "label": "Pricing Sections 12 components"
+        },
+        {
+          "href": "https://tailwindcss.com/plus/ui-blocks/marketing/sections/contact-sections",
+          "label": "Contact Sections 7 components"
+        },
+        {
+          "href": "https://tailwindcss.com/plus/ui-blocks/marketing/page-examples/pricing-pages",
+          "label": "Pricing Pages 3 examples"
+        },
+        {
+          "href": "https://tailwindcss.com/plus/ui-blocks/ecommerce/components/product-overviews",
+          "label": "Product Overviews 5 components"
+        },
+        {
+          "href": "https://tailwindcss.com/plus/ui-blocks/ecommerce/components/category-previews",
+          "label": "Category Previews 6 components"
+        },
+        {
+          "href": "https://tailwindcss.com/plus/ui-blocks/ecommerce/components/product-quickviews",
+          "label": "Product Quickviews 4 components"
+        },
+        {
+          "href": "https://tailwindcss.com/plus/ui-blocks/ecommerce/components/reviews",
+          "label": "Reviews 4 components"
+        },
+        {
+          "href": "https://tailwindcss.com/plus/checkout/1ab56599-ff3e-4666-9686-edda6c81c82a",
+          "label": "Get package"
+        },
+        {
+          "href": "https://tailwindcss.com/plus/checkout/0ed326ca-c1fc-440b-b1ba-bdfb01c43185",
+          "label": "Get package"
+        }
+      ],
+      "score": 8
+    },
+    {
+      "source_id": "src_benchmark__www_aceternity_com_components",
+      "url": "https://www.aceternity.com/components",
+      "collection_id": "ui_component_sources",
+      "status": 200,
+      "title": "",
+      "h1": "Awesome Tailwind CSS and Framer Motion components for your React project",
+      "ctas": [
+        {
+          "href": "/pricing",
+          "label": "Pricing"
+        },
+        {
+          "href": "/pricing",
+          "label": "Pricing"
+        },
+        {
+          "href": "/components/lamp-section-header",
+          "label": "Lamp Section Header A lamp effect as seen on linear, great for section headers."
+        },
+        {
+          "href": "/components/radar-effect",
+          "label": "Radar Preview A radar preview that spins and shows icons on the front."
+        },
+        {
+          "href": "/pricing",
+          "label": "Pricing"
+        },
+        {
+          "href": "/contact",
+          "label": "Contact"
+        }
+      ],
+      "score": 7
+    },
+    {
+      "source_id": "src_benchmark__www_lapa_ninja",
+      "url": "https://www.lapa.ninja/",
+      "collection_id": "showcase_and_pattern_sources",
+      "status": 200,
+      "title": "Landing Page Design Examples: 7,300+ Best Landing Pages | Lapa Ninja",
+      "h1": "The Best Landing Page Design Inspiration, Learn Design and More",
+      "ctas": [],
+      "score": 6
+    },
+    {
+      "source_id": "src_benchmark__www_hyperui_dev",
+      "url": "https://www.hyperui.dev/",
+      "collection_id": "ui_component_sources",
+      "status": 200,
+      "title": "Free Tailwind CSS v4 Components | HyperUI",
+      "h1": "HyperUI",
+      "ctas": [
+        {
+          "href": "/components/application",
+          "label": "View all application components"
+        },
+        {
+          "href": "/components/marketing/contact-forms",
+          "label": "Contact Forms 10 components"
+        },
+        {
+          "href": "/components/marketing",
+          "label": "View all marketing components"
+        },
+        {
+          "href": "/components/neobrutalism",
+          "label": "View all neobrutalism components"
+        }
+      ],
+      "score": 4
+    },
+    {
+      "source_id": "src_benchmark__godly_website",
+      "url": "https://godly.website/",
+      "collection_id": "showcase_and_pattern_sources",
+      "status": 200,
+      "title": "Godly - Astronomically good web design inspiration",
+      "h1": "Astronomically good web design inspiration",
+      "ctas": [
+        {
+          "href": "https://endless.design?ref=godly",
+          "label": "Get design"
+        }
+      ],
+      "score": 3
+    },
+    {
+      "source_id": "src_benchmark__ui_shadcn_com",
+      "url": "https://ui.shadcn.com/",
+      "collection_id": "ui_component_sources",
+      "status": 200,
+      "title": "The Foundation for your Design System - shadcn/ui",
+      "h1": "The Foundation for your Design System",
+      "ctas": [
+        {
+          "href": "/docs/components",
+          "label": "View Components"
+        }
+      ],
+      "score": 3
+    },
+    {
+      "source_id": "src_benchmark__www_radix_ui_com",
+      "url": "https://www.radix-ui.com/",
+      "collection_id": "ui_component_sources",
+      "status": 200,
+      "title": "Radix UI",
+      "h1": "Start building your app now",
+      "ctas": [
+        {
+          "href": "/themes/docs/overview/getting-started",
+          "label": "Get started"
+        }
+      ],
+      "score": 3
+    },
+    {
+      "source_id": "src_benchmark__www_onepagelove_com",
+      "url": "https://www.onepagelove.com/",
+      "collection_id": "showcase_and_pattern_sources",
+      "status": 525,
+      "score": 0,
+      "notes": "Not processable"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+pack_id: cp_copy_optimization
+goal: Improve conversion-oriented copy while preserving technical credibility.
+mode: synthesis
+sources:
+  - src_ivo_live_home
+  - src_ivo_vercel_preview_home
+  - src_repo_copy_content
+  - coll_b2b_homepage_benchmarks
+core_facts:
+  - Messaging already includes delivery, architecture, and reliability promises.
+  - FAQ and trust sections provide reusable evidence statements.
+open_questions:
+  - Which claims are strongest and directly evidenced?
+  - Which phrases are generic and should be replaced by concrete proof?
+next_steps:
+  - Tag copy blocks by claim strength.
+  - Generate improved copy variants by section.
+  - Link each claim to explicit proof.

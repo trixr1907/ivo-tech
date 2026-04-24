@@ -1,0 +1,12 @@
+{
+  "_comment": "Ausschnitt für Cursor MCP (Einstellungen): Hermes als Bridge zu Telegram/Discord/Slack. Gateway für send muss laufen. Pfad ggf. anpassen.",
+  "mcpServers": {
+    "hermes": {
+      "command": "hermes",
+      "args": [
+        "mcp",
+        "serve"
+      ]
+    }
+  }
+}

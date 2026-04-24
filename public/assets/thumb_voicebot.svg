@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#041019" />
+      <stop offset="1" stop-color="#15072A" />
+    </linearGradient>
+    <linearGradient id="accent" x1="220" y1="170" x2="1430" y2="830" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#00F3FF" stop-opacity="0.5" />
+      <stop offset="1" stop-color="#FF00FF" stop-opacity="0.4" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)" />
+  <rect x="130" y="130" width="1340" height="740" rx="28" fill="#050B15" stroke="url(#accent)" stroke-width="2" />
+  <circle cx="310" cy="205" r="9" fill="#FF4B55" />
+  <circle cx="338" cy="205" r="9" fill="#FFB34A" />
+  <circle cx="366" cy="205" r="9" fill="#49FFB1" />
+  <text x="450" y="212" fill="#8FA4C9" font-size="24" font-family="monospace">voicebot_orchestrator.log</text>
+  <text x="190" y="300" fill="#00F3FF" font-size="34" font-family="monospace">consent_flow.start()</text>
+  <text x="190" y="360" fill="#A5B7D8" font-size="30" font-family="monospace">stt -> intent -> tts -> audit</text>
+  <text x="190" y="420" fill="#A5B7D8" font-size="30" font-family="monospace">agent_companion: ready</text>
+  <rect x="188" y="500" width="300" height="72" rx="14" fill="#0A1724" stroke="#00F3FF" stroke-opacity="0.45" />
+  <rect x="514" y="500" width="300" height="72" rx="14" fill="#131022" stroke="#FF00FF" stroke-opacity="0.45" />
+  <rect x="840" y="500" width="300" height="72" rx="14" fill="#0F1426" stroke="#8AE9FF" stroke-opacity="0.4" />
+  <text x="225" y="545" fill="#D8E9FF" font-size="26" font-family="sans-serif">FastAPI</text>
+  <text x="545" y="545" fill="#F0D7FF" font-size="26" font-family="sans-serif">Speech API</text>
+  <text x="885" y="545" fill="#D8E9FF" font-size="26" font-family="sans-serif">Twilio + QA</text>
+</svg>

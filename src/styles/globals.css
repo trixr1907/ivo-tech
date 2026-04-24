@@ -1,0 +1,15 @@
+@import 'tailwindcss';
+@config '../../tailwind.config.ts';
+/* Crawled benchmark HTML under knowledge/ contains third-party class strings — exclude from Tailwind scan */
+@source not "../../knowledge/**";
+@source "../**/*.{ts,tsx}";
+
+@layer reset, tokens, themes, base, components, utilities, pages;
+
+@import './tokens.css' layer(tokens);
+@import './themes.css' layer(themes);
+@import './elevation.css' layer(utilities);
+@import './motion.css' layer(utilities);
+@import './components.css' layer(components);
+@import './pages.css' layer(pages);
+@import './home-relaunch-shell.css' layer(pages);

@@ -1,0 +1,37 @@
+# ivo-tech Portfolio
+
+## Ignore
+node_modules/
+.DS_Store
+*.log
+firebase-debug.log
+.env
+.firebase/
+.vscode/
+.next/
+.vercel/
+out/
+output/
+coverage/
+playwright-report/
+test-results/
+.lighthouseci/
+public/assets/brand-reference/
+public/assets/logo/backup-*/
+public/assets/logo/preview/
+public/assets/logo/source/
+public/assets/logo/svg/
+public/vendor/
+.cache/
+*.tsbuildinfo
+.env.local
+.env.development.local
+.env.staging.local
+.env.production.local
+
+.vercel
+.env*.local
+contact-preview.jsonl
+contact-production.jsonl
+homepage-preview.png
+subpage-leistungen-preview.png

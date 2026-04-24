@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "description": "Lightweight graph schema for relationship-aware homepage planning.",
+  "entity_types": [
+    "Brand",
+    "Audience",
+    "Service",
+    "Problem",
+    "Benefit",
+    "CTA",
+    "Page",
+    "Section",
+    "Component",
+    "StyleDirection",
+    "Reference",
+    "Competitor",
+    "TrustElement",
+    "Case",
+    "FAQ",
+    "Objection",
+    "DesignDecision"
+  ],
+  "relation_types": [
+    "ADDRESSES",
+    "SUPPORTS",
+    "BELONGS_TO",
+    "EVIDENCED_BY",
+    "INSPIRES",
+    "COMPETES_WITH",
+    "LINKS_TO",
+    "SUITABLE_FOR",
+    "STRENGTHENS_TRUST_FOR",
+    "SHOULD_APPEAR_IN",
+    "DEPENDS_ON"
+  ],
+  "minimal_node_fields": ["id", "type", "label", "source_ids"],
+  "minimal_edge_fields": ["from", "relation", "to", "source_ids", "confidence"]
+}

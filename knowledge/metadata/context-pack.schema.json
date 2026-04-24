@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ContextPack",
+  "type": "object",
+  "required": [
+    "pack_id",
+    "goal",
+    "mode",
+    "sources",
+    "core_facts",
+    "open_questions",
+    "next_steps"
+  ],
+  "properties": {
+    "pack_id": { "type": "string" },
+    "goal": { "type": "string" },
+    "mode": {
+      "type": "string",
+      "enum": ["search", "analysis", "compare", "synthesis"]
+    },
+    "sources": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "core_facts": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "open_questions": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "next_steps": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}

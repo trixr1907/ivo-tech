@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0A1220" />
+      <stop offset="1" stop-color="#1C1529" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)" />
+  <rect x="140" y="120" width="1320" height="760" rx="26" fill="#0E1524" stroke="#2B3655" />
+  <text x="190" y="220" fill="#D8E9FF" font-size="48" font-family="sans-serif">EXPERIMENTS / LABS</text>
+  <text x="190" y="278" fill="#9BB1D6" font-size="25" font-family="monospace">botsystem | esp32 | home assistant | edge automation</text>
+  <line x1="190" y1="328" x2="1410" y2="328" stroke="#2A3653" />
+  <rect x="190" y="380" width="570" height="190" rx="14" fill="#121F2F" stroke="#2F4A71" />
+  <rect x="840" y="380" width="570" height="190" rx="14" fill="#1A1530" stroke="#634089" />
+  <text x="230" y="442" fill="#CDE6FF" font-size="30" font-family="sans-serif">Messaging Automation</text>
+  <text x="230" y="490" fill="#93A7CA" font-size="22" font-family="monospace">tiers | lifecycle | operator UI</text>
+  <text x="880" y="442" fill="#F0DAFF" font-size="30" font-family="sans-serif">IoT / Edge Workbench</text>
+  <text x="880" y="490" fill="#C1A6E8" font-size="22" font-family="monospace">sensors | automations | runbooks</text>
+  <text x="190" y="650" fill="#9BB1D6" font-size="22" font-family="monospace">visible as labs, not positioned as primary offer</text>
+</svg>

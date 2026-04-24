@@ -1,0 +1,53 @@
+---
+slug: configurator-live
+locale: de
+title: "Case Study: 3D-Konfigurator als Tech-Referenz im Live-Betrieb"
+description: Tech-first Delivery eines produktiven Datei-zu-Angebot-Flows mit Three.js/WebGL, Plugin-Architektur, Preis-Engine und WooCommerce-Handoff.
+summary: Wie ein durchgängiger 3D-Flow von Upload bis Checkout manuelle Rückfrage-Schleifen reduziert und reproduzierbare Angebotsprozesse schafft.
+category: Case Study
+readMinutes: 8
+publishedAt: '2026-02-17'
+updatedAt: '2026-02-18'
+schemaType: Article
+internalLinks:
+  - /insights/architecture-decisions-under-pressure
+  - /playbooks/api-integration-readiness-playbook
+  - /#contact
+draft: false
+---
+
+## Projektkontext
+
+Dieses Projekt wurde als technischer Kern für einen produktiven Datei-zu-Angebot-Workflow umgesetzt.
+Der Zielzustand war klar: von Modell-Upload über Analyse und Preislogik bis zur Checkout-Übergabe in einem geführten Web-Flow.
+
+## Ausgangslage
+
+- 3D-Druck-Anfragen liefen zuvor über manuelle Angebotsrunden.
+- Rückfragen zu Geometrie, Material und Preislogik machten die Strecke langsam und schwer skalierbar.
+- Kunden brauchten schnelle Preisorientierung direkt nach dem Upload statt asynchroner Mail-Schleifen.
+
+## Umsetzungsarchitektur
+
+- **Frontend (Three.js/WebGL):** Interaktiver Viewer mit STL-/3MF-Verarbeitung, Orbit Controls und klaren Modellzustands-Feedbacks.
+- **Plugin-Backend (WordPress):** AJAX-Endpunkte für Analyse-Kontext, Preisberechnungen und Repricing-Operationen.
+- **Pricing-Engine:** Regelbasierte Logik für Material, Qualität, Farbe, Menge und Mindestpreis.
+- **Commerce-Handoff (WooCommerce):** Übergabe der finalen Konfiguration ohne Medienbruch in Cart/Checkout.
+
+## Delivery-Scope
+
+- Entwicklung als durchgängiger Systemflow statt als isolierte Viewer-Komponente.
+- Strukturierte Trennung zwischen clientseitiger Interaktion und serverseitigem Preis-/Kontext-Handling.
+- Fokus auf reproduzierbare Ergebnisse für Standardanfragen.
+
+## Ergebnis
+
+- Der Upload-zu-Checkout-Flow ist im Live-Betrieb aktiv.
+- Standardanfragen werden geführt statt manuell in Rückfrage-Schleifen verarbeitet.
+- Der Entscheidungsweg für Kunden ist klarer, weil Preis- und Konfigurationsstatus unmittelbar sichtbar sind.
+
+## Rollenabgrenzung
+
+Technische Umsetzung: **IVO TECH**.
+Betrieb und Vermarktung erfolgen beim Kunden.
+Die Live-Version dient als qualitativer Proof der implementierten Architektur.

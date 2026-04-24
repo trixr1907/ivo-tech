@@ -1,0 +1,17 @@
+pack_id: cp_inspiration_comparison
+goal: Compare inspiration references and extract reusable patterns without copying.
+mode: compare
+sources:
+  - coll_b2b_homepage_benchmarks
+  - coll_ui_component_patterns
+  - src_ivo_live_home
+core_facts:
+  - Inspiration should inform decisions, not override project constraints.
+  - Pattern fit must be judged by audience, offer and trust requirements.
+open_questions:
+  - Which patterns improve clarity and conversion with minimal risk?
+  - Which patterns conflict with technical brand positioning?
+next_steps:
+  - Score patterns by utility and risk.
+  - Select shortlist for design exploration.
+  - Link selected patterns to section-level decisions.

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 180" role="img" aria-label="ivo-tech wordmark">
+  <defs>
+    <linearGradient id="wordMetal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F3F7FF"/>
+      <stop offset="48%" stop-color="#A9B7CB"/>
+      <stop offset="100%" stop-color="#2A364A"/>
+    </linearGradient>
+  </defs>
+  <text x="20" y="126" fill="url(#wordMetal)" font-family="'Exo 2', 'Segoe UI', sans-serif" font-size="120" font-weight="700" letter-spacing="0.5">ivo-tech</text>
+</svg>

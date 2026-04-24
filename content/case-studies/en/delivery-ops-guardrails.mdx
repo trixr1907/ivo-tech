@@ -1,0 +1,44 @@
+---
+slug: delivery-ops-guardrails
+locale: en
+title: "Case study: Delivery and ops guardrails for reliable releases"
+description: How a fragmented release process was transformed into a reproducible delivery flow with explicit quality gates.
+summary: From ad-hoc deployments to a structured quality and release system with measurable guardrails.
+category: Case Study
+readMinutes: 7
+publishedAt: '2026-04-13'
+updatedAt: '2026-04-13'
+schemaType: Article
+internalLinks:
+  - /en/insights/nextjs-performance-budget-playbook
+  - /en/playbooks/performance-budget-guardrails
+  - /en#contact
+draft: false
+---
+
+## Project context
+
+The objective was not another feature wave, but delivery reliability: fewer release risks, fewer production surprises, and clearer ownership boundaries across product, engineering, and operations.
+
+## Initial situation
+
+- Deployments were manually triggered with only partial quality checks.
+- Lighthouse and accessibility values were tracked, but not enforced as release criteria.
+- No stable post-deploy domain-level verification existed.
+
+## Implementation approach
+
+- Introduced explicit quality gates in CI (lint, typecheck, unit, E2E, security).
+- Added a live guardrails workflow for domain and budget checks after main deployments.
+- Clarified release roles: who approves, who monitors, who escalates.
+
+## Outcome
+
+- Releases are now reproducible instead of person-dependent.
+- Regressions are surfaced earlier before affecting users or conversion.
+- The team shares one explicit definition of “release-ready”.
+
+## Role clarity
+
+Technical design and implementation of guardrails: **IVO TECH**.
+Operational approval and prioritization: client-side team and stakeholders.

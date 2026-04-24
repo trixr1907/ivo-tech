@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#04060d"/>
+  <g transform="skewX(-14)">
+    <text x="250" y="520" fill="#00eaff" font-size="300" font-family="Space Grotesk, DejaVu Sans, sans-serif" font-weight="700" letter-spacing="10">ivo-tech</text>
+  </g>
+  <polygon points="268,610 484,548 504,576 290,640" fill="#04060d"/>
+  <polygon points="548,610 764,548 784,576 570,640" fill="#04060d"/>
+  <polygon points="930,610 1146,548 1166,576 952,640" fill="#04060d"/>
+  <line x1="170" y1="590" x2="1430" y2="590" stroke="#00eaff" stroke-opacity="0.5" stroke-width="8"/>
+  <text x="164" y="655" fill="#8ea5c9" font-size="44" font-family="Inter, DejaVu Sans, sans-serif">Route B • aggressive futuristic (Master)</text>
+</svg>

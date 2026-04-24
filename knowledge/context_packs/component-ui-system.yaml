@@ -1,0 +1,17 @@
+pack_id: cp_component_ui_system
+goal: Define a component and design-system baseline for fast, consistent implementation.
+mode: synthesis
+sources:
+  - src_repo_ui_implementation
+  - src_design_tokens
+  - coll_ui_component_patterns
+core_facts:
+  - Existing project is Next.js/React with tokenized styling.
+  - Reusable section patterns already exist and can be normalized.
+open_questions:
+  - Which primitives remain stable across homepage iterations?
+  - Which components need hard constraints for consistency?
+next_steps:
+  - Define primitives and semantic variants.
+  - Create section-component map.
+  - Document do/don't rules in design system notes.

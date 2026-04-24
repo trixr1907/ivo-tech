@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [[ "${ALLOW_MAIN_PUSH:-}" == "1" ]]; then
+  exit 0
+fi
+
+current_branch="$(git rev-parse --abbrev-ref HEAD)"
+
+if [[ "$current_branch" == "main" ]]; then
+  echo "Push blocked: direct push to 'main' is disabled in this repo policy."
+  echo "Create a feature branch and open a PR."
+  echo "Emergency override: ALLOW_MAIN_PUSH=1 git push ..."
+  exit 1
+fi
+
+echo "Pre-push check passed."

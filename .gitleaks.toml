@@ -1,0 +1,8 @@
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Knowledge base research files — crawled HTML, embedding vectors, and benchmark data contain no real secrets"
+paths = [
+  '''.*knowledge.*''',
+]
