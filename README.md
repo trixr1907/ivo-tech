@@ -2,8 +2,18 @@
 
 Next.js 16 portfolio homepage with bilingual routes (`de`/`en`), project modals, and static showcase subpaths.
 
+## Live & Repository
+
+| Kontext | URL |
+|--------|-----|
+| Öffentliche Ziel-Domain (SEO, Sitemap, Produktion nach Domain-Promote) | [ivo-tech.com](https://ivo-tech.com) |
+| Vercel Production (`*.vercel.app`, z. B. GitHub „About“) | [ivo-tech-three.vercel.app](https://ivo-tech-three.vercel.app) |
+| Quellcode | [github.com/trixr1907/ivo-tech](https://github.com/trixr1907/ivo-tech) |
+
+`NEXT_PUBLIC_SITE_URL` und Crawls für die Live-Domain beziehen sich auf **ivo-tech.com**; die Vercel-URL ist der stabile Hosting-Einstieg auf der Plattform.
+
 ## Requirements
-- Node.js `24.x`
+- Node.js `>=20.19.0` (siehe `package.json` → `engines`)
 - npm
 
 ## Local development

@@ -4,7 +4,7 @@
 
 Primary domains:
 - https://ivo-tech.com
-- https://ivo-tech-bcz4r4dcb-ivos-projects-77f7d33c.vercel.app/
+- https://ivo-tech-three.vercel.app/ (Vercel Production; frühere Preview-Hosts nicht mehr verwenden)
 
 Secondary (later):
 - inspiration and benchmark sources

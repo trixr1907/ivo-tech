@@ -16,6 +16,12 @@ Next.js 16 (App Router), React 19, TypeScript, Tailwind v4, Vitest, Playwright. 
 
 Node: `>=20.19.0` (siehe `package.json` engines).
 
+## Öffentliche URLs (Kurz)
+
+- Ziel-Domain (Live): `https://ivo-tech.com`
+- Vercel Production: `https://ivo-tech-three.vercel.app`
+- Vollständige Tabelle und Repo-Link: `README.md` → Abschnitt **Live & Repository**.
+
 ## Lokale Site-URL
 
 Kanonische Basis-URL: `local-dev-origin.ts` → `http://localhost:3000` (Playwright ohne `E2E_BASE_URL`, Doku-Beispiele). Unter **WSL + Windows (Cursor Simple Browser)** `http://localhost:3000/` nutzen; `http://127.0.0.1:3000/` kann dort am eingebetteten Browser scheitern. `next.config.mjs` (`allowedDevOrigins`) und CSP-Klassifikation akzeptieren weiterhin beides.

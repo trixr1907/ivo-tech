@@ -1,6 +1,11 @@
 {
   "name": "ivo-tech",
   "private": true,
+  "homepage": "https://ivo-tech-three.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/trixr1907/ivo-tech.git"
+  },
   "type": "module",
   "engines": {
     "node": ">=20.19.0"

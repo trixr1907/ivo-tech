@@ -2,7 +2,7 @@
 
 ## Zielbild
 - Visuelle Basis: `ivo-tech.com` (Spacing, Depth, Motion-Stil, Typo-Polish)
-- Content-/Branding-Truth: Vercel-Referenz (`ivo-tech-trixr-4882-ivos-projects-77f7d33c.vercel.app`)
+- Content-/Branding-Truth: Vercel-Referenz (`https://ivo-tech-three.vercel.app`)
 
 ## Verifizierte Source-Sections
 - Hero

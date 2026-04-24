@@ -1,5 +1,7 @@
 # Ingestion Run Report - 2026-04-10
 
+> **Hinweis (Stand 2026-04-24):** Die unten genannte Preview-URL war ein zeitgebundener Vercel-Preview-Host fuer genau diesen Lauf. Aktuelle stabile Vercel-Production: `https://ivo-tech-three.vercel.app` (siehe README → „Live & Repository“).
+
 ## Run scope
 
 - Live base: `https://ivo-tech.com`

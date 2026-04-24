@@ -31,6 +31,12 @@ Primary architecture: **Hybrid (Agentic RAG + lightweight Graph layer)**.
 - `frontend_project/`: integration notes that map knowledge -> implementation.
 - `docs/`: system architecture + ingestion workflow.
 
+## Aktuelle Hostnamen (Referenz)
+
+- Live: `https://ivo-tech.com`
+- Vercel Production: `https://ivo-tech-three.vercel.app` (stabiler `*.vercel.app`-Einstieg; Details im Root-`README.md` unter **Live & Repository**)
+- Crawl-Quellen: `raw_sources/source_registry.yaml`
+
 ## Operational rules
 
 1. Every important claim must map to source IDs.

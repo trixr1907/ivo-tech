@@ -1,5 +1,5 @@
 version: 1
-updated_at: 2026-04-10
+updated_at: 2026-04-24
 sources:
   - source_id: src_ivo_live_home
     type: website_page
@@ -18,7 +18,7 @@ sources:
   - source_id: src_ivo_vercel_preview_home
     type: website_page
     owner: first_party
-    url: https://ivo-tech-bcz4r4dcb-ivos-projects-77f7d33c.vercel.app/
+    url: https://ivo-tech-three.vercel.app/
     language: de
     status: active
     priority: critical
@@ -27,7 +27,7 @@ sources:
     normalize: true
     chunk: true
     versioned: true
-    notes: Preview baseline for variant comparison.
+    notes: Vercel Production (*.vercel.app). Source-ID bleibt aus Kompatibilität mit älteren Crawls/Graph; frühere Preview-Hosts sind obsolet.
 
   - source_id: src_repo_copy_content
     type: repository_content

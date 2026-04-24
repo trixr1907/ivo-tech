@@ -39,6 +39,7 @@ npm run github:ops:readiness:strict
 
 ## Required Vercel setup
 - Connect repo to Vercel project.
+- Default Production auf Vercel: `https://ivo-tech-three.vercel.app` (GitHub-Repo „Website“/About und `package.json` → `homepage` verweisen hierauf, bis eine Custom Domain promoted ist).
 - Configure custom domains:
   - `ivo-tech.com` for production
   - `www.ivo-tech.com` as alias redirected to `ivo-tech.com`
