@@ -116,7 +116,7 @@
     "globals": "^17.3.0",
     "happy-dom": "^20.0.0",
     "png-to-ico": "^3.0.1",
-    "postcss": "^8.5.9",
+    "postcss": "^8.5.12",
     "sharp": "^0.34.5",
     "start-server-and-test": "^2.1.3",
     "svgo": "^4.0.0",
