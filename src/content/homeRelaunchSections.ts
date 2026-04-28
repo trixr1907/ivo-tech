@@ -3,6 +3,214 @@ import type { Locale } from '@/content/copy';
 type TimelineEntry = { year: string; title: string; detail: string };
 type ProcessStep = { title: string; description: string };
 
+export type HomeEngineCodeLine = { type: 'noise' | 'pivot' | 'skeleton' | 'mem'; text: string };
+
+export type HomeEngineShowcaseCopy = {
+  groupEyebrow: string;
+  groupTitle: string;
+  groupLead: string;
+  problemLabel: string;
+  problemTitle: string;
+  problemSub: string;
+  withoutColumnTitle: string;
+  withColumnTitle: string;
+  loadLabel: string;
+  withoutLoad: { display: string; percent: number };
+  withLoad: { display: string; percent: number };
+  withoutLines: string[];
+  withLines: HomeEngineCodeLine[];
+  howEyebrow: string;
+  howTitle: string;
+  howSub: string;
+  steps: { id: string; title: string; body: string }[];
+  archEyebrow: string;
+  archTitle: string;
+  archNodes: [string, string, string];
+  archSub: string;
+  stats: { value: string; label: string; sub: string }[];
+  toolsEyebrow: string;
+  toolsLine: string;
+  ctaHref: string;
+  ctaLabel: string;
+};
+
+const engineShowcase: Record<Locale, HomeEngineShowcaseCopy> = {
+  de: {
+    groupEyebrow: 'Delivery-Engine',
+    groupTitle: 'Fokus statt Scope-Rauschen',
+    groupLead:
+      'Inspiriert von lokalen Kontext-Engines: dieselbe Idee — nur eben für B2B-Umsetzung. Weniger Streuverlust, mehr Schärfe in der Kette von Anforderung bis Deploy.',
+    problemLabel: 'Das Muster',
+    problemTitle: 'Viel gelesen. Wenig handlungsfähig.',
+    problemSub:
+      'Ohne klare Kapsel entsteht dieselbe Dichte wie bei „Kontext-fressenden“ Setups: alles scheint relevant, nichts ist priorisiert.',
+    withoutColumnTitle: 'Ohne fokussierte Kette',
+    withColumnTitle: 'Mit fokussierter Lieferkette',
+    loadLabel: 'Kontext-Budget (Metapher)',
+    withoutLoad: { display: '8.247 u. a. Zeilen/Refs', percent: 81 },
+    withLoad: { display: '2.140 fokussiert', percent: 21 },
+    withoutLines: [
+      'import { auth } from "./auth"',
+      'import { limit } from "./limiter"',
+      'import { db } from "./db"',
+      'import { log } from "./log"',
+      'import { User } from "./types/user"',
+      'import { Session } from "./types/sess"',
+      'import { cache } from "./cache"',
+      'import { util } from "./util"',
+      '// … Middleware + 4 weitere Dateien unklar verknüpft'
+    ],
+    withLines: [
+      { type: 'pivot', text: '● pivot  middleware/auth.ts' },
+      { type: 'pivot', text: '   export async function middleware(…): Promise<void>' },
+      { type: 'pivot', text: '   export async function validateSession(…): Promise<Session>' },
+      { type: 'skeleton', text: '○ skel. services/limiter.ts' },
+      { type: 'skeleton', text: '   class RateLimiter' },
+      { type: 'skeleton', text: '   check(key: string): Promise<boolean>' },
+      { type: 'skeleton', text: '○ skel.  config/limits.ts' },
+      { type: 'skeleton', text: '   export const rateLimits: Record<string, number>' },
+      { type: 'mem', text: '◌ Memory  „Gates vor Redis-Fallback“ · vorgestern' }
+    ],
+    howEyebrow: 'Wie es zusammenspielt',
+    howTitle: 'Graph-scharf statt alles-auf-einmal',
+    howSub: 'Drei Stufen — deterministisch nachvollziehbar, ohne externe KI-Pipeline. Genau so strukturiere ich Projekte.',
+    steps: [
+      {
+        id: 'map',
+        title: '1 · Kartieren',
+        body: 'Ist-Architektur, Abhängigkeiten und harte Business-Constraints in ein gemeinsames Modell — kein Raten bei Imports und Nebenwirkungen.'
+      },
+      {
+        id: 'link',
+        title: '2 · Verknüpfen',
+        body: 'Impact vor Refactor: wer ruft was, welche Tests/Gates brechen? Blast-Radius sichtbar machen, bevor Code bewegt wird.'
+      },
+      {
+        id: 'capsule',
+        title: '3 · Kapseln',
+        body: 'Nächste Iteration bekommt nur die Pivots plus schlanke Signatur-Flächen — PRs, Reviews und Deploys bleiben lesbar.'
+      }
+    ],
+    archEyebrow: 'Architektur',
+    archTitle: 'Ein Band — vom Mandat ins Live-System',
+    archNodes: ['Anforderung & Risiko', 'Spec · QA · Gates', 'Produktives Web-System'],
+    archSub: 'Derselbe Gedanke wie „Agent → Protokoll → Engine“: klare Hand-offs statt heimlicher Informationsverlust.',
+    stats: [
+      {
+        value: '~60%',
+        label: 'Weniger Rückfragen',
+        sub: 'Schätzung Ops · 3D-Konfigurator live (Case: Datei-zu-Preis)'
+      },
+      {
+        value: '95+',
+        label: 'Lighthouse-Ziel',
+        sub: 'Performance-Gate wie auf der Startseite kommuniziert'
+      },
+      {
+        value: '< 24h',
+        label: 'Antwort werktags',
+        sub: 'Reaktionszeit — konsistent im Hero & Kontakt'
+      },
+      {
+        value: '3',
+        label: 'Live-Nachweise',
+        sub: 'verlinkte Production-Surfaces & dokumentierte Cases'
+      }
+    ],
+    toolsEyebrow: 'Stack & Werkzeuge',
+    toolsLine: 'Dieselbe Disziplin, die du im Repo erwartest — sichtbar in CI, E2E und am Deploy-Rand.',
+    ctaHref: '#home-offer',
+    ctaLabel: 'Zu Angebot & Nachweis'
+  },
+  en: {
+    groupEyebrow: 'Delivery engine',
+    groupTitle: 'Clarity over scope noise',
+    groupLead:
+      'Borrowing the local-first context idea — applied to B2B delivery. Less scatter, more signal from requirements to deploy.',
+    problemLabel: 'The pattern',
+    problemTitle: 'Lots read. Little leverage.',
+    problemSub:
+      'Without a real capsule, you get the same density as a bloated context dump: everything feels relevant, nothing is prioritized.',
+    withoutColumnTitle: 'Without a focused chain',
+    withColumnTitle: 'With a focused delivery chain',
+    loadLabel: 'Context budget (metaphor)',
+    withoutLoad: { display: '8,247+ lines/refs', percent: 81 },
+    withLoad: { display: '2,140 focused', percent: 21 },
+    withoutLines: [
+      'import { auth } from "./auth"',
+      'import { limit } from "./limiter"',
+      'import { db } from "./db"',
+      'import { log } from "./log"',
+      'import { User } from "./types/user"',
+      'import { Session } from "./types/sess"',
+      'import { cache } from "./cache"',
+      'import { util } from "./util"',
+      '// … middleware + 4 more files, unclear graph'
+    ],
+    withLines: [
+      { type: 'pivot', text: '● pivot  middleware/auth.ts' },
+      { type: 'pivot', text: '   export async function middleware(…): Promise<void>' },
+      { type: 'pivot', text: '   export async function validateSession(…): Promise<Session>' },
+      { type: 'skeleton', text: '○ skel.  services/limiter.ts' },
+      { type: 'skeleton', text: '   class RateLimiter' },
+      { type: 'skeleton', text: '   check(key: string): Promise<boolean>' },
+      { type: 'skeleton', text: '○ skel.  config/limits.ts' },
+      { type: 'skeleton', text: '   export const rateLimits: Record<string, number>' },
+      { type: 'mem', text: '◌ memory  “gates before Redis fallback” · 2d ago' }
+    ],
+    howEyebrow: 'How the pieces connect',
+    howTitle: 'Graph-tight, not all-at-once',
+    howSub: 'Three stages — auditable without an external AI context cloud. This is how I run projects end-to-end.',
+    steps: [
+      {
+        id: 'map',
+        title: '1 · Map',
+        body: 'As-is architecture, dependencies, and hard business constraints in one model — no guessing on imports and side effects.'
+      },
+      {
+        id: 'link',
+        title: '2 · Connect',
+        body: 'Impact before refactors: who calls what, which tests/gates break? Surface blast radius before code moves.'
+      },
+      {
+        id: 'capsule',
+        title: '3 · Capsule',
+        body: 'The next iteration gets pivot files plus lean signature layers — PRs, reviews, and deploys stay readable.'
+      }
+    ],
+    archEyebrow: 'Architecture',
+    archTitle: 'One path — from mandate to production',
+    archNodes: ['Requirements & risk', 'Spec · QA · gates', 'Live web system'],
+    archSub: 'Same story as “agent → protocol → engine”: explicit handoffs instead of hidden information loss.',
+    stats: [
+      {
+        value: '~60%',
+        label: 'Fewer back-and-forth loops',
+        sub: 'Ops estimate · 3D configurator live (file-to-price case study)'
+      },
+      {
+        value: '95+',
+        label: 'Lighthouse target',
+        sub: 'Performance gate as stated on the homepage'
+      },
+      {
+        value: '< 24h',
+        label: 'Weekday response',
+        sub: 'Response time — consistent in hero and contact'
+      },
+      {
+        value: '3',
+        label: 'Live proof points',
+        sub: 'Linked production surfaces and documented cases'
+      }
+    ],
+    toolsEyebrow: 'Stack & tooling',
+    toolsLine: 'The same rigor you expect in-repo — visible in CI, E2E, and at the deploy edge.',
+    ctaHref: '#home-offer',
+    ctaLabel: 'View offer & evidence'
+  }
+};
+
 export type HomeTestimonial = {
   quote: string;
   name: string;
@@ -186,4 +394,8 @@ export function getHomeProcessCopy(locale: Locale) {
 
 export function getHomeTestimonials(locale: Locale): HomeTestimonial[] {
   return testimonials[locale];
+}
+
+export function getHomeEngineShowcaseCopy(locale: Locale): HomeEngineShowcaseCopy {
+  return engineShowcase[locale];
 }

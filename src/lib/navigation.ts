@@ -27,6 +27,10 @@ export function getContactPath(locale: Locale, source = 'nav') {
   return `${base}?source=${encodeURIComponent(source)}`;
 }
 
+/**
+ * Globale Primärnavigation. Für die Startseite mit Anker zur Delivery-Engine-Sektion
+ * {@link getHomePagePrimaryNavLinks} nutzen.
+ */
 export function getPrimaryNavLinks(locale: Locale): PrimaryNavLink[] {
   return [
     {
@@ -74,4 +78,15 @@ export function getPrimaryNavLinks(locale: Locale): PrimaryNavLink[] {
       label: locale === 'de' ? 'Kontakt' : 'Contact'
     }
   ];
+}
+
+/** Wie {@link getPrimaryNavLinks}, plus Anker „Engine“ zur Sektion `#home-engine` (nur Startseite). */
+export function getHomePagePrimaryNavLinks(locale: Locale): PrimaryNavLink[] {
+  const base = getPrimaryNavLinks(locale);
+  const engine: PrimaryNavLink = {
+    href: `${localizePath('/', locale)}#home-engine`,
+    label: 'Engine'
+  };
+  const [home, ...rest] = base;
+  return home ? [home, engine, ...rest] : [engine, ...base];
 }

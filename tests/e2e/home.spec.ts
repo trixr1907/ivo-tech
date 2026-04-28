@@ -1,5 +1,5 @@
-import { expect, test, type APIRequestContext, type APIResponse } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { expect, test, type APIRequestContext, type APIResponse } from '@playwright/test';
 
 async function requestGetWithRetry(request: APIRequestContext, path: string, attempts = 3): Promise<APIResponse> {
   let lastError: unknown;
@@ -70,6 +70,15 @@ test.describe('homepage redesign critical journeys', () => {
     await expect(page.getByRole('heading', { level: 3, name: 'Ausgewählte Projekte' })).toBeVisible();
     await expect(page.getByRole('heading', { level: 3, name: 'Engineering Insights' })).toBeVisible();
     await expect(page.locator('#contact')).toBeVisible();
+    await expect(page.getByRole('navigation', { name: /Hauptnavigation/i }).getByRole('link', { name: 'Engine' })).toHaveAttribute('href', '/#home-engine');
+    await expect(page.locator('#home-engine')).toBeVisible();
+  });
+
+  test('exposes Engine nav link to #home-engine on EN homepage', async ({ page }) => {
+    await page.goto('/en');
+    await expect(
+      page.getByRole('navigation', { name: 'Primary navigation' }).getByRole('link', { name: 'Engine' })
+    ).toHaveAttribute('href', '/en#home-engine');
   });
 
   test('keeps homepage layout stable without horizontal overflow across breakpoints', async ({ page }) => {

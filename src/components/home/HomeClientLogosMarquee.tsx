@@ -27,9 +27,16 @@ export function HomeClientLogosMarquee({ locale }: Props) {
   const items = [...LOGOS, ...LOGOS];
 
   return (
-    <section className="home-logo-marquee mt-10" aria-labelledby="home-logo-marquee-heading">
+    <section className="home-logo-marquee mt-2" aria-labelledby="home-logo-marquee-heading">
+      <p className="home-logo-marquee-as-seen" aria-hidden="true">
+        <span className="home-logo-marquee-as-seen-slash">/</span>
+        {locale === 'de' ? 'Sichtbarkeit' : 'Visibility'}
+        <span className="home-logo-marquee-as-seen-slash">/</span>
+      </p>
       <div className="home-logo-marquee-head">
-        <p id="home-logo-marquee-heading" className="home-eyebrow">{heading}</p>
+        <p id="home-logo-marquee-heading" className="home-eyebrow">
+          {heading}
+        </p>
         <p className="home-logo-marquee-subline">{subline}</p>
       </div>
       <div className="home-logo-marquee-viewport" aria-label={heading}>

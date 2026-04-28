@@ -1,11 +1,12 @@
 'use client';
 
 import type { ReactNode } from 'react';
-import { useMemo } from 'react';
+import { useMemo, useRef } from 'react';
 
 import { HomeBackgroundFXClient } from '@/app-pages/HomeBackgroundFXClient';
 import { HomeMobileCtaDock } from '@/components/home/HomeMobileCtaDock';
 import { HomeRelaunchFooter } from '@/components/home/HomeRelaunchFooter';
+import { HomeBackgroundParallax } from '@/components/layout/HomeBackgroundParallax';
 import { RelaunchStickyHeader, type RelaunchNavLink } from '@/components/layout/RelaunchStickyHeader';
 import type { Locale } from '@/content/copy';
 import { getHomeRelaunchCopy } from '@/content/homeRelaunchCopy';
@@ -141,15 +142,30 @@ export function RelaunchMarketingShell({
       ? `${mobileNavPrimaryTrackingSource ?? desktopContactTrackingSource}-contact`
       : undefined;
 
+  const bgRef = useRef<HTMLDivElement | null>(null);
+
   return (
     <div className={['home-relaunch-shell relative min-h-screen', shellClassName].filter(Boolean).join(' ')}>
-      <div className="home-relaunch-bg" aria-hidden="true">
+      <div ref={bgRef} className="home-relaunch-bg" aria-hidden="true">
+        <HomeBackgroundParallax elRef={bgRef} />
         <div className="home-relaunch-fx-slot">
           <HomeBackgroundFXClient />
         </div>
         <div className="home-relaunch-noise" />
-        <div className="home-relaunch-blob home-relaunch-blob-a" />
-        <div className="home-relaunch-blob home-relaunch-blob-b" />
+        <div className="home-relaunch-blob-w home-relaunch-blob-w--a" aria-hidden>
+          <div className="home-relaunch-blob home-relaunch-blob-a" />
+        </div>
+        <div className="home-relaunch-blob-w home-relaunch-blob-w--b" aria-hidden>
+          <div className="home-relaunch-blob home-relaunch-blob-b" />
+        </div>
+        <div className="home-relaunch-blob-w home-relaunch-blob-w--c" aria-hidden>
+          <div className="home-relaunch-blob home-relaunch-blob-c" />
+        </div>
+        <div className="home-relaunch-blob-w home-relaunch-blob-w--d" aria-hidden>
+          <div className="home-relaunch-blob home-relaunch-blob-d" />
+        </div>
+        <div className="home-relaunch-dot-field" />
+        <div className="home-relaunch-vignette-top" />
       </div>
 
       <div

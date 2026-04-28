@@ -70,7 +70,14 @@ export function RelaunchStickyHeader({
   const mobileSecondaryLabel = mobileNavSecondaryLabel ?? desktopSecondaryLabel;
 
   return (
-    <header className="home-v2-header sticky top-0 z-30 bg-slate-950/70 backdrop-blur-md" style={{ borderBottom: '1px solid transparent', backgroundImage: 'linear-gradient(rgba(9,17,34,0.7), rgba(9,17,34,0.7)) padding-box, linear-gradient(90deg, transparent 0%, rgba(56,189,248,0.18) 35%, rgba(99,102,241,0.14) 65%, transparent 100%) border-box' }}>
+    <header
+      className="home-v2-header sticky top-0 z-30 border-b border-transparent bg-black/45 backdrop-blur-xl backdrop-saturate-150"
+      style={{
+        backgroundImage:
+          'linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)) padding-box, linear-gradient(90deg, transparent 0%, rgba(56,189,248,0.12) 38%, rgba(124,58,237,0.1) 62%, transparent 100%) border-box',
+        boxShadow: '0 1px 0 0 rgba(148, 163, 184, 0.06)'
+      }}
+    >
       <div className="home-shell-container mx-auto flex h-14 w-full items-center justify-between gap-3 px-4 sm:px-6">
         <Link href={homeHref} className="flex min-h-12 min-w-12 items-center gap-2 rounded-lg py-1 font-display text-base font-bold tracking-tight text-slate-100 transition-opacity hover:opacity-80">
           <img
@@ -88,7 +95,7 @@ export function RelaunchStickyHeader({
             <Link
               key={link.href}
               href={link.href}
-              className="min-h-12 rounded-lg px-3 py-2.5 transition-colors hover:text-slate-100"
+              className="min-h-12 rounded-lg px-3 py-2.5 text-slate-400 transition duration-200 ease-out hover:-translate-y-0.5 hover:text-slate-100 hover:drop-shadow-[0_0_12px_rgba(56,189,248,0.35)]"
             >
               {link.label}
             </Link>

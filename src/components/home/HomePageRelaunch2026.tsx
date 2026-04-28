@@ -10,9 +10,15 @@ import { startTransition, useEffect, useMemo, useState } from 'react';
 import { AnimatedCounter } from '@/components/home/AnimatedCounter';
 import { ContactLeadForm } from '@/components/home/ContactLeadForm';
 import { HomeClientLogosMarquee } from '@/components/home/HomeClientLogosMarquee';
+import { HomeCraftDetailsStrip } from '@/components/home/HomeCraftDetailsStrip';
+import { HomeEngineShowcase } from '@/components/home/HomeEngineShowcase';
+import { HomeFocusProjector } from '@/components/home/HomeFocusProjector';
 import { HomeLeadMagnet } from '@/components/home/HomeLeadMagnet';
+import { HomeMannheimArenaSection } from '@/components/home/HomeMannheimArenaSection';
+import { HomePerformanceSection } from '@/components/home/HomePerformanceSection';
 import { HomeRelaunchHeroSnapshot } from '@/components/home/HomeRelaunchHeroSnapshot';
 import { HomeScrollProgress } from '@/components/home/HomeScrollProgress';
+import { HomeSectionRail } from '@/components/home/HomeSectionRail';
 import { HomeSectionVisualCard } from '@/components/home/HomeSectionVisualCard';
 import { HomeTechStackBar } from '@/components/home/HomeTechStackBar';
 import { RelaunchMarketingShell } from '@/components/layout/RelaunchMarketingShell';
@@ -29,7 +35,7 @@ import { getPublishedTrustEvidence } from '@/content/trustEvidence';
 import { trackEvent } from '@/lib/analytics';
 import { resolveHeroVariant, type HeroVariantId } from '@/lib/heroExperiment';
 import { localizePath } from '@/lib/localeRouting';
-import { getContactPath, getHiringPath, getPrimaryNavLinks, getResumePath, getServicesPath } from '@/lib/navigation';
+import { getContactPath, getHiringPath, getHomePagePrimaryNavLinks, getResumePath, getServicesPath } from '@/lib/navigation';
 import { getSchedulerHref } from '@/lib/scheduler';
 
 type FeaturedInsightTeaser = {
@@ -51,15 +57,24 @@ type RelaunchMotionSectionProps = {
   children: ReactNode;
   className?: string;
   id?: string;
+  'aria-label'?: string;
   'aria-labelledby'?: string;
   'aria-describedby'?: string;
 };
 
-function RelaunchMotionSection({ children, className, id, 'aria-labelledby': ariaLabelledBy, 'aria-describedby': ariaDescribedBy }: RelaunchMotionSectionProps) {
+function RelaunchMotionSection({
+  children,
+  className,
+  id,
+  'aria-label': ariaLabel,
+  'aria-labelledby': ariaLabelledBy,
+  'aria-describedby': ariaDescribedBy
+}: RelaunchMotionSectionProps) {
   const reduce = useFramerReducedMotion();
   return (
     <m.section
       id={id}
+      aria-label={ariaLabel}
       aria-labelledby={ariaLabelledBy}
       aria-describedby={ariaDescribedBy}
       className={className}
@@ -79,7 +94,7 @@ export function HomePageRelaunch2026({ locale, featuredInsights }: HomePageRelau
   const journeyCopy = getHomeJourneyCopy(locale);
   const processCopy = getHomeProcessCopy(locale);
   const testimonialList = getHomeTestimonials(locale);
-  const navLinks = getPrimaryNavLinks(locale);
+  const navLinks = getHomePagePrimaryNavLinks(locale);
   const contactHref = getContactPath(locale, 'home-hero-primary');
   const hiringHref = getHiringPath(locale);
   const resumeHref = getResumePath(locale);
@@ -322,6 +337,7 @@ export function HomePageRelaunch2026({ locale, featuredInsights }: HomePageRelau
                     visible: { transition: { staggerChildren: 0.09, delayChildren: 0.04 } }
                   }}
                 >
+                  <HomeSectionRail locale={locale} chapter={1} className="mb-4" />
                   {/* Badge row */}
                   <m.div
                     className="flex flex-wrap items-center gap-2"
@@ -564,9 +580,16 @@ export function HomePageRelaunch2026({ locale, featuredInsights }: HomePageRelau
               </div>
             </section>
 
-            <HomeTechStackBar locale={locale} />
+            <div className="mt-8 md:mt-10">
+              <HomeSectionRail locale={locale} chapter={2} className="mb-4 md:mb-5" />
+              <HomeTechStackBar locale={locale} />
+              <div className="mt-12 md:mt-16">
+                <HomeEngineShowcase locale={locale} />
+              </div>
+            </div>
 
             <RelaunchMotionSection id="home-offer" className="mt-20 scroll-mt-28 md:mt-24" aria-labelledby="home-offer-heading">
+              <HomeSectionRail locale={locale} chapter={3} className="mb-4" />
               <h2 id="home-offer-heading" className="home-section-h2-primary">
                 {t.sectionGroupOffer}
               </h2>
@@ -724,9 +747,13 @@ export function HomePageRelaunch2026({ locale, featuredInsights }: HomePageRelau
               </div>
             </RelaunchMotionSection>
 
-            <HomeClientLogosMarquee locale={locale} />
+            <div className="mt-10">
+              <HomeSectionRail locale={locale} chapter={4} className="mb-4" />
+              <HomeClientLogosMarquee locale={locale} />
+            </div>
 
             <RelaunchMotionSection id="home-work" className="mt-20 scroll-mt-28 md:mt-24" aria-labelledby="home-work-heading">
+              <HomeSectionRail locale={locale} chapter={5} className="mb-4" />
               <h2 id="home-work-heading" className="home-section-h2-primary">
                 {t.sectionGroupWork}
               </h2>
@@ -923,6 +950,7 @@ export function HomePageRelaunch2026({ locale, featuredInsights }: HomePageRelau
             </RelaunchMotionSection>
 
             <RelaunchMotionSection id="home-delivery" className="mt-20 scroll-mt-28 md:mt-24" aria-labelledby="home-delivery-heading">
+              <HomeSectionRail locale={locale} chapter={6} className="mb-4" />
               <h2 id="home-delivery-heading" className="home-section-h2-primary">
                 {t.sectionGroupDelivery}
               </h2>
@@ -1010,14 +1038,54 @@ export function HomePageRelaunch2026({ locale, featuredInsights }: HomePageRelau
               </div>
             </RelaunchMotionSection>
 
-            <RelaunchMotionSection id="home-local-seo" className="mt-20 scroll-mt-28 md:mt-24" aria-labelledby="home-local-seo-heading">
-              <h2 id="home-local-seo-heading" className="home-section-h2">
-                {t.seoLocalTitle}
-              </h2>
-              <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-400">{t.seoLocalBody}</p>
+            <RelaunchMotionSection
+              id="mannheim-arena"
+              className="mt-20 scroll-mt-28 md:mt-24"
+              aria-labelledby="mannheim-arena-heading"
+            >
+              <HomeSectionRail locale={locale} chapter={7} className="mb-4" />
+              <HomeMannheimArenaSection locale={locale} />
             </RelaunchMotionSection>
 
-            <RelaunchMotionSection id="faq" className="mt-20 scroll-mt-28 md:mt-24" aria-labelledby="faq-heading">
+            <RelaunchMotionSection
+              id="performance"
+              className="mt-20 scroll-mt-28 md:mt-24"
+              aria-labelledby="home-performance-heading"
+            >
+              <HomeSectionRail locale={locale} chapter={8} className="mb-4" />
+              <HomePerformanceSection locale={locale} />
+            </RelaunchMotionSection>
+
+            <RelaunchMotionSection
+              id="home-focus-lab"
+              className="mt-20 scroll-mt-28 md:mt-24"
+              aria-labelledby="home-focus-lab-heading"
+            >
+              <HomeSectionRail locale={locale} chapter={9} className="mb-4" />
+              <HomeFocusProjector locale={locale} schedulerHref={schedulerHref} heroVariant={heroVariant} />
+            </RelaunchMotionSection>
+
+            <RelaunchMotionSection id="home-craft" className="mt-20 scroll-mt-28 md:mt-24" aria-labelledby="home-craft-heading">
+              <HomeSectionRail locale={locale} chapter={10} className="mb-4" />
+              <HomeCraftDetailsStrip locale={locale} />
+            </RelaunchMotionSection>
+
+            <RelaunchMotionSection
+              id="faq"
+              className="mt-20 scroll-mt-28 md:mt-24"
+              aria-label={locale === 'de' ? 'Region & häufige Fragen' : 'Region and frequently asked questions'}
+            >
+              <HomeSectionRail locale={locale} chapter={11} className="mb-4" />
+              <div
+                id="home-local-seo"
+                className="scroll-mt-28 border-b border-slate-800/70 pb-12"
+                aria-labelledby="home-local-seo-heading"
+              >
+                <h2 id="home-local-seo-heading" className="home-section-h2">
+                  {t.seoLocalTitle}
+                </h2>
+                <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-400">{t.seoLocalBody}</p>
+              </div>
               <p className="home-eyebrow">FAQ</p>
               <h2 id="faq-heading" className="home-section-h2">
                 {faq.title}
@@ -1038,6 +1106,7 @@ export function HomePageRelaunch2026({ locale, featuredInsights }: HomePageRelau
               className="home-contact-card mt-20 scroll-mt-28 md:mt-24"
               aria-labelledby="home-contact-heading"
             >
+              <HomeSectionRail locale={locale} chapter={12} className="mb-4" />
               <p className="home-eyebrow">{t.sectionContactEyebrow}</p>
               <div className="mb-7 flex flex-col gap-2">
                 <h2 id="home-contact-heading" className="home-section-h2">
